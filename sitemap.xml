@@ -1,1962 +1,1962 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ActivityOrProcess/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ActivityToActivityCausalAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ActivityToProcessCausalAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/AgeRange/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/AgeRange_end/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/AgeRange_start/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Age_age/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/AnatomicalEntity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/AnatomicalPartOfAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Association/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/BiologicalElement/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/BiologicalProcess/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_age_of_individual_at_collection/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_age_range_of_individual_at_collection/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_description/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_diagnostic_markers/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_histological_diagnosis/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_hts_files/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_individual_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_is_control_sample/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_phenotypic_features/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_procedure/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_sampled_tissue/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_taxonomy/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_tumor_grade/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_tumor_progression/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample_variants/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/CausalAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/CausalAssociationToActivity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/CausalAssociationToProcess/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/CausesAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/CellularComponent/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ChemicalEntity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Cohort/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Cohort_description/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Cohort_hts_files/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Cohort_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Cohort_members/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Cohort_meta_data/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Continuant/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/DeviatesFromOriginalSpecification/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Disease/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Disease_age_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Disease_age_range_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Disease_class_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Disease_disease_stage/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Disease_term/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Disease_tnm_finding/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/DomainElement/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/DomainElementMixin/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/DomainEntity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/DomainEntityMixin/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Element/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/EnabledByAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Entity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/EntityHasPartAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/EntityPartOfAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Evidence/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Evidence_evidence_code/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Evidence_reference/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ExternalReference/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ExternalReference_description/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ExternalReference_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/FaithfulToOriginalSpecification/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Family/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Family_hts_files/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Family_meta_data/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Family_pedigree/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Family_proband/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Family_relatives/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Gene/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Gene_alternate_ids/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Gene_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Gene_symbol/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HappensDuringAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HasInputAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HasPartAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HgvsAllele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HgvsAllele_hgvs/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HgvsAllele_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HtsFile/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HtsFile_description/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HtsFile_genome_assembly/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HtsFile_hts_format/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HtsFile_individual_to_sample_identifiers/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HtsFile_uri/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual_age_at_collection/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual_age_range_at_collection/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual_alternate_ids/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual_date_of_birth/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual_karyotypic_sex/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual_sex/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual_taxonomy/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/InformationBiomacromolecule/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/InformationElement/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/InformationEntity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/InformationMacromolecule/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/IscnAllele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/IscnAllele_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/IscnAllele_iscn/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MacromoleculeHasPartAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MetaData/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MetaData_created/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MetaData_created_by/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MetaData_external_references/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MetaData_phenopacket_schema_version/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MetaData_resources/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MetaData_submitted_by/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MetaData_updates/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Model/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MolecularActivity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MyClass/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/NamedThing/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/NotInOriginalSpecification/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Occurent/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Occurrent/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/OccursInAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/OntologyClass/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/OntologyClass_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/OntologyClass_label/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PartOfAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Pedigree_persons/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Person/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Person_affected_status/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Person_family_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Person_individual_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Person_maternal_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Person_paternal_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Person_sex/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phase/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_biosamples/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_diseases/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_genes/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_hts_files/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_meta_data/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_phenotypic_features/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_subject/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket_variants/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_age_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_age_range_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_class_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_description/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_evidence/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_modifiers/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_negated/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_severity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature_type/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Procedure_body_site/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Procedure_code/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ProcessOrPhase/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ProcessPartOfAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ProcessToActivityCausalAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ProcessToProcessCausalAssociation/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Publication/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Resource/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Resource_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Resource_iri_prefix/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Resource_name/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Resource_namespace_prefix/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Resource_url/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Resource_version/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/SpdiAllele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/SpdiAllele_deleted_sequence/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/SpdiAllele_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/SpdiAllele_inserted_sequence/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/SpdiAllele_position/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/SpdiAllele_seq_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Thing/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Timestamp_nanos/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Timestamp_seconds/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Update/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Update_comment/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Update_timestamp/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Update_updated_by/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Variant/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Variant_hgvs_allele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Variant_iscn_allele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Variant_spdi_allele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Variant_vcf_allele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Variant_zygosity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele_alt/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele_chr/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele_genome_assembly/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele_info/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele_pos/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele_ref/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/VcfAllele_vcf_version/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/activity_to_activity_causal_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/activity_to_activity_causal_association_subject/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/activity_to_process_causal_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/activity_to_process_causal_association_subject/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/affected_status/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/affected_status_options/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/age/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/age_at_collection/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/age_of_individual_at_collection/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/age_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/age_range_at_collection/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/age_range_of_individual_at_collection/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/age_range_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/alt/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/alternate_ids/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/anatomical_entity_category/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/anatomical_entity_part_of/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/anatomical_part_of_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/association_slot/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/biological_process_has_activity_causal_associations/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/biological_process_has_process_causal_associations/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/biological_process_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/biosamples/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/body_site/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/category/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causal_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causal_association_predicate/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causal_association_subject/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causal_association_to_activity_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causal_association_to_process_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causal_predicate_enum/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causes/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causes_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/causes_association_predicate/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/chemical_entity_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/chr/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/class_of_onset/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/code/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/comment/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/contributor/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/created/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/created_by/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/credits/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/date/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/date_of_birth/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/deleted_sequence/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/description/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/diagnostic_markers/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/disease_stage/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/diseases/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/domain_element_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/domain_entity_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/enabled_by/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/enabled_by_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/end/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/entity_has_part_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/entity_part_of_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/evidence_code/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/evidence_type/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/external_references/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/family_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/genes/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/genome_assembly/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/happens_during/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/happens_during_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/has_activity_causal_associations/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/has_causal_associations/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/has_evidence/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/has_input/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/has_input_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/has_part/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/has_part_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/has_process_causal_associations/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/hgvs/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/hgvs_allele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/histological_diagnosis/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/home/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/hts_files/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/hts_format/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/hts_format_options/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/individual_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/individual_to_sample_identifiers/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/influences/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/info/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/information_biomacromolecule_category/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/information_biomacromolecule_has_part/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/information_biomacromolecule_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/information_macromolecule_category/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/inserted_sequence/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/iri_prefix/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/is_control_sample/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/iscn/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/iscn_allele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/karyotypic_sex/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/karyotypic_sex_options/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/label/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/macromolecule_has_part_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/maternal_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/members/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/meta_data/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/model__biological_process_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/model__chemical_entity_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/model__information_biomacromolecule_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/model__molecular_activity_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/model__ontology_class_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/model_property/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/model_state_enum/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/modifiers/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/molecular_activity_has_activity_causal_associations/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/molecular_activity_has_process_causal_associations/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/molecular_activity_part_of/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/molecular_activity_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/name/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/namespace_prefix/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/nanos/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/negated/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/occurs_in/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/occurs_in_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ontology_class_set/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/part_of/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/paternal_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/pedigree/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/persons/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/phenopacket_schema_version/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/phenotypic_features/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/pos/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/position/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/predicate/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/proband/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/procedure/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/process_part_of_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/process_to_activity_causal_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/process_to_activity_causal_association_subject/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/process_to_process_causal_association_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/process_to_process_causal_association_subject/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/provided_by/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ref/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/reference/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/related_to/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/relatives/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/resources/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/sampled_tissue/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/seconds/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/seq_id/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/severity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/sex/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/sex_options/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/spdi_allele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/start/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/state/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/subject/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/submitted_by/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/symbol/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/taxonomy/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/term/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/timestamp/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/title/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/tnm_finding/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/tumor_grade/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/tumor_progression/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/type/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/type_inferences/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/updated_by/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/updates/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/uri/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/url/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/variants/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/vcf_allele/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/vcf_version/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/version/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/with/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/with_object/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/zygosity/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Boolean/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/CategoryType/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/ChemicalFormulaValue/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Date/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Datetime/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Decimal/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Double/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Float/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Integer/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/IriType/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/LabelType/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/NarrativeText/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Ncname/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Nodeidentifier/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Objectidentifier/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/PredicateType/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/String/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/SymbolType/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Time/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Uri/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://cmungall.github.io/linkml-phenopackets/types/Uriorcurie/</loc>
          <lastmod>2021-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>

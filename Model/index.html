@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://cmungall.github.io/linkml-phenopackets/Model/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: model - phenopackets in linkml EXPERIMENTAL DEMO</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: model";
+    var mkdocs_page_input_path = "Model.md";
+    var mkdocs_page_url = "/linkml-phenopackets/Model/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> phenopackets in linkml EXPERIMENTAL DEMO</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">phenopackets in linkml EXPERIMENTAL DEMO</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: model</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cmungall/linkml-phenopackets/edit/master/docs/Model.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-model">Class: model</h1>
+<p>A collection of GO-CAM entities and associated metadata. A model combines multiple simple GO annotations into an integrated, semantically precise and computable model of biological function.</p>
+<p>URI: <a href="https://w3id.org/gocam/Model">gocam:Model</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[OntologyClass],[MolecularActivity],[OntologyClass]&lt;ontology%20class%20set%200..*-++[Model&#124;title:string%20%3F;contributor:string%20*;date:string%20%3F;state:model_state_enum%20%3F;provided_by:string%20%3F;id(i):string],[ChemicalEntity]&lt;chemical%20entity%20set%200..*-++[Model],[InformationBiomacromolecule]&lt;information%20biomacromolecule%20set%200..*-++[Model],[BiologicalProcess]&lt;biological%20process%20set%200..*-++[Model],[MolecularActivity]&lt;molecular%20activity%20set%200..*-++[Model],[Entity]^-[Model],[InformationBiomacromolecule],[Entity],[ChemicalEntity],[BiologicalProcess]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[OntologyClass],[MolecularActivity],[OntologyClass]&lt;ontology%20class%20set%200..*-++[Model&#124;title:string%20%3F;contributor:string%20*;date:string%20%3F;state:model_state_enum%20%3F;provided_by:string%20%3F;id(i):string],[ChemicalEntity]&lt;chemical%20entity%20set%200..*-++[Model],[InformationBiomacromolecule]&lt;information%20biomacromolecule%20set%200..*-++[Model],[BiologicalProcess]&lt;biological%20process%20set%200..*-++[Model],[MolecularActivity]&lt;molecular%20activity%20set%200..*-++[Model],[Entity]^-[Model],[InformationBiomacromolecule],[Entity],[ChemicalEntity],[BiologicalProcess]" /></a></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Abstract base class for any biological entity or activity or process in a GO-CAM model</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: A unique identifier for an entity</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../title/">title</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../contributor/">contributor</a>  <sub>0..*</sub><ul>
+<li>Description: connects an assertion to the individual that made a contribution to it</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../date/">date</a>  <sub>0..1</sub><ul>
+<li>Description: connects anything to the date</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../state/">state</a>  <sub>0..1</sub><ul>
+<li>Description: State of the model</li>
+<li>Range: <a href="../model_state_enum/">model_state_enum</a></li>
+</ul>
+</li>
+<li><a href="../provided_by/">provided by</a>  <sub>0..1</sub><ul>
+<li>Description: connects an assertion to a group that provided it</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../molecular_activity_set/">molecular activity set</a>  <sub>0..*</sub><ul>
+<li>Description: All molecular activity instances that are part of this model</li>
+<li>Range: <a href="../MolecularActivity/">MolecularActivity</a></li>
+</ul>
+</li>
+<li><a href="../biological_process_set/">biological process set</a>  <sub>0..*</sub><ul>
+<li>Description: All biological process instances that are part of this model</li>
+<li>Range: <a href="../BiologicalProcess/">BiologicalProcess</a></li>
+</ul>
+</li>
+<li><a href="../information_biomacromolecule_set/">information biomacromolecule set</a>  <sub>0..*</sub><ul>
+<li>Description: All information macromolecule instances that are part of this model</li>
+<li>Range: <a href="../InformationBiomacromolecule/">InformationBiomacromolecule</a></li>
+</ul>
+</li>
+<li><a href="../chemical_entity_set/">chemical entity set</a>  <sub>0..*</sub><ul>
+<li>Description: All chemical entity instances that are part of this model.</li>
+<li>Range: <a href="../ChemicalEntity/">ChemicalEntity</a></li>
+</ul>
+</li>
+<li><a href="../ontology_class_set/">ontology class set</a>  <sub>0..*</sub><ul>
+<li>Description: All ontology class objects used in this model</li>
+<li>Range: <a href="../OntologyClass/">OntologyClass</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Local names:</strong></td>
+<td></td>
+<td>GO-CAM model (gocam)</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/cmungall/linkml-phenopackets/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://cmungall.github.io/linkml-phenopackets/OntologyClass/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: OntologyClass - phenopackets in linkml EXPERIMENTAL DEMO</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: OntologyClass";
+    var mkdocs_page_input_path = "OntologyClass.md";
+    var mkdocs_page_url = "/linkml-phenopackets/OntologyClass/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> phenopackets in linkml EXPERIMENTAL DEMO</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">phenopackets in linkml EXPERIMENTAL DEMO</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: OntologyClass</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cmungall/linkml-phenopackets/edit/master/docs/OntologyClass.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-ontologyclass">Class: OntologyClass</h1>
+<p>URI: <a href="https://w3id.org/linkml/pfxOntologyClass">pfx:OntologyClass</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Variant],[Procedure],[PhenotypicFeature],[Biosample]++-%20diagnostic_markers%200..*&gt;[OntologyClass&#124;id:string%20%3F;label:string%20%3F],[Biosample]++-%20histological_diagnosis%200..1&gt;[OntologyClass],[Biosample]++-%20sampled_tissue%200..1&gt;[OntologyClass],[Biosample]++-%20taxonomy%200..1&gt;[OntologyClass],[Biosample]++-%20tumor_grade%200..1&gt;[OntologyClass],[Biosample]++-%20tumor_progression%200..1&gt;[OntologyClass],[Disease]++-%20class_of_onset%200..1&gt;[OntologyClass],[Disease]++-%20disease_stage%200..*&gt;[OntologyClass],[Disease]++-%20term%200..1&gt;[OntologyClass],[Disease]++-%20tnm_finding%200..*&gt;[OntologyClass],[Evidence]++-%20evidence_code%200..1&gt;[OntologyClass],[Individual]++-%20taxonomy%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20class_of_onset%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20modifiers%200..*&gt;[OntologyClass],[PhenotypicFeature]++-%20severity%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20type%200..1&gt;[OntologyClass],[Procedure]++-%20body_site%200..1&gt;[OntologyClass],[Procedure]++-%20code%200..1&gt;[OntologyClass],[Variant]++-%20zygosity%200..1&gt;[OntologyClass],[Procedure]++-%20body_site(i)%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20class_of_onset(i)%200..1&gt;[OntologyClass],[Disease]++-%20class_of_onset(i)%200..1&gt;[OntologyClass],[Procedure]++-%20code(i)%200..1&gt;[OntologyClass],[Biosample]++-%20diagnostic_markers(i)%200..*&gt;[OntologyClass],[Disease]++-%20disease_stage(i)%200..*&gt;[OntologyClass],[Evidence]++-%20evidence_code(i)%200..1&gt;[OntologyClass],[Biosample]++-%20histological_diagnosis(i)%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20modifiers(i)%200..*&gt;[OntologyClass],[Biosample]++-%20sampled_tissue(i)%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20severity(i)%200..1&gt;[OntologyClass],[Individual]++-%20taxonomy(i)%200..1&gt;[OntologyClass],[Biosample]++-%20taxonomy(i)%200..1&gt;[OntologyClass],[Disease]++-%20term(i)%200..1&gt;[OntologyClass],[Disease]++-%20tnm_finding(i)%200..*&gt;[OntologyClass],[Biosample]++-%20tumor_grade(i)%200..1&gt;[OntologyClass],[Biosample]++-%20tumor_progression(i)%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20type(i)%200..1&gt;[OntologyClass],[Variant]++-%20zygosity(i)%200..1&gt;[OntologyClass],[Individual],[Evidence],[Disease],[Biosample]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Variant],[Procedure],[PhenotypicFeature],[Biosample]++-%20diagnostic_markers%200..*&gt;[OntologyClass&#124;id:string%20%3F;label:string%20%3F],[Biosample]++-%20histological_diagnosis%200..1&gt;[OntologyClass],[Biosample]++-%20sampled_tissue%200..1&gt;[OntologyClass],[Biosample]++-%20taxonomy%200..1&gt;[OntologyClass],[Biosample]++-%20tumor_grade%200..1&gt;[OntologyClass],[Biosample]++-%20tumor_progression%200..1&gt;[OntologyClass],[Disease]++-%20class_of_onset%200..1&gt;[OntologyClass],[Disease]++-%20disease_stage%200..*&gt;[OntologyClass],[Disease]++-%20term%200..1&gt;[OntologyClass],[Disease]++-%20tnm_finding%200..*&gt;[OntologyClass],[Evidence]++-%20evidence_code%200..1&gt;[OntologyClass],[Individual]++-%20taxonomy%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20class_of_onset%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20modifiers%200..*&gt;[OntologyClass],[PhenotypicFeature]++-%20severity%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20type%200..1&gt;[OntologyClass],[Procedure]++-%20body_site%200..1&gt;[OntologyClass],[Procedure]++-%20code%200..1&gt;[OntologyClass],[Variant]++-%20zygosity%200..1&gt;[OntologyClass],[Procedure]++-%20body_site(i)%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20class_of_onset(i)%200..1&gt;[OntologyClass],[Disease]++-%20class_of_onset(i)%200..1&gt;[OntologyClass],[Procedure]++-%20code(i)%200..1&gt;[OntologyClass],[Biosample]++-%20diagnostic_markers(i)%200..*&gt;[OntologyClass],[Disease]++-%20disease_stage(i)%200..*&gt;[OntologyClass],[Evidence]++-%20evidence_code(i)%200..1&gt;[OntologyClass],[Biosample]++-%20histological_diagnosis(i)%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20modifiers(i)%200..*&gt;[OntologyClass],[Biosample]++-%20sampled_tissue(i)%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20severity(i)%200..1&gt;[OntologyClass],[Individual]++-%20taxonomy(i)%200..1&gt;[OntologyClass],[Biosample]++-%20taxonomy(i)%200..1&gt;[OntologyClass],[Disease]++-%20term(i)%200..1&gt;[OntologyClass],[Disease]++-%20tnm_finding(i)%200..*&gt;[OntologyClass],[Biosample]++-%20tumor_grade(i)%200..1&gt;[OntologyClass],[Biosample]++-%20tumor_progression(i)%200..1&gt;[OntologyClass],[PhenotypicFeature]++-%20type(i)%200..1&gt;[OntologyClass],[Variant]++-%20zygosity(i)%200..1&gt;[OntologyClass],[Individual],[Evidence],[Disease],[Biosample]" /></a></p>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong><a href="../Biosample/">Biosample</a></strong> <em><a href="../Biosample_diagnostic_markers/">Biosample➞diagnostic_markers</a></em>  <sub>0..*</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Biosample/">Biosample</a></strong> <em><a href="../Biosample_histological_diagnosis/">Biosample➞histological_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Biosample/">Biosample</a></strong> <em><a href="../Biosample_sampled_tissue/">Biosample➞sampled_tissue</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Biosample/">Biosample</a></strong> <em><a href="../Biosample_taxonomy/">Biosample➞taxonomy</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Biosample/">Biosample</a></strong> <em><a href="../Biosample_tumor_grade/">Biosample➞tumor_grade</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Biosample/">Biosample</a></strong> <em><a href="../Biosample_tumor_progression/">Biosample➞tumor_progression</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Disease/">Disease</a></strong> <em><a href="../Disease_class_of_onset/">Disease➞class_of_onset</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Disease/">Disease</a></strong> <em><a href="../Disease_disease_stage/">Disease➞disease_stage</a></em>  <sub>0..*</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Disease/">Disease</a></strong> <em><a href="../Disease_term/">Disease➞term</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Disease/">Disease</a></strong> <em><a href="../Disease_tnm_finding/">Disease➞tnm_finding</a></em>  <sub>0..*</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Evidence/">Evidence</a></strong> <em><a href="../Evidence_evidence_code/">Evidence➞evidence_code</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Individual/">Individual</a></strong> <em><a href="../Individual_taxonomy/">Individual➞taxonomy</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../PhenotypicFeature/">PhenotypicFeature</a></strong> <em><a href="../PhenotypicFeature_class_of_onset/">PhenotypicFeature➞class_of_onset</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../PhenotypicFeature/">PhenotypicFeature</a></strong> <em><a href="../PhenotypicFeature_modifiers/">PhenotypicFeature➞modifiers</a></em>  <sub>0..*</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../PhenotypicFeature/">PhenotypicFeature</a></strong> <em><a href="../PhenotypicFeature_severity/">PhenotypicFeature➞severity</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../PhenotypicFeature/">PhenotypicFeature</a></strong> <em><a href="../PhenotypicFeature_type/">PhenotypicFeature➞type</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="Procedure.md">Procedure</a></strong> <em><a href="../Procedure_body_site/">Procedure➞body_site</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="Procedure.md">Procedure</a></strong> <em><a href="../Procedure_code/">Procedure➞code</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong><a href="../Variant/">Variant</a></strong> <em><a href="../Variant_zygosity/">Variant➞zygosity</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../body_site/">body_site</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../class_of_onset/">class_of_onset</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../code/">code</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../diagnostic_markers/">diagnostic_markers</a></em>  <sub>0..*</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../disease_stage/">disease_stage</a></em>  <sub>0..*</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../evidence_code/">evidence_code</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../histological_diagnosis/">histological_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../modifiers/">modifiers</a></em>  <sub>0..*</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../sampled_tissue/">sampled_tissue</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../severity/">severity</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../taxonomy/">taxonomy</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../term/">term</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../tnm_finding/">tnm_finding</a></em>  <sub>0..*</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../tumor_grade/">tumor_grade</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../tumor_progression/">tumor_progression</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../type/">type</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+<li><strong>None</strong> <em><a href="../zygosity/">zygosity</a></em>  <sub>0..1</sub>  <strong><a href="./">OntologyClass</a></strong></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../OntologyClass_id/">OntologyClass➞id</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../OntologyClass_label/">OntologyClass➞label</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/cmungall/linkml-phenopackets/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
