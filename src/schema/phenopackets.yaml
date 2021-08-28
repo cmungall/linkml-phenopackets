@@ -1,0 +1,761 @@
+name: pfx
+id: pfx
+imports:
+- linkml:types
+prefixes:
+  pfx: https://w3id.org/linkml/pfx
+  linkml: https://w3id.org/linkml/
+default_prefix: pfx
+enums:
+  hts_format_options:
+    permissible_values:
+      UNKNOWN:
+        text: UNKNOWN
+      SAM:
+        text: SAM
+      BAM:
+        text: BAM
+      CRAM:
+        text: CRAM
+      VCF:
+        text: VCF
+      BCF:
+        text: BCF
+      GVCF:
+        text: GVCF
+      FASTQ:
+        text: FASTQ
+  sex_options:
+    permissible_values:
+      UNKNOWN_SEX:
+        text: UNKNOWN_SEX
+      FEMALE:
+        text: FEMALE
+      MALE:
+        text: MALE
+      OTHER_SEX:
+        text: OTHER_SEX
+  karyotypic_sex_options:
+    permissible_values:
+      UNKNOWN_KARYOTYPE:
+        text: UNKNOWN_KARYOTYPE
+      XX:
+        text: XX
+      XY:
+        text: XY
+      XO:
+        text: XO
+      XXY:
+        text: XXY
+      XXX:
+        text: XXX
+      XXYY:
+        text: XXYY
+      XXXY:
+        text: XXXY
+      XXXX:
+        text: XXXX
+      XYY:
+        text: XYY
+      OTHER_KARYOTYPE:
+        text: OTHER_KARYOTYPE
+  affected_status_options:
+    permissible_values:
+      MISSING:
+        text: MISSING
+      UNAFFECTED:
+        text: UNAFFECTED
+      AFFECTED:
+        text: AFFECTED
+slots:
+  age:
+    range: string
+  id:
+    range: string
+  label:
+    range: string
+  start:
+    range: Age
+  end:
+    range: Age
+  description:
+    range: string
+  type:
+    range: OntologyClass
+  negated:
+    range: boolean
+  severity:
+    range: OntologyClass
+  modifiers:
+    range: OntologyClass
+    multivalued: true
+  age_of_onset:
+    range: Age
+  age_range_of_onset:
+    range: AgeRange
+  class_of_onset:
+    range: OntologyClass
+  evidence_code:
+    range: OntologyClass
+  reference:
+    range: ExternalReference
+  evidence:
+    range: Evidence
+    multivalued: true
+  hgvs:
+    range: string
+  hgvs_allele:
+    range: HgvsAllele
+  vcf_version:
+    range: string
+  genome_assembly:
+    range: string
+  chr:
+    range: string
+  pos:
+    range: integer
+  ref:
+    range: string
+  alt:
+    range: string
+  info:
+    range: string
+  vcf_allele:
+    range: VcfAllele
+  seq_id:
+    range: string
+  position:
+    range: integer
+  deleted_sequence:
+    range: string
+  inserted_sequence:
+    range: string
+  spdi_allele:
+    range: SpdiAllele
+  iscn:
+    range: string
+  iscn_allele:
+    range: IscnAllele
+  zygosity:
+    range: OntologyClass
+  uri:
+    range: string
+  hts_format:
+    range: hts_format_options
+  individual_to_sample_identifiers: {}
+  seconds:
+    range: integer
+  nanos:
+    range: integer
+  alternate_ids:
+    multivalued: true
+  date_of_birth:
+    range: Timestamp
+  age_at_collection:
+    range: Age
+  age_range_at_collection:
+    range: AgeRange
+  sex:
+    range: sex_options
+  karyotypic_sex:
+    range: karyotypic_sex_options
+  taxonomy:
+    range: OntologyClass
+  subject:
+    range: Individual
+  phenotypic_features:
+    range: PhenotypicFeature
+    multivalued: true
+  individual_id:
+    range: string
+  sampled_tissue:
+    range: OntologyClass
+  age_of_individual_at_collection:
+    range: Age
+  age_range_of_individual_at_collection:
+    range: AgeRange
+  histological_diagnosis:
+    range: OntologyClass
+  tumor_progression:
+    range: OntologyClass
+  tumor_grade:
+    range: OntologyClass
+  diagnostic_markers:
+    range: OntologyClass
+    multivalued: true
+  code:
+    range: OntologyClass
+  body_site:
+    range: OntologyClass
+  procedure:
+    range: Procedure
+  hts_files:
+    range: HtsFile
+    multivalued: true
+  variants:
+    range: Variant
+    multivalued: true
+  is_control_sample:
+    range: boolean
+  biosamples:
+    range: Biosample
+    multivalued: true
+  symbol:
+    range: string
+  genes:
+    range: Gene
+    multivalued: true
+  term:
+    range: OntologyClass
+  disease_stage:
+    range: OntologyClass
+    multivalued: true
+  tnm_finding:
+    range: OntologyClass
+    multivalued: true
+  diseases:
+    range: Disease
+    multivalued: true
+  meta_data:
+    range: MetaData
+  created:
+    range: Timestamp
+  created_by:
+    range: string
+  submitted_by:
+    range: string
+  name:
+    range: string
+  url:
+    range: string
+  version:
+    range: string
+  namespace_prefix:
+    range: string
+  iri_prefix:
+    range: string
+  resources:
+    range: Resource
+    multivalued: true
+  timestamp:
+    range: Timestamp
+  updated_by:
+    range: string
+  comment:
+    range: string
+  updates:
+    range: Update
+    multivalued: true
+  phenopacket_schema_version:
+    range: string
+  external_references:
+    range: ExternalReference
+    multivalued: true
+  proband:
+    range: Phenopacket
+  relatives:
+    range: Phenopacket
+    multivalued: true
+  family_id:
+    range: string
+  paternal_id:
+    range: string
+  maternal_id:
+    range: string
+  affected_status:
+    range: affected_status_options
+  persons:
+    range: Person
+    multivalued: true
+  pedigree:
+    range: Pedigree
+  members:
+    range: Phenopacket
+    multivalued: true
+classes:
+  Age:
+    from_schema: org.phenopackets.schema.v1.core
+    slots:
+    - age
+    slot_usage:
+      age:
+        range: string
+  OntologyClass:
+    from_schema: org.phenopackets.schema.v1.core
+    slots:
+    - id
+    - label
+    slot_usage:
+      id:
+        range: string
+      label:
+        range: string
+  AgeRange:
+    from_schema: org.phenopackets.schema.v1.core
+    slots:
+    - start
+    - end
+    slot_usage:
+      start:
+        range: Age
+      end:
+        range: Age
+  Evidence:
+    slots:
+    - evidence_code
+    - reference
+    slot_usage:
+      evidence_code:
+        range: OntologyClass
+      reference:
+        range: ExternalReference
+  PhenotypicFeature:
+    from_schema: org.phenopackets.schema.v1.core
+    slots:
+    - description
+    - type
+    - negated
+    - severity
+    - modifiers
+    - age_of_onset
+    - age_range_of_onset
+    - class_of_onset
+    - evidence
+    slot_usage:
+      description:
+        range: string
+      type:
+        range: OntologyClass
+      negated:
+        range: boolean
+      severity:
+        range: OntologyClass
+      modifiers:
+        range: OntologyClass
+        multivalued: true
+      age_of_onset:
+        range: Age
+      age_range_of_onset:
+        range: AgeRange
+      class_of_onset:
+        range: OntologyClass
+      evidence:
+        range: Evidence
+        multivalued: true
+  HgvsAllele:
+    slots:
+    - id
+    - hgvs
+    slot_usage:
+      id:
+        range: string
+      hgvs:
+        range: string
+  VcfAllele:
+    slots:
+    - vcf_version
+    - genome_assembly
+    - id
+    - chr
+    - pos
+    - ref
+    - alt
+    - info
+    slot_usage:
+      vcf_version:
+        range: string
+      genome_assembly:
+        range: string
+      id:
+        range: string
+      chr:
+        range: string
+      pos:
+        range: integer
+      ref:
+        range: string
+      alt:
+        range: string
+      info:
+        range: string
+  SpdiAllele:
+    slots:
+    - id
+    - seq_id
+    - position
+    - deleted_sequence
+    - inserted_sequence
+    slot_usage:
+      id:
+        range: string
+      seq_id:
+        range: string
+      position:
+        range: integer
+      deleted_sequence:
+        range: string
+      inserted_sequence:
+        range: string
+  IscnAllele:
+    slots:
+    - id
+    - iscn
+    slot_usage:
+      id:
+        range: string
+      iscn:
+        range: string
+  Variant:
+    from_schema: org.phenopackets.schema.v1.core
+    slots:
+    - hgvs_allele
+    - vcf_allele
+    - spdi_allele
+    - iscn_allele
+    - zygosity
+    slot_usage:
+      hgvs_allele:
+        range: HgvsAllele
+      vcf_allele:
+        range: VcfAllele
+      spdi_allele:
+        range: SpdiAllele
+      iscn_allele:
+        range: IscnAllele
+      zygosity:
+        range: OntologyClass
+  HtsFile:
+    from_schema: org.phenopackets.schema.v1.core
+    slots:
+    - uri
+    - description
+    - hts_format
+    - genome_assembly
+    - individual_to_sample_identifiers
+    slot_usage:
+      uri:
+        range: string
+      description:
+        range: string
+      hts_format:
+        range: hts_format_options
+      genome_assembly:
+        range: string
+      individual_to_sample_identifiers: {}
+  Timestamp:
+    from_schema: google.protobuf
+    slots:
+    - seconds
+    - nanos
+    slot_usage:
+      seconds:
+        range: integer
+      nanos:
+        range: integer
+  ExternalReference:
+    from_schema: org.phenopackets.schema.v1.core
+    slots:
+    - id
+    - description
+    slot_usage:
+      id:
+        range: string
+      description:
+        range: string
+  Individual:
+    slots:
+    - id
+    - alternate_ids
+    - date_of_birth
+    - age_at_collection
+    - age_range_at_collection
+    - sex
+    - karyotypic_sex
+    - taxonomy
+    slot_usage:
+      id:
+        range: string
+      alternate_ids:
+        multivalued: true
+      date_of_birth:
+        range: Timestamp
+      age_at_collection:
+        range: Age
+      age_range_at_collection:
+        range: AgeRange
+      sex:
+        range: sex_options
+      karyotypic_sex:
+        range: karyotypic_sex_options
+      taxonomy:
+        range: OntologyClass
+  Procedure:
+    slots:
+    - code
+    - body_site
+    slot_usage:
+      code:
+        range: OntologyClass
+      body_site:
+        range: OntologyClass
+  Biosample:
+    slots:
+    - id
+    - individual_id
+    - description
+    - sampled_tissue
+    - phenotypic_features
+    - taxonomy
+    - age_of_individual_at_collection
+    - age_range_of_individual_at_collection
+    - histological_diagnosis
+    - tumor_progression
+    - tumor_grade
+    - diagnostic_markers
+    - procedure
+    - hts_files
+    - variants
+    - is_control_sample
+    slot_usage:
+      id:
+        range: string
+      individual_id:
+        range: string
+      description:
+        range: string
+      sampled_tissue:
+        range: OntologyClass
+      phenotypic_features:
+        range: PhenotypicFeature
+        multivalued: true
+      taxonomy:
+        range: OntologyClass
+      age_of_individual_at_collection:
+        range: Age
+      age_range_of_individual_at_collection:
+        range: AgeRange
+      histological_diagnosis:
+        range: OntologyClass
+      tumor_progression:
+        range: OntologyClass
+      tumor_grade:
+        range: OntologyClass
+      diagnostic_markers:
+        range: OntologyClass
+        multivalued: true
+      procedure:
+        range: Procedure
+      hts_files:
+        range: HtsFile
+        multivalued: true
+      variants:
+        range: Variant
+        multivalued: true
+      is_control_sample:
+        range: boolean
+  Gene:
+    slots:
+    - id
+    - alternate_ids
+    - symbol
+    slot_usage:
+      id:
+        range: string
+      alternate_ids:
+        multivalued: true
+      symbol:
+        range: string
+  Disease:
+    slots:
+    - term
+    - age_of_onset
+    - age_range_of_onset
+    - class_of_onset
+    - disease_stage
+    - tnm_finding
+    slot_usage:
+      term:
+        range: OntologyClass
+      age_of_onset:
+        range: Age
+      age_range_of_onset:
+        range: AgeRange
+      class_of_onset:
+        range: OntologyClass
+      disease_stage:
+        range: OntologyClass
+        multivalued: true
+      tnm_finding:
+        range: OntologyClass
+        multivalued: true
+  Phenopacket:
+    from_schema: org.phenopackets.schema.v1
+    slots:
+    - id
+    - subject
+    - phenotypic_features
+    - biosamples
+    - genes
+    - variants
+    - diseases
+    - hts_files
+    - meta_data
+    slot_usage:
+      id:
+        range: string
+      subject:
+        range: Individual
+      phenotypic_features:
+        range: PhenotypicFeature
+        multivalued: true
+      biosamples:
+        range: Biosample
+        multivalued: true
+      genes:
+        range: Gene
+        multivalued: true
+      variants:
+        range: Variant
+        multivalued: true
+      diseases:
+        range: Disease
+        multivalued: true
+      hts_files:
+        range: HtsFile
+        multivalued: true
+      meta_data:
+        range: MetaData
+  Resource:
+    slots:
+    - id
+    - name
+    - url
+    - version
+    - namespace_prefix
+    - iri_prefix
+    slot_usage:
+      id:
+        range: string
+      name:
+        range: string
+      url:
+        range: string
+      version:
+        range: string
+      namespace_prefix:
+        range: string
+      iri_prefix:
+        range: string
+  Update:
+    slots:
+    - timestamp
+    - updated_by
+    - comment
+    slot_usage:
+      timestamp:
+        range: Timestamp
+      updated_by:
+        range: string
+      comment:
+        range: string
+  MetaData:
+    from_schema: org.phenopackets.schema.v1.core
+    slots:
+    - created
+    - created_by
+    - submitted_by
+    - resources
+    - updates
+    - phenopacket_schema_version
+    - external_references
+    slot_usage:
+      created:
+        range: Timestamp
+      created_by:
+        range: string
+      submitted_by:
+        range: string
+      resources:
+        range: Resource
+        multivalued: true
+      updates:
+        range: Update
+        multivalued: true
+      phenopacket_schema_version:
+        range: string
+      external_references:
+        range: ExternalReference
+        multivalued: true
+  Person:
+    slots:
+    - family_id
+    - individual_id
+    - paternal_id
+    - maternal_id
+    - sex
+    - affected_status
+    slot_usage:
+      family_id:
+        range: string
+      individual_id:
+        range: string
+      paternal_id:
+        range: string
+      maternal_id:
+        range: string
+      sex:
+        range: sex_options
+      affected_status:
+        range: affected_status_options
+  Pedigree:
+    slots:
+    - persons
+    slot_usage:
+      persons:
+        range: Person
+        multivalued: true
+  Family:
+    from_schema: org.phenopackets.schema.v1
+    slots:
+    - id
+    - proband
+    - relatives
+    - pedigree
+    - hts_files
+    - meta_data
+    slot_usage:
+      id:
+        range: string
+      proband:
+        range: Phenopacket
+      relatives:
+        range: Phenopacket
+        multivalued: true
+      pedigree:
+        range: Pedigree
+      hts_files:
+        range: HtsFile
+        multivalued: true
+      meta_data:
+        range: MetaData
+  Cohort:
+    from_schema: org.phenopackets.schema.v1
+    slots:
+    - id
+    - description
+    - members
+    - hts_files
+    - meta_data
+    slot_usage:
+      id:
+        range: string
+      description:
+        range: string
+      members:
+        range: Phenopacket
+        multivalued: true
+      hts_files:
+        range: HtsFile
+        multivalued: true
+      meta_data:
+        range: MetaData

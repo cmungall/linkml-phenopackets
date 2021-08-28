@@ -1,0 +1,2091 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+linkml:AgeRange_end a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "AgeRange_end" ;
+    rdfs:domain linkml:pfxAgeRange ;
+    rdfs:range linkml:pfxAge ;
+    rdfs:subPropertyOf linkml:pfxend .
+
+linkml:AgeRange_start a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "AgeRange_start" ;
+    rdfs:domain linkml:pfxAgeRange ;
+    rdfs:range linkml:pfxAge ;
+    rdfs:subPropertyOf linkml:pfxstart .
+
+linkml:Age_age a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Age_age" ;
+    rdfs:domain linkml:pfxAge ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxage .
+
+linkml:Biosample_age_of_individual_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_age_of_individual_at_collection" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxAge ;
+    rdfs:subPropertyOf linkml:pfxage_of_individual_at_collection .
+
+linkml:Biosample_age_range_of_individual_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_age_range_of_individual_at_collection" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxAgeRange ;
+    rdfs:subPropertyOf linkml:pfxage_range_of_individual_at_collection .
+
+linkml:Biosample_description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_description" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxdescription .
+
+linkml:Biosample_diagnostic_markers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_diagnostic_markers" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxdiagnostic_markers .
+
+linkml:Biosample_histological_diagnosis a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_histological_diagnosis" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxhistological_diagnosis .
+
+linkml:Biosample_hts_files a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_hts_files" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxHtsFile ;
+    rdfs:subPropertyOf linkml:pfxhts_files .
+
+linkml:Biosample_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_id" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:Biosample_individual_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_individual_id" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxindividual_id .
+
+linkml:Biosample_is_control_sample a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_is_control_sample" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:Boolean ;
+    rdfs:subPropertyOf linkml:pfxis_control_sample .
+
+linkml:Biosample_phenotypic_features a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_phenotypic_features" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxPhenotypicFeature ;
+    rdfs:subPropertyOf linkml:pfxphenotypic_features .
+
+linkml:Biosample_procedure a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_procedure" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxProcedure ;
+    rdfs:subPropertyOf linkml:pfxprocedure .
+
+linkml:Biosample_sampled_tissue a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_sampled_tissue" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxsampled_tissue .
+
+linkml:Biosample_taxonomy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_taxonomy" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxtaxonomy .
+
+linkml:Biosample_tumor_grade a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_tumor_grade" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxtumor_grade .
+
+linkml:Biosample_tumor_progression a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_tumor_progression" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxtumor_progression .
+
+linkml:Biosample_variants a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Biosample_variants" ;
+    rdfs:domain linkml:pfxBiosample ;
+    rdfs:range linkml:pfxVariant ;
+    rdfs:subPropertyOf linkml:pfxvariants .
+
+linkml:Cohort_description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Cohort_description" ;
+    rdfs:domain linkml:pfxCohort ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxdescription .
+
+linkml:Cohort_hts_files a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Cohort_hts_files" ;
+    rdfs:domain linkml:pfxCohort ;
+    rdfs:range linkml:pfxHtsFile ;
+    rdfs:subPropertyOf linkml:pfxhts_files .
+
+linkml:Cohort_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Cohort_id" ;
+    rdfs:domain linkml:pfxCohort ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:Cohort_members a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Cohort_members" ;
+    rdfs:domain linkml:pfxCohort ;
+    rdfs:range linkml:pfxPhenopacket ;
+    rdfs:subPropertyOf linkml:pfxmembers .
+
+linkml:Cohort_meta_data a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Cohort_meta_data" ;
+    rdfs:domain linkml:pfxCohort ;
+    rdfs:range linkml:pfxMetaData ;
+    rdfs:subPropertyOf linkml:pfxmeta_data .
+
+linkml:Date a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "date" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a date (year, month and day) in an idealized calendar" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+linkml:Datetime a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "datetime" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "The combination of a date and time" .
+
+linkml:Decimal a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "decimal" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number with arbitrary precision that conforms to the xsd:decimal specification" .
+
+linkml:Disease_age_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Disease_age_of_onset" ;
+    rdfs:domain linkml:pfxDisease ;
+    rdfs:range linkml:pfxAge ;
+    rdfs:subPropertyOf linkml:pfxage_of_onset .
+
+linkml:Disease_age_range_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Disease_age_range_of_onset" ;
+    rdfs:domain linkml:pfxDisease ;
+    rdfs:range linkml:pfxAgeRange ;
+    rdfs:subPropertyOf linkml:pfxage_range_of_onset .
+
+linkml:Disease_class_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Disease_class_of_onset" ;
+    rdfs:domain linkml:pfxDisease ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxclass_of_onset .
+
+linkml:Disease_disease_stage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Disease_disease_stage" ;
+    rdfs:domain linkml:pfxDisease ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxdisease_stage .
+
+linkml:Disease_term a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Disease_term" ;
+    rdfs:domain linkml:pfxDisease ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxterm .
+
+linkml:Disease_tnm_finding a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Disease_tnm_finding" ;
+    rdfs:domain linkml:pfxDisease ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxtnm_finding .
+
+linkml:Double a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "double" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:double ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:double specification" .
+
+linkml:Evidence_evidence_code a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Evidence_evidence_code" ;
+    rdfs:domain linkml:pfxEvidence ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxevidence_code .
+
+linkml:Evidence_reference a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Evidence_reference" ;
+    rdfs:domain linkml:pfxEvidence ;
+    rdfs:range linkml:pfxExternalReference ;
+    rdfs:subPropertyOf linkml:pfxreference .
+
+linkml:ExternalReference_description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ExternalReference_description" ;
+    rdfs:domain linkml:pfxExternalReference ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxdescription .
+
+linkml:ExternalReference_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ExternalReference_id" ;
+    rdfs:domain linkml:pfxExternalReference ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:Family_hts_files a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Family_hts_files" ;
+    rdfs:domain linkml:pfxFamily ;
+    rdfs:range linkml:pfxHtsFile ;
+    rdfs:subPropertyOf linkml:pfxhts_files .
+
+linkml:Family_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Family_id" ;
+    rdfs:domain linkml:pfxFamily ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:Family_meta_data a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Family_meta_data" ;
+    rdfs:domain linkml:pfxFamily ;
+    rdfs:range linkml:pfxMetaData ;
+    rdfs:subPropertyOf linkml:pfxmeta_data .
+
+linkml:Family_pedigree a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Family_pedigree" ;
+    rdfs:domain linkml:pfxFamily ;
+    rdfs:range linkml:pfxPedigree ;
+    rdfs:subPropertyOf linkml:pfxpedigree .
+
+linkml:Family_proband a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Family_proband" ;
+    rdfs:domain linkml:pfxFamily ;
+    rdfs:range linkml:pfxPhenopacket ;
+    rdfs:subPropertyOf linkml:pfxproband .
+
+linkml:Family_relatives a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Family_relatives" ;
+    rdfs:domain linkml:pfxFamily ;
+    rdfs:range linkml:pfxPhenopacket ;
+    rdfs:subPropertyOf linkml:pfxrelatives .
+
+linkml:Float a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "float" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:float specification" .
+
+linkml:Gene_alternate_ids a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Gene_alternate_ids" ;
+    rdfs:domain linkml:pfxGene ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxalternate_ids .
+
+linkml:Gene_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Gene_id" ;
+    rdfs:domain linkml:pfxGene ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:Gene_symbol a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Gene_symbol" ;
+    rdfs:domain linkml:pfxGene ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxsymbol .
+
+linkml:HgvsAllele_hgvs a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "HgvsAllele_hgvs" ;
+    rdfs:domain linkml:pfxHgvsAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxhgvs .
+
+linkml:HgvsAllele_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "HgvsAllele_id" ;
+    rdfs:domain linkml:pfxHgvsAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:HtsFile_description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "HtsFile_description" ;
+    rdfs:domain linkml:pfxHtsFile ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxdescription .
+
+linkml:HtsFile_genome_assembly a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "HtsFile_genome_assembly" ;
+    rdfs:domain linkml:pfxHtsFile ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxgenome_assembly .
+
+linkml:HtsFile_hts_format a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "HtsFile_hts_format" ;
+    rdfs:domain linkml:pfxHtsFile ;
+    rdfs:range <http://UNKNOWN.org/hts_format_options> ;
+    rdfs:subPropertyOf linkml:pfxhts_format .
+
+linkml:HtsFile_individual_to_sample_identifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "HtsFile_individual_to_sample_identifiers" ;
+    rdfs:domain linkml:pfxHtsFile ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxindividual_to_sample_identifiers .
+
+linkml:HtsFile_uri a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "HtsFile_uri" ;
+    rdfs:domain linkml:pfxHtsFile ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxuri .
+
+linkml:Individual_age_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Individual_age_at_collection" ;
+    rdfs:domain linkml:pfxIndividual ;
+    rdfs:range linkml:pfxAge ;
+    rdfs:subPropertyOf linkml:pfxage_at_collection .
+
+linkml:Individual_age_range_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Individual_age_range_at_collection" ;
+    rdfs:domain linkml:pfxIndividual ;
+    rdfs:range linkml:pfxAgeRange ;
+    rdfs:subPropertyOf linkml:pfxage_range_at_collection .
+
+linkml:Individual_alternate_ids a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Individual_alternate_ids" ;
+    rdfs:domain linkml:pfxIndividual ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxalternate_ids .
+
+linkml:Individual_date_of_birth a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Individual_date_of_birth" ;
+    rdfs:domain linkml:pfxIndividual ;
+    rdfs:range linkml:pfxTimestamp ;
+    rdfs:subPropertyOf linkml:pfxdate_of_birth .
+
+linkml:Individual_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Individual_id" ;
+    rdfs:domain linkml:pfxIndividual ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:Individual_karyotypic_sex a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Individual_karyotypic_sex" ;
+    rdfs:domain linkml:pfxIndividual ;
+    rdfs:range <http://UNKNOWN.org/karyotypic_sex_options> ;
+    rdfs:subPropertyOf linkml:pfxkaryotypic_sex .
+
+linkml:Individual_sex a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Individual_sex" ;
+    rdfs:domain linkml:pfxIndividual ;
+    rdfs:range <http://UNKNOWN.org/sex_options> ;
+    rdfs:subPropertyOf linkml:pfxsex .
+
+linkml:Individual_taxonomy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Individual_taxonomy" ;
+    rdfs:domain linkml:pfxIndividual ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxtaxonomy .
+
+linkml:IscnAllele_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "IscnAllele_id" ;
+    rdfs:domain linkml:pfxIscnAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:IscnAllele_iscn a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "IscnAllele_iscn" ;
+    rdfs:domain linkml:pfxIscnAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxiscn .
+
+linkml:MetaData_created a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "MetaData_created" ;
+    rdfs:domain linkml:pfxMetaData ;
+    rdfs:range linkml:pfxTimestamp ;
+    rdfs:subPropertyOf linkml:pfxcreated .
+
+linkml:MetaData_created_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "MetaData_created_by" ;
+    rdfs:domain linkml:pfxMetaData ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxcreated_by .
+
+linkml:MetaData_external_references a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "MetaData_external_references" ;
+    rdfs:domain linkml:pfxMetaData ;
+    rdfs:range linkml:pfxExternalReference ;
+    rdfs:subPropertyOf linkml:pfxexternal_references .
+
+linkml:MetaData_phenopacket_schema_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "MetaData_phenopacket_schema_version" ;
+    rdfs:domain linkml:pfxMetaData ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxphenopacket_schema_version .
+
+linkml:MetaData_resources a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "MetaData_resources" ;
+    rdfs:domain linkml:pfxMetaData ;
+    rdfs:range linkml:pfxResource ;
+    rdfs:subPropertyOf linkml:pfxresources .
+
+linkml:MetaData_submitted_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "MetaData_submitted_by" ;
+    rdfs:domain linkml:pfxMetaData ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxsubmitted_by .
+
+linkml:MetaData_updates a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "MetaData_updates" ;
+    rdfs:domain linkml:pfxMetaData ;
+    rdfs:range linkml:pfxUpdate ;
+    rdfs:subPropertyOf linkml:pfxupdates .
+
+linkml:Ncname a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "ncname" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Prefix part of CURIE" .
+
+linkml:Nodeidentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "nodeidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#nonLiteral> ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI, CURIE or BNODE that represents a node in a model." .
+
+linkml:Objectidentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "objectidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#iri> ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI or CURIE that represents an object in the model." ;
+    skos:note "Used for inheritence and type checking" .
+
+linkml:OntologyClass_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "OntologyClass_id" ;
+    rdfs:domain linkml:pfxOntologyClass ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:OntologyClass_label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "OntologyClass_label" ;
+    rdfs:domain linkml:pfxOntologyClass ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxlabel .
+
+linkml:Pedigree_persons a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Pedigree_persons" ;
+    rdfs:domain linkml:pfxPedigree ;
+    rdfs:range linkml:pfxPerson ;
+    rdfs:subPropertyOf linkml:pfxpersons .
+
+linkml:Person_affected_status a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Person_affected_status" ;
+    rdfs:domain linkml:pfxPerson ;
+    rdfs:range <http://UNKNOWN.org/affected_status_options> ;
+    rdfs:subPropertyOf linkml:pfxaffected_status .
+
+linkml:Person_family_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Person_family_id" ;
+    rdfs:domain linkml:pfxPerson ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxfamily_id .
+
+linkml:Person_individual_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Person_individual_id" ;
+    rdfs:domain linkml:pfxPerson ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxindividual_id .
+
+linkml:Person_maternal_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Person_maternal_id" ;
+    rdfs:domain linkml:pfxPerson ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxmaternal_id .
+
+linkml:Person_paternal_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Person_paternal_id" ;
+    rdfs:domain linkml:pfxPerson ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxpaternal_id .
+
+linkml:Person_sex a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Person_sex" ;
+    rdfs:domain linkml:pfxPerson ;
+    rdfs:range <http://UNKNOWN.org/sex_options> ;
+    rdfs:subPropertyOf linkml:pfxsex .
+
+linkml:Phenopacket_biosamples a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_biosamples" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:pfxBiosample ;
+    rdfs:subPropertyOf linkml:pfxbiosamples .
+
+linkml:Phenopacket_diseases a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_diseases" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:pfxDisease ;
+    rdfs:subPropertyOf linkml:pfxdiseases .
+
+linkml:Phenopacket_genes a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_genes" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:pfxGene ;
+    rdfs:subPropertyOf linkml:pfxgenes .
+
+linkml:Phenopacket_hts_files a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_hts_files" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:pfxHtsFile ;
+    rdfs:subPropertyOf linkml:pfxhts_files .
+
+linkml:Phenopacket_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_id" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:Phenopacket_meta_data a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_meta_data" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:pfxMetaData ;
+    rdfs:subPropertyOf linkml:pfxmeta_data .
+
+linkml:Phenopacket_phenotypic_features a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_phenotypic_features" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:pfxPhenotypicFeature ;
+    rdfs:subPropertyOf linkml:pfxphenotypic_features .
+
+linkml:Phenopacket_subject a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_subject" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:pfxIndividual ;
+    rdfs:subPropertyOf linkml:pfxsubject .
+
+linkml:Phenopacket_variants a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Phenopacket_variants" ;
+    rdfs:domain linkml:pfxPhenopacket ;
+    rdfs:range linkml:pfxVariant ;
+    rdfs:subPropertyOf linkml:pfxvariants .
+
+linkml:PhenotypicFeature_age_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_age_of_onset" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:pfxAge ;
+    rdfs:subPropertyOf linkml:pfxage_of_onset .
+
+linkml:PhenotypicFeature_age_range_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_age_range_of_onset" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:pfxAgeRange ;
+    rdfs:subPropertyOf linkml:pfxage_range_of_onset .
+
+linkml:PhenotypicFeature_class_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_class_of_onset" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxclass_of_onset .
+
+linkml:PhenotypicFeature_description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_description" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxdescription .
+
+linkml:PhenotypicFeature_evidence a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_evidence" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:pfxEvidence ;
+    rdfs:subPropertyOf linkml:pfxevidence .
+
+linkml:PhenotypicFeature_modifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_modifiers" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxmodifiers .
+
+linkml:PhenotypicFeature_negated a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_negated" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:Boolean ;
+    rdfs:subPropertyOf linkml:pfxnegated .
+
+linkml:PhenotypicFeature_severity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_severity" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxseverity .
+
+linkml:PhenotypicFeature_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "PhenotypicFeature_type" ;
+    rdfs:domain linkml:pfxPhenotypicFeature ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxtype .
+
+linkml:Procedure_body_site a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Procedure_body_site" ;
+    rdfs:domain linkml:pfxProcedure ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxbody_site .
+
+linkml:Procedure_code a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Procedure_code" ;
+    rdfs:domain linkml:pfxProcedure ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxcode .
+
+linkml:Resource_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Resource_id" ;
+    rdfs:domain linkml:pfxResource ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:Resource_iri_prefix a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Resource_iri_prefix" ;
+    rdfs:domain linkml:pfxResource ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxiri_prefix .
+
+linkml:Resource_name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Resource_name" ;
+    rdfs:domain linkml:pfxResource ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxname .
+
+linkml:Resource_namespace_prefix a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Resource_namespace_prefix" ;
+    rdfs:domain linkml:pfxResource ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxnamespace_prefix .
+
+linkml:Resource_url a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Resource_url" ;
+    rdfs:domain linkml:pfxResource ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxurl .
+
+linkml:Resource_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Resource_version" ;
+    rdfs:domain linkml:pfxResource ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxversion .
+
+linkml:SpdiAllele_deleted_sequence a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "SpdiAllele_deleted_sequence" ;
+    rdfs:domain linkml:pfxSpdiAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxdeleted_sequence .
+
+linkml:SpdiAllele_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "SpdiAllele_id" ;
+    rdfs:domain linkml:pfxSpdiAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:SpdiAllele_inserted_sequence a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "SpdiAllele_inserted_sequence" ;
+    rdfs:domain linkml:pfxSpdiAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxinserted_sequence .
+
+linkml:SpdiAllele_position a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "SpdiAllele_position" ;
+    rdfs:domain linkml:pfxSpdiAllele ;
+    rdfs:range linkml:Integer ;
+    rdfs:subPropertyOf linkml:pfxposition .
+
+linkml:SpdiAllele_seq_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "SpdiAllele_seq_id" ;
+    rdfs:domain linkml:pfxSpdiAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxseq_id .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+linkml:Time a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "time" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+linkml:Timestamp_nanos a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Timestamp_nanos" ;
+    rdfs:domain linkml:pfxTimestamp ;
+    rdfs:range linkml:Integer ;
+    rdfs:subPropertyOf linkml:pfxnanos .
+
+linkml:Timestamp_seconds a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Timestamp_seconds" ;
+    rdfs:domain linkml:pfxTimestamp ;
+    rdfs:range linkml:Integer ;
+    rdfs:subPropertyOf linkml:pfxseconds .
+
+linkml:Update_comment a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Update_comment" ;
+    rdfs:domain linkml:pfxUpdate ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxcomment .
+
+linkml:Update_timestamp a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Update_timestamp" ;
+    rdfs:domain linkml:pfxUpdate ;
+    rdfs:range linkml:pfxTimestamp ;
+    rdfs:subPropertyOf linkml:pfxtimestamp .
+
+linkml:Update_updated_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Update_updated_by" ;
+    rdfs:domain linkml:pfxUpdate ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxupdated_by .
+
+linkml:Uri a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "uri" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a complete URI" .
+
+linkml:Uriorcurie a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "uriorcurie" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a URI or a CURIE" .
+
+linkml:Variant_hgvs_allele a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Variant_hgvs_allele" ;
+    rdfs:domain linkml:pfxVariant ;
+    rdfs:range linkml:pfxHgvsAllele ;
+    rdfs:subPropertyOf linkml:pfxhgvs_allele .
+
+linkml:Variant_iscn_allele a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Variant_iscn_allele" ;
+    rdfs:domain linkml:pfxVariant ;
+    rdfs:range linkml:pfxIscnAllele ;
+    rdfs:subPropertyOf linkml:pfxiscn_allele .
+
+linkml:Variant_spdi_allele a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Variant_spdi_allele" ;
+    rdfs:domain linkml:pfxVariant ;
+    rdfs:range linkml:pfxSpdiAllele ;
+    rdfs:subPropertyOf linkml:pfxspdi_allele .
+
+linkml:Variant_vcf_allele a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Variant_vcf_allele" ;
+    rdfs:domain linkml:pfxVariant ;
+    rdfs:range linkml:pfxVcfAllele ;
+    rdfs:subPropertyOf linkml:pfxvcf_allele .
+
+linkml:Variant_zygosity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Variant_zygosity" ;
+    rdfs:domain linkml:pfxVariant ;
+    rdfs:range linkml:pfxOntologyClass ;
+    rdfs:subPropertyOf linkml:pfxzygosity .
+
+linkml:VcfAllele_alt a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "VcfAllele_alt" ;
+    rdfs:domain linkml:pfxVcfAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxalt .
+
+linkml:VcfAllele_chr a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "VcfAllele_chr" ;
+    rdfs:domain linkml:pfxVcfAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxchr .
+
+linkml:VcfAllele_genome_assembly a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "VcfAllele_genome_assembly" ;
+    rdfs:domain linkml:pfxVcfAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxgenome_assembly .
+
+linkml:VcfAllele_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "VcfAllele_id" ;
+    rdfs:domain linkml:pfxVcfAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxid .
+
+linkml:VcfAllele_info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "VcfAllele_info" ;
+    rdfs:domain linkml:pfxVcfAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxinfo .
+
+linkml:VcfAllele_pos a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "VcfAllele_pos" ;
+    rdfs:domain linkml:pfxVcfAllele ;
+    rdfs:range linkml:Integer ;
+    rdfs:subPropertyOf linkml:pfxpos .
+
+linkml:VcfAllele_ref a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "VcfAllele_ref" ;
+    rdfs:domain linkml:pfxVcfAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxref .
+
+linkml:VcfAllele_vcf_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "VcfAllele_vcf_version" ;
+    rdfs:domain linkml:pfxVcfAllele ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf linkml:pfxvcf_version .
+
+<pfx> a owl:Ontology ;
+    rdfs:label "pfx" ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    linkml:generation_date "2021-08-27 17:57" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "phenopackets.yaml" ;
+    linkml:source_file_date "Fri Aug 27 17:57:00 2021" ;
+    linkml:source_file_size 14404 .
+
+linkml:pfxaffected_status a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "affected_status" ;
+    rdfs:range <http://UNKNOWN.org/affected_status_options> .
+
+linkml:pfxage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age" ;
+    rdfs:range linkml:String .
+
+linkml:pfxage_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age_at_collection" ;
+    rdfs:range linkml:pfxAge .
+
+linkml:pfxage_of_individual_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age_of_individual_at_collection" ;
+    rdfs:range linkml:pfxAge .
+
+linkml:pfxage_range_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age_range_at_collection" ;
+    rdfs:range linkml:pfxAgeRange .
+
+linkml:pfxage_range_of_individual_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age_range_of_individual_at_collection" ;
+    rdfs:range linkml:pfxAgeRange .
+
+linkml:pfxalt a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "alt" ;
+    rdfs:range linkml:String .
+
+linkml:pfxbiosamples a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "biosamples" ;
+    rdfs:range linkml:pfxBiosample .
+
+linkml:pfxbody_site a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "body_site" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxchr a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "chr" ;
+    rdfs:range linkml:String .
+
+linkml:pfxcode a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "code" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxcomment a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "comment" ;
+    rdfs:range linkml:String .
+
+linkml:pfxcreated a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "created" ;
+    rdfs:range linkml:pfxTimestamp .
+
+linkml:pfxcreated_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "created_by" ;
+    rdfs:range linkml:String .
+
+linkml:pfxdate_of_birth a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "date_of_birth" ;
+    rdfs:range linkml:pfxTimestamp .
+
+linkml:pfxdeleted_sequence a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "deleted_sequence" ;
+    rdfs:range linkml:String .
+
+linkml:pfxdiagnostic_markers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "diagnostic_markers" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxdisease_stage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "disease_stage" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxdiseases a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "diseases" ;
+    rdfs:range linkml:pfxDisease .
+
+linkml:pfxend a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "end" ;
+    rdfs:range linkml:pfxAge .
+
+linkml:pfxevidence a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "evidence" ;
+    rdfs:range linkml:pfxEvidence .
+
+linkml:pfxevidence_code a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "evidence_code" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxexternal_references a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "external_references" ;
+    rdfs:range linkml:pfxExternalReference .
+
+linkml:pfxfamily_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "family_id" ;
+    rdfs:range linkml:String .
+
+linkml:pfxgenes a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "genes" ;
+    rdfs:range linkml:pfxGene .
+
+linkml:pfxhgvs a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hgvs" ;
+    rdfs:range linkml:String .
+
+linkml:pfxhgvs_allele a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hgvs_allele" ;
+    rdfs:range linkml:pfxHgvsAllele .
+
+linkml:pfxhistological_diagnosis a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "histological_diagnosis" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxhts_format a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hts_format" ;
+    rdfs:range <http://UNKNOWN.org/hts_format_options> .
+
+linkml:pfxindividual_to_sample_identifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "individual_to_sample_identifiers" ;
+    rdfs:range linkml:String .
+
+linkml:pfxinfo a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "info" ;
+    rdfs:range linkml:String .
+
+linkml:pfxinserted_sequence a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "inserted_sequence" ;
+    rdfs:range linkml:String .
+
+linkml:pfxiri_prefix a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "iri_prefix" ;
+    rdfs:range linkml:String .
+
+linkml:pfxis_control_sample a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "is_control_sample" ;
+    rdfs:range linkml:Boolean .
+
+linkml:pfxiscn a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "iscn" ;
+    rdfs:range linkml:String .
+
+linkml:pfxiscn_allele a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "iscn_allele" ;
+    rdfs:range linkml:pfxIscnAllele .
+
+linkml:pfxkaryotypic_sex a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "karyotypic_sex" ;
+    rdfs:range <http://UNKNOWN.org/karyotypic_sex_options> .
+
+linkml:pfxlabel a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "label" ;
+    rdfs:range linkml:String .
+
+linkml:pfxmaternal_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "maternal_id" ;
+    rdfs:range linkml:String .
+
+linkml:pfxmembers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "members" ;
+    rdfs:range linkml:pfxPhenopacket .
+
+linkml:pfxmodifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "modifiers" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxname a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:range linkml:String .
+
+linkml:pfxnamespace_prefix a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "namespace_prefix" ;
+    rdfs:range linkml:String .
+
+linkml:pfxnanos a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "nanos" ;
+    rdfs:range linkml:Integer .
+
+linkml:pfxnegated a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "negated" ;
+    rdfs:range linkml:Boolean .
+
+linkml:pfxpaternal_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "paternal_id" ;
+    rdfs:range linkml:String .
+
+linkml:pfxpedigree a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "pedigree" ;
+    rdfs:range linkml:pfxPedigree .
+
+linkml:pfxpersons a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "persons" ;
+    rdfs:range linkml:pfxPerson .
+
+linkml:pfxphenopacket_schema_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "phenopacket_schema_version" ;
+    rdfs:range linkml:String .
+
+linkml:pfxpos a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "pos" ;
+    rdfs:range linkml:Integer .
+
+linkml:pfxposition a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "position" ;
+    rdfs:range linkml:Integer .
+
+linkml:pfxproband a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "proband" ;
+    rdfs:range linkml:pfxPhenopacket .
+
+linkml:pfxprocedure a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "procedure" ;
+    rdfs:range linkml:pfxProcedure .
+
+linkml:pfxref a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ref" ;
+    rdfs:range linkml:String .
+
+linkml:pfxreference a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "reference" ;
+    rdfs:range linkml:pfxExternalReference .
+
+linkml:pfxrelatives a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "relatives" ;
+    rdfs:range linkml:pfxPhenopacket .
+
+linkml:pfxresources a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "resources" ;
+    rdfs:range linkml:pfxResource .
+
+linkml:pfxsampled_tissue a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sampled_tissue" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxseconds a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "seconds" ;
+    rdfs:range linkml:Integer .
+
+linkml:pfxseq_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "seq_id" ;
+    rdfs:range linkml:String .
+
+linkml:pfxseverity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "severity" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxspdi_allele a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "spdi_allele" ;
+    rdfs:range linkml:pfxSpdiAllele .
+
+linkml:pfxstart a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "start" ;
+    rdfs:range linkml:pfxAge .
+
+linkml:pfxsubject a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject" ;
+    rdfs:range linkml:pfxIndividual .
+
+linkml:pfxsubmitted_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "submitted_by" ;
+    rdfs:range linkml:String .
+
+linkml:pfxsymbol a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "symbol" ;
+    rdfs:range linkml:String .
+
+linkml:pfxterm a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "term" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxtimestamp a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "timestamp" ;
+    rdfs:range linkml:pfxTimestamp .
+
+linkml:pfxtnm_finding a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "tnm_finding" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxtumor_grade a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "tumor_grade" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxtumor_progression a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "tumor_progression" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxtype a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "type" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxupdated_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "updated_by" ;
+    rdfs:range linkml:String .
+
+linkml:pfxupdates a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "updates" ;
+    rdfs:range linkml:pfxUpdate .
+
+linkml:pfxuri a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "uri" ;
+    rdfs:range linkml:String .
+
+linkml:pfxurl a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "url" ;
+    rdfs:range linkml:String .
+
+linkml:pfxvcf_allele a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "vcf_allele" ;
+    rdfs:range linkml:pfxVcfAllele .
+
+linkml:pfxvcf_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "vcf_version" ;
+    rdfs:range linkml:String .
+
+linkml:pfxversion a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "version" ;
+    rdfs:range linkml:String .
+
+linkml:pfxzygosity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "zygosity" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxPedigree a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Pedigree" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxPerson ;
+            owl:onProperty linkml:pfxpersons ] .
+
+linkml:pfxage_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age_of_onset" ;
+    rdfs:range linkml:pfxAge .
+
+linkml:pfxage_range_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age_range_of_onset" ;
+    rdfs:range linkml:pfxAgeRange .
+
+linkml:pfxalternate_ids a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "alternate_ids" ;
+    rdfs:range linkml:String .
+
+linkml:pfxclass_of_onset a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "class_of_onset" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxgenome_assembly a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "genome_assembly" ;
+    rdfs:range linkml:String .
+
+linkml:pfxindividual_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "individual_id" ;
+    rdfs:range linkml:String .
+
+linkml:pfxphenotypic_features a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "phenotypic_features" ;
+    rdfs:range linkml:pfxPhenotypicFeature .
+
+linkml:pfxsex a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sex" ;
+    rdfs:range <http://UNKNOWN.org/sex_options> .
+
+linkml:pfxtaxonomy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "taxonomy" ;
+    rdfs:range linkml:pfxOntologyClass .
+
+linkml:pfxvariants a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "variants" ;
+    rdfs:range linkml:pfxVariant .
+
+linkml:pfxCohort a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Cohort" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxPhenopacket ;
+            owl:onProperty linkml:pfxmembers ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxHtsFile ;
+            owl:onProperty linkml:pfxhts_files ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxdescription ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxMetaData ;
+            owl:onProperty linkml:pfxmeta_data ] .
+
+linkml:pfxEvidence a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Evidence" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxExternalReference ;
+            owl:onProperty linkml:pfxreference ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxevidence_code ] .
+
+linkml:pfxHgvsAllele a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "HgvsAllele" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxhgvs ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ] .
+
+linkml:pfxIscnAllele a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "IscnAllele" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxiscn ] .
+
+linkml:pfxProcedure a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Procedure" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxbody_site ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxcode ] .
+
+linkml:Boolean a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "boolean" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A binary (true or false) value" .
+
+linkml:pfxFamily a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Family" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxHtsFile ;
+            owl:onProperty linkml:pfxhts_files ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxPhenopacket ;
+            owl:onProperty linkml:pfxproband ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxPedigree ;
+            owl:onProperty linkml:pfxpedigree ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxPhenopacket ;
+            owl:onProperty linkml:pfxrelatives ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxMetaData ;
+            owl:onProperty linkml:pfxmeta_data ] .
+
+linkml:pfxGene a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Gene" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxsymbol ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:pfxalternate_ids ] .
+
+linkml:pfxUpdate a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Update" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxTimestamp ;
+            owl:onProperty linkml:pfxtimestamp ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxupdated_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxcomment ] .
+
+linkml:pfxmeta_data a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "meta_data" ;
+    rdfs:range linkml:pfxMetaData .
+
+linkml:pfxExternalReference a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ExternalReference" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxdescription ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ] .
+
+linkml:pfxSpdiAllele a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SpdiAllele" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxinserted_sequence ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxseq_id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty linkml:pfxposition ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxdeleted_sequence ] .
+
+linkml:pfxhts_files a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "hts_files" ;
+    rdfs:range linkml:pfxHtsFile .
+
+linkml:pfxDisease a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Disease" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAgeRange ;
+            owl:onProperty linkml:pfxage_range_of_onset ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxclass_of_onset ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxtnm_finding ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxdisease_stage ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxterm ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAge ;
+            owl:onProperty linkml:pfxage_of_onset ] .
+
+linkml:pfxPerson a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/sex_options> ;
+            owl:onProperty linkml:pfxsex ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxmaternal_id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/affected_status_options> ;
+            owl:onProperty linkml:pfxaffected_status ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxindividual_id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxfamily_id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxpaternal_id ] .
+
+linkml:pfxResource a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Resource" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxname ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxiri_prefix ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxnamespace_prefix ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxurl ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxversion ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ] .
+
+linkml:pfxVariant a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Variant" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxHgvsAllele ;
+            owl:onProperty linkml:pfxhgvs_allele ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxVcfAllele ;
+            owl:onProperty linkml:pfxvcf_allele ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxSpdiAllele ;
+            owl:onProperty linkml:pfxspdi_allele ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxIscnAllele ;
+            owl:onProperty linkml:pfxiscn_allele ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxzygosity ] .
+
+linkml:pfxdescription a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "description" ;
+    rdfs:range linkml:String .
+
+linkml:pfxIndividual a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Individual" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxtaxonomy ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/sex_options> ;
+            owl:onProperty linkml:pfxsex ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxTimestamp ;
+            owl:onProperty linkml:pfxdate_of_birth ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/karyotypic_sex_options> ;
+            owl:onProperty linkml:pfxkaryotypic_sex ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAge ;
+            owl:onProperty linkml:pfxage_at_collection ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:pfxalternate_ids ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAgeRange ;
+            owl:onProperty linkml:pfxage_range_at_collection ] .
+
+linkml:pfxTimestamp a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Timestamp" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty linkml:pfxseconds ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty linkml:pfxnanos ] .
+
+linkml:pfxVcfAllele a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "VcfAllele" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty linkml:pfxpos ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxgenome_assembly ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxalt ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxvcf_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxchr ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxref ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxinfo ] .
+
+linkml:Integer a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "integer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "An integer" .
+
+linkml:pfxAgeRange a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "AgeRange" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAge ;
+            owl:onProperty linkml:pfxend ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAge ;
+            owl:onProperty linkml:pfxstart ] .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+linkml:pfxHtsFile a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "HtsFile" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/hts_format_options> ;
+            owl:onProperty linkml:pfxhts_format ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxdescription ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxindividual_to_sample_identifiers ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxgenome_assembly ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxuri ] .
+
+linkml:pfxMetaData a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MetaData" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxResource ;
+            owl:onProperty linkml:pfxresources ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxphenopacket_schema_version ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxExternalReference ;
+            owl:onProperty linkml:pfxexternal_references ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxcreated_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxsubmitted_by ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxUpdate ;
+            owl:onProperty linkml:pfxupdates ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxTimestamp ;
+            owl:onProperty linkml:pfxcreated ] .
+
+linkml:pfxPhenotypicFeature a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "PhenotypicFeature" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxdescription ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxmodifiers ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxseverity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxEvidence ;
+            owl:onProperty linkml:pfxevidence ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAgeRange ;
+            owl:onProperty linkml:pfxage_range_of_onset ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxclass_of_onset ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxtype ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty linkml:pfxnegated ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAge ;
+            owl:onProperty linkml:pfxage_of_onset ] .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+linkml:pfxAge a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Age" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxage ] .
+
+linkml:pfxPhenopacket a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Phenopacket" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxGene ;
+            owl:onProperty linkml:pfxgenes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxPhenotypicFeature ;
+            owl:onProperty linkml:pfxphenotypic_features ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxBiosample ;
+            owl:onProperty linkml:pfxbiosamples ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxHtsFile ;
+            owl:onProperty linkml:pfxhts_files ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxIndividual ;
+            owl:onProperty linkml:pfxsubject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxVariant ;
+            owl:onProperty linkml:pfxvariants ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxMetaData ;
+            owl:onProperty linkml:pfxmeta_data ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxDisease ;
+            owl:onProperty linkml:pfxdiseases ] .
+
+linkml:pfxBiosample a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Biosample" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxtumor_grade ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty linkml:pfxis_control_sample ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxHtsFile ;
+            owl:onProperty linkml:pfxhts_files ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxtaxonomy ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxhistological_diagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxsampled_tissue ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxdiagnostic_markers ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAgeRange ;
+            owl:onProperty linkml:pfxage_range_of_individual_at_collection ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxVariant ;
+            owl:onProperty linkml:pfxvariants ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxProcedure ;
+            owl:onProperty linkml:pfxprocedure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxdescription ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxOntologyClass ;
+            owl:onProperty linkml:pfxtumor_progression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:pfxAge ;
+            owl:onProperty linkml:pfxage_of_individual_at_collection ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:pfxPhenotypicFeature ;
+            owl:onProperty linkml:pfxphenotypic_features ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxindividual_id ] .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+linkml:pfxid a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range linkml:String .
+
+linkml:pfxOntologyClass a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "OntologyClass" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxid ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:pfxlabel ] .
+
+linkml:String a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "string" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A character string" .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+
+

@@ -1,0 +1,6 @@
+site_name: "gocam in linkml demo"
+theme: readthedocs
+nav:
+  - Home: home.md
+  - Index: index.md
+  - Credits: credits.md

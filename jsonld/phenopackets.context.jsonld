@@ -1,0 +1,216 @@
+{
+   "_comments": "Auto generated from phenopackets.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-08-27 17:57\n    Schema: pfx\n    \n    id: pfx\n    description: \n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "@context": {
+      "linkml": "https://w3id.org/linkml/",
+      "pfx": {
+         "@id": "https://w3id.org/linkml/pfx",
+         "@prefix": true
+      },
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "@vocab": "https://w3id.org/linkml/pfx",
+      "affected_status": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "age_at_collection": {
+         "@type": "@id"
+      },
+      "age_of_individual_at_collection": {
+         "@type": "@id"
+      },
+      "age_of_onset": {
+         "@type": "@id"
+      },
+      "age_range_at_collection": {
+         "@type": "@id"
+      },
+      "age_range_of_individual_at_collection": {
+         "@type": "@id"
+      },
+      "age_range_of_onset": {
+         "@type": "@id"
+      },
+      "biosamples": {
+         "@type": "@id"
+      },
+      "body_site": {
+         "@type": "@id"
+      },
+      "class_of_onset": {
+         "@type": "@id"
+      },
+      "code": {
+         "@type": "@id"
+      },
+      "created": {
+         "@type": "@id"
+      },
+      "date_of_birth": {
+         "@type": "@id"
+      },
+      "diagnostic_markers": {
+         "@type": "@id"
+      },
+      "disease_stage": {
+         "@type": "@id"
+      },
+      "diseases": {
+         "@type": "@id"
+      },
+      "end": {
+         "@type": "@id"
+      },
+      "evidence": {
+         "@type": "@id"
+      },
+      "evidence_code": {
+         "@type": "@id"
+      },
+      "external_references": {
+         "@type": "@id"
+      },
+      "genes": {
+         "@type": "@id"
+      },
+      "hgvs_allele": {
+         "@type": "@id"
+      },
+      "histological_diagnosis": {
+         "@type": "@id"
+      },
+      "hts_files": {
+         "@type": "@id"
+      },
+      "hts_format": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "is_control_sample": {
+         "@type": "xsd:boolean"
+      },
+      "iscn_allele": {
+         "@type": "@id"
+      },
+      "karyotypic_sex": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "members": {
+         "@type": "@id"
+      },
+      "meta_data": {
+         "@type": "@id"
+      },
+      "modifiers": {
+         "@type": "@id"
+      },
+      "nanos": {
+         "@type": "xsd:integer"
+      },
+      "negated": {
+         "@type": "xsd:boolean"
+      },
+      "pedigree": {
+         "@type": "@id"
+      },
+      "persons": {
+         "@type": "@id"
+      },
+      "phenotypic_features": {
+         "@type": "@id"
+      },
+      "pos": {
+         "@type": "xsd:integer"
+      },
+      "position": {
+         "@type": "xsd:integer"
+      },
+      "proband": {
+         "@type": "@id"
+      },
+      "procedure": {
+         "@type": "@id"
+      },
+      "reference": {
+         "@type": "@id"
+      },
+      "relatives": {
+         "@type": "@id"
+      },
+      "resources": {
+         "@type": "@id"
+      },
+      "sampled_tissue": {
+         "@type": "@id"
+      },
+      "seconds": {
+         "@type": "xsd:integer"
+      },
+      "severity": {
+         "@type": "@id"
+      },
+      "sex": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "spdi_allele": {
+         "@type": "@id"
+      },
+      "start": {
+         "@type": "@id"
+      },
+      "subject": {
+         "@type": "@id"
+      },
+      "taxonomy": {
+         "@type": "@id"
+      },
+      "term": {
+         "@type": "@id"
+      },
+      "timestamp": {
+         "@type": "@id"
+      },
+      "tnm_finding": {
+         "@type": "@id"
+      },
+      "tumor_grade": {
+         "@type": "@id"
+      },
+      "tumor_progression": {
+         "@type": "@id"
+      },
+      "type": {
+         "@type": "@id"
+      },
+      "updates": {
+         "@type": "@id"
+      },
+      "variants": {
+         "@type": "@id"
+      },
+      "vcf_allele": {
+         "@type": "@id"
+      },
+      "zygosity": {
+         "@type": "@id"
+      }
+   }
+}
+

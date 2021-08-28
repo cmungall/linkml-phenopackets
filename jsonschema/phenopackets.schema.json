@@ -1,0 +1,746 @@
+{
+   "$id": "pfx",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
+   "definitions": {
+      "AffectedStatusOptions": {
+         "description": "",
+         "enum": [
+            "MISSING",
+            "UNAFFECTED",
+            "AFFECTED"
+         ],
+         "title": "AffectedStatusOptions",
+         "type": "string"
+      },
+      "Age": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "age": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Age",
+         "type": "object"
+      },
+      "AgeRange": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "end": {
+               "$ref": "#/definitions/Age"
+            },
+            "start": {
+               "$ref": "#/definitions/Age"
+            }
+         },
+         "required": [],
+         "title": "AgeRange",
+         "type": "object"
+      },
+      "Biosample": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "age_of_individual_at_collection": {
+               "$ref": "#/definitions/Age"
+            },
+            "age_range_of_individual_at_collection": {
+               "$ref": "#/definitions/AgeRange"
+            },
+            "description": {
+               "type": "string"
+            },
+            "diagnostic_markers": {
+               "items": {
+                  "$ref": "#/definitions/OntologyClass"
+               },
+               "type": "array"
+            },
+            "histological_diagnosis": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "hts_files": {
+               "items": {
+                  "$ref": "#/definitions/HtsFile"
+               },
+               "type": "array"
+            },
+            "id": {
+               "type": "string"
+            },
+            "individual_id": {
+               "type": "string"
+            },
+            "is_control_sample": {
+               "type": "boolean"
+            },
+            "phenotypic_features": {
+               "items": {
+                  "$ref": "#/definitions/PhenotypicFeature"
+               },
+               "type": "array"
+            },
+            "procedure": {
+               "$ref": "#/definitions/Procedure"
+            },
+            "sampled_tissue": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "taxonomy": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "tumor_grade": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "tumor_progression": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "variants": {
+               "items": {
+                  "$ref": "#/definitions/Variant"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Biosample",
+         "type": "object"
+      },
+      "Cohort": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "description": {
+               "type": "string"
+            },
+            "hts_files": {
+               "items": {
+                  "$ref": "#/definitions/HtsFile"
+               },
+               "type": "array"
+            },
+            "id": {
+               "type": "string"
+            },
+            "members": {
+               "items": {
+                  "$ref": "#/definitions/Phenopacket"
+               },
+               "type": "array"
+            },
+            "meta_data": {
+               "$ref": "#/definitions/MetaData"
+            }
+         },
+         "required": [],
+         "title": "Cohort",
+         "type": "object"
+      },
+      "Disease": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "age_of_onset": {
+               "$ref": "#/definitions/Age"
+            },
+            "age_range_of_onset": {
+               "$ref": "#/definitions/AgeRange"
+            },
+            "class_of_onset": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "disease_stage": {
+               "items": {
+                  "$ref": "#/definitions/OntologyClass"
+               },
+               "type": "array"
+            },
+            "term": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "tnm_finding": {
+               "items": {
+                  "$ref": "#/definitions/OntologyClass"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Disease",
+         "type": "object"
+      },
+      "Evidence": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "evidence_code": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "reference": {
+               "$ref": "#/definitions/ExternalReference"
+            }
+         },
+         "required": [],
+         "title": "Evidence",
+         "type": "object"
+      },
+      "ExternalReference": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "description": {
+               "type": "string"
+            },
+            "id": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "ExternalReference",
+         "type": "object"
+      },
+      "Family": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "hts_files": {
+               "items": {
+                  "$ref": "#/definitions/HtsFile"
+               },
+               "type": "array"
+            },
+            "id": {
+               "type": "string"
+            },
+            "meta_data": {
+               "$ref": "#/definitions/MetaData"
+            },
+            "pedigree": {
+               "$ref": "#/definitions/Pedigree"
+            },
+            "proband": {
+               "$ref": "#/definitions/Phenopacket"
+            },
+            "relatives": {
+               "items": {
+                  "$ref": "#/definitions/Phenopacket"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Family",
+         "type": "object"
+      },
+      "Gene": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "alternate_ids": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "id": {
+               "type": "string"
+            },
+            "symbol": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Gene",
+         "type": "object"
+      },
+      "HgvsAllele": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "hgvs": {
+               "type": "string"
+            },
+            "id": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "HgvsAllele",
+         "type": "object"
+      },
+      "HtsFile": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "description": {
+               "type": "string"
+            },
+            "genome_assembly": {
+               "type": "string"
+            },
+            "hts_format": {
+               "$ref": "#/definitions/HtsFormatOptions"
+            },
+            "individual_to_sample_identifiers": {
+               "type": "string"
+            },
+            "uri": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "HtsFile",
+         "type": "object"
+      },
+      "HtsFormatOptions": {
+         "description": "",
+         "enum": [
+            "UNKNOWN",
+            "SAM",
+            "BAM",
+            "CRAM",
+            "VCF",
+            "BCF",
+            "GVCF",
+            "FASTQ"
+         ],
+         "title": "HtsFormatOptions",
+         "type": "string"
+      },
+      "Individual": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "age_at_collection": {
+               "$ref": "#/definitions/Age"
+            },
+            "age_range_at_collection": {
+               "$ref": "#/definitions/AgeRange"
+            },
+            "alternate_ids": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "date_of_birth": {
+               "$ref": "#/definitions/Timestamp"
+            },
+            "id": {
+               "type": "string"
+            },
+            "karyotypic_sex": {
+               "$ref": "#/definitions/KaryotypicSexOptions"
+            },
+            "sex": {
+               "$ref": "#/definitions/SexOptions"
+            },
+            "taxonomy": {
+               "$ref": "#/definitions/OntologyClass"
+            }
+         },
+         "required": [],
+         "title": "Individual",
+         "type": "object"
+      },
+      "IscnAllele": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "iscn": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "IscnAllele",
+         "type": "object"
+      },
+      "KaryotypicSexOptions": {
+         "description": "",
+         "enum": [
+            "UNKNOWN_KARYOTYPE",
+            "XX",
+            "XY",
+            "XO",
+            "XXY",
+            "XXX",
+            "XXYY",
+            "XXXY",
+            "XXXX",
+            "XYY",
+            "OTHER_KARYOTYPE"
+         ],
+         "title": "KaryotypicSexOptions",
+         "type": "string"
+      },
+      "MetaData": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "created": {
+               "$ref": "#/definitions/Timestamp"
+            },
+            "created_by": {
+               "type": "string"
+            },
+            "external_references": {
+               "items": {
+                  "$ref": "#/definitions/ExternalReference"
+               },
+               "type": "array"
+            },
+            "phenopacket_schema_version": {
+               "type": "string"
+            },
+            "resources": {
+               "items": {
+                  "$ref": "#/definitions/Resource"
+               },
+               "type": "array"
+            },
+            "submitted_by": {
+               "type": "string"
+            },
+            "updates": {
+               "items": {
+                  "$ref": "#/definitions/Update"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "MetaData",
+         "type": "object"
+      },
+      "OntologyClass": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "label": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "OntologyClass",
+         "type": "object"
+      },
+      "Pedigree": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "persons": {
+               "items": {
+                  "$ref": "#/definitions/Person"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Pedigree",
+         "type": "object"
+      },
+      "Person": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "affected_status": {
+               "$ref": "#/definitions/AffectedStatusOptions"
+            },
+            "family_id": {
+               "type": "string"
+            },
+            "individual_id": {
+               "type": "string"
+            },
+            "maternal_id": {
+               "type": "string"
+            },
+            "paternal_id": {
+               "type": "string"
+            },
+            "sex": {
+               "$ref": "#/definitions/SexOptions"
+            }
+         },
+         "required": [],
+         "title": "Person",
+         "type": "object"
+      },
+      "Phenopacket": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "biosamples": {
+               "items": {
+                  "$ref": "#/definitions/Biosample"
+               },
+               "type": "array"
+            },
+            "diseases": {
+               "items": {
+                  "$ref": "#/definitions/Disease"
+               },
+               "type": "array"
+            },
+            "genes": {
+               "items": {
+                  "$ref": "#/definitions/Gene"
+               },
+               "type": "array"
+            },
+            "hts_files": {
+               "items": {
+                  "$ref": "#/definitions/HtsFile"
+               },
+               "type": "array"
+            },
+            "id": {
+               "type": "string"
+            },
+            "meta_data": {
+               "$ref": "#/definitions/MetaData"
+            },
+            "phenotypic_features": {
+               "items": {
+                  "$ref": "#/definitions/PhenotypicFeature"
+               },
+               "type": "array"
+            },
+            "subject": {
+               "$ref": "#/definitions/Individual"
+            },
+            "variants": {
+               "items": {
+                  "$ref": "#/definitions/Variant"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Phenopacket",
+         "type": "object"
+      },
+      "PhenotypicFeature": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "age_of_onset": {
+               "$ref": "#/definitions/Age"
+            },
+            "age_range_of_onset": {
+               "$ref": "#/definitions/AgeRange"
+            },
+            "class_of_onset": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "description": {
+               "type": "string"
+            },
+            "evidence": {
+               "items": {
+                  "$ref": "#/definitions/Evidence"
+               },
+               "type": "array"
+            },
+            "modifiers": {
+               "items": {
+                  "$ref": "#/definitions/OntologyClass"
+               },
+               "type": "array"
+            },
+            "negated": {
+               "type": "boolean"
+            },
+            "severity": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "type": {
+               "$ref": "#/definitions/OntologyClass"
+            }
+         },
+         "required": [],
+         "title": "PhenotypicFeature",
+         "type": "object"
+      },
+      "Procedure": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "body_site": {
+               "$ref": "#/definitions/OntologyClass"
+            },
+            "code": {
+               "$ref": "#/definitions/OntologyClass"
+            }
+         },
+         "required": [],
+         "title": "Procedure",
+         "type": "object"
+      },
+      "Resource": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "id": {
+               "type": "string"
+            },
+            "iri_prefix": {
+               "type": "string"
+            },
+            "name": {
+               "type": "string"
+            },
+            "namespace_prefix": {
+               "type": "string"
+            },
+            "url": {
+               "type": "string"
+            },
+            "version": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Resource",
+         "type": "object"
+      },
+      "SexOptions": {
+         "description": "",
+         "enum": [
+            "UNKNOWN_SEX",
+            "FEMALE",
+            "MALE",
+            "OTHER_SEX"
+         ],
+         "title": "SexOptions",
+         "type": "string"
+      },
+      "SpdiAllele": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "deleted_sequence": {
+               "type": "string"
+            },
+            "id": {
+               "type": "string"
+            },
+            "inserted_sequence": {
+               "type": "string"
+            },
+            "position": {
+               "type": "integer"
+            },
+            "seq_id": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "SpdiAllele",
+         "type": "object"
+      },
+      "Timestamp": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "nanos": {
+               "type": "integer"
+            },
+            "seconds": {
+               "type": "integer"
+            }
+         },
+         "required": [],
+         "title": "Timestamp",
+         "type": "object"
+      },
+      "Update": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "comment": {
+               "type": "string"
+            },
+            "timestamp": {
+               "$ref": "#/definitions/Timestamp"
+            },
+            "updated_by": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Update",
+         "type": "object"
+      },
+      "Variant": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "hgvs_allele": {
+               "$ref": "#/definitions/HgvsAllele"
+            },
+            "iscn_allele": {
+               "$ref": "#/definitions/IscnAllele"
+            },
+            "spdi_allele": {
+               "$ref": "#/definitions/SpdiAllele"
+            },
+            "vcf_allele": {
+               "$ref": "#/definitions/VcfAllele"
+            },
+            "zygosity": {
+               "$ref": "#/definitions/OntologyClass"
+            }
+         },
+         "required": [],
+         "title": "Variant",
+         "type": "object"
+      },
+      "VcfAllele": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "alt": {
+               "type": "string"
+            },
+            "chr": {
+               "type": "string"
+            },
+            "genome_assembly": {
+               "type": "string"
+            },
+            "id": {
+               "type": "string"
+            },
+            "info": {
+               "type": "string"
+            },
+            "pos": {
+               "type": "integer"
+            },
+            "ref": {
+               "type": "string"
+            },
+            "vcf_version": {
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "VcfAllele",
+         "type": "object"
+      }
+   },
+   "properties": {},
+   "title": "pfx",
+   "type": "object"
+}
+
