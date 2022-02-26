@@ -1,6 +1,11 @@
-site_name: "gocam in linkml demo"
-theme: readthedocs
+site_name: "phenopackets in linkml EXPERIMENTAL DEMO"
+theme:
+  name: readthedocs
+  analytics:
+    gtag: G-2SYBSJVZ23
 nav:
   - Home: home.md
   - Index: index.md
   - Credits: credits.md
+site_url: https://cmungall.github.io/linkml-phenopackets/
+repo_url: https://github.com/cmungall/linkml-phenopackets/

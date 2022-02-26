@@ -1,5 +1,5 @@
 # Auto generated from phenopackets.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-08-27 17:57
+# Generation date: 2021-08-27 18:06
 # Schema: pfx
 #
 # id: pfx

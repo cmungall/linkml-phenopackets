@@ -1,11 +1,11 @@
-name: pfx
-id: pfx
+name: phenopackets
+id: phenopackets
 imports:
 - linkml:types
 prefixes:
-  pfx: https://w3id.org/linkml/pfx
+  phenopackets: https://w3id.org/linkml/phenopackets
   linkml: https://w3id.org/linkml/
-default_prefix: pfx
+default_prefix: phenopackets
 enums:
   hts_format_options:
     permissible_values:
@@ -72,6 +72,7 @@ slots:
     range: string
   id:
     range: string
+    identifier: true
   label:
     range: string
   start:
@@ -274,14 +275,12 @@ slots:
     multivalued: true
 classes:
   Age:
-    from_schema: org.phenopackets.schema.v1.core
     slots:
     - age
     slot_usage:
       age:
         range: string
   OntologyClass:
-    from_schema: org.phenopackets.schema.v1.core
     slots:
     - id
     - label
@@ -291,7 +290,6 @@ classes:
       label:
         range: string
   AgeRange:
-    from_schema: org.phenopackets.schema.v1.core
     slots:
     - start
     - end
@@ -310,7 +308,6 @@ classes:
       reference:
         range: ExternalReference
   PhenotypicFeature:
-    from_schema: org.phenopackets.schema.v1.core
     slots:
     - description
     - type
@@ -406,7 +403,6 @@ classes:
       iscn:
         range: string
   Variant:
-    from_schema: org.phenopackets.schema.v1.core
     slots:
     - hgvs_allele
     - vcf_allele
@@ -425,7 +421,6 @@ classes:
       zygosity:
         range: OntologyClass
   HtsFile:
-    from_schema: org.phenopackets.schema.v1.core
     slots:
     - uri
     - description
@@ -453,7 +448,6 @@ classes:
       nanos:
         range: integer
   ExternalReference:
-    from_schema: org.phenopackets.schema.v1.core
     slots:
     - id
     - description
@@ -659,7 +653,6 @@ classes:
       comment:
         range: string
   MetaData:
-    from_schema: org.phenopackets.schema.v1.core
     slots:
     - created
     - created_by
