@@ -10,6 +10,9 @@ gendocs:
 serve:
 	$(RUN) mkdocs serve
 
+gh-deploy:
+	$(RUN) mkdocs gh-deploy
+
 clean-site:
 	rm site/*
 

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "linkml-phenopackets"
+version = "0.1.0"
+description = ""
+authors = ["cmungall <cjm@berkeleybop.org>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+linkml-runtime = "^1.1.26"
+
+[tool.poetry.dev-dependencies]
+linkml = ">=1.2.0rc6"
+mkdocs = "^1.2.3"
+mkdocs-material = "^8.2.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
