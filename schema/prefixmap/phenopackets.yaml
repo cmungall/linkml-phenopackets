@@ -1,0 +1,230 @@
+{
+   "ARGO": "https://docs.icgc-argo.org/dictionary/",
+   "any": "https://w3id.org/linkml/phenopackets/any/",
+   "argo": "https://docs.icgc-argo.org/dictionary/",
+   "base": "https://w3id.org/linkml/phenopackets/base/",
+   "biosample": "https://w3id.org/linkml/phenopackets/biosample/",
+   "disease": "https://w3id.org/linkml/phenopackets/disease/",
+   "individual": "https://w3id.org/linkml/phenopackets/individual/",
+   "interpretation": "https://w3id.org/linkml/phenopackets/interpretation/",
+   "linkml": "https://w3id.org/linkml/",
+   "measurement": "https://w3id.org/linkml/phenopackets/measurement/",
+   "medical_action": "https://w3id.org/linkml/phenopackets/medical_action/",
+   "meta_data": "https://w3id.org/linkml/phenopackets/meta_data/",
+   "pedigree": "https://w3id.org/linkml/phenopackets/pedigree/",
+   "phenopackets": "https://w3id.org/linkml/phenopackets/phenopackets/",
+   "phenotypic_feature": "https://w3id.org/linkml/phenopackets/phenotypic_feature/",
+   "timestamp": "https://w3id.org/linkml/phenopackets/timestamp/",
+   "vrs": "https://w3id.org/linkml/phenopackets/vrs/",
+   "vrsatile": "https://w3id.org/linkml/phenopackets/vrsatile/",
+   "Abundance": {
+      "@id": "vrs:Abundance"
+   },
+   "Age": {
+      "@id": "base:Age"
+   },
+   "AgeRange": {
+      "@id": "base:AgeRange"
+   },
+   "Allele": {
+      "@id": "vrs:Allele"
+   },
+   "Any": {
+      "@id": "any:Any"
+   },
+   "Biosample": {
+      "@id": "biosample:Biosample"
+   },
+   "ChromosomeLocation": {
+      "@id": "vrs:ChromosomeLocation"
+   },
+   "ComplexValue": {
+      "@id": "measurement:ComplexValue"
+   },
+   "CopyNumber": {
+      "@id": "vrs:CopyNumber"
+   },
+   "CytobandInterval": {
+      "@id": "vrs:CytobandInterval"
+   },
+   "DefiniteRange": {
+      "@id": "vrs:DefiniteRange"
+   },
+   "DerivedSequenceExpression": {
+      "@id": "vrs:DerivedSequenceExpression"
+   },
+   "Diagnosis": {
+      "@id": "interpretation:Diagnosis"
+   },
+   "Dictionary": {
+      "@id": "base:Dictionary"
+   },
+   "Disease": {
+      "@id": "disease:Disease"
+   },
+   "DoseInterval": {
+      "@id": "medical_action:DoseInterval"
+   },
+   "Evidence": {
+      "@id": "base:Evidence"
+   },
+   "Expression": {
+      "@id": "vrsatile:Expression"
+   },
+   "Extension": {
+      "@id": "vrsatile:Extension"
+   },
+   "ExternalReference": {
+      "@id": "base:ExternalReference"
+   },
+   "Feature": {
+      "@id": "vrs:Feature"
+   },
+   "File": {
+      "@id": "base:File"
+   },
+   "Gene": {
+      "@id": "vrs:Gene"
+   },
+   "GeneDescriptor": {
+      "@id": "vrsatile:GeneDescriptor"
+   },
+   "GenomicInterpretation": {
+      "@id": "interpretation:GenomicInterpretation"
+   },
+   "GestationalAge": {
+      "@id": "base:GestationalAge"
+   },
+   "Haplotype": {
+      "@id": "vrs:Haplotype"
+   },
+   "IndefiniteRange": {
+      "@id": "vrs:IndefiniteRange"
+   },
+   "Individual": {
+      "@id": "individual:Individual"
+   },
+   "Interpretation": {
+      "@id": "interpretation:Interpretation"
+   },
+   "LiteralSequenceExpression": {
+      "@id": "vrs:LiteralSequenceExpression"
+   },
+   "Location": {
+      "@id": "vrs:Location"
+   },
+   "Measurement": {
+      "@id": "measurement:Measurement"
+   },
+   "MedicalAction": {
+      "@id": "medical_action:MedicalAction"
+   },
+   "Member": {
+      "@id": "vrs:Member"
+   },
+   "MetaData": {
+      "@id": "meta_data:MetaData"
+   },
+   "MolecularVariation": {
+      "@id": "vrs:MolecularVariation"
+   },
+   "Number": {
+      "@id": "vrs:Number"
+   },
+   "OntologyClass": {
+      "@id": "base:OntologyClass"
+   },
+   "Pedigree": {
+      "@id": "pedigree:Pedigree"
+   },
+   "Person": {
+      "@id": "pedigree:Person"
+   },
+   "PhenotypicFeature": {
+      "@id": "phenotypic_feature:PhenotypicFeature"
+   },
+   "Procedure": {
+      "@id": "base:Procedure"
+   },
+   "Quantity": {
+      "@id": "measurement:Quantity"
+   },
+   "RadiationTherapy": {
+      "@id": "medical_action:RadiationTherapy"
+   },
+   "ReferenceRange": {
+      "@id": "measurement:ReferenceRange"
+   },
+   "RepeatedSequenceExpression": {
+      "@id": "vrs:RepeatedSequenceExpression"
+   },
+   "Resource": {
+      "@id": "meta_data:Resource"
+   },
+   "SequenceExpression": {
+      "@id": "vrs:SequenceExpression"
+   },
+   "SequenceInterval": {
+      "@id": "vrs:SequenceInterval"
+   },
+   "SequenceLocation": {
+      "@id": "vrs:SequenceLocation"
+   },
+   "SequenceState": {
+      "@id": "vrs:SequenceState"
+   },
+   "SimpleInterval": {
+      "@id": "vrs:SimpleInterval"
+   },
+   "SystemicVariation": {
+      "@id": "vrs:SystemicVariation"
+   },
+   "Text": {
+      "@id": "vrs:Text"
+   },
+   "TherapeuticRegimen": {
+      "@id": "medical_action:TherapeuticRegimen"
+   },
+   "TimeElement": {
+      "@id": "base:TimeElement"
+   },
+   "TimeInterval": {
+      "@id": "base:TimeInterval"
+   },
+   "Timestamp": {
+      "@id": "timestamp:Timestamp"
+   },
+   "Treatment": {
+      "@id": "medical_action:Treatment"
+   },
+   "TypedQuantity": {
+      "@id": "measurement:TypedQuantity"
+   },
+   "Update": {
+      "@id": "meta_data:Update"
+   },
+   "UtilityVariation": {
+      "@id": "vrs:UtilityVariation"
+   },
+   "Value": {
+      "@id": "measurement:Value"
+   },
+   "VariantInterpretation": {
+      "@id": "interpretation:VariantInterpretation"
+   },
+   "Variation": {
+      "@id": "vrs:Variation"
+   },
+   "VariationDescriptor": {
+      "@id": "vrsatile:VariationDescriptor"
+   },
+   "VariationSet": {
+      "@id": "vrs:VariationSet"
+   },
+   "VcfRecord": {
+      "@id": "vrsatile:VcfRecord"
+   },
+   "VitalStatus": {
+      "@id": "individual:VitalStatus"
+   }
+}

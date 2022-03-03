@@ -1,0 +1,758 @@
+BASE <https://w3id.org/linkml/phenopackets/phenopackets/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX base: <https://w3id.org/linkml/phenopackets/base/>
+PREFIX biosample: <https://w3id.org/linkml/phenopackets/biosample/>
+PREFIX disease: <https://w3id.org/linkml/phenopackets/disease/>
+PREFIX interpretation: <https://w3id.org/linkml/phenopackets/interpretation/>
+PREFIX individual: <https://w3id.org/linkml/phenopackets/individual/>
+PREFIX measurement: <https://w3id.org/linkml/phenopackets/measurement/>
+PREFIX medical_action: <https://w3id.org/linkml/phenopackets/medical_action/>
+PREFIX meta_data: <https://w3id.org/linkml/phenopackets/meta_data/>
+PREFIX pedigree: <https://w3id.org/linkml/phenopackets/pedigree/>
+PREFIX phenotypic_feature: <https://w3id.org/linkml/phenopackets/phenotypic_feature/>
+PREFIX timestamp: <https://w3id.org/linkml/phenopackets/timestamp/>
+PREFIX vrsatile: <https://w3id.org/linkml/phenopackets/vrsatile/>
+PREFIX any: <https://w3id.org/linkml/phenopackets/any/>
+PREFIX vrs: <https://w3id.org/linkml/phenopackets/vrs/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:dateTime
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:Uriorcurie IRI
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+vrs:Abundance CLOSED {
+    (  $vrs:Abundance_tes <copyNumber> @vrs:CopyNumber ? ;
+       rdf:type [ vrs:Abundance ] ?
+    )
+}
+
+base:Age CLOSED {
+    (  $base:Age_tes <iso8601duration> @linkml:String ? ;
+       rdf:type [ base:Age ] ?
+    )
+}
+
+base:AgeRange CLOSED {
+    (  $base:AgeRange_tes (  <end> @base:Age ? ;
+          <start> @base:Age ?
+       ) ;
+       rdf:type [ base:AgeRange ] ?
+    )
+}
+
+vrs:Allele CLOSED {
+    (  $vrs:Allele_tes (  <Id> @linkml:String ? ;
+          <chromosomeLocation> @vrs:ChromosomeLocation ? ;
+          <curie> @linkml:String ? ;
+          <derivedSequenceExpression> @vrs:DerivedSequenceExpression ? ;
+          <literalSequenceExpression> @vrs:LiteralSequenceExpression ? ;
+          <repeatedSequenceExpression> @vrs:RepeatedSequenceExpression ? ;
+          <sequenceLocation> @vrs:SequenceLocation ?
+       ) ;
+       rdf:type [ vrs:Allele ] ?
+    )
+}
+
+any:Any CLOSED {
+    (  $any:Any_tes (  <typeUrl> @linkml:String ? ;
+          <value> @linkml:String ?
+       ) ;
+       rdf:type [ any:Any ] ?
+    )
+}
+
+biosample:Biosample CLOSED {
+    (  $biosample:Biosample_tes (  <derivedFromId> @linkml:String ? ;
+          <description> @linkml:String ? ;
+          <diagnosticMarkers> @base:OntologyClass * ;
+          <files> @base:File * ;
+          <histologicalDiagnosis> @base:OntologyClass ? ;
+          <individualId> @linkml:String ? ;
+          <materialSample> @base:OntologyClass ? ;
+          <measurements> @measurement:Measurement * ;
+          <pathologicalStage> @base:OntologyClass ? ;
+          <pathologicalTnmFinding> @base:OntologyClass * ;
+          <phenotypicFeatures> @phenotypic_feature:PhenotypicFeature * ;
+          <procedure> @base:Procedure ? ;
+          <sampleProcessing> @base:OntologyClass ? ;
+          <sampleStorage> @base:OntologyClass ? ;
+          <sampleType> @base:OntologyClass ? ;
+          <sampledTissue> @base:OntologyClass ? ;
+          <taxonomy> @base:OntologyClass ? ;
+          <timeOfCollection> @base:TimeElement ? ;
+          <tumorGrade> @base:OntologyClass ? ;
+          <tumorProgression> @base:OntologyClass ?
+       ) ;
+       rdf:type [ biosample:Biosample ]
+    )
+}
+
+vrs:ChromosomeLocation CLOSED {
+    (  $vrs:ChromosomeLocation_tes (  <Id> @linkml:String ? ;
+          <chr> @linkml:String ? ;
+          <interval> @vrs:CytobandInterval ? ;
+          <speciesId> @linkml:String ?
+       ) ;
+       rdf:type [ vrs:ChromosomeLocation ] ?
+    )
+}
+
+<Cohort> CLOSED {
+    (  $<Cohort_tes> (  <description> @linkml:String ? ;
+          <files> @base:File * ;
+          <members> @<Phenopacket> * ;
+          <metaData> @meta_data:MetaData
+       ) ;
+       rdf:type [ <Cohort> ]
+    )
+}
+
+measurement:ComplexValue CLOSED {
+    (  $measurement:ComplexValue_tes <typedQuantities> @measurement:TypedQuantity * ;
+       rdf:type [ measurement:ComplexValue ] ?
+    )
+}
+
+vrs:CopyNumber CLOSED {
+    (  $vrs:CopyNumber_tes (  <Id> @linkml:String ? ;
+          <allele> @vrs:Allele ? ;
+          <curie> @linkml:String ? ;
+          <definiteRange> @vrs:DefiniteRange ? ;
+          <derivedSequenceExpression> @vrs:DerivedSequenceExpression ? ;
+          <gene> @vrs:Gene ? ;
+          <haplotype> @vrs:Haplotype ? ;
+          <indefiniteRange> @vrs:IndefiniteRange ? ;
+          <literalSequenceExpression> @vrs:LiteralSequenceExpression ? ;
+          <number> @vrs:Number ? ;
+          <repeatedSequenceExpression> @vrs:RepeatedSequenceExpression ?
+       ) ;
+       rdf:type [ vrs:CopyNumber ] ?
+    )
+}
+
+vrs:CytobandInterval CLOSED {
+    (  $vrs:CytobandInterval_tes (  <end> @linkml:String ? ;
+          <start> @linkml:String ?
+       ) ;
+       rdf:type [ vrs:CytobandInterval ] ?
+    )
+}
+
+vrs:DefiniteRange CLOSED {
+    (  $vrs:DefiniteRange_tes (  <max> @linkml:Integer ? ;
+          <min> @linkml:Integer ?
+       ) ;
+       rdf:type [ vrs:DefiniteRange ] ?
+    )
+}
+
+vrs:DerivedSequenceExpression CLOSED {
+    (  $vrs:DerivedSequenceExpression_tes (  <location> @vrs:SequenceLocation ? ;
+          <reverseComplement> @linkml:Boolean ?
+       ) ;
+       rdf:type [ vrs:DerivedSequenceExpression ] ?
+    )
+}
+
+interpretation:Diagnosis CLOSED {
+    (  $interpretation:Diagnosis_tes (  <disease> @base:OntologyClass ? ;
+          <genomicInterpretations> @interpretation:GenomicInterpretation *
+       ) ;
+       rdf:type [ interpretation:Diagnosis ] ?
+    )
+}
+
+base:Dictionary CLOSED {
+    (  $base:Dictionary_tes rdf:type . * ;
+       rdf:type [ base:Dictionary ] ?
+    )
+}
+
+disease:Disease CLOSED {
+    (  $disease:Disease_tes (  <clinicalTnmFinding> @base:OntologyClass * ;
+          <diseaseStage> @base:OntologyClass * ;
+          <excluded> @linkml:Boolean ? ;
+          <laterality> @base:OntologyClass ? ;
+          <onset> @base:TimeElement ? ;
+          <primarySite> @base:OntologyClass ? ;
+          <resolution> @base:TimeElement ? ;
+          <term> @base:OntologyClass ?
+       ) ;
+       rdf:type [ disease:Disease ] ?
+    )
+}
+
+medical_action:DoseInterval CLOSED {
+    (  $medical_action:DoseInterval_tes (  <interval> @base:TimeInterval ? ;
+          <quantity> @measurement:Quantity ? ;
+          <scheduleFrequency> @base:OntologyClass ?
+       ) ;
+       rdf:type [ medical_action:DoseInterval ] ?
+    )
+}
+
+base:Evidence CLOSED {
+    (  $base:Evidence_tes (  <evidenceCode> @base:OntologyClass ? ;
+          <reference> @base:ExternalReference ?
+       ) ;
+       rdf:type [ base:Evidence ] ?
+    )
+}
+
+vrsatile:Expression CLOSED {
+    (  $vrsatile:Expression_tes (  <syntax> @linkml:String ? ;
+          <value> @linkml:String ? ;
+          <version> @linkml:String ?
+       ) ;
+       rdf:type [ vrsatile:Expression ] ?
+    )
+}
+
+vrsatile:Extension CLOSED {
+    (  $vrsatile:Extension_tes (  <name> @linkml:String ? ;
+          <value> @any:Any *
+       ) ;
+       rdf:type [ vrsatile:Extension ] ?
+    )
+}
+
+base:ExternalReference CLOSED {
+    (  $base:ExternalReference_tes (  <description> @linkml:String ? ;
+          <reference> @linkml:String ?
+       ) ;
+       rdf:type [ base:ExternalReference ]
+    )
+}
+
+<Family> CLOSED {
+    (  $<Family_tes> (  <consanguinousParents> @linkml:Boolean ? ;
+          <files> @base:File * ;
+          <metaData> @meta_data:MetaData ;
+          <pedigree> @pedigree:Pedigree ? ;
+          <proband> @<Phenopacket> ? ;
+          <relatives> @<Phenopacket> *
+       ) ;
+       rdf:type [ <Family> ]
+    )
+}
+
+vrs:Feature CLOSED {
+    (  $vrs:Feature_tes <gene> @vrs:Gene ? ;
+       rdf:type [ vrs:Feature ] ?
+    )
+}
+
+base:File CLOSED {
+    (  $base:File_tes (  <fileAttributes> @base:Dictionary ? ;
+          <individualToFileIdentifiers> @base:Dictionary ? ;
+          <uri> @linkml:String ?
+       ) ;
+       rdf:type [ base:File ] ?
+    )
+}
+
+vrs:Gene CLOSED {
+    (  $vrs:Gene_tes <geneId> @linkml:String ? ;
+       rdf:type [ vrs:Gene ] ?
+    )
+}
+
+vrsatile:GeneDescriptor CLOSED {
+    (  $vrsatile:GeneDescriptor_tes (  <alternateIds> @linkml:String * ;
+          <alternateSymbols> @linkml:String * ;
+          <description> @linkml:String ? ;
+          <symbol> @linkml:String ? ;
+          <valueId> @linkml:String ? ;
+          <xrefs> @linkml:String *
+       ) ;
+       rdf:type [ vrsatile:GeneDescriptor ] ?
+    )
+}
+
+interpretation:GenomicInterpretation CLOSED {
+    (  $interpretation:GenomicInterpretation_tes (  <gene> @vrsatile:GeneDescriptor ? ;
+          <interpretationStatus> @interpretation:InterpretationStatus ? ;
+          <subjectOrBiosampleId> @linkml:String ? ;
+          <variantInterpretation> @interpretation:VariantInterpretation ?
+       ) ;
+       rdf:type [ interpretation:GenomicInterpretation ] ?
+    )
+}
+
+base:GestationalAge CLOSED {
+    (  $base:GestationalAge_tes (  <days> @linkml:Integer ? ;
+          <weeks> @linkml:Integer ?
+       ) ;
+       rdf:type [ base:GestationalAge ] ?
+    )
+}
+
+vrs:Haplotype CLOSED {
+    (  $vrs:Haplotype_tes rdf:type . * ;
+       rdf:type [ vrs:Haplotype ] ?
+    )
+}
+
+vrs:IndefiniteRange CLOSED {
+    (  $vrs:IndefiniteRange_tes (  <comparator> @linkml:String ? ;
+          <value> @linkml:Integer ?
+       ) ;
+       rdf:type [ vrs:IndefiniteRange ] ?
+    )
+}
+
+individual:Individual CLOSED {
+    (  $individual:Individual_tes (  <alternateIds> @linkml:String * ;
+          <dateOfBirth> @linkml:String ? ;
+          <gender> @base:OntologyClass ? ;
+          <karyotypicSex> @individual:KaryotypicSex ? ;
+          <sex> @individual:Sex ? ;
+          <taxonomy> @base:OntologyClass ? ;
+          <timeAtLastEncounter> @base:TimeElement ? ;
+          <vitalStatus> @individual:VitalStatus ?
+       ) ;
+       rdf:type [ individual:Individual ]
+    )
+}
+
+interpretation:Interpretation CLOSED {
+    (  $interpretation:Interpretation_tes (  <diagnosis> @interpretation:Diagnosis ? ;
+          <progressStatus> @interpretation:ProgressStatus ? ;
+          <summary> @linkml:String ?
+       ) ;
+       rdf:type [ interpretation:Interpretation ]
+    )
+}
+
+vrs:LiteralSequenceExpression CLOSED {
+    (  $vrs:LiteralSequenceExpression_tes <sequence> @linkml:String ? ;
+       rdf:type [ vrs:LiteralSequenceExpression ] ?
+    )
+}
+
+vrs:Location CLOSED {
+    (  $vrs:Location_tes (  <chromosomeLocation> @vrs:ChromosomeLocation ? ;
+          <sequenceLocation> @vrs:SequenceLocation ?
+       ) ;
+       rdf:type [ vrs:Location ] ?
+    )
+}
+
+measurement:Measurement CLOSED {
+    (  $measurement:Measurement_tes (  <assay> @base:OntologyClass ? ;
+          <complexValue> @measurement:ComplexValue ? ;
+          <description> @linkml:String ? ;
+          <procedure> @base:Procedure ? ;
+          <timeObserved> @base:TimeElement ? ;
+          <value> @measurement:Value ?
+       ) ;
+       rdf:type [ measurement:Measurement ] ?
+    )
+}
+
+medical_action:MedicalAction CLOSED {
+    (  $medical_action:MedicalAction_tes (  <adverseEvents> @base:OntologyClass * ;
+          <procedure> @base:Procedure ? ;
+          <radiationTherapy> @medical_action:RadiationTherapy ? ;
+          <responseToTreatment> @base:OntologyClass ? ;
+          <therapeuticRegimen> @medical_action:TherapeuticRegimen ? ;
+          <treatment> @medical_action:Treatment ? ;
+          <treatmentIntent> @base:OntologyClass ? ;
+          <treatmentTarget> @base:OntologyClass ? ;
+          <treatmentTerminationReason> @base:OntologyClass ?
+       ) ;
+       rdf:type [ medical_action:MedicalAction ] ?
+    )
+}
+
+vrs:Member CLOSED {
+    (  $vrs:Member_tes (  <Id> @linkml:String ? ;
+          <allele> @vrs:Allele ? ;
+          <copyNumber> @vrs:CopyNumber ? ;
+          <curie> @linkml:String ? ;
+          <haplotype> @vrs:Haplotype ? ;
+          <members> @vrs:Member * ;
+          <text> @vrs:Text ? ;
+          <variationSet> @vrs:VariationSet ?
+       ) ;
+       rdf:type [ vrs:Member ] ?
+    )
+}
+
+meta_data:MetaData CLOSED {
+    (  $meta_data:MetaData_tes (  <created> @linkml:String ? ;
+          <createdBy> @linkml:String ? ;
+          <externalReferences> @base:ExternalReference * ;
+          <phenopacketSchemaVersion> @linkml:String ? ;
+          <resources> @meta_data:Resource * ;
+          <submittedBy> @linkml:String ? ;
+          <updates> @meta_data:Update *
+       ) ;
+       rdf:type [ meta_data:MetaData ] ?
+    )
+}
+
+vrs:MolecularVariation CLOSED {
+    (  $vrs:MolecularVariation_tes (  <allele> @vrs:Allele ? ;
+          <haplotype> @vrs:Haplotype ?
+       ) ;
+       rdf:type [ vrs:MolecularVariation ] ?
+    )
+}
+
+vrs:Number CLOSED {
+    (  $vrs:Number_tes <value> @linkml:Integer ? ;
+       rdf:type [ vrs:Number ] ?
+    )
+}
+
+base:OntologyClass CLOSED {
+    (  $base:OntologyClass_tes <label> @linkml:String ? ;
+       rdf:type [ base:OntologyClass ]
+    )
+}
+
+pedigree:Pedigree CLOSED {
+    (  $pedigree:Pedigree_tes <persons> @pedigree:Person * ;
+       rdf:type [ pedigree:Pedigree ] ?
+    )
+}
+
+pedigree:Person CLOSED {
+    (  $pedigree:Person_tes (  <affectedStatus> @pedigree:AffectedStatus ? ;
+          <familyId> @linkml:String ? ;
+          <individualId> @linkml:String ? ;
+          <maternalId> @linkml:String ? ;
+          <paternalId> @linkml:String ? ;
+          <sex> @individual:Sex ?
+       ) ;
+       rdf:type [ pedigree:Person ] ?
+    )
+}
+
+<Phenopacket> CLOSED {
+    (  $<Phenopacket_tes> (  <biosamples> @biosample:Biosample * ;
+          <diseases> @disease:Disease * ;
+          <files> @base:File * ;
+          <interpretations> @interpretation:Interpretation * ;
+          <measurements> @measurement:Measurement * ;
+          <medicalActions> @medical_action:MedicalAction * ;
+          <metaData> @meta_data:MetaData ;
+          <phenotypicFeatures> @phenotypic_feature:PhenotypicFeature * ;
+          <subject> @individual:Individual ?
+       ) ;
+       rdf:type [ <Phenopacket> ]
+    )
+}
+
+phenotypic_feature:PhenotypicFeature CLOSED {
+    (  $phenotypic_feature:PhenotypicFeature_tes (  <description> @linkml:String ? ;
+          <evidence> @base:Evidence * ;
+          <excluded> @linkml:Boolean ? ;
+          <modifiers> @base:OntologyClass * ;
+          <onset> @base:TimeElement ? ;
+          <resolution> @base:TimeElement ? ;
+          <severity> @base:OntologyClass ? ;
+          <type> @base:OntologyClass ?
+       ) ;
+       rdf:type [ phenotypic_feature:PhenotypicFeature ] ?
+    )
+}
+
+base:Procedure CLOSED {
+    (  $base:Procedure_tes (  <bodySite> @base:OntologyClass ? ;
+          <code> @base:OntologyClass ? ;
+          <performed> @base:TimeElement ?
+       ) ;
+       rdf:type [ base:Procedure ] ?
+    )
+}
+
+measurement:Quantity CLOSED {
+    (  $measurement:Quantity_tes (  <referenceRange> @measurement:ReferenceRange ? ;
+          <unit> @base:OntologyClass ? ;
+          <value> @linkml:Double ?
+       ) ;
+       rdf:type [ measurement:Quantity ] ?
+    )
+}
+
+medical_action:RadiationTherapy CLOSED {
+    (  $medical_action:RadiationTherapy_tes (  <bodySite> @base:OntologyClass ;
+          <dosage> @linkml:Integer ;
+          <fractions> @linkml:Integer ;
+          <modality> @base:OntologyClass
+       ) ;
+       rdf:type [ medical_action:RadiationTherapy ] ?
+    )
+}
+
+measurement:ReferenceRange CLOSED {
+    (  $measurement:ReferenceRange_tes (  <high> @linkml:Double ? ;
+          <low> @linkml:Double ? ;
+          <unit> @base:OntologyClass ?
+       ) ;
+       rdf:type [ measurement:ReferenceRange ] ?
+    )
+}
+
+vrs:RepeatedSequenceExpression CLOSED {
+    (  $vrs:RepeatedSequenceExpression_tes (  <definiteRange> @vrs:DefiniteRange ? ;
+          <derivedSequenceExpression> @vrs:DerivedSequenceExpression ? ;
+          <indefiniteRange> @vrs:IndefiniteRange ? ;
+          <literalSequenceExpression> @vrs:LiteralSequenceExpression ? ;
+          <number> @vrs:Number ?
+       ) ;
+       rdf:type [ vrs:RepeatedSequenceExpression ] ?
+    )
+}
+
+meta_data:Resource CLOSED {
+    (  $meta_data:Resource_tes (  <iriPrefix> @linkml:String ? ;
+          <name> @linkml:String ? ;
+          <namespacePrefix> @linkml:String ? ;
+          <url> @linkml:String ? ;
+          <version> @linkml:String ?
+       ) ;
+       rdf:type [ meta_data:Resource ]
+    )
+}
+
+vrs:SequenceExpression CLOSED {
+    (  $vrs:SequenceExpression_tes (  <derivedSequenceExpression> @vrs:DerivedSequenceExpression ? ;
+          <literalSequenceExpression> @vrs:LiteralSequenceExpression ? ;
+          <repeatedSequenceExpression> @vrs:RepeatedSequenceExpression ?
+       ) ;
+       rdf:type [ vrs:SequenceExpression ] ?
+    )
+}
+
+vrs:SequenceInterval CLOSED {
+    (  $vrs:SequenceInterval_tes (  <endDefiniteRange> @vrs:DefiniteRange ? ;
+          <endIndefiniteRange> @vrs:IndefiniteRange ? ;
+          <endNumber> @vrs:Number ? ;
+          <startDefiniteRange> @vrs:DefiniteRange ? ;
+          <startIndefiniteRange> @vrs:IndefiniteRange ? ;
+          <startNumber> @vrs:Number ?
+       ) ;
+       rdf:type [ vrs:SequenceInterval ] ?
+    )
+}
+
+vrs:SequenceLocation CLOSED {
+    (  $vrs:SequenceLocation_tes (  <Id> @linkml:String ? ;
+          <sequenceId> @linkml:String ? ;
+          <sequenceInterval> @vrs:SequenceInterval ?
+       ) ;
+       rdf:type [ vrs:SequenceLocation ] ?
+    )
+}
+
+vrs:SequenceState CLOSED {
+    (  $vrs:SequenceState_tes <sequence> @linkml:String ? ;
+       rdf:type [ vrs:SequenceState ] ?
+    )
+}
+
+vrs:SimpleInterval CLOSED {
+    (  $vrs:SimpleInterval_tes (  <end> @linkml:Integer ? ;
+          <start> @linkml:Integer ?
+       ) ;
+       rdf:type [ vrs:SimpleInterval ] ?
+    )
+}
+
+vrs:SystemicVariation CLOSED {
+    (  $vrs:SystemicVariation_tes <copyNumber> @vrs:CopyNumber ? ;
+       rdf:type [ vrs:SystemicVariation ] ?
+    )
+}
+
+vrs:Text CLOSED {
+    (  $vrs:Text_tes (  <Id> @linkml:String ? ;
+          <definition> @linkml:String ?
+       ) ;
+       rdf:type [ vrs:Text ] ?
+    )
+}
+
+medical_action:TherapeuticRegimen CLOSED {
+    (  $medical_action:TherapeuticRegimen_tes (  <endTime> @base:TimeElement ? ;
+          <externalReference> @base:ExternalReference ? ;
+          <ontologyClass> @base:OntologyClass ? ;
+          <regimenStatus> @medical_action:RegimenStatus ? ;
+          <startTime> @base:TimeElement ?
+       ) ;
+       rdf:type [ medical_action:TherapeuticRegimen ] ?
+    )
+}
+
+base:TimeElement CLOSED {
+    (  $base:TimeElement_tes (  <age> @base:Age ? ;
+          <ageRange> @base:AgeRange ? ;
+          <gestationalAge> @base:GestationalAge ? ;
+          <interval> @base:TimeInterval ? ;
+          <ontologyClass> @base:OntologyClass ? ;
+          <timestamp> @linkml:String ?
+       ) ;
+       rdf:type [ base:TimeElement ] ?
+    )
+}
+
+base:TimeInterval CLOSED {
+    (  $base:TimeInterval_tes (  <end> @linkml:String ? ;
+          <start> @linkml:String ?
+       ) ;
+       rdf:type [ base:TimeInterval ] ?
+    )
+}
+
+timestamp:Timestamp CLOSED {
+    (  $timestamp:Timestamp_tes (  <nanos> @linkml:Integer ? ;
+          <seconds> @linkml:Integer ?
+       ) ;
+       rdf:type [ timestamp:Timestamp ] ?
+    )
+}
+
+medical_action:Treatment CLOSED {
+    (  $medical_action:Treatment_tes (  <agent> @base:OntologyClass ? ;
+          <cumulativeDose> @measurement:Quantity ? ;
+          <doseIntervals> @medical_action:DoseInterval * ;
+          <drugType> @medical_action:DrugType ? ;
+          <routeOfAdministration> @base:OntologyClass ?
+       ) ;
+       rdf:type [ medical_action:Treatment ] ?
+    )
+}
+
+measurement:TypedQuantity CLOSED {
+    (  $measurement:TypedQuantity_tes (  <quantity> @measurement:Quantity ? ;
+          <type> @base:OntologyClass ?
+       ) ;
+       rdf:type [ measurement:TypedQuantity ] ?
+    )
+}
+
+meta_data:Update CLOSED {
+    (  $meta_data:Update_tes (  <comment> @linkml:String ? ;
+          <timestamp> @linkml:String ;
+          <updatedBy> @linkml:String ?
+       ) ;
+       rdf:type [ meta_data:Update ] ?
+    )
+}
+
+vrs:UtilityVariation CLOSED {
+    (  $vrs:UtilityVariation_tes (  <text> @vrs:Text ? ;
+          <variationSet> @vrs:VariationSet ?
+       ) ;
+       rdf:type [ vrs:UtilityVariation ] ?
+    )
+}
+
+measurement:Value CLOSED {
+    (  $measurement:Value_tes (  <ontologyClass> @base:OntologyClass ? ;
+          <quantity> @measurement:Quantity ?
+       ) ;
+       rdf:type [ measurement:Value ] ?
+    )
+}
+
+interpretation:VariantInterpretation CLOSED {
+    (  $interpretation:VariantInterpretation_tes (  <acmgPathogenicityClassification>
+          @interpretation:AcmgPathogenicityClassification ? ;
+          <therapeuticActionability> @interpretation:TherapeuticActionability ? ;
+          <variationDescriptor> @vrsatile:VariationDescriptor ?
+       ) ;
+       rdf:type [ interpretation:VariantInterpretation ] ?
+    )
+}
+
+vrs:Variation CLOSED {
+    (  $vrs:Variation_tes (  <allele> @vrs:Allele ? ;
+          <copyNumber> @vrs:CopyNumber ? ;
+          <haplotype> @vrs:Haplotype ? ;
+          <text> @vrs:Text ? ;
+          <variationSet> @vrs:VariationSet ?
+       ) ;
+       rdf:type [ vrs:Variation ] ?
+    )
+}
+
+vrsatile:VariationDescriptor CLOSED {
+    (  $vrsatile:VariationDescriptor_tes (  <allelicState> @base:OntologyClass ? ;
+          <alternateLabels> @linkml:String * ;
+          <description> @linkml:String ? ;
+          <expressions> @vrsatile:Expression * ;
+          <extensions> @vrsatile:Extension * ;
+          <geneContext> @vrsatile:GeneDescriptor ? ;
+          <label> @linkml:String ? ;
+          <moleculeContext> @vrsatile:MoleculeContext ? ;
+          <structuralType> @base:OntologyClass ? ;
+          <variation> @vrs:Variation ? ;
+          <vcfRecord> @vrsatile:VcfRecord ? ;
+          <vrsRefAlleleSeq> @linkml:String ? ;
+          <xrefs> @linkml:String *
+       ) ;
+       rdf:type [ vrsatile:VariationDescriptor ]
+    )
+}
+
+vrs:VariationSet CLOSED {
+    (  $vrs:VariationSet_tes rdf:type . * ;
+       rdf:type [ vrs:VariationSet ] ?
+    )
+}
+
+vrsatile:VcfRecord CLOSED {
+    (  $vrsatile:VcfRecord_tes (  <alt> @linkml:String ? ;
+          <chrom> @linkml:String ? ;
+          <filter> @linkml:String ? ;
+          <genomeAssembly> @linkml:String ? ;
+          <info> @linkml:String ? ;
+          <pos> @linkml:Integer ? ;
+          <qual> @linkml:String ? ;
+          <ref> @linkml:String ?
+       ) ;
+       rdf:type [ vrsatile:VcfRecord ]
+    )
+}
+
+individual:VitalStatus CLOSED {
+    (  $individual:VitalStatus_tes (  <causeOfDeath> @base:OntologyClass ? ;
+          <status> @individual:Status ? ;
+          <survivalTimeInDays> @linkml:Integer ? ;
+          <timeOfDeath> @base:TimeElement ?
+       ) ;
+       rdf:type [ individual:VitalStatus ] ?
+    )
+}
+
+

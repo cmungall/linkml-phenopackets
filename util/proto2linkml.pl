@@ -1,0 +1,170 @@
+#!/usr/bin/perl -w
+use YAML::Syck;
+use strict;
+
+my $id = $ARGV[0];
+$id =~ s@.*/@@;
+$id =~ s@\.proto@@;
+my $url = "https://w3id.org/linkml/phenopackets/$id";
+
+my $schema = {
+    id => "$url",
+    name => $id,
+    default_prefix => $id,
+    description => "Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.",
+    prefixes =>
+    {
+        'linkml' => 'https://w3id.org/linkml/',
+            'argo' => 'https://docs.icgc-argo.org/dictionary/',
+            $id => "$url/",
+    },
+    imports => ['linkml:types'],
+    classes => {},
+    slots => {},
+    enums => {},
+};
+
+if ($id eq 'base') {
+    $schema->{classes}->{'Dictionary'} = {comments=>["TODO"]};
+}
+
+my %RMAP = (
+    'bool' => 'boolean',
+    'uint32' => 'integer',
+    'uint64' => 'integer',
+    'bytes' => 'string',
+    'int32' => 'integer',
+    'int64' => 'integer',
+    'Timestamp' => 'string',   # https://github.com/linkml/linkml/issues/629
+    'map<string, string>' => 'Dictionary',
+    );
+
+my $level = 0;
+my @elts = ();
+my $desc = "";
+my $c = {};
+my $e = {};
+my @stack = ();
+my @oneofs = ();
+my $pack;
+while(<>) {
+    chomp;
+    next if $_ eq "";
+    my $top;
+    if (@stack) {
+        $top = $stack[-1];
+    }
+    else {
+        $top = '';
+    }
+    if (m@^import ".*/(\w+)\.proto"@) {
+        push(@{$schema->{imports}}, $1);
+    }
+    elsif (m@^\s*//\s*(.*)@) {
+        if ($desc) {
+            $desc .= " $1";
+        }
+        else {
+            $desc = "$1";
+        }
+    }
+    elsif (m@^\s*message\s+(\S+)\s+\{@) {
+        chomp $desc;
+        $c = {description=>$desc, attributes=>{}};
+        $schema->{classes}->{$1} = $c;
+        if ($1 eq 'Phenopacket') {
+            $schema->{classes}->{'Phenopacket'}->{'tree_root'} = 'true';
+        }
+        $desc = '';
+        push(@stack, 'c');
+    }
+    elsif (m@^\s*enum\s+(\S+)\s+\{@) {
+        chomp $desc;
+        $e = {description=>$desc, permissible_values=>{}};
+        $schema->{enums}->{$1} = $e;
+        $desc = '';
+        push(@stack, 'e');
+    }
+    elsif (m@^\s*oneof\s+(\S+)\s+\{@) {
+        chomp $desc;
+        #$e = {description=>$desc, permissible_values=>{}};
+        #$schema->{enums}->{$1} = $e;
+        $desc = '';
+        push(@stack, 'oneof');
+    }
+    elsif ($top eq 'e' && m@^\s+(\S+)\s+=\s+(\d+);@) {
+        chomp $desc;
+        $e->{permissible_values}->{$1} = {description=>$desc};
+        $desc = '';
+    }
+    elsif (m@deprecated=true@) {
+    }
+    elsif (($top eq 'c' || $top eq 'oneof') && m@^\s+(.*)\s+(\S+)\s+=\s+(\d+);@) {
+        my ($range, $n, $ord) = ($1,$2,$3,$4);
+        my $mv = 0;
+        if ($range =~ m@repeated (\S+)@) {
+            $range = $1;
+            $mv = 1;
+        }
+        while ($n =~ m@_@) {
+            $n =~ s@_(\w)@uc($1)@e;
+        }
+        $range =~ s@.*\.@@; ## google.protobuf.Timestamp -> Timestamp
+        if ($RMAP{$range}) {
+            $range = $RMAP{$range}
+        }
+        chomp $desc;
+        $c->{attributes}->{$n} = {range=>$range, description=>$desc, annotations=>{rank=>$ord}};
+        if ($mv) {
+            $c->{attributes}->{$n}->{multivalued} = 'true';
+        }
+        if ($n eq 'id') {
+            $c->{attributes}->{$n}->{identifier} = 'true';
+        }
+        if ($desc =~ m@REQUIRED@) {
+            $c->{attributes}->{$n}->{required} = 'true';
+        }
+        if ($desc =~ m@ARGO mapping (\S+)::(\S+)@) {
+            $c->{attributes}->{$n}->{exact_mappings} = ["ARGO:$1.$2"]
+        }
+        $desc = '';
+        if ($top eq 'oneof') {
+            push(@oneofs, $n);
+        }
+    }
+    elsif (m@^\s*\}@) {
+        my $popped = pop @stack;
+        if (!@stack) {
+            $c = {};
+            $e = {};
+        }
+        if ($popped eq 'oneof') {
+            my @conds = map { {slot_conditions=>{$_=>{required => 'true'}}} } @oneofs;
+            $c->{rules} = [{
+                postconditions => {
+                    exactly_one_of => \@conds
+                }
+                           }];
+            @oneofs = ();
+        }
+    }
+    elsif (m@syntax = "(\S+)";@) {
+        die unless $1 eq 'proto3';
+    }
+    elsif (m@package\s+(\S+);@) {
+        $pack = $1;
+    }
+    elsif (m@option\s+(\S+)\s+=(.*);@) {
+    }
+    else {
+        warn "UNP: $_\n";
+    }
+}
+
+foreach (@elts) {
+#    $schema->{classes}->{$_->{name}} = $_;
+}
+
+my $s = Dump($schema);
+$s =~ s@\-\-\-@@;
+print $s;

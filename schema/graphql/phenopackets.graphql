@@ -1,0 +1,584 @@
+type Abundance
+  {
+    copyNumber: CopyNumber
+  }
+
+type Age
+  {
+    iso8601duration: String
+  }
+
+type AgeRange
+  {
+    end: Age
+    start: Age
+  }
+
+type Allele
+  {
+    id: String
+    chromosomeLocation: ChromosomeLocation
+    curie: String
+    derivedSequenceExpression: DerivedSequenceExpression
+    literalSequenceExpression: LiteralSequenceExpression
+    repeatedSequenceExpression: RepeatedSequenceExpression
+    sequenceLocation: SequenceLocation
+  }
+
+type Any
+  {
+    typeUrl: String
+    value: String
+  }
+
+type Biosample
+  {
+    derivedFromId: String
+    description: String
+    diagnosticMarkers: [OntologyClass]
+    files: [File]
+    histologicalDiagnosis: OntologyClass
+    id: String!
+    individualId: String
+    materialSample: OntologyClass
+    measurements: [Measurement]
+    pathologicalStage: OntologyClass
+    pathologicalTnmFinding: [OntologyClass]
+    phenotypicFeatures: [PhenotypicFeature]
+    procedure: Procedure
+    sampleProcessing: OntologyClass
+    sampleStorage: OntologyClass
+    sampleType: OntologyClass
+    sampledTissue: OntologyClass
+    taxonomy: OntologyClass
+    timeOfCollection: TimeElement
+    tumorGrade: OntologyClass
+    tumorProgression: OntologyClass
+  }
+
+type ChromosomeLocation
+  {
+    id: String
+    chr: String
+    interval: CytobandInterval
+    speciesId: String
+  }
+
+type Cohort
+  {
+    description: String
+    files: [File]
+    id: String!
+    members: [Phenopacket]
+    metaData: MetaData!
+  }
+
+type ComplexValue
+  {
+    typedQuantities: [TypedQuantity]
+  }
+
+type CopyNumber
+  {
+    id: String
+    allele: Allele
+    curie: String
+    definiteRange: DefiniteRange
+    derivedSequenceExpression: DerivedSequenceExpression
+    gene: Gene
+    haplotype: Haplotype
+    indefiniteRange: IndefiniteRange
+    literalSequenceExpression: LiteralSequenceExpression
+    number: Number
+    repeatedSequenceExpression: RepeatedSequenceExpression
+  }
+
+type CytobandInterval
+  {
+    end: String
+    start: String
+  }
+
+type DefiniteRange
+  {
+    max: Integer
+    min: Integer
+  }
+
+type DerivedSequenceExpression
+  {
+    location: SequenceLocation
+    reverseComplement: Boolean
+  }
+
+type Diagnosis
+  {
+    disease: OntologyClass
+    genomicInterpretations: [GenomicInterpretation]
+  }
+
+type Dictionary
+  {
+  }
+
+type Disease
+  {
+    clinicalTnmFinding: [OntologyClass]
+    diseaseStage: [OntologyClass]
+    excluded: Boolean
+    laterality: OntologyClass
+    onset: TimeElement
+    primarySite: OntologyClass
+    resolution: TimeElement
+    term: OntologyClass
+  }
+
+type DoseInterval
+  {
+    interval: TimeInterval
+    quantity: Quantity
+    scheduleFrequency: OntologyClass
+  }
+
+type Evidence
+  {
+    evidenceCode: OntologyClass
+    reference: ExternalReference
+  }
+
+type Expression
+  {
+    syntax: String
+    value: String
+    version: String
+  }
+
+type Extension
+  {
+    name: String
+    value: [Any]
+  }
+
+type ExternalReference
+  {
+    description: String
+    id: String!
+    reference: String
+  }
+
+type Family
+  {
+    consanguinousParents: Boolean
+    files: [File]
+    id: String!
+    metaData: MetaData!
+    pedigree: Pedigree
+    proband: Phenopacket
+    relatives: [Phenopacket]
+  }
+
+type Feature
+  {
+    gene: Gene
+  }
+
+type File
+  {
+    fileAttributes: Dictionary
+    individualToFileIdentifiers: Dictionary
+    uri: String
+  }
+
+type Gene
+  {
+    geneId: String
+  }
+
+type GeneDescriptor
+  {
+    alternateIds: [String]
+    alternateSymbols: [String]
+    description: String
+    symbol: String
+    valueId: String
+    xrefs: [String]
+  }
+
+type GenomicInterpretation
+  {
+    gene: GeneDescriptor
+    interpretationStatus: InterpretationStatus
+    subjectOrBiosampleId: String
+    variantInterpretation: VariantInterpretation
+  }
+
+type GestationalAge
+  {
+    days: Integer
+    weeks: Integer
+  }
+
+type Haplotype
+  {
+  }
+
+type IndefiniteRange
+  {
+    comparator: String
+    value: Integer
+  }
+
+type Individual
+  {
+    alternateIds: [String]
+    dateOfBirth: String
+    gender: OntologyClass
+    id: String!
+    karyotypicSex: KaryotypicSex
+    sex: Sex
+    taxonomy: OntologyClass
+    timeAtLastEncounter: TimeElement
+    vitalStatus: VitalStatus
+  }
+
+type Interpretation
+  {
+    diagnosis: Diagnosis
+    id: String!
+    progressStatus: ProgressStatus
+    summary: String
+  }
+
+type LiteralSequenceExpression
+  {
+    sequence: String
+  }
+
+type Location
+  {
+    chromosomeLocation: ChromosomeLocation
+    sequenceLocation: SequenceLocation
+  }
+
+type Measurement
+  {
+    assay: OntologyClass
+    complexValue: ComplexValue
+    description: String
+    procedure: Procedure
+    timeObserved: TimeElement
+    value: Value
+  }
+
+type MedicalAction
+  {
+    adverseEvents: [OntologyClass]
+    procedure: Procedure
+    radiationTherapy: RadiationTherapy
+    responseToTreatment: OntologyClass
+    therapeuticRegimen: TherapeuticRegimen
+    treatment: Treatment
+    treatmentIntent: OntologyClass
+    treatmentTarget: OntologyClass
+    treatmentTerminationReason: OntologyClass
+  }
+
+type Member
+  {
+    id: String
+    allele: Allele
+    copyNumber: CopyNumber
+    curie: String
+    haplotype: Haplotype
+    members: [Member]
+    text: Text
+    variationSet: VariationSet
+  }
+
+type MetaData
+  {
+    created: String
+    createdBy: String
+    externalReferences: [ExternalReference]
+    phenopacketSchemaVersion: String
+    resources: [Resource]
+    submittedBy: String
+    updates: [Update]
+  }
+
+type MolecularVariation
+  {
+    allele: Allele
+    haplotype: Haplotype
+  }
+
+type Number
+  {
+    value: Integer
+  }
+
+type OntologyClass
+  {
+    id: String!
+    label: String
+  }
+
+type Pedigree
+  {
+    persons: [Person]
+  }
+
+type Person
+  {
+    affectedStatus: AffectedStatus
+    familyId: String
+    individualId: String
+    maternalId: String
+    paternalId: String
+    sex: Sex
+  }
+
+type Phenopacket
+  {
+    biosamples: [Biosample]
+    diseases: [Disease]
+    files: [File]
+    id: String!
+    interpretations: [Interpretation]
+    measurements: [Measurement]
+    medicalActions: [MedicalAction]
+    metaData: MetaData!
+    phenotypicFeatures: [PhenotypicFeature]
+    subject: Individual
+  }
+
+type PhenotypicFeature
+  {
+    description: String
+    evidence: [Evidence]
+    excluded: Boolean
+    modifiers: [OntologyClass]
+    onset: TimeElement
+    resolution: TimeElement
+    severity: OntologyClass
+    type: OntologyClass
+  }
+
+type Procedure
+  {
+    bodySite: OntologyClass
+    code: OntologyClass
+    performed: TimeElement
+  }
+
+type Quantity
+  {
+    referenceRange: ReferenceRange
+    unit: OntologyClass
+    value: Double
+  }
+
+type RadiationTherapy
+  {
+    bodySite: OntologyClass!
+    dosage: Integer!
+    fractions: Integer!
+    modality: OntologyClass!
+  }
+
+type ReferenceRange
+  {
+    high: Double
+    low: Double
+    unit: OntologyClass
+  }
+
+type RepeatedSequenceExpression
+  {
+    definiteRange: DefiniteRange
+    derivedSequenceExpression: DerivedSequenceExpression
+    indefiniteRange: IndefiniteRange
+    literalSequenceExpression: LiteralSequenceExpression
+    number: Number
+  }
+
+type Resource
+  {
+    id: String!
+    iriPrefix: String
+    name: String
+    namespacePrefix: String
+    url: String
+    version: String
+  }
+
+type SequenceExpression
+  {
+    derivedSequenceExpression: DerivedSequenceExpression
+    literalSequenceExpression: LiteralSequenceExpression
+    repeatedSequenceExpression: RepeatedSequenceExpression
+  }
+
+type SequenceInterval
+  {
+    endDefiniteRange: DefiniteRange
+    endIndefiniteRange: IndefiniteRange
+    endNumber: Number
+    startDefiniteRange: DefiniteRange
+    startIndefiniteRange: IndefiniteRange
+    startNumber: Number
+  }
+
+type SequenceLocation
+  {
+    id: String
+    sequenceId: String
+    sequenceInterval: SequenceInterval
+  }
+
+type SequenceState
+  {
+    sequence: String
+  }
+
+type SimpleInterval
+  {
+    end: Integer
+    start: Integer
+  }
+
+type SystemicVariation
+  {
+    copyNumber: CopyNumber
+  }
+
+type Text
+  {
+    id: String
+    definition: String
+  }
+
+type TherapeuticRegimen
+  {
+    endTime: TimeElement
+    externalReference: ExternalReference
+    ontologyClass: OntologyClass
+    regimenStatus: RegimenStatus
+    startTime: TimeElement
+  }
+
+type TimeElement
+  {
+    age: Age
+    ageRange: AgeRange
+    gestationalAge: GestationalAge
+    interval: TimeInterval
+    ontologyClass: OntologyClass
+    timestamp: String
+  }
+
+type TimeInterval
+  {
+    end: String
+    start: String
+  }
+
+type Timestamp
+  {
+    nanos: Integer
+    seconds: Integer
+  }
+
+type Treatment
+  {
+    agent: OntologyClass
+    cumulativeDose: Quantity
+    doseIntervals: [DoseInterval]
+    drugType: DrugType
+    routeOfAdministration: OntologyClass
+  }
+
+type TypedQuantity
+  {
+    quantity: Quantity
+    type: OntologyClass
+  }
+
+type Update
+  {
+    comment: String
+    timestamp: String!
+    updatedBy: String
+  }
+
+type UtilityVariation
+  {
+    text: Text
+    variationSet: VariationSet
+  }
+
+type Value
+  {
+    ontologyClass: OntologyClass
+    quantity: Quantity
+  }
+
+type VariantInterpretation
+  {
+    acmgPathogenicityClassification: AcmgPathogenicityClassification
+    therapeuticActionability: TherapeuticActionability
+    variationDescriptor: VariationDescriptor
+  }
+
+type Variation
+  {
+    allele: Allele
+    copyNumber: CopyNumber
+    haplotype: Haplotype
+    text: Text
+    variationSet: VariationSet
+  }
+
+type VariationDescriptor
+  {
+    allelicState: OntologyClass
+    alternateLabels: [String]
+    description: String
+    expressions: [Expression]
+    extensions: [Extension]
+    geneContext: GeneDescriptor
+    id: String!
+    label: String
+    moleculeContext: MoleculeContext
+    structuralType: OntologyClass
+    variation: Variation
+    vcfRecord: VcfRecord
+    vrsRefAlleleSeq: String
+    xrefs: [String]
+  }
+
+type VariationSet
+  {
+  }
+
+type VcfRecord
+  {
+    alt: String
+    chrom: String
+    filter: String
+    genomeAssembly: String
+    id: String!
+    info: String
+    pos: Integer
+    qual: String
+    ref: String
+  }
+
+type VitalStatus
+  {
+    causeOfDeath: OntologyClass
+    status: Status
+    survivalTimeInDays: Integer
+    timeOfDeath: TimeElement
+  }
+

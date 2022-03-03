@@ -1,0 +1,3043 @@
+@prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix argo: <https://docs.icgc-argo.org/dictionary/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+<https://w3id.org/linkml/phenopackets/phenopackets> a owl:Ontology ;
+    rdfs:label "phenopackets" ;
+    IAO:0000700 <https://w3id.org/linkml/phenopackets/any/Any>,
+        <https://w3id.org/linkml/phenopackets/base/Age>,
+        <https://w3id.org/linkml/phenopackets/base/AgeRange>,
+        <https://w3id.org/linkml/phenopackets/base/Dictionary>,
+        <https://w3id.org/linkml/phenopackets/base/Evidence>,
+        <https://w3id.org/linkml/phenopackets/base/ExternalReference>,
+        <https://w3id.org/linkml/phenopackets/base/File>,
+        <https://w3id.org/linkml/phenopackets/base/GestationalAge>,
+        <https://w3id.org/linkml/phenopackets/base/OntologyClass>,
+        <https://w3id.org/linkml/phenopackets/base/Procedure>,
+        <https://w3id.org/linkml/phenopackets/base/TimeElement>,
+        <https://w3id.org/linkml/phenopackets/base/TimeInterval>,
+        <https://w3id.org/linkml/phenopackets/biosample/Biosample>,
+        <https://w3id.org/linkml/phenopackets/disease/Disease>,
+        <https://w3id.org/linkml/phenopackets/individual/Individual>,
+        <https://w3id.org/linkml/phenopackets/individual/VitalStatus>,
+        <https://w3id.org/linkml/phenopackets/interpretation/Diagnosis>,
+        <https://w3id.org/linkml/phenopackets/interpretation/GenomicInterpretation>,
+        <https://w3id.org/linkml/phenopackets/interpretation/Interpretation>,
+        <https://w3id.org/linkml/phenopackets/interpretation/VariantInterpretation>,
+        <https://w3id.org/linkml/phenopackets/measurement/ComplexValue>,
+        <https://w3id.org/linkml/phenopackets/measurement/Measurement>,
+        <https://w3id.org/linkml/phenopackets/measurement/Quantity>,
+        <https://w3id.org/linkml/phenopackets/measurement/ReferenceRange>,
+        <https://w3id.org/linkml/phenopackets/measurement/TypedQuantity>,
+        <https://w3id.org/linkml/phenopackets/measurement/Value>,
+        <https://w3id.org/linkml/phenopackets/medical_action/DoseInterval>,
+        <https://w3id.org/linkml/phenopackets/medical_action/MedicalAction>,
+        <https://w3id.org/linkml/phenopackets/medical_action/RadiationTherapy>,
+        <https://w3id.org/linkml/phenopackets/medical_action/TherapeuticRegimen>,
+        <https://w3id.org/linkml/phenopackets/medical_action/Treatment>,
+        <https://w3id.org/linkml/phenopackets/meta_data/MetaData>,
+        <https://w3id.org/linkml/phenopackets/meta_data/Resource>,
+        <https://w3id.org/linkml/phenopackets/meta_data/Update>,
+        <https://w3id.org/linkml/phenopackets/pedigree/Pedigree>,
+        <https://w3id.org/linkml/phenopackets/pedigree/Person>,
+        phenopackets:Cohort,
+        phenopackets:Family,
+        phenopackets:Phenopacket,
+        <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature>,
+        <https://w3id.org/linkml/phenopackets/timestamp/Timestamp>,
+        <https://w3id.org/linkml/phenopackets/vrs/Abundance>,
+        <https://w3id.org/linkml/phenopackets/vrs/Allele>,
+        <https://w3id.org/linkml/phenopackets/vrs/ChromosomeLocation>,
+        <https://w3id.org/linkml/phenopackets/vrs/CopyNumber>,
+        <https://w3id.org/linkml/phenopackets/vrs/CytobandInterval>,
+        <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange>,
+        <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression>,
+        <https://w3id.org/linkml/phenopackets/vrs/Feature>,
+        <https://w3id.org/linkml/phenopackets/vrs/Gene>,
+        <https://w3id.org/linkml/phenopackets/vrs/Haplotype>,
+        <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange>,
+        <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression>,
+        <https://w3id.org/linkml/phenopackets/vrs/Location>,
+        <https://w3id.org/linkml/phenopackets/vrs/Member>,
+        <https://w3id.org/linkml/phenopackets/vrs/MolecularVariation>,
+        <https://w3id.org/linkml/phenopackets/vrs/Number>,
+        <https://w3id.org/linkml/phenopackets/vrs/RepeatedSequenceExpression>,
+        <https://w3id.org/linkml/phenopackets/vrs/SequenceExpression>,
+        <https://w3id.org/linkml/phenopackets/vrs/SequenceInterval>,
+        <https://w3id.org/linkml/phenopackets/vrs/SequenceLocation>,
+        <https://w3id.org/linkml/phenopackets/vrs/SequenceState>,
+        <https://w3id.org/linkml/phenopackets/vrs/SimpleInterval>,
+        <https://w3id.org/linkml/phenopackets/vrs/SystemicVariation>,
+        <https://w3id.org/linkml/phenopackets/vrs/Text>,
+        <https://w3id.org/linkml/phenopackets/vrs/UtilityVariation>,
+        <https://w3id.org/linkml/phenopackets/vrs/Variation>,
+        <https://w3id.org/linkml/phenopackets/vrs/VariationSet>,
+        <https://w3id.org/linkml/phenopackets/vrsatile/Expression>,
+        <https://w3id.org/linkml/phenopackets/vrsatile/Extension>,
+        <https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor>,
+        <https://w3id.org/linkml/phenopackets/vrsatile/VariationDescriptor>,
+        <https://w3id.org/linkml/phenopackets/vrsatile/VcfRecord> ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    linkml:generation_date "2022-03-02T14:34:59" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "phenopackets.yaml" ;
+    linkml:source_file_date "2022-03-02T14:31:28" ;
+    linkml:source_file_size 6142 .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+phenopackets:Cohort a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Cohort" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
+            owl:onProperty phenopackets:files ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom phenopackets:Phenopacket ;
+            owl:onProperty phenopackets:members ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/meta_data/MetaData> ;
+            owl:onProperty phenopackets:metaData ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A group of individuals related in some phenotypic or genotypic aspect." .
+
+phenopackets:Family a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Family" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass phenopackets:Phenopacket ;
+            owl:onProperty phenopackets:proband ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/meta_data/MetaData> ;
+            owl:onProperty phenopackets:metaData ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
+            owl:onProperty phenopackets:files ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom phenopackets:Phenopacket ;
+            owl:onProperty phenopackets:relatives ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty phenopackets:consanguinousParents ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/pedigree/Pedigree> ;
+            owl:onProperty phenopackets:pedigree ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Phenotype, sample and pedigree data required for a genomic diagnosis. Equivalent to the Genomics England InterpretationRequestRD https://github.com/genomicsengland/GelReportModels/blob/master/schemas/IDLs/org.gel.models.report.avro/5.0.0/InterpretationRequestRD.avdl" .
+
+phenopackets:acmgPathogenicityClassification a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "acmgPathogenicityClassification" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+    skos:definition "" .
+
+phenopackets:adverseEvents a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "adverseEvents" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "ARGO mapping treatment::adverse_events" ;
+    skos:exactMatch argo:treatment.adverse_events .
+
+phenopackets:affectedStatus a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "affectedStatus" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus> ;
+    skos:definition "" .
+
+phenopackets:age a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/Age> ;
+    skos:definition "" .
+
+phenopackets:ageRange a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ageRange" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/AgeRange> ;
+    skos:definition "" .
+
+phenopackets:agent a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "agent" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "" .
+
+phenopackets:allelicState a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "allelicState" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875." .
+
+phenopackets:alt a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "alt" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:alternateLabels a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "alternateLabels" ;
+    rdfs:range linkml:String ;
+    skos:definition "Common aliases for a variant, e.g. EGFR vIII, are alternate labels" .
+
+phenopackets:alternateSymbols a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "alternateSymbols" ;
+    rdfs:range linkml:String ;
+    skos:definition "Takes the place of alternate_labels field in a generic descriptor" .
+
+phenopackets:assay a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "assay" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code" .
+
+phenopackets:biosamples a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "biosamples" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/biosample/Biosample> ;
+    skos:definition "Biosample(s) derived from the patient or a collection of biosamples in isolation" .
+
+phenopackets:causeOfDeath a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "causeOfDeath" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "ARGO mapping donor::cause_of_death" ;
+    skos:exactMatch argo:donor.cause_of_death .
+
+phenopackets:chr a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "chr" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:chrom a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "chrom" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:clinicalTnmFinding a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "clinicalTnmFinding" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category" ;
+    skos:exactMatch argo:primary_diagnosis.clinical_t_category .
+
+phenopackets:code a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "code" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "FHIR mapping: Procedure.code" .
+
+phenopackets:comment a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "comment" ;
+    rdfs:range linkml:String ;
+    skos:definition "Textual comment about the changes made to the content and/or reason for the update. OPTIONAL" .
+
+phenopackets:comparator a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "comparator" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:complexValue a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "complexValue" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/measurement/ComplexValue> ;
+    skos:definition "" .
+
+phenopackets:consanguinousParents a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "consanguinousParents" ;
+    rdfs:range linkml:Boolean ;
+    skos:definition "flag to indicate that the parents of the proband are consanguinous" .
+
+phenopackets:created a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "created" ;
+    rdfs:range linkml:String ;
+    skos:definition "ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"" .
+
+phenopackets:createdBy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "createdBy" ;
+    rdfs:range linkml:String ;
+    skos:definition "some kind of identifier for the contributor/ program ARGO sample_registration::program_id" .
+
+phenopackets:cumulativeDose a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cumulativeDose" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/measurement/Quantity> ;
+    skos:definition "ARGO mapping chemotherapy::cumulative_drug_dosage" ;
+    skos:exactMatch argo:chemotherapy.cumulative_drug_dosage .
+
+phenopackets:dateOfBirth a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "dateOfBirth" ;
+    rdfs:range linkml:String ;
+    skos:definition "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated." .
+
+phenopackets:days a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "days" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "" .
+
+phenopackets:definition a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "definition" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:derivedFromId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "derivedFromId" ;
+    rdfs:range linkml:String ;
+    skos:definition "The id of the parent biosample this biosample was derived from." .
+
+phenopackets:diagnosis a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "diagnosis" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/interpretation/Diagnosis> ;
+    skos:definition "The diagnosis made in this interpretation" .
+
+phenopackets:diagnosticMarkers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "diagnosticMarkers" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)" .
+
+phenopackets:disease a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "disease" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases` field in the Phenopacket." .
+
+phenopackets:diseaseStage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "diseaseStage" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group" ;
+    skos:exactMatch argo:primary_diagnosis.clinical_tumour_staging_system .
+
+phenopackets:diseases a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "diseases" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/disease/Disease> ;
+    skos:definition "Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context." .
+
+phenopackets:dosage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "dosage" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "The total dose given in units of Gray (Gy). REQUIRED. ARGO mapping radiation::radiation_therapy_dosage" ;
+    skos:exactMatch argo:radiation.radiation_therapy_dosage .
+
+phenopackets:doseIntervals a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "doseIntervals" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/medical_action/DoseInterval> ;
+    skos:definition "" .
+
+phenopackets:drugType a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "drugType" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/medical_action/DrugType> ;
+    skos:definition "" .
+
+phenopackets:endDefiniteRange a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "endDefiniteRange" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
+    skos:definition "" .
+
+phenopackets:endIndefiniteRange a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "endIndefiniteRange" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
+    skos:definition "" .
+
+phenopackets:endNumber a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "endNumber" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+    skos:definition "" .
+
+phenopackets:endTime a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "endTime" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    skos:definition "end time can be empty which would indicate ongoing" .
+
+phenopackets:evidence a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "evidence" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/Evidence> ;
+    skos:definition "Evidences for how the phenotype was determined." .
+
+phenopackets:evidenceCode a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "evidenceCode" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "The encoded evidence type using, for example the Evidence & Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl) FHIR mapping: Condition.evidence.code" .
+
+phenopackets:expressions a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "expressions" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrsatile/Expression> ;
+    skos:definition "HGVS, SPDI, and gnomAD-style strings should be represented as Expressions" .
+
+phenopackets:extensions a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "extensions" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrsatile/Extension> ;
+    skos:definition "" .
+
+phenopackets:externalReference a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "externalReference" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
+    skos:definition "" .
+
+phenopackets:externalReferences a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "externalReferences" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
+    skos:definition "External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported." .
+
+phenopackets:familyId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "familyId" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:fileAttributes a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "fileAttributes" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/Dictionary> ;
+    skos:definition "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key." .
+
+phenopackets:filter a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "filter" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:fractions a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "fractions" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "The total number of fractions delivered as part of treatment. REQUIRED. ARGO mapping radiation::radiation_therapy_fractions" ;
+    skos:exactMatch argo:radiation.radiation_therapy_fractions .
+
+phenopackets:gender a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gender" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Self-identified gender" .
+
+phenopackets:geneContext a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "geneContext" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor> ;
+    skos:definition "A specific gene context that applies to this variant." .
+
+phenopackets:geneId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "geneId" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:genomeAssembly a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "genomeAssembly" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:genomicInterpretations a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "genomicInterpretations" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/interpretation/GenomicInterpretation> ;
+    skos:definition "genomic features containing the status of their contribution towards the diagnosis" .
+
+phenopackets:gestationalAge a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gestationalAge" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/GestationalAge> ;
+    skos:definition "" .
+
+phenopackets:high a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "high" ;
+    rdfs:range linkml:Double ;
+    skos:definition "" .
+
+phenopackets:histologicalDiagnosis a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "histologicalDiagnosis" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\" ARGO mapping specimen::tumour_histological_type" ;
+    skos:exactMatch argo:specimen.tumour_histological_type .
+
+phenopackets:individualToFileIdentifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "individualToFileIdentifiers" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/Dictionary> ;
+    skos:definition "A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file." .
+
+phenopackets:info a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "info" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:interpretationStatus a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "interpretationStatus" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> ;
+    skos:definition "" .
+
+phenopackets:interpretations a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "interpretations" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/interpretation/Interpretation> ;
+    skos:definition "" .
+
+phenopackets:iriPrefix a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "iriPrefix" ;
+    rdfs:range linkml:String ;
+    skos:definition "Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe' OntologyClass: id: 'HP:0012828' label: 'Severe' Resource: namespace_prefix: 'HP' iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828" .
+
+phenopackets:iso8601duration a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "iso8601duration" ;
+    rdfs:range linkml:String ;
+    skos:definition "The :ref:`ISO 8601<metadata_date_time>` age of this object as ISO8601 duration or time intervals. e.g. P40Y10M05D)" .
+
+phenopackets:karyotypicSex a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "karyotypicSex" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    skos:definition "The karyotypic sex of the individual" .
+
+phenopackets:laterality a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "laterality" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)" .
+
+phenopackets:location a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "location" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/SequenceLocation> ;
+    skos:definition "" .
+
+phenopackets:low a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "low" ;
+    rdfs:range linkml:Double ;
+    skos:definition "" .
+
+phenopackets:materialSample a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "materialSample" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation" ;
+    skos:exactMatch argo:sample_registration.tumour_normal_designation .
+
+phenopackets:maternalId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "maternalId" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:max a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "max" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "" .
+
+phenopackets:medicalActions a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "medicalActions" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/medical_action/MedicalAction> ;
+    skos:definition "" .
+
+phenopackets:min a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "min" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "" .
+
+phenopackets:modality a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "modality" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "The modality of radiation therapy (e.g., electron, photon,…). REQUIRED. ARGO mapping radiation::radiation_therapy_modality" ;
+    skos:exactMatch argo:radiation.radiation_therapy_modality .
+
+phenopackets:modifiers a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "modifiers" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity" .
+
+phenopackets:moleculeContext a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "moleculeContext" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext> ;
+    skos:definition "The molecular context of the vrs variation. Must be one of “genomic”, “transcript”, or “protein”. Defaults to \"unspecified_molecule_context\"" .
+
+phenopackets:namespacePrefix a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "namespacePrefix" ;
+    rdfs:range linkml:String ;
+    skos:definition "The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI" .
+
+phenopackets:nanos a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "nanos" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive." .
+
+phenopackets:paternalId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "paternalId" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:pathologicalStage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "pathologicalStage" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group" ;
+    skos:exactMatch argo:specimen.pathological_tumour_staging_system .
+
+phenopackets:pathologicalTnmFinding a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "pathologicalTnmFinding" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category" ;
+    skos:exactMatch argo:specimen.pathological_t_category .
+
+phenopackets:pedigree a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "pedigree" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/pedigree/Pedigree> ;
+    skos:definition "The pedigree defining the relations between the proband and their relatives. Pedigree.individual_id should map to the PhenoPacket.Individual.id" .
+
+phenopackets:performed a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "performed" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    skos:definition "When the procedure was performed." .
+
+phenopackets:persons a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "persons" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/pedigree/Person> ;
+    skos:definition "" .
+
+phenopackets:phenopacketSchemaVersion a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "phenopacketSchemaVersion" ;
+    rdfs:range linkml:String ;
+    skos:definition "phenopacket-schema-version used to create this phenopacket" .
+
+phenopackets:pos a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "pos" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "" .
+
+phenopackets:primarySite a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "primarySite" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general" .
+
+phenopackets:proband a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "proband" ;
+    rdfs:range phenopackets:Phenopacket ;
+    skos:definition "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient" .
+
+phenopackets:progressStatus a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "progressStatus" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
+    skos:definition "" .
+
+phenopackets:qual a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "qual" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:radiationTherapy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "radiationTherapy" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/medical_action/RadiationTherapy> ;
+    skos:definition "" .
+
+phenopackets:ref a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ref" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:referenceRange a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "referenceRange" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/measurement/ReferenceRange> ;
+    skos:definition "Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL." .
+
+phenopackets:regimenStatus a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "regimenStatus" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> ;
+    skos:definition "" .
+
+phenopackets:relatives a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "relatives" ;
+    rdfs:range phenopackets:Phenopacket ;
+    skos:definition "Individuals related in some way to the patient. For instance, the individuals may be genetically related or may be members of a cohort. If this field is used, then  it is expected that a pedigree will be included for genetically related individuals for use cases such as genomic diagnostics. If a phenopacket is being used to describe one member of a cohort, then in general one phenopacket will be created for each of the individuals in the cohort." .
+
+phenopackets:resources a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "resources" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/meta_data/Resource> ;
+    skos:definition "a listing of the ontologies and resources referenced in the phenopacket" .
+
+phenopackets:responseToTreatment a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "responseToTreatment" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "ARGO mapping treatment::response_to_treatment" ;
+    skos:exactMatch argo:treatment.response_to_treatment .
+
+phenopackets:reverseComplement a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "reverseComplement" ;
+    rdfs:range linkml:Boolean ;
+    skos:definition "" .
+
+phenopackets:routeOfAdministration a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "routeOfAdministration" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "" .
+
+phenopackets:sampleProcessing a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sampleProcessing" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing" ;
+    skos:exactMatch argo:specimen.specimen_processing .
+
+phenopackets:sampleStorage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sampleStorage" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Field to represent how the sample was stored ARGO mapping specimen::specimen_storage" ;
+    skos:exactMatch argo:specimen.specimen_storage .
+
+phenopackets:sampleType a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sampleType" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type" ;
+    skos:exactMatch argo:sample_registration.sample_type .
+
+phenopackets:sampledTissue a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sampledTissue" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source" ;
+    skos:exactMatch argo:sample_registration.specimen_tissue_source .
+
+phenopackets:scheduleFrequency a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "scheduleFrequency" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "" .
+
+phenopackets:seconds a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "seconds" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive." .
+
+phenopackets:sequenceId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sequenceId" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:sequenceInterval a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sequenceInterval" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/SequenceInterval> ;
+    skos:definition "" .
+
+phenopackets:severity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "severity" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity" .
+
+phenopackets:speciesId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "speciesId" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:startDefiniteRange a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "startDefiniteRange" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
+    skos:definition "" .
+
+phenopackets:startIndefiniteRange a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "startIndefiniteRange" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
+    skos:definition "" .
+
+phenopackets:startNumber a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "startNumber" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+    skos:definition "" .
+
+phenopackets:startTime a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "startTime" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    skos:definition "possibly undefined;" .
+
+phenopackets:status a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "status" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/individual/Status> ;
+    skos:definition "" .
+
+phenopackets:structuralType a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "structuralType" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537." .
+
+phenopackets:subject a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/individual/Individual> ;
+    skos:definition "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient" .
+
+phenopackets:subjectOrBiosampleId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subjectOrBiosampleId" ;
+    rdfs:range linkml:String ;
+    skos:definition "identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the enclosing phenopacket." .
+
+phenopackets:submittedBy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "submittedBy" ;
+    rdfs:range linkml:String ;
+    skos:definition "information about the person/organisation/network that has submitted this phenopacket" .
+
+phenopackets:summary a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "summary" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:survivalTimeInDays a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "survivalTimeInDays" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "ARGO mapping donor::survival_time" ;
+    skos:exactMatch argo:donor.survival_time .
+
+phenopackets:symbol a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "symbol" ;
+    rdfs:range linkml:String ;
+    skos:definition "The primary gene symbol. Takes the place of the label field in a generic descriptor" .
+
+phenopackets:syntax a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "syntax" ;
+    rdfs:range linkml:String ;
+    skos:definition "" .
+
+phenopackets:term a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "term" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id" ;
+    skos:exactMatch argo:primary_diagnosis.submitter_primary_diagnosis_id .
+
+phenopackets:therapeuticActionability a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "therapeuticActionability" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability> ;
+    skos:definition "" .
+
+phenopackets:therapeuticRegimen a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "therapeuticRegimen" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/medical_action/TherapeuticRegimen> ;
+    skos:definition "" .
+
+phenopackets:timeAtLastEncounter a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "timeAtLastEncounter" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    skos:definition "An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes" .
+
+phenopackets:timeObserved a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "timeObserved" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    skos:definition "The time at which the measurement was made" .
+
+phenopackets:timeOfCollection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "timeOfCollection" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    skos:definition "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes" .
+
+phenopackets:timeOfDeath a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "timeOfDeath" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    skos:definition "" .
+
+phenopackets:treatment a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "treatment" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/medical_action/Treatment> ;
+    skos:definition "" .
+
+phenopackets:treatmentIntent a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "treatmentIntent" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent" ;
+    skos:exactMatch argo:treatment.treatment_intent .
+
+phenopackets:treatmentTarget a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "treatmentTarget" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode" .
+
+phenopackets:treatmentTerminationReason a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "treatmentTerminationReason" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "ARGO mapping treatment::treatment_outcome" ;
+    skos:exactMatch argo:treatment.treatment_outcome .
+
+phenopackets:tumorGrade a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "tumorGrade" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet" .
+
+phenopackets:tumorProgression a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "tumorProgression" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    skos:definition "Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)" .
+
+phenopackets:typeUrl a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "typeUrl" ;
+    rdfs:range linkml:String ;
+    skos:definition "A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][] value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics. " .
+
+phenopackets:typedQuantities a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "typedQuantities" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/measurement/TypedQuantity> ;
+    skos:definition "The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities" .
+
+phenopackets:updatedBy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "updatedBy" ;
+    rdfs:range linkml:String ;
+    skos:definition "Information about the person/organisation/network that has updated the phenopacket. OPTIONAL" .
+
+phenopackets:updates a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "updates" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/meta_data/Update> ;
+    skos:definition "An OPTIONAL list of Updates to the phenopacket." .
+
+phenopackets:uri a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "uri" ;
+    rdfs:range linkml:String ;
+    skos:definition "URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444" .
+
+phenopackets:url a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "url" ;
+    rdfs:range linkml:String ;
+    skos:definition "For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo" .
+
+phenopackets:valueId a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "valueId" ;
+    rdfs:range linkml:String ;
+    skos:definition "The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071 This should be a CURIE linking the reference to a namespace where it can be retrieved. Mirrors the value_id field of a generic value object descriptor" .
+
+phenopackets:variantInterpretation a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "variantInterpretation" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/interpretation/VariantInterpretation> ;
+    skos:definition "" .
+
+phenopackets:variation a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "variation" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrs/Variation> ;
+    skos:definition "" .
+
+phenopackets:variationDescriptor a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "variationDescriptor" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrsatile/VariationDescriptor> ;
+    skos:definition "" .
+
+phenopackets:vcfRecord a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "vcfRecord" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/vrsatile/VcfRecord> ;
+    skos:definition "A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the allelic_state" .
+
+phenopackets:vitalStatus a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "vitalStatus" ;
+    rdfs:range <https://w3id.org/linkml/phenopackets/individual/VitalStatus> ;
+    skos:definition "Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status" ;
+    skos:exactMatch argo:donor.vital_status .
+
+phenopackets:vrsRefAlleleSeq a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "vrsRefAlleleSeq" ;
+    rdfs:range linkml:String ;
+    skos:definition "A Sequence corresponding to a “ref allele”, describing the sequence expected at a SequenceLocation reference." .
+
+phenopackets:weeks a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "weeks" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/timestamp/Timestamp> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Timestamp" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:seconds ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:nanos ] ;
+    skos:definition "Protocol Buffers - Google's data interchange format Copyright 2008 Google Inc.  All rights reserved. https://developers.google.com/protocol-buffers/  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. * Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one.  All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap second table is needed for interpretation, using a [24-hour linear smear](https://developers.google.com/time/smear).  The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.  # Examples  Example 1: Compute Timestamp from POSIX `time()`.  Timestamp timestamp; timestamp.set_seconds(time(NULL)); timestamp.set_nanos(0);  Example 2: Compute Timestamp from POSIX `gettimeofday()`.  struct timeval tv; gettimeofday(&tv, NULL);  Timestamp timestamp; timestamp.set_seconds(tv.tv_sec); timestamp.set_nanos(tv.tv_usec * 1000);  Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.  FILETIME ft; GetSystemTimeAsFileTime(&ft); UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;  // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z. Timestamp timestamp; timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL)); timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));  Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.  long millis = System.currentTimeMillis();  Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000) .setNanos((int) ((millis % 1000) * 1000000)).build();   Example 5: Compute Timestamp from Java `Instant.now()`.  Instant now = Instant.now();  Timestamp timestamp = Timestamp.newBuilder().setSeconds(now.getEpochSecond()) .setNanos(now.getNano()).build();   Example 6: Compute Timestamp from current time in Python.  timestamp = Timestamp() timestamp.GetCurrentTime()  # JSON Mapping  In JSON format, the Timestamp type is encoded as a string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\" where {year} is always expressed using four digits while {month}, {day}, {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone is required. A proto3 JSON serializer should always use UTC (as indicated by \"Z\") when printing the Timestamp type and a proto3 JSON parser should be able to accept both UTC and other timezones (as indicated by an offset).  For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past 01:30 UTC on January 15, 2017.  In JavaScript, one can convert a Date object to this format using the standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) method. In Python, a standard `datetime.datetime` object can be converted to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use the Joda Time's [`ISODateTimeFormat.dateTime()`]( http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D ) to obtain a formatter capable of generating timestamps in this format.  " .
+
+<https://w3id.org/linkml/phenopackets/vrs/Abundance> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Abundance" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CopyNumber> ;
+            owl:onProperty phenopackets:copyNumber ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/Feature> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Feature" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Gene> ;
+            owl:onProperty phenopackets:gene ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/Location> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Location" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/SequenceLocation> ;
+            owl:onProperty phenopackets:sequenceLocation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/ChromosomeLocation> ;
+            owl:onProperty phenopackets:chromosomeLocation ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/MolecularVariation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MolecularVariation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
+            owl:onProperty phenopackets:haplotype ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
+            owl:onProperty phenopackets:allele ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/SequenceExpression> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SequenceExpression" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/RepeatedSequenceExpression> ;
+            owl:onProperty phenopackets:repeatedSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> ;
+            owl:onProperty phenopackets:literalSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
+            owl:onProperty phenopackets:derivedSequenceExpression ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/SequenceState> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SequenceState" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:sequence ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/SimpleInterval> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SimpleInterval" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:end ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:start ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/SystemicVariation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SystemicVariation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CopyNumber> ;
+            owl:onProperty phenopackets:copyNumber ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/UtilityVariation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "UtilityVariation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Text> ;
+            owl:onProperty phenopackets:text ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/VariationSet> ;
+            owl:onProperty phenopackets:variationSet ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/any/Any> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Any" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:typeUrl ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:value ] ;
+    skos:definition "Protocol Buffers - Google's data interchange format Copyright 2008 Google Inc.  All rights reserved. https://developers.google.com/protocol-buffers/  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. * Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.  Foo foo = ...; Any any; any.PackFrom(foo); ... if (any.UnpackTo(&foo)) { ... }  Example 2: Pack and unpack a message in Java.  Foo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo = any.unpack(Foo.class); }  Example 3: Pack and unpack a message in Python.  foo = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR): any.Unpack(foo) ...  Example 4: Pack and unpack a message in Go  foo := &pb.Foo{...} any, err := anypb.New(foo) if err != nil { ... } ... foo := &pb.Foo{} if err := any.UnmarshalTo(foo); err != nil { ... }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:  package google.profile; message Person { string first_name = 1; string last_name = 2; }  { \"@type\": \"type.googleapis.com/google.profile.Person\", \"firstName\": <string>, \"lastName\": <string> }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):  { \"@type\": \"type.googleapis.com/google.protobuf.Duration\", \"value\": \"1.212s\" } " .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#OTHER_KARYOTYPE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "OTHER_KARYOTYPE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#UNKNOWN_KARYOTYPE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "UNKNOWN_KARYOTYPE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XO> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XO" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XX> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XX" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXX> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XXX" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXXX> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XXXX" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXXY> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XXXY" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXY> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XXY" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXYY> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XXYY" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XY> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XY" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XYY> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+    rdfs:label "XYY" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/Sex#FEMALE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/Sex> ;
+    rdfs:label "FEMALE" ;
+    skos:definition "Female" .
+
+<https://w3id.org/linkml/phenopackets/individual/Sex#MALE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/Sex> ;
+    rdfs:label "MALE" ;
+    skos:definition "Male" .
+
+<https://w3id.org/linkml/phenopackets/individual/Sex#OTHER_SEX> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/Sex> ;
+    rdfs:label "OTHER_SEX" ;
+    skos:definition "It is not possible, to accurately assess the applicability of MALE/FEMALE." .
+
+<https://w3id.org/linkml/phenopackets/individual/Sex#UNKNOWN_SEX> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/Sex> ;
+    rdfs:label "UNKNOWN_SEX" ;
+    skos:definition "Not assessed / available." .
+
+<https://w3id.org/linkml/phenopackets/individual/Status#ALIVE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/Status> ;
+    rdfs:label "ALIVE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/Status#DECEASED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/Status> ;
+    rdfs:label "DECEASED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/Status#UNKNOWN_STATUS> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/individual/Status> ;
+    rdfs:label "UNKNOWN_STATUS" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#BENIGN> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+    rdfs:label "BENIGN" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#LIKELY_BENIGN> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+    rdfs:label "LIKELY_BENIGN" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#LIKELY_PATHOGENIC> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+    rdfs:label "LIKELY_PATHOGENIC" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#NOT_PROVIDED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+    rdfs:label "NOT_PROVIDED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#PATHOGENIC> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+    rdfs:label "PATHOGENIC" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#UNCERTAIN_SIGNIFICANCE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+    rdfs:label "UNCERTAIN_SIGNIFICANCE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CANDIDATE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> ;
+    rdfs:label "CANDIDATE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CAUSATIVE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> ;
+    rdfs:label "CAUSATIVE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CONTRIBUTORY> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> ;
+    rdfs:label "CONTRIBUTORY" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#REJECTED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> ;
+    rdfs:label "REJECTED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#UNKNOWN_STATUS> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> ;
+    rdfs:label "UNKNOWN_STATUS" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#COMPLETED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
+    rdfs:label "COMPLETED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#IN_PROGRESS> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
+    rdfs:label "IN_PROGRESS" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#SOLVED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
+    rdfs:label "SOLVED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#UNKNOWN_PROGRESS> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
+    rdfs:label "UNKNOWN_PROGRESS" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#UNSOLVED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
+    rdfs:label "UNSOLVED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#ACTIONABLE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability> ;
+    rdfs:label "ACTIONABLE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#NOT_ACTIONABLE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability> ;
+    rdfs:label "NOT_ACTIONABLE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#UNKNOWN_ACTIONABILITY> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability> ;
+    rdfs:label "UNKNOWN_ACTIONABILITY" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/measurement/Value> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Value" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Quantity> ;
+            owl:onProperty phenopackets:quantity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:ontologyClass ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/DrugType#ADMINISTRATION_RELATED_TO_PROCEDURE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/medical_action/DrugType> ;
+    rdfs:label "ADMINISTRATION_RELATED_TO_PROCEDURE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/DrugType#EHR_MEDICATION_LIST> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/medical_action/DrugType> ;
+    rdfs:label "EHR_MEDICATION_LIST" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/DrugType#PRESCRIPTION> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/medical_action/DrugType> ;
+    rdfs:label "PRESCRIPTION" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/DrugType#UNKNOWN_DRUG_TYPE> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/medical_action/DrugType> ;
+    rdfs:label "UNKNOWN_DRUG_TYPE" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#COMPLETED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> ;
+    rdfs:label "COMPLETED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#DISCONTINUED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> ;
+    rdfs:label "DISCONTINUED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#STARTED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> ;
+    rdfs:label "STARTED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#UNKNOWN_STATUS> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> ;
+    rdfs:label "UNKNOWN_STATUS" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#AFFECTED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus> ;
+    rdfs:label "AFFECTED" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#MISSING> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus> ;
+    rdfs:label "MISSING" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#UNAFFECTED> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus> ;
+    rdfs:label "UNAFFECTED" ;
+    skos:definition "" .
+
+phenopackets:alternateIds a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:bodySite a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:chromosomeLocation a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:definiteRange a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:excluded a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:indefiniteRange a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:individualId a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:label a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:measurements a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:members a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:name a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:number a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:onset a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:phenotypicFeatures a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:reference a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:resolution a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:sequence a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:sequenceLocation a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:sex a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:taxonomy a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:timestamp a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:type a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:unit a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:version a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:xrefs a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+<https://w3id.org/linkml/phenopackets/vrs/CytobandInterval> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CytobandInterval" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:start ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:end ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/Member> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Member" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
+            owl:onProperty phenopackets:haplotype ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrs/Member> ;
+            owl:onProperty phenopackets:members ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CopyNumber> ;
+            owl:onProperty phenopackets:copyNumber ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:curie ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
+            owl:onProperty phenopackets:allele ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/VariationSet> ;
+            owl:onProperty phenopackets:variationSet ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Text> ;
+            owl:onProperty phenopackets:text ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:Id ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#genomic> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext> ;
+    rdfs:label "genomic" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#protein> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext> ;
+    rdfs:label "protein" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#transcript> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext> ;
+    rdfs:label "transcript" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#unspecified_molecule_context> a owl:Class,
+        <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext> ;
+    rdfs:label "unspecified_molecule_context" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/base/AgeRange> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "AgeRange" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/Age> ;
+            owl:onProperty phenopackets:start ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/Age> ;
+            owl:onProperty phenopackets:end ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/base/Evidence> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Evidence" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:evidenceCode ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
+            owl:onProperty phenopackets:reference ] ;
+    skos:definition "FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)" .
+
+<https://w3id.org/linkml/phenopackets/base/GestationalAge> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "GestationalAge" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:days ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:weeks ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/base/TimeInterval> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TimeInterval" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:end ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:start ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/biosample/Biosample> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Biosample" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/measurement/Measurement> ;
+            owl:onProperty phenopackets:measurements ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
+            owl:onProperty phenopackets:phenotypicFeatures ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:sampleStorage ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:individualId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:timeOfCollection ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
+            owl:onProperty phenopackets:files ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:sampleProcessing ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:materialSample ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:histologicalDiagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:sampledTissue ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:tumorGrade ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:tumorProgression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:sampleType ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:derivedFromId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/Procedure> ;
+            owl:onProperty phenopackets:procedure ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:diagnosticMarkers ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:pathologicalTnmFinding ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:pathologicalStage ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:taxonomy ] ;
+    skos:definition "A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html)." .
+
+<https://w3id.org/linkml/phenopackets/disease/Disease> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Disease" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:onset ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:clinicalTnmFinding ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:primarySite ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:diseaseStage ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:resolution ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:term ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty phenopackets:excluded ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:laterality ] ;
+    skos:definition "Message to indicate a disease (diagnosis) and its recorded onset." .
+
+<https://w3id.org/linkml/phenopackets/individual/Individual> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Individual" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/individual/Sex> ;
+            owl:onProperty phenopackets:sex ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:dateOfBirth ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/individual/VitalStatus> ;
+            owl:onProperty phenopackets:vitalStatus ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:alternateIds ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
+            owl:onProperty phenopackets:karyotypicSex ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:taxonomy ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:gender ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:timeAtLastEncounter ] ;
+    skos:definition "An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html)." .
+
+<https://w3id.org/linkml/phenopackets/individual/VitalStatus> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "VitalStatus" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:causeOfDeath ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/individual/Status> ;
+            owl:onProperty phenopackets:status ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:survivalTimeInDays ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:timeOfDeath ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/Diagnosis> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Diagnosis" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/interpretation/GenomicInterpretation> ;
+            owl:onProperty phenopackets:genomicInterpretations ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:disease ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/GenomicInterpretation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "GenomicInterpretation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor> ;
+            owl:onProperty phenopackets:gene ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/VariantInterpretation> ;
+            owl:onProperty phenopackets:variantInterpretation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> ;
+            owl:onProperty phenopackets:interpretationStatus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:subjectOrBiosampleId ] ;
+    skos:definition "A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations." .
+
+<https://w3id.org/linkml/phenopackets/interpretation/Interpretation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Interpretation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/Diagnosis> ;
+            owl:onProperty phenopackets:diagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
+            owl:onProperty phenopackets:progressStatus ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:summary ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/VariantInterpretation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "VariantInterpretation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/VariationDescriptor> ;
+            owl:onProperty phenopackets:variationDescriptor ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+            owl:onProperty phenopackets:acmgPathogenicityClassification ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability> ;
+            owl:onProperty phenopackets:therapeuticActionability ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/measurement/ComplexValue> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ComplexValue" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/measurement/TypedQuantity> ;
+            owl:onProperty phenopackets:typedQuantities ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/measurement/Measurement> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Measurement" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:assay ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Value> ;
+            owl:onProperty phenopackets:value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/Procedure> ;
+            owl:onProperty phenopackets:procedure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:timeObserved ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/ComplexValue> ;
+            owl:onProperty phenopackets:complexValue ] ;
+    skos:definition "FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)" .
+
+<https://w3id.org/linkml/phenopackets/measurement/ReferenceRange> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ReferenceRange" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Double ;
+            owl:onProperty phenopackets:high ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Double ;
+            owl:onProperty phenopackets:low ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:unit ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/measurement/TypedQuantity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TypedQuantity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Quantity> ;
+            owl:onProperty phenopackets:quantity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:type ] ;
+    skos:definition "For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/DoseInterval> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DoseInterval" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Quantity> ;
+            owl:onProperty phenopackets:quantity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
+            owl:onProperty phenopackets:interval ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:scheduleFrequency ] ;
+    skos:definition "e.g. 50mg/ml 3 times daily for two weeks" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/MedicalAction> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MedicalAction" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:adverseEvents ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/TherapeuticRegimen> ;
+            owl:onProperty phenopackets:therapeuticRegimen ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:treatmentIntent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/Treatment> ;
+            owl:onProperty phenopackets:treatment ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/Procedure> ;
+            owl:onProperty phenopackets:procedure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:treatmentTarget ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:treatmentTerminationReason ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/RadiationTherapy> ;
+            owl:onProperty phenopackets:radiationTherapy ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:responseToTreatment ] ;
+    skos:definition "medication, procedure, other actions taken for clinical management" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/RadiationTherapy> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "RadiationTherapy" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:bodySite ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:modality ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:dosage ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:fractions ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "RadiationTherapy" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/TherapeuticRegimen> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TherapeuticRegimen" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> ;
+            owl:onProperty phenopackets:regimenStatus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:ontologyClass ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:endTime ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
+            owl:onProperty phenopackets:externalReference ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:startTime ] ;
+    skos:definition "ARGO mapping radiation::radiation_therapy_type (missing)" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/Treatment> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Treatment" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:routeOfAdministration ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:agent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Quantity> ;
+            owl:onProperty phenopackets:cumulativeDose ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/medical_action/DoseInterval> ;
+            owl:onProperty phenopackets:doseIntervals ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/DrugType> ;
+            owl:onProperty phenopackets:drugType ] ;
+    skos:definition "ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug" .
+
+<https://w3id.org/linkml/phenopackets/meta_data/Resource> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Resource" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:url ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:namespacePrefix ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:version ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:iriPrefix ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:name ] ;
+    skos:definition "Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)" .
+
+<https://w3id.org/linkml/phenopackets/meta_data/Update> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Update" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:updatedBy ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:comment ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:timestamp ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update" .
+
+<https://w3id.org/linkml/phenopackets/pedigree/Pedigree> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Pedigree" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/pedigree/Person> ;
+            owl:onProperty phenopackets:persons ] ;
+    skos:definition "https://software.broadinstitute.org/gatk/documentation/article?id=11016" .
+
+<https://w3id.org/linkml/phenopackets/pedigree/Person> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:familyId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:individualId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:paternalId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/individual/Sex> ;
+            owl:onProperty phenopackets:sex ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:maternalId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus> ;
+            owl:onProperty phenopackets:affectedStatus ] ;
+    skos:definition "" .
+
+phenopackets:curie a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:gene a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:interval a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:metaData a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:ontologyClass a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:procedure a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:quantity a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:repeatedSequenceExpression a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:text a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:variationSet a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+<https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "PhenotypicFeature" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty phenopackets:excluded ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:onset ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/Evidence> ;
+            owl:onProperty phenopackets:evidence ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:severity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:modifiers ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:resolution ] ;
+    skos:definition "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)" .
+
+<https://w3id.org/linkml/phenopackets/vrs/ChromosomeLocation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ChromosomeLocation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:chr ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CytobandInterval> ;
+            owl:onProperty phenopackets:interval ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:speciesId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:Id ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/Gene> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Gene" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:geneId ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/SequenceInterval> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SequenceInterval" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
+            owl:onProperty phenopackets:endDefiniteRange ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+            owl:onProperty phenopackets:startNumber ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
+            owl:onProperty phenopackets:startIndefiniteRange ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+            owl:onProperty phenopackets:endNumber ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
+            owl:onProperty phenopackets:startDefiniteRange ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
+            owl:onProperty phenopackets:endIndefiniteRange ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/Variation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Variation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CopyNumber> ;
+            owl:onProperty phenopackets:copyNumber ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
+            owl:onProperty phenopackets:allele ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/VariationSet> ;
+            owl:onProperty phenopackets:variationSet ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
+            owl:onProperty phenopackets:haplotype ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Text> ;
+            owl:onProperty phenopackets:text ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/Expression> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Expression" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:syntax ] ;
+    skos:definition "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/Extension> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Extension" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/any/Any> ;
+            owl:onProperty phenopackets:value ] ;
+    skos:definition "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/VariationDescriptor> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "VariationDescriptor" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext> ;
+            owl:onProperty phenopackets:moleculeContext ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrsatile/Expression> ;
+            owl:onProperty phenopackets:expressions ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/VcfRecord> ;
+            owl:onProperty phenopackets:vcfRecord ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:structuralType ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor> ;
+            owl:onProperty phenopackets:geneContext ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:allelicState ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:xrefs ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:vrsRefAlleleSeq ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Variation> ;
+            owl:onProperty phenopackets:variation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:alternateLabels ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrsatile/Extension> ;
+            owl:onProperty phenopackets:extensions ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/VcfRecord> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "VcfRecord" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:ref ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:qual ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:genomeAssembly ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:filter ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:chrom ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:info ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:alt ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:pos ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/base/Procedure> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Procedure" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:code ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:performed ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:bodySite ] ;
+    skos:definition "A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {\"code\":{\"NCIT:C51585\": \"Biopsy of Soft Palate\"}} {\"code\":{\"NCIT:C28743\": \"Punch Biopsy\"}, \"body_site\":{\"UBERON:0003403\": \"skin of forearm\"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)" .
+
+<https://w3id.org/linkml/phenopackets/meta_data/MetaData> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MetaData" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:createdBy ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:submittedBy ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:created ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
+            owl:onProperty phenopackets:externalReferences ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:phenopacketSchemaVersion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/meta_data/Update> ;
+            owl:onProperty phenopackets:updates ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/meta_data/Resource> ;
+            owl:onProperty phenopackets:resources ] ;
+    skos:definition "" .
+
+phenopackets:allele a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:copyNumber a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:derivedSequenceExpression a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:end a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:files a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:haplotype a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:literalSequenceExpression a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:start a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+<https://w3id.org/linkml/phenopackets/vrs/RepeatedSequenceExpression> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "RepeatedSequenceExpression" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
+            owl:onProperty phenopackets:definiteRange ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+            owl:onProperty phenopackets:number ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> ;
+            owl:onProperty phenopackets:literalSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
+            owl:onProperty phenopackets:indefiniteRange ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
+            owl:onProperty phenopackets:derivedSequenceExpression ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/Text> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Text" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:definition ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:Id ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/VariationSet> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "VariationSet" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "GeneDescriptor" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:valueId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:xrefs ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:alternateSymbols ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:symbol ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:alternateIds ] ;
+    skos:definition "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor" .
+
+<https://w3id.org/linkml/phenopackets/base/Age> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Age" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:iso8601duration ] ;
+    skos:definition "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_ In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/" .
+
+<https://w3id.org/linkml/phenopackets/base/Dictionary> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Dictionary" ;
+    skos:note "TODO" .
+
+<https://w3id.org/linkml/phenopackets/base/File> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "File" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:uri ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/Dictionary> ;
+            owl:onProperty phenopackets:fileAttributes ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/Dictionary> ;
+            owl:onProperty phenopackets:individualToFileIdentifiers ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/individual/Status> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "Status" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/individual/Status#ALIVE> <https://w3id.org/linkml/phenopackets/individual/Status#DECEASED> <https://w3id.org/linkml/phenopackets/individual/Status#UNKNOWN_STATUS> ) ;
+    skos:definition "Default = false i.e. the individual is alive. MUST be true if" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/individual/Status#ALIVE>,
+        <https://w3id.org/linkml/phenopackets/individual/Status#DECEASED>,
+        <https://w3id.org/linkml/phenopackets/individual/Status#UNKNOWN_STATUS> .
+
+<https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "TherapeuticActionability" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#ACTIONABLE> <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#NOT_ACTIONABLE> <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#UNKNOWN_ACTIONABILITY> ) ;
+    skos:definition "" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#ACTIONABLE>,
+        <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#NOT_ACTIONABLE>,
+        <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability#UNKNOWN_ACTIONABILITY> .
+
+<https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "AffectedStatus" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#AFFECTED> <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#MISSING> <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#UNAFFECTED> ) ;
+    skos:definition "" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#AFFECTED>,
+        <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#MISSING>,
+        <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus#UNAFFECTED> .
+
+<https://w3id.org/linkml/phenopackets/vrs/Allele> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Allele" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:Id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/ChromosomeLocation> ;
+            owl:onProperty phenopackets:chromosomeLocation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/SequenceLocation> ;
+            owl:onProperty phenopackets:sequenceLocation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:curie ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> ;
+            owl:onProperty phenopackets:literalSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/RepeatedSequenceExpression> ;
+            owl:onProperty phenopackets:repeatedSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
+            owl:onProperty phenopackets:derivedSequenceExpression ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/CopyNumber> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CopyNumber" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:curie ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+            owl:onProperty phenopackets:number ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> ;
+            owl:onProperty phenopackets:literalSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Gene> ;
+            owl:onProperty phenopackets:gene ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/RepeatedSequenceExpression> ;
+            owl:onProperty phenopackets:repeatedSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
+            owl:onProperty phenopackets:allele ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
+            owl:onProperty phenopackets:derivedSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
+            owl:onProperty phenopackets:indefiniteRange ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:Id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
+            owl:onProperty phenopackets:haplotype ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
+            owl:onProperty phenopackets:definiteRange ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DerivedSequenceExpression" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty phenopackets:reverseComplement ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/SequenceLocation> ;
+            owl:onProperty phenopackets:location ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/Haplotype> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Haplotype" ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "LiteralSequenceExpression" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:sequence ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/SequenceLocation> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "SequenceLocation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:sequenceId ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:Id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/SequenceInterval> ;
+            owl:onProperty phenopackets:sequenceInterval ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/base/ExternalReference> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ExternalReference" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:reference ] ;
+    skos:definition "FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)" .
+
+<https://w3id.org/linkml/phenopackets/individual/Sex> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "Sex" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/individual/Sex#FEMALE> <https://w3id.org/linkml/phenopackets/individual/Sex#MALE> <https://w3id.org/linkml/phenopackets/individual/Sex#OTHER_SEX> <https://w3id.org/linkml/phenopackets/individual/Sex#UNKNOWN_SEX> ) ;
+    skos:definition "Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/individual/Sex#FEMALE>,
+        <https://w3id.org/linkml/phenopackets/individual/Sex#MALE>,
+        <https://w3id.org/linkml/phenopackets/individual/Sex#OTHER_SEX>,
+        <https://w3id.org/linkml/phenopackets/individual/Sex#UNKNOWN_SEX> .
+
+<https://w3id.org/linkml/phenopackets/measurement/Quantity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Quantity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:unit ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Double ;
+            owl:onProperty phenopackets:value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/ReferenceRange> ;
+            owl:onProperty phenopackets:referenceRange ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/medical_action/DrugType> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "DrugType" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/medical_action/DrugType#ADMINISTRATION_RELATED_TO_PROCEDURE> <https://w3id.org/linkml/phenopackets/medical_action/DrugType#EHR_MEDICATION_LIST> <https://w3id.org/linkml/phenopackets/medical_action/DrugType#PRESCRIPTION> <https://w3id.org/linkml/phenopackets/medical_action/DrugType#UNKNOWN_DRUG_TYPE> ) ;
+    skos:definition "A simplified version of ODHSI-DRUG_EXPOSURE" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/medical_action/DrugType#ADMINISTRATION_RELATED_TO_PROCEDURE>,
+        <https://w3id.org/linkml/phenopackets/medical_action/DrugType#EHR_MEDICATION_LIST>,
+        <https://w3id.org/linkml/phenopackets/medical_action/DrugType#PRESCRIPTION>,
+        <https://w3id.org/linkml/phenopackets/medical_action/DrugType#UNKNOWN_DRUG_TYPE> .
+
+<https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "RegimenStatus" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#COMPLETED> <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#DISCONTINUED> <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#STARTED> <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#UNKNOWN_STATUS> ) ;
+    skos:definition "" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#COMPLETED>,
+        <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#DISCONTINUED>,
+        <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#STARTED>,
+        <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#UNKNOWN_STATUS> .
+
+phenopackets:Id a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:Phenopacket a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Phenopacket" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/interpretation/Interpretation> ;
+            owl:onProperty phenopackets:interpretations ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/individual/Individual> ;
+            owl:onProperty phenopackets:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/measurement/Measurement> ;
+            owl:onProperty phenopackets:measurements ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
+            owl:onProperty phenopackets:phenotypicFeatures ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/biosample/Biosample> ;
+            owl:onProperty phenopackets:biosamples ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/disease/Disease> ;
+            owl:onProperty phenopackets:diseases ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
+            owl:onProperty phenopackets:files ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/medical_action/MedicalAction> ;
+            owl:onProperty phenopackets:medicalActions ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/meta_data/MetaData> ;
+            owl:onProperty phenopackets:metaData ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.  This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields." .
+
+<https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "MoleculeContext" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#genomic> <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#protein> <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#transcript> <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#unspecified_molecule_context> ) ;
+    skos:definition "" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#genomic>,
+        <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#protein>,
+        <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#transcript>,
+        <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#unspecified_molecule_context> .
+
+<https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "InterpretationStatus" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CANDIDATE> <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CAUSATIVE> <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CONTRIBUTORY> <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#REJECTED> <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#UNKNOWN_STATUS> ) ;
+    skos:definition "" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CANDIDATE>,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CAUSATIVE>,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#CONTRIBUTORY>,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#REJECTED>,
+        <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus#UNKNOWN_STATUS> .
+
+<https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "ProgressStatus" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#COMPLETED> <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#IN_PROGRESS> <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#SOLVED> <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#UNKNOWN_PROGRESS> <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#UNSOLVED> ) ;
+    skos:definition "" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#COMPLETED>,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#IN_PROGRESS>,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#SOLVED>,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#UNKNOWN_PROGRESS>,
+        <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus#UNSOLVED> .
+
+phenopackets:description a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+phenopackets:value a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+<https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DefiniteRange" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:min ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:max ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "IndefiniteRange" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:comparator ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/vrs/Number> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Number" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:value ] ;
+    skos:definition "" .
+
+<https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "AcmgPathogenicityClassification" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#BENIGN> <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#LIKELY_BENIGN> <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#LIKELY_PATHOGENIC> <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#NOT_PROVIDED> <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#PATHOGENIC> <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#UNCERTAIN_SIGNIFICANCE> ) ;
+    skos:definition "" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#BENIGN>,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#LIKELY_BENIGN>,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#LIKELY_PATHOGENIC>,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#NOT_PROVIDED>,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#PATHOGENIC>,
+        <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#UNCERTAIN_SIGNIFICANCE> .
+
+phenopackets:id a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+<https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "KaryotypicSex" ;
+    owl:unionOf ( <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#OTHER_KARYOTYPE> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#UNKNOWN_KARYOTYPE> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XO> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XX> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXX> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXXX> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXXY> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXY> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXYY> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XY> <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XYY> ) ;
+    skos:definition "Karyotypic sex of the individual" ;
+    linkml:permissible_values <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#OTHER_KARYOTYPE>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#UNKNOWN_KARYOTYPE>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XO>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XX>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXX>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXXX>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXXY>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXY>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XXYY>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XY>,
+        <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XYY> .
+
+<https://w3id.org/linkml/phenopackets/base/TimeElement> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TimeElement" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/GestationalAge> ;
+            owl:onProperty phenopackets:gestationalAge ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
+            owl:onProperty phenopackets:interval ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/Age> ;
+            owl:onProperty phenopackets:age ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/AgeRange> ;
+            owl:onProperty phenopackets:ageRange ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:ontologyClass ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:timestamp ] ;
+    skos:definition "" .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+<https://w3id.org/linkml/phenopackets/base/OntologyClass> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "OntologyClass" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:label ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept) see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)" .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+
