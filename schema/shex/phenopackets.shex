@@ -67,15 +67,14 @@ base:AgeRange CLOSED {
 }
 
 vrs:Allele CLOSED {
-    (  $vrs:Allele_tes (  <Id> @linkml:String ? ;
-          <chromosomeLocation> @vrs:ChromosomeLocation ? ;
+    (  $vrs:Allele_tes (  <chromosomeLocation> @vrs:ChromosomeLocation ? ;
           <curie> @linkml:String ? ;
           <derivedSequenceExpression> @vrs:DerivedSequenceExpression ? ;
           <literalSequenceExpression> @vrs:LiteralSequenceExpression ? ;
           <repeatedSequenceExpression> @vrs:RepeatedSequenceExpression ? ;
           <sequenceLocation> @vrs:SequenceLocation ?
        ) ;
-       rdf:type [ vrs:Allele ] ?
+       rdf:type [ vrs:Allele ]
     )
 }
 
@@ -114,12 +113,11 @@ biosample:Biosample CLOSED {
 }
 
 vrs:ChromosomeLocation CLOSED {
-    (  $vrs:ChromosomeLocation_tes (  <Id> @linkml:String ? ;
-          <chr> @linkml:String ? ;
+    (  $vrs:ChromosomeLocation_tes (  <chr> @linkml:String ? ;
           <interval> @vrs:CytobandInterval ? ;
           <speciesId> @linkml:String ?
        ) ;
-       rdf:type [ vrs:ChromosomeLocation ] ?
+       rdf:type [ vrs:ChromosomeLocation ]
     )
 }
 
@@ -140,8 +138,7 @@ measurement:ComplexValue CLOSED {
 }
 
 vrs:CopyNumber CLOSED {
-    (  $vrs:CopyNumber_tes (  <Id> @linkml:String ? ;
-          <allele> @vrs:Allele ? ;
+    (  $vrs:CopyNumber_tes (  <allele> @vrs:Allele ? ;
           <curie> @linkml:String ? ;
           <definiteRange> @vrs:DefiniteRange ? ;
           <derivedSequenceExpression> @vrs:DerivedSequenceExpression ? ;
@@ -152,7 +149,7 @@ vrs:CopyNumber CLOSED {
           <number> @vrs:Number ? ;
           <repeatedSequenceExpression> @vrs:RepeatedSequenceExpression ?
        ) ;
-       rdf:type [ vrs:CopyNumber ] ?
+       rdf:type [ vrs:CopyNumber ]
     )
 }
 
@@ -392,8 +389,7 @@ medical_action:MedicalAction CLOSED {
 }
 
 vrs:Member CLOSED {
-    (  $vrs:Member_tes (  <Id> @linkml:String ? ;
-          <allele> @vrs:Allele ? ;
+    (  $vrs:Member_tes (  <allele> @vrs:Allele ? ;
           <copyNumber> @vrs:CopyNumber ? ;
           <curie> @linkml:String ? ;
           <haplotype> @vrs:Haplotype ? ;
@@ -401,7 +397,7 @@ vrs:Member CLOSED {
           <text> @vrs:Text ? ;
           <variationSet> @vrs:VariationSet ?
        ) ;
-       rdf:type [ vrs:Member ] ?
+       rdf:type [ vrs:Member ]
     )
 }
 
@@ -566,11 +562,10 @@ vrs:SequenceInterval CLOSED {
 }
 
 vrs:SequenceLocation CLOSED {
-    (  $vrs:SequenceLocation_tes (  <Id> @linkml:String ? ;
-          <sequenceId> @linkml:String ? ;
+    (  $vrs:SequenceLocation_tes (  <sequenceId> @linkml:String ? ;
           <sequenceInterval> @vrs:SequenceInterval ?
        ) ;
-       rdf:type [ vrs:SequenceLocation ] ?
+       rdf:type [ vrs:SequenceLocation ]
     )
 }
 
@@ -595,10 +590,8 @@ vrs:SystemicVariation CLOSED {
 }
 
 vrs:Text CLOSED {
-    (  $vrs:Text_tes (  <Id> @linkml:String ? ;
-          <definition> @linkml:String ?
-       ) ;
-       rdf:type [ vrs:Text ] ?
+    (  $vrs:Text_tes <definition> @linkml:String ? ;
+       rdf:type [ vrs:Text ]
     )
 }
 

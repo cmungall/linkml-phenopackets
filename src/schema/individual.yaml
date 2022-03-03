@@ -6,7 +6,7 @@ classes:
         annotations: 
           rank: 2
         description: An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track.
-        multivalued: 'true'
+        multivalued: true
         range: string
       dateOfBirth: 
         annotations: 
@@ -24,7 +24,7 @@ classes:
         description: An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id
         exact_mappings: 
           - ARGO:donor.submitter_donor_id
-        identifier: 'true'
+        identifier: true
         range: string
       karyotypicSex: 
         annotations: 

@@ -93,11 +93,12 @@ linkml:TypeDefinition a owl:Class ;
         <https://w3id.org/linkml/phenopackets/vrsatile/VariationDescriptor>,
         <https://w3id.org/linkml/phenopackets/vrsatile/VcfRecord> ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    linkml:generation_date "2022-03-02T14:34:59" ;
+    skos:definition "Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL." ;
+    linkml:generation_date "2022-03-02T19:36:57" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "phenopackets.yaml" ;
-    linkml:source_file_date "2022-03-02T14:31:28" ;
-    linkml:source_file_size 6142 .
+    linkml:source_file_date "2022-03-02T19:36:28" ;
+    linkml:source_file_size 6191 .
 
 linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
@@ -106,46 +107,39 @@ phenopackets:Cohort a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Cohort" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:description ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
             owl:onProperty phenopackets:files ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom phenopackets:Phenopacket ;
-            owl:onProperty phenopackets:members ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
             owl:onClass <https://w3id.org/linkml/phenopackets/meta_data/MetaData> ;
             owl:onProperty phenopackets:metaData ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom phenopackets:Phenopacket ;
+            owl:onProperty phenopackets:members ] ;
     skos:definition "A group of individuals related in some phenotypic or genotypic aspect." .
 
 phenopackets:Family a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Family" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass phenopackets:Phenopacket ;
-            owl:onProperty phenopackets:proband ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/meta_data/MetaData> ;
-            owl:onProperty phenopackets:metaData ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
             owl:onProperty phenopackets:files ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom phenopackets:Phenopacket ;
-            owl:onProperty phenopackets:relatives ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Boolean ;
             owl:onProperty phenopackets:consanguinousParents ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/meta_data/MetaData> ;
+            owl:onProperty phenopackets:metaData ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/pedigree/Pedigree> ;
@@ -153,7 +147,14 @@ phenopackets:Family a owl:Class,
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:id ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom phenopackets:Phenopacket ;
+            owl:onProperty phenopackets:relatives ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass phenopackets:Phenopacket ;
+            owl:onProperty phenopackets:proband ] ;
     skos:definition "Phenotype, sample and pedigree data required for a genomic diagnosis. Equivalent to the Genomics England InterpretationRequestRD https://github.com/genomicsengland/GelReportModels/blob/master/schemas/IDLs/org.gel.models.report.avro/5.0.0/InterpretationRequestRD.avdl" .
 
 phenopackets:acmgPathogenicityClassification a owl:ObjectProperty,
@@ -1134,12 +1135,12 @@ phenopackets:weeks a owl:ObjectProperty,
     rdfs:label "SequenceExpression" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/RepeatedSequenceExpression> ;
-            owl:onProperty phenopackets:repeatedSequenceExpression ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> ;
             owl:onProperty phenopackets:literalSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/RepeatedSequenceExpression> ;
+            owl:onProperty phenopackets:repeatedSequenceExpression ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
@@ -1161,11 +1162,11 @@ phenopackets:weeks a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Integer ;
-            owl:onProperty phenopackets:end ],
+            owl:onProperty phenopackets:start ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Integer ;
-            owl:onProperty phenopackets:start ] ;
+            owl:onProperty phenopackets:end ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrs/SystemicVariation> a owl:Class,
@@ -1393,12 +1394,12 @@ phenopackets:weeks a owl:ObjectProperty,
     rdfs:label "Value" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Quantity> ;
-            owl:onProperty phenopackets:quantity ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:ontologyClass ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:ontologyClass ] ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Quantity> ;
+            owl:onProperty phenopackets:quantity ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/medical_action/DrugType#ADMINISTRATION_RELATED_TO_PROCEDURE> a owl:Class,
@@ -1537,11 +1538,11 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:start ],
+            owl:onProperty phenopackets:end ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:end ] ;
+            owl:onProperty phenopackets:start ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrs/Member> a owl:Class,
@@ -1549,11 +1550,16 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:label "Member" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
-            owl:onProperty phenopackets:haplotype ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
+            owl:onProperty phenopackets:allele ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrs/Member> ;
-            owl:onProperty phenopackets:members ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Text> ;
+            owl:onProperty phenopackets:text ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CopyNumber> ;
@@ -1564,20 +1570,15 @@ phenopackets:xrefs a owl:ObjectProperty,
             owl:onProperty phenopackets:curie ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
-            owl:onProperty phenopackets:allele ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
+            owl:onProperty phenopackets:haplotype ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/VariationSet> ;
             owl:onProperty phenopackets:variationSet ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Text> ;
-            owl:onProperty phenopackets:text ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:Id ] ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrs/Member> ;
+            owl:onProperty phenopackets:members ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext#genomic> a owl:Class,
@@ -1606,11 +1607,11 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/Age> ;
-            owl:onProperty phenopackets:start ],
+            owl:onProperty phenopackets:end ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/Age> ;
-            owl:onProperty phenopackets:end ] ;
+            owl:onProperty phenopackets:start ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/base/Evidence> a owl:Class,
@@ -1645,57 +1646,39 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:end ],
+            owl:onProperty phenopackets:start ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:start ] ;
+            owl:onProperty phenopackets:end ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/biosample/Biosample> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Biosample" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/measurement/Measurement> ;
-            owl:onProperty phenopackets:measurements ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
-            owl:onProperty phenopackets:phenotypicFeatures ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:sampleStorage ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:individualId ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             owl:onProperty phenopackets:timeOfCollection ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
-            owl:onProperty phenopackets:files ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:tumorProgression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:derivedFromId ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:sampleProcessing ],
+            owl:onProperty phenopackets:taxonomy ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             owl:onProperty phenopackets:materialSample ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:histologicalDiagnosis ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:sampledTissue ],
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:pathologicalTnmFinding ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -1707,33 +1690,51 @@ phenopackets:xrefs a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:tumorProgression ],
+            owl:onProperty phenopackets:sampleStorage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:diagnosticMarkers ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:sampledTissue ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
+            owl:onProperty phenopackets:files ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:histologicalDiagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             owl:onProperty phenopackets:sampleType ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:derivedFromId ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/Procedure> ;
             owl:onProperty phenopackets:procedure ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:diagnosticMarkers ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:pathologicalTnmFinding ],
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             owl:onProperty phenopackets:pathologicalStage ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
+            owl:onProperty phenopackets:phenotypicFeatures ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:taxonomy ] ;
+            owl:onProperty phenopackets:sampleProcessing ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/measurement/Measurement> ;
+            owl:onProperty phenopackets:measurements ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:individualId ] ;
     skos:definition "A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html)." .
 
 <https://w3id.org/linkml/phenopackets/disease/Disease> a owl:Class,
@@ -1741,18 +1742,12 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:label "Disease" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            owl:onProperty phenopackets:onset ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:clinicalTnmFinding ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             owl:onProperty phenopackets:primarySite ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:diseaseStage ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty phenopackets:excluded ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
@@ -1762,41 +1757,39 @@ phenopackets:xrefs a owl:ObjectProperty,
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             owl:onProperty phenopackets:term ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Boolean ;
-            owl:onProperty phenopackets:excluded ],
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:diseaseStage ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:laterality ] ;
+            owl:onProperty phenopackets:laterality ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:clinicalTnmFinding ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:onset ] ;
     skos:definition "Message to indicate a disease (diagnosis) and its recorded onset." .
 
 <https://w3id.org/linkml/phenopackets/individual/Individual> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Individual" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:alternateIds ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/individual/Sex> ;
-            owl:onProperty phenopackets:sex ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:timeAtLastEncounter ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:dateOfBirth ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/individual/VitalStatus> ;
-            owl:onProperty phenopackets:vitalStatus ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty phenopackets:alternateIds ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> ;
             owl:onProperty phenopackets:karyotypicSex ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:taxonomy ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:id ;
@@ -1804,11 +1797,19 @@ phenopackets:xrefs a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:taxonomy ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/individual/Sex> ;
+            owl:onProperty phenopackets:sex ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             owl:onProperty phenopackets:gender ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            owl:onProperty phenopackets:timeAtLastEncounter ] ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/individual/VitalStatus> ;
+            owl:onProperty phenopackets:vitalStatus ] ;
     skos:definition "An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html)." .
 
 <https://w3id.org/linkml/phenopackets/individual/VitalStatus> a owl:Class,
@@ -1816,20 +1817,20 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:label "VitalStatus" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:causeOfDeath ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/individual/Status> ;
             owl:onProperty phenopackets:status ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty phenopackets:survivalTimeInDays ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:causeOfDeath ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            owl:onProperty phenopackets:timeOfDeath ] ;
+            owl:onProperty phenopackets:timeOfDeath ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:survivalTimeInDays ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/interpretation/Diagnosis> a owl:Class,
@@ -1849,41 +1850,41 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:label "GenomicInterpretation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor> ;
-            owl:onProperty phenopackets:gene ],
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:subjectOrBiosampleId ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/VariantInterpretation> ;
-            owl:onProperty phenopackets:variantInterpretation ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor> ;
+            owl:onProperty phenopackets:gene ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/InterpretationStatus> ;
             owl:onProperty phenopackets:interpretationStatus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:subjectOrBiosampleId ] ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/VariantInterpretation> ;
+            owl:onProperty phenopackets:variantInterpretation ] ;
     skos:definition "A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations." .
 
 <https://w3id.org/linkml/phenopackets/interpretation/Interpretation> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Interpretation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/Diagnosis> ;
-            owl:onProperty phenopackets:diagnosis ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
-            owl:onProperty phenopackets:progressStatus ],
-        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/Diagnosis> ;
+            owl:onProperty phenopackets:diagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:summary ] ;
+            owl:onProperty phenopackets:summary ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/ProgressStatus> ;
+            owl:onProperty phenopackets:progressStatus ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/interpretation/VariantInterpretation> a owl:Class,
@@ -1895,12 +1896,12 @@ phenopackets:xrefs a owl:ObjectProperty,
             owl:onProperty phenopackets:variationDescriptor ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
-            owl:onProperty phenopackets:acmgPathogenicityClassification ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability> ;
+            owl:onProperty phenopackets:therapeuticActionability ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/TherapeuticActionability> ;
-            owl:onProperty phenopackets:therapeuticActionability ] ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification> ;
+            owl:onProperty phenopackets:acmgPathogenicityClassification ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/measurement/ComplexValue> a owl:Class,
@@ -1916,28 +1917,28 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:label "Measurement" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:assay ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:description ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Value> ;
-            owl:onProperty phenopackets:value ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/Procedure> ;
             owl:onProperty phenopackets:procedure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:assay ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             owl:onProperty phenopackets:timeObserved ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Value> ;
+            owl:onProperty phenopackets:value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/measurement/ComplexValue> ;
-            owl:onProperty phenopackets:complexValue ] ;
+            owl:onProperty phenopackets:complexValue ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ] ;
     skos:definition "FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)" .
 
 <https://w3id.org/linkml/phenopackets/measurement/ReferenceRange> a owl:Class,
@@ -1945,16 +1946,16 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:label "ReferenceRange" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Double ;
-            owl:onProperty phenopackets:high ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:unit ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Double ;
             owl:onProperty phenopackets:low ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:unit ] ;
+            owl:onClass linkml:Double ;
+            owl:onProperty phenopackets:high ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/measurement/TypedQuantity> a owl:Class,
@@ -1995,16 +1996,8 @@ phenopackets:xrefs a owl:ObjectProperty,
             owl:onProperty phenopackets:adverseEvents ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/TherapeuticRegimen> ;
-            owl:onProperty phenopackets:therapeuticRegimen ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:treatmentIntent ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/Treatment> ;
-            owl:onProperty phenopackets:treatment ],
+            owl:onProperty phenopackets:responseToTreatment ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/Procedure> ;
@@ -2016,7 +2009,15 @@ phenopackets:xrefs a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:treatmentTerminationReason ],
+            owl:onProperty phenopackets:treatmentIntent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/Treatment> ;
+            owl:onProperty phenopackets:treatment ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/TherapeuticRegimen> ;
+            owl:onProperty phenopackets:therapeuticRegimen ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/RadiationTherapy> ;
@@ -2024,27 +2025,27 @@ phenopackets:xrefs a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:responseToTreatment ] ;
+            owl:onProperty phenopackets:treatmentTerminationReason ] ;
     skos:definition "medication, procedure, other actions taken for clinical management" .
 
 <https://w3id.org/linkml/phenopackets/medical_action/RadiationTherapy> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "RadiationTherapy" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:bodySite ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:fractions ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             owl:onProperty phenopackets:modality ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty phenopackets:dosage ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:bodySite ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass linkml:Integer ;
-            owl:onProperty phenopackets:fractions ;
+            owl:onProperty phenopackets:dosage ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "RadiationTherapy" .
 
@@ -2053,16 +2054,16 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:label "TherapeuticRegimen" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> ;
-            owl:onProperty phenopackets:regimenStatus ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:startTime ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             owl:onProperty phenopackets:ontologyClass ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            owl:onProperty phenopackets:endTime ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus> ;
+            owl:onProperty phenopackets:regimenStatus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
@@ -2070,7 +2071,7 @@ phenopackets:xrefs a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            owl:onProperty phenopackets:startTime ] ;
+            owl:onProperty phenopackets:endTime ] ;
     skos:definition "ARGO mapping radiation::radiation_therapy_type (missing)" .
 
 <https://w3id.org/linkml/phenopackets/medical_action/Treatment> a owl:Class,
@@ -2078,12 +2079,8 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:label "Treatment" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:routeOfAdministration ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:agent ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/DrugType> ;
+            owl:onProperty phenopackets:drugType ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/measurement/Quantity> ;
@@ -2093,8 +2090,12 @@ phenopackets:xrefs a owl:ObjectProperty,
             owl:onProperty phenopackets:doseIntervals ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/medical_action/DrugType> ;
-            owl:onProperty phenopackets:drugType ] ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:routeOfAdministration ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:agent ] ;
     skos:definition "ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug" .
 
 <https://w3id.org/linkml/phenopackets/meta_data/Resource> a owl:Class,
@@ -2103,11 +2104,15 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
+            owl:onProperty phenopackets:iriPrefix ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
             owl:onProperty phenopackets:url ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:namespacePrefix ],
+            owl:onProperty phenopackets:name ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -2119,11 +2124,7 @@ phenopackets:xrefs a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:iriPrefix ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:name ] ;
+            owl:onProperty phenopackets:namespacePrefix ] ;
     skos:definition "Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)" .
 
 <https://w3id.org/linkml/phenopackets/meta_data/Update> a owl:Class,
@@ -2132,11 +2133,11 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:updatedBy ],
+            owl:onProperty phenopackets:comment ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:comment ],
+            owl:onProperty phenopackets:updatedBy ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:timestamp ;
@@ -2157,27 +2158,27 @@ phenopackets:xrefs a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:familyId ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
             owl:onProperty phenopackets:individualId ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:paternalId ],
+            owl:onProperty phenopackets:familyId ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/individual/Sex> ;
             owl:onProperty phenopackets:sex ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus> ;
+            owl:onProperty phenopackets:affectedStatus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:maternalId ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/pedigree/AffectedStatus> ;
-            owl:onProperty phenopackets:affectedStatus ] ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:paternalId ] ;
     skos:definition "" .
 
 phenopackets:curie a owl:ObjectProperty,
@@ -2215,14 +2216,6 @@ phenopackets:variationSet a owl:ObjectProperty,
     rdfs:label "PhenotypicFeature" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Boolean ;
-            owl:onProperty phenopackets:excluded ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             owl:onProperty phenopackets:onset ],
         [ a owl:Restriction ;
@@ -2230,19 +2223,27 @@ phenopackets:variationSet a owl:ObjectProperty,
             owl:onProperty phenopackets:evidence ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:severity ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:modifiers ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            owl:onProperty phenopackets:resolution ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:description ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:modifiers ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            owl:onProperty phenopackets:resolution ] ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:severity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Boolean ;
+            owl:onProperty phenopackets:excluded ] ;
     skos:definition "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)" .
 
 <https://w3id.org/linkml/phenopackets/vrs/ChromosomeLocation> a owl:Class,
@@ -2251,19 +2252,19 @@ phenopackets:variationSet a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
+            owl:onProperty phenopackets:speciesId ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
             owl:onProperty phenopackets:chr ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CytobandInterval> ;
-            owl:onProperty phenopackets:interval ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:speciesId ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:Id ] ;
+            owl:onProperty phenopackets:interval ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrs/Gene> a owl:Class,
@@ -2281,7 +2282,7 @@ phenopackets:variationSet a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
-            owl:onProperty phenopackets:endDefiniteRange ],
+            owl:onProperty phenopackets:startDefiniteRange ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
@@ -2292,12 +2293,12 @@ phenopackets:variationSet a owl:ObjectProperty,
             owl:onProperty phenopackets:startIndefiniteRange ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
-            owl:onProperty phenopackets:endNumber ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
+            owl:onProperty phenopackets:endDefiniteRange ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
-            owl:onProperty phenopackets:startDefiniteRange ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+            owl:onProperty phenopackets:endNumber ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
@@ -2309,8 +2310,8 @@ phenopackets:variationSet a owl:ObjectProperty,
     rdfs:label "Variation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CopyNumber> ;
-            owl:onProperty phenopackets:copyNumber ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
+            owl:onProperty phenopackets:haplotype ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
@@ -2321,12 +2322,12 @@ phenopackets:variationSet a owl:ObjectProperty,
             owl:onProperty phenopackets:variationSet ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
-            owl:onProperty phenopackets:haplotype ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Text> ;
+            owl:onProperty phenopackets:text ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Text> ;
-            owl:onProperty phenopackets:text ] ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/CopyNumber> ;
+            owl:onProperty phenopackets:copyNumber ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrsatile/Expression> a owl:Class,
@@ -2335,15 +2336,15 @@ phenopackets:variationSet a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
+            owl:onProperty phenopackets:syntax ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
             owl:onProperty phenopackets:value ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:version ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:syntax ] ;
+            owl:onProperty phenopackets:version ] ;
     skos:definition "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression" .
 
 <https://w3id.org/linkml/phenopackets/vrsatile/Extension> a owl:Class,
@@ -2362,57 +2363,57 @@ phenopackets:variationSet a owl:ObjectProperty,
         linkml:ClassDefinition ;
     rdfs:label "VariationDescriptor" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/MoleculeContext> ;
             owl:onProperty phenopackets:moleculeContext ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:description ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:label ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrsatile/Expression> ;
-            owl:onProperty phenopackets:expressions ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/VcfRecord> ;
             owl:onProperty phenopackets:vcfRecord ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:structuralType ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor> ;
-            owl:onProperty phenopackets:geneContext ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:allelicState ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty phenopackets:xrefs ],
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:vrsRefAlleleSeq ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:allelicState ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrsatile/Expression> ;
+            owl:onProperty phenopackets:expressions ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:structuralType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrsatile/Extension> ;
+            owl:onProperty phenopackets:extensions ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:xrefs ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrsatile/GeneDescriptor> ;
+            owl:onProperty phenopackets:geneContext ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Variation> ;
             owl:onProperty phenopackets:variation ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty phenopackets:alternateLabels ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/vrsatile/Extension> ;
-            owl:onProperty phenopackets:extensions ] ;
+            owl:onProperty phenopackets:alternateLabels ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrsatile/VcfRecord> a owl:Class,
@@ -2421,11 +2422,27 @@ phenopackets:variationSet a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:ref ],
+            owl:onProperty phenopackets:chrom ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:filter ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:alt ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:qual ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty phenopackets:pos ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:ref ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -2433,27 +2450,11 @@ phenopackets:variationSet a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:filter ],
+            owl:onProperty phenopackets:info ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:chrom ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:info ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:alt ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty phenopackets:pos ] ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/base/Procedure> a owl:Class,
@@ -2461,16 +2462,16 @@ phenopackets:variationSet a owl:ObjectProperty,
     rdfs:label "Procedure" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:code ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             owl:onProperty phenopackets:performed ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            owl:onProperty phenopackets:bodySite ] ;
+            owl:onProperty phenopackets:bodySite ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            owl:onProperty phenopackets:code ] ;
     skos:definition "A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {\"code\":{\"NCIT:C51585\": \"Biopsy of Soft Palate\"}} {\"code\":{\"NCIT:C28743\": \"Punch Biopsy\"}, \"body_site\":{\"UBERON:0003403\": \"skin of forearm\"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)" .
 
 <https://w3id.org/linkml/phenopackets/meta_data/MetaData> a owl:Class,
@@ -2479,7 +2480,17 @@ phenopackets:variationSet a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:createdBy ],
+            owl:onProperty phenopackets:phenopacketSchemaVersion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
+            owl:onProperty phenopackets:externalReferences ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:created ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/meta_data/Update> ;
+            owl:onProperty phenopackets:updates ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -2487,17 +2498,7 @@ phenopackets:variationSet a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:created ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
-            owl:onProperty phenopackets:externalReferences ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:phenopacketSchemaVersion ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/meta_data/Update> ;
-            owl:onProperty phenopackets:updates ],
+            owl:onProperty phenopackets:createdBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/linkml/phenopackets/meta_data/Resource> ;
             owl:onProperty phenopackets:resources ] ;
@@ -2536,20 +2537,20 @@ phenopackets:start a owl:ObjectProperty,
             owl:onProperty phenopackets:definiteRange ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
-            owl:onProperty phenopackets:number ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> ;
             owl:onProperty phenopackets:literalSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
+            owl:onProperty phenopackets:derivedSequenceExpression ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
             owl:onProperty phenopackets:indefiniteRange ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
-            owl:onProperty phenopackets:derivedSequenceExpression ] ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+            owl:onProperty phenopackets:number ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrs/Text> a owl:Class,
@@ -2560,9 +2561,9 @@ phenopackets:start a owl:ObjectProperty,
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:definition ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:Id ] ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrs/VariationSet> a owl:Class,
@@ -2576,24 +2577,24 @@ phenopackets:start a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:valueId ],
+            owl:onProperty phenopackets:description ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:description ],
+            owl:onProperty phenopackets:valueId ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty phenopackets:xrefs ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty phenopackets:alternateIds ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty phenopackets:alternateSymbols ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:symbol ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty phenopackets:alternateIds ] ;
+            owl:onProperty phenopackets:symbol ] ;
     skos:definition "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor" .
 
 <https://w3id.org/linkml/phenopackets/base/Age> a owl:Class,
@@ -2615,12 +2616,12 @@ phenopackets:start a owl:ObjectProperty,
     rdfs:label "File" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:uri ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/Dictionary> ;
             owl:onProperty phenopackets:fileAttributes ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:uri ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/Dictionary> ;
@@ -2660,19 +2661,11 @@ phenopackets:start a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:Id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/ChromosomeLocation> ;
-            owl:onProperty phenopackets:chromosomeLocation ],
+            owl:onProperty phenopackets:curie ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/SequenceLocation> ;
             owl:onProperty phenopackets:sequenceLocation ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:curie ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> ;
@@ -2684,7 +2677,15 @@ phenopackets:start a owl:ObjectProperty,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
-            owl:onProperty phenopackets:derivedSequenceExpression ] ;
+            owl:onProperty phenopackets:derivedSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/ChromosomeLocation> ;
+            owl:onProperty phenopackets:chromosomeLocation ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrs/CopyNumber> a owl:Class,
@@ -2692,16 +2693,28 @@ phenopackets:start a owl:ObjectProperty,
     rdfs:label "CopyNumber" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:curie ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
-            owl:onProperty phenopackets:number ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/LiteralSequenceExpression> ;
             owl:onProperty phenopackets:literalSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
+            owl:onProperty phenopackets:definiteRange ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
+            owl:onProperty phenopackets:derivedSequenceExpression ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
+            owl:onProperty phenopackets:haplotype ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
+            owl:onProperty phenopackets:allele ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Gene> ;
@@ -2712,28 +2725,16 @@ phenopackets:start a owl:ObjectProperty,
             owl:onProperty phenopackets:repeatedSequenceExpression ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Allele> ;
-            owl:onProperty phenopackets:allele ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> ;
-            owl:onProperty phenopackets:derivedSequenceExpression ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> ;
             owl:onProperty phenopackets:indefiniteRange ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Number> ;
+            owl:onProperty phenopackets:number ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:Id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/Haplotype> ;
-            owl:onProperty phenopackets:haplotype ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/vrs/DefiniteRange> ;
-            owl:onProperty phenopackets:definiteRange ] ;
+            owl:onProperty phenopackets:curie ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrs/DerivedSequenceExpression> a owl:Class,
@@ -2772,29 +2773,29 @@ phenopackets:start a owl:ObjectProperty,
             owl:onProperty phenopackets:sequenceId ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:Id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/vrs/SequenceInterval> ;
-            owl:onProperty phenopackets:sequenceInterval ] ;
+            owl:onProperty phenopackets:sequenceInterval ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:id ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/base/ExternalReference> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ExternalReference" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:description ],
-        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty phenopackets:reference ] ;
+            owl:onProperty phenopackets:reference ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:description ] ;
     skos:definition "FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)" .
 
 <https://w3id.org/linkml/phenopackets/individual/Sex> a owl:Class,
@@ -2816,12 +2817,12 @@ phenopackets:start a owl:ObjectProperty,
             owl:onProperty phenopackets:unit ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Double ;
-            owl:onProperty phenopackets:value ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/ReferenceRange> ;
+            owl:onProperty phenopackets:referenceRange ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/measurement/ReferenceRange> ;
-            owl:onProperty phenopackets:referenceRange ] ;
+            owl:onClass linkml:Double ;
+            owl:onProperty phenopackets:value ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/medical_action/DrugType> a owl:Class,
@@ -2844,41 +2845,38 @@ phenopackets:start a owl:ObjectProperty,
         <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#STARTED>,
         <https://w3id.org/linkml/phenopackets/medical_action/RegimenStatus#UNKNOWN_STATUS> .
 
-phenopackets:Id a owl:ObjectProperty,
-        linkml:SlotDefinition .
-
 phenopackets:Phenopacket a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Phenopacket" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/interpretation/Interpretation> ;
-            owl:onProperty phenopackets:interpretations ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/individual/Individual> ;
             owl:onProperty phenopackets:subject ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/measurement/Measurement> ;
-            owl:onProperty phenopackets:measurements ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
-            owl:onProperty phenopackets:phenotypicFeatures ],
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/interpretation/Interpretation> ;
+            owl:onProperty phenopackets:interpretations ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/linkml/phenopackets/biosample/Biosample> ;
             owl:onProperty phenopackets:biosamples ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/disease/Disease> ;
-            owl:onProperty phenopackets:diseases ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
-            owl:onProperty phenopackets:files ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
+            owl:onProperty phenopackets:phenotypicFeatures ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/disease/Disease> ;
+            owl:onProperty phenopackets:diseases ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/measurement/Measurement> ;
+            owl:onProperty phenopackets:measurements ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/linkml/phenopackets/medical_action/MedicalAction> ;
             owl:onProperty phenopackets:medicalActions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/linkml/phenopackets/base/File> ;
+            owl:onProperty phenopackets:files ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/linkml/phenopackets/meta_data/MetaData> ;
             owl:onProperty phenopackets:metaData ;
@@ -2929,11 +2927,11 @@ phenopackets:value a owl:ObjectProperty,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Integer ;
-            owl:onProperty phenopackets:min ],
+            owl:onProperty phenopackets:max ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Integer ;
-            owl:onProperty phenopackets:max ] ;
+            owl:onProperty phenopackets:min ] ;
     skos:definition "" .
 
 <https://w3id.org/linkml/phenopackets/vrs/IndefiniteRange> a owl:Class,
@@ -2970,9 +2968,6 @@ phenopackets:value a owl:ObjectProperty,
         <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#PATHOGENIC>,
         <https://w3id.org/linkml/phenopackets/interpretation/AcmgPathogenicityClassification#UNCERTAIN_SIGNIFICANCE> .
 
-phenopackets:id a owl:ObjectProperty,
-        linkml:SlotDefinition .
-
 <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex> a owl:Class,
         linkml:EnumDefinition ;
     rdfs:label "KaryotypicSex" ;
@@ -2990,25 +2985,28 @@ phenopackets:id a owl:ObjectProperty,
         <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XY>,
         <https://w3id.org/linkml/phenopackets/individual/KaryotypicSex#XYY> .
 
+phenopackets:id a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
 <https://w3id.org/linkml/phenopackets/base/TimeElement> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TimeElement" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/GestationalAge> ;
-            owl:onProperty phenopackets:gestationalAge ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/AgeRange> ;
+            owl:onProperty phenopackets:ageRange ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
-            owl:onProperty phenopackets:interval ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/GestationalAge> ;
+            owl:onProperty phenopackets:gestationalAge ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/Age> ;
             owl:onProperty phenopackets:age ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/linkml/phenopackets/base/AgeRange> ;
-            owl:onProperty phenopackets:ageRange ],
+            owl:onClass <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
+            owl:onProperty phenopackets:interval ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
@@ -3027,13 +3025,13 @@ linkml:ClassDefinition a owl:Class ;
         linkml:ClassDefinition ;
     rdfs:label "OntologyClass" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty phenopackets:label ],
-        [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty phenopackets:id ;
-            owl:qualifiedCardinality 1 ] ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty phenopackets:label ] ;
     skos:definition "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept) see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)" .
 
 linkml:SlotDefinition a owl:Class ;

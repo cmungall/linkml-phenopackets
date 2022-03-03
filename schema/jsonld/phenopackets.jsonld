@@ -1,5 +1,6 @@
 {
   "name": "phenopackets",
+  "description": "Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.",
   "id": "https://w3id.org/linkml/phenopackets/phenopackets",
   "imports": [
     "linkml:types",
@@ -5022,33 +5023,12 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/copyNumber",
-      "inlined": true,
       "alias": "copyNumber",
       "owner": "Abundance",
       "domain_of": [
         "Abundance"
       ],
       "range": "CopyNumber",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "allele__Id",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": "1",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/Id",
-      "alias": "Id",
-      "owner": "Allele",
-      "domain_of": [
-        "Allele"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -5063,7 +5043,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/chromosomeLocation",
-      "inlined": true,
       "alias": "chromosomeLocation",
       "owner": "Allele",
       "domain_of": [
@@ -5111,6 +5090,28 @@
         "Allele"
       ],
       "range": "DerivedSequenceExpression",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "allele__id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": "1",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/id",
+      "identifier": true,
+      "alias": "id",
+      "owner": "Allele",
+      "domain_of": [
+        "Allele"
+      ],
+      "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5167,33 +5168,12 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/sequenceLocation",
-      "inlined": true,
       "alias": "sequenceLocation",
       "owner": "Allele",
       "domain_of": [
         "Allele"
       ],
       "range": "SequenceLocation",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "chromosomeLocation__Id",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": "1",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/Id",
-      "alias": "Id",
-      "owner": "ChromosomeLocation",
-      "domain_of": [
-        "ChromosomeLocation"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -5214,6 +5194,28 @@
         "ChromosomeLocation"
       ],
       "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "chromosomeLocation__id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": "1",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/id",
+      "identifier": true,
+      "alias": "id",
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5258,26 +5260,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "copyNumber__Id",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": "1",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/Id",
-      "alias": "Id",
-      "owner": "CopyNumber",
-      "domain_of": [
-        "CopyNumber"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "copyNumber__allele",
       "annotations": [
         {
@@ -5289,7 +5271,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/allele",
-      "inlined": true,
       "alias": "allele",
       "owner": "CopyNumber",
       "domain_of": [
@@ -5400,6 +5381,28 @@
         "CopyNumber"
       ],
       "range": "Haplotype",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "copyNumber__id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": "1",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/id",
+      "identifier": true,
+      "alias": "id",
+      "owner": "CopyNumber",
+      "domain_of": [
+        "CopyNumber"
+      ],
+      "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5578,7 +5581,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/location",
-      "inlined": true,
       "alias": "location",
       "owner": "DerivedSequenceExpression",
       "domain_of": [
@@ -5720,7 +5722,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/chromosomeLocation",
-      "inlined": true,
       "alias": "chromosomeLocation",
       "owner": "Location",
       "domain_of": [
@@ -5741,33 +5742,12 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/sequenceLocation",
-      "inlined": true,
       "alias": "sequenceLocation",
       "owner": "Location",
       "domain_of": [
         "Location"
       ],
       "range": "SequenceLocation",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__Id",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": "1",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/Id",
-      "alias": "Id",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -5782,7 +5762,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/allele",
-      "inlined": true,
       "alias": "allele",
       "owner": "Member",
       "domain_of": [
@@ -5803,7 +5782,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/copyNumber",
-      "inlined": true,
       "alias": "copyNumber",
       "owner": "Member",
       "domain_of": [
@@ -5854,6 +5832,28 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "member__id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": "1",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/id",
+      "identifier": true,
+      "alias": "id",
+      "owner": "Member",
+      "domain_of": [
+        "Member"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "member__members",
       "annotations": [
         {
@@ -5866,7 +5866,6 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/members",
       "multivalued": true,
-      "inlined": true,
       "alias": "members",
       "owner": "Member",
       "domain_of": [
@@ -5887,7 +5886,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/text",
-      "inlined": true,
       "alias": "text",
       "owner": "Member",
       "domain_of": [
@@ -5929,7 +5927,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/allele",
-      "inlined": true,
       "alias": "allele",
       "owner": "MolecularVariation",
       "domain_of": [
@@ -6274,7 +6271,7 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "sequenceLocation__Id",
+      "name": "sequenceLocation__id",
       "annotations": [
         {
           "tag": "rank",
@@ -6284,13 +6281,15 @@
       ],
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/Id",
-      "alias": "Id",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/id",
+      "identifier": true,
+      "alias": "id",
       "owner": "SequenceLocation",
       "domain_of": [
         "SequenceLocation"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6406,33 +6405,12 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/copyNumber",
-      "inlined": true,
       "alias": "copyNumber",
       "owner": "SystemicVariation",
       "domain_of": [
         "SystemicVariation"
       ],
       "range": "CopyNumber",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "text__Id",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": "1",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/Id",
-      "alias": "Id",
-      "owner": "Text",
-      "domain_of": [
-        "Text"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -6456,6 +6434,28 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "text__id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": "1",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/id",
+      "identifier": true,
+      "alias": "id",
+      "owner": "Text",
+      "domain_of": [
+        "Text"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "utilityVariation__text",
       "annotations": [
         {
@@ -6467,7 +6467,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/text",
-      "inlined": true,
       "alias": "text",
       "owner": "UtilityVariation",
       "domain_of": [
@@ -6509,7 +6508,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/allele",
-      "inlined": true,
       "alias": "allele",
       "owner": "Variation",
       "domain_of": [
@@ -6530,7 +6528,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/copyNumber",
-      "inlined": true,
       "alias": "copyNumber",
       "owner": "Variation",
       "domain_of": [
@@ -6572,7 +6569,6 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/phenopackets",
       "slot_uri": "https://w3id.org/linkml/phenopackets/phenopackets/text",
-      "inlined": true,
       "alias": "text",
       "owner": "Variation",
       "domain_of": [
@@ -10648,29 +10644,16 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
-        "allele__Id",
         "allele__chromosomeLocation",
         "allele__curie",
         "allele__derivedSequenceExpression",
+        "allele__id",
         "allele__literalSequenceExpression",
         "allele__repeatedSequenceExpression",
         "allele__sequenceLocation"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "Id",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": "1",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "chromosomeLocation",
           "annotations": [
@@ -10708,6 +10691,20 @@
           ],
           "description": "",
           "range": "DerivedSequenceExpression",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": "1",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "identifier": true,
+          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -10799,26 +10796,13 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
-        "chromosomeLocation__Id",
         "chromosomeLocation__chr",
+        "chromosomeLocation__id",
         "chromosomeLocation__interval",
         "chromosomeLocation__speciesId"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "Id",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": "1",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "chr",
           "annotations": [
@@ -10829,6 +10813,20 @@
             }
           ],
           "description": "",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": "1",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "identifier": true,
           "range": "string",
           "@type": "SlotDefinition"
         },
@@ -10868,13 +10866,13 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
-        "copyNumber__Id",
         "copyNumber__allele",
         "copyNumber__curie",
         "copyNumber__definiteRange",
         "copyNumber__derivedSequenceExpression",
         "copyNumber__gene",
         "copyNumber__haplotype",
+        "copyNumber__id",
         "copyNumber__indefiniteRange",
         "copyNumber__literalSequenceExpression",
         "copyNumber__number",
@@ -10882,19 +10880,6 @@
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "Id",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": "1",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "allele",
           "annotations": [
@@ -10971,6 +10956,20 @@
           ],
           "description": "",
           "range": "Haplotype",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": "1",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "identifier": true,
+          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -11420,30 +11419,17 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
-        "member__Id",
         "member__allele",
         "member__copyNumber",
         "member__curie",
         "member__haplotype",
+        "member__id",
         "member__members",
         "member__text",
         "member__variationSet"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "Id",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": "1",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "allele",
           "annotations": [
@@ -11494,6 +11480,20 @@
           ],
           "description": "",
           "range": "Haplotype",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": "1",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "identifier": true,
+          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -12069,14 +12069,14 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
-        "sequenceLocation__Id",
+        "sequenceLocation__id",
         "sequenceLocation__sequenceId",
         "sequenceLocation__sequenceInterval"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "Id",
+          "name": "id",
           "annotations": [
             {
               "tag": "rank",
@@ -12085,6 +12085,7 @@
             }
           ],
           "description": "",
+          "identifier": true,
           "range": "string",
           "@type": "SlotDefinition"
         },
@@ -12259,24 +12260,11 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
-        "text__Id",
-        "text__definition"
+        "text__definition",
+        "text__id"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "Id",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": "1",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "definition",
           "annotations": [
@@ -12287,6 +12275,20 @@
             }
           ],
           "description": "",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": "1",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "identifier": true,
           "range": "string",
           "@type": "SlotDefinition"
         }
@@ -12520,9 +12522,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "phenopackets.yaml",
-  "source_file_date": "2022-03-02T14:31:28",
-  "source_file_size": 6142,
-  "generation_date": "2022-03-02T14:34:56",
+  "source_file_date": "2022-03-02T19:36:28",
+  "source_file_size": 6191,
+  "generation_date": "2022-03-02T19:36:54",
   "@type": "SchemaDefinition",
   "@context": [
     "schema/jsonld/phenopackets.context.jsonld",

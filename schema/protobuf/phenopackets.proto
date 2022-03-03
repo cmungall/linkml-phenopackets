@@ -14,10 +14,10 @@ message AgeRange
  }
 message Allele
  {
-  optional id String = 1
-  optional chromosomeLocation ChromosomeLocation = 2
-  optional curie String = 3
-  optional derivedSequenceExpression DerivedSequenceExpression = 4
+  optional chromosomeLocation ChromosomeLocation = 1
+  optional curie String = 2
+  optional derivedSequenceExpression DerivedSequenceExpression = 3
+  id String = 4
   optional literalSequenceExpression LiteralSequenceExpression = 5
   optional repeatedSequenceExpression RepeatedSequenceExpression = 6
   optional sequenceLocation SequenceLocation = 7
@@ -55,8 +55,8 @@ message Biosample
  }
 message ChromosomeLocation
  {
-  optional id String = 1
-  optional chr String = 2
+  optional chr String = 1
+  id String = 2
   optional interval CytobandInterval = 3
   optional speciesId String = 4
  }
@@ -75,13 +75,13 @@ message ComplexValue
  }
 message CopyNumber
  {
-  optional id String = 1
-  optional allele Allele = 2
-  optional curie String = 3
-  optional definiteRange DefiniteRange = 4
-  optional derivedSequenceExpression DerivedSequenceExpression = 5
-  optional gene Gene = 6
-  optional haplotype Haplotype = 7
+  optional allele Allele = 1
+  optional curie String = 2
+  optional definiteRange DefiniteRange = 3
+  optional derivedSequenceExpression DerivedSequenceExpression = 4
+  optional gene Gene = 5
+  optional haplotype Haplotype = 6
+  id String = 7
   optional indefiniteRange IndefiniteRange = 8
   optional literalSequenceExpression LiteralSequenceExpression = 9
   optional number Number = 10
@@ -259,11 +259,11 @@ message MedicalAction
  }
 message Member
  {
-  optional id String = 1
-  optional allele Allele = 2
-  optional copyNumber CopyNumber = 3
-  optional curie String = 4
-  optional haplotype Haplotype = 5
+  optional allele Allele = 1
+  optional copyNumber CopyNumber = 2
+  optional curie String = 3
+  optional haplotype Haplotype = 4
+  id String = 5
   repeated members Member = 6
   optional text Text = 7
   optional variationSet VariationSet = 8
@@ -395,7 +395,7 @@ message SequenceInterval
  }
 message SequenceLocation
  {
-  optional id String = 1
+  id String = 1
   optional sequenceId String = 2
   optional sequenceInterval SequenceInterval = 3
  }
@@ -414,8 +414,8 @@ message SystemicVariation
  }
 message Text
  {
-  optional id String = 1
-  optional definition String = 2
+  optional definition String = 1
+  id String = 2
  }
 // ARGO mapping radiation::radiation_therapy_type (missing)
 message TherapeuticRegimen

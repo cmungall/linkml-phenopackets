@@ -106,6 +106,13 @@ while(<>) {
             $range = $1;
             $mv = 1;
         }
+        # VRS has fields like _Id
+        if ($n eq '_id') {
+            $n = 'id';
+        }
+        if ($n =~ m@^_@) {
+            $n =~ s@^_@@;
+        }
         while ($n =~ m@_@) {
             $n =~ s@_(\w)@uc($1)@e;
         }
@@ -167,4 +174,5 @@ foreach (@elts) {
 
 my $s = Dump($schema);
 $s =~ s@\-\-\-@@;
+$s =~ s@: 'true'@: true@g;
 print $s;

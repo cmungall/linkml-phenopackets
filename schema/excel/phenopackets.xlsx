@@ -1,10 +1,5 @@
 
 
-CREATE TABLE "Abundance" (
-	"copyNumber" TEXT, 
-	PRIMARY KEY ("copyNumber")
-);
-
 CREATE TABLE "Age" (
 	iso8601duration TEXT, 
 	PRIMARY KEY (iso8601duration)
@@ -16,17 +11,6 @@ CREATE TABLE "AgeRange" (
 	PRIMARY KEY ("end", start)
 );
 
-CREATE TABLE "Allele" (
-	"Id" TEXT, 
-	"chromosomeLocation" TEXT, 
-	curie TEXT, 
-	"derivedSequenceExpression" TEXT, 
-	"literalSequenceExpression" TEXT, 
-	"repeatedSequenceExpression" TEXT, 
-	"sequenceLocation" TEXT, 
-	PRIMARY KEY ("Id", "chromosomeLocation", curie, "derivedSequenceExpression", "literalSequenceExpression", "repeatedSequenceExpression", "sequenceLocation")
-);
-
 CREATE TABLE "Any" (
 	"typeUrl" TEXT, 
 	value TEXT, 
@@ -34,11 +18,11 @@ CREATE TABLE "Any" (
 );
 
 CREATE TABLE "ChromosomeLocation" (
-	"Id" TEXT, 
 	chr TEXT, 
+	id TEXT NOT NULL, 
 	interval TEXT, 
 	"speciesId" TEXT, 
-	PRIMARY KEY ("Id", chr, interval, "speciesId")
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE "Cohort" (
@@ -55,21 +39,6 @@ CREATE TABLE "ComplexValue" (
 	PRIMARY KEY ("typedQuantities")
 );
 
-CREATE TABLE "CopyNumber" (
-	"Id" TEXT, 
-	allele TEXT, 
-	curie TEXT, 
-	"definiteRange" TEXT, 
-	"derivedSequenceExpression" TEXT, 
-	gene TEXT, 
-	haplotype TEXT, 
-	"indefiniteRange" TEXT, 
-	"literalSequenceExpression" TEXT, 
-	number TEXT, 
-	"repeatedSequenceExpression" TEXT, 
-	PRIMARY KEY ("Id", allele, curie, "definiteRange", "derivedSequenceExpression", gene, haplotype, "indefiniteRange", "literalSequenceExpression", number, "repeatedSequenceExpression")
-);
-
 CREATE TABLE "CytobandInterval" (
 	"end" TEXT, 
 	start TEXT, 
@@ -80,12 +49,6 @@ CREATE TABLE "DefiniteRange" (
 	max INTEGER, 
 	min INTEGER, 
 	PRIMARY KEY (max, min)
-);
-
-CREATE TABLE "DerivedSequenceExpression" (
-	location TEXT, 
-	"reverseComplement" BOOLEAN, 
-	PRIMARY KEY (location, "reverseComplement")
 );
 
 CREATE TABLE "ExternalReference" (
@@ -147,24 +110,6 @@ CREATE TABLE "LiteralSequenceExpression" (
 	PRIMARY KEY (sequence)
 );
 
-CREATE TABLE "Location" (
-	"chromosomeLocation" TEXT, 
-	"sequenceLocation" TEXT, 
-	PRIMARY KEY ("chromosomeLocation", "sequenceLocation")
-);
-
-CREATE TABLE "Member" (
-	"Id" TEXT, 
-	allele TEXT, 
-	"copyNumber" TEXT, 
-	curie TEXT, 
-	haplotype TEXT, 
-	members TEXT, 
-	text TEXT, 
-	"variationSet" TEXT, 
-	PRIMARY KEY ("Id", allele, "copyNumber", curie, haplotype, members, text, "variationSet")
-);
-
 CREATE TABLE "MetaData" (
 	created TEXT, 
 	"createdBy" TEXT, 
@@ -174,12 +119,6 @@ CREATE TABLE "MetaData" (
 	"submittedBy" TEXT, 
 	updates TEXT, 
 	PRIMARY KEY (created, "createdBy", "externalReferences", "phenopacketSchemaVersion", resources, "submittedBy", updates)
-);
-
-CREATE TABLE "MolecularVariation" (
-	allele TEXT, 
-	haplotype TEXT, 
-	PRIMARY KEY (allele, haplotype)
 );
 
 CREATE TABLE "Number" (
@@ -245,10 +184,10 @@ CREATE TABLE "SequenceInterval" (
 );
 
 CREATE TABLE "SequenceLocation" (
-	"Id" TEXT, 
+	id TEXT NOT NULL, 
 	"sequenceId" TEXT, 
 	"sequenceInterval" TEXT, 
-	PRIMARY KEY ("Id", "sequenceId", "sequenceInterval")
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE "SequenceState" (
@@ -262,15 +201,10 @@ CREATE TABLE "SimpleInterval" (
 	PRIMARY KEY ("end", start)
 );
 
-CREATE TABLE "SystemicVariation" (
-	"copyNumber" TEXT, 
-	PRIMARY KEY ("copyNumber")
-);
-
 CREATE TABLE "Text" (
-	"Id" TEXT, 
 	definition TEXT, 
-	PRIMARY KEY ("Id", definition)
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE "TimeInterval" (
@@ -292,21 +226,6 @@ CREATE TABLE "Update" (
 	PRIMARY KEY (comment, timestamp, "updatedBy")
 );
 
-CREATE TABLE "UtilityVariation" (
-	text TEXT, 
-	"variationSet" TEXT, 
-	PRIMARY KEY (text, "variationSet")
-);
-
-CREATE TABLE "Variation" (
-	allele TEXT, 
-	"copyNumber" TEXT, 
-	haplotype TEXT, 
-	text TEXT, 
-	"variationSet" TEXT, 
-	PRIMARY KEY (allele, "copyNumber", haplotype, text, "variationSet")
-);
-
 CREATE TABLE "VcfRecord" (
 	alt TEXT, 
 	chrom TEXT, 
@@ -318,6 +237,26 @@ CREATE TABLE "VcfRecord" (
 	qual TEXT, 
 	ref TEXT, 
 	PRIMARY KEY (id)
+);
+
+CREATE TABLE "Allele" (
+	"chromosomeLocation" TEXT, 
+	curie TEXT, 
+	"derivedSequenceExpression" TEXT, 
+	id TEXT NOT NULL, 
+	"literalSequenceExpression" TEXT, 
+	"repeatedSequenceExpression" TEXT, 
+	"sequenceLocation" TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY("chromosomeLocation") REFERENCES "ChromosomeLocation" (id), 
+	FOREIGN KEY("sequenceLocation") REFERENCES "SequenceLocation" (id)
+);
+
+CREATE TABLE "DerivedSequenceExpression" (
+	location TEXT, 
+	"reverseComplement" BOOLEAN, 
+	PRIMARY KEY (location, "reverseComplement"), 
+	FOREIGN KEY(location) REFERENCES "SequenceLocation" (id)
 );
 
 CREATE TABLE "Diagnosis" (
@@ -355,6 +294,14 @@ CREATE TABLE "Individual" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(gender) REFERENCES "OntologyClass" (id), 
 	FOREIGN KEY(taxonomy) REFERENCES "OntologyClass" (id)
+);
+
+CREATE TABLE "Location" (
+	"chromosomeLocation" TEXT, 
+	"sequenceLocation" TEXT, 
+	PRIMARY KEY ("chromosomeLocation", "sequenceLocation"), 
+	FOREIGN KEY("chromosomeLocation") REFERENCES "ChromosomeLocation" (id), 
+	FOREIGN KEY("sequenceLocation") REFERENCES "SequenceLocation" (id)
 );
 
 CREATE TABLE "Measurement" (
@@ -457,6 +404,13 @@ CREATE TABLE "TypedQuantity" (
 	FOREIGN KEY(type) REFERENCES "OntologyClass" (id)
 );
 
+CREATE TABLE "UtilityVariation" (
+	text TEXT, 
+	"variationSet" TEXT, 
+	PRIMARY KEY (text, "variationSet"), 
+	FOREIGN KEY(text) REFERENCES "Text" (id)
+);
+
 CREATE TABLE "Value" (
 	"ontologyClass" TEXT, 
 	quantity TEXT, 
@@ -490,6 +444,22 @@ CREATE TABLE "VitalStatus" (
 	FOREIGN KEY("causeOfDeath") REFERENCES "OntologyClass" (id)
 );
 
+CREATE TABLE "CopyNumber" (
+	allele TEXT, 
+	curie TEXT, 
+	"definiteRange" TEXT, 
+	"derivedSequenceExpression" TEXT, 
+	gene TEXT, 
+	haplotype TEXT, 
+	id TEXT NOT NULL, 
+	"indefiniteRange" TEXT, 
+	"literalSequenceExpression" TEXT, 
+	number TEXT, 
+	"repeatedSequenceExpression" TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(allele) REFERENCES "Allele" (id)
+);
+
 CREATE TABLE "Expression" (
 	syntax TEXT, 
 	value TEXT, 
@@ -505,6 +475,13 @@ CREATE TABLE "Extension" (
 	"VariationDescriptor_id" TEXT, 
 	PRIMARY KEY (name, value, "VariationDescriptor_id"), 
 	FOREIGN KEY("VariationDescriptor_id") REFERENCES "VariationDescriptor" (id)
+);
+
+CREATE TABLE "MolecularVariation" (
+	allele TEXT, 
+	haplotype TEXT, 
+	PRIMARY KEY (allele, haplotype), 
+	FOREIGN KEY(allele) REFERENCES "Allele" (id)
 );
 
 CREATE TABLE "Phenopacket" (
@@ -545,6 +522,12 @@ CREATE TABLE "VariationDescriptor_xrefs" (
 	xrefs TEXT, 
 	PRIMARY KEY (backref_id, xrefs), 
 	FOREIGN KEY(backref_id) REFERENCES "VariationDescriptor" (id)
+);
+
+CREATE TABLE "Abundance" (
+	"copyNumber" TEXT, 
+	PRIMARY KEY ("copyNumber"), 
+	FOREIGN KEY("copyNumber") REFERENCES "CopyNumber" (id)
 );
 
 CREATE TABLE "Biosample" (
@@ -640,4 +623,38 @@ CREATE TABLE "MedicalAction" (
 	FOREIGN KEY("treatmentTarget") REFERENCES "OntologyClass" (id), 
 	FOREIGN KEY("treatmentTerminationReason") REFERENCES "OntologyClass" (id), 
 	FOREIGN KEY("Phenopacket_id") REFERENCES "Phenopacket" (id)
+);
+
+CREATE TABLE "Member" (
+	allele TEXT, 
+	"copyNumber" TEXT, 
+	curie TEXT, 
+	haplotype TEXT, 
+	id TEXT NOT NULL, 
+	text TEXT, 
+	"variationSet" TEXT, 
+	"Member_id" TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(allele) REFERENCES "Allele" (id), 
+	FOREIGN KEY("copyNumber") REFERENCES "CopyNumber" (id), 
+	FOREIGN KEY(text) REFERENCES "Text" (id), 
+	FOREIGN KEY("Member_id") REFERENCES "Member" (id)
+);
+
+CREATE TABLE "SystemicVariation" (
+	"copyNumber" TEXT, 
+	PRIMARY KEY ("copyNumber"), 
+	FOREIGN KEY("copyNumber") REFERENCES "CopyNumber" (id)
+);
+
+CREATE TABLE "Variation" (
+	allele TEXT, 
+	"copyNumber" TEXT, 
+	haplotype TEXT, 
+	text TEXT, 
+	"variationSet" TEXT, 
+	PRIMARY KEY (allele, "copyNumber", haplotype, text, "variationSet"), 
+	FOREIGN KEY(allele) REFERENCES "Allele" (id), 
+	FOREIGN KEY("copyNumber") REFERENCES "CopyNumber" (id), 
+	FOREIGN KEY(text) REFERENCES "Text" (id)
 );

@@ -29,7 +29,7 @@ classes:
         annotations: 
           rank: 2
         description: ''
-        multivalued: 'true'
+        multivalued: true
         range: Any
     description: https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension
   GeneDescriptor: 
@@ -38,13 +38,13 @@ classes:
         annotations: 
           rank: 4
         description: Alternate IDs (should be CURIE) for the same concept may be placed in alternate_ids
-        multivalued: 'true'
+        multivalued: true
         range: string
       alternateSymbols: 
         annotations: 
           rank: 5
         description: Takes the place of alternate_labels field in a generic descriptor
-        multivalued: 'true'
+        multivalued: true
         range: string
       description: 
         annotations: 
@@ -65,7 +65,7 @@ classes:
         annotations: 
           rank: 6
         description: Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs
-        multivalued: 'true'
+        multivalued: true
         range: string
     description: https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor
   VariationDescriptor: 
@@ -79,7 +79,7 @@ classes:
         annotations: 
           rank: 9
         description: Common aliases for a variant, e.g. EGFR vIII, are alternate labels
-        multivalued: 'true'
+        multivalued: true
         range: string
       description: 
         annotations: 
@@ -90,13 +90,13 @@ classes:
         annotations: 
           rank: 6
         description: HGVS, SPDI, and gnomAD-style strings should be represented as Expressions
-        multivalued: 'true'
+        multivalued: true
         range: Expression
       extensions: 
         annotations: 
           rank: 10
         description: ''
-        multivalued: 'true'
+        multivalued: true
         range: Extension
       geneContext: 
         annotations: 
@@ -107,7 +107,7 @@ classes:
         annotations: 
           rank: 1
         description: ''
-        identifier: 'true'
+        identifier: true
         range: string
       label: 
         annotations: 
@@ -143,7 +143,7 @@ classes:
         annotations: 
           rank: 8
         description: Allele registry, ClinVar, or other related IDs should be included as xrefs
-        multivalued: 'true'
+        multivalued: true
         range: string
     description: ''
   VcfRecord: 
@@ -172,7 +172,7 @@ classes:
         annotations: 
           rank: 4
         description: ''
-        identifier: 'true'
+        identifier: true
         range: string
       info: 
         annotations: 

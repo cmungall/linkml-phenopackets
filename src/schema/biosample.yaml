@@ -16,13 +16,13 @@ classes:
         annotations: 
           rank: 16
         description: Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)
-        multivalued: 'true'
+        multivalued: true
         range: OntologyClass
       files: 
         annotations: 
           rank: 18
         description: Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from.
-        multivalued: 'true'
+        multivalued: true
         range: File
       histologicalDiagnosis: 
         annotations: 
@@ -37,7 +37,7 @@ classes:
         description: biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id
         exact_mappings: 
           - ARGO:specimen.submitter_specimen_id
-        identifier: 'true'
+        identifier: true
         range: string
       individualId: 
         annotations: 
@@ -57,7 +57,7 @@ classes:
         annotations: 
           rank: 8
         description: ''
-        multivalued: 'true'
+        multivalued: true
         range: Measurement
       pathologicalStage: 
         annotations: 
@@ -72,13 +72,13 @@ classes:
         description: ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category
         exact_mappings: 
           - ARGO:specimen.pathological_t_category
-        multivalued: 'true'
+        multivalued: true
         range: OntologyClass
       phenotypicFeatures: 
         annotations: 
           rank: 7
         description: Phenotypic characteristics of the BioSample, for example histological findings of a biopsy.
-        multivalued: 'true'
+        multivalued: true
         range: PhenotypicFeature
       procedure: 
         annotations: 

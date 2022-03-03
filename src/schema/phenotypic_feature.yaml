@@ -11,7 +11,7 @@ classes:
         annotations: 
           rank: 8
         description: Evidences for how the phenotype was determined.
-        multivalued: 'true'
+        multivalued: true
         range: Evidence
       excluded: 
         annotations: 
@@ -22,7 +22,7 @@ classes:
         annotations: 
           rank: 5
         description: subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity
-        multivalued: 'true'
+        multivalued: true
         range: OntologyClass
       onset: 
         annotations: 

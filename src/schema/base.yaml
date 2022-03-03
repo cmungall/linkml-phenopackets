@@ -48,7 +48,7 @@ classes:
         annotations: 
           rank: 1
         description: "e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier"
-        identifier: 'true'
+        identifier: true
         range: string
       reference: 
         annotations: 
@@ -93,9 +93,9 @@ classes:
         annotations: 
           rank: 1
         description: a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!
-        identifier: 'true'
+        identifier: true
         range: string
-        required: 'true'
+        required: true
       label: 
         annotations: 
           rank: 2
@@ -160,27 +160,27 @@ classes:
             - 
               slot_conditions: 
                 gestationalAge: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 age: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 ageRange: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 ontologyClass: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 timestamp: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 interval: 
-                  required: 'true'
+                  required: true
   TimeInterval: 
     attributes: 
       end: 

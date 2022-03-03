@@ -5,7 +5,7 @@
          "description": "",
          "properties": {
             "copyNumber": {
-               "$ref": "#/$defs/CopyNumber"
+               "type": "string"
             }
          },
          "required": [],
@@ -67,17 +67,17 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "Id": {
-               "type": "string"
-            },
             "chromosomeLocation": {
-               "$ref": "#/$defs/ChromosomeLocation"
+               "type": "string"
             },
             "curie": {
                "type": "string"
             },
             "derivedSequenceExpression": {
                "$ref": "#/$defs/DerivedSequenceExpression"
+            },
+            "id": {
+               "type": "string"
             },
             "literalSequenceExpression": {
                "$ref": "#/$defs/LiteralSequenceExpression"
@@ -86,10 +86,12 @@
                "$ref": "#/$defs/RepeatedSequenceExpression"
             },
             "sequenceLocation": {
-               "$ref": "#/$defs/SequenceLocation"
+               "type": "string"
             }
          },
-         "required": [],
+         "required": [
+            "id"
+         ],
          "title": "Allele",
          "type": "object"
       },
@@ -223,10 +225,10 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "Id": {
+            "chr": {
                "type": "string"
             },
-            "chr": {
+            "id": {
                "type": "string"
             },
             "interval": {
@@ -236,7 +238,9 @@
                "type": "string"
             }
          },
-         "required": [],
+         "required": [
+            "id"
+         ],
          "title": "ChromosomeLocation",
          "type": "object"
       },
@@ -295,11 +299,8 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "Id": {
-               "type": "string"
-            },
             "allele": {
-               "$ref": "#/$defs/Allele"
+               "type": "string"
             },
             "curie": {
                "type": "string"
@@ -316,6 +317,9 @@
             "haplotype": {
                "$ref": "#/$defs/Haplotype"
             },
+            "id": {
+               "type": "string"
+            },
             "indefiniteRange": {
                "$ref": "#/$defs/IndefiniteRange"
             },
@@ -329,7 +333,9 @@
                "$ref": "#/$defs/RepeatedSequenceExpression"
             }
          },
-         "required": [],
+         "required": [
+            "id"
+         ],
          "title": "CopyNumber",
          "type": "object"
       },
@@ -368,7 +374,7 @@
          "description": "",
          "properties": {
             "location": {
-               "$ref": "#/$defs/SequenceLocation"
+               "type": "string"
             },
             "reverseComplement": {
                "type": "boolean"
@@ -872,10 +878,10 @@
          "description": "",
          "properties": {
             "chromosomeLocation": {
-               "$ref": "#/$defs/ChromosomeLocation"
+               "type": "string"
             },
             "sequenceLocation": {
-               "$ref": "#/$defs/SequenceLocation"
+               "type": "string"
             }
          },
          "required": [],
@@ -961,14 +967,11 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "Id": {
+            "allele": {
                "type": "string"
             },
-            "allele": {
-               "$ref": "#/$defs/Allele"
-            },
             "copyNumber": {
-               "$ref": "#/$defs/CopyNumber"
+               "type": "string"
             },
             "curie": {
                "type": "string"
@@ -976,20 +979,25 @@
             "haplotype": {
                "$ref": "#/$defs/Haplotype"
             },
+            "id": {
+               "type": "string"
+            },
             "members": {
                "items": {
-                  "$ref": "#/$defs/Member"
+                  "type": "string"
                },
                "type": "array"
             },
             "text": {
-               "$ref": "#/$defs/Text"
+               "type": "string"
             },
             "variationSet": {
                "$ref": "#/$defs/VariationSet"
             }
          },
-         "required": [],
+         "required": [
+            "id"
+         ],
          "title": "Member",
          "type": "object"
       },
@@ -1044,7 +1052,7 @@
          "description": "",
          "properties": {
             "allele": {
-               "$ref": "#/$defs/Allele"
+               "type": "string"
             },
             "haplotype": {
                "$ref": "#/$defs/Haplotype"
@@ -1476,7 +1484,7 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "Id": {
+            "id": {
                "type": "string"
             },
             "sequenceId": {
@@ -1486,7 +1494,9 @@
                "$ref": "#/$defs/SequenceInterval"
             }
          },
-         "required": [],
+         "required": [
+            "id"
+         ],
          "title": "SequenceLocation",
          "type": "object"
       },
@@ -1543,7 +1553,7 @@
          "description": "",
          "properties": {
             "copyNumber": {
-               "$ref": "#/$defs/CopyNumber"
+               "type": "string"
             }
          },
          "required": [],
@@ -1554,14 +1564,16 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "Id": {
+            "definition": {
                "type": "string"
             },
-            "definition": {
+            "id": {
                "type": "string"
             }
          },
-         "required": [],
+         "required": [
+            "id"
+         ],
          "title": "Text",
          "type": "object"
       },
@@ -1733,7 +1745,7 @@
          "description": "",
          "properties": {
             "text": {
-               "$ref": "#/$defs/Text"
+               "type": "string"
             },
             "variationSet": {
                "$ref": "#/$defs/VariationSet"
@@ -1782,16 +1794,16 @@
          "description": "",
          "properties": {
             "allele": {
-               "$ref": "#/$defs/Allele"
+               "type": "string"
             },
             "copyNumber": {
-               "$ref": "#/$defs/CopyNumber"
+               "type": "string"
             },
             "haplotype": {
                "$ref": "#/$defs/Haplotype"
             },
             "text": {
-               "$ref": "#/$defs/Text"
+               "type": "string"
             },
             "variationSet": {
                "$ref": "#/$defs/VariationSet"

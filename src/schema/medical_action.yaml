@@ -26,7 +26,7 @@ classes:
         description: ARGO mapping treatment::adverse_events
         exact_mappings: 
           - ARGO:treatment.adverse_events
-        multivalued: 'true'
+        multivalued: true
         range: OntologyClass
       procedure: 
         annotations: 
@@ -82,19 +82,19 @@ classes:
             - 
               slot_conditions: 
                 procedure: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 treatment: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 radiationTherapy: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 therapeuticRegimen: 
-                  required: 'true'
+                  required: true
   RadiationTherapy: 
     attributes: 
       bodySite: 
@@ -104,7 +104,7 @@ classes:
         exact_mappings: 
           - ARGO:radiation.anatomical_site_irradiated
         range: OntologyClass
-        required: 'true'
+        required: true
       dosage: 
         annotations: 
           rank: 3
@@ -112,7 +112,7 @@ classes:
         exact_mappings: 
           - ARGO:radiation.radiation_therapy_dosage
         range: integer
-        required: 'true'
+        required: true
       fractions: 
         annotations: 
           rank: 4
@@ -120,7 +120,7 @@ classes:
         exact_mappings: 
           - ARGO:radiation.radiation_therapy_fractions
         range: integer
-        required: 'true'
+        required: true
       modality: 
         annotations: 
           rank: 1
@@ -128,7 +128,7 @@ classes:
         exact_mappings: 
           - ARGO:radiation.radiation_therapy_modality
         range: OntologyClass
-        required: 'true'
+        required: true
     description: RadiationTherapy
   TherapeuticRegimen: 
     attributes: 
@@ -165,11 +165,11 @@ classes:
             - 
               slot_conditions: 
                 externalReference: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 ontologyClass: 
-                  required: 'true'
+                  required: true
   Treatment: 
     attributes: 
       agent: 
@@ -188,7 +188,7 @@ classes:
         annotations: 
           rank: 3
         description: ''
-        multivalued: 'true'
+        multivalued: true
         range: DoseInterval
       drugType: 
         annotations: 

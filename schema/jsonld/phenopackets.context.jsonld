@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from phenopackets.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-03-02T14:34:55\n    Schema: phenopackets\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/linkml/phenopackets/phenopackets\n    description: \n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from phenopackets.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-03-02T19:36:53\n    Schema: phenopackets\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/linkml/phenopackets/phenopackets\n    description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
       "ARGO": "https://docs.icgc-argo.org/dictionary/",
       "any": "https://w3id.org/linkml/phenopackets/any/",
@@ -40,6 +40,7 @@
       "derivedSequenceExpression": {
          "@type": "@id"
       },
+      "id": "@id",
       "literalSequenceExpression": {
          "@type": "@id"
       },
@@ -58,7 +59,6 @@
       "histologicalDiagnosis": {
          "@type": "@id"
       },
-      "id": "@id",
       "materialSample": {
          "@type": "@id"
       },

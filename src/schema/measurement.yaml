@@ -6,7 +6,7 @@ classes:
         annotations: 
           rank: 1
         description: The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities
-        multivalued: 'true'
+        multivalued: true
         range: TypedQuantity
     description: ''
   Measurement: 
@@ -49,11 +49,11 @@ classes:
             - 
               slot_conditions: 
                 value: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 complexValue: 
-                  required: 'true'
+                  required: true
   Quantity: 
     attributes: 
       referenceRange: 
@@ -123,11 +123,11 @@ classes:
             - 
               slot_conditions: 
                 quantity: 
-                  required: 'true'
+                  required: true
             - 
               slot_conditions: 
                 ontologyClass: 
-                  required: 'true'
+                  required: true
 default_prefix: measurement
 description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
 enums: {}

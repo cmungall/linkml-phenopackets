@@ -8,7 +8,7 @@ classes:
         description: Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category
         exact_mappings: 
           - ARGO:primary_diagnosis.clinical_t_category
-        multivalued: 'true'
+        multivalued: true
         range: OntologyClass
       diseaseStage: 
         annotations: 
@@ -16,7 +16,7 @@ classes:
         description: Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group
         exact_mappings: 
           - ARGO:primary_diagnosis.clinical_tumour_staging_system
-        multivalued: 'true'
+        multivalued: true
         range: OntologyClass
       excluded: 
         annotations: 

@@ -16,7 +16,7 @@ classes:
         annotations: 
           rank: 7
         description: External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported.
-        multivalued: 'true'
+        multivalued: true
         range: ExternalReference
       phenopacketSchemaVersion: 
         annotations: 
@@ -27,7 +27,7 @@ classes:
         annotations: 
           rank: 4
         description: a listing of the ontologies and resources referenced in the phenopacket
-        multivalued: 'true'
+        multivalued: true
         range: Resource
       submittedBy: 
         annotations: 
@@ -38,7 +38,7 @@ classes:
         annotations: 
           rank: 5
         description: An OPTIONAL list of Updates to the phenopacket.
-        multivalued: 'true'
+        multivalued: true
         range: Update
     description: ''
   Resource: 
@@ -47,7 +47,7 @@ classes:
         annotations: 
           rank: 1
         description: "for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org"
-        identifier: 'true'
+        identifier: true
         range: string
       iriPrefix: 
         annotations: 
@@ -87,7 +87,7 @@ classes:
           rank: 1
         description: ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z REQUIRED
         range: string
-        required: 'true'
+        required: true
       updatedBy: 
         annotations: 
           rank: 2

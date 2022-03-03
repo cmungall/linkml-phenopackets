@@ -16,10 +16,10 @@ type AgeRange
 
 type Allele
   {
-    id: String
     chromosomeLocation: ChromosomeLocation
     curie: String
     derivedSequenceExpression: DerivedSequenceExpression
+    id: String!
     literalSequenceExpression: LiteralSequenceExpression
     repeatedSequenceExpression: RepeatedSequenceExpression
     sequenceLocation: SequenceLocation
@@ -58,8 +58,8 @@ type Biosample
 
 type ChromosomeLocation
   {
-    id: String
     chr: String
+    id: String!
     interval: CytobandInterval
     speciesId: String
   }
@@ -80,13 +80,13 @@ type ComplexValue
 
 type CopyNumber
   {
-    id: String
     allele: Allele
     curie: String
     definiteRange: DefiniteRange
     derivedSequenceExpression: DerivedSequenceExpression
     gene: Gene
     haplotype: Haplotype
+    id: String!
     indefiniteRange: IndefiniteRange
     literalSequenceExpression: LiteralSequenceExpression
     number: Number
@@ -285,11 +285,11 @@ type MedicalAction
 
 type Member
   {
-    id: String
     allele: Allele
     copyNumber: CopyNumber
     curie: String
     haplotype: Haplotype
+    id: String!
     members: [Member]
     text: Text
     variationSet: VariationSet
@@ -431,7 +431,7 @@ type SequenceInterval
 
 type SequenceLocation
   {
-    id: String
+    id: String!
     sequenceId: String
     sequenceInterval: SequenceInterval
   }
@@ -454,8 +454,8 @@ type SystemicVariation
 
 type Text
   {
-    id: String
     definition: String
+    id: String!
   }
 
 type TherapeuticRegimen
