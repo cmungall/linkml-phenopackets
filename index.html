@@ -1,663 +1,1561 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
-  
-  <link rel="canonical" href="https://cmungall.github.io/linkml-phenopackets/">
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>phenopackets in linkml EXPERIMENTAL DEMO</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Index";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/linkml-phenopackets/";
-  </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> phenopackets in linkml EXPERIMENTAL DEMO</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="home/">Home</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Index</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#mixins">Mixins</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#slots">Slots</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#enums">Enums</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#subsets">Subsets</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#types">Types</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#built-in">Built in</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#defined">Defined</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="credits/">Credits</a>
-                    </li>
-                </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">phenopackets in linkml EXPERIMENTAL DEMO</a>
-      </nav>
-
       
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+      
+        <link rel="canonical" href="https://cmungall.github.io/linkml-phenopackets/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
+    
     
       
+        <title>phenopackets in linkml EXPERIMENTAL DEMO</title>
+      
     
-    <li>Index</li>
-    <li class="wy-breadcrumbs-aside">
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.2d9f7617.min.css">
       
-        <a href="https://github.com/cmungall/linkml-phenopackets/edit/master/docs/index.md"
-          class="icon icon-github"> Edit on GitHub</a>
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#00bdd6">
+        
       
-    </li>
-  </ul>
-  
-  <hr/>
-</div>
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="pfx-schema">pfx schema</h1>
-<h3 id="classes">Classes</h3>
-<ul>
-<li><a href="Age.md">Age</a></li>
-<li><a href="AgeRange/">AgeRange</a></li>
-<li><a href="Biosample/">Biosample</a></li>
-<li><a href="Cohort/">Cohort</a></li>
-<li><a href="Disease/">Disease</a></li>
-<li><a href="Evidence/">Evidence</a></li>
-<li><a href="ExternalReference/">ExternalReference</a></li>
-<li><a href="Family/">Family</a></li>
-<li><a href="Gene/">Gene</a></li>
-<li><a href="HgvsAllele/">HgvsAllele</a></li>
-<li><a href="HtsFile/">HtsFile</a></li>
-<li><a href="Individual/">Individual</a></li>
-<li><a href="IscnAllele/">IscnAllele</a></li>
-<li><a href="MetaData/">MetaData</a></li>
-<li><a href="OntologyClass/">OntologyClass</a></li>
-<li><a href="Pedigree.md">Pedigree</a></li>
-<li><a href="Person/">Person</a></li>
-<li><a href="Phenopacket/">Phenopacket</a></li>
-<li><a href="PhenotypicFeature/">PhenotypicFeature</a></li>
-<li><a href="Procedure.md">Procedure</a></li>
-<li><a href="Resource/">Resource</a></li>
-<li><a href="SpdiAllele/">SpdiAllele</a></li>
-<li><a href="Timestamp.md">Timestamp</a></li>
-<li><a href="Update/">Update</a></li>
-<li><a href="Variant/">Variant</a></li>
-<li><a href="VcfAllele/">VcfAllele</a></li>
-</ul>
-<h3 id="mixins">Mixins</h3>
-<h3 id="slots">Slots</h3>
-<ul>
-<li><a href="affected_status/">affected_status</a><ul>
-<li><a href="Person_affected_status/">Person➞affected_status</a></li>
-</ul>
-</li>
-<li><a href="age/">age</a><ul>
-<li><a href="Age_age/">Age➞age</a></li>
-</ul>
-</li>
-<li><a href="age_at_collection/">age_at_collection</a><ul>
-<li><a href="Individual_age_at_collection/">Individual➞age_at_collection</a></li>
-</ul>
-</li>
-<li><a href="age_of_individual_at_collection/">age_of_individual_at_collection</a><ul>
-<li><a href="Biosample_age_of_individual_at_collection/">Biosample➞age_of_individual_at_collection</a></li>
-</ul>
-</li>
-<li><a href="age_of_onset/">age_of_onset</a><ul>
-<li><a href="Disease_age_of_onset/">Disease➞age_of_onset</a></li>
-<li><a href="PhenotypicFeature_age_of_onset/">PhenotypicFeature➞age_of_onset</a></li>
-</ul>
-</li>
-<li><a href="age_range_at_collection/">age_range_at_collection</a><ul>
-<li><a href="Individual_age_range_at_collection/">Individual➞age_range_at_collection</a></li>
-</ul>
-</li>
-<li><a href="age_range_of_individual_at_collection/">age_range_of_individual_at_collection</a><ul>
-<li><a href="Biosample_age_range_of_individual_at_collection/">Biosample➞age_range_of_individual_at_collection</a></li>
-</ul>
-</li>
-<li><a href="age_range_of_onset/">age_range_of_onset</a><ul>
-<li><a href="Disease_age_range_of_onset/">Disease➞age_range_of_onset</a></li>
-<li><a href="PhenotypicFeature_age_range_of_onset/">PhenotypicFeature➞age_range_of_onset</a></li>
-</ul>
-</li>
-<li><a href="alt/">alt</a><ul>
-<li><a href="VcfAllele_alt/">VcfAllele➞alt</a></li>
-</ul>
-</li>
-<li><a href="alternate_ids/">alternate_ids</a><ul>
-<li><a href="Gene_alternate_ids/">Gene➞alternate_ids</a></li>
-<li><a href="Individual_alternate_ids/">Individual➞alternate_ids</a></li>
-</ul>
-</li>
-<li><a href="biosamples/">biosamples</a><ul>
-<li><a href="Phenopacket_biosamples/">Phenopacket➞biosamples</a></li>
-</ul>
-</li>
-<li><a href="body_site/">body_site</a><ul>
-<li><a href="Procedure_body_site/">Procedure➞body_site</a></li>
-</ul>
-</li>
-<li><a href="chr/">chr</a><ul>
-<li><a href="VcfAllele_chr/">VcfAllele➞chr</a></li>
-</ul>
-</li>
-<li><a href="class_of_onset/">class_of_onset</a><ul>
-<li><a href="Disease_class_of_onset/">Disease➞class_of_onset</a></li>
-<li><a href="PhenotypicFeature_class_of_onset/">PhenotypicFeature➞class_of_onset</a></li>
-</ul>
-</li>
-<li><a href="code/">code</a><ul>
-<li><a href="Procedure_code/">Procedure➞code</a></li>
-</ul>
-</li>
-<li><a href="comment/">comment</a><ul>
-<li><a href="Update_comment/">Update➞comment</a></li>
-</ul>
-</li>
-<li><a href="created/">created</a><ul>
-<li><a href="MetaData_created/">MetaData➞created</a></li>
-</ul>
-</li>
-<li><a href="created_by/">created_by</a><ul>
-<li><a href="MetaData_created_by/">MetaData➞created_by</a></li>
-</ul>
-</li>
-<li><a href="date_of_birth/">date_of_birth</a><ul>
-<li><a href="Individual_date_of_birth/">Individual➞date_of_birth</a></li>
-</ul>
-</li>
-<li><a href="deleted_sequence/">deleted_sequence</a><ul>
-<li><a href="SpdiAllele_deleted_sequence/">SpdiAllele➞deleted_sequence</a></li>
-</ul>
-</li>
-<li><a href="description/">description</a><ul>
-<li><a href="Biosample_description/">Biosample➞description</a></li>
-<li><a href="Cohort_description/">Cohort➞description</a></li>
-<li><a href="ExternalReference_description/">ExternalReference➞description</a></li>
-<li><a href="HtsFile_description/">HtsFile➞description</a></li>
-<li><a href="PhenotypicFeature_description/">PhenotypicFeature➞description</a></li>
-</ul>
-</li>
-<li><a href="diagnostic_markers/">diagnostic_markers</a><ul>
-<li><a href="Biosample_diagnostic_markers/">Biosample➞diagnostic_markers</a></li>
-</ul>
-</li>
-<li><a href="disease_stage/">disease_stage</a><ul>
-<li><a href="Disease_disease_stage/">Disease➞disease_stage</a></li>
-</ul>
-</li>
-<li><a href="diseases/">diseases</a><ul>
-<li><a href="Phenopacket_diseases/">Phenopacket➞diseases</a></li>
-</ul>
-</li>
-<li><a href="end/">end</a><ul>
-<li><a href="AgeRange_end/">AgeRange➞end</a></li>
-</ul>
-</li>
-<li><a href="evidence.md">evidence</a><ul>
-<li><a href="PhenotypicFeature_evidence/">PhenotypicFeature➞evidence</a></li>
-</ul>
-</li>
-<li><a href="evidence_code/">evidence_code</a><ul>
-<li><a href="Evidence_evidence_code/">Evidence➞evidence_code</a></li>
-</ul>
-</li>
-<li><a href="external_references/">external_references</a><ul>
-<li><a href="MetaData_external_references/">MetaData➞external_references</a></li>
-</ul>
-</li>
-<li><a href="family_id/">family_id</a><ul>
-<li><a href="Person_family_id/">Person➞family_id</a></li>
-</ul>
-</li>
-<li><a href="genes/">genes</a><ul>
-<li><a href="Phenopacket_genes/">Phenopacket➞genes</a></li>
-</ul>
-</li>
-<li><a href="genome_assembly/">genome_assembly</a><ul>
-<li><a href="HtsFile_genome_assembly/">HtsFile➞genome_assembly</a></li>
-<li><a href="VcfAllele_genome_assembly/">VcfAllele➞genome_assembly</a></li>
-</ul>
-</li>
-<li><a href="hgvs/">hgvs</a><ul>
-<li><a href="HgvsAllele_hgvs/">HgvsAllele➞hgvs</a></li>
-</ul>
-</li>
-<li><a href="hgvs_allele/">hgvs_allele</a><ul>
-<li><a href="Variant_hgvs_allele/">Variant➞hgvs_allele</a></li>
-</ul>
-</li>
-<li><a href="histological_diagnosis/">histological_diagnosis</a><ul>
-<li><a href="Biosample_histological_diagnosis/">Biosample➞histological_diagnosis</a></li>
-</ul>
-</li>
-<li><a href="hts_files/">hts_files</a><ul>
-<li><a href="Biosample_hts_files/">Biosample➞hts_files</a></li>
-<li><a href="Cohort_hts_files/">Cohort➞hts_files</a></li>
-<li><a href="Family_hts_files/">Family➞hts_files</a></li>
-<li><a href="Phenopacket_hts_files/">Phenopacket➞hts_files</a></li>
-</ul>
-</li>
-<li><a href="hts_format/">hts_format</a><ul>
-<li><a href="HtsFile_hts_format/">HtsFile➞hts_format</a></li>
-</ul>
-</li>
-<li><a href="id/">id</a><ul>
-<li><a href="Biosample_id/">Biosample➞id</a></li>
-<li><a href="Cohort_id/">Cohort➞id</a></li>
-<li><a href="ExternalReference_id/">ExternalReference➞id</a></li>
-<li><a href="Family_id.md">Family➞id</a></li>
-<li><a href="Gene_id/">Gene➞id</a></li>
-<li><a href="HgvsAllele_id/">HgvsAllele➞id</a></li>
-<li><a href="Individual_id.md">Individual➞id</a></li>
-<li><a href="IscnAllele_id/">IscnAllele➞id</a></li>
-<li><a href="OntologyClass_id/">OntologyClass➞id</a></li>
-<li><a href="Phenopacket_id/">Phenopacket➞id</a></li>
-<li><a href="Resource_id/">Resource➞id</a></li>
-<li><a href="SpdiAllele_id/">SpdiAllele➞id</a></li>
-<li><a href="VcfAllele_id/">VcfAllele➞id</a></li>
-</ul>
-</li>
-<li><a href="individual_id/">individual_id</a><ul>
-<li><a href="Biosample_individual_id/">Biosample➞individual_id</a></li>
-<li><a href="Person_individual_id/">Person➞individual_id</a></li>
-</ul>
-</li>
-<li><a href="individual_to_sample_identifiers/">individual_to_sample_identifiers</a><ul>
-<li><a href="HtsFile_individual_to_sample_identifiers/">HtsFile➞individual_to_sample_identifiers</a></li>
-</ul>
-</li>
-<li><a href="info/">info</a><ul>
-<li><a href="VcfAllele_info/">VcfAllele➞info</a></li>
-</ul>
-</li>
-<li><a href="inserted_sequence/">inserted_sequence</a><ul>
-<li><a href="SpdiAllele_inserted_sequence/">SpdiAllele➞inserted_sequence</a></li>
-</ul>
-</li>
-<li><a href="iri_prefix/">iri_prefix</a><ul>
-<li><a href="Resource_iri_prefix/">Resource➞iri_prefix</a></li>
-</ul>
-</li>
-<li><a href="is_control_sample/">is_control_sample</a><ul>
-<li><a href="Biosample_is_control_sample/">Biosample➞is_control_sample</a></li>
-</ul>
-</li>
-<li><a href="iscn/">iscn</a><ul>
-<li><a href="IscnAllele_iscn/">IscnAllele➞iscn</a></li>
-</ul>
-</li>
-<li><a href="iscn_allele/">iscn_allele</a><ul>
-<li><a href="Variant_iscn_allele/">Variant➞iscn_allele</a></li>
-</ul>
-</li>
-<li><a href="karyotypic_sex/">karyotypic_sex</a><ul>
-<li><a href="Individual_karyotypic_sex/">Individual➞karyotypic_sex</a></li>
-</ul>
-</li>
-<li><a href="label/">label</a><ul>
-<li><a href="OntologyClass_label/">OntologyClass➞label</a></li>
-</ul>
-</li>
-<li><a href="maternal_id/">maternal_id</a><ul>
-<li><a href="Person_maternal_id/">Person➞maternal_id</a></li>
-</ul>
-</li>
-<li><a href="members/">members</a><ul>
-<li><a href="Cohort_members/">Cohort➞members</a></li>
-</ul>
-</li>
-<li><a href="meta_data/">meta_data</a><ul>
-<li><a href="Cohort_meta_data/">Cohort➞meta_data</a></li>
-<li><a href="Family_meta_data/">Family➞meta_data</a></li>
-<li><a href="Phenopacket_meta_data/">Phenopacket➞meta_data</a></li>
-</ul>
-</li>
-<li><a href="modifiers/">modifiers</a><ul>
-<li><a href="PhenotypicFeature_modifiers/">PhenotypicFeature➞modifiers</a></li>
-</ul>
-</li>
-<li><a href="name/">name</a><ul>
-<li><a href="Resource_name/">Resource➞name</a></li>
-</ul>
-</li>
-<li><a href="namespace_prefix/">namespace_prefix</a><ul>
-<li><a href="Resource_namespace_prefix/">Resource➞namespace_prefix</a></li>
-</ul>
-</li>
-<li><a href="nanos/">nanos</a><ul>
-<li><a href="Timestamp_nanos/">Timestamp➞nanos</a></li>
-</ul>
-</li>
-<li><a href="negated/">negated</a><ul>
-<li><a href="PhenotypicFeature_negated/">PhenotypicFeature➞negated</a></li>
-</ul>
-</li>
-<li><a href="paternal_id/">paternal_id</a><ul>
-<li><a href="Person_paternal_id/">Person➞paternal_id</a></li>
-</ul>
-</li>
-<li><a href="pedigree/">pedigree</a><ul>
-<li><a href="Family_pedigree/">Family➞pedigree</a></li>
-</ul>
-</li>
-<li><a href="persons/">persons</a><ul>
-<li><a href="Pedigree_persons/">Pedigree➞persons</a></li>
-</ul>
-</li>
-<li><a href="phenopacket_schema_version/">phenopacket_schema_version</a><ul>
-<li><a href="MetaData_phenopacket_schema_version/">MetaData➞phenopacket_schema_version</a></li>
-</ul>
-</li>
-<li><a href="phenotypic_features/">phenotypic_features</a><ul>
-<li><a href="Biosample_phenotypic_features/">Biosample➞phenotypic_features</a></li>
-<li><a href="Phenopacket_phenotypic_features/">Phenopacket➞phenotypic_features</a></li>
-</ul>
-</li>
-<li><a href="pos/">pos</a><ul>
-<li><a href="VcfAllele_pos/">VcfAllele➞pos</a></li>
-</ul>
-</li>
-<li><a href="position/">position</a><ul>
-<li><a href="SpdiAllele_position/">SpdiAllele➞position</a></li>
-</ul>
-</li>
-<li><a href="proband/">proband</a><ul>
-<li><a href="Family_proband/">Family➞proband</a></li>
-</ul>
-</li>
-<li><a href="procedure/">procedure</a><ul>
-<li><a href="Biosample_procedure/">Biosample➞procedure</a></li>
-</ul>
-</li>
-<li><a href="ref/">ref</a><ul>
-<li><a href="VcfAllele_ref/">VcfAllele➞ref</a></li>
-</ul>
-</li>
-<li><a href="reference/">reference</a><ul>
-<li><a href="Evidence_reference/">Evidence➞reference</a></li>
-</ul>
-</li>
-<li><a href="relatives/">relatives</a><ul>
-<li><a href="Family_relatives/">Family➞relatives</a></li>
-</ul>
-</li>
-<li><a href="resources/">resources</a><ul>
-<li><a href="MetaData_resources/">MetaData➞resources</a></li>
-</ul>
-</li>
-<li><a href="sampled_tissue/">sampled_tissue</a><ul>
-<li><a href="Biosample_sampled_tissue/">Biosample➞sampled_tissue</a></li>
-</ul>
-</li>
-<li><a href="seconds/">seconds</a><ul>
-<li><a href="Timestamp_seconds/">Timestamp➞seconds</a></li>
-</ul>
-</li>
-<li><a href="seq_id/">seq_id</a><ul>
-<li><a href="SpdiAllele_seq_id/">SpdiAllele➞seq_id</a></li>
-</ul>
-</li>
-<li><a href="severity/">severity</a><ul>
-<li><a href="PhenotypicFeature_severity/">PhenotypicFeature➞severity</a></li>
-</ul>
-</li>
-<li><a href="sex/">sex</a><ul>
-<li><a href="Individual_sex/">Individual➞sex</a></li>
-<li><a href="Person_sex/">Person➞sex</a></li>
-</ul>
-</li>
-<li><a href="spdi_allele/">spdi_allele</a><ul>
-<li><a href="Variant_spdi_allele/">Variant➞spdi_allele</a></li>
-</ul>
-</li>
-<li><a href="start/">start</a><ul>
-<li><a href="AgeRange_start/">AgeRange➞start</a></li>
-</ul>
-</li>
-<li><a href="subject/">subject</a><ul>
-<li><a href="Phenopacket_subject/">Phenopacket➞subject</a></li>
-</ul>
-</li>
-<li><a href="submitted_by/">submitted_by</a><ul>
-<li><a href="MetaData_submitted_by/">MetaData➞submitted_by</a></li>
-</ul>
-</li>
-<li><a href="symbol/">symbol</a><ul>
-<li><a href="Gene_symbol/">Gene➞symbol</a></li>
-</ul>
-</li>
-<li><a href="taxonomy/">taxonomy</a><ul>
-<li><a href="Biosample_taxonomy/">Biosample➞taxonomy</a></li>
-<li><a href="Individual_taxonomy/">Individual➞taxonomy</a></li>
-</ul>
-</li>
-<li><a href="term/">term</a><ul>
-<li><a href="Disease_term/">Disease➞term</a></li>
-</ul>
-</li>
-<li><a href="timestamp/">timestamp</a><ul>
-<li><a href="Update_timestamp/">Update➞timestamp</a></li>
-</ul>
-</li>
-<li><a href="tnm_finding/">tnm_finding</a><ul>
-<li><a href="Disease_tnm_finding/">Disease➞tnm_finding</a></li>
-</ul>
-</li>
-<li><a href="tumor_grade/">tumor_grade</a><ul>
-<li><a href="Biosample_tumor_grade/">Biosample➞tumor_grade</a></li>
-</ul>
-</li>
-<li><a href="tumor_progression/">tumor_progression</a><ul>
-<li><a href="Biosample_tumor_progression/">Biosample➞tumor_progression</a></li>
-</ul>
-</li>
-<li><a href="type/">type</a><ul>
-<li><a href="PhenotypicFeature_type/">PhenotypicFeature➞type</a></li>
-</ul>
-</li>
-<li><a href="updated_by/">updated_by</a><ul>
-<li><a href="Update_updated_by/">Update➞updated_by</a></li>
-</ul>
-</li>
-<li><a href="updates/">updates</a><ul>
-<li><a href="MetaData_updates/">MetaData➞updates</a></li>
-</ul>
-</li>
-<li><a href="uri/">uri</a><ul>
-<li><a href="HtsFile_uri/">HtsFile➞uri</a></li>
-</ul>
-</li>
-<li><a href="url/">url</a><ul>
-<li><a href="Resource_url/">Resource➞url</a></li>
-</ul>
-</li>
-<li><a href="variants/">variants</a><ul>
-<li><a href="Biosample_variants/">Biosample➞variants</a></li>
-<li><a href="Phenopacket_variants/">Phenopacket➞variants</a></li>
-</ul>
-</li>
-<li><a href="vcf_allele/">vcf_allele</a><ul>
-<li><a href="Variant_vcf_allele/">Variant➞vcf_allele</a></li>
-</ul>
-</li>
-<li><a href="vcf_version/">vcf_version</a><ul>
-<li><a href="VcfAllele_vcf_version/">VcfAllele➞vcf_version</a></li>
-</ul>
-</li>
-<li><a href="version/">version</a><ul>
-<li><a href="Resource_version/">Resource➞version</a></li>
-</ul>
-</li>
-<li><a href="zygosity/">zygosity</a><ul>
-<li><a href="Variant_zygosity/">Variant➞zygosity</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="enums">Enums</h3>
-<ul>
-<li><a href="affected_status_options/">affected_status_options</a></li>
-<li><a href="hts_format_options/">hts_format_options</a></li>
-<li><a href="karyotypic_sex_options/">karyotypic_sex_options</a></li>
-<li><a href="sex_options/">sex_options</a></li>
-</ul>
-<h3 id="subsets">Subsets</h3>
-<h3 id="types">Types</h3>
-<h4 id="built-in">Built in</h4>
-<ul>
-<li><strong>Bool</strong></li>
-<li><strong>Decimal</strong></li>
-<li><strong>ElementIdentifier</strong></li>
-<li><strong>NCName</strong></li>
-<li><strong>NodeIdentifier</strong></li>
-<li><strong>URI</strong></li>
-<li><strong>URIorCURIE</strong></li>
-<li><strong>XSDDate</strong></li>
-<li><strong>XSDDateTime</strong></li>
-<li><strong>XSDTime</strong></li>
-<li><strong>float</strong></li>
-<li><strong>int</strong></li>
-<li><strong>str</strong></li>
-</ul>
-<h4 id="defined">Defined</h4>
-<ul>
-<li><a href="types/Boolean/">Boolean</a>  (<strong>Bool</strong>)  - A binary (true or false) value</li>
-<li><a href="types/Date/">Date</a>  (<strong>XSDDate</strong>)  - a date (year, month and day) in an idealized calendar</li>
-<li><a href="types/Datetime/">Datetime</a>  (<strong>XSDDateTime</strong>)  - The combination of a date and time</li>
-<li><a href="types/Decimal/">Decimal</a>  (<strong>Decimal</strong>)  - A real number with arbitrary precision that conforms to the xsd:decimal specification</li>
-<li><a href="types/Double/">Double</a>  (<strong>float</strong>)  - A real number that conforms to the xsd:double specification</li>
-<li><a href="types/Float/">Float</a>  (<strong>float</strong>)  - A real number that conforms to the xsd:float specification</li>
-<li><a href="types/Integer/">Integer</a>  (<strong>int</strong>)  - An integer</li>
-<li><a href="types/Ncname/">Ncname</a>  (<strong>NCName</strong>)  - Prefix part of CURIE</li>
-<li><a href="types/Nodeidentifier/">Nodeidentifier</a>  (<strong>NodeIdentifier</strong>)  - A URI, CURIE or BNODE that represents a node in a model.</li>
-<li><a href="types/Objectidentifier/">Objectidentifier</a>  (<strong>ElementIdentifier</strong>)  - A URI or CURIE that represents an object in the model.</li>
-<li><a href="types/String/">String</a>  (<strong>str</strong>)  - A character string</li>
-<li><a href="types/Time/">Time</a>  (<strong>XSDTime</strong>)  - A time object represents a (local) time of day, independent of any particular day</li>
-<li><a href="types/Uri/">Uri</a>  (<strong>URI</strong>)  - a complete URI</li>
-<li><a href="types/Uriorcurie/">Uriorcurie</a>  (<strong>URIorCURIE</strong>)  - a URI or a CURIE</li>
-</ul>
-              
-            </div>
-          </div>
-          <footer>
+    
+    
+  </head>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
       
-        <a href="credits/" class="btn btn-neutral float-right" title="Credits">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="home/" class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        
+        <a href="#phenopackets" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
+    <div data-md-component="announce">
       
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            phenopackets in linkml EXPERIMENTAL DEMO
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Index
+            
+          </span>
         </div>
       </div>
-
-    </section>
-
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-        <span>
-          <a href="https://github.com/cmungall/linkml-phenopackets/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
-        </span>
-    
-    
-      <span><a href="home/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="credits/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme_extra.js" defer></script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-</body>
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    phenopackets in linkml EXPERIMENTAL DEMO
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="home.md" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Index
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Index
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    Slots
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    Enums
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="credits.md" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    Slots
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    Enums
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/cmungall/linkml-phenopackets/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="phenopackets">phenopackets</h1>
+<p>Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.</p>
+<p>URI: https://w3id.org/linkml/phenopackets/phenopackets</p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Cohort/">Cohort</a></td>
+<td>A group of individuals related in some phenotypic or genotypic aspect.</td>
+</tr>
+<tr>
+<td><a href="Family/">Family</a></td>
+<td>Phenotype, sample and pedigree data required for a genomic diagnosis. Equivalent to the Genomics England InterpretationRequestRD https://github.com/genomicsengland/GelReportModels/blob/master/schemas/IDLs/org.gel.models.report.avro/5.0.0/InterpretationRequestRD.avdl</td>
+</tr>
+<tr>
+<td><a href="Phenopacket/">Phenopacket</a></td>
+<td>An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.  This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.</td>
+</tr>
+<tr>
+<td><a href="PhenotypicFeature/">PhenotypicFeature</a></td>
+<td>An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)</td>
+</tr>
+<tr>
+<td><a href="Age/">Age</a></td>
+<td>See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_ In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/</td>
+</tr>
+<tr>
+<td><a href="AgeRange/">AgeRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Dictionary/">Dictionary</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="Evidence/">Evidence</a></td>
+<td>FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)</td>
+</tr>
+<tr>
+<td><a href="ExternalReference/">ExternalReference</a></td>
+<td>FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)</td>
+</tr>
+<tr>
+<td><a href="File/">File</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GestationalAge/">GestationalAge</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="OntologyClass/">OntologyClass</a></td>
+<td>A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept) see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)</td>
+</tr>
+<tr>
+<td><a href="Procedure/">Procedure</a></td>
+<td>A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {"code":{"NCIT:C51585": "Biopsy of Soft Palate"}} {"code":{"NCIT:C28743": "Punch Biopsy"}, "body_site":{"UBERON:0003403": "skin of forearm"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)</td>
+</tr>
+<tr>
+<td><a href="TimeElement/">TimeElement</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TimeInterval/">TimeInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Timestamp.md">Timestamp</a></td>
+<td>Protocol Buffers - Google's data interchange format Copyright 2008 Google Inc.  All rights reserved. https://developers.google.com/protocol-buffers/  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. * Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one.  All minutes are 60 seconds long. Leap seconds are "smeared" so that no leap second table is needed for interpretation, using a <a href="https://developers.google.com/time/smear">24-hour linear smear</a>.  The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC 3339</a> date strings.  # Examples  Example 1: Compute Timestamp from POSIX <code>time()</code>.  Timestamp timestamp; timestamp.set_seconds(time(NULL)); timestamp.set_nanos(0);  Example 2: Compute Timestamp from POSIX <code>gettimeofday()</code>.  struct timeval tv; gettimeofday(&amp;tv, NULL);  Timestamp timestamp; timestamp.set_seconds(tv.tv_sec); timestamp.set_nanos(tv.tv_usec * 1000);  Example 3: Compute Timestamp from Win32 <code>GetSystemTimeAsFileTime()</code>.  FILETIME ft; GetSystemTimeAsFileTime(&amp;ft); UINT64 ticks = (((UINT64)ft.dwHighDateTime) &lt;&lt; 32)</td>
+</tr>
+<tr>
+<td><a href="Pedigree.md">Pedigree</a></td>
+<td>https://software.broadinstitute.org/gatk/documentation/article?id=11016</td>
+</tr>
+<tr>
+<td><a href="Person/">Person</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Individual.md">Individual</a></td>
+<td>An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html).</td>
+</tr>
+<tr>
+<td><a href="VitalStatus/">VitalStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="MetaData/">MetaData</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Resource/">Resource</a></td>
+<td>Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)</td>
+</tr>
+<tr>
+<td><a href="Update/">Update</a></td>
+<td>Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update</td>
+</tr>
+<tr>
+<td><a href="DoseInterval/">DoseInterval</a></td>
+<td>e.g. 50mg/ml 3 times daily for two weeks</td>
+</tr>
+<tr>
+<td><a href="MedicalAction/">MedicalAction</a></td>
+<td>medication, procedure, other actions taken for clinical management</td>
+</tr>
+<tr>
+<td><a href="RadiationTherapy/">RadiationTherapy</a></td>
+<td>RadiationTherapy</td>
+</tr>
+<tr>
+<td><a href="TherapeuticRegimen/">TherapeuticRegimen</a></td>
+<td>ARGO mapping radiation::radiation_therapy_type (missing)</td>
+</tr>
+<tr>
+<td><a href="Treatment/">Treatment</a></td>
+<td>ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug</td>
+</tr>
+<tr>
+<td><a href="ComplexValue/">ComplexValue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Measurement.md">Measurement</a></td>
+<td>FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)</td>
+</tr>
+<tr>
+<td><a href="Quantity/">Quantity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ReferenceRange/">ReferenceRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TypedQuantity/">TypedQuantity</a></td>
+<td>For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement</td>
+</tr>
+<tr>
+<td><a href="Value/">Value</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Diagnosis/">Diagnosis</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GenomicInterpretation/">GenomicInterpretation</a></td>
+<td>A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations.</td>
+</tr>
+<tr>
+<td><a href="Interpretation.md">Interpretation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="VariantInterpretation/">VariantInterpretation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Expression/">Expression</a></td>
+<td>https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression</td>
+</tr>
+<tr>
+<td><a href="Extension/">Extension</a></td>
+<td>https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension</td>
+</tr>
+<tr>
+<td><a href="GeneDescriptor/">GeneDescriptor</a></td>
+<td>https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor</td>
+</tr>
+<tr>
+<td><a href="VariationDescriptor/">VariationDescriptor</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="VcfRecord/">VcfRecord</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Abundance/">Abundance</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Allele/">Allele</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ChromosomeLocation/">ChromosomeLocation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CopyNumber/">CopyNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CytobandInterval/">CytobandInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="DefiniteRange/">DefiniteRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="DerivedSequenceExpression/">DerivedSequenceExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Feature/">Feature</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene/">Gene</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Haplotype/">Haplotype</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="IndefiniteRange/">IndefiniteRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="LiteralSequenceExpression/">LiteralSequenceExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Location/">Location</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Member/">Member</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="MolecularVariation/">MolecularVariation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Number/">Number</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="RepeatedSequenceExpression/">RepeatedSequenceExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SequenceExpression/">SequenceExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SequenceInterval/">SequenceInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SequenceLocation/">SequenceLocation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SequenceState/">SequenceState</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SimpleInterval/">SimpleInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SystemicVariation/">SystemicVariation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Text/">Text</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="UtilityVariation/">UtilityVariation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variation/">Variation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="VariationSet/">VariationSet</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Any.md">Any</a></td>
+<td>Protocol Buffers - Google's data interchange format Copyright 2008 Google Inc.  All rights reserved. https://developers.google.com/protocol-buffers/  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. * Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. <code>Any</code> contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.  Foo foo = ...; Any any; any.PackFrom(foo); ... if (any.UnpackTo(&amp;foo)) { ... }  Example 2: Pack and unpack a message in Java.  Foo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo = any.unpack(Foo.class); }  Example 3: Pack and unpack a message in Python.  foo = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR): any.Unpack(foo) ...  Example 4: Pack and unpack a message in Go  foo := &amp;pb.Foo{...} any, err := anypb.New(foo) if err != nil { ... } ... foo := &amp;pb.Foo{} if err := any.UnmarshalTo(foo); err != nil { ... }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example "foo.bar.com/x/y.z" will yield type name "y.z".   JSON ==== The JSON representation of an <code>Any</code> value uses the regular representation of the deserialized, embedded message, with an additional field <code>@type</code> which contains the type URL. Example:  package google.profile; message Person { string first_name = 1; string last_name = 2; }  { "@type": "type.googleapis.com/google.profile.Person", "firstName": <string>, "lastName": <string> }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field <code>value</code> which holds the custom JSON in addition to the <code>@type</code> field. Example (for message [google.protobuf.Duration][]):  { "@type": "type.googleapis.com/google.protobuf.Duration", "value": "1.212s" }</td>
+</tr>
+<tr>
+<td><a href="Disease.md">Disease</a></td>
+<td>Message to indicate a disease (diagnosis) and its recorded onset.</td>
+</tr>
+<tr>
+<td><a href="Biosample.md">Biosample</a></td>
+<td>A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="description/">description</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="files/">files</a></td>
+<td>Pointer to relevant file(s) for the cohort. Files relating exclusively to individual phenopackets should be contained in the Phenopacket.</td>
+</tr>
+<tr>
+<td><a href="id/">id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="members/">members</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="metaData.md">metaData</a></td>
+<td>Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED</td>
+</tr>
+<tr>
+<td><a href="consanguinousParents/">consanguinousParents</a></td>
+<td>flag to indicate that the parents of the proband are consanguinous</td>
+</tr>
+<tr>
+<td><a href="pedigree/">pedigree</a></td>
+<td>The pedigree defining the relations between the proband and their relatives. Pedigree.individual_id should map to the PhenoPacket.Individual.id</td>
+</tr>
+<tr>
+<td><a href="proband/">proband</a></td>
+<td>The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient</td>
+</tr>
+<tr>
+<td><a href="relatives/">relatives</a></td>
+<td>Individuals related in some way to the patient. For instance, the individuals may be genetically related or may be members of a cohort. If this field is used, then  it is expected that a pedigree will be included for genetically related individuals for use cases such as genomic diagnostics. If a phenopacket is being used to describe one member of a cohort, then in general one phenopacket will be created for each of the individuals in the cohort.</td>
+</tr>
+<tr>
+<td><a href="biosamples/">biosamples</a></td>
+<td>Biosample(s) derived from the patient or a collection of biosamples in isolation</td>
+</tr>
+<tr>
+<td><a href="diseases/">diseases</a></td>
+<td>Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context.</td>
+</tr>
+<tr>
+<td><a href="interpretations/">interpretations</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="measurements/">measurements</a></td>
+<td>Quantifiable measurements related to the individual</td>
+</tr>
+<tr>
+<td><a href="medicalActions/">medicalActions</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phenotypicFeatures/">phenotypicFeatures</a></td>
+<td>Phenotypic features relating to the subject of the phenopacket</td>
+</tr>
+<tr>
+<td><a href="subject/">subject</a></td>
+<td>The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient</td>
+</tr>
+<tr>
+<td><a href="evidence.md">evidence</a></td>
+<td>Evidences for how the phenotype was determined.</td>
+</tr>
+<tr>
+<td><a href="excluded/">excluded</a></td>
+<td>Flag to indicate whether the phenotype was observed or not. Default is 'false', in other words the phenotype was observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field. <em>CAUTION</em> It is imperative to check this field for correct interpretation of the phenotype!</td>
+</tr>
+<tr>
+<td><a href="modifiers/">modifiers</a></td>
+<td>subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity</td>
+</tr>
+<tr>
+<td><a href="onset/">onset</a></td>
+<td>the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset</td>
+</tr>
+<tr>
+<td><a href="resolution/">resolution</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="severity/">severity</a></td>
+<td>Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity</td>
+</tr>
+<tr>
+<td><a href="type/">type</a></td>
+<td>The primary ontology class which describes the phenotype. For example "HP:0001363"  "Craniosynostosis" FHIR mapping: Condition.identifier</td>
+</tr>
+<tr>
+<td><a href="iso8601duration/">iso8601duration</a></td>
+<td>The :ref:<code>ISO 8601&lt;metadata_date_time&gt;</code> age of this object as ISO8601 duration or time intervals. e.g. P40Y10M05D)</td>
+</tr>
+<tr>
+<td><a href="end/">end</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="start/">start</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="evidenceCode/">evidenceCode</a></td>
+<td>The encoded evidence type using, for example the Evidence &amp; Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl) FHIR mapping: Condition.evidence.code</td>
+</tr>
+<tr>
+<td><a href="reference/">reference</a></td>
+<td>FHIR mapping: Condition.evidence.detail</td>
+</tr>
+<tr>
+<td><a href="fileAttributes/">fileAttributes</a></td>
+<td>Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.</td>
+</tr>
+<tr>
+<td><a href="individualToFileIdentifiers/">individualToFileIdentifiers</a></td>
+<td>A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.</td>
+</tr>
+<tr>
+<td><a href="uri/">uri</a></td>
+<td>URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444</td>
+</tr>
+<tr>
+<td><a href="days/">days</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="weeks/">weeks</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="label/">label</a></td>
+<td>class label, aka name. E.g. "Abnormality of cardiovascular system"</td>
+</tr>
+<tr>
+<td><a href="bodySite/">bodySite</a></td>
+<td>FHIR mapping: Procedure.bodySite</td>
+</tr>
+<tr>
+<td><a href="code/">code</a></td>
+<td>FHIR mapping: Procedure.code</td>
+</tr>
+<tr>
+<td><a href="performed/">performed</a></td>
+<td>When the procedure was performed.</td>
+</tr>
+<tr>
+<td><a href="age.md">age</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ageRange.md">ageRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gestationalAge.md">gestationalAge</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="interval/">interval</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ontologyClass.md">ontologyClass</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="timestamp/">timestamp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nanos/">nanos</a></td>
+<td>Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive.</td>
+</tr>
+<tr>
+<td><a href="seconds/">seconds</a></td>
+<td>Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive.</td>
+</tr>
+<tr>
+<td><a href="persons/">persons</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="affectedStatus/">affectedStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="familyId/">familyId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="individualId/">individualId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="maternalId/">maternalId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="paternalId/">paternalId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sex/">sex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="alternateIds/">alternateIds</a></td>
+<td>An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track.</td>
+</tr>
+<tr>
+<td><a href="dateOfBirth/">dateOfBirth</a></td>
+<td>The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. "2018-03-01T00:00:00Z" for someone born on an unknown day in March 2018 or "2018-01-01T00:00:00Z" for someone born on an unknown day in 2018 or empty if unknown/ not stated.</td>
+</tr>
+<tr>
+<td><a href="gender/">gender</a></td>
+<td>Self-identified gender</td>
+</tr>
+<tr>
+<td><a href="karyotypicSex/">karyotypicSex</a></td>
+<td>The karyotypic sex of the individual</td>
+</tr>
+<tr>
+<td><a href="taxonomy/">taxonomy</a></td>
+<td>NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level</td>
+</tr>
+<tr>
+<td><a href="timeAtLastEncounter/">timeAtLastEncounter</a></td>
+<td>An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes</td>
+</tr>
+<tr>
+<td><a href="vitalStatus.md">vitalStatus</a></td>
+<td>Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status</td>
+</tr>
+<tr>
+<td><a href="causeOfDeath/">causeOfDeath</a></td>
+<td>ARGO mapping donor::cause_of_death</td>
+</tr>
+<tr>
+<td><a href="status/">status</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="survivalTimeInDays/">survivalTimeInDays</a></td>
+<td>ARGO mapping donor::survival_time</td>
+</tr>
+<tr>
+<td><a href="timeOfDeath/">timeOfDeath</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="created/">created</a></td>
+<td>ISO8601 UTC timestamp for when this phenopacket was created in ISO "2018-03-01T00:00:00Z"</td>
+</tr>
+<tr>
+<td><a href="createdBy/">createdBy</a></td>
+<td>some kind of identifier for the contributor/ program ARGO sample_registration::program_id</td>
+</tr>
+<tr>
+<td><a href="externalReferences/">externalReferences</a></td>
+<td>External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported.</td>
+</tr>
+<tr>
+<td><a href="phenopacketSchemaVersion/">phenopacketSchemaVersion</a></td>
+<td>phenopacket-schema-version used to create this phenopacket</td>
+</tr>
+<tr>
+<td><a href="resources/">resources</a></td>
+<td>a listing of the ontologies and resources referenced in the phenopacket</td>
+</tr>
+<tr>
+<td><a href="submittedBy/">submittedBy</a></td>
+<td>information about the person/organisation/network that has submitted this phenopacket</td>
+</tr>
+<tr>
+<td><a href="updates/">updates</a></td>
+<td>An OPTIONAL list of Updates to the phenopacket.</td>
+</tr>
+<tr>
+<td><a href="iriPrefix/">iriPrefix</a></td>
+<td>Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe' OntologyClass: id: 'HP:0012828' label: 'Severe' Resource: namespace_prefix: 'HP' iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828</td>
+</tr>
+<tr>
+<td><a href="name/">name</a></td>
+<td>e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions</td>
+</tr>
+<tr>
+<td><a href="namespacePrefix/">namespacePrefix</a></td>
+<td>The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI</td>
+</tr>
+<tr>
+<td><a href="url/">url</a></td>
+<td>For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo</td>
+</tr>
+<tr>
+<td><a href="version/">version</a></td>
+<td>for OBO ontologies, this should be the versionIRI</td>
+</tr>
+<tr>
+<td><a href="comment/">comment</a></td>
+<td>Textual comment about the changes made to the content and/or reason for the update. OPTIONAL</td>
+</tr>
+<tr>
+<td><a href="updatedBy/">updatedBy</a></td>
+<td>Information about the person/organisation/network that has updated the phenopacket. OPTIONAL</td>
+</tr>
+<tr>
+<td><a href="quantity.md">quantity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="scheduleFrequency/">scheduleFrequency</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="adverseEvents/">adverseEvents</a></td>
+<td>ARGO mapping treatment::adverse_events</td>
+</tr>
+<tr>
+<td><a href="procedure.md">procedure</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="radiationTherapy.md">radiationTherapy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="responseToTreatment/">responseToTreatment</a></td>
+<td>ARGO mapping treatment::response_to_treatment</td>
+</tr>
+<tr>
+<td><a href="therapeuticRegimen.md">therapeuticRegimen</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="treatment.md">treatment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="treatmentIntent/">treatmentIntent</a></td>
+<td>Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent</td>
+</tr>
+<tr>
+<td><a href="treatmentTarget/">treatmentTarget</a></td>
+<td>The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode</td>
+</tr>
+<tr>
+<td><a href="treatmentTerminationReason/">treatmentTerminationReason</a></td>
+<td>ARGO mapping treatment::treatment_outcome</td>
+</tr>
+<tr>
+<td><a href="dosage/">dosage</a></td>
+<td>The total dose given in units of Gray (Gy). REQUIRED. ARGO mapping radiation::radiation_therapy_dosage</td>
+</tr>
+<tr>
+<td><a href="fractions/">fractions</a></td>
+<td>The total number of fractions delivered as part of treatment. REQUIRED. ARGO mapping radiation::radiation_therapy_fractions</td>
+</tr>
+<tr>
+<td><a href="modality/">modality</a></td>
+<td>The modality of radiation therapy (e.g., electron, photon,…). REQUIRED. ARGO mapping radiation::radiation_therapy_modality</td>
+</tr>
+<tr>
+<td><a href="endTime/">endTime</a></td>
+<td>end time can be empty which would indicate ongoing</td>
+</tr>
+<tr>
+<td><a href="externalReference.md">externalReference</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="regimenStatus/">regimenStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="startTime/">startTime</a></td>
+<td>possibly undefined;</td>
+</tr>
+<tr>
+<td><a href="agent/">agent</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cumulativeDose/">cumulativeDose</a></td>
+<td>ARGO mapping chemotherapy::cumulative_drug_dosage</td>
+</tr>
+<tr>
+<td><a href="doseIntervals/">doseIntervals</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="drugType/">drugType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="routeOfAdministration/">routeOfAdministration</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="typedQuantities/">typedQuantities</a></td>
+<td>The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities</td>
+</tr>
+<tr>
+<td><a href="assay/">assay</a></td>
+<td>An ontology class which describes the assay used to produce the measurement. For example "body temperature" (CMO:0000015) or "Platelets [#/volume] in Blood" (LOINC:26515-7) FHIR mapping: Observation.code</td>
+</tr>
+<tr>
+<td><a href="complexValue.md">complexValue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="timeObserved/">timeObserved</a></td>
+<td>The time at which the measurement was made</td>
+</tr>
+<tr>
+<td><a href="value.md">value</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="referenceRange.md">referenceRange</a></td>
+<td>Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL.</td>
+</tr>
+<tr>
+<td><a href="unit/">unit</a></td>
+<td>For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo</td>
+</tr>
+<tr>
+<td><a href="high/">high</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="low/">low</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="disease/">disease</a></td>
+<td>The disease/condition assigned to the diagnosis.Details about this disease may be contained in the <code>diseases</code> field in the Phenopacket.</td>
+</tr>
+<tr>
+<td><a href="genomicInterpretations/">genomicInterpretations</a></td>
+<td>genomic features containing the status of their contribution towards the diagnosis</td>
+</tr>
+<tr>
+<td><a href="gene.md">gene</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="interpretationStatus/">interpretationStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="subjectOrBiosampleId/">subjectOrBiosampleId</a></td>
+<td>identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the enclosing phenopacket.</td>
+</tr>
+<tr>
+<td><a href="variantInterpretation.md">variantInterpretation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="diagnosis.md">diagnosis</a></td>
+<td>The diagnosis made in this interpretation</td>
+</tr>
+<tr>
+<td><a href="progressStatus/">progressStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="summary/">summary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="acmgPathogenicityClassification/">acmgPathogenicityClassification</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="therapeuticActionability/">therapeuticActionability</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="variationDescriptor.md">variationDescriptor</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="syntax/">syntax</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="alternateSymbols/">alternateSymbols</a></td>
+<td>Takes the place of alternate_labels field in a generic descriptor</td>
+</tr>
+<tr>
+<td><a href="symbol/">symbol</a></td>
+<td>The primary gene symbol. Takes the place of the label field in a generic descriptor</td>
+</tr>
+<tr>
+<td><a href="valueId/">valueId</a></td>
+<td>The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071 This should be a CURIE linking the reference to a namespace where it can be retrieved. Mirrors the value_id field of a generic value object descriptor</td>
+</tr>
+<tr>
+<td><a href="xrefs/">xrefs</a></td>
+<td>Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs</td>
+</tr>
+<tr>
+<td><a href="allelicState/">allelicState</a></td>
+<td>We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875.</td>
+</tr>
+<tr>
+<td><a href="alternateLabels/">alternateLabels</a></td>
+<td>Common aliases for a variant, e.g. EGFR vIII, are alternate labels</td>
+</tr>
+<tr>
+<td><a href="expressions/">expressions</a></td>
+<td>HGVS, SPDI, and gnomAD-style strings should be represented as Expressions</td>
+</tr>
+<tr>
+<td><a href="extensions/">extensions</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="geneContext/">geneContext</a></td>
+<td>A specific gene context that applies to this variant.</td>
+</tr>
+<tr>
+<td><a href="moleculeContext/">moleculeContext</a></td>
+<td>The molecular context of the vrs variation. Must be one of “genomic”, “transcript”, or “protein”. Defaults to "unspecified_molecule_context"</td>
+</tr>
+<tr>
+<td><a href="structuralType/">structuralType</a></td>
+<td>The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537.</td>
+</tr>
+<tr>
+<td><a href="variation.md">variation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="vcfRecord.md">vcfRecord</a></td>
+<td>A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the allelic_state</td>
+</tr>
+<tr>
+<td><a href="vrsRefAlleleSeq/">vrsRefAlleleSeq</a></td>
+<td>A Sequence corresponding to a “ref allele”, describing the sequence expected at a SequenceLocation reference.</td>
+</tr>
+<tr>
+<td><a href="alt/">alt</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="chrom/">chrom</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="filter/">filter</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="genomeAssembly/">genomeAssembly</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="info/">info</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pos/">pos</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="qual/">qual</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ref/">ref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="copyNumber.md">copyNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Id.md">Id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="chromosomeLocation.md">chromosomeLocation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="curie/">curie</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="derivedSequenceExpression.md">derivedSequenceExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="literalSequenceExpression.md">literalSequenceExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="repeatedSequenceExpression.md">repeatedSequenceExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sequenceLocation.md">sequenceLocation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="chr/">chr</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="speciesId/">speciesId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="allele.md">allele</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="definiteRange.md">definiteRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="haplotype.md">haplotype</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="indefiniteRange.md">indefiniteRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="number.md">number</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="max/">max</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="min/">min</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="location.md">location</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="reverseComplement/">reverseComplement</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="geneId/">geneId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="comparator/">comparator</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sequence/">sequence</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="text.md">text</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="variationSet.md">variationSet</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="endDefiniteRange/">endDefiniteRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="endIndefiniteRange/">endIndefiniteRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="endNumber/">endNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="startDefiniteRange/">startDefiniteRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="startIndefiniteRange/">startIndefiniteRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="startNumber/">startNumber</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sequenceId/">sequenceId</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sequenceInterval.md">sequenceInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="definition/">definition</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="typeUrl/">typeUrl</a></td>
+<td>A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one "/" character. The last segment of the URL's path must represent the fully qualified name of the type (as in <code>path/google.protobuf.Duration</code>). The name should be in a canonical form (e.g., leading "." is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme <code>http</code>, <code>https</code>, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, <code>https</code> is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][] value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com.  Schemes other than <code>http</code>, <code>https</code> (or the empty scheme) might be used with implementation specific semantics.</td>
+</tr>
+<tr>
+<td><a href="clinicalTnmFinding/">clinicalTnmFinding</a></td>
+<td>Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category</td>
+</tr>
+<tr>
+<td><a href="diseaseStage/">diseaseStage</a></td>
+<td>Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group</td>
+</tr>
+<tr>
+<td><a href="laterality/">laterality</a></td>
+<td>The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)</td>
+</tr>
+<tr>
+<td><a href="primarySite/">primarySite</a></td>
+<td>The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general</td>
+</tr>
+<tr>
+<td><a href="term/">term</a></td>
+<td>The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id</td>
+</tr>
+<tr>
+<td><a href="derivedFromId/">derivedFromId</a></td>
+<td>The id of the parent biosample this biosample was derived from.</td>
+</tr>
+<tr>
+<td><a href="diagnosticMarkers/">diagnosticMarkers</a></td>
+<td>Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)</td>
+</tr>
+<tr>
+<td><a href="histologicalDiagnosis/">histologicalDiagnosis</a></td>
+<td>This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term "NCIT:C38757", "Negative Finding" ARGO mapping specimen::tumour_histological_type</td>
+</tr>
+<tr>
+<td><a href="materialSample/">materialSample</a></td>
+<td>This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation</td>
+</tr>
+<tr>
+<td><a href="pathologicalStage/">pathologicalStage</a></td>
+<td>ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group</td>
+</tr>
+<tr>
+<td><a href="pathologicalTnmFinding/">pathologicalTnmFinding</a></td>
+<td>ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category</td>
+</tr>
+<tr>
+<td><a href="sampleProcessing/">sampleProcessing</a></td>
+<td>Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing</td>
+</tr>
+<tr>
+<td><a href="sampleStorage/">sampleStorage</a></td>
+<td>Field to represent how the sample was stored ARGO mapping specimen::specimen_storage</td>
+</tr>
+<tr>
+<td><a href="sampleType/">sampleType</a></td>
+<td>Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type</td>
+</tr>
+<tr>
+<td><a href="sampledTissue/">sampledTissue</a></td>
+<td>UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source</td>
+</tr>
+<tr>
+<td><a href="timeOfCollection/">timeOfCollection</a></td>
+<td>An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes</td>
+</tr>
+<tr>
+<td><a href="tumorGrade/">tumorGrade</a></td>
+<td>Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet</td>
+</tr>
+<tr>
+<td><a href="tumorProgression/">tumorProgression</a></td>
+<td>Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enums">Enums</h2>
+<table>
+<thead>
+<tr>
+<th>Enums</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="AffectedStatus.md">AffectedStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="KaryotypicSex.md">KaryotypicSex</a></td>
+<td>Karyotypic sex of the individual</td>
+</tr>
+<tr>
+<td><a href="Sex.md">Sex</a></td>
+<td>Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)</td>
+</tr>
+<tr>
+<td><a href="Status.md">Status</a></td>
+<td>Default = false i.e. the individual is alive. MUST be true if</td>
+</tr>
+<tr>
+<td><a href="DrugType.md">DrugType</a></td>
+<td>A simplified version of ODHSI-DRUG_EXPOSURE</td>
+</tr>
+<tr>
+<td><a href="RegimenStatus.md">RegimenStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="AcmgPathogenicityClassification.md">AcmgPathogenicityClassification</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="InterpretationStatus.md">InterpretationStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ProgressStatus.md">ProgressStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TherapeuticActionability.md">TherapeuticActionability</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="MoleculeContext.md">MoleculeContext</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.tabs.link"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="assets/javascripts/bundle.5413a266.min.js"></script>
+      
+    
+  </body>
 </html>
-
-<!--
-MkDocs version : 1.2.1
-Build Date UTC : 2021-08-28 01:06:50.822093+00:00
--->
