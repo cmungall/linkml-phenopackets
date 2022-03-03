@@ -1,0 +1,17 @@
+ 
+classes: {}
+
+default_prefix: genome
+description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+enums: {}
+
+id: https://w3id.org/linkml/phenopackets/genome
+imports: 
+  - linkml:types
+name: genome
+prefixes: 
+  argo: https://docs.icgc-argo.org/dictionary/
+  genome: https://w3id.org/linkml/phenopackets/genome/
+  linkml: https://w3id.org/linkml/
+slots: {}
+
