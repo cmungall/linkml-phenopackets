@@ -16,6 +16,9 @@ gh-deploy:
 clean-site:
 	rm site/*
 
+sheets/phenopackets.tsv: $(SRC)
+	$(RUN) linkml2sheets sheets/phenopackets-spec.tsv -s $< -o $@
+
 ## --------------------
 ## TEST/VALIDATIONS
 ## --------------------
