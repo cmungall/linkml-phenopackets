@@ -2,1252 +2,1537 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Abundance/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/AcmgPathogenicityClassification/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/AffectedStatus/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Age/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/AgeRange/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Allele/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Any/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Biosample/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Boolean/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/ChromosomeLocation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Cohort/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/ComplexValue/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/CopyNumber/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/CytobandInterval/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Date/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Datetime/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Decimal/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/DefiniteRange/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/DerivedSequenceExpression/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Diagnosis/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Dictionary/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Disease/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/DoseInterval/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Double/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/DrugType/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Evidence/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Expression/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Extension/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/ExternalReference/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Family/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Feature/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/File/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Float/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Gene/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/GeneDescriptor/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/GenomicInterpretation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/GestationalAge/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Haplotype/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/IndefiniteRange/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Individual/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Integer/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Interpretation/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/InterpretationStatus/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/KaryotypicSex/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/LiteralSequenceExpression/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Location/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Measurement/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/MedicalAction/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Member/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/MetaData/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/MolecularVariation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MoleculeContext/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Ncname/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Nodeidentifier/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Number/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Objectidentifier/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/OntologyClass/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Pedigree/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Person/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Phenopacket/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/PhenotypicFeature/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Procedure/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ProgressStatus/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Quantity/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/RadiationTherapy/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/ReferenceRange/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/RegimenStatus/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/RepeatedSequenceExpression/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Resource/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/SequenceExpression/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/SequenceInterval/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/SequenceLocation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/SequenceState/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Sex/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/SimpleInterval/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Status/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/String/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/SystemicVariation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Text/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/TherapeuticActionability/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/TherapeuticRegimen/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Time/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/TimeElement/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/TimeInterval/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Timestamp/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Treatment/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/TypedQuantity/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Update/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/Uri/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Uriorcurie/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/UtilityVariation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Value/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/VariantInterpretation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Variation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/VariationDescriptor/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/VariationSet/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/VcfRecord/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/VitalStatus/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/acmgPathogenicityClassification/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/adverseEvents/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/affectedStatus/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/age/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ageRange/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/agent/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/allele/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/allelicState/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/alt/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/alternateIds/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/alternateLabels/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/alternateSymbols/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/any/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/assay/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/base/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/biosample/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/biosamples/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/bodySite/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/causeOfDeath/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/chr/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/chrom/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/chromosomeLocation/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/clinicalTnmFinding/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/code/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/comment/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/comparator/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/complexValue/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/consanguinousParents/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/copyNumber/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/created/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/createdBy/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/cumulativeDose/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/curie/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/dateOfBirth/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/days/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/definiteRange/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/definition/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/derivedFromId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/derivedSequenceExpression/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/description/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/diagnosis/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/diagnosticMarkers/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/disease/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/diseaseStage/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/diseases/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/dosage/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/doseIntervals/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/drugType/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/end/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/endDefiniteRange/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/endIndefiniteRange/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/endNumber/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/endTime/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/evidence/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/evidenceCode/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/excluded/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/expressions/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/extensions/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/externalReference/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/externalReferences/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/familyId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/fileAttributes/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/files/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/filter/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/fractions/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/gender/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/gene/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/geneContext/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/geneId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/genomeAssembly/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/genomicInterpretations/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/gestationalAge/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/haplotype/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/high/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/histologicalDiagnosis/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/id/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/indefiniteRange/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/individual/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/individualId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/individualToFileIdentifiers/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/info/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/interpretation/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/interpretationStatus/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/interpretations/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/interval/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/iriPrefix/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/iso8601duration/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/karyotypicSex/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/label/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/laterality/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/literalSequenceExpression/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/location/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/low/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/materialSample/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/maternalId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/max/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/measurement/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/measurements/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/medicalActions/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/medical_action/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/members/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/metaData/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/meta_data/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/min/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/modality/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/modifiers/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/moleculeContext/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/name/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/namespacePrefix/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/nanos/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/number/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/onset/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/ontologyClass/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/paternalId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/pathologicalStage/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/pathologicalTnmFinding/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/pedigree/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/performed/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/persons/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/phenopacketSchemaVersion/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/phenopackets/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/phenotypicFeatures/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/phenotypic_feature/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/pos/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/primarySite/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/proband/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/procedure/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/progressStatus/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/qual/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/quantity/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/radiationTherapy/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/ref/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/reference/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/referenceRange/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/regimenStatus/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/relatives/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/repeatedSequenceExpression/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/resolution/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/resources/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/responseToTreatment/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/reverseComplement/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/routeOfAdministration/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/sampleProcessing/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/sampleStorage/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/sampleType/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/sampledTissue/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/scheduleFrequency/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/seconds/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/sequence/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/sequenceId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/sequenceInterval/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/sequenceLocation/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/severity/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/sex/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/speciesId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/start/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/startDefiniteRange/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/startIndefiniteRange/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/startNumber/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/startTime/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/status/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/structuralType/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/subject/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/subjectOrBiosampleId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/submittedBy/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/summary/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/survivalTimeInDays/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/symbol/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/syntax/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/taxonomy/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/term/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/text/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/therapeuticActionability/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/therapeuticRegimen/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/timeAtLastEncounter/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/timeObserved/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/timeOfCollection/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/timeOfDeath/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/timestamp/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/treatment/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/treatmentIntent/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/treatmentTarget/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/treatmentTerminationReason/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/tumorGrade/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/tumorProgression/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/type/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/typeUrl/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/typedQuantities/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/types/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/unit/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/updatedBy/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/updates/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/uri/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/url/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/value/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/valueId/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/variantInterpretation/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/variation/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/variationDescriptor/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/variationSet/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/vcfRecord/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/version/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/vitalStatus/</loc>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/vrs/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/vrsRefAlleleSeq/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/vrsatile/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/weeks/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/xrefs/</loc>
-         <lastmod>2022-03-03</lastmod>
+         <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
