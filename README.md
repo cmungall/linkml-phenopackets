@@ -26,6 +26,8 @@ We use mkdocs to generate docs. This makes one file per class or slot.
 
 Some systems like macs are case insensitive for file names, so we end up with slots overriding classes, e.g. Disease vs disease
 
+(Note: this is being fixed)
+
 
 ### Alternate actions: anyofs
 
