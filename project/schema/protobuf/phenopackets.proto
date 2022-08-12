@@ -1,530 +1,530 @@
 message Abundance
  {
-  optional copyNumber CopyNumber = 1
+  copyNumber copyNumber = 0
  }
 // See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_ In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/
 message Age
  {
-  optional iso8601duration String = 1
+  string iso8601duration = 0
  }
 message AgeRange
  {
-  optional end Age = 1
-  optional start Age = 2
+  age end = 0
+  age start = 0
  }
 message Allele
  {
-  optional chromosomeLocation ChromosomeLocation = 1
-  optional curie String = 2
-  optional derivedSequenceExpression DerivedSequenceExpression = 3
-  id String = 4
-  optional literalSequenceExpression LiteralSequenceExpression = 5
-  optional repeatedSequenceExpression RepeatedSequenceExpression = 6
-  optional sequenceLocation SequenceLocation = 7
+  chromosomeLocation chromosomeLocation = 0
+  string curie = 0
+  derivedSequenceExpression derivedSequenceExpression = 0
+  string id = 0
+  literalSequenceExpression literalSequenceExpression = 0
+  repeatedSequenceExpression repeatedSequenceExpression = 0
+  sequenceLocation sequenceLocation = 0
  }
 // Protocol Buffers - Google's data interchange format Copyright 2008 Google Inc.  All rights reserved. https://developers.google.com/protocol-buffers/  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. * Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.  Foo foo = ...; Any any; any.PackFrom(foo); ... if (any.UnpackTo(&foo)) { ... }  Example 2: Pack and unpack a message in Java.  Foo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo = any.unpack(Foo.class); }  Example 3: Pack and unpack a message in Python.  foo = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR): any.Unpack(foo) ...  Example 4: Pack and unpack a message in Go  foo := &pb.Foo{...} any, err := anypb.New(foo) if err != nil { ... } ... foo := &pb.Foo{} if err := any.UnmarshalTo(foo); err != nil { ... }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example "foo.bar.com/x/y.z" will yield type name "y.z".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:  package google.profile; message Person { string first_name = 1; string last_name = 2; }  { "@type": "type.googleapis.com/google.profile.Person", "firstName": <string>, "lastName": <string> }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):  { "@type": "type.googleapis.com/google.protobuf.Duration", "value": "1.212s" } 
 message Any
  {
-  optional typeUrl String = 1
-  optional value String = 2
+  string typeUrl = 0
+  string value = 0
  }
 // A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).
 message Biosample
  {
-  optional derivedFromId String = 1
-  optional description String = 2
-  repeated diagnosticMarkers OntologyClass = 3
-  repeated files File = 4
-  optional histologicalDiagnosis OntologyClass = 5
-  id String = 6
-  optional individualId String = 7
-  optional materialSample OntologyClass = 8
-  repeated measurements Measurement = 9
-  optional pathologicalStage OntologyClass = 10
-  repeated pathologicalTnmFinding OntologyClass = 11
-  repeated phenotypicFeatures PhenotypicFeature = 12
-  optional procedure Procedure = 13
-  optional sampleProcessing OntologyClass = 14
-  optional sampleStorage OntologyClass = 15
-  optional sampleType OntologyClass = 16
-  optional sampledTissue OntologyClass = 17
-  optional taxonomy OntologyClass = 18
-  optional timeOfCollection TimeElement = 19
-  optional tumorGrade OntologyClass = 20
-  optional tumorProgression OntologyClass = 21
+  string derivedFromId = 0
+  string description = 0
+ repeated  ontologyClass diagnosticMarkers = 0
+ repeated  file files = 0
+  ontologyClass histologicalDiagnosis = 0
+  string id = 0
+  string individualId = 0
+  ontologyClass materialSample = 0
+ repeated  measurement measurements = 0
+  ontologyClass pathologicalStage = 0
+ repeated  ontologyClass pathologicalTnmFinding = 0
+ repeated  phenotypicFeature phenotypicFeatures = 0
+  procedure procedure = 0
+  ontologyClass sampleProcessing = 0
+  ontologyClass sampleStorage = 0
+  ontologyClass sampleType = 0
+  ontologyClass sampledTissue = 0
+  ontologyClass taxonomy = 0
+  timeElement timeOfCollection = 0
+  ontologyClass tumorGrade = 0
+  ontologyClass tumorProgression = 0
  }
 message ChromosomeLocation
  {
-  optional chr String = 1
-  id String = 2
-  optional interval CytobandInterval = 3
-  optional speciesId String = 4
+  string chr = 0
+  string id = 0
+  cytobandInterval interval = 0
+  string speciesId = 0
  }
 // A group of individuals related in some phenotypic or genotypic aspect.
 message Cohort
  {
-  optional description String = 1
-  repeated files File = 2
-  id String = 3
-  repeated members Phenopacket = 4
-  metaData MetaData = 5
+  string description = 0
+ repeated  file files = 0
+  string id = 0
+ repeated  phenopacket members = 0
+  metaData metaData = 0
  }
 message ComplexValue
  {
-  repeated typedQuantities TypedQuantity = 1
+ repeated  typedQuantity typedQuantities = 0
  }
 message CopyNumber
  {
-  optional allele Allele = 1
-  optional curie String = 2
-  optional definiteRange DefiniteRange = 3
-  optional derivedSequenceExpression DerivedSequenceExpression = 4
-  optional gene Gene = 5
-  optional haplotype Haplotype = 6
-  id String = 7
-  optional indefiniteRange IndefiniteRange = 8
-  optional literalSequenceExpression LiteralSequenceExpression = 9
-  optional number Number = 10
-  optional repeatedSequenceExpression RepeatedSequenceExpression = 11
+  allele allele = 0
+  string curie = 0
+  definiteRange definiteRange = 0
+  derivedSequenceExpression derivedSequenceExpression = 0
+  gene gene = 0
+  haplotype haplotype = 0
+  string id = 0
+  indefiniteRange indefiniteRange = 0
+  literalSequenceExpression literalSequenceExpression = 0
+  number number = 0
+  repeatedSequenceExpression repeatedSequenceExpression = 0
  }
 message CytobandInterval
  {
-  optional end String = 1
-  optional start String = 2
+  string end = 0
+  string start = 0
  }
 message DefiniteRange
  {
-  optional max Integer = 1
-  optional min Integer = 2
+  integer max = 0
+  integer min = 0
  }
 message DerivedSequenceExpression
  {
-  optional location SequenceLocation = 1
-  optional reverseComplement Boolean = 2
+  sequenceLocation location = 0
+  boolean reverseComplement = 0
  }
 message Diagnosis
  {
-  optional disease OntologyClass = 1
-  repeated genomicInterpretations GenomicInterpretation = 2
+  ontologyClass disease = 0
+ repeated  genomicInterpretation genomicInterpretations = 0
  }
 // Message to indicate a disease (diagnosis) and its recorded onset.
 message Disease
  {
-  repeated clinicalTnmFinding OntologyClass = 1
-  repeated diseaseStage OntologyClass = 2
-  optional excluded Boolean = 3
-  optional laterality OntologyClass = 4
-  optional onset TimeElement = 5
-  optional primarySite OntologyClass = 6
-  optional resolution TimeElement = 7
-  optional term OntologyClass = 8
+ repeated  ontologyClass clinicalTnmFinding = 0
+ repeated  ontologyClass diseaseStage = 0
+  boolean excluded = 0
+  ontologyClass laterality = 0
+  timeElement onset = 0
+  ontologyClass primarySite = 0
+  timeElement resolution = 0
+  ontologyClass term = 0
  }
 // e.g. 50mg/ml 3 times daily for two weeks
 message DoseInterval
  {
-  optional interval TimeInterval = 1
-  optional quantity Quantity = 2
-  optional scheduleFrequency OntologyClass = 3
+  timeInterval interval = 0
+  quantity quantity = 0
+  ontologyClass scheduleFrequency = 0
  }
 // FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)
 message Evidence
  {
-  optional evidenceCode OntologyClass = 1
-  optional reference ExternalReference = 2
+  ontologyClass evidenceCode = 0
+  externalReference reference = 0
  }
 // https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression
 message Expression
  {
-  optional syntax String = 1
-  optional value String = 2
-  optional version String = 3
+  string syntax = 0
+  string value = 0
+  string version = 0
  }
 // https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension
 message Extension
  {
-  optional name String = 1
-  repeated value Any = 2
+  string name = 0
+ repeated  any value = 0
  }
 // FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)
 message ExternalReference
  {
-  optional description String = 1
-  id String = 2
-  optional reference String = 3
+  string description = 0
+  string id = 0
+  string reference = 0
  }
 // Phenotype, sample and pedigree data required for a genomic diagnosis. Equivalent to the Genomics England InterpretationRequestRD https://github.com/genomicsengland/GelReportModels/blob/master/schemas/IDLs/org.gel.models.report.avro/5.0.0/InterpretationRequestRD.avdl
 message Family
  {
-  optional consanguinousParents Boolean = 1
-  repeated files File = 2
-  id String = 3
-  metaData MetaData = 4
-  optional pedigree Pedigree = 5
-  optional proband Phenopacket = 6
-  repeated relatives Phenopacket = 7
+  boolean consanguinousParents = 0
+ repeated  file files = 0
+  string id = 0
+  metaData metaData = 0
+  pedigree pedigree = 0
+  phenopacket proband = 0
+ repeated  phenopacket relatives = 0
  }
 message Feature
  {
-  optional gene Gene = 1
+  gene gene = 0
  }
 message File
  {
-  optional fileAttributes Dictionary = 1
-  optional individualToFileIdentifiers Dictionary = 2
-  optional uri String = 3
+  dictionary fileAttributes = 0
+  dictionary individualToFileIdentifiers = 0
+  string uri = 0
  }
 message Gene
  {
-  optional geneId String = 1
+  string geneId = 0
  }
 // https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor
 message GeneDescriptor
  {
-  repeated alternateIds String = 1
-  repeated alternateSymbols String = 2
-  optional description String = 3
-  optional symbol String = 4
-  optional valueId String = 5
-  repeated xrefs String = 6
+ repeated  string alternateIds = 0
+ repeated  string alternateSymbols = 0
+  string description = 0
+  string symbol = 0
+  string valueId = 0
+ repeated  string xrefs = 0
  }
 // A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations.
 message GenomicInterpretation
  {
-  optional gene GeneDescriptor = 1
-  optional interpretationStatus InterpretationStatus = 2
-  optional subjectOrBiosampleId String = 3
-  optional variantInterpretation VariantInterpretation = 4
+  geneDescriptor gene = 0
+  interpretationStatus interpretationStatus = 0
+  string subjectOrBiosampleId = 0
+  variantInterpretation variantInterpretation = 0
  }
 message GestationalAge
  {
-  optional days Integer = 1
-  optional weeks Integer = 2
+  integer days = 0
+  integer weeks = 0
  }
 message IndefiniteRange
  {
-  optional comparator String = 1
-  optional value Integer = 2
+  string comparator = 0
+  integer value = 0
  }
 // An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html).
 message Individual
  {
-  repeated alternateIds String = 1
-  optional dateOfBirth String = 2
-  optional gender OntologyClass = 3
-  id String = 4
-  optional karyotypicSex KaryotypicSex = 5
-  optional sex Sex = 6
-  optional taxonomy OntologyClass = 7
-  optional timeAtLastEncounter TimeElement = 8
-  optional vitalStatus VitalStatus = 9
+ repeated  string alternateIds = 0
+  string dateOfBirth = 0
+  ontologyClass gender = 0
+  string id = 0
+  karyotypicSex karyotypicSex = 0
+  sex sex = 0
+  ontologyClass taxonomy = 0
+  timeElement timeAtLastEncounter = 0
+  vitalStatus vitalStatus = 0
  }
 message Interpretation
  {
-  optional diagnosis Diagnosis = 1
-  id String = 2
-  optional progressStatus ProgressStatus = 3
-  optional summary String = 4
+  diagnosis diagnosis = 0
+  string id = 0
+  progressStatus progressStatus = 0
+  string summary = 0
  }
 message LiteralSequenceExpression
  {
-  optional sequence String = 1
+  string sequence = 0
  }
 message Location
  {
-  optional chromosomeLocation ChromosomeLocation = 1
-  optional sequenceLocation SequenceLocation = 2
+  chromosomeLocation chromosomeLocation = 0
+  sequenceLocation sequenceLocation = 0
  }
 // FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)
 message Measurement
  {
-  optional assay OntologyClass = 1
-  optional complexValue ComplexValue = 2
-  optional description String = 3
-  optional procedure Procedure = 4
-  optional timeObserved TimeElement = 5
-  optional value Value = 6
+  ontologyClass assay = 0
+  complexValue complexValue = 0
+  string description = 0
+  procedure procedure = 0
+  timeElement timeObserved = 0
+  value value = 0
  }
 // medication, procedure, other actions taken for clinical management
 message MedicalAction
  {
-  repeated adverseEvents OntologyClass = 1
-  optional procedure Procedure = 2
-  optional radiationTherapy RadiationTherapy = 3
-  optional responseToTreatment OntologyClass = 4
-  optional therapeuticRegimen TherapeuticRegimen = 5
-  optional treatment Treatment = 6
-  optional treatmentIntent OntologyClass = 7
-  optional treatmentTarget OntologyClass = 8
-  optional treatmentTerminationReason OntologyClass = 9
+ repeated  ontologyClass adverseEvents = 0
+  procedure procedure = 0
+  radiationTherapy radiationTherapy = 0
+  ontologyClass responseToTreatment = 0
+  therapeuticRegimen therapeuticRegimen = 0
+  treatment treatment = 0
+  ontologyClass treatmentIntent = 0
+  ontologyClass treatmentTarget = 0
+  ontologyClass treatmentTerminationReason = 0
  }
 message Member
  {
-  optional allele Allele = 1
-  optional copyNumber CopyNumber = 2
-  optional curie String = 3
-  optional haplotype Haplotype = 4
-  id String = 5
-  repeated members Member = 6
-  optional text Text = 7
-  optional variationSet VariationSet = 8
+  allele allele = 0
+  copyNumber copyNumber = 0
+  string curie = 0
+  haplotype haplotype = 0
+  string id = 0
+ repeated  member members = 0
+  text text = 0
+  variationSet variationSet = 0
  }
 message MetaData
  {
-  optional created String = 1
-  optional createdBy String = 2
-  repeated externalReferences ExternalReference = 3
-  optional phenopacketSchemaVersion String = 4
-  repeated resources Resource = 5
-  optional submittedBy String = 6
-  repeated updates Update = 7
+  string created = 0
+  string createdBy = 0
+ repeated  externalReference externalReferences = 0
+  string phenopacketSchemaVersion = 0
+ repeated  resource resources = 0
+  string submittedBy = 0
+ repeated  update updates = 0
  }
 message MolecularVariation
  {
-  optional allele Allele = 1
-  optional haplotype Haplotype = 2
+  allele allele = 0
+  haplotype haplotype = 0
  }
 message Number
  {
-  optional value Integer = 1
+  integer value = 0
  }
 // A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept) see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)
 message OntologyClass
  {
-  id String = 1
-  optional label String = 2
+  string id = 0
+  string label = 0
  }
 // https://software.broadinstitute.org/gatk/documentation/article?id=11016
 message Pedigree
  {
-  repeated persons Person = 1
+ repeated  person persons = 0
  }
 message Person
  {
-  optional affectedStatus AffectedStatus = 1
-  optional familyId String = 2
-  optional individualId String = 3
-  optional maternalId String = 4
-  optional paternalId String = 5
-  optional sex Sex = 6
+  affectedStatus affectedStatus = 0
+  string familyId = 0
+  string individualId = 0
+  string maternalId = 0
+  string paternalId = 0
+  sex sex = 0
  }
 // An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.  This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.
 message Phenopacket
  {
-  repeated biosamples Biosample = 1
-  repeated diseases Disease = 2
-  repeated files File = 3
-  id String = 4
-  repeated interpretations Interpretation = 5
-  repeated measurements Measurement = 6
-  repeated medicalActions MedicalAction = 7
-  metaData MetaData = 8
-  repeated phenotypicFeatures PhenotypicFeature = 9
-  optional subject Individual = 10
+ repeated  biosample biosamples = 0
+ repeated  disease diseases = 0
+ repeated  file files = 0
+  string id = 0
+ repeated  interpretation interpretations = 0
+ repeated  measurement measurements = 0
+ repeated  medicalAction medicalActions = 0
+  metaData metaData = 0
+ repeated  phenotypicFeature phenotypicFeatures = 0
+  individual subject = 0
  }
 // An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)
 message PhenotypicFeature
  {
-  optional description String = 1
-  repeated evidence Evidence = 2
-  optional excluded Boolean = 3
-  repeated modifiers OntologyClass = 4
-  optional onset TimeElement = 5
-  optional resolution TimeElement = 6
-  optional severity OntologyClass = 7
-  optional type OntologyClass = 8
+  string description = 0
+ repeated  evidence evidence = 0
+  boolean excluded = 0
+ repeated  ontologyClass modifiers = 0
+  timeElement onset = 0
+  timeElement resolution = 0
+  ontologyClass severity = 0
+  ontologyClass type = 0
  }
 // A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {"code":{"NCIT:C51585": "Biopsy of Soft Palate"}} {"code":{"NCIT:C28743": "Punch Biopsy"}, "body_site":{"UBERON:0003403": "skin of forearm"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)
 message Procedure
  {
-  optional bodySite OntologyClass = 1
-  optional code OntologyClass = 2
-  optional performed TimeElement = 3
+  ontologyClass bodySite = 0
+  ontologyClass code = 0
+  timeElement performed = 0
  }
 message Quantity
  {
-  optional referenceRange ReferenceRange = 1
-  optional unit OntologyClass = 2
-  optional value Double = 3
+  referenceRange referenceRange = 0
+  ontologyClass unit = 0
+  double value = 0
  }
 // RadiationTherapy
 message RadiationTherapy
  {
-  bodySite OntologyClass = 1
-  dosage Integer = 2
-  fractions Integer = 3
-  modality OntologyClass = 4
+  ontologyClass bodySite = 0
+  integer dosage = 0
+  integer fractions = 0
+  ontologyClass modality = 0
  }
 message ReferenceRange
  {
-  optional high Double = 1
-  optional low Double = 2
-  optional unit OntologyClass = 3
+  double high = 0
+  double low = 0
+  ontologyClass unit = 0
  }
 message RepeatedSequenceExpression
  {
-  optional definiteRange DefiniteRange = 1
-  optional derivedSequenceExpression DerivedSequenceExpression = 2
-  optional indefiniteRange IndefiniteRange = 3
-  optional literalSequenceExpression LiteralSequenceExpression = 4
-  optional number Number = 5
+  definiteRange definiteRange = 0
+  derivedSequenceExpression derivedSequenceExpression = 0
+  indefiniteRange indefiniteRange = 0
+  literalSequenceExpression literalSequenceExpression = 0
+  number number = 0
  }
 // Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)
 message Resource
  {
-  id String = 1
-  optional iriPrefix String = 2
-  optional name String = 3
-  optional namespacePrefix String = 4
-  optional url String = 5
-  optional version String = 6
+  string id = 0
+  string iriPrefix = 0
+  string name = 0
+  string namespacePrefix = 0
+  string url = 0
+  string version = 0
  }
 message SequenceExpression
  {
-  optional derivedSequenceExpression DerivedSequenceExpression = 1
-  optional literalSequenceExpression LiteralSequenceExpression = 2
-  optional repeatedSequenceExpression RepeatedSequenceExpression = 3
+  derivedSequenceExpression derivedSequenceExpression = 0
+  literalSequenceExpression literalSequenceExpression = 0
+  repeatedSequenceExpression repeatedSequenceExpression = 0
  }
 message SequenceInterval
  {
-  optional endDefiniteRange DefiniteRange = 1
-  optional endIndefiniteRange IndefiniteRange = 2
-  optional endNumber Number = 3
-  optional startDefiniteRange DefiniteRange = 4
-  optional startIndefiniteRange IndefiniteRange = 5
-  optional startNumber Number = 6
+  definiteRange endDefiniteRange = 0
+  indefiniteRange endIndefiniteRange = 0
+  number endNumber = 0
+  definiteRange startDefiniteRange = 0
+  indefiniteRange startIndefiniteRange = 0
+  number startNumber = 0
  }
 message SequenceLocation
  {
-  id String = 1
-  optional sequenceId String = 2
-  optional sequenceInterval SequenceInterval = 3
+  string id = 0
+  string sequenceId = 0
+  sequenceInterval sequenceInterval = 0
  }
 message SequenceState
  {
-  optional sequence String = 1
+  string sequence = 0
  }
 message SimpleInterval
  {
-  optional end Integer = 1
-  optional start Integer = 2
+  integer end = 0
+  integer start = 0
  }
 message SystemicVariation
  {
-  optional copyNumber CopyNumber = 1
+  copyNumber copyNumber = 0
  }
 message Text
  {
-  optional definition String = 1
-  id String = 2
+  string definition = 0
+  string id = 0
  }
 // ARGO mapping radiation::radiation_therapy_type (missing)
 message TherapeuticRegimen
  {
-  optional endTime TimeElement = 1
-  optional externalReference ExternalReference = 2
-  optional ontologyClass OntologyClass = 3
-  optional regimenStatus RegimenStatus = 4
-  optional startTime TimeElement = 5
+  timeElement endTime = 0
+  externalReference externalReference = 0
+  ontologyClass ontologyClass = 0
+  regimenStatus regimenStatus = 0
+  timeElement startTime = 0
  }
 message TimeElement
  {
-  optional age Age = 1
-  optional ageRange AgeRange = 2
-  optional gestationalAge GestationalAge = 3
-  optional interval TimeInterval = 4
-  optional ontologyClass OntologyClass = 5
-  optional timestamp String = 6
+  age age = 0
+  ageRange ageRange = 0
+  gestationalAge gestationalAge = 0
+  timeInterval interval = 0
+  ontologyClass ontologyClass = 0
+  string timestamp = 0
  }
 message TimeInterval
  {
-  optional end String = 1
-  optional start String = 2
+  string end = 0
+  string start = 0
  }
 // Protocol Buffers - Google's data interchange format Copyright 2008 Google Inc.  All rights reserved. https://developers.google.com/protocol-buffers/  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. * Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one.  All minutes are 60 seconds long. Leap seconds are "smeared" so that no leap second table is needed for interpretation, using a [24-hour linear smear](https://developers.google.com/time/smear).  The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.  # Examples  Example 1: Compute Timestamp from POSIX `time()`.  Timestamp timestamp; timestamp.set_seconds(time(NULL)); timestamp.set_nanos(0);  Example 2: Compute Timestamp from POSIX `gettimeofday()`.  struct timeval tv; gettimeofday(&tv, NULL);  Timestamp timestamp; timestamp.set_seconds(tv.tv_sec); timestamp.set_nanos(tv.tv_usec * 1000);  Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.  FILETIME ft; GetSystemTimeAsFileTime(&ft); UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;  // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z. Timestamp timestamp; timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL)); timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));  Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.  long millis = System.currentTimeMillis();  Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000) .setNanos((int) ((millis % 1000) * 1000000)).build();   Example 5: Compute Timestamp from Java `Instant.now()`.  Instant now = Instant.now();  Timestamp timestamp = Timestamp.newBuilder().setSeconds(now.getEpochSecond()) .setNanos(now.getNano()).build();   Example 6: Compute Timestamp from current time in Python.  timestamp = Timestamp() timestamp.GetCurrentTime()  # JSON Mapping  In JSON format, the Timestamp type is encoded as a string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is "{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z" where {year} is always expressed using four digits while {month}, {day}, {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The "Z" suffix indicates the timezone ("UTC"); the timezone is required. A proto3 JSON serializer should always use UTC (as indicated by "Z") when printing the Timestamp type and a proto3 JSON parser should be able to accept both UTC and other timezones (as indicated by an offset).  For example, "2017-01-15T01:30:15.01Z" encodes 15.01 seconds past 01:30 UTC on January 15, 2017.  In JavaScript, one can convert a Date object to this format using the standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) method. In Python, a standard `datetime.datetime` object can be converted to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use the Joda Time's [`ISODateTimeFormat.dateTime()`]( http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D ) to obtain a formatter capable of generating timestamps in this format.  
 message Timestamp
  {
-  optional nanos Integer = 1
-  optional seconds Integer = 2
+  integer nanos = 0
+  integer seconds = 0
  }
 // ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug
 message Treatment
  {
-  optional agent OntologyClass = 1
-  optional cumulativeDose Quantity = 2
-  repeated doseIntervals DoseInterval = 3
-  optional drugType DrugType = 4
-  optional routeOfAdministration OntologyClass = 5
+  ontologyClass agent = 0
+  quantity cumulativeDose = 0
+ repeated  doseInterval doseIntervals = 0
+  drugType drugType = 0
+  ontologyClass routeOfAdministration = 0
  }
 // For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement
 message TypedQuantity
  {
-  optional quantity Quantity = 1
-  optional type OntologyClass = 2
+  quantity quantity = 0
+  ontologyClass type = 0
  }
 // Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update
 message Update
  {
-  optional comment String = 1
-  timestamp String = 2
-  optional updatedBy String = 3
+  string comment = 0
+  string timestamp = 0
+  string updatedBy = 0
  }
 message UtilityVariation
  {
-  optional text Text = 1
-  optional variationSet VariationSet = 2
+  text text = 0
+  variationSet variationSet = 0
  }
 message Value
  {
-  optional ontologyClass OntologyClass = 1
-  optional quantity Quantity = 2
+  ontologyClass ontologyClass = 0
+  quantity quantity = 0
  }
 message VariantInterpretation
  {
-  optional acmgPathogenicityClassification AcmgPathogenicityClassification = 1
-  optional therapeuticActionability TherapeuticActionability = 2
-  optional variationDescriptor VariationDescriptor = 3
+  acmgPathogenicityClassification acmgPathogenicityClassification = 0
+  therapeuticActionability therapeuticActionability = 0
+  variationDescriptor variationDescriptor = 0
  }
 message Variation
  {
-  optional allele Allele = 1
-  optional copyNumber CopyNumber = 2
-  optional haplotype Haplotype = 3
-  optional text Text = 4
-  optional variationSet VariationSet = 5
+  allele allele = 0
+  copyNumber copyNumber = 0
+  haplotype haplotype = 0
+  text text = 0
+  variationSet variationSet = 0
  }
 message VariationDescriptor
  {
-  optional allelicState OntologyClass = 1
-  repeated alternateLabels String = 2
-  optional description String = 3
-  repeated expressions Expression = 4
-  repeated extensions Extension = 5
-  optional geneContext GeneDescriptor = 6
-  id String = 7
-  optional label String = 8
-  optional moleculeContext MoleculeContext = 9
-  optional structuralType OntologyClass = 10
-  optional variation Variation = 11
-  optional vcfRecord VcfRecord = 12
-  optional vrsRefAlleleSeq String = 13
-  repeated xrefs String = 14
+  ontologyClass allelicState = 0
+ repeated  string alternateLabels = 0
+  string description = 0
+ repeated  expression expressions = 0
+ repeated  extension extensions = 0
+  geneDescriptor geneContext = 0
+  string id = 0
+  string label = 0
+  moleculeContext moleculeContext = 0
+  ontologyClass structuralType = 0
+  variation variation = 0
+  vcfRecord vcfRecord = 0
+  string vrsRefAlleleSeq = 0
+ repeated  string xrefs = 0
  }
 message VcfRecord
  {
-  optional alt String = 1
-  optional chrom String = 2
-  optional filter String = 3
-  optional genomeAssembly String = 4
-  id String = 5
-  optional info String = 6
-  optional pos Integer = 7
-  optional qual String = 8
-  optional ref String = 9
+  string alt = 0
+  string chrom = 0
+  string filter = 0
+  string genomeAssembly = 0
+  string id = 0
+  string info = 0
+  integer pos = 0
+  string qual = 0
+  string ref = 0
  }
 message VitalStatus
  {
-  optional causeOfDeath OntologyClass = 1
-  optional status Status = 2
-  optional survivalTimeInDays Integer = 3
-  optional timeOfDeath TimeElement = 4
+  ontologyClass causeOfDeath = 0
+  status status = 0
+  integer survivalTimeInDays = 0
+  timeElement timeOfDeath = 0
  }

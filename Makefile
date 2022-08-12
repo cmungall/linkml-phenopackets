@@ -2,7 +2,7 @@ SRC = src/schema/phenopackets.yaml
 RUN = poetry run
 
 all:
-	$(RUN) gen-project -d schema $(SRC)
+	$(RUN) gen-project -d project $(SRC)
 
 # https://github.com/linkml/linkml/issues/907
 gendocs:
