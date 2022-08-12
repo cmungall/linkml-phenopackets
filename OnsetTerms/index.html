@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://cmungall.github.io/linkml-phenopackets/Uriorcurie/">
+        <link rel="canonical" href="https://cmungall.github.io/linkml-phenopackets/OnsetTerms/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
-        <title>Uriorcurie - phenopackets in linkml EXPERIMENTAL DEMO</title>
+        <title>OnsetTerms - phenopackets in linkml EXPERIMENTAL DEMO</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#uriorcurie" class="md-skip">
+        <a href="#onsetterms" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Uriorcurie
+              OnsetTerms
             
           </span>
         </div>
@@ -295,8 +295,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#permissible-values" class="md-nav__link">
+    Permissible Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    Schema
   </a>
   
 </li>
@@ -313,24 +327,172 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/cmungall/linkml-phenopackets/edit/master/docs/Uriorcurie.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/cmungall/linkml-phenopackets/edit/master/docs/OnsetTerms.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="uriorcurie">Uriorcurie</h1>
-<p>a URI or a CURIE</p>
-<p>URI: xsd:anyURI</p>
-<ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: URIorCURIE</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
-</li>
-</ul>
+<h1 id="onsetterms">OnsetTerms</h1>
+<p>permissible values for age of onset, taken from HPO</p>
+<p>URI: OnsetTerms</p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMBRYONAL</td>
+<td>HP:0011460</td>
+<td>Embryonal onset</td>
+<td></td>
+</tr>
+<tr>
+<td>FETAL</td>
+<td>HP:0011461</td>
+<td>Fetal onset</td>
+<td></td>
+</tr>
+<tr>
+<td>ANTENATAL</td>
+<td>HP:0030674</td>
+<td>Antenatal onset</td>
+<td></td>
+</tr>
+<tr>
+<td>CONGENITAL</td>
+<td>HP:0003577</td>
+<td>Congenital onset</td>
+<td></td>
+</tr>
+<tr>
+<td>NEONATAL</td>
+<td>HP:0003623</td>
+<td>Neonatal onset</td>
+<td></td>
+</tr>
+<tr>
+<td>PEDIATRIC</td>
+<td>HP:0410280</td>
+<td>Pediatric onset</td>
+<td></td>
+</tr>
+<tr>
+<td>INFANTILE</td>
+<td>HP:0003593</td>
+<td>Infantile onset</td>
+<td></td>
+</tr>
+<tr>
+<td>JUVENILE</td>
+<td>HP:0003621</td>
+<td>Juvenile onset</td>
+<td></td>
+</tr>
+<tr>
+<td>CHILDHOOD</td>
+<td>HP:0011463</td>
+<td>Childhood onset</td>
+<td></td>
+</tr>
+<tr>
+<td>YOUNG_ADULT</td>
+<td>HP:0011462</td>
+<td>Young adult onset</td>
+<td></td>
+</tr>
+<tr>
+<td>ADULT</td>
+<td>HP:0003581</td>
+<td>Adult onset</td>
+<td></td>
+</tr>
+<tr>
+<td>MIDDLE_AGE</td>
+<td>HP:0003596</td>
+<td>Middle age onset</td>
+<td></td>
+</tr>
+<tr>
+<td>LATE</td>
+<td>HP:0003584</td>
+<td>Late onset</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h2 id="schema">Schema</h2>
+<details>
+
+<pre><code class="language-yaml">name: OnsetTerms
+description: permissible values for age of onset, taken from HPO
+from_schema: https://w3id.org/linkml/phenopackets/cv_terms
+source: https://github.com/phenopackets/phenopacket-tools/blob/develop/phenopacket-tools-builder/src/main/java/org/phenopackets/phenopackettools/builder/constants/Onset.java
+rank: 1000
+permissible_values:
+  EMBRYONAL:
+    text: EMBRYONAL
+    description: Embryonal onset
+    meaning: HP:0011460
+  FETAL:
+    text: FETAL
+    description: Fetal onset
+    meaning: HP:0011461
+  ANTENATAL:
+    text: ANTENATAL
+    description: Antenatal onset
+    meaning: HP:0030674
+  CONGENITAL:
+    text: CONGENITAL
+    description: Congenital onset
+    meaning: HP:0003577
+  NEONATAL:
+    text: NEONATAL
+    description: Neonatal onset
+    meaning: HP:0003623
+  PEDIATRIC:
+    text: PEDIATRIC
+    description: Pediatric onset
+    meaning: HP:0410280
+  INFANTILE:
+    text: INFANTILE
+    description: Infantile onset
+    meaning: HP:0003593
+  JUVENILE:
+    text: JUVENILE
+    description: Juvenile onset
+    meaning: HP:0003621
+  CHILDHOOD:
+    text: CHILDHOOD
+    description: Childhood onset
+    meaning: HP:0011463
+  YOUNG_ADULT:
+    text: YOUNG_ADULT
+    description: Young adult onset
+    meaning: HP:0011462
+  ADULT:
+    text: ADULT
+    description: Adult onset
+    meaning: HP:0003581
+  MIDDLE_AGE:
+    text: MIDDLE_AGE
+    description: Middle age onset
+    meaning: HP:0003596
+  LATE:
+    text: LATE
+    description: Late onset
+    meaning: HP:0003584
+
+</code></pre>
+
+</details>
 
               
             </article>

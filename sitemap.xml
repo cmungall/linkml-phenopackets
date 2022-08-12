@@ -326,6 +326,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/OnsetTerms/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/OntologyClass/</loc>
          <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
