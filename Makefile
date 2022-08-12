@@ -4,13 +4,19 @@ RUN = poetry run
 all:
 	$(RUN) gen-project -d schema $(SRC)
 
+# https://github.com/linkml/linkml/issues/907
 gendocs:
+#	$(RUN) gen-doc -d docs/  $(SRC)
 	$(RUN) gen-doc -d docs/ --template-directory docgen-templates $(SRC)
 
 serve:
 	$(RUN) mkdocs serve
 
 gh-deploy:
+	$(RUN) mkdocs gh-deploy
+
+# Deploy gh docs
+deploy-gh-doc: gendocs
 	$(RUN) mkdocs gh-deploy
 
 clean-site:
