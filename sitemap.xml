@@ -176,6 +176,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/GENOZygosityTerms/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/Gene/</loc>
          <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
@@ -192,6 +197,16 @@
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/GestationalAge/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HGNCGeneTerms/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/HPOAbnormalityTerms/</loc>
          <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -227,6 +242,11 @@
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/KaryotypicSex/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/LOINCMeasurementTerms/</loc>
          <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -267,6 +287,21 @@
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/MoleculeContext/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/MondoDiseaseTerms/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/NCITDiseaseTerms/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/NCITNeoplasmTerms/</loc>
          <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -442,6 +477,16 @@
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/TypedQuantity/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/UOUnitTerms/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/UberonAnatomicalEntityTerms/</loc>
          <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -662,6 +707,11 @@
     </url>
     <url>
          <loc>https://cmungall.github.io/linkml-phenopackets/curie/</loc>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cmungall.github.io/linkml-phenopackets/cv_terms/</loc>
          <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
