@@ -92,7 +92,7 @@ classes:
         range: VariationDescriptor
     description: ''
 default_prefix: interpretation
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: 
   AcmgPathogenicityClassification: 
     description: ''

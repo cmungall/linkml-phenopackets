@@ -54,7 +54,7 @@ classes:
         range: OntologyClass
     description: Message to indicate a disease (diagnosis) and its recorded onset.
 default_prefix: disease
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: {}
 
 id: https://w3id.org/linkml/phenopackets/disease

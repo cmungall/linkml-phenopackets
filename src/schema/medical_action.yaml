@@ -202,7 +202,7 @@ classes:
         range: OntologyClass
     description: ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug
 default_prefix: medical_action
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: 
   DrugType: 
     description: A simplified version of ODHSI-DRUG_EXPOSURE

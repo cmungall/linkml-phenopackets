@@ -129,7 +129,7 @@ classes:
                 ontologyClass: 
                   required: true
 default_prefix: measurement
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: {}
 
 id: https://w3id.org/linkml/phenopackets/measurement

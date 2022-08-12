@@ -46,7 +46,7 @@ classes:
         range: OntologyClass
     description: "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)"
 default_prefix: phenotypic_feature
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: {}
 
 id: https://w3id.org/linkml/phenopackets/phenotypic_feature

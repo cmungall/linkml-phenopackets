@@ -95,7 +95,7 @@ classes:
         range: string
     description: Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update
 default_prefix: meta_data
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: {}
 
 id: https://w3id.org/linkml/phenopackets/meta_data

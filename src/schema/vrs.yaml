@@ -676,7 +676,7 @@ classes:
 
     description: ''
 default_prefix: vrs
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: {}
 
 id: https://w3id.org/linkml/phenopackets/vrs

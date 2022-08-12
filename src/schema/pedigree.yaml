@@ -43,7 +43,7 @@ classes:
         range: Sex
     description: ''
 default_prefix: pedigree
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: 
   AffectedStatus: 
     description: ''

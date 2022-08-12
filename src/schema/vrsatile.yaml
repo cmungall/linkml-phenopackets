@@ -196,7 +196,7 @@ classes:
         range: string
     description: ''
 default_prefix: vrsatile
-description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: 
   MoleculeContext: 
     description: ''
