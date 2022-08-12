@@ -12535,7 +12535,7 @@
   "source_file": "phenopackets.yaml",
   "source_file_date": "2022-03-25T17:01:13",
   "source_file_size": 6191,
-  "generation_date": "2022-08-12T09:16:38",
+  "generation_date": "2022-08-12T09:42:21",
   "@type": "SchemaDefinition",
   "@context": [
     "schema/jsonld/phenopackets.context.jsonld",
