@@ -1,9 +1,9 @@
 # Auto generated from phenopackets.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-08-12T09:56:14
+# Generation date: 2022-08-12T12:44:52
 # Schema: phenopackets
 #
 # id: https://w3id.org/linkml/phenopackets/phenopackets
-# description: Automatic translation of phenopackets protobug to LinkML. EXPERIMENTAL.
+# description: Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL.
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 import dataclasses
@@ -1530,20 +1530,6 @@ class PhenotypicFeature(YAMLRoot):
 @dataclass
 class Timestamp(YAMLRoot):
     """
-    Protocol Buffers - Google's data interchange format Copyright 2008 Google Inc. All rights reserved.
-    https://developers.google.com/protocol-buffers/ Redistribution and use in source and binary forms, with or without
-    modification, are permitted provided that the following conditions are met: * Redistributions of source code must
-    retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in
-    binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution. * Neither the name of Google Inc. nor the
-    names of its contributors may be used to endorse or promote products derived from this software without specific
-    prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
-    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
-    FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
-    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of
     seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on
     January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one.
@@ -1829,20 +1815,6 @@ class VcfRecord(YAMLRoot):
 @dataclass
 class Any(YAMLRoot):
     """
-    Protocol Buffers - Google's data interchange format Copyright 2008 Google Inc. All rights reserved.
-    https://developers.google.com/protocol-buffers/ Redistribution and use in source and binary forms, with or without
-    modification, are permitted provided that the following conditions are met: * Redistributions of source code must
-    retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in
-    binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution. * Neither the name of Google Inc. nor the
-    names of its contributors may be used to endorse or promote products derived from this software without specific
-    prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
-    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
-    FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
-    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-    OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the
     serialized message. Protobuf library provides support to pack/unpack Any values in the form of utility functions
     or additional generated methods of the Any type. Example 1: Pack and unpack a message in C++. Foo foo = ...; Any
@@ -2571,6 +2543,141 @@ class VariationSet(YAMLRoot):
 
 
 # Enumerations
+class MondoDiseaseTerms(EnumDefinitionImpl):
+    """
+    Mondo Disease Ontology provides a comprehensive logically structured ontology of diseases that integrates multiple
+    other disease ontologies.
+    """
+    _defn = EnumDefinition(
+        name="MondoDiseaseTerms",
+        description="Mondo Disease Ontology provides a comprehensive logically structured ontology of diseases that integrates multiple other disease ontologies.",
+    )
+
+class NCITDiseaseTerms(EnumDefinitionImpl):
+    """
+    All disease terms from the NCI Thesaurus
+    """
+    _defn = EnumDefinition(
+        name="NCITDiseaseTerms",
+        description="All disease terms from the NCI Thesaurus",
+    )
+
+class NCITNeoplasmTerms(EnumDefinitionImpl):
+    """
+    All neoplasm terms from the NCI Thesaurus
+    """
+    _defn = EnumDefinition(
+        name="NCITNeoplasmTerms",
+        description="All neoplasm terms from the NCI Thesaurus",
+    )
+
+class HPOAbnormalityTerms(EnumDefinitionImpl):
+    """
+    The Human Phenotype Ontology (HPO) provides a comprehensive logical standard to describe and computationally
+    analyze phenotypic abnormalities found in human disease.
+    """
+    _defn = EnumDefinition(
+        name="HPOAbnormalityTerms",
+        description="The Human Phenotype Ontology (HPO) provides a comprehensive logical standard to describe and computationally analyze phenotypic abnormalities found in human disease.",
+    )
+
+class UberonAnatomicalEntityTerms(EnumDefinitionImpl):
+    """
+    UBERON is an integrated cross-species ontology with classes representing a variety of anatomical entities.
+    """
+    _defn = EnumDefinition(
+        name="UberonAnatomicalEntityTerms",
+        description="UBERON is an integrated cross-species ontology with classes representing a variety of anatomical entities.",
+    )
+
+class HGNCGeneTerms(EnumDefinitionImpl):
+    """
+    The HUGO Gene Nomenclature Committee (HGNC) provides standard names, symbols, and IDs for human genes.
+    """
+    _defn = EnumDefinition(
+        name="HGNCGeneTerms",
+        description="The HUGO Gene Nomenclature Committee (HGNC) provides standard names, symbols, and IDs for human genes.",
+    )
+
+class UOUnitTerms(EnumDefinitionImpl):
+    """
+    The Units of measurement ontology (denoted UO) provides terms for units commonly encountered in medical data. The
+    following table shows some typical examples.
+    """
+    _defn = EnumDefinition(
+        name="UOUnitTerms",
+        description="The Units of measurement ontology (denoted UO) provides terms for units commonly encountered in medical data. The following table shows some typical examples.",
+    )
+
+class GENOZygosityTerms(EnumDefinitionImpl):
+    """
+    GENO is an ontology of genotypes their more fundamental sequence components. This enum refers to the zygosity
+    subset of GENO
+    """
+    _defn = EnumDefinition(
+        name="GENOZygosityTerms",
+        description="GENO is an ontology of genotypes their more fundamental sequence components. This enum refers to the zygosity subset of GENO",
+    )
+
+class LOINCMeasurementTerms(EnumDefinitionImpl):
+    """
+    Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying
+    medical laboratory observations. It can be used to denote clinical assays in the Measurement element. examples:
+    """
+    _defn = EnumDefinition(
+        name="LOINCMeasurementTerms",
+        description="Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations. It can be used to denote clinical assays in the Measurement element.    examples:",
+    )
+
+class OnsetTerms(EnumDefinitionImpl):
+    """
+    permissible values for age of onset, taken from HPO
+    """
+    EMBRYONAL = PermissibleValue(text="EMBRYONAL",
+                                         description="Embryonal onset",
+                                         meaning=HP["0011460"])
+    FETAL = PermissibleValue(text="FETAL",
+                                 description="Fetal onset",
+                                 meaning=HP["0011461"])
+    ANTENATAL = PermissibleValue(text="ANTENATAL",
+                                         description="Antenatal onset",
+                                         meaning=HP["0030674"])
+    CONGENITAL = PermissibleValue(text="CONGENITAL",
+                                           description="Congenital onset",
+                                           meaning=HP["0003577"])
+    NEONATAL = PermissibleValue(text="NEONATAL",
+                                       description="Neonatal onset",
+                                       meaning=HP["0003623"])
+    PEDIATRIC = PermissibleValue(text="PEDIATRIC",
+                                         description="Pediatric onset",
+                                         meaning=HP["0410280"])
+    INFANTILE = PermissibleValue(text="INFANTILE",
+                                         description="Infantile onset",
+                                         meaning=HP["0003593"])
+    JUVENILE = PermissibleValue(text="JUVENILE",
+                                       description="Juvenile onset",
+                                       meaning=HP["0003621"])
+    CHILDHOOD = PermissibleValue(text="CHILDHOOD",
+                                         description="Childhood onset",
+                                         meaning=HP["0011463"])
+    YOUNG_ADULT = PermissibleValue(text="YOUNG_ADULT",
+                                             description="Young adult onset",
+                                             meaning=HP["0011462"])
+    ADULT = PermissibleValue(text="ADULT",
+                                 description="Adult onset",
+                                 meaning=HP["0003581"])
+    MIDDLE_AGE = PermissibleValue(text="MIDDLE_AGE",
+                                           description="Middle age onset",
+                                           meaning=HP["0003596"])
+    LATE = PermissibleValue(text="LATE",
+                               description="Late onset",
+                               meaning=HP["0003584"])
+
+    _defn = EnumDefinition(
+        name="OnsetTerms",
+        description="permissible values for age of onset, taken from HPO",
+    )
+
 class AcmgPathogenicityClassification(EnumDefinitionImpl):
 
     BENIGN = PermissibleValue(text="BENIGN")

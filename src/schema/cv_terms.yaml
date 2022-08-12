@@ -16,6 +16,7 @@ prefixes:
   UBERON: http://purl.obolibrary.org/obo/UBERON_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
   GENO: http://purl.obolibrary.org/obo/GENO_
+  HP: http://purl.obolibrary.org/obo/HP_
   UO: http://purl.obolibrary.org/obo/UO_
   LOINC: http://loinc.org/
 
@@ -134,3 +135,48 @@ enums:
         value: LOINC:26515-7
     reachable_from:
       source_ontology: bioregistry:loinc
+
+  OnsetTerms:
+    description: permissible values for age of onset, taken from HPO
+    source: https://github.com/phenopackets/phenopacket-tools/blob/develop/phenopacket-tools-builder/src/main/java/org/phenopackets/phenopackettools/builder/constants/Onset.java
+    permissible_values:
+      EMBRYONAL:
+        meaning: HP:0011460
+        description: Embryonal onset
+      FETAL:
+        meaning: HP:0011461
+        description: Fetal onset
+      ANTENATAL:
+        meaning: HP:0030674
+        description: Antenatal onset
+      CONGENITAL:
+        meaning: HP:0003577
+        description: Congenital onset
+      NEONATAL:
+        meaning: HP:0003623
+        description: Neonatal onset
+      PEDIATRIC:
+        meaning: HP:0410280
+        description: Pediatric onset
+      INFANTILE:
+        meaning: HP:0003593
+        description: Infantile onset
+      JUVENILE:
+        meaning: HP:0003621
+        description: Juvenile onset
+      CHILDHOOD:
+        meaning: HP:0011463
+        description: Childhood onset
+      YOUNG_ADULT:
+        meaning: HP:0011462
+        description: Young adult onset
+      ADULT:
+        meaning: HP:0003581
+        description: Adult onset
+      MIDDLE_AGE:
+        meaning: HP:0003596
+        description: Middle age onset
+      LATE:
+        meaning: HP:0003584
+        description: Late onset
+        
