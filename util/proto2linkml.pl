@@ -27,6 +27,9 @@ my $schema = {
 if ($id eq 'base') {
     $schema->{classes}->{'Dictionary'} = {comments=>["TODO"]};
 }
+if ($id eq 'phenopackets') {
+    push(@{$schema->{imports}}, "cv_terms")
+}
 
 my %RMAP = (
     'bool' => 'boolean',
@@ -69,7 +72,7 @@ while(<>) {
         }
     }
     elsif (m@^\s*message\s+(\S+)\s+\{@) {
-        chomp $desc;
+        $desc = fix_desc($desc);
         $c = {description=>$desc, attributes=>{}};
         $schema->{classes}->{$1} = $c;
         if ($1 eq 'Phenopacket') {
@@ -176,3 +179,11 @@ my $s = Dump($schema);
 $s =~ s@\-\-\-@@;
 $s =~ s@: 'true'@: true@g;
 print $s;
+
+
+sub fix_desc {
+    my $desc = shift;
+    chomp $desc;
+    $desc =~ s@^Protocol Buffers.*POSSIBILITY OF SUCH DAMAGE\.\s+@@;
+    return $desc;
+}

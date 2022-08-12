@@ -9,6 +9,9 @@ gendocs:
 #	$(RUN) gen-doc -d docs/  $(SRC)
 	$(RUN) gen-doc -d docs/ --template-directory docgen-templates $(SRC)
 
+py:
+	cp project/phenopackets.py phenopackets
+
 serve:
 	$(RUN) mkdocs serve
 
@@ -34,6 +37,7 @@ acute-myeloid-leukemia\
 bethleham-myopathy\
 covid\
 marfan\
+retinoblastoma\
 squamous-cell-esophageal-carcinoma\
 thrombocytopenia2\
 urothelial-cancer

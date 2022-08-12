@@ -144,6 +144,7 @@ enums: {}
 id: https://w3id.org/linkml/phenopackets/phenopackets
 imports: 
   - linkml:types
+  - cv_terms
   - base
   - biosample
   - disease

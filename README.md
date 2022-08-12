@@ -18,16 +18,13 @@ In the end I wrote some hacky proto2linkml code (caution: overly fitted to pheno
 
 We maintain linkml customizations separately, so if the proto changes we can easily re-run
 
+## Ontology Enhancements
+
+The file cv_terms.yaml is hand-curated, rather than derived from the YAML
+
+It is based on: https://phenopacket-schema.readthedocs.io/en/latest/recommended-ontologies.html
+
 ## Limitations
-
-### Class/slot name clashes
-
-We use mkdocs to generate docs. This makes one file per class or slot.
-
-Some systems like macs are case insensitive for file names, so we end up with slots overriding classes, e.g. Disease vs disease
-
-(Note: this is being fixed)
-
 
 ### Alternate actions: anyofs
 
