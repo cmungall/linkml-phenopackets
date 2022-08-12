@@ -10,7 +10,6 @@ Instances of this class *should* have identifiers with one of the following pref
 
 {% endif %}
 
-
 {% if element.annotations %}
 ### Annotations
 
@@ -18,5 +17,15 @@ Instances of this class *should* have identifiers with one of the following pref
 | --- | --- |
 {% for a in element.annotations -%}
 | {{a}} | {{ element.annotations[a].value }} |
+{% endfor %}
+{% endif %}
+
+{% if element.examples %}
+### Examples
+
+| Value | Description |
+| --- | --- |
+{% for e in element.examples -%}
+| {{e.value}} | {{ element.description }} |
 {% endfor %}
 {% endif %}

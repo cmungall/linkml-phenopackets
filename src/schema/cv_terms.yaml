@@ -62,6 +62,11 @@ enums:
   HPOAbnormalityTerms:
     description: >-
       The Human Phenotype Ontology (HPO) provides a comprehensive logical standard to describe and computationally analyze phenotypic abnormalities found in human disease.
+    examples:
+      - description: Arachnodactyly
+        value: HP:0001166
+      - description: Patent ductus arteriosus
+        value: HP:0001643
     reachable_from:
       source_ontology: bioregistry:hp
       source_nodes:
