@@ -7,29 +7,27 @@
     sh:closed true ;
     sh:description "`Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.  Foo foo = ...; Any any; any.PackFrom(foo); ... if (any.UnpackTo(&foo)) { ... }  Example 2: Pack and unpack a message in Java.  Foo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo = any.unpack(Foo.class); }  Example 3: Pack and unpack a message in Python.  foo = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR): any.Unpack(foo) ...  Example 4: Pack and unpack a message in Go  foo := &pb.Foo{...} any, err := anypb.New(foo) if err != nil { ... } ... foo := &pb.Foo{} if err := any.UnmarshalTo(foo); err != nil { ... }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:  package google.profile; message Person { string first_name = 1; string last_name = 2; }  { \"@type\": \"type.googleapis.com/google.profile.Person\", \"firstName\": <string>, \"lastName\": <string> }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):  { \"@type\": \"type.googleapis.com/google.protobuf.Duration\", \"value\": \"1.212s\" } " ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <measurement:Value> ;
+    sh:property [ sh:description "A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][] value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics. " ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <any:typeUrl> ],
+        [ sh:class <measurement:Value> ;
             sh:description "Must be a valid serialized protocol buffer of the above specified type." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
-            sh:path <any:value> ],
-        [ sh:description "A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][] value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics. " ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <any:typeUrl> ] ;
+            sh:path <any:value> ] ;
     sh:targetClass <any:Any> .
 
 phenopackets:Cohort a sh:NodeShape ;
     sh:closed true ;
     sh:description "A group of individuals related in some phenotypic or genotypic aspect." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <meta_data:MetaData> ;
-            sh:description "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/File> ;
+            sh:description "Pointer to relevant file(s) for the cohort. Files relating exclusively to individual phenopackets should be contained in the Phenopacket." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path phenopackets:metaData ],
+            sh:order 1 ;
+            sh:path phenopackets:files ],
         [ sh:description "" ;
             sh:maxCount 1 ;
             sh:order 2 ;
@@ -43,36 +41,25 @@ phenopackets:Cohort a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path phenopackets:members ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/File> ;
-            sh:description "Pointer to relevant file(s) for the cohort. Files relating exclusively to individual phenopackets should be contained in the Phenopacket." ;
+        [ sh:class <meta_data:MetaData> ;
+            sh:description "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path phenopackets:files ] ;
+            sh:order 4 ;
+            sh:path phenopackets:metaData ] ;
     sh:targetClass phenopackets:Cohort .
 
 phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "Phenotype, sample and pedigree data required for a genomic diagnosis. Equivalent to the Genomics England InterpretationRequestRD https://github.com/genomicsengland/GelReportModels/blob/master/schemas/IDLs/org.gel.models.report.avro/5.0.0/InterpretationRequestRD.avdl" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "flag to indicate that the parents of the proband are consanguinous" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path phenopackets:consanguinousParents ],
-        [ sh:description "An identifier specific for this family." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path phenopackets:id ],
-        [ sh:class <pedigree:Pedigree> ;
+    sh:property [ sh:class <pedigree:Pedigree> ;
             sh:description "The pedigree defining the relations between the proband and their relatives. Pedigree.individual_id should map to the PhenoPacket.Individual.id" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path phenopackets:pedigree ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/File> ;
-            sh:description "Pointer to the relevant file(s) for the family. These should be files relating to one or more of the family members e.g a multi-sample VCF. Files relating exclusively to individual phenopackets should be contained in the Phenopacket." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path phenopackets:files ],
         [ sh:class phenopackets:Phenopacket ;
             sh:description "Individuals related in some way to the patient. For instance, the individuals may be genetically related or may be members of a cohort. If this field is used, then  it is expected that a pedigree will be included for genetically related individuals for use cases such as genomic diagnostics. If a phenopacket is being used to describe one member of a cohort, then in general one phenopacket will be created for each of the individuals in the cohort." ;
             sh:nodeKind sh:IRI ;
@@ -84,6 +71,19 @@ phenopackets:Family a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path phenopackets:proband ],
+        [ sh:description "flag to indicate that the parents of the proband are consanguinous" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path phenopackets:consanguinousParents ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/File> ;
+            sh:description "Pointer to the relevant file(s) for the family. These should be files relating to one or more of the family members e.g a multi-sample VCF. Files relating exclusively to individual phenopackets should be contained in the Phenopacket." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path phenopackets:files ],
+        [ sh:description "An identifier specific for this family." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path phenopackets:id ],
         [ sh:class <meta_data:MetaData> ;
             sh:description "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED" ;
             sh:maxCount 1 ;
@@ -97,14 +97,14 @@ phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one.  All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap second table is needed for interpretation, using a [24-hour linear smear](https://developers.google.com/time/smear).  The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.  # Examples  Example 1: Compute Timestamp from POSIX `time()`.  Timestamp timestamp; timestamp.set_seconds(time(NULL)); timestamp.set_nanos(0);  Example 2: Compute Timestamp from POSIX `gettimeofday()`.  struct timeval tv; gettimeofday(&tv, NULL);  Timestamp timestamp; timestamp.set_seconds(tv.tv_sec); timestamp.set_nanos(tv.tv_usec * 1000);  Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.  FILETIME ft; GetSystemTimeAsFileTime(&ft); UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;  // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z. Timestamp timestamp; timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL)); timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));  Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.  long millis = System.currentTimeMillis();  Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000) .setNanos((int) ((millis % 1000) * 1000000)).build();   Example 5: Compute Timestamp from Java `Instant.now()`.  Instant now = Instant.now();  Timestamp timestamp = Timestamp.newBuilder().setSeconds(now.getEpochSecond()) .setNanos(now.getNano()).build();   Example 6: Compute Timestamp from current time in Python.  timestamp = Timestamp() timestamp.GetCurrentTime()  # JSON Mapping  In JSON format, the Timestamp type is encoded as a string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\" where {year} is always expressed using four digits while {month}, {day}, {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone is required. A proto3 JSON serializer should always use UTC (as indicated by \"Z\") when printing the Timestamp type and a proto3 JSON parser should be able to accept both UTC and other timezones (as indicated by an offset).  For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past 01:30 UTC on January 15, 2017.  In JavaScript, one can convert a Date object to this format using the standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) method. In Python, a standard `datetime.datetime` object can be converted to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use the Joda Time's [`ISODateTimeFormat.dateTime()`]( http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D ) to obtain a formatter capable of generating timestamps in this format.  " ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <https://w3id.org/linkml/phenopackets/timestamp/seconds> ],
-        [ sh:description "Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive." ;
+    sh:property [ sh:description "Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive." ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path <https://w3id.org/linkml/phenopackets/timestamp/nanos> ] ;
+            sh:path <https://w3id.org/linkml/phenopackets/timestamp/nanos> ],
+        [ sh:description "Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <https://w3id.org/linkml/phenopackets/timestamp/seconds> ] ;
     sh:targetClass <https://w3id.org/linkml/phenopackets/timestamp/Timestamp> .
 
 <vrs:Abundance> a sh:NodeShape ;
@@ -181,13 +181,7 @@ phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <vrs:VariationSet> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path <vrs:variationSet> ],
-        [ sh:class <vrs:CopyNumber> ;
+    sh:property [ sh:class <vrs:CopyNumber> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -197,33 +191,39 @@ phenopackets:Family a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path <vrs:id> ],
-        [ sh:class phenopackets:Phenopacket ;
-            sh:description "" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path <vrs:members> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <vrs:curie> ],
         [ sh:class <vrs:Haplotype> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
             sh:path <vrs:haplotype> ],
+        [ sh:class <vrs:Text> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <vrs:text> ],
+        [ sh:class phenopackets:Phenopacket ;
+            sh:description "" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <vrs:members> ],
         [ sh:class <vrs:Allele> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <vrs:allele> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <vrs:curie> ],
-        [ sh:class <vrs:Text> ;
+        [ sh:class <vrs:VariationSet> ;
             sh:description "" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <vrs:text> ] ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path <vrs:variationSet> ] ;
     sh:targetClass <vrs:Member> .
 
 <vrs:MolecularVariation> a sh:NodeShape ;
@@ -254,18 +254,18 @@ phenopackets:Family a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path <vrs:derivedSequenceExpression> ],
-        [ sh:class <vrs:RepeatedSequenceExpression> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path <vrs:repeatedSequenceExpression> ],
         [ sh:class <vrs:LiteralSequenceExpression> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
-            sh:path <vrs:literalSequenceExpression> ] ;
+            sh:path <vrs:literalSequenceExpression> ],
+        [ sh:class <vrs:RepeatedSequenceExpression> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <vrs:repeatedSequenceExpression> ] ;
     sh:targetClass <vrs:SequenceExpression> .
 
 <vrs:SequenceState> a sh:NodeShape ;
@@ -330,92 +330,85 @@ phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html)." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path <biosample:pathologicalStage> ],
+        [ sh:description "The id of the parent biosample this biosample was derived from." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <biosample:derivedFromId> ],
+        [ sh:class <measurement:Measurement> ;
+            sh:description "" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path <biosample:measurements> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             sh:description "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 18 ;
             sh:path <biosample:timeOfCollection> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation" ;
+            sh:description "Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <biosample:materialSample> ],
-        [ sh:class <measurement:Measurement> ;
-            sh:description "" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path <biosample:measurements> ],
-        [ sh:description "biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path <biosample:id> ],
+            sh:order 13 ;
+            sh:path <biosample:sampleProcessing> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "Field to represent how the sample was stored ARGO mapping specimen::specimen_storage" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 14 ;
             sh:path <biosample:sampleStorage> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
-            sh:description "Phenotypic characteristics of the BioSample, for example histological findings of a biopsy." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 11 ;
-            sh:path <biosample:phenotypicFeatures> ],
-        [ sh:description "The id of the parent biosample this biosample was derived from." ;
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <biosample:derivedFromId> ],
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <biosample:materialSample> ],
+        [ sh:description "The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <biosample:description> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/File> ;
+            sh:description "Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path <biosample:files> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/Procedure> ;
             sh:description "Clinical procedure performed on the subject in order to extract the biosample. ARGO mapping specimen::specimen_anatomic_location - Procedure::body_site ARGO mapping specimen::specimen_acquisition_interval - Procedure::time_performed" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 12 ;
             sh:path <biosample:procedure> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet" ;
+        [ sh:description "The id of the individual this biosample was derived from. ARGO mapping specimen::submitter_donor_id" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path <biosample:tumorGrade> ],
+            sh:order 6 ;
+            sh:path <biosample:individualId> ],
+        [ sh:description "biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <biosample:id> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 17 ;
             sh:path <biosample:taxonomy> ],
-        [ sh:description "The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <biosample:description> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path <biosample:sampleType> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)" ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path <biosample:diagnosticMarkers> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path <biosample:pathologicalTnmFinding> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source" ;
+            sh:description "Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path <biosample:sampledTissue> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path <biosample:sampleProcessing> ],
+            sh:order 19 ;
+            sh:path <biosample:tumorGrade> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)" ;
             sh:maxCount 1 ;
@@ -428,21 +421,28 @@ phenopackets:Family a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path <biosample:histologicalDiagnosis> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
+            sh:description "Phenotypic characteristics of the BioSample, for example histological findings of a biopsy." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 11 ;
+            sh:path <biosample:phenotypicFeatures> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group" ;
+            sh:description "UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path <biosample:pathologicalStage> ],
-        [ sh:description "The id of the individual this biosample was derived from. ARGO mapping specimen::submitter_donor_id" ;
+            sh:order 16 ;
+            sh:path <biosample:sampledTissue> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type" ;
             sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path <biosample:individualId> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/File> ;
-            sh:description "Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path <biosample:files> ] ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <biosample:sampleType> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path <biosample:pathologicalTnmFinding> ] ;
     sh:targetClass <biosample:Biosample> .
 
 <disease:Disease> a sh:NodeShape ;
@@ -450,49 +450,49 @@ phenopackets:Family a sh:NodeShape ;
     sh:description "Message to indicate a disease (diagnosis) and its recorded onset." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)" ;
+            sh:description "The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path <disease:laterality> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path <disease:primarySite> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path <disease:resolution> ],
+            sh:order 7 ;
+            sh:path <disease:term> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             sh:description "The onset of the disease. The values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset ARGO mapping primary_diagnosis::age_at_diagnosis" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path <disease:onset> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path <disease:resolution> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <disease:laterality> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group" ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path <disease:diseaseStage> ],
-        [ sh:description "Flag to indicate whether the disease was observed or not. Default is 'false', in other words the disease was observed. Therefore it is only required in cases to indicate that the disease was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field. *CAUTION* It is imperative to check this field for correct interpretation of the disease!" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <disease:excluded> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category" ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <disease:clinicalTnmFinding> ],
+        [ sh:description "Flag to indicate whether the disease was observed or not. Default is 'false', in other words the disease was observed. Therefore it is only required in cases to indicate that the disease was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field. *CAUTION* It is imperative to check this field for correct interpretation of the disease!" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <disease:excluded> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id" ;
+            sh:description "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <disease:term> ] ;
+            sh:order 5 ;
+            sh:path <disease:primarySite> ] ;
     sh:targetClass <disease:Disease> .
 
 <https://w3id.org/linkml/phenopackets/base/AgeRange> a sh:NodeShape ;
@@ -537,28 +537,28 @@ phenopackets:Family a sh:NodeShape ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/days> ],
+            sh:order 1 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/weeks> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/weeks> ] ;
+            sh:order 0 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/days> ] ;
     sh:targetClass <https://w3id.org/linkml/phenopackets/base/GestationalAge> .
 
 <individual:Individual> a sh:NodeShape ;
     sh:closed true ;
     sh:description "An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html)." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id" ;
+    sh:property [ sh:description "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated." ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <individual:id> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            sh:description "An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes" ;
+            sh:order 1 ;
+            sh:path <individual:dateOfBirth> ],
+        [ sh:class <individual:VitalStatus> ;
+            sh:description "Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path <individual:timeAtLastEncounter> ],
+            sh:order 8 ;
+            sh:path <individual:vitalStatus> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level" ;
             sh:maxCount 1 ;
@@ -570,47 +570,37 @@ phenopackets:Family a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path <individual:sex> ],
-        [ sh:class <individual:VitalStatus> ;
-            sh:description "Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status" ;
+        [ sh:description "An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track." ;
+            sh:order 0 ;
+            sh:path <individual:alternateIds> ],
+        [ sh:description "An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path <individual:vitalStatus> ],
+            sh:order 3 ;
+            sh:path <individual:id> ],
+        [ sh:description "The karyotypic sex of the individual" ;
+            sh:in ( "OTHER_KARYOTYPE" "UNKNOWN_KARYOTYPE" "XO" "XX" "XXX" "XXXX" "XXXY" "XXY" "XXYY" "XY" "XYY" ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <individual:karyotypicSex> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "Self-identified gender" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path <individual:gender> ],
-        [ sh:description "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated." ;
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            sh:description "An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <individual:dateOfBirth> ],
-        [ sh:description "An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track." ;
-            sh:order 0 ;
-            sh:path <individual:alternateIds> ],
-        [ sh:description "The karyotypic sex of the individual" ;
-            sh:in ( "OTHER_KARYOTYPE" "UNKNOWN_KARYOTYPE" "XO" "XX" "XXX" "XXXX" "XXXY" "XXY" "XXYY" "XY" "XYY" ) ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path <individual:karyotypicSex> ] ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path <individual:timeAtLastEncounter> ] ;
     sh:targetClass <individual:Individual> .
 
 <individual:VitalStatus> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "ARGO mapping donor::survival_time" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <individual:survivalTimeInDays> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "ARGO mapping donor::cause_of_death" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <individual:causeOfDeath> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
@@ -620,24 +610,34 @@ phenopackets:Family a sh:NodeShape ;
             sh:in ( "ALIVE" "DECEASED" "UNKNOWN_STATUS" ) ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path <individual:status> ] ;
+            sh:path <individual:status> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "ARGO mapping donor::cause_of_death" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <individual:causeOfDeath> ],
+        [ sh:description "ARGO mapping donor::survival_time" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <individual:survivalTimeInDays> ] ;
     sh:targetClass <individual:VitalStatus> .
 
 <interpretation:Diagnosis> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <interpretation:GenomicInterpretation> ;
-            sh:description "genomic features containing the status of their contribution towards the diagnosis" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path <interpretation:genomicInterpretations> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases` field in the Phenopacket." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <interpretation:disease> ] ;
+            sh:path <interpretation:disease> ],
+        [ sh:class <interpretation:GenomicInterpretation> ;
+            sh:description "genomic features containing the status of their contribution towards the diagnosis" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <interpretation:genomicInterpretations> ] ;
     sh:targetClass <interpretation:Diagnosis> .
 
 <interpretation:GenomicInterpretation> a sh:NodeShape ;
@@ -649,12 +649,6 @@ phenopackets:Family a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path <interpretation:interpretationStatus> ],
-        [ sh:class <vrsatile:GeneDescriptor> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path <interpretation:gene> ],
         [ sh:description "identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the enclosing phenopacket." ;
             sh:maxCount 1 ;
             sh:order 2 ;
@@ -664,32 +658,38 @@ phenopackets:Family a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
-            sh:path <interpretation:variantInterpretation> ] ;
+            sh:path <interpretation:variantInterpretation> ],
+        [ sh:class <vrsatile:GeneDescriptor> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <interpretation:gene> ] ;
     sh:targetClass <interpretation:GenomicInterpretation> .
 
 <interpretation:Interpretation> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <interpretation:summary> ],
-        [ sh:class <interpretation:Diagnosis> ;
+    sh:property [ sh:class <interpretation:Diagnosis> ;
             sh:description "The diagnosis made in this interpretation" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path <interpretation:diagnosis> ],
+        [ sh:description "id of the interpretation" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <interpretation:id> ],
         [ sh:description "" ;
             sh:in ( "COMPLETED" "IN_PROGRESS" "SOLVED" "UNKNOWN_PROGRESS" "UNSOLVED" ) ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path <interpretation:progressStatus> ],
-        [ sh:description "id of the interpretation" ;
+        [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <interpretation:id> ] ;
+            sh:order 3 ;
+            sh:path <interpretation:summary> ] ;
     sh:targetClass <interpretation:Interpretation> .
 
 <interpretation:VariantInterpretation> a sh:NodeShape ;
@@ -703,15 +703,15 @@ phenopackets:Family a sh:NodeShape ;
             sh:order 2 ;
             sh:path <interpretation:variationDescriptor> ],
         [ sh:description "" ;
-            sh:in ( "ACTIONABLE" "NOT_ACTIONABLE" "UNKNOWN_ACTIONABILITY" ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <interpretation:therapeuticActionability> ],
-        [ sh:description "" ;
             sh:in ( "BENIGN" "LIKELY_BENIGN" "LIKELY_PATHOGENIC" "NOT_PROVIDED" "PATHOGENIC" "UNCERTAIN_SIGNIFICANCE" ) ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path <interpretation:acmgPathogenicityClassification> ] ;
+            sh:path <interpretation:acmgPathogenicityClassification> ],
+        [ sh:description "" ;
+            sh:in ( "ACTIONABLE" "NOT_ACTIONABLE" "UNKNOWN_ACTIONABILITY" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <interpretation:therapeuticActionability> ] ;
     sh:targetClass <interpretation:VariantInterpretation> .
 
 <measurement:ComplexValue> a sh:NodeShape ;
@@ -767,42 +767,53 @@ phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "e.g. 50mg/ml 3 times daily for two weeks" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <measurement:Quantity> ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path <medical_action:quantity> ],
+            sh:order 0 ;
+            sh:path <medical_action:interval> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path <medical_action:scheduleFrequency> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
+        [ sh:class <measurement:Quantity> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path <medical_action:interval> ] ;
+            sh:order 1 ;
+            sh:path <medical_action:quantity> ] ;
     sh:targetClass <medical_action:DoseInterval> .
 
 <medical_action:MedicalAction> a sh:NodeShape ;
     sh:closed true ;
     sh:description "medication, procedure, other actions taken for clinical management" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <medical_action:Treatment> ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "ARGO mapping treatment::adverse_events" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <medical_action:adverseEvents> ],
+        [ sh:class <medical_action:TherapeuticRegimen> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path <medical_action:treatment> ],
-        [ sh:class <medical_action:RadiationTherapy> ;
-            sh:description "" ;
+            sh:order 4 ;
+            sh:path <medical_action:therapeuticRegimen> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "ARGO mapping treatment::treatment_outcome" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path <medical_action:radiationTherapy> ],
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path <medical_action:treatmentTerminationReason> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <medical_action:treatmentIntent> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/Procedure> ;
             sh:description "" ;
             sh:maxCount 1 ;
@@ -815,35 +826,24 @@ phenopackets:Family a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path <medical_action:responseToTreatment> ],
-        [ sh:class <medical_action:TherapeuticRegimen> ;
+        [ sh:class <medical_action:Treatment> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path <medical_action:therapeuticRegimen> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "ARGO mapping treatment::adverse_events" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <medical_action:adverseEvents> ],
+            sh:order 5 ;
+            sh:path <medical_action:treatment> ],
+        [ sh:class <medical_action:RadiationTherapy> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <medical_action:radiationTherapy> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
-            sh:path <medical_action:treatmentTarget> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <medical_action:treatmentIntent> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "ARGO mapping treatment::treatment_outcome" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path <medical_action:treatmentTerminationReason> ] ;
+            sh:path <medical_action:treatmentTarget> ] ;
     sh:targetClass <medical_action:MedicalAction> .
 
 <medical_action:RadiationTherapy> a sh:NodeShape ;
@@ -857,6 +857,11 @@ phenopackets:Family a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <medical_action:bodySite> ],
+        [ sh:description "The total number of fractions delivered as part of treatment. REQUIRED. ARGO mapping radiation::radiation_therapy_fractions" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <medical_action:fractions> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "The modality of radiation therapy (e.g., electron, photon,…). REQUIRED. ARGO mapping radiation::radiation_therapy_modality" ;
             sh:maxCount 1 ;
@@ -864,11 +869,6 @@ phenopackets:Family a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path <medical_action:modality> ],
-        [ sh:description "The total number of fractions delivered as part of treatment. REQUIRED. ARGO mapping radiation::radiation_therapy_fractions" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path <medical_action:fractions> ],
         [ sh:description "The total dose given in units of Gray (Gy). REQUIRED. ARGO mapping radiation::radiation_therapy_dosage" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -880,7 +880,19 @@ phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "ARGO mapping radiation::radiation_therapy_type (missing)" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "" ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <medical_action:externalReference> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <medical_action:ontologyClass> ],
+        [ sh:description "" ;
             sh:in ( "COMPLETED" "DISCONTINUED" "STARTED" "UNKNOWN_STATUS" ) ;
             sh:maxCount 1 ;
             sh:order 3 ;
@@ -891,24 +903,12 @@ phenopackets:Family a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path <medical_action:endTime> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <medical_action:ontologyClass> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             sh:description "possibly undefined;" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
-            sh:path <medical_action:startTime> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <medical_action:externalReference> ] ;
+            sh:path <medical_action:startTime> ] ;
     sh:targetClass <medical_action:TherapeuticRegimen> .
 
 <medical_action:Treatment> a sh:NodeShape ;
@@ -919,79 +919,79 @@ phenopackets:Family a sh:NodeShape ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <medical_action:agent> ],
-        [ sh:description "" ;
-            sh:in ( "ADMINISTRATION_RELATED_TO_PROCEDURE" "EHR_MEDICATION_LIST" "PRESCRIPTION" "UNKNOWN_DRUG_TYPE" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <medical_action:drugType> ],
-        [ sh:class <measurement:Quantity> ;
-            sh:description "ARGO mapping chemotherapy::cumulative_drug_dosage" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path <medical_action:cumulativeDose> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path <medical_action:routeOfAdministration> ],
         [ sh:class <medical_action:DoseInterval> ;
             sh:description "" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
-            sh:path <medical_action:doseIntervals> ] ;
+            sh:path <medical_action:doseIntervals> ],
+        [ sh:description "" ;
+            sh:in ( "ADMINISTRATION_RELATED_TO_PROCEDURE" "EHR_MEDICATION_LIST" "PRESCRIPTION" "UNKNOWN_DRUG_TYPE" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <medical_action:drugType> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <medical_action:agent> ],
+        [ sh:class <measurement:Quantity> ;
+            sh:description "ARGO mapping chemotherapy::cumulative_drug_dosage" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <medical_action:cumulativeDose> ] ;
     sh:targetClass <medical_action:Treatment> .
 
 <meta_data:Resource> a sh:NodeShape ;
     sh:closed true ;
     sh:description "Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI" ;
+    sh:property [ sh:description "for OBO ontologies, this should be the versionIRI" ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <meta_data:namespacePrefix> ],
-        [ sh:description "Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe' OntologyClass: id: 'HP:0012828' label: 'Severe' Resource: namespace_prefix: 'HP' iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <meta_data:iriPrefix> ],
+            sh:order 5 ;
+            sh:path <meta_data:version> ],
         [ sh:description "for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org" ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path <meta_data:id> ],
-        [ sh:description "e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions" ;
+        [ sh:description "The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI" ;
             sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <meta_data:name> ],
+            sh:order 3 ;
+            sh:path <meta_data:namespacePrefix> ],
         [ sh:description "For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo" ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path <meta_data:url> ],
-        [ sh:description "for OBO ontologies, this should be the versionIRI" ;
+        [ sh:description "Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe' OntologyClass: id: 'HP:0012828' label: 'Severe' Resource: namespace_prefix: 'HP' iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828" ;
             sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path <meta_data:version> ] ;
+            sh:order 1 ;
+            sh:path <meta_data:iriPrefix> ],
+        [ sh:description "e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <meta_data:name> ] ;
     sh:targetClass <meta_data:Resource> .
 
 <meta_data:Update> a sh:NodeShape ;
     sh:closed true ;
     sh:description "Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Textual comment about the changes made to the content and/or reason for the update. OPTIONAL" ;
+    sh:property [ sh:description "ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z REQUIRED" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <meta_data:timestamp> ],
+        [ sh:description "Textual comment about the changes made to the content and/or reason for the update. OPTIONAL" ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path <meta_data:comment> ],
         [ sh:description "Information about the person/organisation/network that has updated the phenopacket. OPTIONAL" ;
             sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path <meta_data:updatedBy> ],
-        [ sh:description "ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z REQUIRED" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path <meta_data:timestamp> ] ;
+            sh:path <meta_data:updatedBy> ] ;
     sh:targetClass <meta_data:Update> .
 
 <pedigree:Pedigree> a sh:NodeShape ;
@@ -1010,38 +1010,50 @@ phenopackets:Family a sh:NodeShape ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <pedigree:paternalId> ],
+        [ sh:description "" ;
             sh:in ( "AFFECTED" "MISSING" "UNAFFECTED" ) ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path <pedigree:affectedStatus> ],
         [ sh:description "" ;
+            sh:in ( "FEMALE" "MALE" "OTHER_SEX" "UNKNOWN_SEX" ) ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <pedigree:familyId> ],
+            sh:order 5 ;
+            sh:path <pedigree:sex> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path <pedigree:individualId> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <pedigree:familyId> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
             sh:order 3 ;
-            sh:path <pedigree:maternalId> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path <pedigree:paternalId> ],
-        [ sh:description "" ;
-            sh:in ( "FEMALE" "MALE" "OTHER_SEX" "UNKNOWN_SEX" ) ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path <pedigree:sex> ] ;
+            sh:path <pedigree:maternalId> ] ;
     sh:targetClass <pedigree:Person> .
 
 <vrs:SequenceInterval> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <vrs:DefiniteRange> ;
+    sh:property [ sh:class <vrs:Number> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path <vrs:startNumber> ],
+        [ sh:class <vrs:IndefiniteRange> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <vrs:endIndefiniteRange> ],
+        [ sh:class <vrs:DefiniteRange> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
@@ -1059,48 +1071,30 @@ phenopackets:Family a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path <vrs:endNumber> ],
-        [ sh:class <vrs:Number> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path <vrs:startNumber> ],
         [ sh:class <vrs:DefiniteRange> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
-            sh:path <vrs:startDefiniteRange> ],
-        [ sh:class <vrs:IndefiniteRange> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path <vrs:endIndefiniteRange> ] ;
+            sh:path <vrs:startDefiniteRange> ] ;
     sh:targetClass <vrs:SequenceInterval> .
 
 <vrs:Variation> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <vrs:Haplotype> ;
+    sh:property [ sh:class <vrs:CopyNumber> ;
             sh:description "" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path <vrs:haplotype> ],
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <vrs:copyNumber> ],
         [ sh:class <vrs:Text> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path <vrs:text> ],
-        [ sh:class <vrs:CopyNumber> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <vrs:copyNumber> ],
         [ sh:class <vrs:VariationSet> ;
             sh:description "" ;
             sh:maxCount 1 ;
@@ -1112,7 +1106,13 @@ phenopackets:Family a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <vrs:allele> ] ;
+            sh:path <vrs:allele> ],
+        [ sh:class <vrs:Haplotype> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <vrs:haplotype> ] ;
     sh:targetClass <vrs:Variation> .
 
 <vrsatile:Expression> a sh:NodeShape ;
@@ -1121,12 +1121,12 @@ phenopackets:Family a sh:NodeShape ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <vrsatile:version> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
             sh:order 0 ;
             sh:path <vrsatile:syntax> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <vrsatile:version> ],
         [ sh:class <measurement:Value> ;
             sh:description "" ;
             sh:maxCount 1 ;
@@ -1139,54 +1139,33 @@ phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <measurement:Value> ;
+    sh:property [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <vrsatile:name> ],
+        [ sh:class <measurement:Value> ;
             sh:description "" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
-            sh:path <vrsatile:value> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <vrsatile:name> ] ;
+            sh:path <vrsatile:value> ] ;
     sh:targetClass <vrsatile:Extension> .
 
 <vrsatile:VariationDescriptor> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Common aliases for a variant, e.g. EGFR vIII, are alternate labels" ;
-            sh:order 1 ;
-            sh:path <vrsatile:alternateLabels> ],
-        [ sh:class <vrsatile:GeneDescriptor> ;
-            sh:description "A specific gene context that applies to this variant." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path <vrsatile:geneContext> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <vrsatile:description> ],
-        [ sh:description "The molecular context of the vrs variation. Must be one of “genomic”, “transcript”, or “protein”. Defaults to \"unspecified_molecule_context\"" ;
-            sh:in ( "genomic" "protein" "transcript" "unspecified_molecule_context" ) ;
-            sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path <vrsatile:moleculeContext> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <vrsatile:allelicState> ],
-        [ sh:description "A Sequence corresponding to a “ref allele”, describing the sequence expected at a SequenceLocation reference." ;
-            sh:maxCount 1 ;
-            sh:order 12 ;
-            sh:path <vrsatile:vrsRefAlleleSeq> ],
-        [ sh:class <vrsatile:Extension> ;
+        [ sh:class <vrs:Variation> ;
             sh:description "" ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path <vrsatile:extensions> ],
+            sh:order 10 ;
+            sh:path <vrsatile:variation> ],
         [ sh:class <vrsatile:VcfRecord> ;
             sh:description "A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the allelic_state" ;
             sh:maxCount 1 ;
@@ -1200,27 +1179,48 @@ phenopackets:Family a sh:NodeShape ;
             sh:path <vrsatile:expressions> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path <vrsatile:id> ],
+            sh:order 7 ;
+            sh:path <vrsatile:label> ],
+        [ sh:class <vrsatile:Extension> ;
+            sh:description "" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path <vrsatile:extensions> ],
+        [ sh:description "The molecular context of the vrs variation. Must be one of “genomic”, “transcript”, or “protein”. Defaults to \"unspecified_molecule_context\"" ;
+            sh:in ( "genomic" "protein" "transcript" "unspecified_molecule_context" ) ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path <vrsatile:moleculeContext> ],
+        [ sh:class <vrsatile:GeneDescriptor> ;
+            sh:description "A specific gene context that applies to this variant." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path <vrsatile:geneContext> ],
+        [ sh:description "A Sequence corresponding to a “ref allele”, describing the sequence expected at a SequenceLocation reference." ;
+            sh:maxCount 1 ;
+            sh:order 12 ;
+            sh:path <vrsatile:vrsRefAlleleSeq> ],
         [ sh:description "Allele registry, ClinVar, or other related IDs should be included as xrefs" ;
             sh:order 13 ;
             sh:path <vrsatile:xrefs> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path <vrsatile:label> ],
+            sh:order 2 ;
+            sh:path <vrsatile:description> ],
+        [ sh:description "Common aliases for a variant, e.g. EGFR vIII, are alternate labels" ;
+            sh:order 1 ;
+            sh:path <vrsatile:alternateLabels> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <vrsatile:id> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
-            sh:path <vrsatile:structuralType> ],
-        [ sh:class <vrs:Variation> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 10 ;
-            sh:path <vrsatile:variation> ] ;
+            sh:path <vrsatile:structuralType> ] ;
     sh:targetClass <vrsatile:VariationDescriptor> .
 
 <vrsatile:VcfRecord> a sh:NodeShape ;
@@ -1229,32 +1229,32 @@ phenopackets:Family a sh:NodeShape ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <vrsatile:genomeAssembly> ],
+            sh:order 4 ;
+            sh:path <vrsatile:id> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path <vrsatile:alt> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <vrsatile:info> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
             sh:order 2 ;
             sh:path <vrsatile:filter> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path <vrsatile:id> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path <vrsatile:pos> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
             sh:order 7 ;
             sh:path <vrsatile:qual> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path <vrsatile:info> ],
+            sh:order 3 ;
+            sh:path <vrsatile:genomeAssembly> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <vrsatile:pos> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
             sh:order 8 ;
@@ -1274,22 +1274,38 @@ phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+    sh:property [ sh:description "Flag to indicate whether the phenotype was observed or not. Default is 'false', in other words the phenotype was observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field. *CAUTION* It is imperative to check this field for correct interpretation of the phenotype!" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/excluded> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/type> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/severity> ],
-        [ sh:description "Flag to indicate whether the phenotype was observed or not. Default is 'false', in other words the phenotype was observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field. *CAUTION* It is imperative to check this field for correct interpretation of the phenotype!" ;
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
+            sh:description "the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset" ;
             sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/excluded> ],
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/onset> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
             sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/resolution> ],
+        [ sh:description "Free-text description of the phenotype. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/description> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
             sh:description "subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity" ;
             sh:nodeKind sh:IRI ;
@@ -1299,51 +1315,29 @@ phenopackets:Family a sh:NodeShape ;
             sh:description "Evidences for how the phenotype was determined." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
-            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/evidence> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/type> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
-            sh:description "the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/onset> ],
-        [ sh:description "Free-text description of the phenotype. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose." ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/description> ] ;
+            sh:path <https://w3id.org/linkml/phenopackets/phenotypic_feature/evidence> ] ;
     sh:targetClass <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> .
 
 <measurement:Measurement> a sh:NodeShape ;
     sh:closed true ;
     sh:description "FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/Procedure> ;
-            sh:description "Clinical procedure performed on the subject in order to produce the measurement." ;
+    sh:property [ sh:description "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path <measurement:procedure> ],
+            sh:order 2 ;
+            sh:path <measurement:description> ],
         [ sh:class <measurement:Value> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
             sh:path <measurement:value> ],
-        [ sh:class <measurement:ComplexValue> ;
-            sh:description "" ;
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/Procedure> ;
+            sh:description "Clinical procedure performed on the subject in order to produce the measurement." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path <measurement:complexValue> ],
-        [ sh:description "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <measurement:description> ],
+            sh:order 3 ;
+            sh:path <measurement:procedure> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeElement> ;
             sh:description "The time at which the measurement was made" ;
             sh:maxCount 1 ;
@@ -1355,7 +1349,13 @@ phenopackets:Family a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <measurement:assay> ] ;
+            sh:path <measurement:assay> ],
+        [ sh:class <measurement:ComplexValue> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <measurement:complexValue> ] ;
     sh:targetClass <measurement:Measurement> .
 
 <vrs:ChromosomeLocation> a sh:NodeShape ;
@@ -1366,20 +1366,20 @@ phenopackets:Family a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path <vrs:id> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <vrs:speciesId> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <vrs:chr> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
-            sh:path <vrs:interval> ] ;
+            sh:path <vrs:interval> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <vrs:chr> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <vrs:speciesId> ] ;
     sh:targetClass <vrs:ChromosomeLocation> .
 
 <https://w3id.org/linkml/phenopackets/base/Procedure> a sh:NodeShape ;
@@ -1414,81 +1414,81 @@ phenopackets:Family a sh:NodeShape ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/start> ],
+            sh:order 0 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/end> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/Age> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/end> ] ;
+            sh:order 1 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/start> ] ;
     sh:targetClass <https://w3id.org/linkml/phenopackets/base/TimeInterval> .
 
 <meta_data:MetaData> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "phenopacket-schema-version used to create this phenopacket" ;
+    sh:property [ sh:description "some kind of identifier for the contributor/ program ARGO sample_registration::program_id" ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <meta_data:phenopacketSchemaVersion> ],
+            sh:order 1 ;
+            sh:path <meta_data:createdBy> ],
         [ sh:description "information about the person/organisation/network that has submitted this phenopacket" ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path <meta_data:submittedBy> ],
-        [ sh:class <meta_data:Resource> ;
-            sh:description "a listing of the ontologies and resources referenced in the phenopacket" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path <meta_data:resources> ],
+        [ sh:description "ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <meta_data:created> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
             sh:description "External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported." ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path <meta_data:externalReferences> ],
+        [ sh:description "phenopacket-schema-version used to create this phenopacket" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <meta_data:phenopacketSchemaVersion> ],
         [ sh:class <meta_data:Update> ;
             sh:description "An OPTIONAL list of Updates to the phenopacket." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 6 ;
             sh:path <meta_data:updates> ],
-        [ sh:description "some kind of identifier for the contributor/ program ARGO sample_registration::program_id" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <meta_data:createdBy> ],
-        [ sh:description "ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <meta_data:created> ] ;
+        [ sh:class <meta_data:Resource> ;
+            sh:description "a listing of the ontologies and resources referenced in the phenopacket" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <meta_data:resources> ] ;
     sh:targetClass <meta_data:MetaData> .
 
 <vrs:RepeatedSequenceExpression> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <vrs:LiteralSequenceExpression> ;
+    sh:property [ sh:class <vrs:DefiniteRange> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path <vrs:literalSequenceExpression> ],
+            sh:order 0 ;
+            sh:path <vrs:definiteRange> ],
         [ sh:class <vrs:IndefiniteRange> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path <vrs:indefiniteRange> ],
-        [ sh:class <vrs:DefiniteRange> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path <vrs:definiteRange> ],
         [ sh:class <vrs:DerivedSequenceExpression> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
             sh:path <vrs:derivedSequenceExpression> ],
+        [ sh:class <vrs:LiteralSequenceExpression> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path <vrs:literalSequenceExpression> ],
         [ sh:class <vrs:Number> ;
             sh:description "" ;
             sh:maxCount 1 ;
@@ -1509,12 +1509,12 @@ phenopackets:Family a sh:NodeShape ;
             sh:path <vrs:sequenceInterval> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <vrs:sequenceId> ],
+            sh:order 0 ;
+            sh:path <vrs:id> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <vrs:id> ] ;
+            sh:order 1 ;
+            sh:path <vrs:sequenceId> ] ;
     sh:targetClass <vrs:SequenceLocation> .
 
 <vrs:Text> a sh:NodeShape ;
@@ -1523,12 +1523,12 @@ phenopackets:Family a sh:NodeShape ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <vrs:definition> ],
+            sh:order 1 ;
+            sh:path <vrs:id> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <vrs:id> ] ;
+            sh:order 0 ;
+            sh:path <vrs:definition> ] ;
     sh:targetClass <vrs:Text> .
 
 <vrs:VariationSet> a sh:NodeShape ;
@@ -1541,31 +1541,27 @@ phenopackets:Family a sh:NodeShape ;
     sh:closed true ;
     sh:description "FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
-            sh:description "A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the `id` field FHIR mapping Reference.reference" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/reference> ],
-        [ sh:description "Human readable title or display string for the reference FHIR mapping: Reference.display" ;
+    sh:property [ sh:description "Human readable title or display string for the reference FHIR mapping: Reference.display" ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path <https://w3id.org/linkml/phenopackets/base/description> ],
         [ sh:description "e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier" ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/id> ] ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/id> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/ExternalReference> ;
+            sh:description "A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the `id` field FHIR mapping Reference.reference" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/reference> ] ;
     sh:targetClass <https://w3id.org/linkml/phenopackets/base/ExternalReference> .
 
 <https://w3id.org/linkml/phenopackets/base/File> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/uri> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/Dictionary> ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/Dictionary> ;
             sh:description "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
@@ -1576,78 +1572,76 @@ phenopackets:Family a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/individualToFileIdentifiers> ] ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/individualToFileIdentifiers> ],
+        [ sh:description "URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/uri> ] ;
     sh:targetClass <https://w3id.org/linkml/phenopackets/base/File> .
 
 phenopackets:Phenopacket a sh:NodeShape ;
     sh:closed true ;
     sh:description "An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.  This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/File> ;
-            sh:description "Pointer to the relevant file(s) for the individual" ;
+    sh:property [ sh:class <measurement:Measurement> ;
+            sh:description "Quantifiable measurements related to the individual" ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path phenopackets:files ],
-        [ sh:description "An identifier specific for this phenopacket." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path phenopackets:id ],
+            sh:order 5 ;
+            sh:path phenopackets:measurements ],
         [ sh:class <https://w3id.org/linkml/phenopackets/phenotypic_feature/PhenotypicFeature> ;
             sh:description "Phenotypic features relating to the subject of the phenopacket" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 8 ;
             sh:path phenopackets:phenotypicFeatures ],
-        [ sh:class <interpretation:Interpretation> ;
-            sh:description "" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path phenopackets:interpretations ],
-        [ sh:class <meta_data:MetaData> ;
-            sh:description "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/File> ;
+            sh:description "Pointer to the relevant file(s) for the individual" ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path phenopackets:metaData ],
+            sh:order 2 ;
+            sh:path phenopackets:files ],
+        [ sh:class <medical_action:MedicalAction> ;
+            sh:description "" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path phenopackets:medicalActions ],
         [ sh:class <individual:Individual> ;
             sh:description "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path phenopackets:subject ],
-        [ sh:class <medical_action:MedicalAction> ;
+        [ sh:description "An identifier specific for this phenopacket." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path phenopackets:id ],
+        [ sh:class <interpretation:Interpretation> ;
             sh:description "" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path phenopackets:interpretations ],
+        [ sh:class <disease:Disease> ;
+            sh:description "Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path phenopackets:medicalActions ],
-        [ sh:class <measurement:Measurement> ;
-            sh:description "Quantifiable measurements related to the individual" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path phenopackets:measurements ],
+            sh:order 1 ;
+            sh:path phenopackets:diseases ],
         [ sh:class <biosample:Biosample> ;
             sh:description "Biosample(s) derived from the patient or a collection of biosamples in isolation" ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path phenopackets:biosamples ],
-        [ sh:class <disease:Disease> ;
-            sh:description "Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context." ;
+        [ sh:class <meta_data:MetaData> ;
+            sh:description "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path phenopackets:diseases ] ;
+            sh:order 7 ;
+            sh:path phenopackets:metaData ] ;
     sh:targetClass phenopackets:Phenopacket .
 
 <measurement:Quantity> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
-            sh:description "For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <measurement:unit> ],
-        [ sh:class <measurement:Value> ;
+    sh:property [ sh:class <measurement:Value> ;
             sh:description "the  value of the quantity in the units  e.g. 2.0 mg" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
@@ -1658,31 +1652,37 @@ phenopackets:Phenopacket a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
-            sh:path <measurement:referenceRange> ] ;
+            sh:path <measurement:referenceRange> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/OntologyClass> ;
+            sh:description "For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <measurement:unit> ] ;
     sh:targetClass <measurement:Quantity> .
 
 <vrs:Allele> a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <vrs:DerivedSequenceExpression> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path <vrs:derivedSequenceExpression> ],
-        [ sh:class <vrs:ChromosomeLocation> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <vrs:chromosomeLocation> ],
-        [ sh:class <vrs:RepeatedSequenceExpression> ;
+    sh:property [ sh:class <vrs:RepeatedSequenceExpression> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
             sh:path <vrs:repeatedSequenceExpression> ],
+        [ sh:class <vrs:DerivedSequenceExpression> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <vrs:derivedSequenceExpression> ],
+        [ sh:class <vrs:SequenceLocation> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <vrs:sequenceLocation> ],
         [ sh:class <vrs:LiteralSequenceExpression> ;
             sh:description "" ;
             sh:maxCount 1 ;
@@ -1691,18 +1691,18 @@ phenopackets:Phenopacket a sh:NodeShape ;
             sh:path <vrs:literalSequenceExpression> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <vrs:id> ],
-        [ sh:class <vrs:SequenceLocation> ;
+            sh:order 1 ;
+            sh:path <vrs:curie> ],
+        [ sh:class <vrs:ChromosomeLocation> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <vrs:sequenceLocation> ],
+            sh:order 0 ;
+            sh:path <vrs:chromosomeLocation> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <vrs:curie> ] ;
+            sh:order 3 ;
+            sh:path <vrs:id> ] ;
     sh:targetClass <vrs:Allele> .
 
 <vrs:CopyNumber> a sh:NodeShape ;
@@ -1715,34 +1715,6 @@ phenopackets:Phenopacket a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 8 ;
             sh:path <vrs:literalSequenceExpression> ],
-        [ sh:class <vrs:IndefiniteRange> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path <vrs:indefiniteRange> ],
-        [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path <vrs:id> ],
-        [ sh:class <vrsatile:GeneDescriptor> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path <vrs:gene> ],
-        [ sh:class <vrs:RepeatedSequenceExpression> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 10 ;
-            sh:path <vrs:repeatedSequenceExpression> ],
-        [ sh:class <vrs:DerivedSequenceExpression> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path <vrs:derivedSequenceExpression> ],
         [ sh:class <vrs:DefiniteRange> ;
             sh:description "" ;
             sh:maxCount 1 ;
@@ -1755,18 +1727,46 @@ phenopackets:Phenopacket a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <vrs:allele> ],
-        [ sh:class <vrs:Haplotype> ;
+        [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <vrs:id> ],
+        [ sh:class <vrs:RepeatedSequenceExpression> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path <vrs:haplotype> ],
+            sh:order 10 ;
+            sh:path <vrs:repeatedSequenceExpression> ],
         [ sh:class <vrs:Number> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 9 ;
             sh:path <vrs:number> ],
+        [ sh:class <vrsatile:GeneDescriptor> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path <vrs:gene> ],
+        [ sh:class <vrs:Haplotype> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path <vrs:haplotype> ],
+        [ sh:class <vrs:IndefiniteRange> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path <vrs:indefiniteRange> ],
+        [ sh:class <vrs:DerivedSequenceExpression> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path <vrs:derivedSequenceExpression> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -1779,12 +1779,12 @@ phenopackets:Phenopacket a sh:NodeShape ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <vrs:max> ],
+            sh:order 1 ;
+            sh:path <vrs:min> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <vrs:min> ] ;
+            sh:order 0 ;
+            sh:path <vrs:max> ] ;
     sh:targetClass <vrs:DefiniteRange> .
 
 <vrs:DerivedSequenceExpression> a sh:NodeShape ;
@@ -1813,16 +1813,16 @@ phenopackets:Phenopacket a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <vrs:comparator> ],
-        [ sh:class <measurement:Value> ;
+    sh:property [ sh:class <measurement:Value> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
-            sh:path <vrs:value> ] ;
+            sh:path <vrs:value> ],
+        [ sh:description "" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <vrs:comparator> ] ;
     sh:targetClass <vrs:IndefiniteRange> .
 
 <vrs:LiteralSequenceExpression> a sh:NodeShape ;
@@ -1851,27 +1851,27 @@ phenopackets:Phenopacket a sh:NodeShape ;
     sh:closed true ;
     sh:description "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Alternate IDs (should be CURIE) for the same concept may be placed in alternate_ids" ;
-            sh:order 0 ;
-            sh:path <vrsatile:alternateIds> ],
-        [ sh:description "The primary gene symbol. Takes the place of the label field in a generic descriptor" ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <vrsatile:symbol> ],
-        [ sh:description "A free-text description of the value object" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <vrsatile:description> ],
-        [ sh:description "Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs" ;
+    sh:property [ sh:description "Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs" ;
             sh:order 5 ;
             sh:path <vrsatile:xrefs> ],
         [ sh:description "Takes the place of alternate_labels field in a generic descriptor" ;
             sh:order 1 ;
             sh:path <vrsatile:alternateSymbols> ],
+        [ sh:description "A free-text description of the value object" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <vrsatile:description> ],
         [ sh:description "The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071 This should be a CURIE linking the reference to a namespace where it can be retrieved. Mirrors the value_id field of a generic value object descriptor" ;
             sh:maxCount 1 ;
             sh:order 4 ;
-            sh:path <vrsatile:valueId> ] ;
+            sh:path <vrsatile:valueId> ],
+        [ sh:description "The primary gene symbol. Takes the place of the label field in a generic descriptor" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <vrsatile:symbol> ],
+        [ sh:description "Alternate IDs (should be CURIE) for the same concept may be placed in alternate_ids" ;
+            sh:order 0 ;
+            sh:path <vrsatile:alternateIds> ] ;
     sh:targetClass <vrsatile:GeneDescriptor> .
 
 <measurement:Value> a sh:NodeShape ;
@@ -1906,18 +1906,12 @@ phenopackets:Phenopacket a sh:NodeShape ;
     sh:closed true ;
     sh:description "" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/Age> ;
+    sh:property [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/age> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/AgeRange> ;
-            sh:description "" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/ageRange> ],
+            sh:order 3 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/interval> ],
         [ sh:description "" ;
             sh:maxCount 1 ;
             sh:order 5 ;
@@ -1928,32 +1922,38 @@ phenopackets:Phenopacket a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path <https://w3id.org/linkml/phenopackets/base/ontologyClass> ],
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/AgeRange> ;
+            sh:description "" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/ageRange> ],
         [ sh:class <https://w3id.org/linkml/phenopackets/base/GestationalAge> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path <https://w3id.org/linkml/phenopackets/base/gestationalAge> ],
-        [ sh:class <https://w3id.org/linkml/phenopackets/base/TimeInterval> ;
+        [ sh:class <https://w3id.org/linkml/phenopackets/base/Age> ;
             sh:description "" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/interval> ] ;
+            sh:order 0 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/age> ] ;
     sh:targetClass <https://w3id.org/linkml/phenopackets/base/TimeElement> .
 
 <https://w3id.org/linkml/phenopackets/base/OntologyClass> a sh:NodeShape ;
     sh:closed true ;
     sh:description "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept) see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "class label, aka name. E.g. \"Abnormality of cardiovascular system\"" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/label> ],
-        [ sh:description "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!" ;
+    sh:property [ sh:description "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path <https://w3id.org/linkml/phenopackets/base/id> ] ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/id> ],
+        [ sh:description "class label, aka name. E.g. \"Abnormality of cardiovascular system\"" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <https://w3id.org/linkml/phenopackets/base/label> ] ;
     sh:targetClass <https://w3id.org/linkml/phenopackets/base/OntologyClass> .
 
