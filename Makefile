@@ -51,6 +51,13 @@ examples/%.ttl: examples/%.json
 	$(RUN) linkml-convert -s $(SRC) $< -o $@
 
 ## --------------------
+## AUTO-CONVERSION FROM CONSTANTS
+## --------------------
+PXF_TOOLS = ../phenopacket-tools
+src/schema/constants.yaml: $(PXF_TOOLS)/constants
+	$(RUN) ingest-constants $(PXF_TOOLS)/constants/*.tsv > $@.tmp && mv $@.tmp $@
+
+## --------------------
 ## AUTO-CONVERSION FROM PROTOBUF
 ## --------------------
 
