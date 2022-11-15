@@ -1,7 +1,0 @@
-    {
-      "id": "gomodel:a5g4ccd08-a1",
-      "type": "GO:0048018",
-      "occurs_in": {
-        "object": "gomodel:a5g4ccd08-c1"
-      }
-    }

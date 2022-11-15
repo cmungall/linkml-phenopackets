@@ -18,7 +18,7 @@ from phenopackets.datamodel.phenotypic_feature import PhenotypicFeature
 import unittest
 
 THIS_PATH = Path(__file__).parent
-INPUT_PATH = THIS_PATH / "input"
+INPUT_PATH = THIS_PATH / "input" / "examples"
 
 EXAMPLES = [
     "acute-myeloid-leukemia",
