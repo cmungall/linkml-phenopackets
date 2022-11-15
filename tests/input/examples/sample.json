@@ -1,0 +1,118 @@
+{
+  "id": "gomodel:a5g4ccd08-m1",
+  "title": "test model: see https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7012280/figure/F3/",
+  "contributor": [
+    "orcid:123",
+    "orcid:234"
+  ],
+  "molecular_activity_set": [
+    {
+      "id": "gomodel:a5g4ccd08-a1",
+      "type": "GO:0048018",
+      "has_activity_causal_associations": [
+        {
+          "object": "gomodel:a5g4ccd08-a2",
+          "has_evidence": [
+            {
+              "id": "gomodel:a5g4ccd08-e4",
+              "evidence_type": "ECO:nnn",
+              "reference": [
+                "PMID:1234"
+              ]
+            }
+          ],
+          "predicate": "regulates"
+        }
+      ],
+      "part_of": [
+        {
+          "object": "gomodel:a5g4ccd08-p1",
+          "has_evidence": [
+            {
+              "id": "gomodel:a5g4ccd08-e7",
+              "evidence_type": "ECO:nnn",
+              "reference": [
+                "PMID:1234"
+              ]
+            }
+          ]
+        }
+      ],
+      "enabled_by": [
+        {
+          "object": "gomodel:a5g4ccd08-g1",
+          "has_evidence": [
+            {
+              "id": "gomodel:a5g4ccd08-e5",
+              "evidence_type": "ECO:nnn",
+              "reference": [
+                "PMID:1234"
+              ]
+            }
+          ]
+        }
+      ],
+      "occurs_in": [
+        {
+          "object": "gomodel:a5g4ccd08-c1",
+          "has_evidence": [
+            {
+              "id": "gomodel:a5g4ccd08-e6",
+              "evidence_type": "ECO:nnn",
+              "reference": [
+                "PMID:1234"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gomodel:a5g4ccd08-a2",
+      "type": "GO:0042813",
+      "part_of": [
+        {
+          "object": "gomodel:a5g4ccd08-p1",
+          "has_evidence": [
+            {
+              "id": "gomodel:a5g4ccd08-e3",
+              "evidence_type": "ECO:nnn",
+              "reference": [
+                "PMID:1234"
+              ]
+            }
+          ]
+        }
+      ],
+      "enabled_by": [
+        {
+          "object": "gomodel:a5g4ccd08-g2",
+          "has_evidence": [
+            {
+              "id": "gomodel:a5g4ccd08-e1",
+              "evidence_type": "ECO:nnn",
+              "reference": [
+                "PMID:1234"
+              ]
+            }
+          ]
+        }
+      ],
+      "occurs_in": [
+        {
+          "object": "gomodel:a5g4ccd08-c2",
+          "has_evidence": [
+            {
+              "id": "gomodel:a5g4ccd08-e2",
+              "evidence_type": "ECO:nnn",
+              "reference": [
+                "PMID:1234"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "@type": "Model"
+}

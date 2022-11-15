@@ -22,7 +22,9 @@ prefixes:
   GENO: http://purl.obolibrary.org/obo/GENO_
   HP: http://purl.obolibrary.org/obo/HP_
   UO: http://purl.obolibrary.org/obo/UO_
-  LOINC: http://loinc.org/
+  LOINC: https://loinc.org/
+  UCUM: http://unitsofmeasure.org/
+  EFO: http://www.ebi.ac.uk/efo/EFO_
 
 enums:
   MondoDiseaseTerms:
