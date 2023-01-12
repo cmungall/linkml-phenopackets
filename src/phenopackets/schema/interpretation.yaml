@@ -6,11 +6,13 @@ classes:
         annotations: 
           rank: 1
         description: The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases` field in the Phenopacket.
+        inlined: true
         range: OntologyClass
       genomicInterpretations: 
         annotations: 
           rank: 2
         description: genomic features containing the status of their contribution towards the diagnosis
+        inlined: true
         multivalued: true
         range: GenomicInterpretation
     description: ''
@@ -20,6 +22,7 @@ classes:
         annotations: 
           rank: 3
         description: ''
+        inlined: true
         range: GeneDescriptor
       interpretationStatus: 
         annotations: 
@@ -58,6 +61,7 @@ classes:
         range: Diagnosis
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: id of the interpretation
         identifier: true

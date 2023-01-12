@@ -1,7 +1,7 @@
 {
-  "id": "arbitrary proband id",
+  "id": "arbitrary-proband-id",
   "subject": {
-    "id": "proband A",
+    "id": "proband-A",
     "timeAtLastEncounter": {
       "age": {
         "iso8601duration": "P6Y3M"
@@ -203,7 +203,7 @@
     }]
   }],
   "interpretations": [{
-    "id": "arbitrary interpretation id",
+    "id": "arbitrary-interpretation-id",
     "progressStatus": "COMPLETED",
     "diagnosis": {
       "disease": {
@@ -211,15 +211,14 @@
         "label": "Bethlem myopathy 1"
       },
       "genomicInterpretations": [{
-        "subjectOrBiosampleId": "arbitrary interpretation id",
+        "subjectOrBiosampleId": "arbitrary-interpretation-id",
         "interpretationStatus": "CAUSATIVE",
         "variantInterpretation": {
           "acmgPathogenicityClassification": "PATHOGENIC",
           "variationDescriptor": {
-            "id": "variant id",
+            "id": "variant-id",
             "expressions": [{
-              "syntax": "hgvs",
-              "value": "NM_001848.2:c.877G\u003eA"
+              "syntax": "hgvs"
             }],
             "allelicState": {
               "id": "GENO:0000135",

@@ -1,7 +1,7 @@
 {
   "id": "id-C",
   "subject": {
-    "id": "proband C",
+    "id": "proband-C",
     "timeAtLastEncounter": {
       "age": {
         "iso8601duration": "P27Y"
@@ -11,7 +11,7 @@
   },
   "diseases": [{
     "term": {
-      "id": "OMIM:154700 ",
+      "id": "OMIM:154700",
       "label": "Marfan syndrome"
     }
   }],

@@ -35,6 +35,7 @@ classes:
         range: DerivedSequenceExpression
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: ''
         identifier: true
@@ -80,6 +81,7 @@ classes:
         range: string
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: ''
         identifier: true
@@ -88,6 +90,7 @@ classes:
         annotations: 
           rank: 4
         description: ''
+        inlined: true
         range: CytobandInterval
       speciesId: 
         annotations: 
@@ -129,6 +132,7 @@ classes:
         range: Haplotype
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: ''
         identifier: true
@@ -307,6 +311,7 @@ classes:
         range: Haplotype
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: ''
         identifier: true
@@ -315,6 +320,7 @@ classes:
         annotations: 
           rank: 2
         description: ''
+        inlined: true
         multivalued: true
         range: Member
       text: 
@@ -520,6 +526,7 @@ classes:
     attributes: 
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: ''
         identifier: true
@@ -589,6 +596,7 @@ classes:
         range: string
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: ''
         identifier: true

@@ -21,7 +21,7 @@
     }
   }],
   "biosamples": [{
-    "id": "prostate biosample ID",
+    "id": "prostate-biosample-ID",
     "individualId": "patient1",
     "sampledTissue": {
       "id": "UBERON:0002367",
@@ -51,7 +51,7 @@
       }
     }
   }, {
-    "id": "right ureter biosample ID",
+    "id": "right-ureter-biosample-ID",
     "individualId": "patient1",
     "sampledTissue": {
       "id": "UBERON:0001222",
@@ -73,7 +73,7 @@
       }
     }
   }, {
-    "id": "left ureter biosample ID",
+    "id": "left-ureter-biosample-ID",
     "individualId": "patient1",
     "sampledTissue": {
       "id": "UBERON:0001223",
@@ -95,7 +95,7 @@
       }
     }
   }, {
-    "id": "bladder biopsy id",
+    "id": "bladder-biopsy-id",
     "individualId": "patient1",
     "sampledTissue": {
       "id": "UBERON_0001256",
@@ -132,7 +132,7 @@
       }
     }]
   }, {
-    "id": "pelvic lymph node biosample ID",
+    "id": "pelvic-lymph-node-biosample-ID",
     "individualId": "patient1",
     "sampledTissue": {
       "id": "UBERON:0015876",

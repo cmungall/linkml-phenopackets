@@ -7,6 +7,44 @@ $id =~ s@.*/@@;
 $id =~ s@\.proto@@;
 my $url = "https://w3id.org/linkml/phenopackets/$id";
 
+our @INLINED = qw(Abundance
+Cohort
+CytobandInterval
+Dictionary
+DoseInterval
+Expression
+Extension
+ExternalReference
+Family
+Feature
+File
+GeneDescriptor
+GenomicInterpretation
+MedicalAction
+Member
+MolecularVariation
+OntologyClass
+Person
+Phenopacket
+PhenotypicFeature
+Resource
+SequenceExpression
+SequenceState
+SimpleInterval
+SystemicVariation
+TimeElement
+TimeInterval
+TypedQuantity
+Update
+UtilityVariation
+Any
+Biosample
+Individual
+Interpretation
+    Measurement);
+
+our %INLINED_H = map { ($_ => 1) }  @INLINED;
+
 my $schema = {
     id => "$url",
     name => $id,
@@ -22,6 +60,12 @@ my $schema = {
     classes => {},
     slots => {},
     enums => {},
+    #types => {
+    #    'IdentifierString'=>{
+    #        'typeof'=>'string',
+    #            'annotations'=>{'percent_encoded'=>'true'}
+    #        },
+    #},
 };
 
 if ($id eq 'base') {
@@ -130,6 +174,9 @@ while(<>) {
         }
         if ($n eq 'id') {
             $c->{attributes}->{$n}->{identifier} = 'true';
+            #$c->{attributes}->{$n}->{range} = 'IdentifierString';
+            $c->{attributes}->{$n}->{range} = 'string';
+            $c->{attributes}->{$n}->{annotations}->{percent_encoded} = 'true';
         }
         if ($desc =~ m@REQUIRED@) {
             $c->{attributes}->{$n}->{required} = 'true';
@@ -140,6 +187,14 @@ while(<>) {
         $desc = '';
         if ($top eq 'oneof') {
             push(@oneofs, $n);
+        }
+        if ($range =~ m@^[A-Z]@) {
+            if ($range !~ m@String!@) {
+                #$c->{attributes}->{$n}->{inlined} = 'true';
+            }
+        }
+        if ($INLINED_H{$range}) {
+            $c->{attributes}->{$n}->{inlined} = 'true';
         }
     }
     elsif (m@^\s*\}@) {

@@ -1,7 +1,7 @@
 {
   "id": "arbitrary.id",
   "subject": {
-    "id": "proband A",
+    "id": "proband-A",
     "timeAtLastEncounter": {
       "age": {
         "iso8601duration": "P38Y"
@@ -10,8 +10,8 @@
     "sex": "MALE"
   },
   "biosamples": [{
-    "id": "biosample 1",
-    "individualId": "proband A",
+    "id": "biosample-1",
+    "individualId": "proband-A",
     "sampledTissue": {
       "id": "NCIT:C12389",
       "label": "Esophagus"
@@ -32,8 +32,8 @@
       }
     }
   }, {
-    "id": "biosample 2",
-    "individualId": "proband A",
+    "id": "biosample-2",
+    "individualId": "proband-A",
     "sampledTissue": {
       "id": "NCIT:C139196",
       "label": "Esophageal Lymph Node"
@@ -62,8 +62,8 @@
       }
     }
   }, {
-    "id": "biosample 3",
-    "individualId": "proband A",
+    "id": "biosample-3",
+    "individualId": "proband-A",
     "sampledTissue": {
       "id": "NCIT:C12468",
       "label": "Lung"

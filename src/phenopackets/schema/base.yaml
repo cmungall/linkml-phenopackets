@@ -30,11 +30,13 @@ classes:
         annotations: 
           rank: 1
         description: "The encoded evidence type using, for example the Evidence & Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl) FHIR mapping: Condition.evidence.code"
+        inlined: true
         range: OntologyClass
       reference: 
         annotations: 
           rank: 2
         description: "FHIR mapping: Condition.evidence.detail"
+        inlined: true
         range: ExternalReference
     description: "FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)"
   ExternalReference: 
@@ -46,6 +48,7 @@ classes:
         range: string
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: "e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier"
         identifier: true
@@ -62,11 +65,13 @@ classes:
         annotations: 
           rank: 3
         description: Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.
+        inlined: true
         range: Dictionary
       individualToFileIdentifiers: 
         annotations: 
           rank: 2
         description: A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.
+        inlined: true
         range: Dictionary
       uri: 
         annotations: 
@@ -91,6 +96,7 @@ classes:
     attributes: 
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!
         identifier: true
@@ -108,16 +114,19 @@ classes:
         annotations: 
           rank: 2
         description: "FHIR mapping: Procedure.bodySite"
+        inlined: true
         range: OntologyClass
       code: 
         annotations: 
           rank: 1
         description: "FHIR mapping: Procedure.code"
+        inlined: true
         range: OntologyClass
       performed: 
         annotations: 
           rank: 3
         description: When the procedure was performed.
+        inlined: true
         range: TimeElement
     description: "A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {\"code\":{\"NCIT:C51585\": \"Biopsy of Soft Palate\"}} {\"code\":{\"NCIT:C28743\": \"Punch Biopsy\"}, \"body_site\":{\"UBERON:0003403\": \"skin of forearm\"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)"
   TimeElement: 
@@ -141,11 +150,13 @@ classes:
         annotations: 
           rank: 5
         description: ''
+        inlined: true
         range: TimeInterval
       ontologyClass: 
         annotations: 
           rank: 3
         description: ''
+        inlined: true
         range: OntologyClass
       timestamp: 
         annotations: 

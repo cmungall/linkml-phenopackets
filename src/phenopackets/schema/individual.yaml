@@ -17,9 +17,11 @@ classes:
         annotations: 
           rank: 8
         description: Self-identified gender
+        inlined: true
         range: OntologyClass
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id
         exact_mappings: 
@@ -42,11 +44,13 @@ classes:
         annotations: 
           rank: 9
         description: NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level
+        inlined: true
         range: OntologyClass
       timeAtLastEncounter: 
         annotations: 
           rank: 4
         description: An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes
+        inlined: true
         range: TimeElement
       vitalStatus: 
         annotations: 
@@ -64,6 +68,7 @@ classes:
         description: ARGO mapping donor::cause_of_death
         exact_mappings: 
           - ARGO:donor.cause_of_death
+        inlined: true
         range: OntologyClass
       status: 
         annotations: 
@@ -81,6 +86,7 @@ classes:
         annotations: 
           rank: 2
         description: ''
+        inlined: true
         range: TimeElement
     description: ''
 default_prefix: individual

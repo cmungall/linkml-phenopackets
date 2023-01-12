@@ -1,4 +1,4 @@
-SRC = src/schema/phenopackets.yaml
+SRC = src/phenopackets/schema/phenopackets.yaml
 RUN = poetry run
 
 all:
@@ -73,10 +73,11 @@ CORE_MODS = timestamp any base measurement medical_action genome phenotypic_feat
 auto: $(patsubst %, tmp/%.yaml, $(CORE_MODS))
 
 deploy: auto
-	cp tmp/*yaml src/schema/
+	cp tmp/*yaml src/phenopackets/schema/
 
 tmp/%.proto: $(PXF_CORE)/%.proto
 	cp $< $@
+.PRECIOUS: tmp/%.proto
 
 tmp/timestamp.proto: $(PXF_GOOGLE)/timestamp.proto
 	cp $< $@

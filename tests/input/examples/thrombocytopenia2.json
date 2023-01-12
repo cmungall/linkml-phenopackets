@@ -1,7 +1,7 @@
 {
   "id": "id-C",
   "subject": {
-    "id": "family 10 proband",
+    "id": "family-10-proband",
     "timeAtLastEncounter": {
       "age": {
         "iso8601duration": "P20Y"
@@ -42,7 +42,7 @@
     }]
   }],
   "interpretations": [{
-    "id": "arbitrary interpretation id",
+    "id": "arbitrary-interpretation-id",
     "progressStatus": "COMPLETED",
     "diagnosis": {
       "disease": {
@@ -55,7 +55,7 @@
         "variantInterpretation": {
           "acmgPathogenicityClassification": "PATHOGENIC",
           "variationDescriptor": {
-            "id": "variant id",
+            "id": "variant-id",
             "expressions": [{
               "syntax": "hgvs",
               "value": "NM_014915.2:c.-128G\u003eA"

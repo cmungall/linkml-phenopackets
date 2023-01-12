@@ -16,6 +16,7 @@ classes:
         annotations: 
           rank: 7
         description: External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported.
+        inlined: true
         multivalued: true
         range: ExternalReference
       phenopacketSchemaVersion: 
@@ -27,6 +28,7 @@ classes:
         annotations: 
           rank: 4
         description: a listing of the ontologies and resources referenced in the phenopacket
+        inlined: true
         multivalued: true
         range: Resource
       submittedBy: 
@@ -38,6 +40,7 @@ classes:
         annotations: 
           rank: 5
         description: An OPTIONAL list of Updates to the phenopacket.
+        inlined: true
         multivalued: true
         range: Update
     description: ''
@@ -45,6 +48,7 @@ classes:
     attributes: 
       id: 
         annotations: 
+          percent_encoded: true
           rank: 1
         description: "for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org"
         identifier: true
