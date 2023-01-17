@@ -1,0 +1,9 @@
+{
+  "id": "arbitrary.phenopacket.id",
+  "metaData": {
+    "externalReferences": [{
+      "id": "DOI:10.1016/j.jaccas.2020.04.001",
+      "reference": "PMID:32292915"
+    }]
+  }
+}
