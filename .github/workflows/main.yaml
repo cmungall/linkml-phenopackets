@@ -64,6 +64,6 @@ jobs:
       #----------------------------------------------
       # enable this step when you have a derived data model
       # and a test suite
-      # - name: Run tests
-      #   run: make test
+      - name: Run tests
+        run: make test
 
