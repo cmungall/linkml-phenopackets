@@ -3,6 +3,7 @@ import os
 
 from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import json_dumper, rdflib_dumper
+from rdflib import Graph, URIRef, Literal
 
 from phenopackets.datamodel import MAIN_SCHEMA_PATH
 from phenopackets.datamodel.phenopackets import OntologyClass
@@ -23,14 +24,21 @@ class TestCreate(unittest.TestCase):
         self.sv = SchemaView(str(MAIN_SCHEMA_PATH))
 
     def test_create_ontology_class(self):
-        term = OntologyClass(id="HP:123", label="z")
-        print(rdflib_dumper.dumps(
+        term = OntologyClass(id="HP:0001945", label="Fever")
+        ttl = rdflib_dumper.dumps(
                 term,
                 schemaview=self.sv,
                 prefix_map={
                     "HP": "http://purl.obolibrary.org/obo/HP_",
                 },
-            ))
+            )
+        print(ttl)
+        g = Graph()
+        g.parse(data=ttl, format="turtle")
+        for t in g.triples((None, None, None)):
+            print(t)
+        self.assertIn(Literal("Fever"), list(g.objects(URIRef('http://purl.obolibrary.org/obo/HP_0001945'))))
+
 
     def test_create(self):
         r = Resource(id="ex:x", name="y")
