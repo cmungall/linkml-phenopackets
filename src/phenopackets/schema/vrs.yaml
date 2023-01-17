@@ -38,7 +38,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: ''
-        identifier: true
         range: string
       literalSequenceExpression: 
         annotations: 
@@ -84,7 +83,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: ''
-        identifier: true
         range: string
       interval: 
         annotations: 
@@ -135,7 +133,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: ''
-        identifier: true
         range: string
       indefiniteRange: 
         annotations: 
@@ -314,7 +311,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: ''
-        identifier: true
         range: string
       members: 
         annotations: 
@@ -529,7 +525,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: ''
-        identifier: true
         range: string
       sequenceId: 
         annotations: 
@@ -599,7 +594,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: ''
-        identifier: true
         range: string
     description: ''
   UtilityVariation: 
@@ -692,6 +686,14 @@ imports:
   - linkml:types
 name: vrs
 prefixes: 
+  GENO: http://purl.obolibrary.org/obo/GENO_
+  HP: http://purl.obolibrary.org/obo/HP_
+  LOINC: https://loinc.org/
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  UCUM: http://unitsofmeasure.org/
+  UO: http://purl.obolibrary.org/obo/UO_
   argo: https://docs.icgc-argo.org/dictionary/
   linkml: https://w3id.org/linkml/
   vrs: https://w3id.org/linkml/phenopackets/vrs/

@@ -3,15 +3,11 @@ import os
 from pathlib import Path
 
 from linkml_runtime import SchemaView
-from linkml_runtime.dumpers import json_dumper, rdflib_dumper
+from linkml_runtime.dumpers import json_dumper, rdflib_dumper, yaml_dumper
 from linkml_runtime.loaders import json_loader
 
 from phenopackets.datamodel import MAIN_SCHEMA_PATH
-from phenopackets.datamodel.base import OntologyClass
-from phenopackets.datamodel.individual import VitalStatus, Individual
-from phenopackets.datamodel.meta_data import MetaData, Resource
-from phenopackets.datamodel.phenopackets import Phenopacket, Family
-from phenopackets.datamodel.phenotypic_feature import PhenotypicFeature
+from phenopackets.datamodel.phenopackets import Family, Phenopacket
 
 """Test the module can be imported."""
 
@@ -19,20 +15,20 @@ import unittest
 
 THIS_PATH = Path(__file__).parent
 INPUT_PATH = THIS_PATH / "input" / "examples"
+OUTPUT_PATH = THIS_PATH / "output" / "examples"
 
 PHENOPACKET_EXAMPLES = [
     "thrombocytopenia2",
-    #"pseudoexfoliation",
-    #"holoprosencephaly5", # https://github.com/phenopackets/phenopacket-tools/issues/142
-    #"duchenne", https://github.com/phenopackets/phenopacket-tools/issues/142
+    "pseudoexfoliation",
+    "holoprosencephaly5",
+    "duchenne",
     "acute-myeloid-leukemia",
     "bethleham-myopathy",
     "covid",
     "marfan-simple",
     "marfan",
-    #"retinoblastoma",  no id
+    "retinoblastoma",
     "squamous-cell-esophageal-carcinoma",
-
     "urothelial-cancer",
 ]
 
@@ -58,6 +54,8 @@ DEFAULT_PREFIX_MAP = {
     "UCUM": "http://unitsofmeasure.org/",
     "PATO": "http://purl.obolibrary.org/obo/PATO_",
     "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
+    "SCTID": "http://snomed.info/id/",
+    "SNOMEDCT": "http://snomed.info/id/",
     "UO": "http://purl.obolibrary.org/obo/UO_",
     "xsd": "http://www.w3.org/2001/XMLSchema#",  # TODO - should not be required
     "__base": "https://example.org/base/",
@@ -65,28 +63,36 @@ DEFAULT_PREFIX_MAP = {
 
 
 class TestExamples(unittest.TestCase):
-    """Tests examples folder."""
+    """Tests examples folder.
+
+    Note: this test will soon become redundant with the new
+    linkml-run-examples framework
+    """
+
+    def setUp(self) -> None:
+        self.sv = SchemaView(str(MAIN_SCHEMA_PATH))
+        self.sv.namespaces()._base = "https://example.org/base/"
+        OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 
     def test_schemaview(self):
-        sv = SchemaView(str(MAIN_SCHEMA_PATH))
-        slot = sv.induced_slot("reference", "ExternalReference")
+        slot = self.sv.induced_slot("reference", "ExternalReference")
         print(f"{slot.name} {slot.range} {slot.domain}")
         self.assertEqual(slot.range, "string")
 
-
     def test_examples(self):
-        examples = [(Phenopacket, ex) for ex in PHENOPACKET_EXAMPLES] + [(Family, ex) for ex in FAMILY_EXAMPLES]
+        examples = [(Phenopacket, ex) for ex in PHENOPACKET_EXAMPLES] + [
+            (Family, ex) for ex in FAMILY_EXAMPLES
+        ]
         for typ, ex in examples:
-            print(f"EXAMPLE={ex} // {typ}")
-            phenopacket = json_loader.load(
-                f"{INPUT_PATH / ex}.json", target_class=typ
-            )
+            # print(f"EXAMPLE={ex} // {typ}")
+            phenopacket = json_loader.load(f"{INPUT_PATH / ex}.json", target_class=typ)
 
-            print(json_dumper.dumps(phenopacket))
-            sv = SchemaView(str(MAIN_SCHEMA_PATH))
-            sv.namespaces()._base = 'https://example.org/base/'
-            print(
-                rdflib_dumper.dumps(
-                    phenopacket, schemaview=sv, prefix_map=DEFAULT_PREFIX_MAP
-                )
+            base = f"{typ.class_name}-{ex}"
+            json_dumper.dump(phenopacket, OUTPUT_PATH / f"{base}.json")
+            yaml_dumper.dump(phenopacket, OUTPUT_PATH / f"{base}.yaml")
+            rdflib_dumper.dump(
+                phenopacket,
+                schemaview=self.sv,
+                prefix_map=DEFAULT_PREFIX_MAP,
+                to_file=OUTPUT_PATH / f"{base}.ttl",
             )

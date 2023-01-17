@@ -22,10 +22,10 @@ theme:
     - content.tabs.link
 plugins:
   - search
-  - mermaid2
+  - mermaid2:
+      version: 9.3.0
 nav:
   - Home: home.md
   - Index: index.md
-  - Credits: credits.md
 site_url: https://cmungall.github.io/linkml-phenopackets/
 repo_url: https://github.com/cmungall/linkml-phenopackets/

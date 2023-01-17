@@ -1,0 +1,109 @@
+metaData:
+  created: '2021-05-14T10:35:00Z'
+  createdBy: anonymous biocurator
+  phenopacketSchemaVersion: 2.0.0
+  resources:
+  - id: hp
+    iriPrefix: http://purl.obolibrary.org/obo/HP_
+    name: human phenotype ontology
+    namespacePrefix: HP
+    url: http://purl.obolibrary.org/obo/hp.owl
+    version: '2022-06-11'
+  - id: mondo
+    iriPrefix: http://purl.obolibrary.org/obo/MONDO_
+    name: Mondo Disease Ontology
+    namespacePrefix: MONDO
+    url: http://purl.obolibrary.org/obo/mondo.obo
+    version: '2022-04-04'
+  - id: geno
+    iriPrefix: http://purl.obolibrary.org/obo/GENO_
+    name: Genotype Ontology
+    namespacePrefix: GENO
+    url: http://purl.obolibrary.org/obo/geno.owl
+    version: '2022-03-05'
+id: arbitrary.id
+interpretations:
+- diagnosis:
+    disease:
+      id: MONDO:0010679
+      label: Duchenne muscular dystrophy
+    genomicInterpretations:
+    - interpretationStatus: CAUSATIVE
+      subjectOrBiosampleId: 10-year old boy
+      variantInterpretation:
+        acmgPathogenicityClassification: PATHOGENIC
+        therapeuticActionability: UNKNOWN_ACTIONABILITY
+        variationDescriptor:
+          allelicState:
+            id: GENO:0000134
+            label: hemizygous
+          expressions:
+          - syntax: hgvs.c
+            value: NM_004006.3:c.7310-11543_7359del
+          - syntax: transcript_reference
+            value: NM_004006.3
+          geneContext:
+            symbol: DMD
+            valueId: HGNC:2928
+          id: variant-id
+          moleculeContext: genomic
+          variation:
+            copyNumber:
+              derivedSequenceExpression:
+                location:
+                  sequenceId: refseq:NC_000023.11
+                  sequenceInterval:
+                    endNumber:
+                      value: 31785736
+                    startNumber:
+                      value: 31774144
+                reverseComplement: false
+              number:
+                value: 1
+  id: interpretation.id
+  progressStatus: SOLVED
+phenotypicFeatures:
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P1Y6M
+  type:
+    id: HP:0031936
+    label: Delayed ability to walk
+- excluded: false
+  onset:
+    ontologyClass:
+      id: HP:0011463
+      label: Childhood onset
+  type:
+    id: HP:0003707
+    label: Calf muscle pseudohypertrophy
+- excluded: false
+  onset:
+    ontologyClass:
+      id: HP:0011463
+      label: Childhood onset
+  type:
+    id: HP:0009046
+    label: Difficulty running
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P10Y
+  type:
+    id: HP:0003458
+    label: 'EMG: myopathic abnormalities'
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P10Y
+  type:
+    id: HP:0003236
+    label: Elevated circulating creatine kinase concentration
+subject:
+  id: 10-year old boy
+  karyotypicSex: UNKNOWN_KARYOTYPE
+  sex: MALE
+  timeAtLastEncounter:
+    age:
+      iso8601duration: P10Y

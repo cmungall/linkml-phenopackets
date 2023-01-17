@@ -1,0 +1,69 @@
+{
+  "metaData": {
+    "created": "2021-05-14T10:35:00Z",
+    "createdBy": "anonymous biocurator",
+    "phenopacketSchemaVersion": "2.0",
+    "resources": [
+      {
+        "id": "hp",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_",
+        "name": "human phenotype ontology",
+        "namespacePrefix": "HP",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2021-08-02"
+      }
+    ]
+  },
+  "diseases": [
+    {
+      "term": {
+        "id": "OMIM:154700",
+        "label": "Marfan syndrome"
+      }
+    }
+  ],
+  "id": "id-C",
+  "medicalActions": [
+    {
+      "treatment": {
+        "agent": {
+          "id": "DrugCentral:1610",
+          "label": "losartan"
+        },
+        "doseIntervals": [
+          {
+            "interval": {
+              "end": "2021-03-20T00:00:00Z",
+              "start": "2019-03-20T00:00:00Z"
+            },
+            "quantity": {
+              "unit": {
+                "id": "UO:0000022",
+                "label": "milligram"
+              },
+              "value": 30.0
+            },
+            "scheduleFrequency": {
+              "id": "NCIT:C64496",
+              "label": "Twice Daily"
+            }
+          }
+        ],
+        "routeOfAdministration": {
+          "id": "NCIT:C38288",
+          "label": "Oral Route of Administration"
+        }
+      }
+    }
+  ],
+  "subject": {
+    "id": "proband-C",
+    "sex": "FEMALE",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P27Y"
+      }
+    }
+  },
+  "@type": "Phenopacket"
+}

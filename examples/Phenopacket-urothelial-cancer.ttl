@@ -1,0 +1,190 @@
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
+@prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix UBERON: <http://purl.obolibrary.org/obo/UBERON_> .
+@prefix ns1: <biosample:> .
+@prefix ns2: <base:> .
+@prefix ns3: <meta_data:> .
+@prefix ns4: <disease:> .
+@prefix ns5: <individual:> .
+@prefix ns6: <phenotypic_feature:> .
+@prefix p__base: <https://example.org/base/> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+
+HP:0000790 a ns2:OntologyClass ;
+    ns2:label "Hematuria" .
+
+HP:0012828 a ns2:OntologyClass ;
+    ns2:label "Severe" .
+
+HP:0100518 a ns2:OntologyClass ;
+    ns2:label "Dysuria" .
+
+NCIT:C27971 a ns2:OntologyClass ;
+    ns2:label "Stage IV" .
+
+NCIT:C28091 a ns2:OntologyClass ;
+    ns2:label "Gleason Score 7" .
+
+NCIT:C3261 a ns2:OntologyClass ;
+    ns2:label "Metastatic Neoplasm" .
+
+NCIT:C48700 a ns2:OntologyClass ;
+    ns2:label "M1 Stage Finding" .
+
+NCIT:C48750 a ns2:OntologyClass ;
+    ns2:label "pN2 Stage Finding" .
+
+NCIT:C48766 a ns2:OntologyClass ;
+    ns2:label "pT2b Stage Finding" .
+
+NCIT:C5189 a ns2:OntologyClass ;
+    ns2:label "Radical Cystoprostatectomy" .
+
+NCIT:C5596 a ns2:OntologyClass ;
+    ns2:label "Prostate Acinar Adenocarcinoma" .
+
+NCIT:C84509 a ns2:OntologyClass ;
+    ns2:label "Primary Malignant Neoplasm" .
+
+NCIT:C95606 a ns2:OntologyClass ;
+    ns2:label "Second Primary Malignant Neoplasm" .
+
+UBERON:0001222 a ns2:OntologyClass ;
+    ns2:label "right ureter" .
+
+UBERON:0001223 a ns2:OntologyClass ;
+    ns2:label "left ureter" .
+
+UBERON:0002367 a ns2:OntologyClass ;
+    ns2:label "prostate gland" .
+
+UBERON:0015876 a ns2:OntologyClass ;
+    ns2:label "pelvic lymph node" .
+
+p__base:UBERON_0001256 a ns2:OntologyClass ;
+    ns2:label "wall of urinary bladder" .
+
+NCIT:C38757 a ns2:OntologyClass ;
+    ns2:label "Negative Finding" .
+
+NCIT:C39853 a ns2:OntologyClass ;
+    ns2:label "Infiltrating Urothelial Carcinoma" .
+
+NCIT:C15189 a ns2:OntologyClass ;
+    ns2:label "Biopsy" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:biosamples [ a ns1:Biosample ;
+            ns1:histologicalDiagnosis NCIT:C38757 ;
+            ns1:id "left-ureter-biosample-ID" ;
+            ns1:individualId "patient1" ;
+            ns1:procedure [ a ns2:Procedure ;
+                    ns2:code NCIT:C15189 ] ;
+            ns1:sampledTissue UBERON:0001223 ;
+            ns1:timeOfCollection [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P52Y2M" ] ] ],
+        [ a ns1:Biosample ;
+            ns1:files [ a ns2:File ;
+                    ns2:fileAttributes <Dictionary()> ;
+                    ns2:individualToFileIdentifiers <Dictionary()> ;
+                    ns2:uri "file://data/genomes/metastasis_wgs.vcf.gz" ] ;
+            ns1:id "pelvic-lymph-node-biosample-ID" ;
+            ns1:individualId "patient1" ;
+            ns1:procedure [ a ns2:Procedure ;
+                    ns2:code NCIT:C15189 ] ;
+            ns1:sampledTissue UBERON:0015876 ;
+            ns1:timeOfCollection [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P52Y2M" ] ] ;
+            ns1:tumorProgression NCIT:C3261 ],
+        [ a ns1:Biosample ;
+            ns1:histologicalDiagnosis NCIT:C38757 ;
+            ns1:id "right-ureter-biosample-ID" ;
+            ns1:individualId "patient1" ;
+            ns1:procedure [ a ns2:Procedure ;
+                    ns2:code NCIT:C15189 ] ;
+            ns1:sampledTissue UBERON:0001222 ;
+            ns1:timeOfCollection [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P52Y2M" ] ] ],
+        [ a ns1:Biosample ;
+            ns1:histologicalDiagnosis NCIT:C5596 ;
+            ns1:id "prostate-biosample-ID" ;
+            ns1:individualId "patient1" ;
+            ns1:procedure [ a ns2:Procedure ;
+                    ns2:code NCIT:C15189 ] ;
+            ns1:sampledTissue UBERON:0002367 ;
+            ns1:timeOfCollection [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P52Y2M" ] ] ;
+            ns1:tumorGrade NCIT:C28091 ;
+            ns1:tumorProgression NCIT:C95606 ],
+        [ a ns1:Biosample ;
+            ns1:files [ a ns2:File ;
+                    ns2:fileAttributes <Dictionary()> ;
+                    ns2:individualToFileIdentifiers <Dictionary()> ;
+                    ns2:uri "file://data/genomes/urothelial_ca_wgs.vcf.gz" ] ;
+            ns1:histologicalDiagnosis NCIT:C39853 ;
+            ns1:id "bladder-biopsy-id" ;
+            ns1:individualId "patient1" ;
+            ns1:procedure [ a ns2:Procedure ;
+                    ns2:code NCIT:C5189 ] ;
+            ns1:sampledTissue p__base:UBERON_0001256 ;
+            ns1:timeOfCollection [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P52Y2M" ] ] ;
+            ns1:tumorProgression NCIT:C84509 ] ;
+    phenopackets:diseases [ a ns4:Disease ;
+            ns4:clinicalTnmFinding NCIT:C48700,
+                NCIT:C48750,
+                NCIT:C48766 ;
+            ns4:diseaseStage NCIT:C27971 ;
+            ns4:term NCIT:C39853 ] ;
+    phenopackets:files [ a ns2:File ;
+            ns2:fileAttributes <Dictionary()> ;
+            ns2:individualToFileIdentifiers <Dictionary()> ;
+            ns2:uri "file://data/genomes/germline_wgs.vcf.gz" ] ;
+    phenopackets:id "arbitrary.id" ;
+    phenopackets:metaData [ a ns3:MetaData ;
+            ns3:created "2021-05-14T10:35:00Z" ;
+            ns3:createdBy "anonymous biocurator" ;
+            ns3:phenopacketSchemaVersion "2.0" ;
+            ns3:resources [ a ns3:Resource ;
+                    ns3:id "ncbitaxon" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/NCBITaxon_" ;
+                    ns3:name "NCBI organismal classification" ;
+                    ns3:namespacePrefix "NCBITaxon" ;
+                    ns3:url "http://purl.obolibrary.org/obo/ncbitaxon.owl" ;
+                    ns3:version "2021-06-10" ],
+                [ a ns3:Resource ;
+                    ns3:id "uberon" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
+                    ns3:name "Uber-anatomy ontology" ;
+                    ns3:namespacePrefix "UBERON" ;
+                    ns3:url "http://purl.obolibrary.org/obo/uberon.owl" ;
+                    ns3:version "2021-07-27" ],
+                [ a ns3:Resource ;
+                    ns3:id "ncit" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns3:name "NCI Thesaurus" ;
+                    ns3:namespacePrefix "NCIT" ;
+                    ns3:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns3:version "21.05d" ],
+                [ a ns3:Resource ;
+                    ns3:id "efo" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/EFO_" ;
+                    ns3:name "Experimental Factor Ontology" ;
+                    ns3:namespacePrefix "EFO" ;
+                    ns3:url "http://www.ebi.ac.uk/efo/efo.owl" ;
+                    ns3:version "3.34.0" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns6:PhenotypicFeature ;
+            ns6:type HP:0000790 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:severity HP:0012828 ;
+            ns6:type HP:0100518 ] ;
+    phenopackets:subject [ a ns5:Individual ;
+            ns5:dateOfBirth "1964-03-15T00:00:00Z" ;
+            ns5:id "patient1" ;
+            ns5:sex "MALE" ] .
+

@@ -1,0 +1,137 @@
+@prefix GENO: <http://purl.obolibrary.org/obo/GENO_> .
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
+@prefix MONDO: <http://purl.obolibrary.org/obo/MONDO_> .
+@prefix ns1: <vrs:> .
+@prefix ns2: <meta_data:> .
+@prefix ns3: <individual:> .
+@prefix ns4: <phenotypic_feature:> .
+@prefix ns5: <vrsatile:> .
+@prefix ns6: <interpretation:> .
+@prefix ns7: <base:> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+GENO:0000134 a ns7:OntologyClass ;
+    ns7:label "hemizygous" .
+
+HP:0003236 a ns7:OntologyClass ;
+    ns7:label "Elevated circulating creatine kinase concentration" .
+
+HP:0003458 a ns7:OntologyClass ;
+    ns7:label "EMG: myopathic abnormalities" .
+
+HP:0003707 a ns7:OntologyClass ;
+    ns7:label "Calf muscle pseudohypertrophy" .
+
+HP:0009046 a ns7:OntologyClass ;
+    ns7:label "Difficulty running" .
+
+HP:0031936 a ns7:OntologyClass ;
+    ns7:label "Delayed ability to walk" .
+
+MONDO:0010679 a ns7:OntologyClass ;
+    ns7:label "Duchenne muscular dystrophy" .
+
+HP:0011463 a ns7:OntologyClass ;
+    ns7:label "Childhood onset" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:id "arbitrary.id" ;
+    phenopackets:interpretations [ a ns6:Interpretation ;
+            ns6:diagnosis [ a ns6:Diagnosis ;
+                    ns6:disease MONDO:0010679 ;
+                    ns6:genomicInterpretations [ a ns6:GenomicInterpretation ;
+                            ns6:interpretationStatus "CAUSATIVE" ;
+                            ns6:subjectOrBiosampleId "10-year old boy" ;
+                            ns6:variantInterpretation [ a ns6:VariantInterpretation ;
+                                    ns6:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns6:therapeuticActionability "UNKNOWN_ACTIONABILITY" ;
+                                    ns6:variationDescriptor [ a ns5:VariationDescriptor ;
+                                            ns5:allelicState GENO:0000134 ;
+                                            ns5:expressions [ a ns5:Expression ;
+                                                    ns5:syntax "hgvs.c" ;
+                                                    ns5:value "NM_004006.3:c.7310-11543_7359del" ],
+                                                [ a ns5:Expression ;
+                                                    ns5:syntax "transcript_reference" ;
+                                                    ns5:value "NM_004006.3" ] ;
+                                            ns5:geneContext [ a ns5:GeneDescriptor ;
+                                                    ns5:symbol "DMD" ;
+                                                    ns5:valueId "HGNC:2928" ] ;
+                                            ns5:id "variant-id" ;
+                                            ns5:moleculeContext "genomic" ;
+                                            ns5:variation [ a ns1:Variation ;
+                                                    ns1:copyNumber [ a ns1:CopyNumber ;
+                                                            ns1:derivedSequenceExpression [ a ns1:DerivedSequenceExpression ;
+                                                                    ns1:location [ a ns1:SequenceLocation ;
+                                                                            ns1:sequenceId "refseq:NC_000023.11" ;
+                                                                            ns1:sequenceInterval [ a ns1:SequenceInterval ;
+                                                                                    ns1:endNumber [ a ns1:Number ;
+                                                                                            ns1:value 31785736 ] ;
+                                                                                    ns1:startNumber [ a ns1:Number ;
+                                                                                            ns1:value 31774144 ] ] ] ;
+                                                                    ns1:reverseComplement false ] ;
+                                                            ns1:number [ a ns1:Number ;
+                                                                    ns1:value 1 ] ] ] ] ] ] ] ;
+            ns6:id "interpretation.id" ;
+            ns6:progressStatus "SOLVED" ] ;
+    phenopackets:metaData [ a ns2:MetaData ;
+            ns2:created "2021-05-14T10:35:00Z" ;
+            ns2:createdBy "anonymous biocurator" ;
+            ns2:phenopacketSchemaVersion "2.0.0" ;
+            ns2:resources [ a ns2:Resource ;
+                    ns2:id "hp" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns2:name "human phenotype ontology" ;
+                    ns2:namespacePrefix "HP" ;
+                    ns2:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns2:version "2022-06-11" ],
+                [ a ns2:Resource ;
+                    ns2:id "geno" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
+                    ns2:name "Genotype Ontology" ;
+                    ns2:namespacePrefix "GENO" ;
+                    ns2:url "http://purl.obolibrary.org/obo/geno.owl" ;
+                    ns2:version "2022-03-05" ],
+                [ a ns2:Resource ;
+                    ns2:id "mondo" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/MONDO_" ;
+                    ns2:name "Mondo Disease Ontology" ;
+                    ns2:namespacePrefix "MONDO" ;
+                    ns2:url "http://purl.obolibrary.org/obo/mondo.obo" ;
+                    ns2:version "2022-04-04" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns4:PhenotypicFeature ;
+            ns4:excluded false ;
+            ns4:onset [ a ns7:TimeElement ;
+                    ns7:age [ a ns7:Age ;
+                            ns7:iso8601duration "P10Y" ] ] ;
+            ns4:type HP:0003458 ],
+        [ a ns4:PhenotypicFeature ;
+            ns4:excluded false ;
+            ns4:onset [ a ns7:TimeElement ;
+                    ns7:age [ a ns7:Age ;
+                            ns7:iso8601duration "P1Y6M" ] ] ;
+            ns4:type HP:0031936 ],
+        [ a ns4:PhenotypicFeature ;
+            ns4:excluded false ;
+            ns4:onset [ a ns7:TimeElement ;
+                    ns7:ontologyClass HP:0011463 ] ;
+            ns4:type HP:0003707 ],
+        [ a ns4:PhenotypicFeature ;
+            ns4:excluded false ;
+            ns4:onset [ a ns7:TimeElement ;
+                    ns7:ontologyClass HP:0011463 ] ;
+            ns4:type HP:0009046 ],
+        [ a ns4:PhenotypicFeature ;
+            ns4:excluded false ;
+            ns4:onset [ a ns7:TimeElement ;
+                    ns7:age [ a ns7:Age ;
+                            ns7:iso8601duration "P10Y" ] ] ;
+            ns4:type HP:0003236 ] ;
+    phenopackets:subject [ a ns3:Individual ;
+            ns3:id "10-year old boy" ;
+            ns3:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns3:sex "MALE" ;
+            ns3:timeAtLastEncounter [ a ns7:TimeElement ;
+                    ns7:age [ a ns7:Age ;
+                            ns7:iso8601duration "P10Y" ] ] ] .
+

@@ -1,0 +1,355 @@
+{
+  "metaData": {
+    "created": "2021-08-17T00:00:00Z",
+    "createdBy": "anonymous biocurator",
+    "externalReferences": [
+      {
+        "description": "The Imperfect Cytokine Storm: Severe COVID-19 With ARDS in a Patient on Durable LVAD Support",
+        "id": "DOI:10.1016/j.jaccas.2020.04.001",
+        "reference": "PMID:32292915"
+      }
+    ],
+    "phenopacketSchemaVersion": "2.0",
+    "resources": [
+      {
+        "id": "ncit",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_",
+        "name": "NCI Thesaurus",
+        "namespacePrefix": "NCIT",
+        "url": "http://purl.obolibrary.org/obo/ncit.owl",
+        "version": "2019-11-26"
+      },
+      {
+        "id": "mondo",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_",
+        "name": "Mondo Disease Ontology",
+        "namespacePrefix": "MONDO",
+        "url": "http://purl.obolibrary.org/obo/mondo.obo",
+        "version": "2021-11-26"
+      }
+    ]
+  },
+  "diseases": [
+    {
+      "excluded": true,
+      "term": {
+        "id": "MONDO:0005015",
+        "label": "diabetes mellitus"
+      }
+    },
+    {
+      "term": {
+        "id": "MONDO:0004994",
+        "label": "cardiomyopathy"
+      }
+    },
+    {
+      "onset": {
+        "timestamp": "2020-03-17T00:00:00Z"
+      },
+      "term": {
+        "id": "MONDO:0100096",
+        "label": "COVID-19"
+      }
+    }
+  ],
+  "id": "arbitrary.phenopacket.id",
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:26474-7",
+        "label": "Lymphocytes [#/volume] in Blood"
+      },
+      "timeObserved": {
+        "interval": {
+          "end": "2020-03-01T00:00:00Z",
+          "start": "2019-09-01T00:00:00Z"
+        }
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "NCIT:C67245",
+            "label": "Thousand Cells"
+          },
+          "value": 1.4
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:26474-7",
+        "label": "Lymphocytes [#/volume] in Blood"
+      },
+      "timeObserved": {
+        "timestamp": "2020-03-20T00:00:00Z"
+      },
+      "value": {
+        "quantity": {
+          "unit": {
+            "id": "NCIT:C67245",
+            "label": "Thousand Cells"
+          },
+          "value": 0.7
+        }
+      }
+    }
+  ],
+  "medicalActions": [
+    {
+      "procedure": {
+        "code": {
+          "id": "NCIT:C80473",
+          "label": "Left Ventricular Assist Device"
+        },
+        "performed": {
+          "timestamp": "2016-01-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "NCIT:C722",
+          "label": "Oxygen"
+        },
+        "doseIntervals": [
+          {
+            "interval": {
+              "end": "2021-02-02T08:22:42Z",
+              "start": "2021-02-01T18:58:43Z"
+            },
+            "quantity": {
+              "unit": {
+                "id": "NCIT:C67388",
+                "label": "Liter per Minute"
+              },
+              "value": 2.0
+            },
+            "scheduleFrequency": {
+              "id": "PATO:0000689",
+              "label": "continuous"
+            }
+          },
+          {
+            "interval": {
+              "end": "2021-02-02T12:22:42Z",
+              "start": "2021-02-02T08:22:42Z"
+            },
+            "quantity": {
+              "unit": {
+                "id": "NCIT:C67388",
+                "label": "Liter per Minute"
+              },
+              "value": 50.0
+            },
+            "scheduleFrequency": {
+              "id": "PATO:0000689",
+              "label": "continuous"
+            }
+          }
+        ],
+        "routeOfAdministration": {
+          "id": "NCIT:C38284",
+          "label": "Nasal Route of Administration"
+        }
+      }
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "CHEBI:41879",
+          "label": "dexamethasone"
+        },
+        "doseIntervals": [
+          {
+            "interval": {
+              "end": "2020-03-30T00:00:00Z",
+              "start": "2020-03-20T00:00:00Z"
+            },
+            "quantity": {
+              "unit": {
+                "id": "UO:0000022",
+                "label": "milligram"
+              },
+              "value": 6.0
+            },
+            "scheduleFrequency": {
+              "id": "NCIT:C125004",
+              "label": "Once Daily"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "procedure": {
+        "code": {
+          "id": "NCIT:C116648",
+          "label": "Tracheal Intubation"
+        },
+        "performed": {
+          "timestamp": "2020-03-22T00:00:00Z"
+        }
+      }
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "NCIT:C722",
+          "label": "Oxygen"
+        },
+        "doseIntervals": [
+          {
+            "interval": {
+              "end": "2020-03-28T00:00:00Z",
+              "start": "2020-03-22T00:00:00Z"
+            },
+            "quantity": {
+              "unit": {
+                "id": "NCIT:C91060",
+                "label": "Centimeters of Water"
+              },
+              "value": 14.0
+            },
+            "scheduleFrequency": {
+              "id": "PATO:0000689",
+              "label": "continuous"
+            }
+          }
+        ],
+        "routeOfAdministration": {
+          "id": "NCIT:C50254",
+          "label": "Positive end Expiratory Pressure Valve Device"
+        }
+      }
+    },
+    {
+      "treatment": {
+        "agent": {
+          "id": "NCIT:C84217",
+          "label": "Tocilizumab"
+        },
+        "doseIntervals": [
+          {
+            "interval": {
+              "end": "2020-03-28T00:00:00Z",
+              "start": "2020-03-24T00:00:00Z"
+            },
+            "quantity": {
+              "unit": {
+                "id": "NCIT:C124458",
+                "label": "Milligram per Kilogram per Dose"
+              },
+              "value": 4.0
+            },
+            "scheduleFrequency": {
+              "id": "NCIT:C64529",
+              "label": "Every Four Weeks"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "phenotypicFeatures": [
+    {
+      "onset": {
+        "timestamp": "2021-02-01T05:00:00Z"
+      },
+      "type": {
+        "id": "HP:0001945",
+        "label": "Fever "
+      }
+    },
+    {
+      "onset": {
+        "timestamp": "2021-02-01T05:00:00Z"
+      },
+      "type": {
+        "id": "HP:0030157",
+        "label": "Flank pain"
+      }
+    },
+    {
+      "onset": {
+        "timestamp": "2021-02-01T05:00:00Z"
+      },
+      "type": {
+        "id": "HP:0000790",
+        "label": "Hematuria"
+      }
+    },
+    {
+      "onset": {
+        "timestamp": "2021-02-01T05:00:00Z"
+      },
+      "type": {
+        "id": "HP:0012625",
+        "label": "Stage 3 chronic kidney disease"
+      }
+    },
+    {
+      "onset": {
+        "interval": {
+          "end": "2020-03-20T00:00:00Z",
+          "start": "2020-03-18T00:00:00Z"
+        }
+      },
+      "type": {
+        "id": "HP:0003326",
+        "label": "Myalgia"
+      }
+    },
+    {
+      "onset": {
+        "interval": {
+          "end": "2020-03-20T00:00:00Z",
+          "start": "2020-03-18T00:00:00Z"
+        }
+      },
+      "type": {
+        "id": "HP:0002014",
+        "label": "Diarrhea"
+      }
+    },
+    {
+      "onset": {
+        "interval": {
+          "end": "2020-03-20T00:00:00Z",
+          "start": "2020-03-18T00:00:00Z"
+        }
+      },
+      "type": {
+        "id": "HP:0002094",
+        "label": "Dyspnea"
+      }
+    },
+    {
+      "onset": {
+        "timestamp": "2020-03-20T00:00:00Z"
+      },
+      "type": {
+        "id": "HP:0033677",
+        "label": "Acute respiratory distress syndrome"
+      }
+    }
+  ],
+  "subject": {
+    "id": "P123542",
+    "sex": "MALE",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P70Y"
+      }
+    },
+    "vitalStatus": {
+      "causeOfDeath": {
+        "id": "MONDO:0100096",
+        "label": "COVID-19"
+      },
+      "status": "DECEASED"
+    }
+  },
+  "@type": "Phenopacket"
+}

@@ -1,0 +1,32 @@
+@prefix OMIM: <http://omim.org/entry/> .
+@prefix ns1: <meta_data:> .
+@prefix ns2: <base:> .
+@prefix ns3: <individual:> .
+@prefix ns4: <disease:> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+
+OMIM:154700 a ns2:OntologyClass ;
+    ns2:label "Marfan syndrome" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:diseases [ a ns4:Disease ;
+            ns4:term OMIM:154700 ] ;
+    phenopackets:id "id-C" ;
+    phenopackets:metaData [ a ns1:MetaData ;
+            ns1:created "2021-05-14T10:35:00Z" ;
+            ns1:createdBy "anonymous biocurator" ;
+            ns1:phenopacketSchemaVersion "2.0" ;
+            ns1:resources [ a ns1:Resource ;
+                    ns1:id "hp" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns1:name "human phenotype ontology" ;
+                    ns1:namespacePrefix "HP" ;
+                    ns1:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns1:version "2021-08-02" ] ] ;
+    phenopackets:subject [ a ns3:Individual ;
+            ns3:id "proband-C" ;
+            ns3:sex "FEMALE" ;
+            ns3:timeAtLastEncounter [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P27Y" ] ] ] .
+

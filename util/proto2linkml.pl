@@ -55,6 +55,14 @@ my $schema = {
         'linkml' => 'https://w3id.org/linkml/',
             'argo' => 'https://docs.icgc-argo.org/dictionary/',
             $id => "$url/",
+            'MONDO' => 'http://purl.obolibrary.org/obo/MONDO_',
+            'UBERON' => 'http://purl.obolibrary.org/obo/UBERON_',
+            'NCIT' => 'http://purl.obolibrary.org/obo/NCIT_',
+            'GENO' => 'http://purl.obolibrary.org/obo/GENO_',
+            'HP' => 'http://purl.obolibrary.org/obo/HP_',
+            'UO' => 'http://purl.obolibrary.org/obo/UO_',
+            'LOINC' => 'https://loinc.org/',
+            'UCUM' => 'http://unitsofmeasure.org/',
     },
     imports => ['linkml:types'],
     classes => {},
@@ -94,6 +102,7 @@ my $e = {};
 my @stack = ();
 my @oneofs = ();
 my $pack;
+my $current_class;
 while(<>) {
     chomp;
     next if $_ eq "";
@@ -119,6 +128,7 @@ while(<>) {
         $desc = fix_desc($desc);
         $c = {description=>$desc, attributes=>{}};
         $schema->{classes}->{$1} = $c;
+        $current_class = $1;
         if ($1 eq 'Phenopacket') {
             $schema->{classes}->{'Phenopacket'}->{'tree_root'} = 'true';
         }
@@ -173,7 +183,12 @@ while(<>) {
             $c->{attributes}->{$n}->{multivalued} = 'true';
         }
         if ($n eq 'id') {
-            $c->{attributes}->{$n}->{identifier} = 'true';
+            if ($desc =~ m@REQUIRED@) {
+                $c->{attributes}->{$n}->{identifier} = 'true';
+            }
+            else {
+                warn "id for $current_class not required";
+            }
             #$c->{attributes}->{$n}->{range} = 'IdentifierString';
             $c->{attributes}->{$n}->{range} = 'string';
             $c->{attributes}->{$n}->{annotations}->{percent_encoded} = 'true';

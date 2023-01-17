@@ -51,7 +51,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: "for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org"
-        identifier: true
         range: string
       iriPrefix: 
         annotations: 
@@ -109,6 +108,14 @@ imports:
   - base
 name: meta_data
 prefixes: 
+  GENO: http://purl.obolibrary.org/obo/GENO_
+  HP: http://purl.obolibrary.org/obo/HP_
+  LOINC: https://loinc.org/
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  UCUM: http://unitsofmeasure.org/
+  UO: http://purl.obolibrary.org/obo/UO_
   argo: https://docs.icgc-argo.org/dictionary/
   linkml: https://w3id.org/linkml/
   meta_data: https://w3id.org/linkml/phenopackets/meta_data/

@@ -1,5 +1,5 @@
 # Auto generated from phenopackets.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-08-12T12:44:52
+# Generation date: 2023-01-17T12:56:45
 # Schema: phenopackets
 #
 # id: https://w3id.org/linkml/phenopackets/phenopackets
@@ -33,6 +33,14 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 ARGO = CurieNamespace('ARGO', 'https://docs.icgc-argo.org/dictionary/')
+GENO = CurieNamespace('GENO', 'http://purl.obolibrary.org/obo/GENO_')
+HP = CurieNamespace('HP', 'http://purl.obolibrary.org/obo/HP_')
+LOINC = CurieNamespace('LOINC', 'https://loinc.org/')
+MONDO = CurieNamespace('MONDO', 'http://purl.obolibrary.org/obo/MONDO_')
+NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
+UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
+UCUM = CurieNamespace('UCUM', 'http://unitsofmeasure.org/')
+UO = CurieNamespace('UO', 'http://purl.obolibrary.org/obo/UO_')
 ANY = CurieNamespace('any', 'https://w3id.org/linkml/phenopackets/any/')
 ARGO = CurieNamespace('argo', 'https://docs.icgc-argo.org/dictionary/')
 BASE = CurieNamespace('base', 'https://w3id.org/linkml/phenopackets/base/')
@@ -56,71 +64,7 @@ DEFAULT_ = PHENOPACKETS
 # Types
 
 # Class references
-class CohortId(extended_str):
-    pass
-
-
-class FamilyId(extended_str):
-    pass
-
-
-class PhenopacketId(extended_str):
-    pass
-
-
-class ExternalReferenceId(extended_str):
-    pass
-
-
 class OntologyClassId(extended_str):
-    pass
-
-
-class BiosampleId(extended_str):
-    pass
-
-
-class InterpretationId(extended_str):
-    pass
-
-
-class IndividualId(extended_str):
-    pass
-
-
-class ResourceId(extended_str):
-    pass
-
-
-class VariationDescriptorId(extended_str):
-    pass
-
-
-class VcfRecordId(extended_str):
-    pass
-
-
-class AlleleId(extended_str):
-    pass
-
-
-class ChromosomeLocationId(extended_str):
-    pass
-
-
-class CopyNumberId(extended_str):
-    pass
-
-
-class MemberId(extended_str):
-    pass
-
-
-class SequenceLocationId(extended_str):
-    pass
-
-
-class TextId(extended_str):
     pass
 
 
@@ -136,18 +80,13 @@ class Cohort(YAMLRoot):
     class_name: ClassVar[str] = "Cohort"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Cohort
 
-    id: Union[str, CohortId] = None
     metaData: Union[dict, "MetaData"] = None
     description: Optional[str] = None
     files: Optional[Union[Union[dict, "File"], List[Union[dict, "File"]]]] = empty_list()
-    members: Optional[Union[Union[str, PhenopacketId], List[Union[str, PhenopacketId]]]] = empty_list()
+    id: Optional[str] = None
+    members: Optional[Union[Union[dict, "Phenopacket"], List[Union[dict, "Phenopacket"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, CohortId):
-            self.id = CohortId(self.id)
-
         if self._is_empty(self.metaData):
             self.MissingRequiredField("metaData")
         if not isinstance(self.metaData, MetaData):
@@ -160,9 +99,10 @@ class Cohort(YAMLRoot):
             self.files = [self.files] if self.files is not None else []
         self.files = [v if isinstance(v, File) else File(**as_dict(v)) for v in self.files]
 
-        if not isinstance(self.members, list):
-            self.members = [self.members] if self.members is not None else []
-        self.members = [v if isinstance(v, PhenopacketId) else PhenopacketId(v) for v in self.members]
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
+        self._normalize_inlined_as_dict(slot_name="members", slot_type=Phenopacket, key_name="metaData", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -181,20 +121,15 @@ class Family(YAMLRoot):
     class_name: ClassVar[str] = "Family"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Family
 
-    id: Union[str, FamilyId] = None
     metaData: Union[dict, "MetaData"] = None
     consanguinousParents: Optional[Union[bool, Bool]] = None
     files: Optional[Union[Union[dict, "File"], List[Union[dict, "File"]]]] = empty_list()
+    id: Optional[str] = None
     pedigree: Optional[Union[dict, "Pedigree"]] = None
-    proband: Optional[Union[str, PhenopacketId]] = None
-    relatives: Optional[Union[Union[str, PhenopacketId], List[Union[str, PhenopacketId]]]] = empty_list()
+    proband: Optional[Union[dict, "Phenopacket"]] = None
+    relatives: Optional[Union[Union[dict, "Phenopacket"], List[Union[dict, "Phenopacket"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, FamilyId):
-            self.id = FamilyId(self.id)
-
         if self._is_empty(self.metaData):
             self.MissingRequiredField("metaData")
         if not isinstance(self.metaData, MetaData):
@@ -207,15 +142,16 @@ class Family(YAMLRoot):
             self.files = [self.files] if self.files is not None else []
         self.files = [v if isinstance(v, File) else File(**as_dict(v)) for v in self.files]
 
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
         if self.pedigree is not None and not isinstance(self.pedigree, Pedigree):
             self.pedigree = Pedigree(**as_dict(self.pedigree))
 
-        if self.proband is not None and not isinstance(self.proband, PhenopacketId):
-            self.proband = PhenopacketId(self.proband)
+        if self.proband is not None and not isinstance(self.proband, Phenopacket):
+            self.proband = Phenopacket(**as_dict(self.proband))
 
-        if not isinstance(self.relatives, list):
-            self.relatives = [self.relatives] if self.relatives is not None else []
-        self.relatives = [v if isinstance(v, PhenopacketId) else PhenopacketId(v) for v in self.relatives]
+        self._normalize_inlined_as_dict(slot_name="relatives", slot_type=Phenopacket, key_name="metaData", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -235,23 +171,18 @@ class Phenopacket(YAMLRoot):
     class_name: ClassVar[str] = "Phenopacket"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Phenopacket
 
-    id: Union[str, PhenopacketId] = None
     metaData: Union[dict, "MetaData"] = None
-    biosamples: Optional[Union[Union[str, BiosampleId], List[Union[str, BiosampleId]]]] = empty_list()
+    biosamples: Optional[Union[Union[dict, "Biosample"], List[Union[dict, "Biosample"]]]] = empty_list()
     diseases: Optional[Union[Union[dict, "Disease"], List[Union[dict, "Disease"]]]] = empty_list()
     files: Optional[Union[Union[dict, "File"], List[Union[dict, "File"]]]] = empty_list()
-    interpretations: Optional[Union[Union[str, InterpretationId], List[Union[str, InterpretationId]]]] = empty_list()
+    id: Optional[str] = None
+    interpretations: Optional[Union[Union[dict, "Interpretation"], List[Union[dict, "Interpretation"]]]] = empty_list()
     measurements: Optional[Union[Union[dict, "Measurement"], List[Union[dict, "Measurement"]]]] = empty_list()
     medicalActions: Optional[Union[Union[dict, "MedicalAction"], List[Union[dict, "MedicalAction"]]]] = empty_list()
     phenotypicFeatures: Optional[Union[Union[dict, "PhenotypicFeature"], List[Union[dict, "PhenotypicFeature"]]]] = empty_list()
-    subject: Optional[Union[str, IndividualId]] = None
+    subject: Optional[Union[dict, "Individual"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, PhenopacketId):
-            self.id = PhenopacketId(self.id)
-
         if self._is_empty(self.metaData):
             self.MissingRequiredField("metaData")
         if not isinstance(self.metaData, MetaData):
@@ -259,7 +190,7 @@ class Phenopacket(YAMLRoot):
 
         if not isinstance(self.biosamples, list):
             self.biosamples = [self.biosamples] if self.biosamples is not None else []
-        self.biosamples = [v if isinstance(v, BiosampleId) else BiosampleId(v) for v in self.biosamples]
+        self.biosamples = [v if isinstance(v, Biosample) else Biosample(**as_dict(v)) for v in self.biosamples]
 
         if not isinstance(self.diseases, list):
             self.diseases = [self.diseases] if self.diseases is not None else []
@@ -269,9 +200,12 @@ class Phenopacket(YAMLRoot):
             self.files = [self.files] if self.files is not None else []
         self.files = [v if isinstance(v, File) else File(**as_dict(v)) for v in self.files]
 
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
         if not isinstance(self.interpretations, list):
             self.interpretations = [self.interpretations] if self.interpretations is not None else []
-        self.interpretations = [v if isinstance(v, InterpretationId) else InterpretationId(v) for v in self.interpretations]
+        self.interpretations = [v if isinstance(v, Interpretation) else Interpretation(**as_dict(v)) for v in self.interpretations]
 
         if not isinstance(self.measurements, list):
             self.measurements = [self.measurements] if self.measurements is not None else []
@@ -285,8 +219,8 @@ class Phenopacket(YAMLRoot):
             self.phenotypicFeatures = [self.phenotypicFeatures] if self.phenotypicFeatures is not None else []
         self.phenotypicFeatures = [v if isinstance(v, PhenotypicFeature) else PhenotypicFeature(**as_dict(v)) for v in self.phenotypicFeatures]
 
-        if self.subject is not None and not isinstance(self.subject, IndividualId):
-            self.subject = IndividualId(self.subject)
+        if self.subject is not None and not isinstance(self.subject, Individual):
+            self.subject = Individual(**as_dict(self.subject))
 
         super().__post_init__(**kwargs)
 
@@ -356,15 +290,15 @@ class Evidence(YAMLRoot):
     class_name: ClassVar[str] = "Evidence"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Evidence
 
-    evidenceCode: Optional[Union[str, OntologyClassId]] = None
-    reference: Optional[Union[str, ExternalReferenceId]] = None
+    evidenceCode: Optional[Union[dict, "OntologyClass"]] = None
+    reference: Optional[Union[dict, "ExternalReference"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.evidenceCode is not None and not isinstance(self.evidenceCode, OntologyClassId):
-            self.evidenceCode = OntologyClassId(self.evidenceCode)
+        if self.evidenceCode is not None and not isinstance(self.evidenceCode, OntologyClass):
+            self.evidenceCode = OntologyClass(**as_dict(self.evidenceCode))
 
-        if self.reference is not None and not isinstance(self.reference, ExternalReferenceId):
-            self.reference = ExternalReferenceId(self.reference)
+        if self.reference is not None and not isinstance(self.reference, ExternalReference):
+            self.reference = ExternalReference(**as_dict(self.reference))
 
         super().__post_init__(**kwargs)
 
@@ -381,18 +315,16 @@ class ExternalReference(YAMLRoot):
     class_name: ClassVar[str] = "ExternalReference"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.ExternalReference
 
-    id: Union[str, ExternalReferenceId] = None
     description: Optional[str] = None
+    id: Optional[str] = None
     reference: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ExternalReferenceId):
-            self.id = ExternalReferenceId(self.id)
-
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.reference is not None and not isinstance(self.reference, str):
             self.reference = str(self.reference)
@@ -493,16 +425,16 @@ class Procedure(YAMLRoot):
     class_name: ClassVar[str] = "Procedure"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Procedure
 
-    bodySite: Optional[Union[str, OntologyClassId]] = None
-    code: Optional[Union[str, OntologyClassId]] = None
+    bodySite: Optional[Union[dict, OntologyClass]] = None
+    code: Optional[Union[dict, OntologyClass]] = None
     performed: Optional[Union[dict, "TimeElement"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.bodySite is not None and not isinstance(self.bodySite, OntologyClassId):
-            self.bodySite = OntologyClassId(self.bodySite)
+        if self.bodySite is not None and not isinstance(self.bodySite, OntologyClass):
+            self.bodySite = OntologyClass(**as_dict(self.bodySite))
 
-        if self.code is not None and not isinstance(self.code, OntologyClassId):
-            self.code = OntologyClassId(self.code)
+        if self.code is not None and not isinstance(self.code, OntologyClass):
+            self.code = OntologyClass(**as_dict(self.code))
 
         if self.performed is not None and not isinstance(self.performed, TimeElement):
             self.performed = TimeElement(**as_dict(self.performed))
@@ -523,7 +455,7 @@ class TimeElement(YAMLRoot):
     ageRange: Optional[Union[dict, AgeRange]] = None
     gestationalAge: Optional[Union[dict, GestationalAge]] = None
     interval: Optional[Union[dict, "TimeInterval"]] = None
-    ontologyClass: Optional[Union[str, OntologyClassId]] = None
+    ontologyClass: Optional[Union[dict, OntologyClass]] = None
     timestamp: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -539,8 +471,8 @@ class TimeElement(YAMLRoot):
         if self.interval is not None and not isinstance(self.interval, TimeInterval):
             self.interval = TimeInterval(**as_dict(self.interval))
 
-        if self.ontologyClass is not None and not isinstance(self.ontologyClass, OntologyClassId):
-            self.ontologyClass = OntologyClassId(self.ontologyClass)
+        if self.ontologyClass is not None and not isinstance(self.ontologyClass, OntologyClass):
+            self.ontologyClass = OntologyClass(**as_dict(self.ontologyClass))
 
         if self.timestamp is not None and not isinstance(self.timestamp, str):
             self.timestamp = str(self.timestamp)
@@ -587,67 +519,61 @@ class Biosample(YAMLRoot):
     class_name: ClassVar[str] = "Biosample"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Biosample
 
-    id: Union[str, BiosampleId] = None
     derivedFromId: Optional[str] = None
     description: Optional[str] = None
-    diagnosticMarkers: Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]] = empty_list()
+    diagnosticMarkers: Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]] = empty_dict()
     files: Optional[Union[Union[dict, File], List[Union[dict, File]]]] = empty_list()
-    histologicalDiagnosis: Optional[Union[str, OntologyClassId]] = None
+    histologicalDiagnosis: Optional[Union[dict, OntologyClass]] = None
+    id: Optional[str] = None
     individualId: Optional[str] = None
-    materialSample: Optional[Union[str, OntologyClassId]] = None
+    materialSample: Optional[Union[dict, OntologyClass]] = None
     measurements: Optional[Union[Union[dict, "Measurement"], List[Union[dict, "Measurement"]]]] = empty_list()
-    pathologicalStage: Optional[Union[str, OntologyClassId]] = None
-    pathologicalTnmFinding: Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]] = empty_list()
+    pathologicalStage: Optional[Union[dict, OntologyClass]] = None
+    pathologicalTnmFinding: Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]] = empty_dict()
     phenotypicFeatures: Optional[Union[Union[dict, "PhenotypicFeature"], List[Union[dict, "PhenotypicFeature"]]]] = empty_list()
     procedure: Optional[Union[dict, Procedure]] = None
-    sampleProcessing: Optional[Union[str, OntologyClassId]] = None
-    sampleStorage: Optional[Union[str, OntologyClassId]] = None
-    sampleType: Optional[Union[str, OntologyClassId]] = None
-    sampledTissue: Optional[Union[str, OntologyClassId]] = None
-    taxonomy: Optional[Union[str, OntologyClassId]] = None
+    sampleProcessing: Optional[Union[dict, OntologyClass]] = None
+    sampleStorage: Optional[Union[dict, OntologyClass]] = None
+    sampleType: Optional[Union[dict, OntologyClass]] = None
+    sampledTissue: Optional[Union[dict, OntologyClass]] = None
+    taxonomy: Optional[Union[dict, OntologyClass]] = None
     timeOfCollection: Optional[Union[dict, TimeElement]] = None
-    tumorGrade: Optional[Union[str, OntologyClassId]] = None
-    tumorProgression: Optional[Union[str, OntologyClassId]] = None
+    tumorGrade: Optional[Union[dict, OntologyClass]] = None
+    tumorProgression: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, BiosampleId):
-            self.id = BiosampleId(self.id)
-
         if self.derivedFromId is not None and not isinstance(self.derivedFromId, str):
             self.derivedFromId = str(self.derivedFromId)
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
 
-        if not isinstance(self.diagnosticMarkers, list):
-            self.diagnosticMarkers = [self.diagnosticMarkers] if self.diagnosticMarkers is not None else []
-        self.diagnosticMarkers = [v if isinstance(v, OntologyClassId) else OntologyClassId(v) for v in self.diagnosticMarkers]
+        self._normalize_inlined_as_dict(slot_name="diagnosticMarkers", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if not isinstance(self.files, list):
             self.files = [self.files] if self.files is not None else []
         self.files = [v if isinstance(v, File) else File(**as_dict(v)) for v in self.files]
 
-        if self.histologicalDiagnosis is not None and not isinstance(self.histologicalDiagnosis, OntologyClassId):
-            self.histologicalDiagnosis = OntologyClassId(self.histologicalDiagnosis)
+        if self.histologicalDiagnosis is not None and not isinstance(self.histologicalDiagnosis, OntologyClass):
+            self.histologicalDiagnosis = OntologyClass(**as_dict(self.histologicalDiagnosis))
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.individualId is not None and not isinstance(self.individualId, str):
             self.individualId = str(self.individualId)
 
-        if self.materialSample is not None and not isinstance(self.materialSample, OntologyClassId):
-            self.materialSample = OntologyClassId(self.materialSample)
+        if self.materialSample is not None and not isinstance(self.materialSample, OntologyClass):
+            self.materialSample = OntologyClass(**as_dict(self.materialSample))
 
         if not isinstance(self.measurements, list):
             self.measurements = [self.measurements] if self.measurements is not None else []
         self.measurements = [v if isinstance(v, Measurement) else Measurement(**as_dict(v)) for v in self.measurements]
 
-        if self.pathologicalStage is not None and not isinstance(self.pathologicalStage, OntologyClassId):
-            self.pathologicalStage = OntologyClassId(self.pathologicalStage)
+        if self.pathologicalStage is not None and not isinstance(self.pathologicalStage, OntologyClass):
+            self.pathologicalStage = OntologyClass(**as_dict(self.pathologicalStage))
 
-        if not isinstance(self.pathologicalTnmFinding, list):
-            self.pathologicalTnmFinding = [self.pathologicalTnmFinding] if self.pathologicalTnmFinding is not None else []
-        self.pathologicalTnmFinding = [v if isinstance(v, OntologyClassId) else OntologyClassId(v) for v in self.pathologicalTnmFinding]
+        self._normalize_inlined_as_dict(slot_name="pathologicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if not isinstance(self.phenotypicFeatures, list):
             self.phenotypicFeatures = [self.phenotypicFeatures] if self.phenotypicFeatures is not None else []
@@ -656,29 +582,29 @@ class Biosample(YAMLRoot):
         if self.procedure is not None and not isinstance(self.procedure, Procedure):
             self.procedure = Procedure(**as_dict(self.procedure))
 
-        if self.sampleProcessing is not None and not isinstance(self.sampleProcessing, OntologyClassId):
-            self.sampleProcessing = OntologyClassId(self.sampleProcessing)
+        if self.sampleProcessing is not None and not isinstance(self.sampleProcessing, OntologyClass):
+            self.sampleProcessing = OntologyClass(**as_dict(self.sampleProcessing))
 
-        if self.sampleStorage is not None and not isinstance(self.sampleStorage, OntologyClassId):
-            self.sampleStorage = OntologyClassId(self.sampleStorage)
+        if self.sampleStorage is not None and not isinstance(self.sampleStorage, OntologyClass):
+            self.sampleStorage = OntologyClass(**as_dict(self.sampleStorage))
 
-        if self.sampleType is not None and not isinstance(self.sampleType, OntologyClassId):
-            self.sampleType = OntologyClassId(self.sampleType)
+        if self.sampleType is not None and not isinstance(self.sampleType, OntologyClass):
+            self.sampleType = OntologyClass(**as_dict(self.sampleType))
 
-        if self.sampledTissue is not None and not isinstance(self.sampledTissue, OntologyClassId):
-            self.sampledTissue = OntologyClassId(self.sampledTissue)
+        if self.sampledTissue is not None and not isinstance(self.sampledTissue, OntologyClass):
+            self.sampledTissue = OntologyClass(**as_dict(self.sampledTissue))
 
-        if self.taxonomy is not None and not isinstance(self.taxonomy, OntologyClassId):
-            self.taxonomy = OntologyClassId(self.taxonomy)
+        if self.taxonomy is not None and not isinstance(self.taxonomy, OntologyClass):
+            self.taxonomy = OntologyClass(**as_dict(self.taxonomy))
 
         if self.timeOfCollection is not None and not isinstance(self.timeOfCollection, TimeElement):
             self.timeOfCollection = TimeElement(**as_dict(self.timeOfCollection))
 
-        if self.tumorGrade is not None and not isinstance(self.tumorGrade, OntologyClassId):
-            self.tumorGrade = OntologyClassId(self.tumorGrade)
+        if self.tumorGrade is not None and not isinstance(self.tumorGrade, OntologyClass):
+            self.tumorGrade = OntologyClass(**as_dict(self.tumorGrade))
 
-        if self.tumorProgression is not None and not isinstance(self.tumorProgression, OntologyClassId):
-            self.tumorProgression = OntologyClassId(self.tumorProgression)
+        if self.tumorProgression is not None and not isinstance(self.tumorProgression, OntologyClass):
+            self.tumorProgression = OntologyClass(**as_dict(self.tumorProgression))
 
         super().__post_init__(**kwargs)
 
@@ -695,41 +621,37 @@ class Disease(YAMLRoot):
     class_name: ClassVar[str] = "Disease"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Disease
 
-    clinicalTnmFinding: Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]] = empty_list()
-    diseaseStage: Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]] = empty_list()
+    clinicalTnmFinding: Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]] = empty_dict()
+    diseaseStage: Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]] = empty_dict()
     excluded: Optional[Union[bool, Bool]] = None
-    laterality: Optional[Union[str, OntologyClassId]] = None
+    laterality: Optional[Union[dict, OntologyClass]] = None
     onset: Optional[Union[dict, TimeElement]] = None
-    primarySite: Optional[Union[str, OntologyClassId]] = None
+    primarySite: Optional[Union[dict, OntologyClass]] = None
     resolution: Optional[Union[dict, TimeElement]] = None
-    term: Optional[Union[str, OntologyClassId]] = None
+    term: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.clinicalTnmFinding, list):
-            self.clinicalTnmFinding = [self.clinicalTnmFinding] if self.clinicalTnmFinding is not None else []
-        self.clinicalTnmFinding = [v if isinstance(v, OntologyClassId) else OntologyClassId(v) for v in self.clinicalTnmFinding]
+        self._normalize_inlined_as_dict(slot_name="clinicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
 
-        if not isinstance(self.diseaseStage, list):
-            self.diseaseStage = [self.diseaseStage] if self.diseaseStage is not None else []
-        self.diseaseStage = [v if isinstance(v, OntologyClassId) else OntologyClassId(v) for v in self.diseaseStage]
+        self._normalize_inlined_as_dict(slot_name="diseaseStage", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.excluded is not None and not isinstance(self.excluded, Bool):
             self.excluded = Bool(self.excluded)
 
-        if self.laterality is not None and not isinstance(self.laterality, OntologyClassId):
-            self.laterality = OntologyClassId(self.laterality)
+        if self.laterality is not None and not isinstance(self.laterality, OntologyClass):
+            self.laterality = OntologyClass(**as_dict(self.laterality))
 
         if self.onset is not None and not isinstance(self.onset, TimeElement):
             self.onset = TimeElement(**as_dict(self.onset))
 
-        if self.primarySite is not None and not isinstance(self.primarySite, OntologyClassId):
-            self.primarySite = OntologyClassId(self.primarySite)
+        if self.primarySite is not None and not isinstance(self.primarySite, OntologyClass):
+            self.primarySite = OntologyClass(**as_dict(self.primarySite))
 
         if self.resolution is not None and not isinstance(self.resolution, TimeElement):
             self.resolution = TimeElement(**as_dict(self.resolution))
 
-        if self.term is not None and not isinstance(self.term, OntologyClassId):
-            self.term = OntologyClassId(self.term)
+        if self.term is not None and not isinstance(self.term, OntologyClass):
+            self.term = OntologyClass(**as_dict(self.term))
 
         super().__post_init__(**kwargs)
 
@@ -743,12 +665,12 @@ class Diagnosis(YAMLRoot):
     class_name: ClassVar[str] = "Diagnosis"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Diagnosis
 
-    disease: Optional[Union[str, OntologyClassId]] = None
+    disease: Optional[Union[dict, OntologyClass]] = None
     genomicInterpretations: Optional[Union[Union[dict, "GenomicInterpretation"], List[Union[dict, "GenomicInterpretation"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.disease is not None and not isinstance(self.disease, OntologyClassId):
-            self.disease = OntologyClassId(self.disease)
+        if self.disease is not None and not isinstance(self.disease, OntologyClass):
+            self.disease = OntologyClass(**as_dict(self.disease))
 
         if not isinstance(self.genomicInterpretations, list):
             self.genomicInterpretations = [self.genomicInterpretations] if self.genomicInterpretations is not None else []
@@ -800,19 +722,17 @@ class Interpretation(YAMLRoot):
     class_name: ClassVar[str] = "Interpretation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Interpretation
 
-    id: Union[str, InterpretationId] = None
     diagnosis: Optional[Union[dict, Diagnosis]] = None
+    id: Optional[str] = None
     progressStatus: Optional[Union[str, "ProgressStatus"]] = None
     summary: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, InterpretationId):
-            self.id = InterpretationId(self.id)
-
         if self.diagnosis is not None and not isinstance(self.diagnosis, Diagnosis):
             self.diagnosis = Diagnosis(**as_dict(self.diagnosis))
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.progressStatus is not None and not isinstance(self.progressStatus, ProgressStatus):
             self.progressStatus = ProgressStatus(self.progressStatus)
@@ -834,7 +754,7 @@ class VariantInterpretation(YAMLRoot):
 
     acmgPathogenicityClassification: Optional[Union[str, "AcmgPathogenicityClassification"]] = None
     therapeuticActionability: Optional[Union[str, "TherapeuticActionability"]] = None
-    variationDescriptor: Optional[Union[str, VariationDescriptorId]] = None
+    variationDescriptor: Optional[Union[dict, "VariationDescriptor"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.acmgPathogenicityClassification is not None and not isinstance(self.acmgPathogenicityClassification, AcmgPathogenicityClassification):
@@ -843,8 +763,8 @@ class VariantInterpretation(YAMLRoot):
         if self.therapeuticActionability is not None and not isinstance(self.therapeuticActionability, TherapeuticActionability):
             self.therapeuticActionability = TherapeuticActionability(self.therapeuticActionability)
 
-        if self.variationDescriptor is not None and not isinstance(self.variationDescriptor, VariationDescriptorId):
-            self.variationDescriptor = VariationDescriptorId(self.variationDescriptor)
+        if self.variationDescriptor is not None and not isinstance(self.variationDescriptor, VariationDescriptor):
+            self.variationDescriptor = VariationDescriptor(**as_dict(self.variationDescriptor))
 
         super().__post_init__(**kwargs)
 
@@ -862,22 +782,17 @@ class Individual(YAMLRoot):
     class_name: ClassVar[str] = "Individual"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Individual
 
-    id: Union[str, IndividualId] = None
     alternateIds: Optional[Union[str, List[str]]] = empty_list()
     dateOfBirth: Optional[str] = None
-    gender: Optional[Union[str, OntologyClassId]] = None
+    gender: Optional[Union[dict, OntologyClass]] = None
+    id: Optional[str] = None
     karyotypicSex: Optional[Union[str, "KaryotypicSex"]] = None
     sex: Optional[Union[str, "Sex"]] = None
-    taxonomy: Optional[Union[str, OntologyClassId]] = None
+    taxonomy: Optional[Union[dict, OntologyClass]] = None
     timeAtLastEncounter: Optional[Union[dict, TimeElement]] = None
     vitalStatus: Optional[Union[dict, "VitalStatus"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, IndividualId):
-            self.id = IndividualId(self.id)
-
         if not isinstance(self.alternateIds, list):
             self.alternateIds = [self.alternateIds] if self.alternateIds is not None else []
         self.alternateIds = [v if isinstance(v, str) else str(v) for v in self.alternateIds]
@@ -885,8 +800,11 @@ class Individual(YAMLRoot):
         if self.dateOfBirth is not None and not isinstance(self.dateOfBirth, str):
             self.dateOfBirth = str(self.dateOfBirth)
 
-        if self.gender is not None and not isinstance(self.gender, OntologyClassId):
-            self.gender = OntologyClassId(self.gender)
+        if self.gender is not None and not isinstance(self.gender, OntologyClass):
+            self.gender = OntologyClass(**as_dict(self.gender))
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.karyotypicSex is not None and not isinstance(self.karyotypicSex, KaryotypicSex):
             self.karyotypicSex = KaryotypicSex(self.karyotypicSex)
@@ -894,8 +812,8 @@ class Individual(YAMLRoot):
         if self.sex is not None and not isinstance(self.sex, Sex):
             self.sex = Sex(self.sex)
 
-        if self.taxonomy is not None and not isinstance(self.taxonomy, OntologyClassId):
-            self.taxonomy = OntologyClassId(self.taxonomy)
+        if self.taxonomy is not None and not isinstance(self.taxonomy, OntologyClass):
+            self.taxonomy = OntologyClass(**as_dict(self.taxonomy))
 
         if self.timeAtLastEncounter is not None and not isinstance(self.timeAtLastEncounter, TimeElement):
             self.timeAtLastEncounter = TimeElement(**as_dict(self.timeAtLastEncounter))
@@ -915,14 +833,14 @@ class VitalStatus(YAMLRoot):
     class_name: ClassVar[str] = "VitalStatus"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.VitalStatus
 
-    causeOfDeath: Optional[Union[str, OntologyClassId]] = None
+    causeOfDeath: Optional[Union[dict, OntologyClass]] = None
     status: Optional[Union[str, "Status"]] = None
     survivalTimeInDays: Optional[int] = None
     timeOfDeath: Optional[Union[dict, TimeElement]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.causeOfDeath is not None and not isinstance(self.causeOfDeath, OntologyClassId):
-            self.causeOfDeath = OntologyClassId(self.causeOfDeath)
+        if self.causeOfDeath is not None and not isinstance(self.causeOfDeath, OntologyClass):
+            self.causeOfDeath = OntologyClass(**as_dict(self.causeOfDeath))
 
         if self.status is not None and not isinstance(self.status, Status):
             self.status = Status(self.status)
@@ -967,7 +885,7 @@ class Measurement(YAMLRoot):
     class_name: ClassVar[str] = "Measurement"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Measurement
 
-    assay: Optional[Union[str, OntologyClassId]] = None
+    assay: Optional[Union[dict, OntologyClass]] = None
     complexValue: Optional[Union[dict, ComplexValue]] = None
     description: Optional[str] = None
     procedure: Optional[Union[dict, Procedure]] = None
@@ -975,8 +893,8 @@ class Measurement(YAMLRoot):
     value: Optional[Union[dict, "Value"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.assay is not None and not isinstance(self.assay, OntologyClassId):
-            self.assay = OntologyClassId(self.assay)
+        if self.assay is not None and not isinstance(self.assay, OntologyClass):
+            self.assay = OntologyClass(**as_dict(self.assay))
 
         if self.complexValue is not None and not isinstance(self.complexValue, ComplexValue):
             self.complexValue = ComplexValue(**as_dict(self.complexValue))
@@ -1006,15 +924,15 @@ class Quantity(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Quantity
 
     referenceRange: Optional[Union[dict, "ReferenceRange"]] = None
-    unit: Optional[Union[str, OntologyClassId]] = None
+    unit: Optional[Union[dict, OntologyClass]] = None
     value: Optional[float] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.referenceRange is not None and not isinstance(self.referenceRange, ReferenceRange):
             self.referenceRange = ReferenceRange(**as_dict(self.referenceRange))
 
-        if self.unit is not None and not isinstance(self.unit, OntologyClassId):
-            self.unit = OntologyClassId(self.unit)
+        if self.unit is not None and not isinstance(self.unit, OntologyClass):
+            self.unit = OntologyClass(**as_dict(self.unit))
 
         if self.value is not None and not isinstance(self.value, float):
             self.value = float(self.value)
@@ -1033,7 +951,7 @@ class ReferenceRange(YAMLRoot):
 
     high: Optional[float] = None
     low: Optional[float] = None
-    unit: Optional[Union[str, OntologyClassId]] = None
+    unit: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.high is not None and not isinstance(self.high, float):
@@ -1042,8 +960,8 @@ class ReferenceRange(YAMLRoot):
         if self.low is not None and not isinstance(self.low, float):
             self.low = float(self.low)
 
-        if self.unit is not None and not isinstance(self.unit, OntologyClassId):
-            self.unit = OntologyClassId(self.unit)
+        if self.unit is not None and not isinstance(self.unit, OntologyClass):
+            self.unit = OntologyClass(**as_dict(self.unit))
 
         super().__post_init__(**kwargs)
 
@@ -1062,14 +980,14 @@ class TypedQuantity(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.TypedQuantity
 
     quantity: Optional[Union[dict, Quantity]] = None
-    type: Optional[Union[str, OntologyClassId]] = None
+    type: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.quantity is not None and not isinstance(self.quantity, Quantity):
             self.quantity = Quantity(**as_dict(self.quantity))
 
-        if self.type is not None and not isinstance(self.type, OntologyClassId):
-            self.type = OntologyClassId(self.type)
+        if self.type is not None and not isinstance(self.type, OntologyClass):
+            self.type = OntologyClass(**as_dict(self.type))
 
         super().__post_init__(**kwargs)
 
@@ -1083,12 +1001,12 @@ class Value(YAMLRoot):
     class_name: ClassVar[str] = "Value"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Value
 
-    ontologyClass: Optional[Union[str, OntologyClassId]] = None
+    ontologyClass: Optional[Union[dict, OntologyClass]] = None
     quantity: Optional[Union[dict, Quantity]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.ontologyClass is not None and not isinstance(self.ontologyClass, OntologyClassId):
-            self.ontologyClass = OntologyClassId(self.ontologyClass)
+        if self.ontologyClass is not None and not isinstance(self.ontologyClass, OntologyClass):
+            self.ontologyClass = OntologyClass(**as_dict(self.ontologyClass))
 
         if self.quantity is not None and not isinstance(self.quantity, Quantity):
             self.quantity = Quantity(**as_dict(self.quantity))
@@ -1110,7 +1028,7 @@ class DoseInterval(YAMLRoot):
 
     interval: Optional[Union[dict, TimeInterval]] = None
     quantity: Optional[Union[dict, Quantity]] = None
-    scheduleFrequency: Optional[Union[str, OntologyClassId]] = None
+    scheduleFrequency: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.interval is not None and not isinstance(self.interval, TimeInterval):
@@ -1119,8 +1037,8 @@ class DoseInterval(YAMLRoot):
         if self.quantity is not None and not isinstance(self.quantity, Quantity):
             self.quantity = Quantity(**as_dict(self.quantity))
 
-        if self.scheduleFrequency is not None and not isinstance(self.scheduleFrequency, OntologyClassId):
-            self.scheduleFrequency = OntologyClassId(self.scheduleFrequency)
+        if self.scheduleFrequency is not None and not isinstance(self.scheduleFrequency, OntologyClass):
+            self.scheduleFrequency = OntologyClass(**as_dict(self.scheduleFrequency))
 
         super().__post_init__(**kwargs)
 
@@ -1137,20 +1055,18 @@ class MedicalAction(YAMLRoot):
     class_name: ClassVar[str] = "MedicalAction"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.MedicalAction
 
-    adverseEvents: Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]] = empty_list()
+    adverseEvents: Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]] = empty_dict()
     procedure: Optional[Union[dict, Procedure]] = None
     radiationTherapy: Optional[Union[dict, "RadiationTherapy"]] = None
-    responseToTreatment: Optional[Union[str, OntologyClassId]] = None
+    responseToTreatment: Optional[Union[dict, OntologyClass]] = None
     therapeuticRegimen: Optional[Union[dict, "TherapeuticRegimen"]] = None
     treatment: Optional[Union[dict, "Treatment"]] = None
-    treatmentIntent: Optional[Union[str, OntologyClassId]] = None
-    treatmentTarget: Optional[Union[str, OntologyClassId]] = None
-    treatmentTerminationReason: Optional[Union[str, OntologyClassId]] = None
+    treatmentIntent: Optional[Union[dict, OntologyClass]] = None
+    treatmentTarget: Optional[Union[dict, OntologyClass]] = None
+    treatmentTerminationReason: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.adverseEvents, list):
-            self.adverseEvents = [self.adverseEvents] if self.adverseEvents is not None else []
-        self.adverseEvents = [v if isinstance(v, OntologyClassId) else OntologyClassId(v) for v in self.adverseEvents]
+        self._normalize_inlined_as_dict(slot_name="adverseEvents", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.procedure is not None and not isinstance(self.procedure, Procedure):
             self.procedure = Procedure(**as_dict(self.procedure))
@@ -1158,8 +1074,8 @@ class MedicalAction(YAMLRoot):
         if self.radiationTherapy is not None and not isinstance(self.radiationTherapy, RadiationTherapy):
             self.radiationTherapy = RadiationTherapy(**as_dict(self.radiationTherapy))
 
-        if self.responseToTreatment is not None and not isinstance(self.responseToTreatment, OntologyClassId):
-            self.responseToTreatment = OntologyClassId(self.responseToTreatment)
+        if self.responseToTreatment is not None and not isinstance(self.responseToTreatment, OntologyClass):
+            self.responseToTreatment = OntologyClass(**as_dict(self.responseToTreatment))
 
         if self.therapeuticRegimen is not None and not isinstance(self.therapeuticRegimen, TherapeuticRegimen):
             self.therapeuticRegimen = TherapeuticRegimen(**as_dict(self.therapeuticRegimen))
@@ -1167,14 +1083,14 @@ class MedicalAction(YAMLRoot):
         if self.treatment is not None and not isinstance(self.treatment, Treatment):
             self.treatment = Treatment(**as_dict(self.treatment))
 
-        if self.treatmentIntent is not None and not isinstance(self.treatmentIntent, OntologyClassId):
-            self.treatmentIntent = OntologyClassId(self.treatmentIntent)
+        if self.treatmentIntent is not None and not isinstance(self.treatmentIntent, OntologyClass):
+            self.treatmentIntent = OntologyClass(**as_dict(self.treatmentIntent))
 
-        if self.treatmentTarget is not None and not isinstance(self.treatmentTarget, OntologyClassId):
-            self.treatmentTarget = OntologyClassId(self.treatmentTarget)
+        if self.treatmentTarget is not None and not isinstance(self.treatmentTarget, OntologyClass):
+            self.treatmentTarget = OntologyClass(**as_dict(self.treatmentTarget))
 
-        if self.treatmentTerminationReason is not None and not isinstance(self.treatmentTerminationReason, OntologyClassId):
-            self.treatmentTerminationReason = OntologyClassId(self.treatmentTerminationReason)
+        if self.treatmentTerminationReason is not None and not isinstance(self.treatmentTerminationReason, OntologyClass):
+            self.treatmentTerminationReason = OntologyClass(**as_dict(self.treatmentTerminationReason))
 
         super().__post_init__(**kwargs)
 
@@ -1191,16 +1107,16 @@ class RadiationTherapy(YAMLRoot):
     class_name: ClassVar[str] = "RadiationTherapy"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.RadiationTherapy
 
-    bodySite: Union[str, OntologyClassId] = None
+    bodySite: Union[dict, OntologyClass] = None
     dosage: int = None
     fractions: int = None
-    modality: Union[str, OntologyClassId] = None
+    modality: Union[dict, OntologyClass] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.bodySite):
             self.MissingRequiredField("bodySite")
-        if not isinstance(self.bodySite, OntologyClassId):
-            self.bodySite = OntologyClassId(self.bodySite)
+        if not isinstance(self.bodySite, OntologyClass):
+            self.bodySite = OntologyClass(**as_dict(self.bodySite))
 
         if self._is_empty(self.dosage):
             self.MissingRequiredField("dosage")
@@ -1214,8 +1130,8 @@ class RadiationTherapy(YAMLRoot):
 
         if self._is_empty(self.modality):
             self.MissingRequiredField("modality")
-        if not isinstance(self.modality, OntologyClassId):
-            self.modality = OntologyClassId(self.modality)
+        if not isinstance(self.modality, OntologyClass):
+            self.modality = OntologyClass(**as_dict(self.modality))
 
         super().__post_init__(**kwargs)
 
@@ -1233,8 +1149,8 @@ class TherapeuticRegimen(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.TherapeuticRegimen
 
     endTime: Optional[Union[dict, TimeElement]] = None
-    externalReference: Optional[Union[str, ExternalReferenceId]] = None
-    ontologyClass: Optional[Union[str, OntologyClassId]] = None
+    externalReference: Optional[Union[dict, ExternalReference]] = None
+    ontologyClass: Optional[Union[dict, OntologyClass]] = None
     regimenStatus: Optional[Union[str, "RegimenStatus"]] = None
     startTime: Optional[Union[dict, TimeElement]] = None
 
@@ -1242,11 +1158,11 @@ class TherapeuticRegimen(YAMLRoot):
         if self.endTime is not None and not isinstance(self.endTime, TimeElement):
             self.endTime = TimeElement(**as_dict(self.endTime))
 
-        if self.externalReference is not None and not isinstance(self.externalReference, ExternalReferenceId):
-            self.externalReference = ExternalReferenceId(self.externalReference)
+        if self.externalReference is not None and not isinstance(self.externalReference, ExternalReference):
+            self.externalReference = ExternalReference(**as_dict(self.externalReference))
 
-        if self.ontologyClass is not None and not isinstance(self.ontologyClass, OntologyClassId):
-            self.ontologyClass = OntologyClassId(self.ontologyClass)
+        if self.ontologyClass is not None and not isinstance(self.ontologyClass, OntologyClass):
+            self.ontologyClass = OntologyClass(**as_dict(self.ontologyClass))
 
         if self.regimenStatus is not None and not isinstance(self.regimenStatus, RegimenStatus):
             self.regimenStatus = RegimenStatus(self.regimenStatus)
@@ -1269,15 +1185,15 @@ class Treatment(YAMLRoot):
     class_name: ClassVar[str] = "Treatment"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Treatment
 
-    agent: Optional[Union[str, OntologyClassId]] = None
+    agent: Optional[Union[dict, OntologyClass]] = None
     cumulativeDose: Optional[Union[dict, Quantity]] = None
     doseIntervals: Optional[Union[Union[dict, DoseInterval], List[Union[dict, DoseInterval]]]] = empty_list()
     drugType: Optional[Union[str, "DrugType"]] = None
-    routeOfAdministration: Optional[Union[str, OntologyClassId]] = None
+    routeOfAdministration: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.agent is not None and not isinstance(self.agent, OntologyClassId):
-            self.agent = OntologyClassId(self.agent)
+        if self.agent is not None and not isinstance(self.agent, OntologyClass):
+            self.agent = OntologyClass(**as_dict(self.agent))
 
         if self.cumulativeDose is not None and not isinstance(self.cumulativeDose, Quantity):
             self.cumulativeDose = Quantity(**as_dict(self.cumulativeDose))
@@ -1289,8 +1205,8 @@ class Treatment(YAMLRoot):
         if self.drugType is not None and not isinstance(self.drugType, DrugType):
             self.drugType = DrugType(self.drugType)
 
-        if self.routeOfAdministration is not None and not isinstance(self.routeOfAdministration, OntologyClassId):
-            self.routeOfAdministration = OntologyClassId(self.routeOfAdministration)
+        if self.routeOfAdministration is not None and not isinstance(self.routeOfAdministration, OntologyClass):
+            self.routeOfAdministration = OntologyClass(**as_dict(self.routeOfAdministration))
 
         super().__post_init__(**kwargs)
 
@@ -1306,9 +1222,9 @@ class MetaData(YAMLRoot):
 
     created: Optional[str] = None
     createdBy: Optional[str] = None
-    externalReferences: Optional[Union[Union[str, ExternalReferenceId], List[Union[str, ExternalReferenceId]]]] = empty_list()
+    externalReferences: Optional[Union[Union[dict, ExternalReference], List[Union[dict, ExternalReference]]]] = empty_list()
     phenopacketSchemaVersion: Optional[str] = None
-    resources: Optional[Union[Union[str, ResourceId], List[Union[str, ResourceId]]]] = empty_list()
+    resources: Optional[Union[Union[dict, "Resource"], List[Union[dict, "Resource"]]]] = empty_list()
     submittedBy: Optional[str] = None
     updates: Optional[Union[Union[dict, "Update"], List[Union[dict, "Update"]]]] = empty_list()
 
@@ -1321,14 +1237,14 @@ class MetaData(YAMLRoot):
 
         if not isinstance(self.externalReferences, list):
             self.externalReferences = [self.externalReferences] if self.externalReferences is not None else []
-        self.externalReferences = [v if isinstance(v, ExternalReferenceId) else ExternalReferenceId(v) for v in self.externalReferences]
+        self.externalReferences = [v if isinstance(v, ExternalReference) else ExternalReference(**as_dict(v)) for v in self.externalReferences]
 
         if self.phenopacketSchemaVersion is not None and not isinstance(self.phenopacketSchemaVersion, str):
             self.phenopacketSchemaVersion = str(self.phenopacketSchemaVersion)
 
         if not isinstance(self.resources, list):
             self.resources = [self.resources] if self.resources is not None else []
-        self.resources = [v if isinstance(v, ResourceId) else ResourceId(v) for v in self.resources]
+        self.resources = [v if isinstance(v, Resource) else Resource(**as_dict(v)) for v in self.resources]
 
         if self.submittedBy is not None and not isinstance(self.submittedBy, str):
             self.submittedBy = str(self.submittedBy)
@@ -1351,7 +1267,7 @@ class Resource(YAMLRoot):
     class_name: ClassVar[str] = "Resource"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Resource
 
-    id: Union[str, ResourceId] = None
+    id: Optional[str] = None
     iriPrefix: Optional[str] = None
     name: Optional[str] = None
     namespacePrefix: Optional[str] = None
@@ -1359,10 +1275,8 @@ class Resource(YAMLRoot):
     version: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ResourceId):
-            self.id = ResourceId(self.id)
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.iriPrefix is not None and not isinstance(self.iriPrefix, str):
             self.iriPrefix = str(self.iriPrefix)
@@ -1491,11 +1405,11 @@ class PhenotypicFeature(YAMLRoot):
     description: Optional[str] = None
     evidence: Optional[Union[Union[dict, Evidence], List[Union[dict, Evidence]]]] = empty_list()
     excluded: Optional[Union[bool, Bool]] = None
-    modifiers: Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]] = empty_list()
+    modifiers: Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]] = empty_dict()
     onset: Optional[Union[dict, TimeElement]] = None
     resolution: Optional[Union[dict, TimeElement]] = None
-    severity: Optional[Union[str, OntologyClassId]] = None
-    type: Optional[Union[str, OntologyClassId]] = None
+    severity: Optional[Union[dict, OntologyClass]] = None
+    type: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.description is not None and not isinstance(self.description, str):
@@ -1508,9 +1422,7 @@ class PhenotypicFeature(YAMLRoot):
         if self.excluded is not None and not isinstance(self.excluded, Bool):
             self.excluded = Bool(self.excluded)
 
-        if not isinstance(self.modifiers, list):
-            self.modifiers = [self.modifiers] if self.modifiers is not None else []
-        self.modifiers = [v if isinstance(v, OntologyClassId) else OntologyClassId(v) for v in self.modifiers]
+        self._normalize_inlined_as_dict(slot_name="modifiers", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.onset is not None and not isinstance(self.onset, TimeElement):
             self.onset = TimeElement(**as_dict(self.onset))
@@ -1518,11 +1430,11 @@ class PhenotypicFeature(YAMLRoot):
         if self.resolution is not None and not isinstance(self.resolution, TimeElement):
             self.resolution = TimeElement(**as_dict(self.resolution))
 
-        if self.severity is not None and not isinstance(self.severity, OntologyClassId):
-            self.severity = OntologyClassId(self.severity)
+        if self.severity is not None and not isinstance(self.severity, OntologyClass):
+            self.severity = OntologyClass(**as_dict(self.severity))
 
-        if self.type is not None and not isinstance(self.type, OntologyClassId):
-            self.type = OntologyClassId(self.type)
+        if self.type is not None and not isinstance(self.type, OntologyClass):
+            self.type = OntologyClass(**as_dict(self.type))
 
         super().__post_init__(**kwargs)
 
@@ -1693,29 +1605,24 @@ class VariationDescriptor(YAMLRoot):
     class_name: ClassVar[str] = "VariationDescriptor"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.VariationDescriptor
 
-    id: Union[str, VariationDescriptorId] = None
-    allelicState: Optional[Union[str, OntologyClassId]] = None
+    allelicState: Optional[Union[dict, OntologyClass]] = None
     alternateLabels: Optional[Union[str, List[str]]] = empty_list()
     description: Optional[str] = None
     expressions: Optional[Union[Union[dict, Expression], List[Union[dict, Expression]]]] = empty_list()
     extensions: Optional[Union[Union[dict, Extension], List[Union[dict, Extension]]]] = empty_list()
     geneContext: Optional[Union[dict, GeneDescriptor]] = None
+    id: Optional[str] = None
     label: Optional[str] = None
     moleculeContext: Optional[Union[str, "MoleculeContext"]] = None
-    structuralType: Optional[Union[str, OntologyClassId]] = None
+    structuralType: Optional[Union[dict, OntologyClass]] = None
     variation: Optional[Union[dict, "Variation"]] = None
-    vcfRecord: Optional[Union[str, VcfRecordId]] = None
+    vcfRecord: Optional[Union[dict, "VcfRecord"]] = None
     vrsRefAlleleSeq: Optional[str] = None
     xrefs: Optional[Union[str, List[str]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, VariationDescriptorId):
-            self.id = VariationDescriptorId(self.id)
-
-        if self.allelicState is not None and not isinstance(self.allelicState, OntologyClassId):
-            self.allelicState = OntologyClassId(self.allelicState)
+        if self.allelicState is not None and not isinstance(self.allelicState, OntologyClass):
+            self.allelicState = OntologyClass(**as_dict(self.allelicState))
 
         if not isinstance(self.alternateLabels, list):
             self.alternateLabels = [self.alternateLabels] if self.alternateLabels is not None else []
@@ -1735,20 +1642,23 @@ class VariationDescriptor(YAMLRoot):
         if self.geneContext is not None and not isinstance(self.geneContext, GeneDescriptor):
             self.geneContext = GeneDescriptor(**as_dict(self.geneContext))
 
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
         if self.label is not None and not isinstance(self.label, str):
             self.label = str(self.label)
 
         if self.moleculeContext is not None and not isinstance(self.moleculeContext, MoleculeContext):
             self.moleculeContext = MoleculeContext(self.moleculeContext)
 
-        if self.structuralType is not None and not isinstance(self.structuralType, OntologyClassId):
-            self.structuralType = OntologyClassId(self.structuralType)
+        if self.structuralType is not None and not isinstance(self.structuralType, OntologyClass):
+            self.structuralType = OntologyClass(**as_dict(self.structuralType))
 
         if self.variation is not None and not isinstance(self.variation, Variation):
             self.variation = Variation(**as_dict(self.variation))
 
-        if self.vcfRecord is not None and not isinstance(self.vcfRecord, VcfRecordId):
-            self.vcfRecord = VcfRecordId(self.vcfRecord)
+        if self.vcfRecord is not None and not isinstance(self.vcfRecord, VcfRecord):
+            self.vcfRecord = VcfRecord(**as_dict(self.vcfRecord))
 
         if self.vrsRefAlleleSeq is not None and not isinstance(self.vrsRefAlleleSeq, str):
             self.vrsRefAlleleSeq = str(self.vrsRefAlleleSeq)
@@ -1769,22 +1679,17 @@ class VcfRecord(YAMLRoot):
     class_name: ClassVar[str] = "VcfRecord"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.VcfRecord
 
-    id: Union[str, VcfRecordId] = None
     alt: Optional[str] = None
     chrom: Optional[str] = None
     filter: Optional[str] = None
     genomeAssembly: Optional[str] = None
+    id: Optional[str] = None
     info: Optional[str] = None
     pos: Optional[int] = None
     qual: Optional[str] = None
     ref: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, VcfRecordId):
-            self.id = VcfRecordId(self.id)
-
         if self.alt is not None and not isinstance(self.alt, str):
             self.alt = str(self.alt)
 
@@ -1796,6 +1701,9 @@ class VcfRecord(YAMLRoot):
 
         if self.genomeAssembly is not None and not isinstance(self.genomeAssembly, str):
             self.genomeAssembly = str(self.genomeAssembly)
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.info is not None and not isinstance(self.info, str):
             self.info = str(self.info)
@@ -1862,11 +1770,11 @@ class Abundance(YAMLRoot):
     class_name: ClassVar[str] = "Abundance"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Abundance
 
-    copyNumber: Optional[Union[str, CopyNumberId]] = None
+    copyNumber: Optional[Union[dict, "CopyNumber"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumberId):
-            self.copyNumber = CopyNumberId(self.copyNumber)
+        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumber):
+            self.copyNumber = CopyNumber(**as_dict(self.copyNumber))
 
         super().__post_init__(**kwargs)
 
@@ -1880,22 +1788,17 @@ class Allele(YAMLRoot):
     class_name: ClassVar[str] = "Allele"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Allele
 
-    id: Union[str, AlleleId] = None
-    chromosomeLocation: Optional[Union[str, ChromosomeLocationId]] = None
+    chromosomeLocation: Optional[Union[dict, "ChromosomeLocation"]] = None
     curie: Optional[str] = None
     derivedSequenceExpression: Optional[Union[dict, "DerivedSequenceExpression"]] = None
+    id: Optional[str] = None
     literalSequenceExpression: Optional[Union[dict, "LiteralSequenceExpression"]] = None
     repeatedSequenceExpression: Optional[Union[dict, "RepeatedSequenceExpression"]] = None
-    sequenceLocation: Optional[Union[str, SequenceLocationId]] = None
+    sequenceLocation: Optional[Union[dict, "SequenceLocation"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, AlleleId):
-            self.id = AlleleId(self.id)
-
-        if self.chromosomeLocation is not None and not isinstance(self.chromosomeLocation, ChromosomeLocationId):
-            self.chromosomeLocation = ChromosomeLocationId(self.chromosomeLocation)
+        if self.chromosomeLocation is not None and not isinstance(self.chromosomeLocation, ChromosomeLocation):
+            self.chromosomeLocation = ChromosomeLocation(**as_dict(self.chromosomeLocation))
 
         if self.curie is not None and not isinstance(self.curie, str):
             self.curie = str(self.curie)
@@ -1903,14 +1806,17 @@ class Allele(YAMLRoot):
         if self.derivedSequenceExpression is not None and not isinstance(self.derivedSequenceExpression, DerivedSequenceExpression):
             self.derivedSequenceExpression = DerivedSequenceExpression(**as_dict(self.derivedSequenceExpression))
 
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
         if self.literalSequenceExpression is not None and not isinstance(self.literalSequenceExpression, LiteralSequenceExpression):
             self.literalSequenceExpression = LiteralSequenceExpression(**as_dict(self.literalSequenceExpression))
 
         if self.repeatedSequenceExpression is not None and not isinstance(self.repeatedSequenceExpression, RepeatedSequenceExpression):
             self.repeatedSequenceExpression = RepeatedSequenceExpression(**as_dict(self.repeatedSequenceExpression))
 
-        if self.sequenceLocation is not None and not isinstance(self.sequenceLocation, SequenceLocationId):
-            self.sequenceLocation = SequenceLocationId(self.sequenceLocation)
+        if self.sequenceLocation is not None and not isinstance(self.sequenceLocation, SequenceLocation):
+            self.sequenceLocation = SequenceLocation(**as_dict(self.sequenceLocation))
 
         super().__post_init__(**kwargs)
 
@@ -1924,19 +1830,17 @@ class ChromosomeLocation(YAMLRoot):
     class_name: ClassVar[str] = "ChromosomeLocation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.ChromosomeLocation
 
-    id: Union[str, ChromosomeLocationId] = None
     chr: Optional[str] = None
+    id: Optional[str] = None
     interval: Optional[Union[dict, "CytobandInterval"]] = None
     speciesId: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ChromosomeLocationId):
-            self.id = ChromosomeLocationId(self.id)
-
         if self.chr is not None and not isinstance(self.chr, str):
             self.chr = str(self.chr)
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.interval is not None and not isinstance(self.interval, CytobandInterval):
             self.interval = CytobandInterval(**as_dict(self.interval))
@@ -1956,26 +1860,21 @@ class CopyNumber(YAMLRoot):
     class_name: ClassVar[str] = "CopyNumber"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.CopyNumber
 
-    id: Union[str, CopyNumberId] = None
-    allele: Optional[Union[str, AlleleId]] = None
+    allele: Optional[Union[dict, Allele]] = None
     curie: Optional[str] = None
     definiteRange: Optional[Union[dict, "DefiniteRange"]] = None
     derivedSequenceExpression: Optional[Union[dict, "DerivedSequenceExpression"]] = None
     gene: Optional[Union[dict, "Gene"]] = None
     haplotype: Optional[Union[dict, "Haplotype"]] = None
+    id: Optional[str] = None
     indefiniteRange: Optional[Union[dict, "IndefiniteRange"]] = None
     literalSequenceExpression: Optional[Union[dict, "LiteralSequenceExpression"]] = None
     number: Optional[Union[dict, "Number"]] = None
     repeatedSequenceExpression: Optional[Union[dict, "RepeatedSequenceExpression"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, CopyNumberId):
-            self.id = CopyNumberId(self.id)
-
-        if self.allele is not None and not isinstance(self.allele, AlleleId):
-            self.allele = AlleleId(self.allele)
+        if self.allele is not None and not isinstance(self.allele, Allele):
+            self.allele = Allele(**as_dict(self.allele))
 
         if self.curie is not None and not isinstance(self.curie, str):
             self.curie = str(self.curie)
@@ -1991,6 +1890,9 @@ class CopyNumber(YAMLRoot):
 
         if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
             self.haplotype = Haplotype()
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.indefiniteRange is not None and not isinstance(self.indefiniteRange, IndefiniteRange):
             self.indefiniteRange = IndefiniteRange(**as_dict(self.indefiniteRange))
@@ -2060,12 +1962,12 @@ class DerivedSequenceExpression(YAMLRoot):
     class_name: ClassVar[str] = "DerivedSequenceExpression"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.DerivedSequenceExpression
 
-    location: Optional[Union[str, SequenceLocationId]] = None
+    location: Optional[Union[dict, "SequenceLocation"]] = None
     reverseComplement: Optional[Union[bool, Bool]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.location is not None and not isinstance(self.location, SequenceLocationId):
-            self.location = SequenceLocationId(self.location)
+        if self.location is not None and not isinstance(self.location, SequenceLocation):
+            self.location = SequenceLocation(**as_dict(self.location))
 
         if self.reverseComplement is not None and not isinstance(self.reverseComplement, Bool):
             self.reverseComplement = Bool(self.reverseComplement)
@@ -2167,15 +2069,15 @@ class Location(YAMLRoot):
     class_name: ClassVar[str] = "Location"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Location
 
-    chromosomeLocation: Optional[Union[str, ChromosomeLocationId]] = None
-    sequenceLocation: Optional[Union[str, SequenceLocationId]] = None
+    chromosomeLocation: Optional[Union[dict, ChromosomeLocation]] = None
+    sequenceLocation: Optional[Union[dict, "SequenceLocation"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.chromosomeLocation is not None and not isinstance(self.chromosomeLocation, ChromosomeLocationId):
-            self.chromosomeLocation = ChromosomeLocationId(self.chromosomeLocation)
+        if self.chromosomeLocation is not None and not isinstance(self.chromosomeLocation, ChromosomeLocation):
+            self.chromosomeLocation = ChromosomeLocation(**as_dict(self.chromosomeLocation))
 
-        if self.sequenceLocation is not None and not isinstance(self.sequenceLocation, SequenceLocationId):
-            self.sequenceLocation = SequenceLocationId(self.sequenceLocation)
+        if self.sequenceLocation is not None and not isinstance(self.sequenceLocation, SequenceLocation):
+            self.sequenceLocation = SequenceLocation(**as_dict(self.sequenceLocation))
 
         super().__post_init__(**kwargs)
 
@@ -2189,26 +2091,21 @@ class Member(YAMLRoot):
     class_name: ClassVar[str] = "Member"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Member
 
-    id: Union[str, MemberId] = None
-    allele: Optional[Union[str, AlleleId]] = None
-    copyNumber: Optional[Union[str, CopyNumberId]] = None
+    allele: Optional[Union[dict, Allele]] = None
+    copyNumber: Optional[Union[dict, CopyNumber]] = None
     curie: Optional[str] = None
     haplotype: Optional[Union[dict, Haplotype]] = None
-    members: Optional[Union[Union[str, MemberId], List[Union[str, MemberId]]]] = empty_list()
-    text: Optional[Union[str, TextId]] = None
+    id: Optional[str] = None
+    members: Optional[Union[Union[dict, "Member"], List[Union[dict, "Member"]]]] = empty_list()
+    text: Optional[Union[dict, "Text"]] = None
     variationSet: Optional[Union[dict, "VariationSet"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, MemberId):
-            self.id = MemberId(self.id)
+        if self.allele is not None and not isinstance(self.allele, Allele):
+            self.allele = Allele(**as_dict(self.allele))
 
-        if self.allele is not None and not isinstance(self.allele, AlleleId):
-            self.allele = AlleleId(self.allele)
-
-        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumberId):
-            self.copyNumber = CopyNumberId(self.copyNumber)
+        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumber):
+            self.copyNumber = CopyNumber(**as_dict(self.copyNumber))
 
         if self.curie is not None and not isinstance(self.curie, str):
             self.curie = str(self.curie)
@@ -2216,12 +2113,15 @@ class Member(YAMLRoot):
         if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
             self.haplotype = Haplotype()
 
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
         if not isinstance(self.members, list):
             self.members = [self.members] if self.members is not None else []
-        self.members = [v if isinstance(v, MemberId) else MemberId(v) for v in self.members]
+        self.members = [v if isinstance(v, Member) else Member(**as_dict(v)) for v in self.members]
 
-        if self.text is not None and not isinstance(self.text, TextId):
-            self.text = TextId(self.text)
+        if self.text is not None and not isinstance(self.text, Text):
+            self.text = Text(**as_dict(self.text))
 
         if self.variationSet is not None and not isinstance(self.variationSet, VariationSet):
             self.variationSet = VariationSet()
@@ -2238,12 +2138,12 @@ class MolecularVariation(YAMLRoot):
     class_name: ClassVar[str] = "MolecularVariation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.MolecularVariation
 
-    allele: Optional[Union[str, AlleleId]] = None
+    allele: Optional[Union[dict, Allele]] = None
     haplotype: Optional[Union[dict, Haplotype]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.allele is not None and not isinstance(self.allele, AlleleId):
-            self.allele = AlleleId(self.allele)
+        if self.allele is not None and not isinstance(self.allele, Allele):
+            self.allele = Allele(**as_dict(self.allele))
 
         if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
             self.haplotype = Haplotype()
@@ -2376,15 +2276,13 @@ class SequenceLocation(YAMLRoot):
     class_name: ClassVar[str] = "SequenceLocation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.SequenceLocation
 
-    id: Union[str, SequenceLocationId] = None
+    id: Optional[str] = None
     sequenceId: Optional[str] = None
     sequenceInterval: Optional[Union[dict, SequenceInterval]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, SequenceLocationId):
-            self.id = SequenceLocationId(self.id)
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if self.sequenceId is not None and not isinstance(self.sequenceId, str):
             self.sequenceId = str(self.sequenceId)
@@ -2444,11 +2342,11 @@ class SystemicVariation(YAMLRoot):
     class_name: ClassVar[str] = "SystemicVariation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.SystemicVariation
 
-    copyNumber: Optional[Union[str, CopyNumberId]] = None
+    copyNumber: Optional[Union[dict, CopyNumber]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumberId):
-            self.copyNumber = CopyNumberId(self.copyNumber)
+        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumber):
+            self.copyNumber = CopyNumber(**as_dict(self.copyNumber))
 
         super().__post_init__(**kwargs)
 
@@ -2462,17 +2360,15 @@ class Text(YAMLRoot):
     class_name: ClassVar[str] = "Text"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Text
 
-    id: Union[str, TextId] = None
     definition: Optional[str] = None
+    id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, TextId):
-            self.id = TextId(self.id)
-
         if self.definition is not None and not isinstance(self.definition, str):
             self.definition = str(self.definition)
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -2486,12 +2382,12 @@ class UtilityVariation(YAMLRoot):
     class_name: ClassVar[str] = "UtilityVariation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.UtilityVariation
 
-    text: Optional[Union[str, TextId]] = None
+    text: Optional[Union[dict, Text]] = None
     variationSet: Optional[Union[dict, "VariationSet"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.text is not None and not isinstance(self.text, TextId):
-            self.text = TextId(self.text)
+        if self.text is not None and not isinstance(self.text, Text):
+            self.text = Text(**as_dict(self.text))
 
         if self.variationSet is not None and not isinstance(self.variationSet, VariationSet):
             self.variationSet = VariationSet()
@@ -2508,24 +2404,24 @@ class Variation(YAMLRoot):
     class_name: ClassVar[str] = "Variation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Variation
 
-    allele: Optional[Union[str, AlleleId]] = None
-    copyNumber: Optional[Union[str, CopyNumberId]] = None
+    allele: Optional[Union[dict, Allele]] = None
+    copyNumber: Optional[Union[dict, CopyNumber]] = None
     haplotype: Optional[Union[dict, Haplotype]] = None
-    text: Optional[Union[str, TextId]] = None
+    text: Optional[Union[dict, Text]] = None
     variationSet: Optional[Union[dict, "VariationSet"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.allele is not None and not isinstance(self.allele, AlleleId):
-            self.allele = AlleleId(self.allele)
+        if self.allele is not None and not isinstance(self.allele, Allele):
+            self.allele = Allele(**as_dict(self.allele))
 
-        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumberId):
-            self.copyNumber = CopyNumberId(self.copyNumber)
+        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumber):
+            self.copyNumber = CopyNumber(**as_dict(self.copyNumber))
 
         if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
             self.haplotype = Haplotype()
 
-        if self.text is not None and not isinstance(self.text, TextId):
-            self.text = TextId(self.text)
+        if self.text is not None and not isinstance(self.text, Text):
+            self.text = Text(**as_dict(self.text))
 
         if self.variationSet is not None and not isinstance(self.variationSet, VariationSet):
             self.variationSet = VariationSet()
@@ -2627,55 +2523,6 @@ class LOINCMeasurementTerms(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="LOINCMeasurementTerms",
         description="Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations. It can be used to denote clinical assays in the Measurement element.    examples:",
-    )
-
-class OnsetTerms(EnumDefinitionImpl):
-    """
-    permissible values for age of onset, taken from HPO
-    """
-    EMBRYONAL = PermissibleValue(text="EMBRYONAL",
-                                         description="Embryonal onset",
-                                         meaning=HP["0011460"])
-    FETAL = PermissibleValue(text="FETAL",
-                                 description="Fetal onset",
-                                 meaning=HP["0011461"])
-    ANTENATAL = PermissibleValue(text="ANTENATAL",
-                                         description="Antenatal onset",
-                                         meaning=HP["0030674"])
-    CONGENITAL = PermissibleValue(text="CONGENITAL",
-                                           description="Congenital onset",
-                                           meaning=HP["0003577"])
-    NEONATAL = PermissibleValue(text="NEONATAL",
-                                       description="Neonatal onset",
-                                       meaning=HP["0003623"])
-    PEDIATRIC = PermissibleValue(text="PEDIATRIC",
-                                         description="Pediatric onset",
-                                         meaning=HP["0410280"])
-    INFANTILE = PermissibleValue(text="INFANTILE",
-                                         description="Infantile onset",
-                                         meaning=HP["0003593"])
-    JUVENILE = PermissibleValue(text="JUVENILE",
-                                       description="Juvenile onset",
-                                       meaning=HP["0003621"])
-    CHILDHOOD = PermissibleValue(text="CHILDHOOD",
-                                         description="Childhood onset",
-                                         meaning=HP["0011463"])
-    YOUNG_ADULT = PermissibleValue(text="YOUNG_ADULT",
-                                             description="Young adult onset",
-                                             meaning=HP["0011462"])
-    ADULT = PermissibleValue(text="ADULT",
-                                 description="Adult onset",
-                                 meaning=HP["0003581"])
-    MIDDLE_AGE = PermissibleValue(text="MIDDLE_AGE",
-                                           description="Middle age onset",
-                                           meaning=HP["0003596"])
-    LATE = PermissibleValue(text="LATE",
-                               description="Late onset",
-                               meaning=HP["0003584"])
-
-    _defn = EnumDefinition(
-        name="OnsetTerms",
-        description="permissible values for age of onset, taken from HPO",
     )
 
 class AcmgPathogenicityClassification(EnumDefinitionImpl):
@@ -2813,6 +2660,424 @@ class AffectedStatus(EnumDefinitionImpl):
         name="AffectedStatus",
     )
 
+class AllelicStateTerms(EnumDefinitionImpl):
+
+    HETEROZYGOUS = PermissibleValue(text="HETEROZYGOUS",
+                                               description="heterozygous",
+                                               meaning=GENO["0000135"])
+    HOMOZYGOUS = PermissibleValue(text="HOMOZYGOUS",
+                                           description="homozygous",
+                                           meaning=GENO["0000136"])
+    HEMIZYGOUS = PermissibleValue(text="HEMIZYGOUS",
+                                           description="hemizygous",
+                                           meaning=GENO["0000134"])
+
+    _defn = EnumDefinition(
+        name="AllelicStateTerms",
+    )
+
+class AssaysTerms(EnumDefinitionImpl):
+
+    CREATINE_KINASE = PermissibleValue(text="CREATINE_KINASE",
+                                                     description="Creatine kinase [Enzymatic activity/volume] in Serum or Plasma",
+                                                     meaning=LOINC["2157-6"])
+
+    _defn = EnumDefinition(
+        name="AssaysTerms",
+    )
+
+class GenderTerms(EnumDefinitionImpl):
+
+    IDENTIFIES_AS_MALE = PermissibleValue(text="IDENTIFIES_AS_MALE",
+                                                           description="Identifies as male",
+                                                           meaning=LOINC["LA22878-5"])
+    IDENTIFIES_AS_FEMALE = PermissibleValue(text="IDENTIFIES_AS_FEMALE",
+                                                               description="Identifies as female",
+                                                               meaning=LOINC["LA22879-3"])
+    FEMALE_TO_MALE_TRANSSEXUAL = PermissibleValue(text="FEMALE_TO_MALE_TRANSSEXUAL",
+                                                                           description="Female-to-male transsexual",
+                                                                           meaning=LOINC["LA22880-1"])
+    MALE_TO_FEMALE_TRANSSEXUAL = PermissibleValue(text="MALE_TO_FEMALE_TRANSSEXUAL",
+                                                                           description="Male-to-female transsexual",
+                                                                           meaning=LOINC["LA22881-9"])
+    IDENTIFIES_AS_NON_CONFORMING = PermissibleValue(text="IDENTIFIES_AS_NON_CONFORMING",
+                                                                               description="Identifies as non-conforming",
+                                                                               meaning=LOINC["LA22882-7"])
+    OTHER_GENDER = PermissibleValue(text="OTHER_GENDER",
+                                               description="other",
+                                               meaning=LOINC["LA46-8"])
+    ASKED_BUT_UNKNOWN = PermissibleValue(text="ASKED_BUT_UNKNOWN",
+                                                         description="Asked but unknown",
+                                                         meaning=LOINC["LA20384-6"])
+
+    _defn = EnumDefinition(
+        name="GenderTerms",
+    )
+
+class LateralityTerms(EnumDefinitionImpl):
+
+    RIGHT = PermissibleValue(text="RIGHT",
+                                 description="Right",
+                                 meaning=HP["0012834"])
+    LEFT = PermissibleValue(text="LEFT",
+                               description="Left",
+                               meaning=HP["0012835"])
+    UNILATERAL = PermissibleValue(text="UNILATERAL",
+                                           description="Unilateral",
+                                           meaning=HP["0012833"])
+    BILATERAL = PermissibleValue(text="BILATERAL",
+                                         description="Bilateral",
+                                         meaning=HP["0012832"])
+
+    _defn = EnumDefinition(
+        name="LateralityTerms",
+    )
+
+class MedicalActionsTerms(EnumDefinitionImpl):
+
+    ADVERSE_EVENT = PermissibleValue(text="ADVERSE_EVENT",
+                                                 description="Adverse Event",
+                                                 meaning=NCIT.C41331)
+    FOUR_TIMES_DAILY = PermissibleValue(text="FOUR_TIMES_DAILY",
+                                                       description="Four Times Daily",
+                                                       meaning=NCIT.C64530)
+    INTRA_ARTERIAL = PermissibleValue(text="INTRA_ARTERIAL",
+                                                   description="Intraarterial Route of Administration",
+                                                   meaning=NCIT.C38222)
+    IV_ADMINISTRATION = PermissibleValue(text="IV_ADMINISTRATION",
+                                                         description="Intravenous Route of Administration",
+                                                         meaning=NCIT.C38276)
+    ORAL_ADMINISTRATION = PermissibleValue(text="ORAL_ADMINISTRATION",
+                                                             description="Oral Route of Administration",
+                                                             meaning=NCIT.C38288)
+    ONCE = PermissibleValue(text="ONCE",
+                               description="Once",
+                               meaning=NCIT.C64576)
+    ONCE_DAILY = PermissibleValue(text="ONCE_DAILY",
+                                           description="Once Daily",
+                                           meaning=NCIT.C125004)
+    THREE_TIMES_DAILY = PermissibleValue(text="THREE_TIMES_DAILY",
+                                                         description="Three Times Daily",
+                                                         meaning=NCIT.C64527)
+    TWICE_DAILY = PermissibleValue(text="TWICE_DAILY",
+                                             description="Twice Daily",
+                                             meaning=NCIT.C64496)
+
+    _defn = EnumDefinition(
+        name="MedicalActionsTerms",
+    )
+
+class OnsetTerms(EnumDefinitionImpl):
+
+    ANTENATAL_ONSET = PermissibleValue(text="ANTENATAL_ONSET",
+                                                     description="Antenatal onset",
+                                                     meaning=HP["0030674"])
+    EMBRYONAL_ONSET = PermissibleValue(text="EMBRYONAL_ONSET",
+                                                     description="Embryonal onset",
+                                                     meaning=HP["0011460"])
+    FETAL_ONSET = PermissibleValue(text="FETAL_ONSET",
+                                             description="Fetal onset",
+                                             meaning=HP["0011461"])
+    LATE_FIRST_TRIMESTER_ONSET = PermissibleValue(text="LATE_FIRST_TRIMESTER_ONSET",
+                                                                           description="Late first trimester onset",
+                                                                           meaning=HP["0034199"])
+    SECOND_TRIMESTER_ONSET = PermissibleValue(text="SECOND_TRIMESTER_ONSET",
+                                                                   description="Second trimester onset",
+                                                                   meaning=HP["0034198"])
+    THIRD_TRIMESTER_ONSET = PermissibleValue(text="THIRD_TRIMESTER_ONSET",
+                                                                 description="Third trimester onset",
+                                                                 meaning=HP["0034197"])
+    CONGENITAL_ONSET = PermissibleValue(text="CONGENITAL_ONSET",
+                                                       description="Congenital onset",
+                                                       meaning=HP["0003577"])
+    NEONATAL_ONSET = PermissibleValue(text="NEONATAL_ONSET",
+                                                   description="Neonatal onset",
+                                                   meaning=HP["0003623"])
+    INFANTILE_ONSET = PermissibleValue(text="INFANTILE_ONSET",
+                                                     description="Infantile onset",
+                                                     meaning=HP["0003593"])
+    CHILDHOOD_ONSET = PermissibleValue(text="CHILDHOOD_ONSET",
+                                                     description="Childhood onset",
+                                                     meaning=HP["0011463"])
+    JUVENILE_ONSET = PermissibleValue(text="JUVENILE_ONSET",
+                                                   description="Juvenile onset",
+                                                   meaning=HP["0003621"])
+    ADULT_ONSET = PermissibleValue(text="ADULT_ONSET",
+                                             description="Adult onset",
+                                             meaning=HP["0003581"])
+    YOUNG_ADULT_ONSET = PermissibleValue(text="YOUNG_ADULT_ONSET",
+                                                         description="Young adult onset",
+                                                         meaning=HP["0011462"])
+    EARLY_YOUNG_ADULT_ONSET = PermissibleValue(text="EARLY_YOUNG_ADULT_ONSET",
+                                                                     description="Early young adult onset",
+                                                                     meaning=HP["0025708"])
+    INTERMEDIATE_YOUNG_ADULT_ONSET = PermissibleValue(text="INTERMEDIATE_YOUNG_ADULT_ONSET",
+                                                                                   description="Intermediate young adult onset",
+                                                                                   meaning=HP["0025709"])
+    LATE_YOUNG_ADULT_ONSET = PermissibleValue(text="LATE_YOUNG_ADULT_ONSET",
+                                                                   description="Late young adult onset",
+                                                                   meaning=HP["0025710"])
+    MIDDLE_AGE_ONSET = PermissibleValue(text="MIDDLE_AGE_ONSET",
+                                                       description="Middle age onset",
+                                                       meaning=HP["0003596"])
+    LATE_ONSET = PermissibleValue(text="LATE_ONSET",
+                                           description="Late onset",
+                                           meaning=HP["0003584"])
+
+    _defn = EnumDefinition(
+        name="OnsetTerms",
+    )
+
+class OrganTerms(EnumDefinitionImpl):
+
+    BRAIN = PermissibleValue(text="BRAIN",
+                                 description="brain",
+                                 meaning=UBERON["0000955"])
+    CEREBELLUM = PermissibleValue(text="CEREBELLUM",
+                                           description="cerebellum",
+                                           meaning=UBERON["0002037"])
+    EAR = PermissibleValue(text="EAR",
+                             description="ear",
+                             meaning=UBERON["0001690"])
+    EYE = PermissibleValue(text="EYE",
+                             description="eye",
+                             meaning=UBERON["0000970"])
+    HEART = PermissibleValue(text="HEART",
+                                 description="heart",
+                                 meaning=UBERON["0002107"])
+    KIDNEY = PermissibleValue(text="KIDNEY",
+                                   description="kidney",
+                                   meaning=UBERON["0002113"])
+    LARGE_INTESTINE = PermissibleValue(text="LARGE_INTESTINE",
+                                                     description="large intestine",
+                                                     meaning=UBERON["0000059"])
+    LIVER = PermissibleValue(text="LIVER",
+                                 description="liver",
+                                 meaning=UBERON["0002107"])
+    LUNG = PermissibleValue(text="LUNG",
+                               description="lung",
+                               meaning=UBERON["0002048"])
+    NOSE = PermissibleValue(text="NOSE",
+                               description="nose",
+                               meaning=UBERON["0000004"])
+    SMALL_INTESTINE = PermissibleValue(text="SMALL_INTESTINE",
+                                                     description="small intestine",
+                                                     meaning=UBERON["0002108"])
+    SPINAL_CORD = PermissibleValue(text="SPINAL_CORD",
+                                             description="spinal cord",
+                                             meaning=UBERON["0002240"])
+    SPLEEN = PermissibleValue(text="SPLEEN",
+                                   description="spleen",
+                                   meaning=UBERON["0002106"])
+    TONGUE = PermissibleValue(text="TONGUE",
+                                   description="tongue",
+                                   meaning=UBERON["0001723"])
+    THYMUS = PermissibleValue(text="THYMUS",
+                                   description="thymus",
+                                   meaning=UBERON["0002370"])
+
+    _defn = EnumDefinition(
+        name="OrganTerms",
+    )
+
+class ResponseTerms(EnumDefinitionImpl):
+
+    FAVORABLE = PermissibleValue(text="FAVORABLE",
+                                         description="Favorable",
+                                         meaning=NCIT.C102560)
+    UNFAVORABLE = PermissibleValue(text="UNFAVORABLE",
+                                             description="Unfavorable",
+                                             meaning=NCIT.C102561)
+
+    _defn = EnumDefinition(
+        name="ResponseTerms",
+    )
+
+class SpatialPatternTerms(EnumDefinitionImpl):
+
+    PREDOMINANT_SMALL_JOINT_LOCALIZATION = PermissibleValue(text="PREDOMINANT_SMALL_JOINT_LOCALIZATION",
+                                                                                               description="Predominant small joint localization",
+                                                                                               meaning=HP["0032544"])
+    POLYCYCLIC = PermissibleValue(text="POLYCYCLIC",
+                                           description="Polycyclic",
+                                           meaning=HP["0031450"])
+    AXIAL = PermissibleValue(text="AXIAL",
+                                 description="Axial",
+                                 meaning=HP["0025287"])
+    PERILOBULAR = PermissibleValue(text="PERILOBULAR",
+                                             description="Perilobular",
+                                             meaning=HP["0033813"])
+    PARASEPTAL = PermissibleValue(text="PARASEPTAL",
+                                           description="Paraseptal",
+                                           meaning=HP["0033814"])
+    BRONCHOCENTRIC = PermissibleValue(text="BRONCHOCENTRIC",
+                                                   description="Bronchocentric",
+                                                   meaning=HP["0033815"])
+    CENTRILOBULAR = PermissibleValue(text="CENTRILOBULAR",
+                                                 description="Centrilobular",
+                                                 meaning=HP["0033816"])
+    MILIARY = PermissibleValue(text="MILIARY",
+                                     description="Miliary",
+                                     meaning=HP["0033817"])
+    GENERALIZED = PermissibleValue(text="GENERALIZED",
+                                             description="Generalized",
+                                             meaning=HP["0012837"])
+    PERILYMPHATIC = PermissibleValue(text="PERILYMPHATIC",
+                                                 description="Perilymphatic",
+                                                 meaning=HP["0033819"])
+    LOCALIZED = PermissibleValue(text="LOCALIZED",
+                                         description="Localized",
+                                         meaning=HP["0012838"])
+    RETICULAR = PermissibleValue(text="RETICULAR",
+                                         description="Reticular",
+                                         meaning=HP["0033818"])
+    DISTAL = PermissibleValue(text="DISTAL",
+                                   description="Distal",
+                                   meaning=HP["0012839"])
+    CENTRAL = PermissibleValue(text="CENTRAL",
+                                     description="Central",
+                                     meaning=HP["0030645"])
+    UPPER_BODY_PREDOMINANCE = PermissibleValue(text="UPPER_BODY_PREDOMINANCE",
+                                                                     description="Upper-body predominance",
+                                                                     meaning=HP["0025290"])
+    JOINT_EXTENSOR_SURFACE_LOCALIZATION = PermissibleValue(text="JOINT_EXTENSOR_SURFACE_LOCALIZATION",
+                                                                                             description="Joint extensor surface localization",
+                                                                                             meaning=HP["0032539"])
+    HERPETIFORM = PermissibleValue(text="HERPETIFORM",
+                                             description="Herpetiform",
+                                             meaning=HP["0025295"])
+    MORBILLIFORM = PermissibleValue(text="MORBILLIFORM",
+                                               description="Morbilliform",
+                                               meaning=HP["0025296"])
+    PERICENTRAL = PermissibleValue(text="PERICENTRAL",
+                                             description="Pericentral",
+                                             meaning=HP["0030649"])
+    DERMATOMAL = PermissibleValue(text="DERMATOMAL",
+                                           description="Dermatomal",
+                                           meaning=HP["0025294"])
+    MIDPERIPHERAL = PermissibleValue(text="MIDPERIPHERAL",
+                                                 description="Midperipheral",
+                                                 meaning=HP["0030648"])
+    DISTRIBUTED_ALONG_BLASCHKO_LINES = PermissibleValue(text="DISTRIBUTED_ALONG_BLASCHKO_LINES",
+                                                                                       description="Distributed along Blaschko lines",
+                                                                                       meaning=HP["0025293"])
+    ACRAL = PermissibleValue(text="ACRAL",
+                                 description="Acral",
+                                 meaning=HP["0025292"])
+    PARACENTRAL = PermissibleValue(text="PARACENTRAL",
+                                             description="Paracentral",
+                                             meaning=HP["0030647"])
+    LATERAL = PermissibleValue(text="LATERAL",
+                                     description="Lateral",
+                                     meaning=HP["0025275"])
+    PERIPHERAL = PermissibleValue(text="PERIPHERAL",
+                                           description="Peripheral",
+                                           meaning=HP["0030646"])
+    LOWER_BODY_PREDOMINANCE = PermissibleValue(text="LOWER_BODY_PREDOMINANCE",
+                                                                     description="Lower-body predominance",
+                                                                     meaning=HP["0025291"])
+    DIFFUSE = PermissibleValue(text="DIFFUSE",
+                                     description="Diffuse",
+                                     meaning=HP["0020034"])
+    PROXIMAL = PermissibleValue(text="PROXIMAL",
+                                       description="Proximal",
+                                       meaning=HP["0012840"])
+    APICAL = PermissibleValue(text="APICAL",
+                                   description="Apical",
+                                   meaning=HP["0033820"])
+    FOCAL = PermissibleValue(text="FOCAL",
+                                 description="Focal",
+                                 meaning=HP["0030650"])
+    MULTIFOCAL = PermissibleValue(text="MULTIFOCAL",
+                                           description="Multifocal",
+                                           meaning=HP["0030651"])
+    JOINT_FLEXOR_SURFACE_LOCALIZATION = PermissibleValue(text="JOINT_FLEXOR_SURFACE_LOCALIZATION",
+                                                                                         description="Jointflexorsurfacelocalization",
+                                                                                         meaning=HP["0032540"])
+
+    _defn = EnumDefinition(
+        name="SpatialPatternTerms",
+    )
+
+class UnitTerms(EnumDefinitionImpl):
+
+    DEGREE = PermissibleValue(text="DEGREE",
+                                   description="degree (plane angle)",
+                                   meaning=UCUM.degree)
+    DIOPTER = PermissibleValue(text="DIOPTER",
+                                     description="diopter",
+                                     meaning=UCUM["[diop]"])
+    GRAM = PermissibleValue(text="GRAM",
+                               description="gram",
+                               meaning=UCUM.g)
+    GRAM_PER_KG = PermissibleValue(text="GRAM_PER_KG",
+                                             description="gram per kilogram",
+                                             meaning=UCUM["g/kg"])
+    KILIGRAM = PermissibleValue(text="KILIGRAM",
+                                       description="kiligram",
+                                       meaning=UCUM.kg)
+    LITER = PermissibleValue(text="LITER",
+                                 description="liter",
+                                 meaning=UCUM.L)
+    METER = PermissibleValue(text="METER",
+                                 description="meter",
+                                 meaning=UCUM.m)
+    MICROGRAM = PermissibleValue(text="MICROGRAM",
+                                         description="microgram",
+                                         meaning=UCUM.ug)
+    MICROGRAM_PER_DECILITER = PermissibleValue(text="MICROGRAM_PER_DECILITER",
+                                                                     description="microgram per deciliter",
+                                                                     meaning=UCUM["ug/dL"])
+    MICROGRAM_PER_LITER = PermissibleValue(text="MICROGRAM_PER_LITER",
+                                                             description="microgram per liter",
+                                                             meaning=UCUM["ug/L"])
+    MICROLITER = PermissibleValue(text="MICROLITER",
+                                           description="microliter",
+                                           meaning=UCUM.uL)
+    MICROMETER = PermissibleValue(text="MICROMETER",
+                                           description="micrometer",
+                                           meaning=UCUM.um)
+    MILLIGRAM = PermissibleValue(text="MILLIGRAM",
+                                         description="milligram",
+                                         meaning=UCUM.mg)
+    MILLIGRAM_PER_DAY = PermissibleValue(text="MILLIGRAM_PER_DAY",
+                                                         description="milligram per day",
+                                                         meaning=UCUM["mg/dL"])
+    MILLIGRAM_PER_DL = PermissibleValue(text="MILLIGRAM_PER_DL",
+                                                       description="milligram per deciliter",
+                                                       meaning=UCUM["mg/dL"])
+    MILLIGRAM_PER_KG = PermissibleValue(text="MILLIGRAM_PER_KG",
+                                                       description="milligram per kilogram",
+                                                       meaning=UCUM["mg.kg-1"])
+    MILLILITER = PermissibleValue(text="MILLILITER",
+                                           description="milliliter",
+                                           meaning=UCUM.mL)
+    MILLIMETER = PermissibleValue(text="MILLIMETER",
+                                           description="millimeter",
+                                           meaning=UCUM.mm)
+    MILLIMETRES_OF_MERCURY = PermissibleValue(text="MILLIMETRES_OF_MERCURY",
+                                                                   description="millimetres of mercury",
+                                                                   meaning=UCUM["mm[Hg]"])
+    MILLIMOLE = PermissibleValue(text="MILLIMOLE",
+                                         description="millimole",
+                                         meaning=UCUM.mmol)
+    MOLE = PermissibleValue(text="MOLE",
+                               description="mole",
+                               meaning=UCUM.mol)
+    MOLE_PER_LITER = PermissibleValue(text="MOLE_PER_LITER",
+                                                   description="mole per liter",
+                                                   meaning=UCUM["mol/L"])
+    MOLE_PER_MILLILITER = PermissibleValue(text="MOLE_PER_MILLILITER",
+                                                             description="mole per milliliter",
+                                                             meaning=UCUM["mol/mL"])
+    ENZYME_UNIT_PER_LITER = PermissibleValue(text="ENZYME_UNIT_PER_LITER",
+                                                                 description="enzyme unit per liter",
+                                                                 meaning=UCUM["U/L"])
+
+    _defn = EnumDefinition(
+        name="UnitTerms",
+    )
+
 class MoleculeContext(EnumDefinitionImpl):
 
     genomic = PermissibleValue(text="genomic")
@@ -2835,10 +3100,10 @@ slots.cohort__files = Slot(uri=PHENOPACKETS.files, name="cohort__files", curie=P
                    model_uri=PHENOPACKETS.cohort__files, domain=None, range=Optional[Union[Union[dict, File], List[Union[dict, File]]]])
 
 slots.cohort__id = Slot(uri=PHENOPACKETS.id, name="cohort__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.cohort__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.cohort__id, domain=None, range=Optional[str])
 
 slots.cohort__members = Slot(uri=PHENOPACKETS.members, name="cohort__members", curie=PHENOPACKETS.curie('members'),
-                   model_uri=PHENOPACKETS.cohort__members, domain=None, range=Optional[Union[Union[str, PhenopacketId], List[Union[str, PhenopacketId]]]])
+                   model_uri=PHENOPACKETS.cohort__members, domain=None, range=Optional[Union[Union[dict, Phenopacket], List[Union[dict, Phenopacket]]]])
 
 slots.cohort__metaData = Slot(uri=PHENOPACKETS.metaData, name="cohort__metaData", curie=PHENOPACKETS.curie('metaData'),
                    model_uri=PHENOPACKETS.cohort__metaData, domain=None, range=Union[dict, MetaData])
@@ -2850,7 +3115,7 @@ slots.family__files = Slot(uri=PHENOPACKETS.files, name="family__files", curie=P
                    model_uri=PHENOPACKETS.family__files, domain=None, range=Optional[Union[Union[dict, File], List[Union[dict, File]]]])
 
 slots.family__id = Slot(uri=PHENOPACKETS.id, name="family__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.family__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.family__id, domain=None, range=Optional[str])
 
 slots.family__metaData = Slot(uri=PHENOPACKETS.metaData, name="family__metaData", curie=PHENOPACKETS.curie('metaData'),
                    model_uri=PHENOPACKETS.family__metaData, domain=None, range=Union[dict, MetaData])
@@ -2859,13 +3124,13 @@ slots.family__pedigree = Slot(uri=PHENOPACKETS.pedigree, name="family__pedigree"
                    model_uri=PHENOPACKETS.family__pedigree, domain=None, range=Optional[Union[dict, Pedigree]])
 
 slots.family__proband = Slot(uri=PHENOPACKETS.proband, name="family__proband", curie=PHENOPACKETS.curie('proband'),
-                   model_uri=PHENOPACKETS.family__proband, domain=None, range=Optional[Union[str, PhenopacketId]])
+                   model_uri=PHENOPACKETS.family__proband, domain=None, range=Optional[Union[dict, Phenopacket]])
 
 slots.family__relatives = Slot(uri=PHENOPACKETS.relatives, name="family__relatives", curie=PHENOPACKETS.curie('relatives'),
-                   model_uri=PHENOPACKETS.family__relatives, domain=None, range=Optional[Union[Union[str, PhenopacketId], List[Union[str, PhenopacketId]]]])
+                   model_uri=PHENOPACKETS.family__relatives, domain=None, range=Optional[Union[Union[dict, Phenopacket], List[Union[dict, Phenopacket]]]])
 
 slots.phenopacket__biosamples = Slot(uri=PHENOPACKETS.biosamples, name="phenopacket__biosamples", curie=PHENOPACKETS.curie('biosamples'),
-                   model_uri=PHENOPACKETS.phenopacket__biosamples, domain=None, range=Optional[Union[Union[str, BiosampleId], List[Union[str, BiosampleId]]]])
+                   model_uri=PHENOPACKETS.phenopacket__biosamples, domain=None, range=Optional[Union[Union[dict, Biosample], List[Union[dict, Biosample]]]])
 
 slots.phenopacket__diseases = Slot(uri=PHENOPACKETS.diseases, name="phenopacket__diseases", curie=PHENOPACKETS.curie('diseases'),
                    model_uri=PHENOPACKETS.phenopacket__diseases, domain=None, range=Optional[Union[Union[dict, Disease], List[Union[dict, Disease]]]])
@@ -2874,10 +3139,10 @@ slots.phenopacket__files = Slot(uri=PHENOPACKETS.files, name="phenopacket__files
                    model_uri=PHENOPACKETS.phenopacket__files, domain=None, range=Optional[Union[Union[dict, File], List[Union[dict, File]]]])
 
 slots.phenopacket__id = Slot(uri=PHENOPACKETS.id, name="phenopacket__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.phenopacket__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.phenopacket__id, domain=None, range=Optional[str])
 
 slots.phenopacket__interpretations = Slot(uri=PHENOPACKETS.interpretations, name="phenopacket__interpretations", curie=PHENOPACKETS.curie('interpretations'),
-                   model_uri=PHENOPACKETS.phenopacket__interpretations, domain=None, range=Optional[Union[Union[str, InterpretationId], List[Union[str, InterpretationId]]]])
+                   model_uri=PHENOPACKETS.phenopacket__interpretations, domain=None, range=Optional[Union[Union[dict, Interpretation], List[Union[dict, Interpretation]]]])
 
 slots.phenopacket__measurements = Slot(uri=PHENOPACKETS.measurements, name="phenopacket__measurements", curie=PHENOPACKETS.curie('measurements'),
                    model_uri=PHENOPACKETS.phenopacket__measurements, domain=None, range=Optional[Union[Union[dict, Measurement], List[Union[dict, Measurement]]]])
@@ -2892,7 +3157,7 @@ slots.phenopacket__phenotypicFeatures = Slot(uri=PHENOPACKETS.phenotypicFeatures
                    model_uri=PHENOPACKETS.phenopacket__phenotypicFeatures, domain=None, range=Optional[Union[Union[dict, PhenotypicFeature], List[Union[dict, PhenotypicFeature]]]])
 
 slots.phenopacket__subject = Slot(uri=PHENOPACKETS.subject, name="phenopacket__subject", curie=PHENOPACKETS.curie('subject'),
-                   model_uri=PHENOPACKETS.phenopacket__subject, domain=None, range=Optional[Union[str, IndividualId]])
+                   model_uri=PHENOPACKETS.phenopacket__subject, domain=None, range=Optional[Union[dict, Individual]])
 
 slots.age__iso8601duration = Slot(uri=PHENOPACKETS.iso8601duration, name="age__iso8601duration", curie=PHENOPACKETS.curie('iso8601duration'),
                    model_uri=PHENOPACKETS.age__iso8601duration, domain=None, range=Optional[str])
@@ -2904,16 +3169,16 @@ slots.ageRange__start = Slot(uri=PHENOPACKETS.start, name="ageRange__start", cur
                    model_uri=PHENOPACKETS.ageRange__start, domain=None, range=Optional[Union[dict, Age]])
 
 slots.evidence__evidenceCode = Slot(uri=PHENOPACKETS.evidenceCode, name="evidence__evidenceCode", curie=PHENOPACKETS.curie('evidenceCode'),
-                   model_uri=PHENOPACKETS.evidence__evidenceCode, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.evidence__evidenceCode, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.evidence__reference = Slot(uri=PHENOPACKETS.reference, name="evidence__reference", curie=PHENOPACKETS.curie('reference'),
-                   model_uri=PHENOPACKETS.evidence__reference, domain=None, range=Optional[Union[str, ExternalReferenceId]])
+                   model_uri=PHENOPACKETS.evidence__reference, domain=None, range=Optional[Union[dict, ExternalReference]])
 
 slots.externalReference__description = Slot(uri=PHENOPACKETS.description, name="externalReference__description", curie=PHENOPACKETS.curie('description'),
                    model_uri=PHENOPACKETS.externalReference__description, domain=None, range=Optional[str])
 
 slots.externalReference__id = Slot(uri=PHENOPACKETS.id, name="externalReference__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.externalReference__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.externalReference__id, domain=None, range=Optional[str])
 
 slots.externalReference__reference = Slot(uri=PHENOPACKETS.reference, name="externalReference__reference", curie=PHENOPACKETS.curie('reference'),
                    model_uri=PHENOPACKETS.externalReference__reference, domain=None, range=Optional[str])
@@ -2940,10 +3205,10 @@ slots.ontologyClass__label = Slot(uri=PHENOPACKETS.label, name="ontologyClass__l
                    model_uri=PHENOPACKETS.ontologyClass__label, domain=None, range=Optional[str])
 
 slots.procedure__bodySite = Slot(uri=PHENOPACKETS.bodySite, name="procedure__bodySite", curie=PHENOPACKETS.curie('bodySite'),
-                   model_uri=PHENOPACKETS.procedure__bodySite, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.procedure__bodySite, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.procedure__code = Slot(uri=PHENOPACKETS.code, name="procedure__code", curie=PHENOPACKETS.curie('code'),
-                   model_uri=PHENOPACKETS.procedure__code, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.procedure__code, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.procedure__performed = Slot(uri=PHENOPACKETS.performed, name="procedure__performed", curie=PHENOPACKETS.curie('performed'),
                    model_uri=PHENOPACKETS.procedure__performed, domain=None, range=Optional[Union[dict, TimeElement]])
@@ -2961,7 +3226,7 @@ slots.timeElement__interval = Slot(uri=PHENOPACKETS.interval, name="timeElement_
                    model_uri=PHENOPACKETS.timeElement__interval, domain=None, range=Optional[Union[dict, TimeInterval]])
 
 slots.timeElement__ontologyClass = Slot(uri=PHENOPACKETS.ontologyClass, name="timeElement__ontologyClass", curie=PHENOPACKETS.curie('ontologyClass'),
-                   model_uri=PHENOPACKETS.timeElement__ontologyClass, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.timeElement__ontologyClass, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.timeElement__timestamp = Slot(uri=PHENOPACKETS.timestamp, name="timeElement__timestamp", curie=PHENOPACKETS.curie('timestamp'),
                    model_uri=PHENOPACKETS.timeElement__timestamp, domain=None, range=Optional[str])
@@ -2979,31 +3244,31 @@ slots.biosample__description = Slot(uri=PHENOPACKETS.description, name="biosampl
                    model_uri=PHENOPACKETS.biosample__description, domain=None, range=Optional[str])
 
 slots.biosample__diagnosticMarkers = Slot(uri=PHENOPACKETS.diagnosticMarkers, name="biosample__diagnosticMarkers", curie=PHENOPACKETS.curie('diagnosticMarkers'),
-                   model_uri=PHENOPACKETS.biosample__diagnosticMarkers, domain=None, range=Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]])
+                   model_uri=PHENOPACKETS.biosample__diagnosticMarkers, domain=None, range=Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]])
 
 slots.biosample__files = Slot(uri=PHENOPACKETS.files, name="biosample__files", curie=PHENOPACKETS.curie('files'),
                    model_uri=PHENOPACKETS.biosample__files, domain=None, range=Optional[Union[Union[dict, File], List[Union[dict, File]]]])
 
 slots.biosample__histologicalDiagnosis = Slot(uri=PHENOPACKETS.histologicalDiagnosis, name="biosample__histologicalDiagnosis", curie=PHENOPACKETS.curie('histologicalDiagnosis'),
-                   model_uri=PHENOPACKETS.biosample__histologicalDiagnosis, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__histologicalDiagnosis, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__id = Slot(uri=PHENOPACKETS.id, name="biosample__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.biosample__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.biosample__id, domain=None, range=Optional[str])
 
 slots.biosample__individualId = Slot(uri=PHENOPACKETS.individualId, name="biosample__individualId", curie=PHENOPACKETS.curie('individualId'),
                    model_uri=PHENOPACKETS.biosample__individualId, domain=None, range=Optional[str])
 
 slots.biosample__materialSample = Slot(uri=PHENOPACKETS.materialSample, name="biosample__materialSample", curie=PHENOPACKETS.curie('materialSample'),
-                   model_uri=PHENOPACKETS.biosample__materialSample, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__materialSample, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__measurements = Slot(uri=PHENOPACKETS.measurements, name="biosample__measurements", curie=PHENOPACKETS.curie('measurements'),
                    model_uri=PHENOPACKETS.biosample__measurements, domain=None, range=Optional[Union[Union[dict, Measurement], List[Union[dict, Measurement]]]])
 
 slots.biosample__pathologicalStage = Slot(uri=PHENOPACKETS.pathologicalStage, name="biosample__pathologicalStage", curie=PHENOPACKETS.curie('pathologicalStage'),
-                   model_uri=PHENOPACKETS.biosample__pathologicalStage, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__pathologicalStage, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__pathologicalTnmFinding = Slot(uri=PHENOPACKETS.pathologicalTnmFinding, name="biosample__pathologicalTnmFinding", curie=PHENOPACKETS.curie('pathologicalTnmFinding'),
-                   model_uri=PHENOPACKETS.biosample__pathologicalTnmFinding, domain=None, range=Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]])
+                   model_uri=PHENOPACKETS.biosample__pathologicalTnmFinding, domain=None, range=Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]])
 
 slots.biosample__phenotypicFeatures = Slot(uri=PHENOPACKETS.phenotypicFeatures, name="biosample__phenotypicFeatures", curie=PHENOPACKETS.curie('phenotypicFeatures'),
                    model_uri=PHENOPACKETS.biosample__phenotypicFeatures, domain=None, range=Optional[Union[Union[dict, PhenotypicFeature], List[Union[dict, PhenotypicFeature]]]])
@@ -3012,55 +3277,55 @@ slots.biosample__procedure = Slot(uri=PHENOPACKETS.procedure, name="biosample__p
                    model_uri=PHENOPACKETS.biosample__procedure, domain=None, range=Optional[Union[dict, Procedure]])
 
 slots.biosample__sampleProcessing = Slot(uri=PHENOPACKETS.sampleProcessing, name="biosample__sampleProcessing", curie=PHENOPACKETS.curie('sampleProcessing'),
-                   model_uri=PHENOPACKETS.biosample__sampleProcessing, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__sampleProcessing, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__sampleStorage = Slot(uri=PHENOPACKETS.sampleStorage, name="biosample__sampleStorage", curie=PHENOPACKETS.curie('sampleStorage'),
-                   model_uri=PHENOPACKETS.biosample__sampleStorage, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__sampleStorage, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__sampleType = Slot(uri=PHENOPACKETS.sampleType, name="biosample__sampleType", curie=PHENOPACKETS.curie('sampleType'),
-                   model_uri=PHENOPACKETS.biosample__sampleType, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__sampleType, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__sampledTissue = Slot(uri=PHENOPACKETS.sampledTissue, name="biosample__sampledTissue", curie=PHENOPACKETS.curie('sampledTissue'),
-                   model_uri=PHENOPACKETS.biosample__sampledTissue, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__sampledTissue, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__taxonomy = Slot(uri=PHENOPACKETS.taxonomy, name="biosample__taxonomy", curie=PHENOPACKETS.curie('taxonomy'),
-                   model_uri=PHENOPACKETS.biosample__taxonomy, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__taxonomy, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__timeOfCollection = Slot(uri=PHENOPACKETS.timeOfCollection, name="biosample__timeOfCollection", curie=PHENOPACKETS.curie('timeOfCollection'),
                    model_uri=PHENOPACKETS.biosample__timeOfCollection, domain=None, range=Optional[Union[dict, TimeElement]])
 
 slots.biosample__tumorGrade = Slot(uri=PHENOPACKETS.tumorGrade, name="biosample__tumorGrade", curie=PHENOPACKETS.curie('tumorGrade'),
-                   model_uri=PHENOPACKETS.biosample__tumorGrade, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__tumorGrade, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.biosample__tumorProgression = Slot(uri=PHENOPACKETS.tumorProgression, name="biosample__tumorProgression", curie=PHENOPACKETS.curie('tumorProgression'),
-                   model_uri=PHENOPACKETS.biosample__tumorProgression, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.biosample__tumorProgression, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.disease__clinicalTnmFinding = Slot(uri=PHENOPACKETS.clinicalTnmFinding, name="disease__clinicalTnmFinding", curie=PHENOPACKETS.curie('clinicalTnmFinding'),
-                   model_uri=PHENOPACKETS.disease__clinicalTnmFinding, domain=None, range=Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]])
+                   model_uri=PHENOPACKETS.disease__clinicalTnmFinding, domain=None, range=Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]])
 
 slots.disease__diseaseStage = Slot(uri=PHENOPACKETS.diseaseStage, name="disease__diseaseStage", curie=PHENOPACKETS.curie('diseaseStage'),
-                   model_uri=PHENOPACKETS.disease__diseaseStage, domain=None, range=Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]])
+                   model_uri=PHENOPACKETS.disease__diseaseStage, domain=None, range=Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]])
 
 slots.disease__excluded = Slot(uri=PHENOPACKETS.excluded, name="disease__excluded", curie=PHENOPACKETS.curie('excluded'),
                    model_uri=PHENOPACKETS.disease__excluded, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.disease__laterality = Slot(uri=PHENOPACKETS.laterality, name="disease__laterality", curie=PHENOPACKETS.curie('laterality'),
-                   model_uri=PHENOPACKETS.disease__laterality, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.disease__laterality, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.disease__onset = Slot(uri=PHENOPACKETS.onset, name="disease__onset", curie=PHENOPACKETS.curie('onset'),
                    model_uri=PHENOPACKETS.disease__onset, domain=None, range=Optional[Union[dict, TimeElement]])
 
 slots.disease__primarySite = Slot(uri=PHENOPACKETS.primarySite, name="disease__primarySite", curie=PHENOPACKETS.curie('primarySite'),
-                   model_uri=PHENOPACKETS.disease__primarySite, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.disease__primarySite, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.disease__resolution = Slot(uri=PHENOPACKETS.resolution, name="disease__resolution", curie=PHENOPACKETS.curie('resolution'),
                    model_uri=PHENOPACKETS.disease__resolution, domain=None, range=Optional[Union[dict, TimeElement]])
 
 slots.disease__term = Slot(uri=PHENOPACKETS.term, name="disease__term", curie=PHENOPACKETS.curie('term'),
-                   model_uri=PHENOPACKETS.disease__term, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.disease__term, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.diagnosis__disease = Slot(uri=PHENOPACKETS.disease, name="diagnosis__disease", curie=PHENOPACKETS.curie('disease'),
-                   model_uri=PHENOPACKETS.diagnosis__disease, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.diagnosis__disease, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.diagnosis__genomicInterpretations = Slot(uri=PHENOPACKETS.genomicInterpretations, name="diagnosis__genomicInterpretations", curie=PHENOPACKETS.curie('genomicInterpretations'),
                    model_uri=PHENOPACKETS.diagnosis__genomicInterpretations, domain=None, range=Optional[Union[Union[dict, GenomicInterpretation], List[Union[dict, GenomicInterpretation]]]])
@@ -3081,7 +3346,7 @@ slots.interpretation__diagnosis = Slot(uri=PHENOPACKETS.diagnosis, name="interpr
                    model_uri=PHENOPACKETS.interpretation__diagnosis, domain=None, range=Optional[Union[dict, Diagnosis]])
 
 slots.interpretation__id = Slot(uri=PHENOPACKETS.id, name="interpretation__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.interpretation__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.interpretation__id, domain=None, range=Optional[str])
 
 slots.interpretation__progressStatus = Slot(uri=PHENOPACKETS.progressStatus, name="interpretation__progressStatus", curie=PHENOPACKETS.curie('progressStatus'),
                    model_uri=PHENOPACKETS.interpretation__progressStatus, domain=None, range=Optional[Union[str, "ProgressStatus"]])
@@ -3096,7 +3361,7 @@ slots.variantInterpretation__therapeuticActionability = Slot(uri=PHENOPACKETS.th
                    model_uri=PHENOPACKETS.variantInterpretation__therapeuticActionability, domain=None, range=Optional[Union[str, "TherapeuticActionability"]])
 
 slots.variantInterpretation__variationDescriptor = Slot(uri=PHENOPACKETS.variationDescriptor, name="variantInterpretation__variationDescriptor", curie=PHENOPACKETS.curie('variationDescriptor'),
-                   model_uri=PHENOPACKETS.variantInterpretation__variationDescriptor, domain=None, range=Optional[Union[str, VariationDescriptorId]])
+                   model_uri=PHENOPACKETS.variantInterpretation__variationDescriptor, domain=None, range=Optional[Union[dict, VariationDescriptor]])
 
 slots.individual__alternateIds = Slot(uri=PHENOPACKETS.alternateIds, name="individual__alternateIds", curie=PHENOPACKETS.curie('alternateIds'),
                    model_uri=PHENOPACKETS.individual__alternateIds, domain=None, range=Optional[Union[str, List[str]]])
@@ -3105,10 +3370,10 @@ slots.individual__dateOfBirth = Slot(uri=PHENOPACKETS.dateOfBirth, name="individ
                    model_uri=PHENOPACKETS.individual__dateOfBirth, domain=None, range=Optional[str])
 
 slots.individual__gender = Slot(uri=PHENOPACKETS.gender, name="individual__gender", curie=PHENOPACKETS.curie('gender'),
-                   model_uri=PHENOPACKETS.individual__gender, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.individual__gender, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.individual__id = Slot(uri=PHENOPACKETS.id, name="individual__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.individual__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.individual__id, domain=None, range=Optional[str])
 
 slots.individual__karyotypicSex = Slot(uri=PHENOPACKETS.karyotypicSex, name="individual__karyotypicSex", curie=PHENOPACKETS.curie('karyotypicSex'),
                    model_uri=PHENOPACKETS.individual__karyotypicSex, domain=None, range=Optional[Union[str, "KaryotypicSex"]])
@@ -3117,7 +3382,7 @@ slots.individual__sex = Slot(uri=PHENOPACKETS.sex, name="individual__sex", curie
                    model_uri=PHENOPACKETS.individual__sex, domain=None, range=Optional[Union[str, "Sex"]])
 
 slots.individual__taxonomy = Slot(uri=PHENOPACKETS.taxonomy, name="individual__taxonomy", curie=PHENOPACKETS.curie('taxonomy'),
-                   model_uri=PHENOPACKETS.individual__taxonomy, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.individual__taxonomy, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.individual__timeAtLastEncounter = Slot(uri=PHENOPACKETS.timeAtLastEncounter, name="individual__timeAtLastEncounter", curie=PHENOPACKETS.curie('timeAtLastEncounter'),
                    model_uri=PHENOPACKETS.individual__timeAtLastEncounter, domain=None, range=Optional[Union[dict, TimeElement]])
@@ -3126,7 +3391,7 @@ slots.individual__vitalStatus = Slot(uri=PHENOPACKETS.vitalStatus, name="individ
                    model_uri=PHENOPACKETS.individual__vitalStatus, domain=None, range=Optional[Union[dict, VitalStatus]])
 
 slots.vitalStatus__causeOfDeath = Slot(uri=PHENOPACKETS.causeOfDeath, name="vitalStatus__causeOfDeath", curie=PHENOPACKETS.curie('causeOfDeath'),
-                   model_uri=PHENOPACKETS.vitalStatus__causeOfDeath, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.vitalStatus__causeOfDeath, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.vitalStatus__status = Slot(uri=PHENOPACKETS.status, name="vitalStatus__status", curie=PHENOPACKETS.curie('status'),
                    model_uri=PHENOPACKETS.vitalStatus__status, domain=None, range=Optional[Union[str, "Status"]])
@@ -3141,7 +3406,7 @@ slots.complexValue__typedQuantities = Slot(uri=PHENOPACKETS.typedQuantities, nam
                    model_uri=PHENOPACKETS.complexValue__typedQuantities, domain=None, range=Optional[Union[Union[dict, TypedQuantity], List[Union[dict, TypedQuantity]]]])
 
 slots.measurement__assay = Slot(uri=PHENOPACKETS.assay, name="measurement__assay", curie=PHENOPACKETS.curie('assay'),
-                   model_uri=PHENOPACKETS.measurement__assay, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.measurement__assay, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.measurement__complexValue = Slot(uri=PHENOPACKETS.complexValue, name="measurement__complexValue", curie=PHENOPACKETS.curie('complexValue'),
                    model_uri=PHENOPACKETS.measurement__complexValue, domain=None, range=Optional[Union[dict, ComplexValue]])
@@ -3162,7 +3427,7 @@ slots.quantity__referenceRange = Slot(uri=PHENOPACKETS.referenceRange, name="qua
                    model_uri=PHENOPACKETS.quantity__referenceRange, domain=None, range=Optional[Union[dict, ReferenceRange]])
 
 slots.quantity__unit = Slot(uri=PHENOPACKETS.unit, name="quantity__unit", curie=PHENOPACKETS.curie('unit'),
-                   model_uri=PHENOPACKETS.quantity__unit, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.quantity__unit, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.quantity__value = Slot(uri=PHENOPACKETS.value, name="quantity__value", curie=PHENOPACKETS.curie('value'),
                    model_uri=PHENOPACKETS.quantity__value, domain=None, range=Optional[float])
@@ -3174,16 +3439,16 @@ slots.referenceRange__low = Slot(uri=PHENOPACKETS.low, name="referenceRange__low
                    model_uri=PHENOPACKETS.referenceRange__low, domain=None, range=Optional[float])
 
 slots.referenceRange__unit = Slot(uri=PHENOPACKETS.unit, name="referenceRange__unit", curie=PHENOPACKETS.curie('unit'),
-                   model_uri=PHENOPACKETS.referenceRange__unit, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.referenceRange__unit, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.typedQuantity__quantity = Slot(uri=PHENOPACKETS.quantity, name="typedQuantity__quantity", curie=PHENOPACKETS.curie('quantity'),
                    model_uri=PHENOPACKETS.typedQuantity__quantity, domain=None, range=Optional[Union[dict, Quantity]])
 
 slots.typedQuantity__type = Slot(uri=PHENOPACKETS.type, name="typedQuantity__type", curie=PHENOPACKETS.curie('type'),
-                   model_uri=PHENOPACKETS.typedQuantity__type, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.typedQuantity__type, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.value__ontologyClass = Slot(uri=PHENOPACKETS.ontologyClass, name="value__ontologyClass", curie=PHENOPACKETS.curie('ontologyClass'),
-                   model_uri=PHENOPACKETS.value__ontologyClass, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.value__ontologyClass, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.value__quantity = Slot(uri=PHENOPACKETS.quantity, name="value__quantity", curie=PHENOPACKETS.curie('quantity'),
                    model_uri=PHENOPACKETS.value__quantity, domain=None, range=Optional[Union[dict, Quantity]])
@@ -3195,10 +3460,10 @@ slots.doseInterval__quantity = Slot(uri=PHENOPACKETS.quantity, name="doseInterva
                    model_uri=PHENOPACKETS.doseInterval__quantity, domain=None, range=Optional[Union[dict, Quantity]])
 
 slots.doseInterval__scheduleFrequency = Slot(uri=PHENOPACKETS.scheduleFrequency, name="doseInterval__scheduleFrequency", curie=PHENOPACKETS.curie('scheduleFrequency'),
-                   model_uri=PHENOPACKETS.doseInterval__scheduleFrequency, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.doseInterval__scheduleFrequency, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.medicalAction__adverseEvents = Slot(uri=PHENOPACKETS.adverseEvents, name="medicalAction__adverseEvents", curie=PHENOPACKETS.curie('adverseEvents'),
-                   model_uri=PHENOPACKETS.medicalAction__adverseEvents, domain=None, range=Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]])
+                   model_uri=PHENOPACKETS.medicalAction__adverseEvents, domain=None, range=Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]])
 
 slots.medicalAction__procedure = Slot(uri=PHENOPACKETS.procedure, name="medicalAction__procedure", curie=PHENOPACKETS.curie('procedure'),
                    model_uri=PHENOPACKETS.medicalAction__procedure, domain=None, range=Optional[Union[dict, Procedure]])
@@ -3207,7 +3472,7 @@ slots.medicalAction__radiationTherapy = Slot(uri=PHENOPACKETS.radiationTherapy, 
                    model_uri=PHENOPACKETS.medicalAction__radiationTherapy, domain=None, range=Optional[Union[dict, RadiationTherapy]])
 
 slots.medicalAction__responseToTreatment = Slot(uri=PHENOPACKETS.responseToTreatment, name="medicalAction__responseToTreatment", curie=PHENOPACKETS.curie('responseToTreatment'),
-                   model_uri=PHENOPACKETS.medicalAction__responseToTreatment, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.medicalAction__responseToTreatment, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.medicalAction__therapeuticRegimen = Slot(uri=PHENOPACKETS.therapeuticRegimen, name="medicalAction__therapeuticRegimen", curie=PHENOPACKETS.curie('therapeuticRegimen'),
                    model_uri=PHENOPACKETS.medicalAction__therapeuticRegimen, domain=None, range=Optional[Union[dict, TherapeuticRegimen]])
@@ -3216,16 +3481,16 @@ slots.medicalAction__treatment = Slot(uri=PHENOPACKETS.treatment, name="medicalA
                    model_uri=PHENOPACKETS.medicalAction__treatment, domain=None, range=Optional[Union[dict, Treatment]])
 
 slots.medicalAction__treatmentIntent = Slot(uri=PHENOPACKETS.treatmentIntent, name="medicalAction__treatmentIntent", curie=PHENOPACKETS.curie('treatmentIntent'),
-                   model_uri=PHENOPACKETS.medicalAction__treatmentIntent, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.medicalAction__treatmentIntent, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.medicalAction__treatmentTarget = Slot(uri=PHENOPACKETS.treatmentTarget, name="medicalAction__treatmentTarget", curie=PHENOPACKETS.curie('treatmentTarget'),
-                   model_uri=PHENOPACKETS.medicalAction__treatmentTarget, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.medicalAction__treatmentTarget, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.medicalAction__treatmentTerminationReason = Slot(uri=PHENOPACKETS.treatmentTerminationReason, name="medicalAction__treatmentTerminationReason", curie=PHENOPACKETS.curie('treatmentTerminationReason'),
-                   model_uri=PHENOPACKETS.medicalAction__treatmentTerminationReason, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.medicalAction__treatmentTerminationReason, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.radiationTherapy__bodySite = Slot(uri=PHENOPACKETS.bodySite, name="radiationTherapy__bodySite", curie=PHENOPACKETS.curie('bodySite'),
-                   model_uri=PHENOPACKETS.radiationTherapy__bodySite, domain=None, range=Union[str, OntologyClassId])
+                   model_uri=PHENOPACKETS.radiationTherapy__bodySite, domain=None, range=Union[dict, OntologyClass])
 
 slots.radiationTherapy__dosage = Slot(uri=PHENOPACKETS.dosage, name="radiationTherapy__dosage", curie=PHENOPACKETS.curie('dosage'),
                    model_uri=PHENOPACKETS.radiationTherapy__dosage, domain=None, range=int)
@@ -3234,16 +3499,16 @@ slots.radiationTherapy__fractions = Slot(uri=PHENOPACKETS.fractions, name="radia
                    model_uri=PHENOPACKETS.radiationTherapy__fractions, domain=None, range=int)
 
 slots.radiationTherapy__modality = Slot(uri=PHENOPACKETS.modality, name="radiationTherapy__modality", curie=PHENOPACKETS.curie('modality'),
-                   model_uri=PHENOPACKETS.radiationTherapy__modality, domain=None, range=Union[str, OntologyClassId])
+                   model_uri=PHENOPACKETS.radiationTherapy__modality, domain=None, range=Union[dict, OntologyClass])
 
 slots.therapeuticRegimen__endTime = Slot(uri=PHENOPACKETS.endTime, name="therapeuticRegimen__endTime", curie=PHENOPACKETS.curie('endTime'),
                    model_uri=PHENOPACKETS.therapeuticRegimen__endTime, domain=None, range=Optional[Union[dict, TimeElement]])
 
 slots.therapeuticRegimen__externalReference = Slot(uri=PHENOPACKETS.externalReference, name="therapeuticRegimen__externalReference", curie=PHENOPACKETS.curie('externalReference'),
-                   model_uri=PHENOPACKETS.therapeuticRegimen__externalReference, domain=None, range=Optional[Union[str, ExternalReferenceId]])
+                   model_uri=PHENOPACKETS.therapeuticRegimen__externalReference, domain=None, range=Optional[Union[dict, ExternalReference]])
 
 slots.therapeuticRegimen__ontologyClass = Slot(uri=PHENOPACKETS.ontologyClass, name="therapeuticRegimen__ontologyClass", curie=PHENOPACKETS.curie('ontologyClass'),
-                   model_uri=PHENOPACKETS.therapeuticRegimen__ontologyClass, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.therapeuticRegimen__ontologyClass, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.therapeuticRegimen__regimenStatus = Slot(uri=PHENOPACKETS.regimenStatus, name="therapeuticRegimen__regimenStatus", curie=PHENOPACKETS.curie('regimenStatus'),
                    model_uri=PHENOPACKETS.therapeuticRegimen__regimenStatus, domain=None, range=Optional[Union[str, "RegimenStatus"]])
@@ -3252,7 +3517,7 @@ slots.therapeuticRegimen__startTime = Slot(uri=PHENOPACKETS.startTime, name="the
                    model_uri=PHENOPACKETS.therapeuticRegimen__startTime, domain=None, range=Optional[Union[dict, TimeElement]])
 
 slots.treatment__agent = Slot(uri=PHENOPACKETS.agent, name="treatment__agent", curie=PHENOPACKETS.curie('agent'),
-                   model_uri=PHENOPACKETS.treatment__agent, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.treatment__agent, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.treatment__cumulativeDose = Slot(uri=PHENOPACKETS.cumulativeDose, name="treatment__cumulativeDose", curie=PHENOPACKETS.curie('cumulativeDose'),
                    model_uri=PHENOPACKETS.treatment__cumulativeDose, domain=None, range=Optional[Union[dict, Quantity]])
@@ -3264,7 +3529,7 @@ slots.treatment__drugType = Slot(uri=PHENOPACKETS.drugType, name="treatment__dru
                    model_uri=PHENOPACKETS.treatment__drugType, domain=None, range=Optional[Union[str, "DrugType"]])
 
 slots.treatment__routeOfAdministration = Slot(uri=PHENOPACKETS.routeOfAdministration, name="treatment__routeOfAdministration", curie=PHENOPACKETS.curie('routeOfAdministration'),
-                   model_uri=PHENOPACKETS.treatment__routeOfAdministration, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.treatment__routeOfAdministration, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.metaData__created = Slot(uri=PHENOPACKETS.created, name="metaData__created", curie=PHENOPACKETS.curie('created'),
                    model_uri=PHENOPACKETS.metaData__created, domain=None, range=Optional[str])
@@ -3273,13 +3538,13 @@ slots.metaData__createdBy = Slot(uri=PHENOPACKETS.createdBy, name="metaData__cre
                    model_uri=PHENOPACKETS.metaData__createdBy, domain=None, range=Optional[str])
 
 slots.metaData__externalReferences = Slot(uri=PHENOPACKETS.externalReferences, name="metaData__externalReferences", curie=PHENOPACKETS.curie('externalReferences'),
-                   model_uri=PHENOPACKETS.metaData__externalReferences, domain=None, range=Optional[Union[Union[str, ExternalReferenceId], List[Union[str, ExternalReferenceId]]]])
+                   model_uri=PHENOPACKETS.metaData__externalReferences, domain=None, range=Optional[Union[Union[dict, ExternalReference], List[Union[dict, ExternalReference]]]])
 
 slots.metaData__phenopacketSchemaVersion = Slot(uri=PHENOPACKETS.phenopacketSchemaVersion, name="metaData__phenopacketSchemaVersion", curie=PHENOPACKETS.curie('phenopacketSchemaVersion'),
                    model_uri=PHENOPACKETS.metaData__phenopacketSchemaVersion, domain=None, range=Optional[str])
 
 slots.metaData__resources = Slot(uri=PHENOPACKETS.resources, name="metaData__resources", curie=PHENOPACKETS.curie('resources'),
-                   model_uri=PHENOPACKETS.metaData__resources, domain=None, range=Optional[Union[Union[str, ResourceId], List[Union[str, ResourceId]]]])
+                   model_uri=PHENOPACKETS.metaData__resources, domain=None, range=Optional[Union[Union[dict, Resource], List[Union[dict, Resource]]]])
 
 slots.metaData__submittedBy = Slot(uri=PHENOPACKETS.submittedBy, name="metaData__submittedBy", curie=PHENOPACKETS.curie('submittedBy'),
                    model_uri=PHENOPACKETS.metaData__submittedBy, domain=None, range=Optional[str])
@@ -3288,7 +3553,7 @@ slots.metaData__updates = Slot(uri=PHENOPACKETS.updates, name="metaData__updates
                    model_uri=PHENOPACKETS.metaData__updates, domain=None, range=Optional[Union[Union[dict, Update], List[Union[dict, Update]]]])
 
 slots.resource__id = Slot(uri=PHENOPACKETS.id, name="resource__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.resource__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.resource__id, domain=None, range=Optional[str])
 
 slots.resource__iriPrefix = Slot(uri=PHENOPACKETS.iriPrefix, name="resource__iriPrefix", curie=PHENOPACKETS.curie('iriPrefix'),
                    model_uri=PHENOPACKETS.resource__iriPrefix, domain=None, range=Optional[str])
@@ -3345,7 +3610,7 @@ slots.phenotypicFeature__excluded = Slot(uri=PHENOPACKETS.excluded, name="phenot
                    model_uri=PHENOPACKETS.phenotypicFeature__excluded, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.phenotypicFeature__modifiers = Slot(uri=PHENOPACKETS.modifiers, name="phenotypicFeature__modifiers", curie=PHENOPACKETS.curie('modifiers'),
-                   model_uri=PHENOPACKETS.phenotypicFeature__modifiers, domain=None, range=Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]])
+                   model_uri=PHENOPACKETS.phenotypicFeature__modifiers, domain=None, range=Optional[Union[Dict[Union[str, OntologyClassId], Union[dict, OntologyClass]], List[Union[dict, OntologyClass]]]])
 
 slots.phenotypicFeature__onset = Slot(uri=PHENOPACKETS.onset, name="phenotypicFeature__onset", curie=PHENOPACKETS.curie('onset'),
                    model_uri=PHENOPACKETS.phenotypicFeature__onset, domain=None, range=Optional[Union[dict, TimeElement]])
@@ -3354,10 +3619,10 @@ slots.phenotypicFeature__resolution = Slot(uri=PHENOPACKETS.resolution, name="ph
                    model_uri=PHENOPACKETS.phenotypicFeature__resolution, domain=None, range=Optional[Union[dict, TimeElement]])
 
 slots.phenotypicFeature__severity = Slot(uri=PHENOPACKETS.severity, name="phenotypicFeature__severity", curie=PHENOPACKETS.curie('severity'),
-                   model_uri=PHENOPACKETS.phenotypicFeature__severity, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.phenotypicFeature__severity, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.phenotypicFeature__type = Slot(uri=PHENOPACKETS.type, name="phenotypicFeature__type", curie=PHENOPACKETS.curie('type'),
-                   model_uri=PHENOPACKETS.phenotypicFeature__type, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.phenotypicFeature__type, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.timestamp__nanos = Slot(uri=PHENOPACKETS.nanos, name="timestamp__nanos", curie=PHENOPACKETS.curie('nanos'),
                    model_uri=PHENOPACKETS.timestamp__nanos, domain=None, range=Optional[int])
@@ -3399,7 +3664,7 @@ slots.geneDescriptor__xrefs = Slot(uri=PHENOPACKETS.xrefs, name="geneDescriptor_
                    model_uri=PHENOPACKETS.geneDescriptor__xrefs, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.variationDescriptor__allelicState = Slot(uri=PHENOPACKETS.allelicState, name="variationDescriptor__allelicState", curie=PHENOPACKETS.curie('allelicState'),
-                   model_uri=PHENOPACKETS.variationDescriptor__allelicState, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.variationDescriptor__allelicState, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.variationDescriptor__alternateLabels = Slot(uri=PHENOPACKETS.alternateLabels, name="variationDescriptor__alternateLabels", curie=PHENOPACKETS.curie('alternateLabels'),
                    model_uri=PHENOPACKETS.variationDescriptor__alternateLabels, domain=None, range=Optional[Union[str, List[str]]])
@@ -3417,7 +3682,7 @@ slots.variationDescriptor__geneContext = Slot(uri=PHENOPACKETS.geneContext, name
                    model_uri=PHENOPACKETS.variationDescriptor__geneContext, domain=None, range=Optional[Union[dict, GeneDescriptor]])
 
 slots.variationDescriptor__id = Slot(uri=PHENOPACKETS.id, name="variationDescriptor__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.variationDescriptor__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.variationDescriptor__id, domain=None, range=Optional[str])
 
 slots.variationDescriptor__label = Slot(uri=PHENOPACKETS.label, name="variationDescriptor__label", curie=PHENOPACKETS.curie('label'),
                    model_uri=PHENOPACKETS.variationDescriptor__label, domain=None, range=Optional[str])
@@ -3426,13 +3691,13 @@ slots.variationDescriptor__moleculeContext = Slot(uri=PHENOPACKETS.moleculeConte
                    model_uri=PHENOPACKETS.variationDescriptor__moleculeContext, domain=None, range=Optional[Union[str, "MoleculeContext"]])
 
 slots.variationDescriptor__structuralType = Slot(uri=PHENOPACKETS.structuralType, name="variationDescriptor__structuralType", curie=PHENOPACKETS.curie('structuralType'),
-                   model_uri=PHENOPACKETS.variationDescriptor__structuralType, domain=None, range=Optional[Union[str, OntologyClassId]])
+                   model_uri=PHENOPACKETS.variationDescriptor__structuralType, domain=None, range=Optional[Union[dict, OntologyClass]])
 
 slots.variationDescriptor__variation = Slot(uri=PHENOPACKETS.variation, name="variationDescriptor__variation", curie=PHENOPACKETS.curie('variation'),
                    model_uri=PHENOPACKETS.variationDescriptor__variation, domain=None, range=Optional[Union[dict, Variation]])
 
 slots.variationDescriptor__vcfRecord = Slot(uri=PHENOPACKETS.vcfRecord, name="variationDescriptor__vcfRecord", curie=PHENOPACKETS.curie('vcfRecord'),
-                   model_uri=PHENOPACKETS.variationDescriptor__vcfRecord, domain=None, range=Optional[Union[str, VcfRecordId]])
+                   model_uri=PHENOPACKETS.variationDescriptor__vcfRecord, domain=None, range=Optional[Union[dict, VcfRecord]])
 
 slots.variationDescriptor__vrsRefAlleleSeq = Slot(uri=PHENOPACKETS.vrsRefAlleleSeq, name="variationDescriptor__vrsRefAlleleSeq", curie=PHENOPACKETS.curie('vrsRefAlleleSeq'),
                    model_uri=PHENOPACKETS.variationDescriptor__vrsRefAlleleSeq, domain=None, range=Optional[str])
@@ -3453,7 +3718,7 @@ slots.vcfRecord__genomeAssembly = Slot(uri=PHENOPACKETS.genomeAssembly, name="vc
                    model_uri=PHENOPACKETS.vcfRecord__genomeAssembly, domain=None, range=Optional[str])
 
 slots.vcfRecord__id = Slot(uri=PHENOPACKETS.id, name="vcfRecord__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.vcfRecord__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.vcfRecord__id, domain=None, range=Optional[str])
 
 slots.vcfRecord__info = Slot(uri=PHENOPACKETS.info, name="vcfRecord__info", curie=PHENOPACKETS.curie('info'),
                    model_uri=PHENOPACKETS.vcfRecord__info, domain=None, range=Optional[str])
@@ -3474,10 +3739,10 @@ slots.any__value = Slot(uri=PHENOPACKETS.value, name="any__value", curie=PHENOPA
                    model_uri=PHENOPACKETS.any__value, domain=None, range=Optional[str])
 
 slots.abundance__copyNumber = Slot(uri=PHENOPACKETS.copyNumber, name="abundance__copyNumber", curie=PHENOPACKETS.curie('copyNumber'),
-                   model_uri=PHENOPACKETS.abundance__copyNumber, domain=None, range=Optional[Union[str, CopyNumberId]])
+                   model_uri=PHENOPACKETS.abundance__copyNumber, domain=None, range=Optional[Union[dict, CopyNumber]])
 
 slots.allele__chromosomeLocation = Slot(uri=PHENOPACKETS.chromosomeLocation, name="allele__chromosomeLocation", curie=PHENOPACKETS.curie('chromosomeLocation'),
-                   model_uri=PHENOPACKETS.allele__chromosomeLocation, domain=None, range=Optional[Union[str, ChromosomeLocationId]])
+                   model_uri=PHENOPACKETS.allele__chromosomeLocation, domain=None, range=Optional[Union[dict, ChromosomeLocation]])
 
 slots.allele__curie = Slot(uri=PHENOPACKETS.curie, name="allele__curie", curie=PHENOPACKETS.curie('curie'),
                    model_uri=PHENOPACKETS.allele__curie, domain=None, range=Optional[str])
@@ -3486,7 +3751,7 @@ slots.allele__derivedSequenceExpression = Slot(uri=PHENOPACKETS.derivedSequenceE
                    model_uri=PHENOPACKETS.allele__derivedSequenceExpression, domain=None, range=Optional[Union[dict, DerivedSequenceExpression]])
 
 slots.allele__id = Slot(uri=PHENOPACKETS.id, name="allele__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.allele__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.allele__id, domain=None, range=Optional[str])
 
 slots.allele__literalSequenceExpression = Slot(uri=PHENOPACKETS.literalSequenceExpression, name="allele__literalSequenceExpression", curie=PHENOPACKETS.curie('literalSequenceExpression'),
                    model_uri=PHENOPACKETS.allele__literalSequenceExpression, domain=None, range=Optional[Union[dict, LiteralSequenceExpression]])
@@ -3495,13 +3760,13 @@ slots.allele__repeatedSequenceExpression = Slot(uri=PHENOPACKETS.repeatedSequenc
                    model_uri=PHENOPACKETS.allele__repeatedSequenceExpression, domain=None, range=Optional[Union[dict, RepeatedSequenceExpression]])
 
 slots.allele__sequenceLocation = Slot(uri=PHENOPACKETS.sequenceLocation, name="allele__sequenceLocation", curie=PHENOPACKETS.curie('sequenceLocation'),
-                   model_uri=PHENOPACKETS.allele__sequenceLocation, domain=None, range=Optional[Union[str, SequenceLocationId]])
+                   model_uri=PHENOPACKETS.allele__sequenceLocation, domain=None, range=Optional[Union[dict, SequenceLocation]])
 
 slots.chromosomeLocation__chr = Slot(uri=PHENOPACKETS.chr, name="chromosomeLocation__chr", curie=PHENOPACKETS.curie('chr'),
                    model_uri=PHENOPACKETS.chromosomeLocation__chr, domain=None, range=Optional[str])
 
 slots.chromosomeLocation__id = Slot(uri=PHENOPACKETS.id, name="chromosomeLocation__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.chromosomeLocation__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.chromosomeLocation__id, domain=None, range=Optional[str])
 
 slots.chromosomeLocation__interval = Slot(uri=PHENOPACKETS.interval, name="chromosomeLocation__interval", curie=PHENOPACKETS.curie('interval'),
                    model_uri=PHENOPACKETS.chromosomeLocation__interval, domain=None, range=Optional[Union[dict, CytobandInterval]])
@@ -3510,7 +3775,7 @@ slots.chromosomeLocation__speciesId = Slot(uri=PHENOPACKETS.speciesId, name="chr
                    model_uri=PHENOPACKETS.chromosomeLocation__speciesId, domain=None, range=Optional[str])
 
 slots.copyNumber__allele = Slot(uri=PHENOPACKETS.allele, name="copyNumber__allele", curie=PHENOPACKETS.curie('allele'),
-                   model_uri=PHENOPACKETS.copyNumber__allele, domain=None, range=Optional[Union[str, AlleleId]])
+                   model_uri=PHENOPACKETS.copyNumber__allele, domain=None, range=Optional[Union[dict, Allele]])
 
 slots.copyNumber__curie = Slot(uri=PHENOPACKETS.curie, name="copyNumber__curie", curie=PHENOPACKETS.curie('curie'),
                    model_uri=PHENOPACKETS.copyNumber__curie, domain=None, range=Optional[str])
@@ -3528,7 +3793,7 @@ slots.copyNumber__haplotype = Slot(uri=PHENOPACKETS.haplotype, name="copyNumber_
                    model_uri=PHENOPACKETS.copyNumber__haplotype, domain=None, range=Optional[Union[dict, Haplotype]])
 
 slots.copyNumber__id = Slot(uri=PHENOPACKETS.id, name="copyNumber__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.copyNumber__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.copyNumber__id, domain=None, range=Optional[str])
 
 slots.copyNumber__indefiniteRange = Slot(uri=PHENOPACKETS.indefiniteRange, name="copyNumber__indefiniteRange", curie=PHENOPACKETS.curie('indefiniteRange'),
                    model_uri=PHENOPACKETS.copyNumber__indefiniteRange, domain=None, range=Optional[Union[dict, IndefiniteRange]])
@@ -3555,7 +3820,7 @@ slots.definiteRange__min = Slot(uri=PHENOPACKETS.min, name="definiteRange__min",
                    model_uri=PHENOPACKETS.definiteRange__min, domain=None, range=Optional[int])
 
 slots.derivedSequenceExpression__location = Slot(uri=PHENOPACKETS.location, name="derivedSequenceExpression__location", curie=PHENOPACKETS.curie('location'),
-                   model_uri=PHENOPACKETS.derivedSequenceExpression__location, domain=None, range=Optional[Union[str, SequenceLocationId]])
+                   model_uri=PHENOPACKETS.derivedSequenceExpression__location, domain=None, range=Optional[Union[dict, SequenceLocation]])
 
 slots.derivedSequenceExpression__reverseComplement = Slot(uri=PHENOPACKETS.reverseComplement, name="derivedSequenceExpression__reverseComplement", curie=PHENOPACKETS.curie('reverseComplement'),
                    model_uri=PHENOPACKETS.derivedSequenceExpression__reverseComplement, domain=None, range=Optional[Union[bool, Bool]])
@@ -3576,16 +3841,16 @@ slots.literalSequenceExpression__sequence = Slot(uri=PHENOPACKETS.sequence, name
                    model_uri=PHENOPACKETS.literalSequenceExpression__sequence, domain=None, range=Optional[str])
 
 slots.location__chromosomeLocation = Slot(uri=PHENOPACKETS.chromosomeLocation, name="location__chromosomeLocation", curie=PHENOPACKETS.curie('chromosomeLocation'),
-                   model_uri=PHENOPACKETS.location__chromosomeLocation, domain=None, range=Optional[Union[str, ChromosomeLocationId]])
+                   model_uri=PHENOPACKETS.location__chromosomeLocation, domain=None, range=Optional[Union[dict, ChromosomeLocation]])
 
 slots.location__sequenceLocation = Slot(uri=PHENOPACKETS.sequenceLocation, name="location__sequenceLocation", curie=PHENOPACKETS.curie('sequenceLocation'),
-                   model_uri=PHENOPACKETS.location__sequenceLocation, domain=None, range=Optional[Union[str, SequenceLocationId]])
+                   model_uri=PHENOPACKETS.location__sequenceLocation, domain=None, range=Optional[Union[dict, SequenceLocation]])
 
 slots.member__allele = Slot(uri=PHENOPACKETS.allele, name="member__allele", curie=PHENOPACKETS.curie('allele'),
-                   model_uri=PHENOPACKETS.member__allele, domain=None, range=Optional[Union[str, AlleleId]])
+                   model_uri=PHENOPACKETS.member__allele, domain=None, range=Optional[Union[dict, Allele]])
 
 slots.member__copyNumber = Slot(uri=PHENOPACKETS.copyNumber, name="member__copyNumber", curie=PHENOPACKETS.curie('copyNumber'),
-                   model_uri=PHENOPACKETS.member__copyNumber, domain=None, range=Optional[Union[str, CopyNumberId]])
+                   model_uri=PHENOPACKETS.member__copyNumber, domain=None, range=Optional[Union[dict, CopyNumber]])
 
 slots.member__curie = Slot(uri=PHENOPACKETS.curie, name="member__curie", curie=PHENOPACKETS.curie('curie'),
                    model_uri=PHENOPACKETS.member__curie, domain=None, range=Optional[str])
@@ -3594,19 +3859,19 @@ slots.member__haplotype = Slot(uri=PHENOPACKETS.haplotype, name="member__haploty
                    model_uri=PHENOPACKETS.member__haplotype, domain=None, range=Optional[Union[dict, Haplotype]])
 
 slots.member__id = Slot(uri=PHENOPACKETS.id, name="member__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.member__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.member__id, domain=None, range=Optional[str])
 
 slots.member__members = Slot(uri=PHENOPACKETS.members, name="member__members", curie=PHENOPACKETS.curie('members'),
-                   model_uri=PHENOPACKETS.member__members, domain=None, range=Optional[Union[Union[str, MemberId], List[Union[str, MemberId]]]])
+                   model_uri=PHENOPACKETS.member__members, domain=None, range=Optional[Union[Union[dict, Member], List[Union[dict, Member]]]])
 
 slots.member__text = Slot(uri=PHENOPACKETS.text, name="member__text", curie=PHENOPACKETS.curie('text'),
-                   model_uri=PHENOPACKETS.member__text, domain=None, range=Optional[Union[str, TextId]])
+                   model_uri=PHENOPACKETS.member__text, domain=None, range=Optional[Union[dict, Text]])
 
 slots.member__variationSet = Slot(uri=PHENOPACKETS.variationSet, name="member__variationSet", curie=PHENOPACKETS.curie('variationSet'),
                    model_uri=PHENOPACKETS.member__variationSet, domain=None, range=Optional[Union[dict, VariationSet]])
 
 slots.molecularVariation__allele = Slot(uri=PHENOPACKETS.allele, name="molecularVariation__allele", curie=PHENOPACKETS.curie('allele'),
-                   model_uri=PHENOPACKETS.molecularVariation__allele, domain=None, range=Optional[Union[str, AlleleId]])
+                   model_uri=PHENOPACKETS.molecularVariation__allele, domain=None, range=Optional[Union[dict, Allele]])
 
 slots.molecularVariation__haplotype = Slot(uri=PHENOPACKETS.haplotype, name="molecularVariation__haplotype", curie=PHENOPACKETS.curie('haplotype'),
                    model_uri=PHENOPACKETS.molecularVariation__haplotype, domain=None, range=Optional[Union[dict, Haplotype]])
@@ -3657,7 +3922,7 @@ slots.sequenceInterval__startNumber = Slot(uri=PHENOPACKETS.startNumber, name="s
                    model_uri=PHENOPACKETS.sequenceInterval__startNumber, domain=None, range=Optional[Union[dict, Number]])
 
 slots.sequenceLocation__id = Slot(uri=PHENOPACKETS.id, name="sequenceLocation__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.sequenceLocation__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.sequenceLocation__id, domain=None, range=Optional[str])
 
 slots.sequenceLocation__sequenceId = Slot(uri=PHENOPACKETS.sequenceId, name="sequenceLocation__sequenceId", curie=PHENOPACKETS.curie('sequenceId'),
                    model_uri=PHENOPACKETS.sequenceLocation__sequenceId, domain=None, range=Optional[str])
@@ -3675,31 +3940,31 @@ slots.simpleInterval__start = Slot(uri=PHENOPACKETS.start, name="simpleInterval_
                    model_uri=PHENOPACKETS.simpleInterval__start, domain=None, range=Optional[int])
 
 slots.systemicVariation__copyNumber = Slot(uri=PHENOPACKETS.copyNumber, name="systemicVariation__copyNumber", curie=PHENOPACKETS.curie('copyNumber'),
-                   model_uri=PHENOPACKETS.systemicVariation__copyNumber, domain=None, range=Optional[Union[str, CopyNumberId]])
+                   model_uri=PHENOPACKETS.systemicVariation__copyNumber, domain=None, range=Optional[Union[dict, CopyNumber]])
 
 slots.text__definition = Slot(uri=PHENOPACKETS.definition, name="text__definition", curie=PHENOPACKETS.curie('definition'),
                    model_uri=PHENOPACKETS.text__definition, domain=None, range=Optional[str])
 
 slots.text__id = Slot(uri=PHENOPACKETS.id, name="text__id", curie=PHENOPACKETS.curie('id'),
-                   model_uri=PHENOPACKETS.text__id, domain=None, range=URIRef)
+                   model_uri=PHENOPACKETS.text__id, domain=None, range=Optional[str])
 
 slots.utilityVariation__text = Slot(uri=PHENOPACKETS.text, name="utilityVariation__text", curie=PHENOPACKETS.curie('text'),
-                   model_uri=PHENOPACKETS.utilityVariation__text, domain=None, range=Optional[Union[str, TextId]])
+                   model_uri=PHENOPACKETS.utilityVariation__text, domain=None, range=Optional[Union[dict, Text]])
 
 slots.utilityVariation__variationSet = Slot(uri=PHENOPACKETS.variationSet, name="utilityVariation__variationSet", curie=PHENOPACKETS.curie('variationSet'),
                    model_uri=PHENOPACKETS.utilityVariation__variationSet, domain=None, range=Optional[Union[dict, VariationSet]])
 
 slots.variation__allele = Slot(uri=PHENOPACKETS.allele, name="variation__allele", curie=PHENOPACKETS.curie('allele'),
-                   model_uri=PHENOPACKETS.variation__allele, domain=None, range=Optional[Union[str, AlleleId]])
+                   model_uri=PHENOPACKETS.variation__allele, domain=None, range=Optional[Union[dict, Allele]])
 
 slots.variation__copyNumber = Slot(uri=PHENOPACKETS.copyNumber, name="variation__copyNumber", curie=PHENOPACKETS.curie('copyNumber'),
-                   model_uri=PHENOPACKETS.variation__copyNumber, domain=None, range=Optional[Union[str, CopyNumberId]])
+                   model_uri=PHENOPACKETS.variation__copyNumber, domain=None, range=Optional[Union[dict, CopyNumber]])
 
 slots.variation__haplotype = Slot(uri=PHENOPACKETS.haplotype, name="variation__haplotype", curie=PHENOPACKETS.curie('haplotype'),
                    model_uri=PHENOPACKETS.variation__haplotype, domain=None, range=Optional[Union[dict, Haplotype]])
 
 slots.variation__text = Slot(uri=PHENOPACKETS.text, name="variation__text", curie=PHENOPACKETS.curie('text'),
-                   model_uri=PHENOPACKETS.variation__text, domain=None, range=Optional[Union[str, TextId]])
+                   model_uri=PHENOPACKETS.variation__text, domain=None, range=Optional[Union[dict, Text]])
 
 slots.variation__variationSet = Slot(uri=PHENOPACKETS.variationSet, name="variation__variationSet", curie=PHENOPACKETS.curie('variationSet'),
                    model_uri=PHENOPACKETS.variation__variationSet, domain=None, range=Optional[Union[dict, VariationSet]])

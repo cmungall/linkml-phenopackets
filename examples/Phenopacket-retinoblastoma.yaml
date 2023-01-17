@@ -1,0 +1,313 @@
+metaData:
+  created: '2021-05-14T10:35:00Z'
+  createdBy: anonymous biocurator
+  phenopacketSchemaVersion: '2.0'
+  resources:
+  - id: ncit
+    iriPrefix: http://purl.obolibrary.org/obo/NCIT_
+    name: NCI Thesaurus
+    namespacePrefix: NCIT
+    url: http://purl.obolibrary.org/obo/ncit.owl
+    version: 21.05d
+  - id: efo
+    iriPrefix: http://purl.obolibrary.org/obo/EFO_
+    name: Experimental Factor Ontology
+    namespacePrefix: EFO
+    url: http://www.ebi.ac.uk/efo/efo.owl
+    version: 3.34.0
+  - id: uberon
+    iriPrefix: http://purl.obolibrary.org/obo/UBERON_
+    name: Uber-anatomy ontology
+    namespacePrefix: UBERON
+    url: http://purl.obolibrary.org/obo/uberon.owl
+    version: '2021-07-27'
+  - id: ncbitaxon
+    iriPrefix: http://purl.obolibrary.org/obo/NCBITaxon_
+    name: NCBI organismal classification
+    namespacePrefix: NCBITaxon
+    url: http://purl.obolibrary.org/obo/ncbitaxon.owl
+    version: '2021-06-10'
+biosamples:
+- files:
+  - uri: file://data/fileSomaticWgs.vcf.gz
+  id: biosample.1
+  measurements:
+  - assay:
+      id: LOINC:33728-7
+      label: Size.maximum dimension in Tumor
+    timeObserved:
+      age:
+        iso8601duration: P8M2W
+    value:
+      quantity:
+        unit:
+          id: UO:0000016
+          label: millimeter
+        value: 15.0
+  pathologicalTnmFinding:
+    NCIT:C88735:
+      id: NCIT:C88735
+      label: Retinoblastoma pT3b TNM Finding v7
+    NCIT:C88741:
+      id: NCIT:C88741
+      label: Retinoblastoma pN0 TNM Finding v7
+  phenotypicFeatures:
+  - type:
+      id: NCIT:C35941
+      label: Flexner-Wintersteiner Rosette Formation
+  - type:
+      id: NCIT:C132485
+      label: Apoptosis and Necrosis
+  procedure:
+    bodySite:
+      id: UBERON:0004548
+      label: left eye
+    code:
+      id: NCIT:C48601
+      label: Enucleation
+    performed:
+      age:
+        iso8601duration: P8M2W
+  sampledTissue:
+    id: UBERON:0000970
+    label: eye
+  tumorProgression:
+    id: NCIT:C8509
+    label: Primary Neoplasm
+diseases:
+- clinicalTnmFinding:
+    NCIT:C140678:
+      id: NCIT:C140678
+      label: Retinoblastoma cM0 TNM Finding v8
+  diseaseStage:
+    LOINC:LA24739-7:
+      id: LOINC:LA24739-7
+      label: Group E
+  onset:
+    age:
+      iso8601duration: P4M
+  primarySite:
+    id: UBERON:0004548
+    label: left eye
+  term:
+    id: NCIT:C7541
+    label: Retinoblastoma
+files:
+- uri: file://data/germlineWgs.vcf.gz
+id: arbitrary.id
+interpretations:
+- diagnosis:
+    disease:
+      id: NCIT:C7541
+      label: Retinoblastoma
+    genomicInterpretations:
+    - interpretationStatus: CAUSATIVE
+      subjectOrBiosampleId: proband A
+      variantInterpretation:
+        acmgPathogenicityClassification: PATHOGENIC
+        therapeuticActionability: ACTIONABLE
+        variationDescriptor:
+          variation:
+            copyNumber:
+              allele:
+                sequenceLocation:
+                  sequenceId: refseq:NC_000013.14
+                  sequenceInterval:
+                    endNumber:
+                      value: 62280955
+                    startNumber:
+                      value: 26555377
+              number:
+                value: 1
+    - interpretationStatus: CAUSATIVE
+      subjectOrBiosampleId: biosample.1
+      variantInterpretation:
+        acmgPathogenicityClassification: PATHOGENIC
+        therapeuticActionability: ACTIONABLE
+        variationDescriptor:
+          allelicState:
+            id: GENO:0000135
+            label: heterozygous
+          expressions:
+          - syntax: allele-frequency
+            value: 25.0%
+          - syntax: hgvs.c
+            value: NM_000321.2:c.958C>T
+          - syntax: transcript_reference
+            value: NM_000321.2
+          geneContext:
+            symbol: RB1
+            valueId: HGNC:9884
+          id: rs121913300
+          label: RB1 c.958C>T (p.Arg320Ter)
+          moleculeContext: transcript
+          variation:
+            allele:
+              literalSequenceExpression:
+                sequence: T
+              sequenceLocation:
+                sequenceId: refseq:NC_000013.14
+                sequenceInterval:
+                  endNumber:
+                    value: 48941648
+                  startNumber:
+                    value: 48941647
+          vcfRecord:
+            alt: T
+            chrom: NC_000013.11
+            genomeAssembly: GRCh38
+            pos: 48367512
+            ref: C
+  id: interpretation.id
+  progressStatus: SOLVED
+measurements:
+- assay:
+    id: LOINC:79893-4
+    label: Left eye Intraocular pressure
+  timeObserved:
+    age:
+      iso8601duration: P6M
+  value:
+    quantity:
+      referenceRange:
+        high: 21.0
+        low: 10.0
+        unit:
+          id: 56844-4
+          label: Intraocular pressure of Eye
+      unit:
+        id: UO:0000272
+        label: millimetres of mercury
+      value: 25.0
+- assay:
+    id: LOINC:79892-6
+    label: Right eye Intraocular pressure
+  timeObserved:
+    age:
+      iso8601duration: P6M
+  value:
+    quantity:
+      referenceRange:
+        high: 21.0
+        low: 10.0
+        unit:
+          id: 56844-4
+          label: Intraocular pressure of Eye
+      unit:
+        id: UO:0000272
+        label: millimetres of mercury
+      value: 15.0
+medicalActions:
+- adverseEvents:
+    HP:0025637:
+      id: HP:0025637
+      label: Vasospasm
+  treatment:
+    agent:
+      id: DrugCentral:1678
+      label: melphalan
+    doseIntervals:
+    - interval:
+        end: '2020-09-02T00:00:00Z'
+        start: '2020-09-02T00:00:00Z'
+      quantity:
+        unit:
+          id: UO:0000308
+          label: milligram per kilogram
+        value: 0.4
+      scheduleFrequency:
+        id: NCIT:C64576
+        label: Once
+    routeOfAdministration:
+      id: NCIT:C38222
+      label: Intraarterial Route of Administration
+  treatmentIntent:
+    id: NCIT:C62220
+    label: Cure
+  treatmentTarget:
+    id: NCIT:C7541
+    label: Retinoblastoma
+  treatmentTerminationReason:
+    id: NCIT:C41331
+    label: Adverse Event
+- therapeuticRegimen:
+    endTime:
+      age:
+        iso8601duration: P8M
+    ontologyClass:
+      id: NCIT:C10894
+      label: Carboplatin/Etoposide/Vincristine
+    regimenStatus: COMPLETED
+    startTime:
+      age:
+        iso8601duration: P7M
+  treatmentIntent:
+    id: NCIT:C62220
+    label: Cure
+  treatmentTarget:
+    id: NCIT:C7541
+    label: Retinoblastoma
+- procedure:
+    bodySite:
+      id: UBERON:0004548
+      label: left eye
+    code:
+      id: NCIT:C48601
+      label: Enucleation
+    performed:
+      age:
+        iso8601duration: P8M2W
+  treatmentIntent:
+    id: NCIT:C62220
+    label: Cure
+  treatmentTarget:
+    id: NCIT:C7541
+    label: Retinoblastoma
+phenotypicFeatures:
+- modifiers:
+    HP:0012834:
+      id: HP:0012834
+      label: Right
+  onset:
+    age:
+      iso8601duration: P3M
+  type:
+    id: HP:0030084
+    label: Clinodactyly
+- modifiers:
+    HP:0012833:
+      id: HP:0012833
+      label: Unilateral
+  onset:
+    age:
+      iso8601duration: P4M
+  type:
+    id: HP:0000555
+    label: Leukocoria
+- modifiers:
+    HP:0012833:
+      id: HP:0012833
+      label: Unilateral
+  onset:
+    age:
+      iso8601duration: P5M15D
+  type:
+    id: HP:0000486
+    label: Strabismus
+- modifiers:
+    HP:0012833:
+      id: HP:0012833
+      label: Unilateral
+  onset:
+    age:
+      iso8601duration: P6M
+  type:
+    id: HP:0000541
+    label: Retinal detachment
+subject:
+  id: proband A
+  karyotypicSex: XX
+  sex: FEMALE
+  timeAtLastEncounter:
+    age:
+      iso8601duration: P6M

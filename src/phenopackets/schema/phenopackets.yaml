@@ -19,7 +19,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: ''
-        identifier: true
         range: string
       members: 
         annotations: 
@@ -54,7 +53,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: An identifier specific for this family.
-        identifier: true
         range: string
       metaData: 
         annotations: 
@@ -108,7 +106,6 @@ classes:
           percent_encoded: true
           rank: 1
         description: An identifier specific for this phenopacket.
-        identifier: true
         range: string
       interpretations: 
         annotations: 
@@ -172,6 +169,14 @@ imports:
   - phenotypic_feature
 name: phenopackets
 prefixes: 
+  GENO: http://purl.obolibrary.org/obo/GENO_
+  HP: http://purl.obolibrary.org/obo/HP_
+  LOINC: https://loinc.org/
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  UCUM: http://unitsofmeasure.org/
+  UO: http://purl.obolibrary.org/obo/UO_
   argo: https://docs.icgc-argo.org/dictionary/
   linkml: https://w3id.org/linkml/
   phenopackets: https://w3id.org/linkml/phenopackets/phenopackets/

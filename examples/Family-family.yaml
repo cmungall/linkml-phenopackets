@@ -1,0 +1,66 @@
+metaData:
+  created: '2022-04-17T10:35:00Z'
+  createdBy: biocurator
+  phenopacketSchemaVersion: 2.0.0
+files:
+- uri: /data/samples/vcf/example_000001215.vcf.gz
+id: family.1
+pedigree:
+  persons:
+  - affectedStatus: UNAFFECTED
+    familyId: family.1
+    individualId: father.1
+    maternalId: '0'
+    paternalId: '0'
+    sex: MALE
+  - affectedStatus: UNAFFECTED
+    familyId: family.1
+    individualId: mother.1
+    maternalId: '0'
+    paternalId: '0'
+    sex: FEMALE
+  - affectedStatus: UNAFFECTED
+    familyId: family.1
+    individualId: daughter.1
+    maternalId: mother.1
+    paternalId: father.1
+    sex: FEMALE
+  - affectedStatus: AFFECTED
+    familyId: family.1
+    individualId: son.1
+    maternalId: mother.1
+    paternalId: father.1
+    sex: MALE
+  - affectedStatus: UNAFFECTED
+    familyId: family.1
+    individualId: daughter.2
+    maternalId: mother.1
+    paternalId: father.1
+    sex: FEMALE
+proband:
+  metaData:
+    created: '2022-04-17T10:35:00Z'
+    createdBy: biocurator
+    phenopacketSchemaVersion: 2.0.0
+    resources:
+    - id: hp
+      iriPrefix: http://purl.obolibrary.org/obo/HP_
+      name: human phenotype ontology
+      namespacePrefix: HP
+      url: http://purl.obolibrary.org/obo/hp.owl
+      version: '2022-04-15'
+  id: phenopacket.id.1
+  phenotypicFeatures:
+  - onset:
+      ontologyClass:
+        id: HP:0003577
+        label: Congenital onset
+    type:
+      id: HP:0000407
+      label: 'Sensorineural hearing impairment '
+  subject:
+    id: son.1
+    sex: MALE
+    timeAtLastEncounter:
+      age:
+        iso8601duration: P10Y2M4D

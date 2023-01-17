@@ -41,7 +41,6 @@ classes:
         description: biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id
         exact_mappings: 
           - ARGO:specimen.submitter_specimen_id
-        identifier: true
         range: string
       individualId: 
         annotations: 
@@ -165,6 +164,14 @@ imports:
   - phenotypic_feature
 name: biosample
 prefixes: 
+  GENO: http://purl.obolibrary.org/obo/GENO_
+  HP: http://purl.obolibrary.org/obo/HP_
+  LOINC: https://loinc.org/
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  UCUM: http://unitsofmeasure.org/
+  UO: http://purl.obolibrary.org/obo/UO_
   argo: https://docs.icgc-argo.org/dictionary/
   biosample: https://w3id.org/linkml/phenopackets/biosample/
   linkml: https://w3id.org/linkml/

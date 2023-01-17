@@ -1,5 +1,6 @@
 SRC = src/phenopackets/schema/phenopackets.yaml
 RUN = poetry run
+CORE_MODS = timestamp any base measurement medical_action genome phenotypic_feature biosample disease interpretation individual meta_data pedigree vrs vrsatile phenopackets
 
 all:
 	$(RUN) gen-project -d project $(SRC)
@@ -7,10 +8,20 @@ all:
 # https://github.com/linkml/linkml/issues/907
 gendocs:
 #	$(RUN) gen-doc -d docs/  $(SRC)
-	$(RUN) gen-doc -d docs/ --template-directory docgen-templates $(SRC)
+#	$(RUN) gen-doc -d docs/ --include-top-level-diagram --diagram-type er_diagram --template-directory docgen-templates $(SRC)
+	$(RUN) gen-doc -d docs/ --include-top-level-diagram --diagram-type er_diagram $(SRC)
 
 py:
-	cp project/phenopackets.py phenopackets
+	cp project/phenopackets.py src/phenopackets/datamodel/
+
+#src/phenopackets/datamodel/%.py: src/phenopackets/schema/%.yaml
+#	$(RUN) gen-python $< > $@.tmp && mv $@.tmp $@
+
+test:
+	$(RUN) python -m unittest
+
+sync-examples:
+	cp tests/output/examples/* examples/
 
 serve:
 	$(RUN) mkdocs serve
@@ -27,6 +38,9 @@ clean-site:
 
 sheets/phenopackets.tsv: $(SRC)
 	$(RUN) linkml2sheets sheets/phenopackets-spec.tsv -s $< -o $@
+
+nb:
+	$(RUN) poetry run jupyter notebook
 
 ## --------------------
 ## TEST/VALIDATIONS
@@ -68,7 +82,6 @@ PXF_GOOGLE = $(PXF)/google/protobuf
 PXF_GA4GH = $(PXF)/ga4gh
 PXF_VRSA = $(PXF_GA4GH)/vrsatile/v1
 
-CORE_MODS = timestamp any base measurement medical_action genome phenotypic_feature biosample disease interpretation individual meta_data pedigree vrs vrsatile phenopackets
 
 auto: $(patsubst %, tmp/%.yaml, $(CORE_MODS))
 

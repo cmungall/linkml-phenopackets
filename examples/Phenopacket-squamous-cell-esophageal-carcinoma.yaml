@@ -1,0 +1,103 @@
+metaData:
+  created: '2021-05-14T10:35:00Z'
+  createdBy: anonymous biocurator
+  phenopacketSchemaVersion: '2.0'
+  resources:
+  - id: ncit
+    iriPrefix: http://purl.obolibrary.org/obo/NCIT_
+    name: NCI Thesaurus
+    namespacePrefix: NCIT
+    url: http://purl.obolibrary.org/obo/ncit.owl
+    version: 21.05d
+  - id: efo
+    iriPrefix: http://purl.obolibrary.org/obo/EFO_
+    name: Experimental Factor Ontology
+    namespacePrefix: EFO
+    url: http://www.ebi.ac.uk/efo/efo.owl
+    version: 3.34.0
+  - id: uberon
+    iriPrefix: http://purl.obolibrary.org/obo/UBERON_
+    name: Uber-anatomy ontology
+    namespacePrefix: UBERON
+    url: http://purl.obolibrary.org/obo/uberon.owl
+    version: '2021-07-27'
+  - id: ncbitaxon
+    iriPrefix: http://purl.obolibrary.org/obo/NCBITaxon_
+    name: NCBI organismal classification
+    namespacePrefix: NCBITaxon
+    url: http://purl.obolibrary.org/obo/ncbitaxon.owl
+    version: '2021-06-10'
+biosamples:
+- id: biosample-1
+  individualId: proband-A
+  procedure:
+    code:
+      id: NCIT:C15189
+      label: Biopsy
+  sampledTissue:
+    id: NCIT:C12389
+    label: Esophagus
+  timeOfCollection:
+    age:
+      iso8601duration: P49Y2M
+  tumorProgression:
+    id: NCIT:C4813
+    label: Recurrent Malignant Neoplasm
+- diagnosticMarkers:
+    NCIT:C131711:
+      id: NCIT:C131711
+      label: Human Papillomavirus-18 Positive
+  histologicalDiagnosis:
+    id: NCIT:C4024
+    label: Esophageal Squamous Cell Carcinoma
+  id: biosample-2
+  individualId: proband-A
+  procedure:
+    code:
+      id: NCIT:C15189
+      label: Biopsy
+  sampledTissue:
+    id: NCIT:C139196
+    label: Esophageal Lymph Node
+  timeOfCollection:
+    age:
+      iso8601duration: P48Y3M
+  tumorProgression:
+    id: NCIT:C84509
+    label: Primary Malignant Neoplasm
+- id: biosample-3
+  individualId: proband-A
+  procedure:
+    code:
+      id: NCIT:C15189
+      label: Biopsy
+  sampledTissue:
+    id: NCIT:C12468
+    label: Lung
+  timeOfCollection:
+    age:
+      iso8601duration: P50Y7M
+  tumorProgression:
+    id: NCIT:C3261
+    label: Metastatic Neoplasm
+diseases:
+- clinicalTnmFinding:
+    NCIT:C48724:
+      id: NCIT:C48724
+      label: T2 Stage Finding
+    NCIT:C48706:
+      id: NCIT:C48706
+      label: N1 Stage Finding
+    NCIT:C48699:
+      id: NCIT:C48699
+      label: M0 Stage Finding
+  term:
+    id: NCIT:C4024
+    label: Esophageal Squamous Cell Carcinoma
+id: arbitrary.id
+subject:
+  id: proband-A
+  sex: MALE
+  timeAtLastEncounter:
+    age:
+      iso8601duration: P38Y

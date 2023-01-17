@@ -1,0 +1,261 @@
+@prefix CHEBI: <http://purl.obolibrary.org/obo/CHEBI_> .
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
+@prefix LOINC: <https://loinc.org/> .
+@prefix MONDO: <http://purl.obolibrary.org/obo/MONDO_> .
+@prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
+@prefix UO: <http://purl.obolibrary.org/obo/UO_> .
+@prefix ns1: <medical_action:> .
+@prefix ns2: <measurement:> .
+@prefix ns3: <phenotypic_feature:> .
+@prefix ns4: <disease:> .
+@prefix ns5: <base:> .
+@prefix ns6: <individual:> .
+@prefix ns7: <meta_data:> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+CHEBI:41879 a ns5:OntologyClass ;
+    ns5:label "dexamethasone" .
+
+HP:0000790 a ns5:OntologyClass ;
+    ns5:label "Hematuria" .
+
+HP:0001945 a ns5:OntologyClass ;
+    ns5:label "Fever " .
+
+HP:0002014 a ns5:OntologyClass ;
+    ns5:label "Diarrhea" .
+
+HP:0002094 a ns5:OntologyClass ;
+    ns5:label "Dyspnea" .
+
+HP:0003326 a ns5:OntologyClass ;
+    ns5:label "Myalgia" .
+
+HP:0012625 a ns5:OntologyClass ;
+    ns5:label "Stage 3 chronic kidney disease" .
+
+HP:0030157 a ns5:OntologyClass ;
+    ns5:label "Flank pain" .
+
+HP:0033677 a ns5:OntologyClass ;
+    ns5:label "Acute respiratory distress syndrome" .
+
+MONDO:0004994 a ns5:OntologyClass ;
+    ns5:label "cardiomyopathy" .
+
+MONDO:0005015 a ns5:OntologyClass ;
+    ns5:label "diabetes mellitus" .
+
+NCIT:C116648 a ns5:OntologyClass ;
+    ns5:label "Tracheal Intubation" .
+
+NCIT:C124458 a ns5:OntologyClass ;
+    ns5:label "Milligram per Kilogram per Dose" .
+
+NCIT:C125004 a ns5:OntologyClass ;
+    ns5:label "Once Daily" .
+
+NCIT:C38284 a ns5:OntologyClass ;
+    ns5:label "Nasal Route of Administration" .
+
+NCIT:C50254 a ns5:OntologyClass ;
+    ns5:label "Positive end Expiratory Pressure Valve Device" .
+
+NCIT:C64529 a ns5:OntologyClass ;
+    ns5:label "Every Four Weeks" .
+
+NCIT:C80473 a ns5:OntologyClass ;
+    ns5:label "Left Ventricular Assist Device" .
+
+NCIT:C84217 a ns5:OntologyClass ;
+    ns5:label "Tocilizumab" .
+
+NCIT:C91060 a ns5:OntologyClass ;
+    ns5:label "Centimeters of Water" .
+
+UO:0000022 a ns5:OntologyClass ;
+    ns5:label "milligram" .
+
+MONDO:0100096 a ns5:OntologyClass ;
+    ns5:label "COVID-19" .
+
+NCIT:C67245 a ns5:OntologyClass ;
+    ns5:label "Thousand Cells" .
+
+NCIT:C67388 a ns5:OntologyClass ;
+    ns5:label "Liter per Minute" .
+
+NCIT:C722 a ns5:OntologyClass ;
+    ns5:label "Oxygen" .
+
+LOINC:26474-7 a ns5:OntologyClass ;
+    ns5:label "Lymphocytes [#/volume] in Blood" .
+
+PATO:0000689 a ns5:OntologyClass ;
+    ns5:label "continuous" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:diseases [ a ns4:Disease ;
+            ns4:onset [ a ns5:TimeElement ;
+                    ns5:timestamp "2020-03-17T00:00:00Z" ] ;
+            ns4:term MONDO:0100096 ],
+        [ a ns4:Disease ;
+            ns4:excluded true ;
+            ns4:term MONDO:0005015 ],
+        [ a ns4:Disease ;
+            ns4:term MONDO:0004994 ] ;
+    phenopackets:id "arbitrary.phenopacket.id" ;
+    phenopackets:measurements [ a ns2:Measurement ;
+            ns2:assay LOINC:26474-7 ;
+            ns2:timeObserved [ a ns5:TimeElement ;
+                    ns5:timestamp "2020-03-20T00:00:00Z" ] ;
+            ns2:value [ a ns2:Value ;
+                    ns2:quantity [ a ns2:Quantity ;
+                            ns2:unit NCIT:C67245 ;
+                            ns2:value 7e-01 ] ] ],
+        [ a ns2:Measurement ;
+            ns2:assay LOINC:26474-7 ;
+            ns2:timeObserved [ a ns5:TimeElement ;
+                    ns5:interval [ a ns5:TimeInterval ;
+                            ns5:end "2020-03-01T00:00:00Z" ;
+                            ns5:start "2019-09-01T00:00:00Z" ] ] ;
+            ns2:value [ a ns2:Value ;
+                    ns2:quantity [ a ns2:Quantity ;
+                            ns2:unit NCIT:C67245 ;
+                            ns2:value 1.4e+00 ] ] ] ;
+    phenopackets:medicalActions [ a ns1:MedicalAction ;
+            ns1:treatment [ a ns1:Treatment ;
+                    ns1:agent CHEBI:41879 ;
+                    ns1:doseIntervals [ a ns1:DoseInterval ;
+                            ns1:interval [ a ns5:TimeInterval ;
+                                    ns5:end "2020-03-30T00:00:00Z" ;
+                                    ns5:start "2020-03-20T00:00:00Z" ] ;
+                            ns1:quantity [ a ns2:Quantity ;
+                                    ns2:unit UO:0000022 ;
+                                    ns2:value 6e+00 ] ;
+                            ns1:scheduleFrequency NCIT:C125004 ] ] ],
+        [ a ns1:MedicalAction ;
+            ns1:procedure [ a ns5:Procedure ;
+                    ns5:code NCIT:C80473 ;
+                    ns5:performed [ a ns5:TimeElement ;
+                            ns5:timestamp "2016-01-01T00:00:00Z" ] ] ],
+        [ a ns1:MedicalAction ;
+            ns1:treatment [ a ns1:Treatment ;
+                    ns1:agent NCIT:C722 ;
+                    ns1:doseIntervals [ a ns1:DoseInterval ;
+                            ns1:interval [ a ns5:TimeInterval ;
+                                    ns5:end "2020-03-28T00:00:00Z" ;
+                                    ns5:start "2020-03-22T00:00:00Z" ] ;
+                            ns1:quantity [ a ns2:Quantity ;
+                                    ns2:unit NCIT:C91060 ;
+                                    ns2:value 1.4e+01 ] ;
+                            ns1:scheduleFrequency PATO:0000689 ] ;
+                    ns1:routeOfAdministration NCIT:C50254 ] ],
+        [ a ns1:MedicalAction ;
+            ns1:treatment [ a ns1:Treatment ;
+                    ns1:agent NCIT:C722 ;
+                    ns1:doseIntervals [ a ns1:DoseInterval ;
+                            ns1:interval [ a ns5:TimeInterval ;
+                                    ns5:end "2021-02-02T08:22:42Z" ;
+                                    ns5:start "2021-02-01T18:58:43Z" ] ;
+                            ns1:quantity [ a ns2:Quantity ;
+                                    ns2:unit NCIT:C67388 ;
+                                    ns2:value 2e+00 ] ;
+                            ns1:scheduleFrequency PATO:0000689 ],
+                        [ a ns1:DoseInterval ;
+                            ns1:interval [ a ns5:TimeInterval ;
+                                    ns5:end "2021-02-02T12:22:42Z" ;
+                                    ns5:start "2021-02-02T08:22:42Z" ] ;
+                            ns1:quantity [ a ns2:Quantity ;
+                                    ns2:unit NCIT:C67388 ;
+                                    ns2:value 5e+01 ] ;
+                            ns1:scheduleFrequency PATO:0000689 ] ;
+                    ns1:routeOfAdministration NCIT:C38284 ] ],
+        [ a ns1:MedicalAction ;
+            ns1:treatment [ a ns1:Treatment ;
+                    ns1:agent NCIT:C84217 ;
+                    ns1:doseIntervals [ a ns1:DoseInterval ;
+                            ns1:interval [ a ns5:TimeInterval ;
+                                    ns5:end "2020-03-28T00:00:00Z" ;
+                                    ns5:start "2020-03-24T00:00:00Z" ] ;
+                            ns1:quantity [ a ns2:Quantity ;
+                                    ns2:unit NCIT:C124458 ;
+                                    ns2:value 4e+00 ] ;
+                            ns1:scheduleFrequency NCIT:C64529 ] ] ],
+        [ a ns1:MedicalAction ;
+            ns1:procedure [ a ns5:Procedure ;
+                    ns5:code NCIT:C116648 ;
+                    ns5:performed [ a ns5:TimeElement ;
+                            ns5:timestamp "2020-03-22T00:00:00Z" ] ] ] ;
+    phenopackets:metaData [ a ns7:MetaData ;
+            ns7:created "2021-08-17T00:00:00Z" ;
+            ns7:createdBy "anonymous biocurator" ;
+            ns7:externalReferences [ a ns5:ExternalReference ;
+                    ns5:description "The Imperfect Cytokine Storm: Severe COVID-19 With ARDS in a Patient on Durable LVAD Support" ;
+                    ns5:id "DOI:10.1016/j.jaccas.2020.04.001" ;
+                    ns5:reference "PMID:32292915" ] ;
+            ns7:phenopacketSchemaVersion "2.0" ;
+            ns7:resources [ a ns7:Resource ;
+                    ns7:id "ncit" ;
+                    ns7:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns7:name "NCI Thesaurus" ;
+                    ns7:namespacePrefix "NCIT" ;
+                    ns7:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns7:version "2019-11-26" ],
+                [ a ns7:Resource ;
+                    ns7:id "mondo" ;
+                    ns7:iriPrefix "http://purl.obolibrary.org/obo/MONDO_" ;
+                    ns7:name "Mondo Disease Ontology" ;
+                    ns7:namespacePrefix "MONDO" ;
+                    ns7:url "http://purl.obolibrary.org/obo/mondo.obo" ;
+                    ns7:version "2021-11-26" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns3:PhenotypicFeature ;
+            ns3:onset [ a ns5:TimeElement ;
+                    ns5:interval [ a ns5:TimeInterval ;
+                            ns5:end "2020-03-20T00:00:00Z" ;
+                            ns5:start "2020-03-18T00:00:00Z" ] ] ;
+            ns3:type HP:0002094 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:onset [ a ns5:TimeElement ;
+                    ns5:interval [ a ns5:TimeInterval ;
+                            ns5:end "2020-03-20T00:00:00Z" ;
+                            ns5:start "2020-03-18T00:00:00Z" ] ] ;
+            ns3:type HP:0003326 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:onset [ a ns5:TimeElement ;
+                    ns5:timestamp "2021-02-01T05:00:00Z" ] ;
+            ns3:type HP:0001945 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:onset [ a ns5:TimeElement ;
+                    ns5:timestamp "2021-02-01T05:00:00Z" ] ;
+            ns3:type HP:0000790 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:onset [ a ns5:TimeElement ;
+                    ns5:timestamp "2020-03-20T00:00:00Z" ] ;
+            ns3:type HP:0033677 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:onset [ a ns5:TimeElement ;
+                    ns5:timestamp "2021-02-01T05:00:00Z" ] ;
+            ns3:type HP:0012625 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:onset [ a ns5:TimeElement ;
+                    ns5:interval [ a ns5:TimeInterval ;
+                            ns5:end "2020-03-20T00:00:00Z" ;
+                            ns5:start "2020-03-18T00:00:00Z" ] ] ;
+            ns3:type HP:0002014 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:onset [ a ns5:TimeElement ;
+                    ns5:timestamp "2021-02-01T05:00:00Z" ] ;
+            ns3:type HP:0030157 ] ;
+    phenopackets:subject [ a ns6:Individual ;
+            ns6:id "P123542" ;
+            ns6:sex "MALE" ;
+            ns6:timeAtLastEncounter [ a ns5:TimeElement ;
+                    ns5:age [ a ns5:Age ;
+                            ns5:iso8601duration "P70Y" ] ] ;
+            ns6:vitalStatus [ a ns6:VitalStatus ;
+                    ns6:causeOfDeath MONDO:0100096 ;
+                    ns6:status "DECEASED" ] ] .
+

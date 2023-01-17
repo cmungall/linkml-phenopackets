@@ -1,0 +1,392 @@
+@prefix DrugCentral: <http://identifiers.org/drugcentral/> .
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
+@prefix LOINC: <https://loinc.org/> .
+@prefix MONDO: <http://purl.obolibrary.org/obo/MONDO_> .
+@prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix SNOMEDCT: <http://snomed.info/id/> .
+@prefix UBERON: <http://purl.obolibrary.org/obo/UBERON_> .
+@prefix UCUM: <http://unitsofmeasure.org/> .
+@prefix ns1: <measurement:> .
+@prefix ns2: <base:> .
+@prefix ns3: <meta_data:> .
+@prefix ns4: <medical_action:> .
+@prefix ns5: <phenotypic_feature:> .
+@prefix ns6: <individual:> .
+@prefix ns7: <disease:> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+DrugCentral:395 a ns2:OntologyClass ;
+    ns2:label "brimonidine" .
+
+HP:0000539 a ns2:OntologyClass ;
+    ns2:label "Abnormality of refraction" .
+
+HP:0000545 a ns2:OntologyClass ;
+    ns2:label "Myopia" .
+
+HP:0003581 a ns2:OntologyClass ;
+    ns2:label "Adult onset" .
+
+HP:0007686 a ns2:OntologyClass ;
+    ns2:label "Abnormal pupillary function" .
+
+HP:0007906 a ns2:OntologyClass ;
+    ns2:label "Ocular hypertension" .
+
+HP:0012629 a ns2:OntologyClass ;
+    ns2:label "Phakodonesis" .
+
+HP:0025637 a ns2:OntologyClass ;
+    ns2:label "Vasospasm" .
+
+MONDO:0008327 a ns2:OntologyClass ;
+    ns2:label "exfoliation syndrome" .
+
+NCIT:C29302 a ns2:OntologyClass ;
+    ns2:label "Ophthalmic Solution" .
+
+NCIT:C41331 a ns2:OntologyClass ;
+    ns2:label "Adverse Event" .
+
+NCIT:C50618 a ns2:OntologyClass ;
+    ns2:label "Intraocular Pressure Increased" .
+
+NCIT:C64576 a ns2:OntologyClass ;
+    ns2:label "Once" .
+
+UBERON:0004548 a ns2:OntologyClass ;
+    ns2:label "left eye" .
+
+SNOMEDCT:252886007 a ns2:OntologyClass ;
+    ns2:label "Refraction assessment (procedure)" .
+
+SNOMEDCT:414775001 a ns2:OntologyClass ;
+    ns2:label "monovision" .
+
+UCUM:degree a ns2:OntologyClass ;
+    ns2:label "degree (plane angle)" .
+
+UCUM:mg.kg-1 a ns2:OntologyClass ;
+    ns2:label "milligram per kilogram" .
+
+LOINC:29031-2 a ns2:OntologyClass ;
+    ns2:label "Right eye YAG mode" .
+
+LOINC:79846-2 a ns2:OntologyClass ;
+    ns2:label "Right eye cylindrical refraction" .
+
+LOINC:79850-4 a ns2:OntologyClass ;
+    ns2:label "Right eye spherical refraction" .
+
+LOINC:9829-8 a ns2:OntologyClass ;
+    ns2:label "Recht eye cylindrical degree" .
+
+NCIT:C156778 a ns2:OntologyClass ;
+    ns2:label "Vision Assessment" .
+
+NCIT:C157809 a ns2:OntologyClass ;
+    ns2:label "Cataract Surgery" .
+
+NCIT:C48570 a ns2:OntologyClass ;
+    ns2:label "Percent Unit" .
+
+NCIT:C87149 a ns2:OntologyClass ;
+    ns2:label "Visual Acuity" .
+
+SNOMEDCT:397312009 a ns2:OntologyClass ;
+    ns2:label "Intraocular lens anterior chamber depth" .
+
+UCUM:mm a ns2:OntologyClass ;
+    ns2:label "millimeter" .
+
+<http://unitsofmeasure.org/mm[Hg]> a ns2:OntologyClass ;
+    ns2:label "millimetres of mercury" .
+
+LOINC:79892-6 a ns2:OntologyClass ;
+    ns2:label "Right eye Intraocular pressure" .
+
+HP:0000518 a ns2:OntologyClass ;
+    ns2:label "cataract" .
+
+HP:0012834 a ns2:OntologyClass ;
+    ns2:label "Right" .
+
+HP:0500081 a ns2:OntologyClass ;
+    ns2:label "Pseudophakia" .
+
+UBERON:0004549 a ns2:OntologyClass ;
+    ns2:label "right eye" .
+
+<http://unitsofmeasure.org/[diop]> a ns2:OntologyClass ;
+    ns2:label "diopter" .
+
+LOINC:56844-4 a ns2:OntologyClass ;
+    ns2:label "Intraocular pressure of Eye" .
+
+LOINC:79895-9 a ns2:OntologyClass ;
+    ns2:label "Subjective refraction method" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:diseases [ a ns7:Disease ;
+            ns7:excluded false ;
+            ns7:onset [ a ns2:TimeElement ;
+                    ns2:ontologyClass HP:0003581 ] ;
+            ns7:primarySite UBERON:0004549 ;
+            ns7:term MONDO:0008327 ] ;
+    phenopackets:id "arbitrary.id" ;
+    phenopackets:measurements [ a ns1:Measurement ;
+            ns1:assay SNOMEDCT:397312009 ;
+            ns1:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P71Y1M1D" ] ] ;
+            ns1:value [ a ns1:Value ;
+                    ns1:quantity [ a ns1:Quantity ;
+                            ns1:referenceRange [ a ns1:ReferenceRange ;
+                                    ns1:high 2.1e+01 ;
+                                    ns1:low 1e+01 ;
+                                    ns1:unit LOINC:56844-4 ] ;
+                            ns1:unit UCUM:mm ;
+                            ns1:value 3.93e+00 ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay LOINC:79850-4 ;
+            ns1:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P70Y1W" ] ] ;
+            ns1:value [ a ns1:Value ;
+                    ns1:quantity [ a ns1:Quantity ;
+                            ns1:referenceRange [ a ns1:ReferenceRange ;
+                                    ns1:high 3e+01 ;
+                                    ns1:low -3e+01 ;
+                                    ns1:unit LOINC:79895-9 ] ;
+                            ns1:unit <http://unitsofmeasure.org/[diop]> ;
+                            ns1:value -2.5e-01 ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay LOINC:79895-9 ;
+            ns1:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P70Y1W" ] ] ;
+            ns1:value [ a ns1:Value ;
+                    ns1:quantity [ a ns1:Quantity ;
+                            ns1:referenceRange [ a ns1:ReferenceRange ;
+                                    ns1:high 3e+01 ;
+                                    ns1:low -3e+01 ;
+                                    ns1:unit LOINC:79895-9 ] ;
+                            ns1:unit <http://unitsofmeasure.org/[diop]> ;
+                            ns1:value -2.5e-01 ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay SNOMEDCT:252886007 ;
+            ns1:complexValue [ a ns1:ComplexValue ;
+                    ns1:typedQuantities [ a ns1:TypedQuantity ;
+                            ns1:quantity [ a ns1:Quantity ;
+                                    ns1:referenceRange [ a ns1:ReferenceRange ;
+                                            ns1:high 3e+01 ;
+                                            ns1:low -3e+01 ;
+                                            ns1:unit LOINC:79895-9 ] ;
+                                    ns1:unit <http://unitsofmeasure.org/[diop]> ;
+                                    ns1:value -5e-01 ] ;
+                            ns1:type LOINC:79846-2 ],
+                        [ a ns1:TypedQuantity ;
+                            ns1:quantity [ a ns1:Quantity ;
+                                    ns1:referenceRange [ a ns1:ReferenceRange ;
+                                            ns1:high 3e+01 ;
+                                            ns1:low -3e+01 ;
+                                            ns1:unit LOINC:79895-9 ] ;
+                                    ns1:unit UCUM:degree ;
+                                    ns1:value 1.1e+02 ] ;
+                            ns1:type LOINC:9829-8 ] ] ;
+            ns1:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P70Y1W" ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay LOINC:79892-6 ;
+            ns1:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P71Y1M" ] ] ;
+            ns1:value [ a ns1:Value ;
+                    ns1:quantity [ a ns1:Quantity ;
+                            ns1:referenceRange [ a ns1:ReferenceRange ;
+                                    ns1:high 2.1e+01 ;
+                                    ns1:low 1e+01 ;
+                                    ns1:unit LOINC:56844-4 ] ;
+                            ns1:unit <http://unitsofmeasure.org/mm[Hg]> ;
+                            ns1:value 2.9e+01 ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay SNOMEDCT:397312009 ;
+            ns1:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P71Y1M1D" ] ] ;
+            ns1:value [ a ns1:Value ;
+                    ns1:quantity [ a ns1:Quantity ;
+                            ns1:referenceRange [ a ns1:ReferenceRange ;
+                                    ns1:high 2.1e+01 ;
+                                    ns1:low 1e+01 ;
+                                    ns1:unit LOINC:56844-4 ] ;
+                            ns1:unit UCUM:mm ;
+                            ns1:value 5.21e+00 ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay NCIT:C156778 ;
+            ns1:complexValue [ a ns1:ComplexValue ;
+                    ns1:typedQuantities [ a ns1:TypedQuantity ;
+                            ns1:quantity [ a ns1:Quantity ;
+                                    ns1:unit NCIT:C48570 ;
+                                    ns1:value 1e+02 ] ;
+                            ns1:type NCIT:C87149 ] ] ;
+            ns1:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P70Y1W" ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay LOINC:79892-6 ;
+            ns1:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P71Y1M1D" ] ] ;
+            ns1:value [ a ns1:Value ;
+                    ns1:quantity [ a ns1:Quantity ;
+                            ns1:referenceRange [ a ns1:ReferenceRange ;
+                                    ns1:high 2.1e+01 ;
+                                    ns1:low 1e+01 ;
+                                    ns1:unit LOINC:56844-4 ] ;
+                            ns1:unit <http://unitsofmeasure.org/mm[Hg]> ;
+                            ns1:value 1.4e+01 ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay NCIT:C156778 ;
+            ns1:complexValue [ a ns1:ComplexValue ;
+                    ns1:typedQuantities [ a ns1:TypedQuantity ;
+                            ns1:quantity [ a ns1:Quantity ;
+                                    ns1:unit NCIT:C48570 ;
+                                    ns1:value 1e+02 ] ;
+                            ns1:type NCIT:C87149 ] ] ] ;
+    phenopackets:medicalActions [ a ns4:MedicalAction ;
+            ns4:procedure [ a ns2:Procedure ;
+                    ns2:bodySite UBERON:0004549 ;
+                    ns2:code LOINC:29031-2 ;
+                    ns2:performed [ a ns2:TimeElement ;
+                            ns2:age [ a ns2:Age ;
+                                    ns2:iso8601duration "P71Y1M" ] ] ] ;
+            ns4:treatmentIntent HP:0500081 ;
+            ns4:treatmentTarget HP:0000518 ],
+        [ a ns4:MedicalAction ;
+            ns4:adverseEvents HP:0025637 ;
+            ns4:treatment [ a ns4:Treatment ;
+                    ns4:agent DrugCentral:395 ;
+                    ns4:doseIntervals [ a ns4:DoseInterval ;
+                            ns4:interval [ a ns2:TimeInterval ;
+                                    ns2:end "2022-07-07T00:00:00Z" ;
+                                    ns2:start "2022-07-07T00:00:00Z" ] ;
+                            ns4:quantity [ a ns1:Quantity ;
+                                    ns1:unit UCUM:mg.kg-1 ;
+                                    ns1:value 2e-03 ] ;
+                            ns4:scheduleFrequency NCIT:C64576 ] ;
+                    ns4:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns4:routeOfAdministration NCIT:C29302 ] ;
+            ns4:treatmentTarget HP:0007906 ;
+            ns4:treatmentTerminationReason NCIT:C41331 ],
+        [ a ns4:MedicalAction ;
+            ns4:procedure [ a ns2:Procedure ;
+                    ns2:bodySite UBERON:0004548 ;
+                    ns2:code NCIT:C157809 ;
+                    ns2:performed [ a ns2:TimeElement ;
+                            ns2:age [ a ns2:Age ;
+                                    ns2:iso8601duration "P70Y6W" ] ] ] ;
+            ns4:treatmentIntent HP:0500081 ;
+            ns4:treatmentTarget HP:0000518 ],
+        [ a ns4:MedicalAction ;
+            ns4:procedure [ a ns2:Procedure ;
+                    ns2:bodySite UBERON:0004549 ;
+                    ns2:code NCIT:C157809 ;
+                    ns2:performed [ a ns2:TimeElement ;
+                            ns2:age [ a ns2:Age ;
+                                    ns2:iso8601duration "P70Y" ] ] ] ;
+            ns4:treatmentIntent HP:0500081 ;
+            ns4:treatmentTarget HP:0000518 ] ;
+    phenopackets:metaData [ a ns3:MetaData ;
+            ns3:created "2021-05-14T10:35:00Z" ;
+            ns3:createdBy "anonymous biocurator" ;
+            ns3:phenopacketSchemaVersion "2.0.0" ;
+            ns3:resources [ a ns3:Resource ;
+                    ns3:id "loinc" ;
+                    ns3:iriPrefix "https://loinc.org/" ;
+                    ns3:name "Logical Observation Identifiers Names and Codes" ;
+                    ns3:namespacePrefix "LOINC" ;
+                    ns3:url "https://loinc.org" ;
+                    ns3:version "2.73" ],
+                [ a ns3:Resource ;
+                    ns3:id "ncit" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns3:name "NCI Thesaurus" ;
+                    ns3:namespacePrefix "NCIT" ;
+                    ns3:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns3:version "22.07d" ],
+                [ a ns3:Resource ;
+                    ns3:id "hp" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns3:name "human phenotype ontology" ;
+                    ns3:namespacePrefix "HP" ;
+                    ns3:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns3:version "2022-06-11" ],
+                [ a ns3:Resource ;
+                    ns3:id "ucum" ;
+                    ns3:iriPrefix "https://units-of-measurement.org/" ;
+                    ns3:name "Unified Code for Units of Measure" ;
+                    ns3:namespacePrefix "UCUM" ;
+                    ns3:url "https://ucum.org" ;
+                    ns3:version "2.1" ],
+                [ a ns3:Resource ;
+                    ns3:id "mondo" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/MONDO_" ;
+                    ns3:name "Mondo Disease Ontology" ;
+                    ns3:namespacePrefix "MONDO" ;
+                    ns3:url "http://purl.obolibrary.org/obo/mondo.obo" ;
+                    ns3:version "2022-04-04" ],
+                [ a ns3:Resource ;
+                    ns3:id "uberon" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
+                    ns3:name "Uber-anatomy ontology" ;
+                    ns3:namespacePrefix "UBERON" ;
+                    ns3:url "http://purl.obolibrary.org/obo/uberon.owl" ;
+                    ns3:version "2022-08-19" ],
+                [ a ns3:Resource ;
+                    ns3:id "drugcentral" ;
+                    ns3:iriPrefix "https://drugcentral.org/drugcard/" ;
+                    ns3:name "Drug Central" ;
+                    ns3:namespacePrefix "DrugCentral" ;
+                    ns3:url "https://drugcentral.org/" ;
+                    ns3:version "2022-08-22" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns5:PhenotypicFeature ;
+            ns5:excluded true ;
+            ns5:modifiers HP:0012834 ;
+            ns5:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P70Y" ] ] ;
+            ns5:type HP:0000539 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded true ;
+            ns5:type SNOMEDCT:414775001 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded true ;
+            ns5:type HP:0007686 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:modifiers HP:0012834 ;
+            ns5:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P71Y1M" ] ] ;
+            ns5:type NCIT:C50618 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:modifiers HP:0012834 ;
+            ns5:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P71Y1M" ] ] ;
+            ns5:type HP:0000545 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded true ;
+            ns5:type HP:0012629 ] ;
+    phenopackets:subject [ a ns6:Individual ;
+            ns6:id "proband A" ;
+            ns6:karyotypicSex "XY" ;
+            ns6:sex "MALE" ;
+            ns6:timeAtLastEncounter [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P70Y" ] ] ] .
+
