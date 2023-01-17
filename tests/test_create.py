@@ -19,6 +19,19 @@ import unittest
 class TestCreate(unittest.TestCase):
     """A test case for create tests."""
 
+    def setUp(self) -> None:
+        self.sv = SchemaView(str(MAIN_SCHEMA_PATH))
+
+    def test_create_ontology_class(self):
+        term = OntologyClass(id="HP:123", label="z")
+        print(rdflib_dumper.dumps(
+                term,
+                schemaview=self.sv,
+                prefix_map={
+                    "HP": "http://purl.obolibrary.org/obo/HP_",
+                },
+            ))
+
     def test_create(self):
         r = Resource(id="ex:x", name="y")
         metadata = MetaData(resources=[])
@@ -36,11 +49,10 @@ class TestCreate(unittest.TestCase):
             metaData=metadata,
         )
         print(json_dumper.dumps(phenopacket))
-        sv = SchemaView(str(MAIN_SCHEMA_PATH))
         print(
             rdflib_dumper.dumps(
                 phenopacket,
-                schemaview=sv,
+                schemaview=self.sv,
                 prefix_map={
                     "HP": "http://purl.obolibrary.org/obo/HP_",
                     "ex": "https://example.org/",
