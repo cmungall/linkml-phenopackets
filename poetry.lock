@@ -1073,7 +1073,7 @@ linkml-runtime = ">=1.1.6"
 
 [[package]]
 name = "linkml-renderer"
-version = "0.1.1"
+version = "0.1.2"
 description = "linkml-renderer"
 category = "dev"
 optional = false
@@ -2654,7 +2654,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a7ee2dfd3e27f4a44a4702589caa76ddd7e8a3f87704fc1438c84f7e7a4d20c8"
+content-hash = "ebaa6ce7a83e579f3b0f1d39829b0dedd3e739c42d43c50ce1cf382693740bd5"
 
 [metadata.files]
 airium = []
