@@ -191,7 +191,9 @@ while(<>) {
             }
             #$c->{attributes}->{$n}->{range} = 'IdentifierString';
             $c->{attributes}->{$n}->{range} = 'string';
-            $c->{attributes}->{$n}->{annotations}->{percent_encoded} = 'true';
+            if ($current_class ne "OntologyClass") {
+                $c->{attributes}->{$n}->{annotations}->{percent_encoded} = 'true';
+            }
         }
         if ($desc =~ m@REQUIRED@) {
             $c->{attributes}->{$n}->{required} = 'true';
