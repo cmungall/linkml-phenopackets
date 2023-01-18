@@ -95,7 +95,6 @@ classes:
     attributes: 
       id: 
         annotations: 
-          percent_encoded: true
           rank: 1
         description: a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!
         identifier: true
