@@ -66,6 +66,21 @@ There will also be demonstrator Jupyter notebooks here:
 
 - [notebooks](notebooks) directory
 
+## Validation
+
+Use `p3 validate` to validate objects. This goes beyond what can be done with JSON-Schema alone, and
+includes ontology validation using OAK and CURIE validation using BioRegistry.
+
+See [this notebook](https://github.com/cmungall/linkml-phenopackets/blob/main/notebooks/Updating-Packets-Using-Ontology.ipynb)
+
+## Repairing ontology terms
+
+Phenopackets include ontology terms, which are liable to become stale.
+
+This toolkit uses OAK to assist in auto-migration of obsoletes or stale labels.
+
+See [this notebook](https://github.com/cmungall/linkml-phenopackets/blob/main/notebooks/Updating-Packets-Using-Ontology.ipynb)
+
 ## Querying Phenopackets as RDF
 
 TODO: Add documentation here
