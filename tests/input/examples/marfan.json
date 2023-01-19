@@ -1,19 +1,28 @@
 {
-    "id": "id-C",
+  "id": "id-C",
   "subject": {
-    "id": "proband-C",
+    "id": "proband C",
     "timeAtLastEncounter": {
       "age": {
         "iso8601duration": "P27Y"
       }
     },
-    "sex": "FEMALE"
+    "sex": "FEMALE",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE"
   },
+  "phenotypicFeatures": [{
+    "type": {
+      "id": "HP:0002616",
+      "label": "Aortic root aneurysm"
+    },
+    "excluded": false
+  }],
   "diseases": [{
     "term": {
       "id": "OMIM:154700",
       "label": "Marfan syndrome"
-    }
+    },
+    "excluded": false
   }],
   "medicalActions": [{
     "treatment": {
@@ -28,7 +37,7 @@
       "doseIntervals": [{
         "quantity": {
           "unit": {
-            "id": "UO:0000022",
+            "id": "UCUM:mg",
             "label": "milligram"
           },
           "value": 30.0
@@ -41,7 +50,8 @@
           "start": "2019-03-20T00:00:00Z",
           "end": "2021-03-20T00:00:00Z"
         }
-      }]
+      }],
+      "drugType": "UNKNOWN_DRUG_TYPE"
     }
   }],
   "metaData": {
@@ -54,7 +64,35 @@
       "version": "2021-08-02",
       "namespacePrefix": "HP",
       "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+    }, {
+      "id": "omim",
+      "name": "An Online Catalog of Human Genes and Genetic Disorders",
+      "url": "https://www.omim.org",
+      "version": "2022-11-23",
+      "namespacePrefix": "OMIM",
+      "iriPrefix": "https://www.omim.org/entry/"
+    }, {
+      "id": "drugcentral",
+      "name": "Drug Central",
+      "url": "https://drugcentral.org/",
+      "version": "2022-08-22",
+      "namespacePrefix": "DrugCentral",
+      "iriPrefix": "https://drugcentral.org/drugcard/"
+    }, {
+      "id": "ncit",
+      "name": "NCI Thesaurus",
+      "url": "http://purl.obolibrary.org/obo/ncit.owl",
+      "version": "21.05d",
+      "namespacePrefix": "NCIT",
+      "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
+    }, {
+      "id": "ucum",
+      "name": "Unified Code for Units of Measure",
+      "url": "https://ucum.org",
+      "version": "2.1",
+      "namespacePrefix": "UCUM",
+      "iriPrefix": "https://units-of-measurement.org/"
     }],
-    "phenopacketSchemaVersion": "2.0"
+    "phenopacketSchemaVersion": "2.0.0"
   }
 }

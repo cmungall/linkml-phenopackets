@@ -14,13 +14,15 @@
         "label": "COVID-19"
       }
     },
-    "sex": "MALE"
+    "sex": "MALE",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE"
   },
   "phenotypicFeatures": [{
     "type": {
       "id": "HP:0001945",
       "label": "Fever "
     },
+    "excluded": false,
     "onset": {
       "timestamp": "2021-02-01T05:00:00Z"
     }
@@ -29,6 +31,7 @@
       "id": "HP:0030157",
       "label": "Flank pain"
     },
+    "excluded": false,
     "onset": {
       "timestamp": "2021-02-01T05:00:00Z"
     }
@@ -37,6 +40,7 @@
       "id": "HP:0000790",
       "label": "Hematuria"
     },
+    "excluded": false,
     "onset": {
       "timestamp": "2021-02-01T05:00:00Z"
     }
@@ -45,6 +49,7 @@
       "id": "HP:0012625",
       "label": "Stage 3 chronic kidney disease"
     },
+    "excluded": false,
     "onset": {
       "timestamp": "2021-02-01T05:00:00Z"
     }
@@ -53,6 +58,7 @@
       "id": "HP:0003326",
       "label": "Myalgia"
     },
+    "excluded": false,
     "onset": {
       "interval": {
         "start": "2020-03-18T00:00:00Z",
@@ -64,6 +70,7 @@
       "id": "HP:0002014",
       "label": "Diarrhea"
     },
+    "excluded": false,
     "onset": {
       "interval": {
         "start": "2020-03-18T00:00:00Z",
@@ -75,6 +82,7 @@
       "id": "HP:0002094",
       "label": "Dyspnea"
     },
+    "excluded": false,
     "onset": {
       "interval": {
         "start": "2020-03-18T00:00:00Z",
@@ -86,6 +94,7 @@
       "id": "HP:0033677",
       "label": "Acute respiratory distress syndrome"
     },
+    "excluded": false,
     "onset": {
       "timestamp": "2020-03-20T00:00:00Z"
     }
@@ -138,12 +147,14 @@
     "term": {
       "id": "MONDO:0004994",
       "label": "cardiomyopathy"
-    }
+    },
+    "excluded": false
   }, {
     "term": {
       "id": "MONDO:0100096",
       "label": "COVID-19"
     },
+    "excluded": false,
     "onset": {
       "timestamp": "2020-03-17T00:00:00Z"
     }
@@ -200,7 +211,8 @@
           "start": "2021-02-02T08:22:42Z",
           "end": "2021-02-02T12:22:42Z"
         }
-      }]
+      }],
+      "drugType": "UNKNOWN_DRUG_TYPE"
     }
   }, {
     "treatment": {
@@ -211,7 +223,7 @@
       "doseIntervals": [{
         "quantity": {
           "unit": {
-            "id": "UO:0000022",
+            "id": "UCUM:mg",
             "label": "milligram"
           },
           "value": 6.0
@@ -224,7 +236,8 @@
           "start": "2020-03-20T00:00:00Z",
           "end": "2020-03-30T00:00:00Z"
         }
-      }]
+      }],
+      "drugType": "UNKNOWN_DRUG_TYPE"
     }
   }, {
     "procedure": {
@@ -262,7 +275,8 @@
           "start": "2020-03-22T00:00:00Z",
           "end": "2020-03-28T00:00:00Z"
         }
-      }]
+      }],
+      "drugType": "UNKNOWN_DRUG_TYPE"
     }
   }, {
     "treatment": {
@@ -286,28 +300,64 @@
           "start": "2020-03-24T00:00:00Z",
           "end": "2020-03-28T00:00:00Z"
         }
-      }]
+      }],
+      "drugType": "UNKNOWN_DRUG_TYPE"
     }
   }],
   "metaData": {
     "created": "2021-08-17T00:00:00Z",
     "createdBy": "anonymous biocurator",
     "resources": [{
+      "id": "hp",
+      "name": "human phenotype ontology",
+      "url": "http://purl.obolibrary.org/obo/hp.owl",
+      "version": "2021-08-02",
+      "namespacePrefix": "HP",
+      "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+    }, {
       "id": "ncit",
       "name": "NCI Thesaurus",
       "url": "http://purl.obolibrary.org/obo/ncit.owl",
-      "version": "2019-11-26",
+      "version": "21.05d",
       "namespacePrefix": "NCIT",
       "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_"
     }, {
       "id": "mondo",
       "name": "Mondo Disease Ontology",
       "url": "http://purl.obolibrary.org/obo/mondo.obo",
-      "version": "2021-11-26",
+      "version": "2022-04-04",
       "namespacePrefix": "MONDO",
       "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_"
+    }, {
+      "id": "loinc",
+      "name": "Logical Observation Identifiers Names and Codes",
+      "url": "https://loinc.org",
+      "version": "2.73",
+      "namespacePrefix": "LOINC",
+      "iriPrefix": "https://loinc.org/"
+    }, {
+      "id": "pato",
+      "name": "PhenotypicFeature And Trait Ontology",
+      "url": "http://purl.obolibrary.org/obo/pato.owl",
+      "version": "2022-08-31",
+      "namespacePrefix": "PATO",
+      "iriPrefix": "http://purl.obolibrary.org/obo/PATO_"
+    }, {
+      "id": "chebi",
+      "name": "Chemical Entities of Biological Interest",
+      "url": "https://www.ebi.ac.uk/chebi",
+      "version": "2022-11-23",
+      "namespacePrefix": "CHEBI",
+      "iriPrefix": "https://purl.obolibrary.org/obo/CHEBI_"
+    }, {
+      "id": "ucum",
+      "name": "Unified Code for Units of Measure",
+      "url": "https://ucum.org",
+      "version": "2.1",
+      "namespacePrefix": "UCUM",
+      "iriPrefix": "https://units-of-measurement.org/"
     }],
-    "phenopacketSchemaVersion": "2.0",
+    "phenopacketSchemaVersion": "2.0.0",
     "externalReferences": [{
       "id": "DOI:10.1016/j.jaccas.2020.04.001",
       "reference": "PMID:32292915",

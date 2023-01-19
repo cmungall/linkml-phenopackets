@@ -1,17 +1,18 @@
 {
   "id": "arbitrary.id",
   "subject": {
-    "id": "proband-A",
+    "id": "proband A",
     "timeAtLastEncounter": {
       "age": {
         "iso8601duration": "P38Y"
       }
     },
-    "sex": "MALE"
+    "sex": "MALE",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE"
   },
   "biosamples": [{
-    "id": "biosample-1",
-    "individualId": "proband-A",
+    "id": "biosample 1",
+    "individualId": "proband A",
     "sampledTissue": {
       "id": "NCIT:C12389",
       "label": "Esophagus"
@@ -32,8 +33,8 @@
       }
     }
   }, {
-    "id": "biosample-2",
-    "individualId": "proband-A",
+    "id": "biosample 2",
+    "individualId": "proband A",
     "sampledTissue": {
       "id": "NCIT:C139196",
       "label": "Esophageal Lymph Node"
@@ -62,8 +63,8 @@
       }
     }
   }, {
-    "id": "biosample-3",
-    "individualId": "proband-A",
+    "id": "biosample 3",
+    "individualId": "proband A",
     "sampledTissue": {
       "id": "NCIT:C12468",
       "label": "Lung"
@@ -89,6 +90,7 @@
       "id": "NCIT:C4024",
       "label": "Esophageal Squamous Cell Carcinoma"
     },
+    "excluded": false,
     "clinicalTnmFinding": [{
       "id": "NCIT:C48724",
       "label": "T2 Stage Finding"
@@ -132,6 +134,6 @@
       "namespacePrefix": "NCBITaxon",
       "iriPrefix": "http://purl.obolibrary.org/obo/NCBITaxon_"
     }],
-    "phenopacketSchemaVersion": "2.0"
+    "phenopacketSchemaVersion": "2.0.0"
   }
 }
