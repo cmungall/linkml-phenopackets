@@ -1,21 +1,15 @@
 # -*- coding: utf-8 -*-
-import os
-from pathlib import Path
-
 from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import json_dumper, rdflib_dumper, yaml_dumper
 from linkml_runtime.loaders import json_loader
 
 from phenopackets.datamodel import MAIN_SCHEMA_PATH
 from phenopackets.datamodel.phenopackets import Family, Phenopacket
+from tests import INPUT_EXAMPLES_PATH, OUTPUT_EXAMPLES_PATH
 
 """Test the module can be imported."""
 
 import unittest
-
-THIS_PATH = Path(__file__).parent
-INPUT_PATH = THIS_PATH / "input" / "examples"
-OUTPUT_PATH = THIS_PATH / "output" / "examples"
 
 PHENOPACKET_EXAMPLES = [
     "thrombocytopenia2",
@@ -72,7 +66,7 @@ class TestExamples(unittest.TestCase):
     def setUp(self) -> None:
         self.sv = SchemaView(str(MAIN_SCHEMA_PATH))
         self.sv.namespaces()._base = "https://example.org/base/"
-        OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+        OUTPUT_EXAMPLES_PATH.mkdir(parents=True, exist_ok=True)
 
     def test_schemaview(self):
         slot = self.sv.induced_slot("reference", "ExternalReference")
@@ -85,14 +79,16 @@ class TestExamples(unittest.TestCase):
         ]
         for typ, ex in examples:
             # print(f"EXAMPLE={ex} // {typ}")
-            phenopacket = json_loader.load(f"{INPUT_PATH / ex}.json", target_class=typ)
+            phenopacket = json_loader.load(
+                f"{INPUT_EXAMPLES_PATH / ex}.json", target_class=typ
+            )
 
             base = f"{typ.class_name}-{ex}"
-            json_dumper.dump(phenopacket, OUTPUT_PATH / f"{base}.json")
-            yaml_dumper.dump(phenopacket, OUTPUT_PATH / f"{base}.yaml")
+            json_dumper.dump(phenopacket, OUTPUT_EXAMPLES_PATH / f"{base}.json")
+            yaml_dumper.dump(phenopacket, OUTPUT_EXAMPLES_PATH / f"{base}.yaml")
             rdflib_dumper.dump(
                 phenopacket,
                 schemaview=self.sv,
                 prefix_map=DEFAULT_PREFIX_MAP,
-                to_file=OUTPUT_PATH / f"{base}.ttl",
+                to_file=OUTPUT_EXAMPLES_PATH / f"{base}.ttl",
             )

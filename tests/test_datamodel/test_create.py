@@ -3,14 +3,13 @@ import os
 
 from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import json_dumper, rdflib_dumper
-from rdflib import Graph, URIRef, Literal
+from rdflib import Graph, Literal, URIRef
 
 from phenopackets.datamodel import MAIN_SCHEMA_PATH
-from phenopackets.datamodel.phenopackets import OntologyClass
-from phenopackets.datamodel.phenopackets import Individual, VitalStatus
-from phenopackets.datamodel.phenopackets import MetaData, Resource
-from phenopackets.datamodel.phenopackets import Phenopacket
-from phenopackets.datamodel.phenopackets import PhenotypicFeature
+from phenopackets.datamodel.phenopackets import (Individual, MetaData,
+                                                 OntologyClass, Phenopacket,
+                                                 PhenotypicFeature, Resource,
+                                                 VitalStatus)
 
 """Test the module can be imported."""
 
@@ -26,19 +25,21 @@ class TestCreate(unittest.TestCase):
     def test_create_ontology_class(self):
         term = OntologyClass(id="HP:0001945", label="Fever")
         ttl = rdflib_dumper.dumps(
-                term,
-                schemaview=self.sv,
-                prefix_map={
-                    "HP": "http://purl.obolibrary.org/obo/HP_",
-                },
-            )
+            term,
+            schemaview=self.sv,
+            prefix_map={
+                "HP": "http://purl.obolibrary.org/obo/HP_",
+            },
+        )
         print(ttl)
         g = Graph()
         g.parse(data=ttl, format="turtle")
         for t in g.triples((None, None, None)):
             print(t)
-        self.assertIn(Literal("Fever"), list(g.objects(URIRef('http://purl.obolibrary.org/obo/HP_0001945'))))
-
+        self.assertIn(
+            Literal("Fever"),
+            list(g.objects(URIRef("http://purl.obolibrary.org/obo/HP_0001945"))),
+        )
 
     def test_create(self):
         r = Resource(id="ex:x", name="y")
