@@ -29,9 +29,18 @@ keywords in `//` comments. As such, this code is *not* generalizable to other pr
 
 ## Ontology Enhancements
 
-The file cv_terms.yaml is hand-curated, rather than derived from the YAML
+The file [cv_terms.yaml](https://github.com/cmungall/linkml-phenopackets/blob/main/src/phenopackets/schema/cv_terms.yaml)
+is hand-curated, rather than derived from the YAML. It is based on: [recommended ontologies](https://phenopacket-schema.readthedocs.io/en/latest/recommended-ontologies.html)
+from the official phenopackets repo. It makes use of *dynamic enums* which allows for more advanced
+ontology checking; for example:
 
-It is based on: https://phenopacket-schema.readthedocs.io/en/latest/recommended-ontologies.html
+* Uberon anatomy terms must be found under the "anatomical entity branch"
+* HPO abnormality terms must be found under the "phenotypic abnormality branch"
+
+etc
+
+We also include [constants.yaml](https://github.com/cmungall/linkml-phenopackets/blob/main/src/phenopackets/schema/constants.yaml)
+which is a direct transform from the phenopackets-tools repo.
 
 ## How to use this repo
 
