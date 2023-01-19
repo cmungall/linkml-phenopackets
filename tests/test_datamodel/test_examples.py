@@ -12,6 +12,10 @@ from tests import INPUT_EXAMPLES_PATH, OUTPUT_EXAMPLES_PATH
 import unittest
 
 PHENOPACKET_EXAMPLES = [
+    "AVED",
+    "nemalineMyopathy",
+    "statin-myopathy",
+    "warburg-micro-syndrome",
     "thrombocytopenia2",
     "pseudoexfoliation",
     "holoprosencephaly5",

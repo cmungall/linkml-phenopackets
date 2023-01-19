@@ -1,207 +1,208 @@
+@base <https://example.org/base/> .
 @prefix ECO: <http://purl.obolibrary.org/obo/ECO_> .
 @prefix GENO: <http://purl.obolibrary.org/obo/GENO_> .
 @prefix HP: <http://purl.obolibrary.org/obo/HP_> .
 @prefix OMIM: <http://omim.org/entry/> .
-@prefix ns1: <meta_data:> .
-@prefix ns2: <vrsatile:> .
-@prefix ns3: <base:> .
+@prefix ns1: <base:> .
+@prefix ns2: <meta_data:> .
+@prefix ns3: <interpretation:> .
 @prefix ns4: <phenotypic_feature:> .
-@prefix ns5: <interpretation:> .
-@prefix ns6: <individual:> .
+@prefix ns5: <individual:> .
+@prefix ns6: <vrsatile:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-OMIM:609637 a ns3:OntologyClass ;
-    ns3:label "Holoprosencephaly 5" .
+OMIM:609637 a ns1:OntologyClass ;
+    ns1:label "Holoprosencephaly 5" .
 
-GENO:0000135 a ns3:OntologyClass ;
-    ns3:label "heterozygous" .
+GENO:0000135 a ns1:OntologyClass ;
+    ns1:label "heterozygous" .
 
-HP:0000238 a ns3:OntologyClass ;
-    ns3:label "Hydrocephalus" .
+HP:0000238 a ns1:OntologyClass ;
+    ns1:label "Hydrocephalus" .
 
-HP:0001263 a ns3:OntologyClass ;
-    ns3:label "Global developmental delay" .
+HP:0001263 a ns1:OntologyClass ;
+    ns1:label "Global developmental delay" .
 
-HP:0001347 a ns3:OntologyClass ;
-    ns3:label "Hyperreflexia" .
+HP:0001347 a ns1:OntologyClass ;
+    ns1:label "Hyperreflexia" .
 
-HP:0001750 a ns3:OntologyClass ;
-    ns3:label "Single ventricle" .
+HP:0001750 a ns1:OntologyClass ;
+    ns1:label "Single ventricle" .
 
-HP:0002507 a ns3:OntologyClass ;
-    ns3:label "Semilobar holoprosencephaly" .
+HP:0002507 a ns1:OntologyClass ;
+    ns1:label "Semilobar holoprosencephaly" .
 
-HP:0003577 a ns3:OntologyClass ;
-    ns3:label "Congenital onset" .
+HP:0003577 a ns1:OntologyClass ;
+    ns1:label "Congenital onset" .
 
-HP:0003593 a ns3:OntologyClass ;
-    ns3:label "Infantile onset" .
+HP:0003593 a ns1:OntologyClass ;
+    ns1:label "Infantile onset" .
 
-HP:0100702 a ns3:OntologyClass ;
-    ns3:label "Arachnoid cyst" .
+HP:0100702 a ns1:OntologyClass ;
+    ns1:label "Arachnoid cyst" .
 
-HP:0001272 a ns3:OntologyClass ;
-    ns3:label "Cerebellar atrophy" .
+HP:0001272 a ns1:OntologyClass ;
+    ns1:label "Cerebellar atrophy" .
 
-ECO:0000033 a ns3:OntologyClass ;
-    ns3:label "author statement supported by traceable reference" .
+ECO:0000033 a ns1:OntologyClass ;
+    ns1:label "author statement supported by traceable reference" .
 
 [] a phenopackets:Phenopacket ;
     phenopackets:id "1" ;
-    phenopackets:interpretations [ a ns5:Interpretation ;
-            ns5:diagnosis [ a ns5:Diagnosis ;
-                    ns5:disease OMIM:609637 ;
-                    ns5:genomicInterpretations [ a ns5:GenomicInterpretation ;
-                            ns5:interpretationStatus "CAUSATIVE" ;
-                            ns5:subjectOrBiosampleId "genomic interpretation id" ;
-                            ns5:variantInterpretation [ a ns5:VariantInterpretation ;
-                                    ns5:acmgPathogenicityClassification "PATHOGENIC" ;
-                                    ns5:therapeuticActionability "UNKNOWN_ACTIONABILITY" ;
-                                    ns5:variationDescriptor [ a ns2:VariationDescriptor ;
-                                            ns2:allelicState GENO:0000135 ;
-                                            ns2:expressions [ a ns2:Expression ;
-                                                    ns2:syntax "hgvs" ;
-                                                    ns2:value "NM_007129.3:c.1069C>G" ] ;
-                                            ns2:geneContext [ a ns2:GeneDescriptor ;
-                                                    ns2:symbol "ZIC2" ;
-                                                    ns2:valueId "HGNC:12873 " ] ;
-                                            ns2:id "variant id" ;
-                                            ns2:moleculeContext "unspecified_molecule_context" ;
-                                            ns2:vcfRecord [ a ns2:VcfRecord ;
-                                                    ns2:alt "G" ;
-                                                    ns2:chrom "NC_000013.11" ;
-                                                    ns2:genomeAssembly "GRCh38" ;
-                                                    ns2:pos 99983133 ;
-                                                    ns2:ref "C" ] ] ] ] ] ;
-            ns5:id "arbitrary interpretation id" ;
-            ns5:progressStatus "COMPLETED" ] ;
-    phenopackets:metaData [ a ns1:MetaData ;
-            ns1:created "2021-05-14T10:35:00Z" ;
-            ns1:createdBy "anonymous biocurator" ;
-            ns1:externalReferences [ a ns3:ExternalReference ;
-                    ns3:description "Xiong J, et al., 2019" ;
-                    ns3:id "PMID:30855487" ] ;
-            ns1:phenopacketSchemaVersion "2.0.0" ;
-            ns1:resources [ a ns1:Resource ;
-                    ns1:id "omim" ;
-                    ns1:iriPrefix "https://www.omim.org/entry/" ;
-                    ns1:name "An Online Catalog of Human Genes and Genetic Disorders" ;
-                    ns1:namespacePrefix "OMIM" ;
-                    ns1:url "https://www.omim.org" ;
-                    ns1:version "2022-11-23" ],
-                [ a ns1:Resource ;
-                    ns1:id "eco" ;
-                    ns1:iriPrefix "http://purl.obolibrary.org/obo/ECO_" ;
-                    ns1:name "Evidence & Conclusion Ontology (ECO)" ;
-                    ns1:namespacePrefix "ECO" ;
-                    ns1:url "http://purl.obolibrary.org/obo/eco.owl" ;
-                    ns1:version "2022-08-05" ],
-                [ a ns1:Resource ;
-                    ns1:id "hp" ;
-                    ns1:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
-                    ns1:name "human phenotype ontology" ;
-                    ns1:namespacePrefix "HP" ;
-                    ns1:url "http://purl.obolibrary.org/obo/hp.owl" ;
-                    ns1:version "2021-08-02" ],
-                [ a ns1:Resource ;
-                    ns1:id "geno" ;
-                    ns1:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
-                    ns1:name "Genotype Ontology" ;
-                    ns1:namespacePrefix "GENO" ;
-                    ns1:url "http://purl.obolibrary.org/obo/geno.owl" ;
-                    ns1:version "2020-03-08" ] ] ;
+    phenopackets:interpretations [ a ns3:Interpretation ;
+            ns3:diagnosis [ a ns3:Diagnosis ;
+                    ns3:disease OMIM:609637 ;
+                    ns3:genomicInterpretations [ a ns3:GenomicInterpretation ;
+                            ns3:interpretationStatus "CAUSATIVE" ;
+                            ns3:subjectOrBiosampleId "genomic interpretation id" ;
+                            ns3:variantInterpretation [ a ns3:VariantInterpretation ;
+                                    ns3:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns3:therapeuticActionability "UNKNOWN_ACTIONABILITY" ;
+                                    ns3:variationDescriptor [ a ns6:VariationDescriptor ;
+                                            ns6:allelicState GENO:0000135 ;
+                                            ns6:expressions [ a ns6:Expression ;
+                                                    ns6:syntax "hgvs" ;
+                                                    ns6:value "NM_007129.3:c.1069C>G" ] ;
+                                            ns6:geneContext [ a ns6:GeneDescriptor ;
+                                                    ns6:symbol "ZIC2" ;
+                                                    ns6:valueId "HGNC:12873 " ] ;
+                                            ns6:id "variant id" ;
+                                            ns6:moleculeContext "unspecified_molecule_context" ;
+                                            ns6:vcfRecord [ a ns6:VcfRecord ;
+                                                    ns6:alt "G" ;
+                                                    ns6:chrom "NC_000013.11" ;
+                                                    ns6:genomeAssembly "GRCh38" ;
+                                                    ns6:pos 99983133 ;
+                                                    ns6:ref "C" ] ] ] ] ] ;
+            ns3:id "arbitrary interpretation id" ;
+            ns3:progressStatus "COMPLETED" ] ;
+    phenopackets:metaData [ a ns2:MetaData ;
+            ns2:created "2021-05-14T10:35:00Z" ;
+            ns2:createdBy "anonymous biocurator" ;
+            ns2:externalReferences [ a ns1:ExternalReference ;
+                    ns1:description "Xiong J, et al., 2019" ;
+                    ns1:id "PMID:30855487" ] ;
+            ns2:phenopacketSchemaVersion "2.0.0" ;
+            ns2:resources [ a ns2:Resource ;
+                    ns2:id "hp" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns2:name "human phenotype ontology" ;
+                    ns2:namespacePrefix "HP" ;
+                    ns2:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns2:version "2021-08-02" ],
+                [ a ns2:Resource ;
+                    ns2:id "omim" ;
+                    ns2:iriPrefix "https://www.omim.org/entry/" ;
+                    ns2:name "An Online Catalog of Human Genes and Genetic Disorders" ;
+                    ns2:namespacePrefix "OMIM" ;
+                    ns2:url "https://www.omim.org" ;
+                    ns2:version "2022-11-23" ],
+                [ a ns2:Resource ;
+                    ns2:id "eco" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/ECO_" ;
+                    ns2:name "Evidence & Conclusion Ontology (ECO)" ;
+                    ns2:namespacePrefix "ECO" ;
+                    ns2:url "http://purl.obolibrary.org/obo/eco.owl" ;
+                    ns2:version "2022-08-05" ],
+                [ a ns2:Resource ;
+                    ns2:id "geno" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
+                    ns2:name "Genotype Ontology" ;
+                    ns2:namespacePrefix "GENO" ;
+                    ns2:url "http://purl.obolibrary.org/obo/geno.owl" ;
+                    ns2:version "2020-03-08" ] ] ;
     phenopackets:phenotypicFeatures [ a ns4:PhenotypicFeature ;
-            ns4:evidence [ a ns3:Evidence ;
-                    ns3:evidenceCode ECO:0000033 ;
-                    ns3:reference [ a ns3:ExternalReference ;
-                            ns3:description "Xiong J, et al., 2019" ;
-                            ns3:id "PMID:30855487" ] ] ;
+            ns4:evidence [ a ns1:Evidence ;
+                    ns1:evidenceCode ECO:0000033 ;
+                    ns1:reference [ a ns1:ExternalReference ;
+                            ns1:description "Xiong J, et al., 2019" ;
+                            ns1:id "PMID:30855487" ] ] ;
             ns4:excluded false ;
-            ns4:onset [ a ns3:TimeElement ;
-                    ns3:age [ a ns3:Age ;
-                            ns3:iso8601duration "P9M" ] ] ;
-            ns4:type HP:0001272 ],
-        [ a ns4:PhenotypicFeature ;
-            ns4:evidence [ a ns3:Evidence ;
-                    ns3:evidenceCode ECO:0000033 ;
-                    ns3:reference [ a ns3:ExternalReference ;
-                            ns3:description "Xiong J, et al., 2019" ;
-                            ns3:id "PMID:30855487" ] ] ;
-            ns4:excluded false ;
-            ns4:onset [ a ns3:TimeElement ;
-                    ns3:gestationalAge [ a ns3:GestationalAge ;
-                            ns3:weeks 40 ] ] ;
+            ns4:onset [ a ns1:TimeElement ;
+                    ns1:gestationalAge [ a ns1:GestationalAge ;
+                            ns1:weeks 40 ] ] ;
             ns4:type HP:0001750 ],
         [ a ns4:PhenotypicFeature ;
-            ns4:evidence [ a ns3:Evidence ;
-                    ns3:evidenceCode ECO:0000033 ;
-                    ns3:reference [ a ns3:ExternalReference ;
-                            ns3:description "Xiong J, et al., 2019" ;
-                            ns3:id "PMID:30855487" ] ] ;
+            ns4:evidence [ a ns1:Evidence ;
+                    ns1:evidenceCode ECO:0000033 ;
+                    ns1:reference [ a ns1:ExternalReference ;
+                            ns1:description "Xiong J, et al., 2019" ;
+                            ns1:id "PMID:30855487" ] ] ;
             ns4:excluded false ;
-            ns4:onset [ a ns3:TimeElement ;
-                    ns3:age [ a ns3:Age ;
-                            ns3:iso8601duration "P9M" ] ] ;
+            ns4:onset [ a ns1:TimeElement ;
+                    ns1:gestationalAge [ a ns1:GestationalAge ;
+                            ns1:weeks 40 ] ] ;
+            ns4:type HP:0000238 ],
+        [ a ns4:PhenotypicFeature ;
+            ns4:evidence [ a ns1:Evidence ;
+                    ns1:evidenceCode ECO:0000033 ;
+                    ns1:reference [ a ns1:ExternalReference ;
+                            ns1:description "Xiong J, et al., 2019" ;
+                            ns1:id "PMID:30855487" ] ] ;
+            ns4:excluded false ;
+            ns4:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P9M" ] ] ;
             ns4:type HP:0001272 ],
         [ a ns4:PhenotypicFeature ;
-            ns4:evidence [ a ns3:Evidence ;
-                    ns3:evidenceCode ECO:0000033 ;
-                    ns3:reference [ a ns3:ExternalReference ;
-                            ns3:description "Xiong J, et al., 2019" ;
-                            ns3:id "PMID:30855487" ] ] ;
+            ns4:evidence [ a ns1:Evidence ;
+                    ns1:evidenceCode ECO:0000033 ;
+                    ns1:reference [ a ns1:ExternalReference ;
+                            ns1:description "Xiong J, et al., 2019" ;
+                            ns1:id "PMID:30855487" ] ] ;
             ns4:excluded false ;
-            ns4:onset [ a ns3:TimeElement ;
-                    ns3:ontologyClass HP:0003593 ] ;
-            ns4:type HP:0001263 ],
-        [ a ns4:PhenotypicFeature ;
-            ns4:evidence [ a ns3:Evidence ;
-                    ns3:evidenceCode ECO:0000033 ;
-                    ns3:reference [ a ns3:ExternalReference ;
-                            ns3:description "Xiong J, et al., 2019" ;
-                            ns3:id "PMID:30855487" ] ] ;
-            ns4:excluded false ;
-            ns4:onset [ a ns3:TimeElement ;
-                    ns3:age [ a ns3:Age ;
-                            ns3:iso8601duration "P9M" ] ] ;
-            ns4:type HP:0100702 ],
-        [ a ns4:PhenotypicFeature ;
-            ns4:evidence [ a ns3:Evidence ;
-                    ns3:evidenceCode ECO:0000033 ;
-                    ns3:reference [ a ns3:ExternalReference ;
-                            ns3:description "Xiong J, et al., 2019" ;
-                            ns3:id "PMID:30855487" ] ] ;
-            ns4:excluded false ;
-            ns4:onset [ a ns3:TimeElement ;
-                    ns3:ontologyClass HP:0003577 ] ;
+            ns4:onset [ a ns1:TimeElement ;
+                    ns1:ontologyClass HP:0003577 ] ;
             ns4:type HP:0002507 ],
         [ a ns4:PhenotypicFeature ;
-            ns4:evidence [ a ns3:Evidence ;
-                    ns3:evidenceCode ECO:0000033 ;
-                    ns3:reference [ a ns3:ExternalReference ;
-                            ns3:description "Xiong J, et al., 2019" ;
-                            ns3:id "PMID:30855487" ] ] ;
+            ns4:evidence [ a ns1:Evidence ;
+                    ns1:evidenceCode ECO:0000033 ;
+                    ns1:reference [ a ns1:ExternalReference ;
+                            ns1:description "Xiong J, et al., 2019" ;
+                            ns1:id "PMID:30855487" ] ] ;
             ns4:excluded false ;
-            ns4:onset [ a ns3:TimeElement ;
-                    ns3:gestationalAge [ a ns3:GestationalAge ;
-                            ns3:weeks 40 ] ] ;
+            ns4:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P9M" ] ] ;
+            ns4:type HP:0001272 ],
+        [ a ns4:PhenotypicFeature ;
+            ns4:evidence [ a ns1:Evidence ;
+                    ns1:evidenceCode ECO:0000033 ;
+                    ns1:reference [ a ns1:ExternalReference ;
+                            ns1:description "Xiong J, et al., 2019" ;
+                            ns1:id "PMID:30855487" ] ] ;
+            ns4:excluded false ;
+            ns4:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P9M" ] ] ;
+            ns4:type HP:0100702 ],
+        [ a ns4:PhenotypicFeature ;
+            ns4:evidence [ a ns1:Evidence ;
+                    ns1:evidenceCode ECO:0000033 ;
+                    ns1:reference [ a ns1:ExternalReference ;
+                            ns1:description "Xiong J, et al., 2019" ;
+                            ns1:id "PMID:30855487" ] ] ;
+            ns4:excluded false ;
+            ns4:onset [ a ns1:TimeElement ;
+                    ns1:gestationalAge [ a ns1:GestationalAge ;
+                            ns1:weeks 40 ] ] ;
             ns4:type HP:0001347 ],
         [ a ns4:PhenotypicFeature ;
-            ns4:evidence [ a ns3:Evidence ;
-                    ns3:evidenceCode ECO:0000033 ;
-                    ns3:reference [ a ns3:ExternalReference ;
-                            ns3:description "Xiong J, et al., 2019" ;
-                            ns3:id "PMID:30855487" ] ] ;
+            ns4:evidence [ a ns1:Evidence ;
+                    ns1:evidenceCode ECO:0000033 ;
+                    ns1:reference [ a ns1:ExternalReference ;
+                            ns1:description "Xiong J, et al., 2019" ;
+                            ns1:id "PMID:30855487" ] ] ;
             ns4:excluded false ;
-            ns4:onset [ a ns3:TimeElement ;
-                    ns3:gestationalAge [ a ns3:GestationalAge ;
-                            ns3:weeks 40 ] ] ;
-            ns4:type HP:0000238 ] ;
-    phenopackets:subject [ a ns6:Individual ;
-            ns6:id "nine-month old infant" ;
-            ns6:karyotypicSex "UNKNOWN_KARYOTYPE" ;
-            ns6:sex "FEMALE" ;
-            ns6:timeAtLastEncounter [ a ns3:TimeElement ;
-                    ns3:age [ a ns3:Age ;
-                            ns3:iso8601duration "P9M" ] ] ] .
+            ns4:onset [ a ns1:TimeElement ;
+                    ns1:ontologyClass HP:0003593 ] ;
+            ns4:type HP:0001263 ] ;
+    phenopackets:subject [ a ns5:Individual ;
+            ns5:id "nine-month old infant" ;
+            ns5:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns5:sex "FEMALE" ;
+            ns5:timeAtLastEncounter [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P9M" ] ] ] .
 

@@ -1,7 +1,7 @@
 metaData:
   created: '2021-05-14T10:35:00Z'
   createdBy: anonymous biocurator
-  phenopacketSchemaVersion: '2.0'
+  phenopacketSchemaVersion: 2.0.0
   resources:
   - id: ncit
     iriPrefix: http://purl.obolibrary.org/obo/NCIT_
@@ -28,8 +28,8 @@ metaData:
     url: http://purl.obolibrary.org/obo/ncbitaxon.owl
     version: '2021-06-10'
 biosamples:
-- id: biosample-1
-  individualId: proband-A
+- id: biosample 1
+  individualId: proband A
   procedure:
     code:
       id: NCIT:C15189
@@ -50,8 +50,8 @@ biosamples:
   histologicalDiagnosis:
     id: NCIT:C4024
     label: Esophageal Squamous Cell Carcinoma
-  id: biosample-2
-  individualId: proband-A
+  id: biosample 2
+  individualId: proband A
   procedure:
     code:
       id: NCIT:C15189
@@ -65,8 +65,8 @@ biosamples:
   tumorProgression:
     id: NCIT:C84509
     label: Primary Malignant Neoplasm
-- id: biosample-3
-  individualId: proband-A
+- id: biosample 3
+  individualId: proband A
   procedure:
     code:
       id: NCIT:C15189
@@ -91,12 +91,14 @@ diseases:
     NCIT:C48699:
       id: NCIT:C48699
       label: M0 Stage Finding
+  excluded: false
   term:
     id: NCIT:C4024
     label: Esophageal Squamous Cell Carcinoma
 id: arbitrary.id
 subject:
-  id: proband-A
+  id: proband A
+  karyotypicSex: UNKNOWN_KARYOTYPE
   sex: MALE
   timeAtLastEncounter:
     age:

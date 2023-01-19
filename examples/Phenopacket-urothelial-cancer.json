@@ -2,7 +2,7 @@
   "metaData": {
     "created": "2021-05-14T10:35:00Z",
     "createdBy": "anonymous biocurator",
-    "phenopacketSchemaVersion": "2.0",
+    "phenopacketSchemaVersion": "2.0.0",
     "resources": [
       {
         "id": "ncit",
@@ -35,6 +35,14 @@
         "namespacePrefix": "NCBITaxon",
         "url": "http://purl.obolibrary.org/obo/ncbitaxon.owl",
         "version": "2021-06-10"
+      },
+      {
+        "id": "hp",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_",
+        "name": "human phenotype ontology",
+        "namespacePrefix": "HP",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2022-06-11"
       }
     ]
   },
@@ -44,7 +52,7 @@
         "id": "NCIT:C5596",
         "label": "Prostate Acinar Adenocarcinoma"
       },
-      "id": "prostate-biosample-ID",
+      "id": "prostate biosample ID",
       "individualId": "patient1",
       "procedure": {
         "code": {
@@ -75,7 +83,7 @@
         "id": "NCIT:C38757",
         "label": "Negative Finding"
       },
-      "id": "right-ureter-biosample-ID",
+      "id": "right ureter biosample ID",
       "individualId": "patient1",
       "procedure": {
         "code": {
@@ -98,7 +106,7 @@
         "id": "NCIT:C38757",
         "label": "Negative Finding"
       },
-      "id": "left-ureter-biosample-ID",
+      "id": "left ureter biosample ID",
       "individualId": "patient1",
       "procedure": {
         "code": {
@@ -126,7 +134,7 @@
         "id": "NCIT:C39853",
         "label": "Infiltrating Urothelial Carcinoma"
       },
-      "id": "bladder-biopsy-id",
+      "id": "bladder biopsy id",
       "individualId": "patient1",
       "procedure": {
         "code": {
@@ -154,7 +162,7 @@
           "uri": "file://data/genomes/metastasis_wgs.vcf.gz"
         }
       ],
-      "id": "pelvic-lymph-node-biosample-ID",
+      "id": "pelvic lymph node biosample ID",
       "individualId": "patient1",
       "procedure": {
         "code": {
@@ -199,6 +207,7 @@
           "label": "Stage IV"
         }
       },
+      "excluded": false,
       "term": {
         "id": "NCIT:C39853",
         "label": "Infiltrating Urothelial Carcinoma"
@@ -213,6 +222,7 @@
   "id": "arbitrary.id",
   "phenotypicFeatures": [
     {
+      "excluded": false,
       "severity": {
         "id": "HP:0012828",
         "label": "Severe"
@@ -223,6 +233,7 @@
       }
     },
     {
+      "excluded": false,
       "type": {
         "id": "HP:0000790",
         "label": "Hematuria"
@@ -232,6 +243,7 @@
   "subject": {
     "dateOfBirth": "1964-03-15T00:00:00Z",
     "id": "patient1",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE",
     "sex": "MALE"
   },
   "@type": "Phenopacket"

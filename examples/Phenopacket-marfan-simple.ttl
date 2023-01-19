@@ -1,7 +1,8 @@
+@base <https://example.org/base/> .
 @prefix OMIM: <http://omim.org/entry/> .
-@prefix ns1: <meta_data:> .
+@prefix ns1: <individual:> .
 @prefix ns2: <base:> .
-@prefix ns3: <individual:> .
+@prefix ns3: <meta_data:> .
 @prefix ns4: <disease:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
 
@@ -12,21 +13,21 @@ OMIM:154700 a ns2:OntologyClass ;
     phenopackets:diseases [ a ns4:Disease ;
             ns4:term OMIM:154700 ] ;
     phenopackets:id "id-C" ;
-    phenopackets:metaData [ a ns1:MetaData ;
-            ns1:created "2021-05-14T10:35:00Z" ;
-            ns1:createdBy "anonymous biocurator" ;
-            ns1:phenopacketSchemaVersion "2.0" ;
-            ns1:resources [ a ns1:Resource ;
-                    ns1:id "hp" ;
-                    ns1:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
-                    ns1:name "human phenotype ontology" ;
-                    ns1:namespacePrefix "HP" ;
-                    ns1:url "http://purl.obolibrary.org/obo/hp.owl" ;
-                    ns1:version "2021-08-02" ] ] ;
-    phenopackets:subject [ a ns3:Individual ;
-            ns3:id "proband-C" ;
-            ns3:sex "FEMALE" ;
-            ns3:timeAtLastEncounter [ a ns2:TimeElement ;
+    phenopackets:metaData [ a ns3:MetaData ;
+            ns3:created "2021-05-14T10:35:00Z" ;
+            ns3:createdBy "anonymous biocurator" ;
+            ns3:phenopacketSchemaVersion "2.0" ;
+            ns3:resources [ a ns3:Resource ;
+                    ns3:id "hp" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns3:name "human phenotype ontology" ;
+                    ns3:namespacePrefix "HP" ;
+                    ns3:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns3:version "2021-08-02" ] ] ;
+    phenopackets:subject [ a ns1:Individual ;
+            ns1:id "proband-C" ;
+            ns1:sex "FEMALE" ;
+            ns1:timeAtLastEncounter [ a ns2:TimeElement ;
                     ns2:age [ a ns2:Age ;
                             ns2:iso8601duration "P27Y" ] ] ] .
 

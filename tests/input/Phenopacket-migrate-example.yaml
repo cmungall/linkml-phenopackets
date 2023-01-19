@@ -1,7 +1,7 @@
 metaData:
   created: '2021-05-14T10:35:00Z'
   createdBy: anonymous biocurator
-  phenopacketSchemaVersion: 2.0.0
+  phenopacketSchemaVersion: '2.0'
   resources:
   - id: ncit
     iriPrefix: http://purl.obolibrary.org/obo/NCIT_
@@ -27,36 +27,6 @@ metaData:
     namespacePrefix: NCBITaxon
     url: http://purl.obolibrary.org/obo/ncbitaxon.owl
     version: '2021-06-10'
-  - id: hp
-    iriPrefix: http://purl.obolibrary.org/obo/HP_
-    name: human phenotype ontology
-    namespacePrefix: HP
-    url: http://purl.obolibrary.org/obo/hp.owl
-    version: '2022-06-11'
-  - id: loinc
-    iriPrefix: https://loinc.org/
-    name: Logical Observation Identifiers Names and Codes
-    namespacePrefix: LOINC
-    url: https://loinc.org
-    version: '2.73'
-  - id: ucum
-    iriPrefix: https://units-of-measurement.org/
-    name: Unified Code for Units of Measure
-    namespacePrefix: UCUM
-    url: https://ucum.org
-    version: '2.1'
-  - id: geno
-    iriPrefix: http://purl.obolibrary.org/obo/GENO_
-    name: Genotype Ontology
-    namespacePrefix: GENO
-    url: http://purl.obolibrary.org/obo/geno.owl
-    version: '2022-03-05'
-  - id: drugcentral
-    iriPrefix: https://drugcentral.org/drugcard/
-    name: Drug Central
-    namespacePrefix: DrugCentral
-    url: https://drugcentral.org/
-    version: '2022-08-22'
 biosamples:
 - files:
   - uri: file://data/fileSomaticWgs.vcf.gz
@@ -71,23 +41,21 @@ biosamples:
     value:
       quantity:
         unit:
-          id: UCUM:mm
+          id: UO:0000016
           label: millimeter
         value: 15.0
   pathologicalTnmFinding:
-    NCIT:C140720:
-      id: NCIT:C140720
-      label: Retinoblastoma pT3 TNM Finding v8
-    NCIT:C140711:
-      id: NCIT:C140711
-      label: Retinoblastoma pN0 TNM Finding v8
+    NCIT:C88735:
+      id: NCIT:C88735
+      label: Retinoblastoma pT3b TNM Finding v7
+    NCIT:C88741:
+      id: NCIT:C88741
+      label: Retinoblastoma pN0 TNM Finding v7
   phenotypicFeatures:
-  - excluded: false
-    type:
+  - type:
       id: NCIT:C35941
       label: Flexner-Wintersteiner Rosette Formation
-  - excluded: false
-    type:
+  - type:
       id: NCIT:C132485
       label: Apoptosis and Necrosis
   procedure:
@@ -115,7 +83,6 @@ diseases:
     LOINC:LA24739-7:
       id: LOINC:LA24739-7
       label: Group E
-  excluded: false
   onset:
     age:
       iso8601duration: P4M
@@ -140,23 +107,16 @@ interpretations:
         acmgPathogenicityClassification: PATHOGENIC
         therapeuticActionability: ACTIONABLE
         variationDescriptor:
-          extensions:
-          - name: mosaicism
-            value:
-            - 40.0%
-          id: variant-id
-          moleculeContext: unspecified_molecule_context
           variation:
             copyNumber:
-              derivedSequenceExpression:
-                location:
+              allele:
+                sequenceLocation:
                   sequenceId: refseq:NC_000013.14
                   sequenceInterval:
                     endNumber:
-                      value: 61706822
+                      value: 62280955
                     startNumber:
-                      value: 25981249
-                reverseComplement: false
+                      value: 26555377
               number:
                 value: 1
     - interpretationStatus: CAUSATIVE
@@ -169,31 +129,29 @@ interpretations:
             id: GENO:0000135
             label: heterozygous
           expressions:
+          - syntax: allele-frequency
+            value: 25.0%
           - syntax: hgvs.c
             value: NM_000321.2:c.958C>T
           - syntax: transcript_reference
             value: NM_000321.2
-          extensions:
-          - name: allele-frequency
-            value:
-            - 25.0%
           geneContext:
             symbol: RB1
             valueId: HGNC:9884
           id: rs121913300
           label: RB1 c.958C>T (p.Arg320Ter)
-          moleculeContext: genomic
+          moleculeContext: transcript
           variation:
             allele:
               literalSequenceExpression:
                 sequence: T
               sequenceLocation:
-                sequenceId: refseq:NC_000013.11
+                sequenceId: refseq:NC_000013.14
                 sequenceInterval:
                   endNumber:
-                    value: 48367512
+                    value: 48941648
                   startNumber:
-                    value: 48367511
+                    value: 48941647
           vcfRecord:
             alt: T
             chrom: NC_000013.11
@@ -215,10 +173,10 @@ measurements:
         high: 21.0
         low: 10.0
         unit:
-          id: LOINC:56844-4
+          id: 56844-4
           label: Intraocular pressure of Eye
       unit:
-        id: UCUM:mm[Hg]
+        id: UO:0000272
         label: millimetres of mercury
       value: 25.0
 - assay:
@@ -233,10 +191,10 @@ measurements:
         high: 21.0
         low: 10.0
         unit:
-          id: LOINC:56844-4
+          id: 56844-4
           label: Intraocular pressure of Eye
       unit:
-        id: UCUM:mm[Hg]
+        id: UO:0000272
         label: millimetres of mercury
       value: 15.0
 medicalActions:
@@ -254,13 +212,12 @@ medicalActions:
         start: '2020-09-02T00:00:00Z'
       quantity:
         unit:
-          id: UCUM:mg.kg-1
+          id: UO:0000308
           label: milligram per kilogram
         value: 0.4
       scheduleFrequency:
         id: NCIT:C64576
         label: Once
-    drugType: UNKNOWN_DRUG_TYPE
     routeOfAdministration:
       id: NCIT:C38222
       label: Intraarterial Route of Administration
@@ -307,8 +264,7 @@ medicalActions:
     id: NCIT:C7541
     label: Retinoblastoma
 phenotypicFeatures:
-- excluded: false
-  modifiers:
+- modifiers:
     HP:0012834:
       id: HP:0012834
       label: Right
@@ -318,39 +274,39 @@ phenotypicFeatures:
   type:
     id: HP:0030084
     label: Clinodactyly
-- excluded: false
-  modifiers:
-    HP:0012835:
-      id: HP:0012835
-      label: Left
+- modifiers:
+    HP:0012833:
+      id: HP:0012833
+      label: Unilateral
   onset:
     age:
       iso8601duration: P4M
   type:
     id: HP:0000555
     label: Leukocoria
-- excluded: false
-  modifiers:
-    HP:0012835:
-      id: HP:0012835
-      label: Left
+- modifiers:
+    HP:0012833:
+      id: HP:0012833
+      label: Unilateral
   onset:
     age:
       iso8601duration: P5M15D
   type:
     id: HP:0000486
     label: Strabismus
-- excluded: false
-  modifiers:
-    HP:0012835:
-      id: HP:0012835
-      label: Left
+- modifiers:
+    HP:0012833:
+      id: HP:0012833
+      label: Unilateral
   onset:
     age:
       iso8601duration: P6M
   type:
     id: HP:0000541
-    label: Retinal detachment
+    label: LABEL TO BE REPLACED ## Retinal detachment
+- type:
+    id: HP:0100637
+    label: This is not an actual phenotype of the disease - present to test obsoletion replacement
 subject:
   id: proband A
   karyotypicSex: XX

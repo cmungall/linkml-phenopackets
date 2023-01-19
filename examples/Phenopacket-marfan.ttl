@@ -1,62 +1,102 @@
+@base <https://example.org/base/> .
 @prefix DrugCentral: <http://identifiers.org/drugcentral/> .
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
 @prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
 @prefix OMIM: <http://omim.org/entry/> .
-@prefix UO: <http://purl.obolibrary.org/obo/UO_> .
-@prefix ns1: <base:> .
-@prefix ns2: <meta_data:> .
-@prefix ns3: <medical_action:> .
-@prefix ns4: <measurement:> .
-@prefix ns5: <individual:> .
-@prefix ns6: <disease:> .
+@prefix UCUM: <http://unitsofmeasure.org/> .
+@prefix ns1: <meta_data:> .
+@prefix ns2: <medical_action:> .
+@prefix ns3: <base:> .
+@prefix ns4: <disease:> .
+@prefix ns5: <phenotypic_feature:> .
+@prefix ns6: <measurement:> .
+@prefix ns7: <individual:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-DrugCentral:1610 a ns1:OntologyClass ;
-    ns1:label "losartan" .
+DrugCentral:1610 a ns3:OntologyClass ;
+    ns3:label "losartan" .
 
-OMIM:154700 a ns1:OntologyClass ;
-    ns1:label "Marfan syndrome" .
+OMIM:154700 a ns3:OntologyClass ;
+    ns3:label "Marfan syndrome" .
 
-NCIT:C38288 a ns1:OntologyClass ;
-    ns1:label "Oral Route of Administration" .
+HP:0002616 a ns3:OntologyClass ;
+    ns3:label "Aortic root aneurysm" .
 
-NCIT:C64496 a ns1:OntologyClass ;
-    ns1:label "Twice Daily" .
+NCIT:C38288 a ns3:OntologyClass ;
+    ns3:label "Oral Route of Administration" .
 
-UO:0000022 a ns1:OntologyClass ;
-    ns1:label "milligram" .
+NCIT:C64496 a ns3:OntologyClass ;
+    ns3:label "Twice Daily" .
+
+UCUM:mg a ns3:OntologyClass ;
+    ns3:label "milligram" .
 
 [] a phenopackets:Phenopacket ;
-    phenopackets:diseases [ a ns6:Disease ;
-            ns6:term OMIM:154700 ] ;
+    phenopackets:diseases [ a ns4:Disease ;
+            ns4:excluded false ;
+            ns4:term OMIM:154700 ] ;
     phenopackets:id "id-C" ;
-    phenopackets:medicalActions [ a ns3:MedicalAction ;
-            ns3:treatment [ a ns3:Treatment ;
-                    ns3:agent DrugCentral:1610 ;
-                    ns3:doseIntervals [ a ns3:DoseInterval ;
-                            ns3:interval [ a ns1:TimeInterval ;
-                                    ns1:end "2021-03-20T00:00:00Z" ;
-                                    ns1:start "2019-03-20T00:00:00Z" ] ;
-                            ns3:quantity [ a ns4:Quantity ;
-                                    ns4:unit UO:0000022 ;
-                                    ns4:value 3e+01 ] ;
-                            ns3:scheduleFrequency NCIT:C64496 ] ;
-                    ns3:routeOfAdministration NCIT:C38288 ] ] ;
-    phenopackets:metaData [ a ns2:MetaData ;
-            ns2:created "2021-05-14T10:35:00Z" ;
-            ns2:createdBy "anonymous biocurator" ;
-            ns2:phenopacketSchemaVersion "2.0" ;
-            ns2:resources [ a ns2:Resource ;
-                    ns2:id "hp" ;
-                    ns2:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
-                    ns2:name "human phenotype ontology" ;
-                    ns2:namespacePrefix "HP" ;
-                    ns2:url "http://purl.obolibrary.org/obo/hp.owl" ;
-                    ns2:version "2021-08-02" ] ] ;
-    phenopackets:subject [ a ns5:Individual ;
-            ns5:id "proband-C" ;
-            ns5:sex "FEMALE" ;
-            ns5:timeAtLastEncounter [ a ns1:TimeElement ;
-                    ns1:age [ a ns1:Age ;
-                            ns1:iso8601duration "P27Y" ] ] ] .
+    phenopackets:medicalActions [ a ns2:MedicalAction ;
+            ns2:treatment [ a ns2:Treatment ;
+                    ns2:agent DrugCentral:1610 ;
+                    ns2:doseIntervals [ a ns2:DoseInterval ;
+                            ns2:interval [ a ns3:TimeInterval ;
+                                    ns3:end "2021-03-20T00:00:00Z" ;
+                                    ns3:start "2019-03-20T00:00:00Z" ] ;
+                            ns2:quantity [ a ns6:Quantity ;
+                                    ns6:unit UCUM:mg ;
+                                    ns6:value 3e+01 ] ;
+                            ns2:scheduleFrequency NCIT:C64496 ] ;
+                    ns2:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns2:routeOfAdministration NCIT:C38288 ] ] ;
+    phenopackets:metaData [ a ns1:MetaData ;
+            ns1:created "2021-05-14T10:35:00Z" ;
+            ns1:createdBy "anonymous biocurator" ;
+            ns1:phenopacketSchemaVersion "2.0.0" ;
+            ns1:resources [ a ns1:Resource ;
+                    ns1:id "ncit" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns1:name "NCI Thesaurus" ;
+                    ns1:namespacePrefix "NCIT" ;
+                    ns1:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns1:version "21.05d" ],
+                [ a ns1:Resource ;
+                    ns1:id "omim" ;
+                    ns1:iriPrefix "https://www.omim.org/entry/" ;
+                    ns1:name "An Online Catalog of Human Genes and Genetic Disorders" ;
+                    ns1:namespacePrefix "OMIM" ;
+                    ns1:url "https://www.omim.org" ;
+                    ns1:version "2022-11-23" ],
+                [ a ns1:Resource ;
+                    ns1:id "drugcentral" ;
+                    ns1:iriPrefix "https://drugcentral.org/drugcard/" ;
+                    ns1:name "Drug Central" ;
+                    ns1:namespacePrefix "DrugCentral" ;
+                    ns1:url "https://drugcentral.org/" ;
+                    ns1:version "2022-08-22" ],
+                [ a ns1:Resource ;
+                    ns1:id "hp" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns1:name "human phenotype ontology" ;
+                    ns1:namespacePrefix "HP" ;
+                    ns1:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns1:version "2021-08-02" ],
+                [ a ns1:Resource ;
+                    ns1:id "ucum" ;
+                    ns1:iriPrefix "https://units-of-measurement.org/" ;
+                    ns1:name "Unified Code for Units of Measure" ;
+                    ns1:namespacePrefix "UCUM" ;
+                    ns1:url "https://ucum.org" ;
+                    ns1:version "2.1" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:type HP:0002616 ] ;
+    phenopackets:subject [ a ns7:Individual ;
+            ns7:id "proband C" ;
+            ns7:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns7:sex "FEMALE" ;
+            ns7:timeAtLastEncounter [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P27Y" ] ] ] .
 

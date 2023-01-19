@@ -1,76 +1,77 @@
+@base <https://example.org/base/> .
 @prefix EFO: <http://www.ebi.ac.uk/efo/EFO_> .
 @prefix NCBITaxon: <http://purl.obolibrary.org/obo/NCBITaxon_> .
 @prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
 @prefix UBERON: <http://purl.obolibrary.org/obo/UBERON_> .
-@prefix ns1: <biosample:> .
-@prefix ns2: <meta_data:> .
-@prefix ns3: <base:> .
-@prefix ns4: <disease:> .
-@prefix ns5: <individual:> .
+@prefix ns1: <meta_data:> .
+@prefix ns2: <biosample:> .
+@prefix ns3: <individual:> .
+@prefix ns4: <base:> .
+@prefix ns5: <disease:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
 
-NCBITaxon:9606 a ns3:OntologyClass ;
-    ns3:label "Homo sapiens" .
+NCBITaxon:9606 a ns4:OntologyClass ;
+    ns4:label "Homo sapiens" .
 
-NCIT:C3171 a ns3:OntologyClass ;
-    ns3:label "Acute Myeloid Leukemia" .
+NCIT:C3171 a ns4:OntologyClass ;
+    ns4:label "Acute Myeloid Leukemia" .
 
-UBERON:0000178 a ns3:OntologyClass ;
-    ns3:label "peripheral blood" .
+UBERON:0000178 a ns4:OntologyClass ;
+    ns4:label "peripheral blood" .
 
-EFO:0000221 a ns3:OntologyClass ;
-    ns3:label "Acute Monocytic Leukemia" .
+EFO:0000221 a ns4:OntologyClass ;
+    ns4:label "Acute Monocytic Leukemia" .
 
 [] a phenopackets:Phenopacket ;
-    phenopackets:biosamples [ a ns1:Biosample ;
-            ns1:description "THP-1; 6 hours; DMSO; Replicate 1" ;
-            ns1:histologicalDiagnosis EFO:0000221 ;
-            ns1:id "SAMN05324082" ;
-            ns1:individualId "SAMN05324082-individual" ;
-            ns1:sampledTissue UBERON:0000178 ;
-            ns1:taxonomy NCBITaxon:9606 ;
-            ns1:timeOfCollection [ a ns3:TimeElement ;
-                    ns3:age [ a ns3:Age ;
-                            ns3:iso8601duration "P8Y" ] ] ] ;
-    phenopackets:diseases [ a ns4:Disease ;
-            ns4:term NCIT:C3171 ] ;
+    phenopackets:biosamples [ a ns2:Biosample ;
+            ns2:description "THP-1; 6 hours; DMSO; Replicate 1" ;
+            ns2:histologicalDiagnosis EFO:0000221 ;
+            ns2:id "SAMN05324082" ;
+            ns2:individualId "SAMN05324082-individual" ;
+            ns2:sampledTissue UBERON:0000178 ;
+            ns2:taxonomy NCBITaxon:9606 ;
+            ns2:timeOfCollection [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P8Y" ] ] ] ;
+    phenopackets:diseases [ a ns5:Disease ;
+            ns5:term NCIT:C3171 ] ;
     phenopackets:id "arbitrary.id" ;
-    phenopackets:metaData [ a ns2:MetaData ;
-            ns2:created "2021-05-14T10:35:00Z" ;
-            ns2:createdBy "anonymous biocurator" ;
-            ns2:phenopacketSchemaVersion "2.0" ;
-            ns2:resources [ a ns2:Resource ;
-                    ns2:id "efo" ;
-                    ns2:iriPrefix "http://purl.obolibrary.org/obo/EFO_" ;
-                    ns2:name "Experimental Factor Ontology" ;
-                    ns2:namespacePrefix "EFO" ;
-                    ns2:url "http://www.ebi.ac.uk/efo/efo.owl" ;
-                    ns2:version "3.34.0" ],
-                [ a ns2:Resource ;
-                    ns2:id "ncbitaxon" ;
-                    ns2:iriPrefix "http://purl.obolibrary.org/obo/NCBITaxon_" ;
-                    ns2:name "NCBI organismal classification" ;
-                    ns2:namespacePrefix "NCBITaxon" ;
-                    ns2:url "http://purl.obolibrary.org/obo/ncbitaxon.owl" ;
-                    ns2:version "2021-06-10" ],
-                [ a ns2:Resource ;
-                    ns2:id "uberon" ;
-                    ns2:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
-                    ns2:name "Uber-anatomy ontology" ;
-                    ns2:namespacePrefix "UBERON" ;
-                    ns2:url "http://purl.obolibrary.org/obo/uberon.owl" ;
-                    ns2:version "2021-07-27" ],
-                [ a ns2:Resource ;
-                    ns2:id "ncit" ;
-                    ns2:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
-                    ns2:name "NCI Thesaurus" ;
-                    ns2:namespacePrefix "NCIT" ;
-                    ns2:url "http://purl.obolibrary.org/obo/ncit.owl" ;
-                    ns2:version "21.05d" ] ] ;
-    phenopackets:subject [ a ns5:Individual ;
-            ns5:id "probandA" ;
-            ns5:sex "MALE" ;
-            ns5:timeAtLastEncounter [ a ns3:TimeElement ;
-                    ns3:age [ a ns3:Age ;
-                            ns3:iso8601duration "P8Y" ] ] ] .
+    phenopackets:metaData [ a ns1:MetaData ;
+            ns1:created "2021-05-14T10:35:00Z" ;
+            ns1:createdBy "anonymous biocurator" ;
+            ns1:phenopacketSchemaVersion "2.0" ;
+            ns1:resources [ a ns1:Resource ;
+                    ns1:id "ncbitaxon" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/NCBITaxon_" ;
+                    ns1:name "NCBI organismal classification" ;
+                    ns1:namespacePrefix "NCBITaxon" ;
+                    ns1:url "http://purl.obolibrary.org/obo/ncbitaxon.owl" ;
+                    ns1:version "2021-06-10" ],
+                [ a ns1:Resource ;
+                    ns1:id "efo" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/EFO_" ;
+                    ns1:name "Experimental Factor Ontology" ;
+                    ns1:namespacePrefix "EFO" ;
+                    ns1:url "http://www.ebi.ac.uk/efo/efo.owl" ;
+                    ns1:version "3.34.0" ],
+                [ a ns1:Resource ;
+                    ns1:id "uberon" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
+                    ns1:name "Uber-anatomy ontology" ;
+                    ns1:namespacePrefix "UBERON" ;
+                    ns1:url "http://purl.obolibrary.org/obo/uberon.owl" ;
+                    ns1:version "2021-07-27" ],
+                [ a ns1:Resource ;
+                    ns1:id "ncit" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns1:name "NCI Thesaurus" ;
+                    ns1:namespacePrefix "NCIT" ;
+                    ns1:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns1:version "21.05d" ] ] ;
+    phenopackets:subject [ a ns3:Individual ;
+            ns3:id "probandA" ;
+            ns3:sex "MALE" ;
+            ns3:timeAtLastEncounter [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P8Y" ] ] ] .
 

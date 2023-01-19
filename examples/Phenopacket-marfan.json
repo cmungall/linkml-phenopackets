@@ -2,7 +2,7 @@
   "metaData": {
     "created": "2021-05-14T10:35:00Z",
     "createdBy": "anonymous biocurator",
-    "phenopacketSchemaVersion": "2.0",
+    "phenopacketSchemaVersion": "2.0.0",
     "resources": [
       {
         "id": "hp",
@@ -11,11 +11,44 @@
         "namespacePrefix": "HP",
         "url": "http://purl.obolibrary.org/obo/hp.owl",
         "version": "2021-08-02"
+      },
+      {
+        "id": "omim",
+        "iriPrefix": "https://www.omim.org/entry/",
+        "name": "An Online Catalog of Human Genes and Genetic Disorders",
+        "namespacePrefix": "OMIM",
+        "url": "https://www.omim.org",
+        "version": "2022-11-23"
+      },
+      {
+        "id": "drugcentral",
+        "iriPrefix": "https://drugcentral.org/drugcard/",
+        "name": "Drug Central",
+        "namespacePrefix": "DrugCentral",
+        "url": "https://drugcentral.org/",
+        "version": "2022-08-22"
+      },
+      {
+        "id": "ncit",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_",
+        "name": "NCI Thesaurus",
+        "namespacePrefix": "NCIT",
+        "url": "http://purl.obolibrary.org/obo/ncit.owl",
+        "version": "21.05d"
+      },
+      {
+        "id": "ucum",
+        "iriPrefix": "https://units-of-measurement.org/",
+        "name": "Unified Code for Units of Measure",
+        "namespacePrefix": "UCUM",
+        "url": "https://ucum.org",
+        "version": "2.1"
       }
     ]
   },
   "diseases": [
     {
+      "excluded": false,
       "term": {
         "id": "OMIM:154700",
         "label": "Marfan syndrome"
@@ -38,7 +71,7 @@
             },
             "quantity": {
               "unit": {
-                "id": "UO:0000022",
+                "id": "UCUM:mg",
                 "label": "milligram"
               },
               "value": 30.0
@@ -49,6 +82,7 @@
             }
           }
         ],
+        "drugType": "UNKNOWN_DRUG_TYPE",
         "routeOfAdministration": {
           "id": "NCIT:C38288",
           "label": "Oral Route of Administration"
@@ -56,8 +90,18 @@
       }
     }
   ],
+  "phenotypicFeatures": [
+    {
+      "excluded": false,
+      "type": {
+        "id": "HP:0002616",
+        "label": "Aortic root aneurysm"
+      }
+    }
+  ],
   "subject": {
-    "id": "proband-C",
+    "id": "proband C",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE",
     "sex": "FEMALE",
     "timeAtLastEncounter": {
       "age": {

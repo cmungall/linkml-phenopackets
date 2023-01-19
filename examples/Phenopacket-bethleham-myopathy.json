@@ -8,7 +8,7 @@
         "id": "PMID:30808312"
       }
     ],
-    "phenopacketSchemaVersion": "2.0",
+    "phenopacketSchemaVersion": "2.0.0",
     "resources": [
       {
         "id": "hp",
@@ -25,10 +25,26 @@
         "namespacePrefix": "GENO",
         "url": "http://purl.obolibrary.org/obo/geno.owl",
         "version": "2020-03-08"
+      },
+      {
+        "id": "eco",
+        "iriPrefix": "http://purl.obolibrary.org/obo/ECO_",
+        "name": "Evidence & Conclusion Ontology (ECO)",
+        "namespacePrefix": "ECO",
+        "url": "http://purl.obolibrary.org/obo/eco.owl",
+        "version": "2022-08-05"
+      },
+      {
+        "id": "omim",
+        "iriPrefix": "https://www.omim.org/entry/",
+        "name": "An Online Catalog of Human Genes and Genetic Disorders",
+        "namespacePrefix": "OMIM",
+        "url": "https://www.omim.org",
+        "version": "2022-11-23"
       }
     ]
   },
-  "id": "arbitrary-proband-id",
+  "id": "arbitrary proband id",
   "interpretations": [
     {
       "diagnosis": {
@@ -39,9 +55,10 @@
         "genomicInterpretations": [
           {
             "interpretationStatus": "CAUSATIVE",
-            "subjectOrBiosampleId": "arbitrary-interpretation-id",
+            "subjectOrBiosampleId": "arbitrary interpretation id",
             "variantInterpretation": {
               "acmgPathogenicityClassification": "PATHOGENIC",
+              "therapeuticActionability": "UNKNOWN_ACTIONABILITY",
               "variationDescriptor": {
                 "allelicState": {
                   "id": "GENO:0000135",
@@ -49,16 +66,29 @@
                 },
                 "expressions": [
                   {
-                    "syntax": "hgvs"
+                    "syntax": "hgvs",
+                    "value": "NM_001848.2:c.877G>A"
                   }
                 ],
-                "id": "variant-id"
+                "geneContext": {
+                  "symbol": "COL6A1",
+                  "valueId": "HGNC:2211"
+                },
+                "id": "variant id",
+                "moleculeContext": "unspecified_molecule_context",
+                "vcfRecord": {
+                  "alt": "A",
+                  "chrom": "chr21",
+                  "genomeAssembly": "GRCh38",
+                  "pos": 45989626,
+                  "ref": "G"
+                }
               }
             }
           }
         ]
       },
-      "id": "arbitrary-interpretation-id",
+      "id": "arbitrary interpretation id",
       "progressStatus": "COMPLETED"
     }
   ],
@@ -76,6 +106,7 @@
           }
         }
       ],
+      "excluded": false,
       "onset": {
         "ontologyClass": {
           "id": "HP:0003577",
@@ -100,6 +131,7 @@
           }
         }
       ],
+      "excluded": false,
       "type": {
         "id": "HP:0000280",
         "label": "Coarse facial features"
@@ -118,6 +150,7 @@
           }
         }
       ],
+      "excluded": false,
       "onset": {
         "ontologyClass": {
           "id": "HP:0003577",
@@ -142,6 +175,7 @@
           }
         }
       ],
+      "excluded": false,
       "onset": {
         "ontologyClass": {
           "id": "HP:0011461",
@@ -166,6 +200,7 @@
           }
         }
       ],
+      "excluded": false,
       "onset": {
         "ontologyClass": {
           "id": "HP:0003577",
@@ -190,6 +225,7 @@
           }
         }
       ],
+      "excluded": false,
       "onset": {
         "ontologyClass": {
           "id": "HP:0003577",
@@ -214,6 +250,7 @@
           }
         }
       ],
+      "excluded": false,
       "type": {
         "id": "HP:0001320",
         "label": "Cerebellar vermis hypoplasia"
@@ -232,6 +269,7 @@
           }
         }
       ],
+      "excluded": false,
       "onset": {
         "ontologyClass": {
           "id": "HP:0003593",
@@ -256,6 +294,7 @@
           }
         }
       ],
+      "excluded": false,
       "type": {
         "id": "HP:0002198",
         "label": "Dilated fourth ventricle"
@@ -274,6 +313,7 @@
           }
         }
       ],
+      "excluded": false,
       "onset": {
         "ontologyClass": {
           "id": "HP:0003577",
@@ -287,7 +327,8 @@
     }
   ],
   "subject": {
-    "id": "proband-A",
+    "id": "proband A",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE",
     "sex": "MALE",
     "timeAtLastEncounter": {
       "age": {

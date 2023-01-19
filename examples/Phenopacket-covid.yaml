@@ -6,29 +6,61 @@ metaData:
       on Durable LVAD Support'
     id: DOI:10.1016/j.jaccas.2020.04.001
     reference: PMID:32292915
-  phenopacketSchemaVersion: '2.0'
+  phenopacketSchemaVersion: 2.0.0
   resources:
+  - id: hp
+    iriPrefix: http://purl.obolibrary.org/obo/HP_
+    name: human phenotype ontology
+    namespacePrefix: HP
+    url: http://purl.obolibrary.org/obo/hp.owl
+    version: '2021-08-02'
   - id: ncit
     iriPrefix: http://purl.obolibrary.org/obo/NCIT_
     name: NCI Thesaurus
     namespacePrefix: NCIT
     url: http://purl.obolibrary.org/obo/ncit.owl
-    version: '2019-11-26'
+    version: 21.05d
   - id: mondo
     iriPrefix: http://purl.obolibrary.org/obo/MONDO_
     name: Mondo Disease Ontology
     namespacePrefix: MONDO
     url: http://purl.obolibrary.org/obo/mondo.obo
-    version: '2021-11-26'
+    version: '2022-04-04'
+  - id: loinc
+    iriPrefix: https://loinc.org/
+    name: Logical Observation Identifiers Names and Codes
+    namespacePrefix: LOINC
+    url: https://loinc.org
+    version: '2.73'
+  - id: pato
+    iriPrefix: http://purl.obolibrary.org/obo/PATO_
+    name: PhenotypicFeature And Trait Ontology
+    namespacePrefix: PATO
+    url: http://purl.obolibrary.org/obo/pato.owl
+    version: '2022-08-31'
+  - id: chebi
+    iriPrefix: https://purl.obolibrary.org/obo/CHEBI_
+    name: Chemical Entities of Biological Interest
+    namespacePrefix: CHEBI
+    url: https://www.ebi.ac.uk/chebi
+    version: '2022-11-23'
+  - id: ucum
+    iriPrefix: https://units-of-measurement.org/
+    name: Unified Code for Units of Measure
+    namespacePrefix: UCUM
+    url: https://ucum.org
+    version: '2.1'
 diseases:
 - excluded: true
   term:
     id: MONDO:0005015
     label: diabetes mellitus
-- term:
+- excluded: false
+  term:
     id: MONDO:0004994
     label: cardiomyopathy
-- onset:
+- excluded: false
+  onset:
     timestamp: '2020-03-17T00:00:00Z'
   term:
     id: MONDO:0100096
@@ -93,6 +125,7 @@ medicalActions:
       scheduleFrequency:
         id: PATO:0000689
         label: continuous
+    drugType: UNKNOWN_DRUG_TYPE
     routeOfAdministration:
       id: NCIT:C38284
       label: Nasal Route of Administration
@@ -106,12 +139,13 @@ medicalActions:
         start: '2020-03-20T00:00:00Z'
       quantity:
         unit:
-          id: UO:0000022
+          id: UCUM:mg
           label: milligram
         value: 6.0
       scheduleFrequency:
         id: NCIT:C125004
         label: Once Daily
+    drugType: UNKNOWN_DRUG_TYPE
 - procedure:
     code:
       id: NCIT:C116648
@@ -134,6 +168,7 @@ medicalActions:
       scheduleFrequency:
         id: PATO:0000689
         label: continuous
+    drugType: UNKNOWN_DRUG_TYPE
     routeOfAdministration:
       id: NCIT:C50254
       label: Positive end Expiratory Pressure Valve Device
@@ -153,55 +188,65 @@ medicalActions:
       scheduleFrequency:
         id: NCIT:C64529
         label: Every Four Weeks
+    drugType: UNKNOWN_DRUG_TYPE
 phenotypicFeatures:
-- onset:
+- excluded: false
+  onset:
     timestamp: '2021-02-01T05:00:00Z'
   type:
     id: HP:0001945
     label: 'Fever '
-- onset:
+- excluded: false
+  onset:
     timestamp: '2021-02-01T05:00:00Z'
   type:
     id: HP:0030157
     label: Flank pain
-- onset:
+- excluded: false
+  onset:
     timestamp: '2021-02-01T05:00:00Z'
   type:
     id: HP:0000790
     label: Hematuria
-- onset:
+- excluded: false
+  onset:
     timestamp: '2021-02-01T05:00:00Z'
   type:
     id: HP:0012625
     label: Stage 3 chronic kidney disease
-- onset:
+- excluded: false
+  onset:
     interval:
       end: '2020-03-20T00:00:00Z'
       start: '2020-03-18T00:00:00Z'
   type:
     id: HP:0003326
     label: Myalgia
-- onset:
+- excluded: false
+  onset:
     interval:
       end: '2020-03-20T00:00:00Z'
       start: '2020-03-18T00:00:00Z'
   type:
     id: HP:0002014
     label: Diarrhea
-- onset:
+- excluded: false
+  onset:
     interval:
       end: '2020-03-20T00:00:00Z'
       start: '2020-03-18T00:00:00Z'
   type:
     id: HP:0002094
     label: Dyspnea
-- onset:
+- excluded: false
+  onset:
     timestamp: '2020-03-20T00:00:00Z'
   type:
     id: HP:0033677
     label: Acute respiratory distress syndrome
 subject:
   id: P123542
+  karyotypicSex: UNKNOWN_KARYOTYPE
   sex: MALE
   timeAtLastEncounter:
     age:

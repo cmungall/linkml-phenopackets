@@ -5,7 +5,7 @@ metaData:
   - description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
       a case report'
     id: PMID:30808312
-  phenopacketSchemaVersion: '2.0'
+  phenopacketSchemaVersion: 2.0.0
   resources:
   - id: hp
     iriPrefix: http://purl.obolibrary.org/obo/HP_
@@ -19,7 +19,19 @@ metaData:
     namespacePrefix: GENO
     url: http://purl.obolibrary.org/obo/geno.owl
     version: '2020-03-08'
-id: arbitrary-proband-id
+  - id: eco
+    iriPrefix: http://purl.obolibrary.org/obo/ECO_
+    name: Evidence & Conclusion Ontology (ECO)
+    namespacePrefix: ECO
+    url: http://purl.obolibrary.org/obo/eco.owl
+    version: '2022-08-05'
+  - id: omim
+    iriPrefix: https://www.omim.org/entry/
+    name: An Online Catalog of Human Genes and Genetic Disorders
+    namespacePrefix: OMIM
+    url: https://www.omim.org
+    version: '2022-11-23'
+id: arbitrary proband id
 interpretations:
 - diagnosis:
     disease:
@@ -27,17 +39,29 @@ interpretations:
       label: Bethlem myopathy 1
     genomicInterpretations:
     - interpretationStatus: CAUSATIVE
-      subjectOrBiosampleId: arbitrary-interpretation-id
+      subjectOrBiosampleId: arbitrary interpretation id
       variantInterpretation:
         acmgPathogenicityClassification: PATHOGENIC
+        therapeuticActionability: UNKNOWN_ACTIONABILITY
         variationDescriptor:
           allelicState:
             id: GENO:0000135
             label: heterozygous
           expressions:
           - syntax: hgvs
-          id: variant-id
-  id: arbitrary-interpretation-id
+            value: NM_001848.2:c.877G>A
+          geneContext:
+            symbol: COL6A1
+            valueId: HGNC:2211
+          id: variant id
+          moleculeContext: unspecified_molecule_context
+          vcfRecord:
+            alt: A
+            chrom: chr21
+            genomeAssembly: GRCh38
+            pos: 45989626
+            ref: G
+  id: arbitrary interpretation id
   progressStatus: COMPLETED
 phenotypicFeatures:
 - evidence:
@@ -48,6 +72,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   onset:
     ontologyClass:
       id: HP:0003577
@@ -63,6 +88,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   type:
     id: HP:0000280
     label: Coarse facial features
@@ -74,6 +100,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   onset:
     ontologyClass:
       id: HP:0003577
@@ -89,6 +116,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   onset:
     ontologyClass:
       id: HP:0011461
@@ -104,6 +132,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   onset:
     ontologyClass:
       id: HP:0003577
@@ -119,6 +148,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   onset:
     ontologyClass:
       id: HP:0003577
@@ -134,6 +164,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   type:
     id: HP:0001320
     label: Cerebellar vermis hypoplasia
@@ -145,6 +176,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   onset:
     ontologyClass:
       id: HP:0003593
@@ -160,6 +192,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   type:
     id: HP:0002198
     label: Dilated fourth ventricle
@@ -171,6 +204,7 @@ phenotypicFeatures:
       description: 'COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria:
         a case report'
       id: PMID:30808312
+  excluded: false
   onset:
     ontologyClass:
       id: HP:0003577
@@ -179,7 +213,8 @@ phenotypicFeatures:
     id: HP:0100333
     label: Unilateral cleft lip
 subject:
-  id: proband-A
+  id: proband A
+  karyotypicSex: UNKNOWN_KARYOTYPE
   sex: MALE
   timeAtLastEncounter:
     age:

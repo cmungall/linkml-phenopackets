@@ -9,15 +9,23 @@
         "reference": "PMID:32292915"
       }
     ],
-    "phenopacketSchemaVersion": "2.0",
+    "phenopacketSchemaVersion": "2.0.0",
     "resources": [
+      {
+        "id": "hp",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_",
+        "name": "human phenotype ontology",
+        "namespacePrefix": "HP",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2021-08-02"
+      },
       {
         "id": "ncit",
         "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_",
         "name": "NCI Thesaurus",
         "namespacePrefix": "NCIT",
         "url": "http://purl.obolibrary.org/obo/ncit.owl",
-        "version": "2019-11-26"
+        "version": "21.05d"
       },
       {
         "id": "mondo",
@@ -25,7 +33,39 @@
         "name": "Mondo Disease Ontology",
         "namespacePrefix": "MONDO",
         "url": "http://purl.obolibrary.org/obo/mondo.obo",
-        "version": "2021-11-26"
+        "version": "2022-04-04"
+      },
+      {
+        "id": "loinc",
+        "iriPrefix": "https://loinc.org/",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "namespacePrefix": "LOINC",
+        "url": "https://loinc.org",
+        "version": "2.73"
+      },
+      {
+        "id": "pato",
+        "iriPrefix": "http://purl.obolibrary.org/obo/PATO_",
+        "name": "PhenotypicFeature And Trait Ontology",
+        "namespacePrefix": "PATO",
+        "url": "http://purl.obolibrary.org/obo/pato.owl",
+        "version": "2022-08-31"
+      },
+      {
+        "id": "chebi",
+        "iriPrefix": "https://purl.obolibrary.org/obo/CHEBI_",
+        "name": "Chemical Entities of Biological Interest",
+        "namespacePrefix": "CHEBI",
+        "url": "https://www.ebi.ac.uk/chebi",
+        "version": "2022-11-23"
+      },
+      {
+        "id": "ucum",
+        "iriPrefix": "https://units-of-measurement.org/",
+        "name": "Unified Code for Units of Measure",
+        "namespacePrefix": "UCUM",
+        "url": "https://ucum.org",
+        "version": "2.1"
       }
     ]
   },
@@ -38,12 +78,14 @@
       }
     },
     {
+      "excluded": false,
       "term": {
         "id": "MONDO:0004994",
         "label": "cardiomyopathy"
       }
     },
     {
+      "excluded": false,
       "onset": {
         "timestamp": "2020-03-17T00:00:00Z"
       },
@@ -149,6 +191,7 @@
             }
           }
         ],
+        "drugType": "UNKNOWN_DRUG_TYPE",
         "routeOfAdministration": {
           "id": "NCIT:C38284",
           "label": "Nasal Route of Administration"
@@ -169,7 +212,7 @@
             },
             "quantity": {
               "unit": {
-                "id": "UO:0000022",
+                "id": "UCUM:mg",
                 "label": "milligram"
               },
               "value": 6.0
@@ -179,7 +222,8 @@
               "label": "Once Daily"
             }
           }
-        ]
+        ],
+        "drugType": "UNKNOWN_DRUG_TYPE"
       }
     },
     {
@@ -218,6 +262,7 @@
             }
           }
         ],
+        "drugType": "UNKNOWN_DRUG_TYPE",
         "routeOfAdministration": {
           "id": "NCIT:C50254",
           "label": "Positive end Expiratory Pressure Valve Device"
@@ -248,12 +293,14 @@
               "label": "Every Four Weeks"
             }
           }
-        ]
+        ],
+        "drugType": "UNKNOWN_DRUG_TYPE"
       }
     }
   ],
   "phenotypicFeatures": [
     {
+      "excluded": false,
       "onset": {
         "timestamp": "2021-02-01T05:00:00Z"
       },
@@ -263,6 +310,7 @@
       }
     },
     {
+      "excluded": false,
       "onset": {
         "timestamp": "2021-02-01T05:00:00Z"
       },
@@ -272,6 +320,7 @@
       }
     },
     {
+      "excluded": false,
       "onset": {
         "timestamp": "2021-02-01T05:00:00Z"
       },
@@ -281,6 +330,7 @@
       }
     },
     {
+      "excluded": false,
       "onset": {
         "timestamp": "2021-02-01T05:00:00Z"
       },
@@ -290,6 +340,7 @@
       }
     },
     {
+      "excluded": false,
       "onset": {
         "interval": {
           "end": "2020-03-20T00:00:00Z",
@@ -302,6 +353,7 @@
       }
     },
     {
+      "excluded": false,
       "onset": {
         "interval": {
           "end": "2020-03-20T00:00:00Z",
@@ -314,6 +366,7 @@
       }
     },
     {
+      "excluded": false,
       "onset": {
         "interval": {
           "end": "2020-03-20T00:00:00Z",
@@ -326,6 +379,7 @@
       }
     },
     {
+      "excluded": false,
       "onset": {
         "timestamp": "2020-03-20T00:00:00Z"
       },
@@ -337,6 +391,7 @@
   ],
   "subject": {
     "id": "P123542",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE",
     "sex": "MALE",
     "timeAtLastEncounter": {
       "age": {

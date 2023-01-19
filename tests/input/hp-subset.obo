@@ -1,0 +1,326 @@
+format-version: 1.2
+
+[Term]
+id: HP:0000001
+name: All
+xref: UMLS:C0444868
+
+
+[Term]
+id: HP:0000118
+name: Phenotypic abnormality
+def: "A phenotypic abnormality." [HPO:probinson]
+xref: UMLS:C4021819
+synonym: "Organ abnormality" EXACT []
+is_a: HP:0000001 ! All
+
+
+[Term]
+id: HP:0000152
+name: Abnormality of head or neck
+def: "An abnormality of head and neck." [HPO:probinson]
+xref: UMLS:C4021817
+synonym: "Abnormality of head or neck" EXACT []
+synonym: "Head and neck abnormality" EXACT []
+is_a: HP:0000118 ! Phenotypic abnormality
+
+
+[Term]
+id: HP:0000234
+name: Abnormality of the head
+def: "An abnormality of the head." [HPO:probinson]
+xref: UMLS:C4021812
+synonym: "Abnormal head" EXACT []
+synonym: "Abnormality of the head" EXACT []
+synonym: "Head abnormality" EXACT []
+is_a: HP:0000152 ! Abnormality of head or neck
+
+
+[Term]
+id: HP:0000271
+name: Abnormality of the face
+def: "An abnormality of the face." [HPO:probinson]
+xref: SNOMEDCT_US:118930001
+xref: SNOMEDCT_US:32003007
+xref: SNOMEDCT_US:398206004
+xref: SNOMEDCT_US:398302004
+xref: UMLS:C0266617
+xref: UMLS:C1290857
+xref: UMLS:C4025871
+synonym: "Abnormality of the countenance" BROAD []
+synonym: "Abnormality of the physiognomy" BROAD []
+synonym: "Abnormality of the visage" BROAD []
+synonym: "Disorder of face" BROAD []
+synonym: "Abnormal face" EXACT []
+synonym: "Abnormality of the face" EXACT []
+synonym: "Facial abnormality" EXACT []
+synonym: "Disorder of the face" NARROW []
+synonym: "Anomaly of face" RELATED []
+synonym: "Anomaly of the face" RELATED []
+synonym: "Facial anomaly" RELATED []
+is_a: HP:0000234 ! Abnormality of the head
+
+
+[Term]
+id: HP:0000366
+name: Abnormality of the nose
+def: "An abnormality of the nose." [HPO:probinson]
+xref: SNOMEDCT_US:128274005
+xref: SNOMEDCT_US:72089000
+xref: UMLS:C0240547
+xref: UMLS:C0265736
+xref: UMLS:C2235909
+synonym: "Abnormality of the nose" EXACT []
+synonym: "Anomaly of the nose" EXACT []
+synonym: "Nasal abnormality" EXACT []
+synonym: "Nasal anomaly" EXACT []
+synonym: "Deformity of the nose" NARROW []
+synonym: "Malformation of the nose" NARROW []
+synonym: "Nasal deformity" NARROW []
+synonym: "Nasal malformation" NARROW []
+is_a: HP:0000271 ! Abnormality of the face
+
+
+[Term]
+id: HP:0000478
+name: Abnormality of the eye
+def: "Any abnormality of the eye, including location, spacing, and intraocular abnormalities." [HPO:probinson]
+xref: MSH:D005124
+xref: MSH:D005128
+xref: SNOMEDCT_US:19416009
+xref: SNOMEDCT_US:371405004
+xref: SNOMEDCT_US:371409005
+xref: UMLS:C0015393
+xref: UMLS:C0015397
+synonym: "Abnormal eye" EXACT []
+synonym: "Abnormality of the eye" EXACT []
+synonym: "Eye disease" RELATED []
+is_a: HP:0000118 ! Phenotypic abnormality
+
+
+[Term]
+id: HP:0000479
+name: Abnormal retinal morphology
+def: "A structural abnormality of the retina." [HPO:probinson]
+xref: MSH:D012164
+xref: SNOMEDCT_US:29555009
+xref: UMLS:C0035300
+xref: UMLS:C0035309
+synonym: "Abnormal retina" EXACT []
+synonym: "Abnormality of the retina" EXACT []
+synonym: "Anomaly of the retina" EXACT []
+synonym: "Retina issue" EXACT []
+synonym: "Retinal disease" RELATED []
+is_a: HP:0001098 ! Abnormal fundus morphology
+
+
+[Term]
+id: HP:0000541
+name: Retinal detachment
+def: "Separation of the inner layers of the retina (neural retina) from the pigment epithelium." [HPO:probinson]
+xref: MSH:D012163
+xref: SNOMEDCT_US:42059000
+xref: UMLS:C0035305
+synonym: "Detached retina" EXACT []
+synonym: "Retinal detachment" EXACT []
+is_a: HP:0000479 ! Abnormal retinal morphology
+
+
+[Term]
+id: HP:0000600
+name: Abnormality of the pharynx
+def: "An anomaly of the pharynx, i.e., of the tubular structure extending from the base of the skull superiorly to the esophageal inlet inferiorly." [HPO:probinson]
+xref: UMLS:C4025838
+is_a: HP:0002087 ! Abnormality of the upper respiratory tract
+
+
+[Term]
+id: HP:0001098
+name: Abnormal fundus morphology
+def: "Any structural abnormality of the fundus of the eye." []
+xref: UMLS:C4025804
+synonym: "Abnormality of the fundus" EXACT []
+is_a: HP:0004329 ! Abnormal posterior eye segment morphology
+
+
+[Term]
+id: HP:0001739
+name: Abnormal nasopharynx morphology
+def: "A structural anomaly of the nasopharynx." []
+xref: UMLS:C4025750
+synonym: "Abnormality of the nasopharynx" EXACT []
+is_a: HP:0000366 ! Abnormality of the nose
+is_a: HP:0033151 ! Abnormal pharynx morphology
+
+
+[Term]
+id: HP:0002086
+name: Abnormality of the respiratory system
+def: "An abnormality of the respiratory system, which include the airways, lungs, and the respiratory muscles." [HPO:probinson]
+xref: UMLS:C4018871
+synonym: "Respiratory abnormality" EXACT []
+is_a: HP:0000118 ! Phenotypic abnormality
+
+
+[Term]
+id: HP:0002087
+name: Abnormality of the upper respiratory tract
+def: "An abnormality of the upper respiratory tract." [HPO:probinson]
+xref: UMLS:C4025727
+synonym: "Abnormality of the upper respiratory tract" EXACT []
+synonym: "Upper respiratory tract issues" EXACT []
+is_a: HP:0012252 ! Abnormal respiratory system morphology
+
+
+[Term]
+id: HP:0002664
+name: Neoplasm
+def: "An organ or organ-system abnormality that consists of uncontrolled autonomous cell-proliferation which can occur in any part of the body as a benign or malignant neoplasm (tumour)." [HPO:probinson]
+xref: MSH:D009369
+xref: NCIT:C3262
+xref: SNOMEDCT_US:108369006
+xref: SNOMEDCT_US:363346000
+xref: UMLS:C0006826
+xref: UMLS:C0027651
+synonym: "Abnormal tissue mass" BROAD []
+synonym: "Neoplasia" EXACT []
+synonym: "Oncological abnormality" EXACT []
+synonym: "Tumor" EXACT []
+synonym: "Tumour" EXACT []
+synonym: "Cancer" RELATED []
+synonym: "Oncology" RELATED []
+is_a: HP:0000118 ! Phenotypic abnormality
+
+
+[Term]
+id: HP:0004329
+name: Abnormal posterior eye segment morphology
+xref: UMLS:C4025354
+synonym: "Abnormal morphology of the posterior segment of the globe" EXACT []
+synonym: "Abnormality of the posterior segment of the eye" EXACT []
+synonym: "Abnormality of the posterior segment of the eyeball" EXACT []
+synonym: "Abnormality of the posterior segment of the globe" EXACT []
+is_a: HP:0012372 ! Abnormal eye morphology
+
+
+[Term]
+id: HP:0011793
+name: Neoplasm by anatomical site
+def: "Neoplasm categorized according to the anatomical site of origin of the neoplasm." [DDD:rscott]
+xref: UMLS:C4023185
+is_a: HP:0002664 ! Neoplasm
+
+
+[Term]
+id: HP:0012252
+name: Abnormal respiratory system morphology
+def: "A structural anomaly of the respiratory system." [HPO:probinson]
+xref: Fyler:4235
+xref: UMLS:C4022992
+is_a: HP:0002086 ! Abnormality of the respiratory system
+
+
+[Term]
+id: HP:0012288
+name: Neoplasm of head and neck
+def: "A tumor (abnormal growth of tissue) of the head and neck region with origin in the lip, oral cavity, nasal cavity, paranasal sinuses, pharynx, or larynx." [HPO:probinson]
+xref: MSH:D006258
+xref: SNOMEDCT_US:255055008
+xref: SNOMEDCT_US:255056009
+xref: UMLS:C0018671
+xref: UMLS:C0278996
+synonym: "Head and neck tumor" EXACT []
+synonym: "Head and neck tumour" EXACT []
+synonym: "Head and neck cancer" RELATED []
+is_a: HP:0011793 ! Neoplasm by anatomical site
+
+
+[Term]
+id: HP:0012289
+name: Facial neoplasm
+def: "A tumor (abnormal growth of tissue) of the face." [HPO:probinson]
+xref: MSH:D005153
+xref: NCIT:C3262
+xref: SNOMEDCT_US:126632002
+xref: UMLS:C0015461
+synonym: "Face tumor" EXACT []
+synonym: "Face tumour" EXACT []
+is_a: HP:0012288 ! Neoplasm of head and neck
+
+
+[Term]
+id: HP:0012372
+name: Abnormal eye morphology
+def: "A structural anomaly of the globe of the eye, or bulbus oculi." [HPO:probinson]
+xref: Fyler:4863
+xref: UMLS:C4022925
+synonym: "Abnormal eye structure" EXACT []
+synonym: "Abnormality of the globe" EXACT []
+synonym: "Abnormally shaped eye" EXACT []
+is_a: HP:0000478 ! Abnormality of the eye
+
+
+[Term]
+id: HP:0012720
+name: Neoplasm of the nose
+def: "Tumor (An abnormal mass of tissue resulting from abnormally dividing cells) of the nasal cavity." [HPO:probinson]
+xref: MSH:D009669
+xref: NCIT:C3262
+xref: SNOMEDCT_US:126669004
+xref: UMLS:C0028433
+xref: UMLS:C0751394
+synonym: "Nasal neoplasm" EXACT []
+synonym: "Nasal tumor" EXACT []
+synonym: "Nasal tumour" EXACT []
+synonym: "Neoplasia of the nose" EXACT []
+synonym: "Nose cancer" EXACT []
+synonym: "Tumor of the nose" EXACT []
+synonym: "Tumour of the nose" EXACT []
+is_a: HP:0012289 ! Facial neoplasm
+is_a: HP:0100630 ! Neoplasia of the nasopharynx
+
+
+[Term]
+id: HP:0033151
+name: Abnormal pharynx morphology
+def: "A structural anomaly of the pharynx." []
+is_a: HP:0000600 ! Abnormality of the pharynx
+
+
+[Term]
+id: HP:0100606
+name: Neoplasm of the respiratory system
+def: "A tumor (abnormal growth of tissue) of the respiratory system." [HPO:probinson]
+xref: MSH:D012142
+xref: NCIT:C3262
+xref: SNOMEDCT_US:126667002
+xref: SNOMEDCT_US:448708002
+xref: UMLS:C0035244
+synonym: "Respiratory system tumor" EXACT []
+synonym: "Respiratory system tumour" EXACT []
+is_a: HP:0002086 ! Abnormality of the respiratory system
+is_a: HP:0011793 ! Neoplasm by anatomical site
+
+
+[Term]
+id: HP:0100630
+name: Neoplasia of the nasopharynx
+xref: MSH:D009303
+xref: NCIT:C3262
+xref: SNOMEDCT_US:126680004
+xref: UMLS:C0027439
+synonym: "Nasopharyngeal neoplasm" EXACT []
+synonym: "Neoplasm of the nasopharynx" EXACT []
+synonym: "Tumor of the nasopharynx" NARROW []
+synonym: "Tumour of the nasopharynx" NARROW []
+is_a: HP:0001739 ! Abnormal nasopharynx morphology
+is_a: HP:0100606 ! Neoplasm of the respiratory system
+
+
+[Term]
+id: HP:0100637
+name: obsolete Neoplasia of the nose
+is_obsolete: true
+replaced_by: HP:0012720
+
+

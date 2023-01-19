@@ -1,122 +1,126 @@
+@base <https://example.org/base/> .
 @prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
-@prefix ns1: <base:> .
-@prefix ns2: <disease:> .
-@prefix ns3: <meta_data:> .
-@prefix ns4: <biosample:> .
-@prefix ns5: <individual:> .
+@prefix ns1: <meta_data:> .
+@prefix ns2: <base:> .
+@prefix ns3: <biosample:> .
+@prefix ns4: <individual:> .
+@prefix ns5: <disease:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-NCIT:C12389 a ns1:OntologyClass ;
-    ns1:label "Esophagus" .
+NCIT:C12389 a ns2:OntologyClass ;
+    ns2:label "Esophagus" .
 
-NCIT:C12468 a ns1:OntologyClass ;
-    ns1:label "Lung" .
+NCIT:C12468 a ns2:OntologyClass ;
+    ns2:label "Lung" .
 
-NCIT:C131711 a ns1:OntologyClass ;
-    ns1:label "Human Papillomavirus-18 Positive" .
+NCIT:C131711 a ns2:OntologyClass ;
+    ns2:label "Human Papillomavirus-18 Positive" .
 
-NCIT:C139196 a ns1:OntologyClass ;
-    ns1:label "Esophageal Lymph Node" .
+NCIT:C139196 a ns2:OntologyClass ;
+    ns2:label "Esophageal Lymph Node" .
 
-NCIT:C3261 a ns1:OntologyClass ;
-    ns1:label "Metastatic Neoplasm" .
+NCIT:C3261 a ns2:OntologyClass ;
+    ns2:label "Metastatic Neoplasm" .
 
-NCIT:C4813 a ns1:OntologyClass ;
-    ns1:label "Recurrent Malignant Neoplasm" .
+NCIT:C4813 a ns2:OntologyClass ;
+    ns2:label "Recurrent Malignant Neoplasm" .
 
-NCIT:C48699 a ns1:OntologyClass ;
-    ns1:label "M0 Stage Finding" .
+NCIT:C48699 a ns2:OntologyClass ;
+    ns2:label "M0 Stage Finding" .
 
-NCIT:C48706 a ns1:OntologyClass ;
-    ns1:label "N1 Stage Finding" .
+NCIT:C48706 a ns2:OntologyClass ;
+    ns2:label "N1 Stage Finding" .
 
-NCIT:C48724 a ns1:OntologyClass ;
-    ns1:label "T2 Stage Finding" .
+NCIT:C48724 a ns2:OntologyClass ;
+    ns2:label "T2 Stage Finding" .
 
-NCIT:C84509 a ns1:OntologyClass ;
-    ns1:label "Primary Malignant Neoplasm" .
+NCIT:C84509 a ns2:OntologyClass ;
+    ns2:label "Primary Malignant Neoplasm" .
 
-NCIT:C4024 a ns1:OntologyClass ;
-    ns1:label "Esophageal Squamous Cell Carcinoma" .
+NCIT:C4024 a ns2:OntologyClass ;
+    ns2:label "Esophageal Squamous Cell Carcinoma" .
 
-NCIT:C15189 a ns1:OntologyClass ;
-    ns1:label "Biopsy" .
+NCIT:C15189 a ns2:OntologyClass ;
+    ns2:label "Biopsy" .
 
 [] a phenopackets:Phenopacket ;
-    phenopackets:biosamples [ a ns4:Biosample ;
-            ns4:diagnosticMarkers NCIT:C131711 ;
-            ns4:histologicalDiagnosis NCIT:C4024 ;
-            ns4:id "biosample-2" ;
-            ns4:individualId "proband-A" ;
-            ns4:procedure [ a ns1:Procedure ;
-                    ns1:code NCIT:C15189 ] ;
-            ns4:sampledTissue NCIT:C139196 ;
-            ns4:timeOfCollection [ a ns1:TimeElement ;
-                    ns1:age [ a ns1:Age ;
-                            ns1:iso8601duration "P48Y3M" ] ] ;
-            ns4:tumorProgression NCIT:C84509 ],
-        [ a ns4:Biosample ;
-            ns4:id "biosample-1" ;
-            ns4:individualId "proband-A" ;
-            ns4:procedure [ a ns1:Procedure ;
-                    ns1:code NCIT:C15189 ] ;
-            ns4:sampledTissue NCIT:C12389 ;
-            ns4:timeOfCollection [ a ns1:TimeElement ;
-                    ns1:age [ a ns1:Age ;
-                            ns1:iso8601duration "P49Y2M" ] ] ;
-            ns4:tumorProgression NCIT:C4813 ],
-        [ a ns4:Biosample ;
-            ns4:id "biosample-3" ;
-            ns4:individualId "proband-A" ;
-            ns4:procedure [ a ns1:Procedure ;
-                    ns1:code NCIT:C15189 ] ;
-            ns4:sampledTissue NCIT:C12468 ;
-            ns4:timeOfCollection [ a ns1:TimeElement ;
-                    ns1:age [ a ns1:Age ;
-                            ns1:iso8601duration "P50Y7M" ] ] ;
-            ns4:tumorProgression NCIT:C3261 ] ;
-    phenopackets:diseases [ a ns2:Disease ;
-            ns2:clinicalTnmFinding NCIT:C48699,
+    phenopackets:biosamples [ a ns3:Biosample ;
+            ns3:id "biosample 3" ;
+            ns3:individualId "proband A" ;
+            ns3:procedure [ a ns2:Procedure ;
+                    ns2:code NCIT:C15189 ] ;
+            ns3:sampledTissue NCIT:C12468 ;
+            ns3:timeOfCollection [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P50Y7M" ] ] ;
+            ns3:tumorProgression NCIT:C3261 ],
+        [ a ns3:Biosample ;
+            ns3:id "biosample 1" ;
+            ns3:individualId "proband A" ;
+            ns3:procedure [ a ns2:Procedure ;
+                    ns2:code NCIT:C15189 ] ;
+            ns3:sampledTissue NCIT:C12389 ;
+            ns3:timeOfCollection [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P49Y2M" ] ] ;
+            ns3:tumorProgression NCIT:C4813 ],
+        [ a ns3:Biosample ;
+            ns3:diagnosticMarkers NCIT:C131711 ;
+            ns3:histologicalDiagnosis NCIT:C4024 ;
+            ns3:id "biosample 2" ;
+            ns3:individualId "proband A" ;
+            ns3:procedure [ a ns2:Procedure ;
+                    ns2:code NCIT:C15189 ] ;
+            ns3:sampledTissue NCIT:C139196 ;
+            ns3:timeOfCollection [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P48Y3M" ] ] ;
+            ns3:tumorProgression NCIT:C84509 ] ;
+    phenopackets:diseases [ a ns5:Disease ;
+            ns5:clinicalTnmFinding NCIT:C48699,
                 NCIT:C48706,
                 NCIT:C48724 ;
-            ns2:term NCIT:C4024 ] ;
+            ns5:excluded false ;
+            ns5:term NCIT:C4024 ] ;
     phenopackets:id "arbitrary.id" ;
-    phenopackets:metaData [ a ns3:MetaData ;
-            ns3:created "2021-05-14T10:35:00Z" ;
-            ns3:createdBy "anonymous biocurator" ;
-            ns3:phenopacketSchemaVersion "2.0" ;
-            ns3:resources [ a ns3:Resource ;
-                    ns3:id "uberon" ;
-                    ns3:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
-                    ns3:name "Uber-anatomy ontology" ;
-                    ns3:namespacePrefix "UBERON" ;
-                    ns3:url "http://purl.obolibrary.org/obo/uberon.owl" ;
-                    ns3:version "2021-07-27" ],
-                [ a ns3:Resource ;
-                    ns3:id "ncbitaxon" ;
-                    ns3:iriPrefix "http://purl.obolibrary.org/obo/NCBITaxon_" ;
-                    ns3:name "NCBI organismal classification" ;
-                    ns3:namespacePrefix "NCBITaxon" ;
-                    ns3:url "http://purl.obolibrary.org/obo/ncbitaxon.owl" ;
-                    ns3:version "2021-06-10" ],
-                [ a ns3:Resource ;
-                    ns3:id "efo" ;
-                    ns3:iriPrefix "http://purl.obolibrary.org/obo/EFO_" ;
-                    ns3:name "Experimental Factor Ontology" ;
-                    ns3:namespacePrefix "EFO" ;
-                    ns3:url "http://www.ebi.ac.uk/efo/efo.owl" ;
-                    ns3:version "3.34.0" ],
-                [ a ns3:Resource ;
-                    ns3:id "ncit" ;
-                    ns3:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
-                    ns3:name "NCI Thesaurus" ;
-                    ns3:namespacePrefix "NCIT" ;
-                    ns3:url "http://purl.obolibrary.org/obo/ncit.owl" ;
-                    ns3:version "21.05d" ] ] ;
-    phenopackets:subject [ a ns5:Individual ;
-            ns5:id "proband-A" ;
-            ns5:sex "MALE" ;
-            ns5:timeAtLastEncounter [ a ns1:TimeElement ;
-                    ns1:age [ a ns1:Age ;
-                            ns1:iso8601duration "P38Y" ] ] ] .
+    phenopackets:metaData [ a ns1:MetaData ;
+            ns1:created "2021-05-14T10:35:00Z" ;
+            ns1:createdBy "anonymous biocurator" ;
+            ns1:phenopacketSchemaVersion "2.0.0" ;
+            ns1:resources [ a ns1:Resource ;
+                    ns1:id "ncit" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns1:name "NCI Thesaurus" ;
+                    ns1:namespacePrefix "NCIT" ;
+                    ns1:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns1:version "21.05d" ],
+                [ a ns1:Resource ;
+                    ns1:id "uberon" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
+                    ns1:name "Uber-anatomy ontology" ;
+                    ns1:namespacePrefix "UBERON" ;
+                    ns1:url "http://purl.obolibrary.org/obo/uberon.owl" ;
+                    ns1:version "2021-07-27" ],
+                [ a ns1:Resource ;
+                    ns1:id "ncbitaxon" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/NCBITaxon_" ;
+                    ns1:name "NCBI organismal classification" ;
+                    ns1:namespacePrefix "NCBITaxon" ;
+                    ns1:url "http://purl.obolibrary.org/obo/ncbitaxon.owl" ;
+                    ns1:version "2021-06-10" ],
+                [ a ns1:Resource ;
+                    ns1:id "efo" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/EFO_" ;
+                    ns1:name "Experimental Factor Ontology" ;
+                    ns1:namespacePrefix "EFO" ;
+                    ns1:url "http://www.ebi.ac.uk/efo/efo.owl" ;
+                    ns1:version "3.34.0" ] ] ;
+    phenopackets:subject [ a ns4:Individual ;
+            ns4:id "proband A" ;
+            ns4:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns4:sex "MALE" ;
+            ns4:timeAtLastEncounter [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P38Y" ] ] ] .
 

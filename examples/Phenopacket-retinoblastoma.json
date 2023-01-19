@@ -2,7 +2,7 @@
   "metaData": {
     "created": "2021-05-14T10:35:00Z",
     "createdBy": "anonymous biocurator",
-    "phenopacketSchemaVersion": "2.0",
+    "phenopacketSchemaVersion": "2.0.0",
     "resources": [
       {
         "id": "ncit",
@@ -35,6 +35,46 @@
         "namespacePrefix": "NCBITaxon",
         "url": "http://purl.obolibrary.org/obo/ncbitaxon.owl",
         "version": "2021-06-10"
+      },
+      {
+        "id": "hp",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_",
+        "name": "human phenotype ontology",
+        "namespacePrefix": "HP",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2022-06-11"
+      },
+      {
+        "id": "loinc",
+        "iriPrefix": "https://loinc.org/",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "namespacePrefix": "LOINC",
+        "url": "https://loinc.org",
+        "version": "2.73"
+      },
+      {
+        "id": "ucum",
+        "iriPrefix": "https://units-of-measurement.org/",
+        "name": "Unified Code for Units of Measure",
+        "namespacePrefix": "UCUM",
+        "url": "https://ucum.org",
+        "version": "2.1"
+      },
+      {
+        "id": "geno",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_",
+        "name": "Genotype Ontology",
+        "namespacePrefix": "GENO",
+        "url": "http://purl.obolibrary.org/obo/geno.owl",
+        "version": "2022-03-05"
+      },
+      {
+        "id": "drugcentral",
+        "iriPrefix": "https://drugcentral.org/drugcard/",
+        "name": "Drug Central",
+        "namespacePrefix": "DrugCentral",
+        "url": "https://drugcentral.org/",
+        "version": "2022-08-22"
       }
     ]
   },
@@ -60,7 +100,7 @@
           "value": {
             "quantity": {
               "unit": {
-                "id": "UO:0000016",
+                "id": "UCUM:mm",
                 "label": "millimeter"
               },
               "value": 15.0
@@ -69,23 +109,25 @@
         }
       ],
       "pathologicalTnmFinding": {
-        "NCIT:C88735": {
-          "id": "NCIT:C88735",
-          "label": "Retinoblastoma pT3b TNM Finding v7"
+        "NCIT:C140720": {
+          "id": "NCIT:C140720",
+          "label": "Retinoblastoma pT3 TNM Finding v8"
         },
-        "NCIT:C88741": {
-          "id": "NCIT:C88741",
-          "label": "Retinoblastoma pN0 TNM Finding v7"
+        "NCIT:C140711": {
+          "id": "NCIT:C140711",
+          "label": "Retinoblastoma pN0 TNM Finding v8"
         }
       },
       "phenotypicFeatures": [
         {
+          "excluded": false,
           "type": {
             "id": "NCIT:C35941",
             "label": "Flexner-Wintersteiner Rosette Formation"
           }
         },
         {
+          "excluded": false,
           "type": {
             "id": "NCIT:C132485",
             "label": "Apoptosis and Necrosis"
@@ -131,6 +173,7 @@
           "label": "Group E"
         }
       },
+      "excluded": false,
       "onset": {
         "age": {
           "iso8601duration": "P4M"
@@ -167,20 +210,31 @@
               "acmgPathogenicityClassification": "PATHOGENIC",
               "therapeuticActionability": "ACTIONABLE",
               "variationDescriptor": {
+                "extensions": [
+                  {
+                    "name": "mosaicism",
+                    "value": [
+                      "40.0%"
+                    ]
+                  }
+                ],
+                "id": "variant-id",
+                "moleculeContext": "unspecified_molecule_context",
                 "variation": {
                   "copyNumber": {
-                    "allele": {
-                      "sequenceLocation": {
+                    "derivedSequenceExpression": {
+                      "location": {
                         "sequenceId": "refseq:NC_000013.14",
                         "sequenceInterval": {
                           "endNumber": {
-                            "value": 62280955
+                            "value": 61706822
                           },
                           "startNumber": {
-                            "value": 26555377
+                            "value": 25981249
                           }
                         }
-                      }
+                      },
+                      "reverseComplement": false
                     },
                     "number": {
                       "value": 1
@@ -203,10 +257,6 @@
                 },
                 "expressions": [
                   {
-                    "syntax": "allele-frequency",
-                    "value": "25.0%"
-                  },
-                  {
                     "syntax": "hgvs.c",
                     "value": "NM_000321.2:c.958C>T"
                   },
@@ -215,26 +265,34 @@
                     "value": "NM_000321.2"
                   }
                 ],
+                "extensions": [
+                  {
+                    "name": "allele-frequency",
+                    "value": [
+                      "25.0%"
+                    ]
+                  }
+                ],
                 "geneContext": {
                   "symbol": "RB1",
                   "valueId": "HGNC:9884"
                 },
                 "id": "rs121913300",
                 "label": "RB1 c.958C>T (p.Arg320Ter)",
-                "moleculeContext": "transcript",
+                "moleculeContext": "genomic",
                 "variation": {
                   "allele": {
                     "literalSequenceExpression": {
                       "sequence": "T"
                     },
                     "sequenceLocation": {
-                      "sequenceId": "refseq:NC_000013.14",
+                      "sequenceId": "refseq:NC_000013.11",
                       "sequenceInterval": {
                         "endNumber": {
-                          "value": 48941648
+                          "value": 48367512
                         },
                         "startNumber": {
-                          "value": 48941647
+                          "value": 48367511
                         }
                       }
                     }
@@ -273,12 +331,12 @@
             "high": 21.0,
             "low": 10.0,
             "unit": {
-              "id": "56844-4",
+              "id": "LOINC:56844-4",
               "label": "Intraocular pressure of Eye"
             }
           },
           "unit": {
-            "id": "UO:0000272",
+            "id": "UCUM:mm[Hg]",
             "label": "millimetres of mercury"
           },
           "value": 25.0
@@ -301,12 +359,12 @@
             "high": 21.0,
             "low": 10.0,
             "unit": {
-              "id": "56844-4",
+              "id": "LOINC:56844-4",
               "label": "Intraocular pressure of Eye"
             }
           },
           "unit": {
-            "id": "UO:0000272",
+            "id": "UCUM:mm[Hg]",
             "label": "millimetres of mercury"
           },
           "value": 15.0
@@ -335,7 +393,7 @@
             },
             "quantity": {
               "unit": {
-                "id": "UO:0000308",
+                "id": "UCUM:mg.kg-1",
                 "label": "milligram per kilogram"
               },
               "value": 0.4
@@ -346,6 +404,7 @@
             }
           }
         ],
+        "drugType": "UNKNOWN_DRUG_TYPE",
         "routeOfAdministration": {
           "id": "NCIT:C38222",
           "label": "Intraarterial Route of Administration"
@@ -419,6 +478,7 @@
   ],
   "phenotypicFeatures": [
     {
+      "excluded": false,
       "modifiers": {
         "HP:0012834": {
           "id": "HP:0012834",
@@ -436,10 +496,11 @@
       }
     },
     {
+      "excluded": false,
       "modifiers": {
-        "HP:0012833": {
-          "id": "HP:0012833",
-          "label": "Unilateral"
+        "HP:0012835": {
+          "id": "HP:0012835",
+          "label": "Left"
         }
       },
       "onset": {
@@ -453,10 +514,11 @@
       }
     },
     {
+      "excluded": false,
       "modifiers": {
-        "HP:0012833": {
-          "id": "HP:0012833",
-          "label": "Unilateral"
+        "HP:0012835": {
+          "id": "HP:0012835",
+          "label": "Left"
         }
       },
       "onset": {
@@ -470,10 +532,11 @@
       }
     },
     {
+      "excluded": false,
       "modifiers": {
-        "HP:0012833": {
-          "id": "HP:0012833",
-          "label": "Unilateral"
+        "HP:0012835": {
+          "id": "HP:0012835",
+          "label": "Left"
         }
       },
       "onset": {

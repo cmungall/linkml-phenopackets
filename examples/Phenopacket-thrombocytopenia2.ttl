@@ -1,89 +1,90 @@
+@base <https://example.org/base/> .
 @prefix ECO: <http://purl.obolibrary.org/obo/ECO_> .
 @prefix GENO: <http://purl.obolibrary.org/obo/GENO_> .
 @prefix HP: <http://purl.obolibrary.org/obo/HP_> .
 @prefix OMIM: <http://omim.org/entry/> .
-@prefix ns1: <base:> .
-@prefix ns2: <meta_data:> .
-@prefix ns3: <interpretation:> .
-@prefix ns4: <individual:> .
-@prefix ns5: <vrsatile:> .
+@prefix ns1: <meta_data:> .
+@prefix ns2: <individual:> .
+@prefix ns3: <vrsatile:> .
+@prefix ns4: <interpretation:> .
+@prefix ns5: <base:> .
 @prefix ns6: <phenotypic_feature:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-OMIM:188000 a ns1:OntologyClass ;
-    ns1:label "Thrombocytopenia 2" .
+OMIM:188000 a ns5:OntologyClass ;
+    ns5:label "Thrombocytopenia 2" .
 
-GENO:0000135 a ns1:OntologyClass ;
-    ns1:label "heterozygous" .
+GENO:0000135 a ns5:OntologyClass ;
+    ns5:label "heterozygous" .
 
-HP:0000978 a ns1:OntologyClass ;
-    ns1:label "Bruising susceptibility" .
+HP:0000978 a ns5:OntologyClass ;
+    ns5:label "Bruising susceptibility" .
 
-HP:0011876 a ns1:OntologyClass ;
-    ns1:label "Abnormal platelet volume" .
+HP:0011876 a ns5:OntologyClass ;
+    ns5:label "Abnormal platelet volume" .
 
-ECO:0000033 a ns1:OntologyClass ;
-    ns1:label "author statement supported by traceable reference" .
+ECO:0000033 a ns5:OntologyClass ;
+    ns5:label "author statement supported by traceable reference" .
 
 [] a phenopackets:Phenopacket ;
     phenopackets:id "id-C" ;
-    phenopackets:interpretations [ a ns3:Interpretation ;
-            ns3:diagnosis [ a ns3:Diagnosis ;
-                    ns3:disease OMIM:188000 ;
-                    ns3:genomicInterpretations [ a ns3:GenomicInterpretation ;
-                            ns3:interpretationStatus "CAUSATIVE" ;
-                            ns3:subjectOrBiosampleId "genomic interpretation id" ;
-                            ns3:variantInterpretation [ a ns3:VariantInterpretation ;
-                                    ns3:acmgPathogenicityClassification "PATHOGENIC" ;
-                                    ns3:variationDescriptor [ a ns5:VariationDescriptor ;
-                                            ns5:allelicState GENO:0000135 ;
-                                            ns5:expressions [ a ns5:Expression ;
-                                                    ns5:syntax "hgvs" ;
-                                                    ns5:value "NM_014915.2:c.-128G>A" ] ;
-                                            ns5:id "variant-id" ] ] ] ] ;
-            ns3:id "arbitrary-interpretation-id" ;
-            ns3:progressStatus "COMPLETED" ] ;
-    phenopackets:metaData [ a ns2:MetaData ;
-            ns2:created "2021-05-14T10:35:00Z" ;
-            ns2:createdBy "anonymous biocurator" ;
-            ns2:externalReferences [ a ns1:ExternalReference ;
-                    ns1:description "Mutations in the 5' UTR of ANKRD26, the ankirin repeat domain 26 gene, cause an autosomal-dominant form of inherited thrombocytopenia, THC2" ;
-                    ns1:id "PMID:21211618" ] ;
-            ns2:phenopacketSchemaVersion "2.0" ;
-            ns2:resources [ a ns2:Resource ;
-                    ns2:id "hp" ;
-                    ns2:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
-                    ns2:name "human phenotype ontology" ;
-                    ns2:namespacePrefix "HP" ;
-                    ns2:url "http://purl.obolibrary.org/obo/hp.owl" ;
-                    ns2:version "2021-08-02" ],
-                [ a ns2:Resource ;
-                    ns2:id "geno" ;
-                    ns2:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
-                    ns2:name "Genotype Ontology" ;
-                    ns2:namespacePrefix "GENO" ;
-                    ns2:url "http://purl.obolibrary.org/obo/geno.owl" ;
-                    ns2:version "2020-03-08" ] ] ;
+    phenopackets:interpretations [ a ns4:Interpretation ;
+            ns4:diagnosis [ a ns4:Diagnosis ;
+                    ns4:disease OMIM:188000 ;
+                    ns4:genomicInterpretations [ a ns4:GenomicInterpretation ;
+                            ns4:interpretationStatus "CAUSATIVE" ;
+                            ns4:subjectOrBiosampleId "genomic interpretation id" ;
+                            ns4:variantInterpretation [ a ns4:VariantInterpretation ;
+                                    ns4:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns4:variationDescriptor [ a ns3:VariationDescriptor ;
+                                            ns3:allelicState GENO:0000135 ;
+                                            ns3:expressions [ a ns3:Expression ;
+                                                    ns3:syntax "hgvs" ;
+                                                    ns3:value "NM_014915.2:c.-128G>A" ] ;
+                                            ns3:id "variant-id" ] ] ] ] ;
+            ns4:id "arbitrary-interpretation-id" ;
+            ns4:progressStatus "COMPLETED" ] ;
+    phenopackets:metaData [ a ns1:MetaData ;
+            ns1:created "2021-05-14T10:35:00Z" ;
+            ns1:createdBy "anonymous biocurator" ;
+            ns1:externalReferences [ a ns5:ExternalReference ;
+                    ns5:description "Mutations in the 5' UTR of ANKRD26, the ankirin repeat domain 26 gene, cause an autosomal-dominant form of inherited thrombocytopenia, THC2" ;
+                    ns5:id "PMID:21211618" ] ;
+            ns1:phenopacketSchemaVersion "2.0" ;
+            ns1:resources [ a ns1:Resource ;
+                    ns1:id "geno" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
+                    ns1:name "Genotype Ontology" ;
+                    ns1:namespacePrefix "GENO" ;
+                    ns1:url "http://purl.obolibrary.org/obo/geno.owl" ;
+                    ns1:version "2020-03-08" ],
+                [ a ns1:Resource ;
+                    ns1:id "hp" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns1:name "human phenotype ontology" ;
+                    ns1:namespacePrefix "HP" ;
+                    ns1:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns1:version "2021-08-02" ] ] ;
     phenopackets:phenotypicFeatures [ a ns6:PhenotypicFeature ;
-            ns6:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "Mutations in the 5' UTR of ANKRD26, the ankirin repeat domain 26 gene, cause an autosomal-dominant form of inherited thrombocytopenia, THC2" ;
-                            ns1:id "PMID:21211618" ] ] ;
+            ns6:evidence [ a ns5:Evidence ;
+                    ns5:evidenceCode ECO:0000033 ;
+                    ns5:reference [ a ns5:ExternalReference ;
+                            ns5:description "Mutations in the 5' UTR of ANKRD26, the ankirin repeat domain 26 gene, cause an autosomal-dominant form of inherited thrombocytopenia, THC2" ;
+                            ns5:id "PMID:21211618" ] ] ;
             ns6:excluded true ;
             ns6:type HP:0011876 ],
         [ a ns6:PhenotypicFeature ;
-            ns6:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "Mutations in the 5' UTR of ANKRD26, the ankirin repeat domain 26 gene, cause an autosomal-dominant form of inherited thrombocytopenia, THC2" ;
-                            ns1:id "PMID:21211618" ] ] ;
+            ns6:evidence [ a ns5:Evidence ;
+                    ns5:evidenceCode ECO:0000033 ;
+                    ns5:reference [ a ns5:ExternalReference ;
+                            ns5:description "Mutations in the 5' UTR of ANKRD26, the ankirin repeat domain 26 gene, cause an autosomal-dominant form of inherited thrombocytopenia, THC2" ;
+                            ns5:id "PMID:21211618" ] ] ;
             ns6:type HP:0000978 ] ;
-    phenopackets:subject [ a ns4:Individual ;
-            ns4:id "family-10-proband" ;
-            ns4:sex "FEMALE" ;
-            ns4:timeAtLastEncounter [ a ns1:TimeElement ;
-                    ns1:age [ a ns1:Age ;
-                            ns1:iso8601duration "P20Y" ] ] ] .
+    phenopackets:subject [ a ns2:Individual ;
+            ns2:id "family-10-proband" ;
+            ns2:sex "FEMALE" ;
+            ns2:timeAtLastEncounter [ a ns5:TimeElement ;
+                    ns5:age [ a ns5:Age ;
+                            ns5:iso8601duration "P20Y" ] ] ] .
 

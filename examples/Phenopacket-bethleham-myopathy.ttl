@@ -1,189 +1,228 @@
+@base <https://example.org/base/> .
 @prefix ECO: <http://purl.obolibrary.org/obo/ECO_> .
 @prefix GENO: <http://purl.obolibrary.org/obo/GENO_> .
 @prefix HP: <http://purl.obolibrary.org/obo/HP_> .
 @prefix OMIM: <http://omim.org/entry/> .
-@prefix ns1: <base:> .
-@prefix ns2: <phenotypic_feature:> .
-@prefix ns3: <meta_data:> .
-@prefix ns4: <interpretation:> .
-@prefix ns5: <individual:> .
-@prefix ns6: <vrsatile:> .
+@prefix ns1: <meta_data:> .
+@prefix ns2: <base:> .
+@prefix ns3: <phenotypic_feature:> .
+@prefix ns4: <vrsatile:> .
+@prefix ns5: <interpretation:> .
+@prefix ns6: <individual:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-OMIM:158810 a ns1:OntologyClass ;
-    ns1:label "Bethlem myopathy 1" .
+OMIM:158810 a ns2:OntologyClass ;
+    ns2:label "Bethlem myopathy 1" .
 
-GENO:0000135 a ns1:OntologyClass ;
-    ns1:label "heterozygous" .
+GENO:0000135 a ns2:OntologyClass ;
+    ns2:label "heterozygous" .
 
-HP:0000054 a ns1:OntologyClass ;
-    ns1:label "Micropenis" .
+HP:0000054 a ns2:OntologyClass ;
+    ns2:label "Micropenis" .
 
-HP:0000280 a ns1:OntologyClass ;
-    ns1:label "Coarse facial features" .
+HP:0000280 a ns2:OntologyClass ;
+    ns2:label "Coarse facial features" .
 
-HP:0000518 a ns1:OntologyClass ;
-    ns1:label "Cataract" .
+HP:0000518 a ns2:OntologyClass ;
+    ns2:label "Cataract" .
 
-HP:0001320 a ns1:OntologyClass ;
-    ns1:label "Cerebellar vermis hypoplasia" .
+HP:0001320 a ns2:OntologyClass ;
+    ns2:label "Cerebellar vermis hypoplasia" .
 
-HP:0001561 a ns1:OntologyClass ;
-    ns1:label "Polyhydramnios" .
+HP:0001561 a ns2:OntologyClass ;
+    ns2:label "Polyhydramnios" .
 
-HP:0001629 a ns1:OntologyClass ;
-    ns1:label "Ventricular septal defect" .
+HP:0001629 a ns2:OntologyClass ;
+    ns2:label "Ventricular septal defect" .
 
-HP:0001798 a ns1:OntologyClass ;
-    ns1:label "Anonychia" .
+HP:0001798 a ns2:OntologyClass ;
+    ns2:label "Anonychia" .
 
-HP:0002198 a ns1:OntologyClass ;
-    ns1:label "Dilated fourth ventricle" .
+HP:0002198 a ns2:OntologyClass ;
+    ns2:label "Dilated fourth ventricle" .
 
-HP:0003593 a ns1:OntologyClass ;
-    ns1:label "Infantile onset" .
+HP:0003593 a ns2:OntologyClass ;
+    ns2:label "Infantile onset" .
 
-HP:0008689 a ns1:OntologyClass ;
-    ns1:label "Bilateral cryptorchidism" .
+HP:0008689 a ns2:OntologyClass ;
+    ns2:label "Bilateral cryptorchidism" .
 
-HP:0011461 a ns1:OntologyClass ;
-    ns1:label "Fetal onset" .
+HP:0011461 a ns2:OntologyClass ;
+    ns2:label "Fetal onset" .
 
-HP:0100333 a ns1:OntologyClass ;
-    ns1:label "Unilateral cleft lip" .
+HP:0100333 a ns2:OntologyClass ;
+    ns2:label "Unilateral cleft lip" .
 
-HP:0003577 a ns1:OntologyClass ;
-    ns1:label "Congenital onset" .
+HP:0003577 a ns2:OntologyClass ;
+    ns2:label "Congenital onset" .
 
-ECO:0000033 a ns1:OntologyClass ;
-    ns1:label "author statement supported by traceable reference" .
+ECO:0000033 a ns2:OntologyClass ;
+    ns2:label "author statement supported by traceable reference" .
 
 [] a phenopackets:Phenopacket ;
-    phenopackets:id "arbitrary-proband-id" ;
-    phenopackets:interpretations [ a ns4:Interpretation ;
-            ns4:diagnosis [ a ns4:Diagnosis ;
-                    ns4:disease OMIM:158810 ;
-                    ns4:genomicInterpretations [ a ns4:GenomicInterpretation ;
-                            ns4:interpretationStatus "CAUSATIVE" ;
-                            ns4:subjectOrBiosampleId "arbitrary-interpretation-id" ;
-                            ns4:variantInterpretation [ a ns4:VariantInterpretation ;
-                                    ns4:acmgPathogenicityClassification "PATHOGENIC" ;
-                                    ns4:variationDescriptor [ a ns6:VariationDescriptor ;
-                                            ns6:allelicState GENO:0000135 ;
-                                            ns6:expressions [ a ns6:Expression ;
-                                                    ns6:syntax "hgvs" ] ;
-                                            ns6:id "variant-id" ] ] ] ] ;
-            ns4:id "arbitrary-interpretation-id" ;
-            ns4:progressStatus "COMPLETED" ] ;
-    phenopackets:metaData [ a ns3:MetaData ;
-            ns3:created "2021-05-14T10:35:00Z" ;
-            ns3:createdBy "anonymous biocurator" ;
-            ns3:externalReferences [ a ns1:ExternalReference ;
-                    ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                    ns1:id "PMID:30808312" ] ;
-            ns3:phenopacketSchemaVersion "2.0" ;
-            ns3:resources [ a ns3:Resource ;
-                    ns3:id "hp" ;
-                    ns3:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
-                    ns3:name "human phenotype ontology" ;
-                    ns3:namespacePrefix "HP" ;
-                    ns3:url "http://purl.obolibrary.org/obo/hp.owl" ;
-                    ns3:version "2021-08-02" ],
-                [ a ns3:Resource ;
-                    ns3:id "geno" ;
-                    ns3:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
-                    ns3:name "Genotype Ontology" ;
-                    ns3:namespacePrefix "GENO" ;
-                    ns3:url "http://purl.obolibrary.org/obo/geno.owl" ;
-                    ns3:version "2020-03-08" ] ] ;
-    phenopackets:phenotypicFeatures [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:type HP:0002198 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:onset [ a ns1:TimeElement ;
-                    ns1:ontologyClass HP:0003577 ] ;
-            ns2:type HP:0000054 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:onset [ a ns1:TimeElement ;
-                    ns1:ontologyClass HP:0003593 ] ;
-            ns2:type HP:0000518 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:onset [ a ns1:TimeElement ;
-                    ns1:ontologyClass HP:0003577 ] ;
-            ns2:type HP:0008689 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:onset [ a ns1:TimeElement ;
-                    ns1:ontologyClass HP:0003577 ] ;
-            ns2:type HP:0001798 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:type HP:0001320 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:onset [ a ns1:TimeElement ;
-                    ns1:ontologyClass HP:0003577 ] ;
-            ns2:type HP:0001629 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:onset [ a ns1:TimeElement ;
-                    ns1:ontologyClass HP:0003577 ] ;
-            ns2:type HP:0100333 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:onset [ a ns1:TimeElement ;
-                    ns1:ontologyClass HP:0011461 ] ;
-            ns2:type HP:0001561 ],
-        [ a ns2:PhenotypicFeature ;
-            ns2:evidence [ a ns1:Evidence ;
-                    ns1:evidenceCode ECO:0000033 ;
-                    ns1:reference [ a ns1:ExternalReference ;
-                            ns1:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
-                            ns1:id "PMID:30808312" ] ] ;
-            ns2:type HP:0000280 ] ;
-    phenopackets:subject [ a ns5:Individual ;
-            ns5:id "proband-A" ;
-            ns5:sex "MALE" ;
-            ns5:timeAtLastEncounter [ a ns1:TimeElement ;
-                    ns1:age [ a ns1:Age ;
-                            ns1:iso8601duration "P6Y3M" ] ] ] .
+    phenopackets:id "arbitrary proband id" ;
+    phenopackets:interpretations [ a ns5:Interpretation ;
+            ns5:diagnosis [ a ns5:Diagnosis ;
+                    ns5:disease OMIM:158810 ;
+                    ns5:genomicInterpretations [ a ns5:GenomicInterpretation ;
+                            ns5:interpretationStatus "CAUSATIVE" ;
+                            ns5:subjectOrBiosampleId "arbitrary interpretation id" ;
+                            ns5:variantInterpretation [ a ns5:VariantInterpretation ;
+                                    ns5:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns5:therapeuticActionability "UNKNOWN_ACTIONABILITY" ;
+                                    ns5:variationDescriptor [ a ns4:VariationDescriptor ;
+                                            ns4:allelicState GENO:0000135 ;
+                                            ns4:expressions [ a ns4:Expression ;
+                                                    ns4:syntax "hgvs" ;
+                                                    ns4:value "NM_001848.2:c.877G>A" ] ;
+                                            ns4:geneContext [ a ns4:GeneDescriptor ;
+                                                    ns4:symbol "COL6A1" ;
+                                                    ns4:valueId "HGNC:2211" ] ;
+                                            ns4:id "variant id" ;
+                                            ns4:moleculeContext "unspecified_molecule_context" ;
+                                            ns4:vcfRecord [ a ns4:VcfRecord ;
+                                                    ns4:alt "A" ;
+                                                    ns4:chrom "chr21" ;
+                                                    ns4:genomeAssembly "GRCh38" ;
+                                                    ns4:pos 45989626 ;
+                                                    ns4:ref "G" ] ] ] ] ] ;
+            ns5:id "arbitrary interpretation id" ;
+            ns5:progressStatus "COMPLETED" ] ;
+    phenopackets:metaData [ a ns1:MetaData ;
+            ns1:created "2021-05-14T10:35:00Z" ;
+            ns1:createdBy "anonymous biocurator" ;
+            ns1:externalReferences [ a ns2:ExternalReference ;
+                    ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                    ns2:id "PMID:30808312" ] ;
+            ns1:phenopacketSchemaVersion "2.0.0" ;
+            ns1:resources [ a ns1:Resource ;
+                    ns1:id "eco" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/ECO_" ;
+                    ns1:name "Evidence & Conclusion Ontology (ECO)" ;
+                    ns1:namespacePrefix "ECO" ;
+                    ns1:url "http://purl.obolibrary.org/obo/eco.owl" ;
+                    ns1:version "2022-08-05" ],
+                [ a ns1:Resource ;
+                    ns1:id "geno" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
+                    ns1:name "Genotype Ontology" ;
+                    ns1:namespacePrefix "GENO" ;
+                    ns1:url "http://purl.obolibrary.org/obo/geno.owl" ;
+                    ns1:version "2020-03-08" ],
+                [ a ns1:Resource ;
+                    ns1:id "hp" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns1:name "human phenotype ontology" ;
+                    ns1:namespacePrefix "HP" ;
+                    ns1:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns1:version "2021-08-02" ],
+                [ a ns1:Resource ;
+                    ns1:id "omim" ;
+                    ns1:iriPrefix "https://www.omim.org/entry/" ;
+                    ns1:name "An Online Catalog of Human Genes and Genetic Disorders" ;
+                    ns1:namespacePrefix "OMIM" ;
+                    ns1:url "https://www.omim.org" ;
+                    ns1:version "2022-11-23" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:ontologyClass HP:0011461 ] ;
+            ns3:type HP:0001561 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:ontologyClass HP:0003577 ] ;
+            ns3:type HP:0000054 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:ontologyClass HP:0003577 ] ;
+            ns3:type HP:0001798 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:type HP:0000280 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:ontologyClass HP:0003577 ] ;
+            ns3:type HP:0008689 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:ontologyClass HP:0003577 ] ;
+            ns3:type HP:0001629 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:ontologyClass HP:0003593 ] ;
+            ns3:type HP:0000518 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:type HP:0002198 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:ontologyClass HP:0003577 ] ;
+            ns3:type HP:0100333 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:evidence [ a ns2:Evidence ;
+                    ns2:evidenceCode ECO:0000033 ;
+                    ns2:reference [ a ns2:ExternalReference ;
+                            ns2:description "COL6A1 mutation leading to Bethlem myopathy with recurrent hematuria: a case report" ;
+                            ns2:id "PMID:30808312" ] ] ;
+            ns3:excluded false ;
+            ns3:type HP:0001320 ] ;
+    phenopackets:subject [ a ns6:Individual ;
+            ns6:id "proband A" ;
+            ns6:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns6:sex "MALE" ;
+            ns6:timeAtLastEncounter [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P6Y3M" ] ] ] .
 
