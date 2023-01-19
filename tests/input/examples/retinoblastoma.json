@@ -15,6 +15,7 @@
       "id": "HP:0030084",
       "label": "Clinodactyly"
     },
+    "excluded": false,
     "modifiers": [{
       "id": "HP:0012834",
       "label": "Right"
@@ -29,9 +30,10 @@
       "id": "HP:0000555",
       "label": "Leukocoria"
     },
+    "excluded": false,
     "modifiers": [{
-      "id": "HP:0012833",
-      "label": "Unilateral"
+      "id": "HP:0012835",
+      "label": "Left"
     }],
     "onset": {
       "age": {
@@ -43,9 +45,10 @@
       "id": "HP:0000486",
       "label": "Strabismus"
     },
+    "excluded": false,
     "modifiers": [{
-      "id": "HP:0012833",
-      "label": "Unilateral"
+      "id": "HP:0012835",
+      "label": "Left"
     }],
     "onset": {
       "age": {
@@ -57,9 +60,10 @@
       "id": "HP:0000541",
       "label": "Retinal detachment"
     },
+    "excluded": false,
     "modifiers": [{
-      "id": "HP:0012833",
-      "label": "Unilateral"
+      "id": "HP:0012835",
+      "label": "Left"
     }],
     "onset": {
       "age": {
@@ -75,13 +79,13 @@
     "value": {
       "quantity": {
         "unit": {
-          "id": "UO:0000272",
+          "id": "UCUM:mm[Hg]",
           "label": "millimetres of mercury"
         },
         "value": 25.0,
         "referenceRange": {
           "unit": {
-            "id": "56844-4",
+            "id": "LOINC:56844-4",
             "label": "Intraocular pressure of Eye"
           },
           "low": 10.0,
@@ -102,13 +106,13 @@
     "value": {
       "quantity": {
         "unit": {
-          "id": "UO:0000272",
+          "id": "UCUM:mm[Hg]",
           "label": "millimetres of mercury"
         },
         "value": 15.0,
         "referenceRange": {
           "unit": {
-            "id": "56844-4",
+            "id": "LOINC:56844-4",
             "label": "Intraocular pressure of Eye"
           },
           "low": 10.0,
@@ -132,12 +136,14 @@
       "type": {
         "id": "NCIT:C35941",
         "label": "Flexner-Wintersteiner Rosette Formation"
-      }
+      },
+      "excluded": false
     }, {
       "type": {
         "id": "NCIT:C132485",
         "label": "Apoptosis and Necrosis"
-      }
+      },
+      "excluded": false
     }],
     "measurements": [{
       "assay": {
@@ -147,7 +153,7 @@
       "value": {
         "quantity": {
           "unit": {
-            "id": "UO:0000016",
+            "id": "UCUM:mm",
             "label": "millimeter"
           },
           "value": 15.0
@@ -164,11 +170,11 @@
       "label": "Primary Neoplasm"
     },
     "pathologicalTnmFinding": [{
-      "id": "NCIT:C88735",
-      "label": "Retinoblastoma pT3b TNM Finding v7"
+      "id": "NCIT:C140720",
+      "label": "Retinoblastoma pT3 TNM Finding v8"
     }, {
-      "id": "NCIT:C88741",
-      "label": "Retinoblastoma pN0 TNM Finding v7"
+      "id": "NCIT:C140711",
+      "label": "Retinoblastoma pN0 TNM Finding v8"
     }],
     "procedure": {
       "code": {
@@ -186,7 +192,14 @@
       }
     },
     "files": [{
-      "uri": "file://data/fileSomaticWgs.vcf.gz"
+      "uri": "file://data/fileSomaticWgs.vcf.gz",
+      "individualToFileIdentifiers": {
+        "biosample.1": "specimen.1"
+      },
+      "fileAttributes": {
+        "genomeAssembly": "GRCh38",
+        "fileFormat": "VCF"
+      }
     }]
   }],
   "interpretations": [{
@@ -204,26 +217,33 @@
           "acmgPathogenicityClassification": "PATHOGENIC",
           "therapeuticActionability": "ACTIONABLE",
           "variationDescriptor": {
+            "id": "variant-id",
             "variation": {
               "copyNumber": {
-                "allele": {
-                  "sequenceLocation": {
+                "derivedSequenceExpression": {
+                  "location": {
                     "sequenceId": "refseq:NC_000013.14",
                     "sequenceInterval": {
                       "startNumber": {
-                        "value": "26555377"
+                        "value": "25981249"
                       },
                       "endNumber": {
-                        "value": "62280955"
+                        "value": "61706822"
                       }
                     }
-                  }
+                  },
+                  "reverseComplement": false
                 },
                 "number": {
                   "value": "1"
                 }
               }
-            }
+            },
+            "extensions": [{
+              "name": "mosaicism",
+              "value": "40.0%"
+            }],
+            "moleculeContext": "unspecified_molecule_context"
           }
         }
       }, {
@@ -237,13 +257,13 @@
             "variation": {
               "allele": {
                 "sequenceLocation": {
-                  "sequenceId": "refseq:NC_000013.14",
+                  "sequenceId": "refseq:NC_000013.11",
                   "sequenceInterval": {
                     "startNumber": {
-                      "value": "48941647"
+                      "value": "48367511"
                     },
                     "endNumber": {
-                      "value": "48941648"
+                      "value": "48367512"
                     }
                   }
                 },
@@ -258,9 +278,6 @@
               "symbol": "RB1"
             },
             "expressions": [{
-              "syntax": "allele-frequency",
-              "value": "25.0%"
-            }, {
               "syntax": "hgvs.c",
               "value": "NM_000321.2:c.958C\u003eT"
             }, {
@@ -274,7 +291,11 @@
               "ref": "C",
               "alt": "T"
             },
-            "moleculeContext": "transcript",
+            "extensions": [{
+              "name": "allele-frequency",
+              "value": "25.0%"
+            }],
+            "moleculeContext": "genomic",
             "allelicState": {
               "id": "GENO:0000135",
               "label": "heterozygous"
@@ -289,6 +310,7 @@
       "id": "NCIT:C7541",
       "label": "Retinoblastoma"
     },
+    "excluded": false,
     "onset": {
       "age": {
         "iso8601duration": "P4M"
@@ -320,7 +342,7 @@
       "doseIntervals": [{
         "quantity": {
           "unit": {
-            "id": "UO:0000308",
+            "id": "UCUM:mg.kg-1",
             "label": "milligram per kilogram"
           },
           "value": 0.4
@@ -333,7 +355,8 @@
           "start": "2020-09-02T00:00:00Z",
           "end": "2020-09-02T00:00:00Z"
         }
-      }]
+      }],
+      "drugType": "UNKNOWN_DRUG_TYPE"
     },
     "treatmentTarget": {
       "id": "NCIT:C7541",
@@ -403,7 +426,14 @@
     }
   }],
   "files": [{
-    "uri": "file://data/germlineWgs.vcf.gz"
+    "uri": "file://data/germlineWgs.vcf.gz",
+    "individualToFileIdentifiers": {
+      "proband A": "sample1"
+    },
+    "fileAttributes": {
+      "genomeAssembly": "GRCh38",
+      "fileFormat": "VCF"
+    }
   }],
   "metaData": {
     "created": "2021-05-14T10:35:00Z",
@@ -436,7 +466,42 @@
       "version": "2021-06-10",
       "namespacePrefix": "NCBITaxon",
       "iriPrefix": "http://purl.obolibrary.org/obo/NCBITaxon_"
+    }, {
+      "id": "hp",
+      "name": "human phenotype ontology",
+      "url": "http://purl.obolibrary.org/obo/hp.owl",
+      "version": "2022-06-11",
+      "namespacePrefix": "HP",
+      "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+    }, {
+      "id": "loinc",
+      "name": "Logical Observation Identifiers Names and Codes",
+      "url": "https://loinc.org",
+      "version": "2.73",
+      "namespacePrefix": "LOINC",
+      "iriPrefix": "https://loinc.org/"
+    }, {
+      "id": "ucum",
+      "name": "Unified Code for Units of Measure",
+      "url": "https://ucum.org",
+      "version": "2.1",
+      "namespacePrefix": "UCUM",
+      "iriPrefix": "https://units-of-measurement.org/"
+    }, {
+      "id": "geno",
+      "name": "Genotype Ontology",
+      "url": "http://purl.obolibrary.org/obo/geno.owl",
+      "version": "2022-03-05",
+      "namespacePrefix": "GENO",
+      "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+    }, {
+      "id": "drugcentral",
+      "name": "Drug Central",
+      "url": "https://drugcentral.org/",
+      "version": "2022-08-22",
+      "namespacePrefix": "DrugCentral",
+      "iriPrefix": "https://drugcentral.org/drugcard/"
     }],
-    "phenopacketSchemaVersion": "2.0"
+    "phenopacketSchemaVersion": "2.0.0"
   }
 }
