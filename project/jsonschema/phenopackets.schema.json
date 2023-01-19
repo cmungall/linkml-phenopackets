@@ -521,7 +521,7 @@
                 },
                 "value": {
                     "items": {
-                        "$ref": "#/$defs/Any"
+                        "type": "string"
                     },
                     "type": "array"
                 }

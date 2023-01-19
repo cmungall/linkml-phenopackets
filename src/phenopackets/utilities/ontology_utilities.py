@@ -88,6 +88,8 @@ def walk_object_tree(obj: YAMLRoot, func: Tuple[Callable, Any]) -> Iterable:
     if isinstance(obj, OntologyClass):
         method, arg = func
         yield from method(obj, arg)
+    if not isinstance(obj, YAMLRoot):
+        return
     for k, v in obj.__dict__.items():
         if isinstance(v, list):
             for item in v:

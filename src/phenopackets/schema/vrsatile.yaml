@@ -29,9 +29,8 @@ classes:
         annotations: 
           rank: 2
         description: ''
-        inlined: true
         multivalued: true
-        range: Any
+        range: string
     description: https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension
   GeneDescriptor: 
     attributes: 

@@ -240,7 +240,7 @@ vrsatile:Expression CLOSED {
 
 vrsatile:Extension CLOSED {
     (  $vrsatile:Extension_tes (  <name> @linkml:String ? ;
-          <value> @any:Any *
+          <value> @linkml:String *
        ) ;
        rdf:type [ vrsatile:Extension ] ?
     )

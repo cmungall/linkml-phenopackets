@@ -37,7 +37,6 @@ TimeInterval
 TypedQuantity
 Update
 UtilityVariation
-Any
 Biosample
 Individual
 Interpretation
@@ -176,6 +175,9 @@ while(<>) {
         $range =~ s@.*\.@@; ## google.protobuf.Timestamp -> Timestamp
         if ($RMAP{$range}) {
             $range = $RMAP{$range}
+        }
+        if ($range eq 'Any') {
+            $range = "string";
         }
         chomp $desc;
         $c->{attributes}->{$n} = {range=>$range, description=>$desc, annotations=>{rank=>$ord}};
