@@ -373,7 +373,7 @@ enums:
         meaning: UCUM:mm
       MILLIMETRES_OF_MERCURY:
         description: millimetres of mercury
-        meaning: UCUM:mm[Hg]
+        meaning: UCUM:mm%5BHg%5D
       MILLIMOLE:
         description: millimole
         meaning: UCUM:mmol
