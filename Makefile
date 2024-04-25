@@ -14,6 +14,10 @@ gendocs:
 py:
 	cp project/phenopackets.py src/phenopackets/datamodel/
 
+
+src/phenopackets/pydantic/model.py: $(SRC)
+	$(RUN) gen-pydantic --pydantic-version 2 $< > $@
+
 #src/phenopackets/datamodel/%.py: src/phenopackets/schema/%.yaml
 #	$(RUN) gen-python $< > $@.tmp && mv $@.tmp $@
 

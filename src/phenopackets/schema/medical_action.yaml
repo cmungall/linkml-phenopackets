@@ -6,7 +6,7 @@ classes:
         annotations: 
           rank: 3
         description: ''
-        inlined: true
+        inlined_as_list: true
         range: TimeInterval
       quantity: 
         annotations: 
@@ -17,7 +17,7 @@ classes:
         annotations: 
           rank: 2
         description: ''
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
     description: e.g. 50mg/ml 3 times daily for two weeks
   MedicalAction: 
@@ -28,7 +28,7 @@ classes:
         description: ARGO mapping treatment::adverse_events
         exact_mappings: 
           - ARGO:treatment.adverse_events
-        inlined: true
+        inlined_as_list: true
         multivalued: true
         range: OntologyClass
       procedure: 
@@ -47,7 +47,7 @@ classes:
         description: ARGO mapping treatment::response_to_treatment
         exact_mappings: 
           - ARGO:treatment.response_to_treatment
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
       therapeuticRegimen: 
         annotations: 
@@ -65,13 +65,13 @@ classes:
         description: Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent
         exact_mappings: 
           - ARGO:treatment.treatment_intent
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
       treatmentTarget: 
         annotations: 
           rank: 5
         description: The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
       treatmentTerminationReason: 
         annotations: 
@@ -79,7 +79,7 @@ classes:
         description: ARGO mapping treatment::treatment_outcome
         exact_mappings: 
           - ARGO:treatment.treatment_outcome
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
     description: medication, procedure, other actions taken for clinical management
     rules: 
@@ -110,7 +110,7 @@ classes:
         description: The anatomical site where radiation therapy was administered. REQUIRED. ARGO mapping radiation::anatomical_site_irradiated
         exact_mappings: 
           - ARGO:radiation.anatomical_site_irradiated
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
         required: true
       dosage: 
@@ -135,7 +135,7 @@ classes:
         description: The modality of radiation therapy (e.g., electron, photon,…). REQUIRED. ARGO mapping radiation::radiation_therapy_modality
         exact_mappings: 
           - ARGO:radiation.radiation_therapy_modality
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
         required: true
     description: RadiationTherapy
@@ -145,19 +145,19 @@ classes:
         annotations: 
           rank: 4
         description: end time can be empty which would indicate ongoing
-        inlined: true
+        inlined_as_list: true
         range: TimeElement
       externalReference: 
         annotations: 
           rank: 1
         description: ''
-        inlined: true
+        inlined_as_list: true
         range: ExternalReference
       ontologyClass: 
         annotations: 
           rank: 2
         description: ''
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
       regimenStatus: 
         annotations: 
@@ -168,7 +168,7 @@ classes:
         annotations: 
           rank: 3
         description: possibly undefined;
-        inlined: true
+        inlined_as_list: true
         range: TimeElement
     description: ARGO mapping radiation::radiation_therapy_type (missing)
     rules: 
@@ -189,7 +189,7 @@ classes:
         annotations: 
           rank: 1
         description: ''
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
       cumulativeDose: 
         annotations: 
@@ -202,7 +202,7 @@ classes:
         annotations: 
           rank: 3
         description: ''
-        inlined: true
+        inlined_as_list: true
         multivalued: true
         range: DoseInterval
       drugType: 
@@ -214,7 +214,7 @@ classes:
         annotations: 
           rank: 2
         description: ''
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
     description: ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug
 default_prefix: medical_action

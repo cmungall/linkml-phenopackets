@@ -1533,6 +1533,7 @@
       ],
       "range": "File",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1580,6 +1581,7 @@
       ],
       "range": "Phenopacket",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1644,6 +1646,7 @@
       ],
       "range": "File",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1733,6 +1736,7 @@
       ],
       "range": "Phenopacket",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1755,6 +1759,7 @@
       ],
       "range": "Phenopacket",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1777,6 +1782,7 @@
       ],
       "range": "Biosample",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1821,6 +1827,7 @@
       ],
       "range": "File",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1868,6 +1875,7 @@
       ],
       "range": "Interpretation",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1890,6 +1898,7 @@
       ],
       "range": "Measurement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1912,6 +1921,7 @@
       ],
       "range": "MedicalAction",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1956,6 +1966,7 @@
       ],
       "range": "PhenotypicFeature",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1977,6 +1988,7 @@
       ],
       "range": "Individual",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2060,6 +2072,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2081,6 +2094,7 @@
       ],
       "range": "ExternalReference",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2167,6 +2181,7 @@
       ],
       "range": "Dictionary",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2188,6 +2203,7 @@
       ],
       "range": "Dictionary",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2311,6 +2327,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2332,6 +2349,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2353,6 +2371,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2437,6 +2456,7 @@
       ],
       "range": "TimeInterval",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2458,6 +2478,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2580,6 +2601,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2602,6 +2624,7 @@
       ],
       "range": "File",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2626,6 +2649,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2701,6 +2725,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2723,6 +2748,7 @@
       ],
       "range": "Measurement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2747,6 +2773,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2772,6 +2799,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2794,6 +2822,7 @@
       ],
       "range": "PhenotypicFeature",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2842,6 +2871,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2866,6 +2896,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2890,6 +2921,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2914,6 +2946,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2935,6 +2968,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2956,6 +2990,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2977,6 +3012,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2998,6 +3034,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3023,6 +3060,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3048,6 +3086,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3089,6 +3128,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3113,6 +3153,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3134,6 +3175,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3155,6 +3197,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3179,6 +3222,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3200,6 +3244,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3222,6 +3267,7 @@
       ],
       "range": "GenomicInterpretation",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3243,6 +3289,7 @@
       ],
       "range": "GeneDescriptor",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3513,6 +3560,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3605,6 +3653,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3626,6 +3675,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3674,6 +3724,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3738,6 +3789,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3760,6 +3812,7 @@
       ],
       "range": "TypedQuantity",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3781,6 +3834,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3864,6 +3918,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3927,6 +3982,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4008,6 +4064,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4050,6 +4107,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4071,6 +4129,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4113,6 +4172,7 @@
       ],
       "range": "TimeInterval",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4155,6 +4215,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4180,6 +4241,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4246,6 +4308,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4312,6 +4375,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4333,6 +4397,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4357,6 +4422,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4382,6 +4448,7 @@
       "range": "OntologyClass",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4455,6 +4522,7 @@
       "range": "OntologyClass",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4476,6 +4544,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4497,6 +4566,7 @@
       ],
       "range": "ExternalReference",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4518,6 +4588,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4559,6 +4630,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4580,6 +4652,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4626,6 +4699,7 @@
       ],
       "range": "DoseInterval",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4667,6 +4741,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4729,6 +4804,7 @@
       ],
       "range": "ExternalReference",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4771,6 +4847,7 @@
       ],
       "range": "Resource",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4813,6 +4890,7 @@
       ],
       "range": "Update",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5021,6 +5099,7 @@
       ],
       "range": "Person",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5225,6 +5304,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5246,6 +5326,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5267,6 +5348,7 @@
       ],
       "range": "TimeElement",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5288,6 +5370,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5309,6 +5392,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5594,6 +5678,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5657,6 +5742,7 @@
       ],
       "range": "Expression",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5679,6 +5765,7 @@
       ],
       "range": "Extension",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5700,6 +5787,7 @@
       ],
       "range": "GeneDescriptor",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5786,6 +5874,7 @@
       ],
       "range": "OntologyClass",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6331,6 +6420,7 @@
       ],
       "range": "CytobandInterval",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6979,6 +7069,7 @@
       ],
       "range": "Member",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -7759,7 +7850,7 @@
           "description": "Pointer to relevant file(s) for the cohort. Files relating exclusively to individual phenopackets should be contained in the Phenopacket.",
           "multivalued": true,
           "range": "File",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -7792,7 +7883,7 @@
           "description": "",
           "multivalued": true,
           "range": "Phenopacket",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -7854,7 +7945,7 @@
           "description": "Pointer to the relevant file(s) for the family. These should be files relating to one or more of the family members e.g a multi-sample VCF. Files relating exclusively to individual phenopackets should be contained in the Phenopacket.",
           "multivalued": true,
           "range": "File",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -7913,7 +8004,7 @@
           ],
           "description": "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient",
           "range": "Phenopacket",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -7928,7 +8019,7 @@
           "description": "Individuals related in some way to the patient. For instance, the individuals may be genetically related or may be members of a cohort. If this field is used, then  it is expected that a pedigree will be included for genetically related individuals for use cases such as genomic diagnostics. If a phenopacket is being used to describe one member of a cohort, then in general one phenopacket will be created for each of the individuals in the cohort.",
           "multivalued": true,
           "range": "Phenopacket",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -7966,7 +8057,7 @@
           "description": "Biosample(s) derived from the patient or a collection of biosamples in isolation",
           "multivalued": true,
           "range": "Biosample",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -7995,7 +8086,7 @@
           "description": "Pointer to the relevant file(s) for the individual",
           "multivalued": true,
           "range": "File",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8028,7 +8119,7 @@
           "description": "",
           "multivalued": true,
           "range": "Interpretation",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8043,7 +8134,7 @@
           "description": "Quantifiable measurements related to the individual",
           "multivalued": true,
           "range": "Measurement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8058,7 +8149,7 @@
           "description": "",
           "multivalued": true,
           "range": "MedicalAction",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8087,7 +8178,7 @@
           "description": "Phenotypic features relating to the subject of the phenopacket",
           "multivalued": true,
           "range": "PhenotypicFeature",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8101,7 +8192,7 @@
           ],
           "description": "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient",
           "range": "Individual",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -8210,7 +8301,7 @@
           ],
           "description": "The encoded evidence type using, for example the Evidence & Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl) FHIR mapping: Condition.evidence.code",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8224,7 +8315,7 @@
           ],
           "description": "FHIR mapping: Condition.evidence.detail",
           "range": "ExternalReference",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -8314,7 +8405,7 @@
           ],
           "description": "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.",
           "range": "Dictionary",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8328,7 +8419,7 @@
           ],
           "description": "A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.",
           "range": "Dictionary",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8455,7 +8546,7 @@
           ],
           "description": "FHIR mapping: Procedure.bodySite",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8469,7 +8560,7 @@
           ],
           "description": "FHIR mapping: Procedure.code",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8483,7 +8574,7 @@
           ],
           "description": "When the procedure was performed.",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -8555,7 +8646,7 @@
           ],
           "description": "",
           "range": "TimeInterval",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8569,7 +8660,7 @@
           ],
           "description": "",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8768,7 +8859,7 @@
           "description": "Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)",
           "multivalued": true,
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8783,7 +8874,7 @@
           "description": "Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from.",
           "multivalued": true,
           "range": "File",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8800,7 +8891,7 @@
             "ARGO:specimen.tumour_histological_type"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8854,7 +8945,7 @@
             "ARGO:sample_registration.tumour_normal_designation"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8869,7 +8960,7 @@
           "description": "",
           "multivalued": true,
           "range": "Measurement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8886,7 +8977,7 @@
             "ARGO:specimen.pathological_tumour_staging_system"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8904,7 +8995,7 @@
           ],
           "multivalued": true,
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8919,7 +9010,7 @@
           "description": "Phenotypic characteristics of the BioSample, for example histological findings of a biopsy.",
           "multivalued": true,
           "range": "PhenotypicFeature",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8952,7 +9043,7 @@
             "ARGO:specimen.specimen_processing"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8969,7 +9060,7 @@
             "ARGO:specimen.specimen_storage"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -8986,7 +9077,7 @@
             "ARGO:sample_registration.sample_type"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9003,7 +9094,7 @@
             "ARGO:sample_registration.specimen_tissue_source"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9017,7 +9108,7 @@
           ],
           "description": "NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9031,7 +9122,7 @@
           ],
           "description": "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9045,7 +9136,7 @@
           ],
           "description": "Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9059,7 +9150,7 @@
           ],
           "description": "Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -9098,7 +9189,7 @@
           ],
           "multivalued": true,
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9116,7 +9207,7 @@
           ],
           "multivalued": true,
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9143,7 +9234,7 @@
           ],
           "description": "The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9160,7 +9251,7 @@
             "ARGO:primary_diagnosis.age_at_diagnosis"
           ],
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9174,7 +9265,7 @@
           ],
           "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9188,7 +9279,7 @@
           ],
           "description": "",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9205,7 +9296,7 @@
             "ARGO:primary_diagnosis.submitter_primary_diagnosis_id"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -9234,7 +9325,7 @@
           ],
           "description": "The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases` field in the Phenopacket.",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9249,7 +9340,7 @@
           "description": "genomic features containing the status of their contribution towards the diagnosis",
           "multivalued": true,
           "range": "GenomicInterpretation",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -9280,7 +9371,7 @@
           ],
           "description": "",
           "range": "GeneDescriptor",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9541,7 +9632,7 @@
           ],
           "description": "Self-identified gender",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9605,7 +9696,7 @@
           ],
           "description": "NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9619,7 +9710,7 @@
           ],
           "description": "An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9669,7 +9760,7 @@
             "ARGO:donor.cause_of_death"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9712,7 +9803,7 @@
           ],
           "description": "",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -9741,7 +9832,7 @@
           "description": "The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities",
           "multivalued": true,
           "range": "TypedQuantity",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -9774,7 +9865,7 @@
           ],
           "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9827,7 +9918,7 @@
           ],
           "description": "The time at which the measurement was made",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9913,7 +10004,7 @@
           ],
           "description": "For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -9982,7 +10073,7 @@
           ],
           "description": "",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -10024,7 +10115,7 @@
           ],
           "description": "e.g. diastolic, systolic",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -10053,7 +10144,7 @@
           ],
           "description": "for use with things such as categories 'red', 'yellow' or 'absent'/'present'",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10126,7 +10217,7 @@
           ],
           "description": "",
           "range": "TimeInterval",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10153,7 +10244,7 @@
           ],
           "description": "",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -10193,7 +10284,7 @@
           ],
           "multivalued": true,
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10236,7 +10327,7 @@
             "ARGO:treatment.response_to_treatment"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10279,7 +10370,7 @@
             "ARGO:treatment.treatment_intent"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10293,7 +10384,7 @@
           ],
           "description": "The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10310,7 +10401,7 @@
             "ARGO:treatment.treatment_outcome"
           ],
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -10395,7 +10486,7 @@
           ],
           "range": "OntologyClass",
           "required": true,
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10447,7 +10538,7 @@
           ],
           "range": "OntologyClass",
           "required": true,
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -10479,7 +10570,7 @@
           ],
           "description": "end time can be empty which would indicate ongoing",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10493,7 +10584,7 @@
           ],
           "description": "",
           "range": "ExternalReference",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10507,7 +10598,7 @@
           ],
           "description": "",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10534,7 +10625,7 @@
           ],
           "description": "possibly undefined;",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -10596,7 +10687,7 @@
           ],
           "description": "",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10627,7 +10718,7 @@
           "description": "",
           "multivalued": true,
           "range": "DoseInterval",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10654,7 +10745,7 @@
           ],
           "description": "",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -10715,7 +10806,7 @@
           "description": "External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported.",
           "multivalued": true,
           "range": "ExternalReference",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10743,7 +10834,7 @@
           "description": "a listing of the ontologies and resources referenced in the phenopacket",
           "multivalued": true,
           "range": "Resource",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -10771,7 +10862,7 @@
           "description": "An OPTIONAL list of Updates to the phenopacket.",
           "multivalued": true,
           "range": "Update",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -10958,7 +11049,7 @@
           "description": "",
           "multivalued": true,
           "range": "Person",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -11131,7 +11222,7 @@
           "description": "subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity",
           "multivalued": true,
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -11145,7 +11236,7 @@
           ],
           "description": "the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -11159,7 +11250,7 @@
           ],
           "description": "",
           "range": "TimeElement",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -11173,7 +11264,7 @@
           ],
           "description": "Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -11187,7 +11278,7 @@
           ],
           "description": "The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -11466,7 +11557,7 @@
           ],
           "description": "We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875.",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -11508,7 +11599,7 @@
           "description": "HGVS, SPDI, and gnomAD-style strings should be represented as Expressions",
           "multivalued": true,
           "range": "Expression",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -11523,7 +11614,7 @@
           "description": "",
           "multivalued": true,
           "range": "Extension",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -11537,7 +11628,7 @@
           ],
           "description": "A specific gene context that applies to this variant.",
           "range": "GeneDescriptor",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -11595,7 +11686,7 @@
           ],
           "description": "The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537.",
           "range": "OntologyClass",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -12098,7 +12189,7 @@
           ],
           "description": "",
           "range": "CytobandInterval",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -12774,7 +12865,7 @@
           "description": "",
           "multivalued": true,
           "range": "Member",
-          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -13797,9 +13888,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "phenopackets.yaml",
-  "source_file_date": "2023-01-18T17:47:01",
-  "source_file_size": 6830,
-  "generation_date": "2024-04-24T18:47:13",
+  "source_file_date": "2024-04-24T19:49:27",
+  "source_file_size": 6926,
+  "generation_date": "2024-04-24T19:49:33",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/phenopackets.context.jsonld",

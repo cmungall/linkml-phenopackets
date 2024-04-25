@@ -6,7 +6,7 @@ classes:
         annotations: 
           rank: 1
         description: ''
-        inlined: true
+        inlined_as_list: true
         multivalued: true
         range: Person
     description: https://software.broadinstitute.org/gatk/documentation/article?id=11016

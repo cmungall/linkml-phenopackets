@@ -16,7 +16,7 @@ classes:
         annotations: 
           rank: 7
         description: External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported.
-        inlined: true
+        inlined_as_list: true
         multivalued: true
         range: ExternalReference
       phenopacketSchemaVersion: 
@@ -28,7 +28,7 @@ classes:
         annotations: 
           rank: 4
         description: a listing of the ontologies and resources referenced in the phenopacket
-        inlined: true
+        inlined_as_list: true
         multivalued: true
         range: Resource
       submittedBy: 
@@ -40,7 +40,7 @@ classes:
         annotations: 
           rank: 5
         description: An OPTIONAL list of Updates to the phenopacket.
-        inlined: true
+        inlined_as_list: true
         multivalued: true
         range: Update
     description: ''

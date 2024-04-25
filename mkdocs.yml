@@ -30,6 +30,8 @@ nav:
   - Home: home.md
   - Index: index.md
   - Notebooks:
+      Validating: notebooks/LinkML-Validate.ipynb
+      Pydantic: notebooks/Pydantic.ipynb
       Using OAK: notebooks/OAK.ipynb
       RDF: notebooks/Generating-RDF.ipynb
 site_url: https://cmungall.github.io/linkml-phenopackets/

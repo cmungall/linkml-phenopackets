@@ -1,5 +1,5 @@
 # Auto generated from phenopackets.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-24T18:47:16
+# Generation date: 2024-04-24T19:49:36
 # Schema: phenopackets
 #
 # id: https://w3id.org/linkml/phenopackets/phenopackets
@@ -102,7 +102,9 @@ class Cohort(YAMLRoot):
         if self.id is not None and not isinstance(self.id, str):
             self.id = str(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="members", slot_type=Phenopacket, key_name="metaData", keyed=False)
+        if not isinstance(self.members, list):
+            self.members = [self.members] if self.members is not None else []
+        self.members = [v if isinstance(v, Phenopacket) else Phenopacket(**as_dict(v)) for v in self.members]
 
         super().__post_init__(**kwargs)
 
@@ -151,7 +153,9 @@ class Family(YAMLRoot):
         if self.proband is not None and not isinstance(self.proband, Phenopacket):
             self.proband = Phenopacket(**as_dict(self.proband))
 
-        self._normalize_inlined_as_dict(slot_name="relatives", slot_type=Phenopacket, key_name="metaData", keyed=False)
+        if not isinstance(self.relatives, list):
+            self.relatives = [self.relatives] if self.relatives is not None else []
+        self.relatives = [v if isinstance(v, Phenopacket) else Phenopacket(**as_dict(v)) for v in self.relatives]
 
         super().__post_init__(**kwargs)
 
@@ -548,7 +552,7 @@ class Biosample(YAMLRoot):
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
 
-        self._normalize_inlined_as_dict(slot_name="diagnosticMarkers", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="diagnosticMarkers", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if not isinstance(self.files, list):
             self.files = [self.files] if self.files is not None else []
@@ -573,7 +577,7 @@ class Biosample(YAMLRoot):
         if self.pathologicalStage is not None and not isinstance(self.pathologicalStage, OntologyClass):
             self.pathologicalStage = OntologyClass(**as_dict(self.pathologicalStage))
 
-        self._normalize_inlined_as_dict(slot_name="pathologicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="pathologicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if not isinstance(self.phenotypicFeatures, list):
             self.phenotypicFeatures = [self.phenotypicFeatures] if self.phenotypicFeatures is not None else []
@@ -631,9 +635,9 @@ class Disease(YAMLRoot):
     term: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="clinicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="clinicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="diseaseStage", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="diseaseStage", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.excluded is not None and not isinstance(self.excluded, Bool):
             self.excluded = Bool(self.excluded)
@@ -1066,7 +1070,7 @@ class MedicalAction(YAMLRoot):
     treatmentTerminationReason: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="adverseEvents", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="adverseEvents", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.procedure is not None and not isinstance(self.procedure, Procedure):
             self.procedure = Procedure(**as_dict(self.procedure))
@@ -1249,7 +1253,9 @@ class MetaData(YAMLRoot):
         if self.submittedBy is not None and not isinstance(self.submittedBy, str):
             self.submittedBy = str(self.submittedBy)
 
-        self._normalize_inlined_as_dict(slot_name="updates", slot_type=Update, key_name="timestamp", keyed=False)
+        if not isinstance(self.updates, list):
+            self.updates = [self.updates] if self.updates is not None else []
+        self.updates = [v if isinstance(v, Update) else Update(**as_dict(v)) for v in self.updates]
 
         super().__post_init__(**kwargs)
 
@@ -1422,7 +1428,7 @@ class PhenotypicFeature(YAMLRoot):
         if self.excluded is not None and not isinstance(self.excluded, Bool):
             self.excluded = Bool(self.excluded)
 
-        self._normalize_inlined_as_dict(slot_name="modifiers", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="modifiers", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.onset is not None and not isinstance(self.onset, TimeElement):
             self.onset = TimeElement(**as_dict(self.onset))
