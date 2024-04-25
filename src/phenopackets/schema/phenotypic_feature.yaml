@@ -22,32 +22,32 @@ classes:
         annotations: 
           rank: 5
         description: subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity
-        inlined: true
+        inlined_as_list: true
         multivalued: true
         range: OntologyClass
       onset: 
         annotations: 
           rank: 6
         description: "the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset"
-        inlined: true
+        inlined_as_list: true
         range: TimeElement
       resolution: 
         annotations: 
           rank: 7
         description: ''
-        inlined: true
+        inlined_as_list: true
         range: TimeElement
       severity: 
         annotations: 
           rank: 4
         description: "Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity"
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
       type: 
         annotations: 
           rank: 2
         description: "The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
-        inlined: true
+        inlined_as_list: true
         range: OntologyClass
     description: "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)"
 default_prefix: phenotypic_feature

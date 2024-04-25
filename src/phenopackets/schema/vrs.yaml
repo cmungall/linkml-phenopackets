@@ -88,7 +88,7 @@ classes:
         annotations: 
           rank: 4
         description: ''
-        inlined: true
+        inlined_as_list: true
         range: CytobandInterval
       speciesId: 
         annotations: 
@@ -316,7 +316,7 @@ classes:
         annotations: 
           rank: 2
         description: ''
-        inlined: true
+        inlined_as_list: true
         multivalued: true
         range: Member
       text: 

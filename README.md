@@ -27,6 +27,10 @@ The LinkML schema is generated using a script [proto2linkml](util/proto2linkml.p
 use of specific *conventions* in the Protobuf source, such as the use of particular controlled
 keywords in `//` comments. As such, this code is *not* generalizable to other protobuf schemas.
 
+Note we intentionally don't use out of band-info. Currently some records in the protobuf are undefined,
+so they will be undefined in the LinkML. We have not done additional curation based on the `.rst` docs,
+it comes from protobuf.
+
 ## Ontology Enhancements
 
 The file [cv_terms.yaml](https://github.com/cmungall/linkml-phenopackets/blob/main/src/phenopackets/schema/cv_terms.yaml)
@@ -64,14 +68,14 @@ poetry install
 
 There will also be demonstrator Jupyter notebooks here:
 
-- [notebooks](notebooks) directory
+- [notebooks](src/docs/notebooks) directory
 
 ## Validation
 
 Use `p3 validate` to validate objects. This goes beyond what can be done with JSON-Schema alone, and
 includes ontology validation using OAK and CURIE validation using BioRegistry.
 
-See [this notebook](https://github.com/cmungall/linkml-phenopackets/blob/main/notebooks/Updating-Packets-Using-Ontology.ipynb)
+See [this notebook](https://github.com/cmungall/linkml-phenopackets/blob/main/src/docs/notebooks/Updating-Packets-Using-Ontology.ipynb)
 
 ## Repairing ontology terms
 
@@ -79,7 +83,7 @@ Phenopackets include ontology terms, which are liable to become stale.
 
 This toolkit uses OAK to assist in auto-migration of obsoletes or stale labels.
 
-See [this notebook](https://github.com/cmungall/linkml-phenopackets/blob/main/notebooks/Updating-Packets-Using-Ontology.ipynb)
+See [this notebook](https://github.com/cmungall/linkml-phenopackets/blob/main/src/docs/notebooks/Updating-Packets-Using-Ontology.ipynb)
 
 ## Querying Phenopackets as RDF
 

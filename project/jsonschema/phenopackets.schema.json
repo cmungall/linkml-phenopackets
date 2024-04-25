@@ -186,22 +186,11 @@
                     "type": "string"
                 },
                 "diagnosticMarkers": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/OntologyClass__identifier_optional"
-                            },
-                            {
-                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
                     "description": "Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)",
-                    "type": "object"
+                    "items": {
+                        "$ref": "#/$defs/OntologyClass"
+                    },
+                    "type": "array"
                 },
                 "files": {
                     "description": "Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from.",
@@ -238,22 +227,11 @@
                     "description": "ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group"
                 },
                 "pathologicalTnmFinding": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/OntologyClass__identifier_optional"
-                            },
-                            {
-                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
                     "description": "ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category",
-                    "type": "object"
+                    "items": {
+                        "$ref": "#/$defs/OntologyClass"
+                    },
+                    "type": "array"
                 },
                 "phenotypicFeatures": {
                     "description": "Phenotypic characteristics of the BioSample, for example histological findings of a biopsy.",
@@ -536,40 +514,18 @@
             "description": "Message to indicate a disease (diagnosis) and its recorded onset.",
             "properties": {
                 "clinicalTnmFinding": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/OntologyClass__identifier_optional"
-                            },
-                            {
-                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
                     "description": "Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category",
-                    "type": "object"
+                    "items": {
+                        "$ref": "#/$defs/OntologyClass"
+                    },
+                    "type": "array"
                 },
                 "diseaseStage": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/OntologyClass__identifier_optional"
-                            },
-                            {
-                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
                     "description": "Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group",
-                    "type": "object"
+                    "items": {
+                        "$ref": "#/$defs/OntologyClass"
+                    },
+                    "type": "array"
                 },
                 "excluded": {
                     "description": "Flag to indicate whether the disease was observed or not. Default is 'false', in other words the disease was observed. Therefore it is only required in cases to indicate that the disease was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field. *CAUTION* It is imperative to check this field for correct interpretation of the disease!",
@@ -1180,22 +1136,11 @@
             "description": "medication, procedure, other actions taken for clinical management",
             "properties": {
                 "adverseEvents": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/OntologyClass__identifier_optional"
-                            },
-                            {
-                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
                     "description": "ARGO mapping treatment::adverse_events",
-                    "type": "object"
+                    "items": {
+                        "$ref": "#/$defs/OntologyClass"
+                    },
+                    "type": "array"
                 },
                 "procedure": {
                     "$ref": "#/$defs/Procedure",
@@ -1543,23 +1488,6 @@
             "title": "OntologyClass",
             "type": "object"
         },
-        "OntologyClass__identifier_optional": {
-            "additionalProperties": false,
-            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept) see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)",
-            "properties": {
-                "id": {
-                    "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!",
-                    "type": "string"
-                },
-                "label": {
-                    "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
-                    "type": "string"
-                }
-            },
-            "required": [],
-            "title": "OntologyClass",
-            "type": "object"
-        },
         "OrganTerms": {
             "description": "",
             "enum": [
@@ -1721,22 +1649,11 @@
                     "type": "boolean"
                 },
                 "modifiers": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/OntologyClass__identifier_optional"
-                            },
-                            {
-                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
                     "description": "subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity",
-                    "type": "object"
+                    "items": {
+                        "$ref": "#/$defs/OntologyClass"
+                    },
+                    "type": "array"
                 },
                 "onset": {
                     "$ref": "#/$defs/TimeElement",
