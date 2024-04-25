@@ -7,13 +7,16 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://cmungall.github.io/linkml-phenopackets/" rel="canonical"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>phenopackets in linkml EXPERIMENTAL DEMO</title>
-<link href="assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="css/ansi-colours.css" rel="stylesheet"/>
+<link href="css/jupyter-cells.css" rel="stylesheet"/>
+<link href="css/pandas-dataframe.css" rel="stylesheet"/>
 <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="amber" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
@@ -95,7 +98,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -120,7 +123,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -181,6 +184,41 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Notebooks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="notebooks/LinkML-Validate/">
+        Validating
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="notebooks/Pydantic/">
+        Pydantic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="notebooks/OAK/">
+        Using OAK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="notebooks/Generating-RDF/">
+        RDF
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -237,8 +275,8 @@
 </a>
 <h1 id="phenopackets">phenopackets</h1>
 <p>Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL.</p>
-<p>URI: https://w3id.org/linkml/phenopackets/phenopackets
-Name: phenopackets</p>
+<p>URI: https://w3id.org/linkml/phenopackets/phenopackets</p>
+<p>Name: phenopackets</p>
 <h2 id="schema-diagram">Schema Diagram</h2>
 <div class="mermaid">erDiagram
 Phenopacket {
@@ -451,10 +489,7 @@ GeneDescriptor {
 }
 Extension {
     string name  
-}
-Any {
-    string typeUrl  
-    string value  
+    stringList value  
 }
 Expression {
     string syntax  
@@ -594,7 +629,6 @@ Allele ||--|o LiteralSequenceExpression : "literalSequenceExpression"
 Allele ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
 Allele ||--|o SequenceLocation : "sequenceLocation"
 ChromosomeLocation ||--|o CytobandInterval : "interval"
-Extension ||--}o Any : "value"
 File ||--|o Dictionary : "fileAttributes"
 File ||--|o Dictionary : "individualToFileIdentifiers"
 Disease ||--}o OntologyClass : "clinicalTnmFinding"
@@ -638,7 +672,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Age/">Age</a></td>
-<td>See http://build</td>
+<td>See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_ In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/</td>
 </tr>
 <tr>
 <td><a href="AgeRange/">AgeRange</a></td>
@@ -650,11 +684,11 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Any/">Any</a></td>
-<td><code>Any</code> contains an arbitrary serialized protocol buffer message along with a U...</td>
+<td><code>Any</code> contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.  Foo foo = ...; Any any; any.PackFrom(foo); ... if (any.UnpackTo(&amp;foo)) { ... }  Example 2: Pack and unpack a message in Java.  Foo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo = any.unpack(Foo.class); }  Example 3: Pack and unpack a message in Python.  foo = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR): any.Unpack(foo) ...  Example 4: Pack and unpack a message in Go  foo := &amp;pb.Foo{...} any, err := anypb.New(foo) if err != nil { ... } ... foo := &amp;pb.Foo{} if err := any.UnmarshalTo(foo); err != nil { ... }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example "foo.bar.com/x/y.z" will yield type name "y.z".   JSON ==== The JSON representation of an <code>Any</code> value uses the regular representation of the deserialized, embedded message, with an additional field <code>@type</code> which contains the type URL. Example:  package google.profile; message Person { string first_name = 1; string last_name = 2; }  { "@type": "type.googleapis.com/google.profile.Person", "firstName": <string>, "lastName": <string> }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field <code>value</code> which holds the custom JSON in addition to the <code>@type</code> field. Example (for message [google.protobuf.Duration][]):  { "@type": "type.googleapis.com/google.protobuf.Duration", "value": "1.212s" }</string></string></td>
 </tr>
 <tr>
 <td><a href="Biosample/">Biosample</a></td>
-<td>A Biosample refers to a unit of biological material from which the substrate ...</td>
+<td>A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).</td>
 </tr>
 <tr>
 <td><a href="ChromosomeLocation/">ChromosomeLocation</a></td>
@@ -662,7 +696,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Cohort/">Cohort</a></td>
-<td>A group of individuals related in some phenotypic or genotypic aspect</td>
+<td>A group of individuals related in some phenotypic or genotypic aspect.</td>
 </tr>
 <tr>
 <td><a href="ComplexValue/">ComplexValue</a></td>
@@ -690,35 +724,35 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Dictionary/">Dictionary</a></td>
-<td></td>
+<td>None</td>
 </tr>
 <tr>
 <td><a href="Disease/">Disease</a></td>
-<td>Message to indicate a disease (diagnosis) and its recorded onset</td>
+<td>Message to indicate a disease (diagnosis) and its recorded onset.</td>
 </tr>
 <tr>
 <td><a href="DoseInterval/">DoseInterval</a></td>
-<td>e</td>
+<td>e.g. 50mg/ml 3 times daily for two weeks</td>
 </tr>
 <tr>
 <td><a href="Evidence/">Evidence</a></td>
-<td>FHIR mapping: Condition</td>
+<td>FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)</td>
 </tr>
 <tr>
 <td><a href="Expression/">Expression</a></td>
-<td>https://vrsatile</td>
+<td>https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression</td>
 </tr>
 <tr>
 <td><a href="Extension/">Extension</a></td>
-<td>https://vrsatile</td>
+<td>https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension</td>
 </tr>
 <tr>
 <td><a href="ExternalReference/">ExternalReference</a></td>
-<td>FHIR mapping: Reference (https://www</td>
+<td>FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)</td>
 </tr>
 <tr>
 <td><a href="Family/">Family</a></td>
-<td>Phenotype, sample and pedigree data required for a genomic diagnosis</td>
+<td>Phenotype, sample and pedigree data required for a genomic diagnosis. Equivalent to the Genomics England InterpretationRequestRD https://github.com/genomicsengland/GelReportModels/blob/master/schemas/IDLs/org.gel.models.report.avro/5.0.0/InterpretationRequestRD.avdl</td>
 </tr>
 <tr>
 <td><a href="Feature/">Feature</a></td>
@@ -734,11 +768,11 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="GeneDescriptor/">GeneDescriptor</a></td>
-<td>https://vrsatile</td>
+<td>https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor</td>
 </tr>
 <tr>
 <td><a href="GenomicInterpretation/">GenomicInterpretation</a></td>
-<td>A statement about the contribution of a genomic element towards the observed ...</td>
+<td>A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations.</td>
 </tr>
 <tr>
 <td><a href="GestationalAge/">GestationalAge</a></td>
@@ -754,7 +788,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Individual/">Individual</a></td>
-<td>An individual (or subject) typically corresponds to an individual human or an...</td>
+<td>An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html).</td>
 </tr>
 <tr>
 <td><a href="Interpretation/">Interpretation</a></td>
@@ -770,7 +804,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Measurement/">Measurement</a></td>
-<td>FHIR mapping: Observation (https://www</td>
+<td>FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)</td>
 </tr>
 <tr>
 <td><a href="MedicalAction/">MedicalAction</a></td>
@@ -794,11 +828,11 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="OntologyClass/">OntologyClass</a></td>
-<td>A class (aka term, concept) in an ontology</td>
+<td>A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept) see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)</td>
 </tr>
 <tr>
 <td><a href="Pedigree/">Pedigree</a></td>
-<td>https://software</td>
+<td>https://software.broadinstitute.org/gatk/documentation/article?id=11016</td>
 </tr>
 <tr>
 <td><a href="Person/">Person</a></td>
@@ -806,15 +840,15 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Phenopacket/">Phenopacket</a></td>
-<td>An anonymous phenotypic description of an individual or biosample with potent...</td>
+<td>An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.  This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.</td>
 </tr>
 <tr>
 <td><a href="PhenotypicFeature/">PhenotypicFeature</a></td>
-<td>An individual phenotypic feature, observed as either present or absent (negat...</td>
+<td>An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)</td>
 </tr>
 <tr>
 <td><a href="Procedure/">Procedure</a></td>
-<td>A clinical procedure performed on a subject</td>
+<td>A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {"code":{"NCIT:C51585": "Biopsy of Soft Palate"}} {"code":{"NCIT:C28743": "Punch Biopsy"}, "body_site":{"UBERON:0003403": "skin of forearm"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)</td>
 </tr>
 <tr>
 <td><a href="Quantity/">Quantity</a></td>
@@ -834,7 +868,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Resource/">Resource</a></td>
-<td>Description of an external resource used for referencing an object</td>
+<td>Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)</td>
 </tr>
 <tr>
 <td><a href="SequenceExpression/">SequenceExpression</a></td>
@@ -878,19 +912,19 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="Timestamp/">Timestamp</a></td>
-<td>A Timestamp represents a point in time independent of any time zone or local ...</td>
+<td>A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one.  All minutes are 60 seconds long. Leap seconds are "smeared" so that no leap second table is needed for interpretation, using a <a href="https://developers.google.com/time/smear">24-hour linear smear</a>.  The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC 3339</a> date strings.  # Examples  Example 1: Compute Timestamp from POSIX <code>time()</code>.  Timestamp timestamp; timestamp.set_seconds(time(NULL)); timestamp.set_nanos(0);  Example 2: Compute Timestamp from POSIX <code>gettimeofday()</code>.  struct timeval tv; gettimeofday(&amp;tv, NULL);  Timestamp timestamp; timestamp.set_seconds(tv.tv_sec); timestamp.set_nanos(tv.tv_usec * 1000);  Example 3: Compute Timestamp from Win32 <code>GetSystemTimeAsFileTime()</code>.  FILETIME ft; GetSystemTimeAsFileTime(&amp;ft); UINT64 ticks = (((UINT64)ft.dwHighDateTime) &lt;&lt; 32)</td>
 </tr>
 <tr>
 <td><a href="Treatment/">Treatment</a></td>
-<td>ARGO mapping treatment::is_primary_treatment (missing) treatment with an agen...</td>
+<td>ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug</td>
 </tr>
 <tr>
 <td><a href="TypedQuantity/">TypedQuantity</a></td>
-<td>For complex measurements, such as blood pressure where more than one componen...</td>
+<td>For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement</td>
 </tr>
 <tr>
 <td><a href="Update/">Update</a></td>
-<td>Information about when an update to a record occurred, who or what made the u...</td>
+<td>Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update</td>
 </tr>
 <tr>
 <td><a href="UtilityVariation/">UtilityVariation</a></td>
@@ -973,7 +1007,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="alternateIds/">alternateIds</a></td>
-<td>An optional list of alternative identifiers for this individual</td>
+<td>Alternate IDs (should be CURIE) for the same concept may be placed in alterna...</td>
 </tr>
 <tr>
 <td><a href="alternateLabels/">alternateLabels</a></td>
@@ -1233,7 +1267,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="individualId/">individualId</a></td>
-<td></td>
+<td>The id of the individual this biosample was derived from</td>
 </tr>
 <tr>
 <td><a href="individualToFileIdentifiers/">individualToFileIdentifiers</a></td>
@@ -1333,7 +1367,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="name/">name</a></td>
-<td>e</td>
+<td></td>
 </tr>
 <tr>
 <td><a href="namespacePrefix/">namespacePrefix</a></td>
@@ -1401,7 +1435,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="procedure/">procedure</a></td>
-<td></td>
+<td>Clinical procedure performed on the subject in order to produce the measureme...</td>
 </tr>
 <tr>
 <td><a href="progressStatus/">progressStatus</a></td>
@@ -1413,7 +1447,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="quantity/">quantity</a></td>
-<td></td>
+<td>e</td>
 </tr>
 <tr>
 <td><a href="radiationTherapy/">radiationTherapy</a></td>
@@ -1509,7 +1543,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="sex/">sex</a></td>
-<td></td>
+<td>The phenotypic sex of the individual ARGO mapping sample_registration::gender...</td>
 </tr>
 <tr>
 <td><a href="speciesId/">speciesId</a></td>
@@ -1573,7 +1607,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="taxonomy/">taxonomy</a></td>
-<td>NCBI taxonomic identifier NCBITaxon e</td>
+<td>NCBI taxonomic identifier (NCBITaxon) of the sample e</td>
 </tr>
 <tr>
 <td><a href="term/">term</a></td>
@@ -1637,7 +1671,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="type/">type</a></td>
-<td>The primary ontology class which describes the phenotype</td>
+<td>e</td>
 </tr>
 <tr>
 <td><a href="typedQuantities/">typedQuantities</a></td>
@@ -1697,7 +1731,7 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="version/">version</a></td>
-<td>for OBO ontologies, this should be the versionIRI</td>
+<td></td>
 </tr>
 <tr>
 <td><a href="vitalStatus/">vitalStatus</a></td>
@@ -1858,63 +1892,79 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </thead>
 <tbody>
 <tr>
-<td><a href="xsd:boolean">xsd:boolean</a></td>
+<td><a href="Boolean/">Boolean</a></td>
 <td>A binary (true or false) value</td>
 </tr>
 <tr>
-<td><a href="xsd:date">xsd:date</a></td>
+<td><a href="Curie/">Curie</a></td>
+<td>a compact URI</td>
+</tr>
+<tr>
+<td><a href="Date/">Date</a></td>
 <td>a date (year, month and day) in an idealized calendar</td>
 </tr>
 <tr>
-<td><a href="https://w3id.org/linkml/DateOrDatetime">linkml:DateOrDatetime</a></td>
+<td><a href="DateOrDatetime/">DateOrDatetime</a></td>
 <td>Either a date or a datetime</td>
 </tr>
 <tr>
-<td><a href="xsd:dateTime">xsd:dateTime</a></td>
+<td><a href="Datetime/">Datetime</a></td>
 <td>The combination of a date and time</td>
 </tr>
 <tr>
-<td><a href="xsd:decimal">xsd:decimal</a></td>
+<td><a href="Decimal/">Decimal</a></td>
 <td>A real number with arbitrary precision that conforms to the xsd:decimal speci...</td>
 </tr>
 <tr>
-<td><a href="xsd:double">xsd:double</a></td>
+<td><a href="Double/">Double</a></td>
 <td>A real number that conforms to the xsd:double specification</td>
 </tr>
 <tr>
-<td><a href="xsd:float">xsd:float</a></td>
+<td><a href="Float/">Float</a></td>
 <td>A real number that conforms to the xsd:float specification</td>
 </tr>
 <tr>
-<td><a href="xsd:integer">xsd:integer</a></td>
+<td><a href="Integer/">Integer</a></td>
 <td>An integer</td>
 </tr>
 <tr>
-<td><a href="xsd:string">xsd:string</a></td>
+<td><a href="Jsonpath/">Jsonpath</a></td>
+<td>A string encoding a JSON Path</td>
+</tr>
+<tr>
+<td><a href="Jsonpointer/">Jsonpointer</a></td>
+<td>A string encoding a JSON Pointer</td>
+</tr>
+<tr>
+<td><a href="Ncname/">Ncname</a></td>
 <td>Prefix part of CURIE</td>
 </tr>
 <tr>
-<td><a href="shex:nonLiteral">shex:nonLiteral</a></td>
+<td><a href="Nodeidentifier/">Nodeidentifier</a></td>
 <td>A URI, CURIE or BNODE that represents a node in a model</td>
 </tr>
 <tr>
-<td><a href="shex:iri">shex:iri</a></td>
+<td><a href="Objectidentifier/">Objectidentifier</a></td>
 <td>A URI or CURIE that represents an object in the model</td>
 </tr>
 <tr>
-<td><a href="xsd:string">xsd:string</a></td>
+<td><a href="Sparqlpath/">Sparqlpath</a></td>
+<td>A string encoding a SPARQL Property Path</td>
+</tr>
+<tr>
+<td><a href="String/">String</a></td>
 <td>A character string</td>
 </tr>
 <tr>
-<td><a href="xsd:dateTime">xsd:dateTime</a></td>
+<td><a href="Time/">Time</a></td>
 <td>A time object represents a (local) time of day, independent of any particular...</td>
 </tr>
 <tr>
-<td><a href="xsd:anyURI">xsd:anyURI</a></td>
+<td><a href="Uri/">Uri</a></td>
 <td>a complete URI</td>
 </tr>
 <tr>
-<td><a href="xsd:anyURI">xsd:anyURI</a></td>
+<td><a href="Uriorcurie/">Uriorcurie</a></td>
 <td>a URI or a CURIE</td>
 </tr>
 </tbody>
@@ -1954,6 +2004,19 @@ Biosample ||--|o OntologyClass : "tumorProgression"
             </div>
 </div>
 </a>
+<a aria-label="Next: Validating" class="md-footer__link md-footer__link--next" href="notebooks/LinkML-Validate/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Validating
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
 </nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
@@ -1973,6 +2036,6 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": ".", "features": ["content.tabs.link"], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

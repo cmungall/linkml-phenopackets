@@ -7,13 +7,16 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://cmungall.github.io/linkml-phenopackets/MedicalAction/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: MedicalAction - phenopackets in linkml EXPERIMENTAL DEMO</title>
-<link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../css/ansi-colours.css" rel="stylesheet"/>
+<link href="../css/jupyter-cells.css" rel="stylesheet"/>
+<link href="../css/pandas-dataframe.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="amber" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
@@ -95,7 +98,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -120,7 +123,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -137,6 +140,41 @@
 <a class="md-nav__link" href="..">
         Index
       </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Notebooks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../notebooks/LinkML-Validate/">
+        Validating
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../notebooks/Pydantic/">
+        Pydantic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../notebooks/OAK/">
+        Using OAK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../notebooks/Generating-RDF/">
+        RDF
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -212,7 +250,7 @@
 </a>
 <h1 id="class-medicalaction">Class: MedicalAction</h1>
 <p><em>medication, procedure, other actions taken for clinical management</em></p>
-<p>URI: <a href="medical_action:MedicalAction">medical_action:MedicalAction</a></p>
+<p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/MedicalAction">phenopackets:MedicalAction</a></p>
 <div class="mermaid">erDiagram
 MedicalAction {
 
@@ -303,7 +341,7 @@ Procedure ||--|o TimeElement : "performed"
 </tr>
 <tr>
 <td><a href="../procedure/">procedure</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../Procedure/">Procedure</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -373,7 +411,7 @@ Procedure ||--|o TimeElement : "performed"
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/linkml/phenopackets/medical_action</li>
+<li>from schema: https://w3id.org/linkml/phenopackets/phenopackets</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -386,11 +424,11 @@ Procedure ||--|o TimeElement : "performed"
 <tbody>
 <tr>
 <td>self</td>
-<td>medical_action:MedicalAction</td>
+<td>phenopackets:MedicalAction</td>
 </tr>
 <tr>
 <td>native</td>
-<td>medical_action:MedicalAction</td>
+<td>phenopackets:MedicalAction</td>
 </tr>
 </tbody>
 </table>
@@ -400,115 +438,138 @@ Procedure ||--|o TimeElement : "performed"
 <details>
 <pre><code class="language-yaml">name: MedicalAction
 description: medication, procedure, other actions taken for clinical management
-from_schema: https://w3id.org/linkml/phenopackets/medical_action
-rank: 1000
+from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
   adverseEvents:
     name: adverseEvents
     annotations:
       rank:
         tag: rank
-        value: '8'
+        value: 8
     description: ARGO mapping treatment::adverse_events
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:treatment.adverse_events
     rank: 1000
     multivalued: true
+    domain_of:
+    - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
   procedure:
     name: procedure
     annotations:
       rank:
         tag: rank
-        value: '1'
+        value: 1
     description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
-    rank: 1000
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
+    domain_of:
+    - Measurement
+    - Biosample
+    - MedicalAction
     range: Procedure
   radiationTherapy:
     name: radiationTherapy
     annotations:
       rank:
         tag: rank
-        value: '3'
+        value: 3
     description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
+    domain_of:
+    - MedicalAction
     range: RadiationTherapy
   responseToTreatment:
     name: responseToTreatment
     annotations:
       rank:
         tag: rank
-        value: '7'
+        value: 7
     description: ARGO mapping treatment::response_to_treatment
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:treatment.response_to_treatment
     rank: 1000
+    domain_of:
+    - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
   therapeuticRegimen:
     name: therapeuticRegimen
     annotations:
       rank:
         tag: rank
-        value: '4'
+        value: 4
     description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
+    domain_of:
+    - MedicalAction
     range: TherapeuticRegimen
   treatment:
     name: treatment
     annotations:
       rank:
         tag: rank
-        value: '2'
+        value: 2
     description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
+    domain_of:
+    - MedicalAction
     range: Treatment
   treatmentIntent:
     name: treatmentIntent
     annotations:
       rank:
         tag: rank
-        value: '6'
+        value: 6
     description: Whether the intention of the treatment was curative, palliative,
       ARGO mapping treatment::treatment_intent
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:treatment.treatment_intent
     rank: 1000
+    domain_of:
+    - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
   treatmentTarget:
     name: treatmentTarget
     annotations:
       rank:
         tag: rank
-        value: '5'
+        value: 5
     description: The condition or disease that this treatment was intended to address.
       FHIR mapping Procedure::reasonCode
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
+    domain_of:
+    - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
   treatmentTerminationReason:
     name: treatmentTerminationReason
     annotations:
       rank:
         tag: rank
-        value: '9'
+        value: 9
     description: ARGO mapping treatment::treatment_outcome
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:treatment.treatment_outcome
     rank: 1000
+    domain_of:
+    - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
 rules:
 - postconditions:
     exactly_one_of:
@@ -535,17 +596,16 @@ rules:
 <details>
 <pre><code class="language-yaml">name: MedicalAction
 description: medication, procedure, other actions taken for clinical management
-from_schema: https://w3id.org/linkml/phenopackets/medical_action
-rank: 1000
+from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
   adverseEvents:
     name: adverseEvents
     annotations:
       rank:
         tag: rank
-        value: '8'
+        value: 8
     description: ARGO mapping treatment::adverse_events
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:treatment.adverse_events
     rank: 1000
@@ -556,30 +616,30 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
   procedure:
     name: procedure
     annotations:
       rank:
         tag: rank
-        value: '1'
+        value: 1
     description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
-    rank: 1000
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     alias: procedure
     owner: MedicalAction
     domain_of:
-    - MedicalAction
     - Measurement
     - Biosample
+    - MedicalAction
     range: Procedure
   radiationTherapy:
     name: radiationTherapy
     annotations:
       rank:
         tag: rank
-        value: '3'
+        value: 3
     description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
     alias: radiationTherapy
     owner: MedicalAction
@@ -591,9 +651,9 @@ attributes:
     annotations:
       rank:
         tag: rank
-        value: '7'
+        value: 7
     description: ARGO mapping treatment::response_to_treatment
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:treatment.response_to_treatment
     rank: 1000
@@ -603,14 +663,15 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
   therapeuticRegimen:
     name: therapeuticRegimen
     annotations:
       rank:
         tag: rank
-        value: '4'
+        value: 4
     description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
     alias: therapeuticRegimen
     owner: MedicalAction
@@ -622,9 +683,9 @@ attributes:
     annotations:
       rank:
         tag: rank
-        value: '2'
+        value: 2
     description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
     alias: treatment
     owner: MedicalAction
@@ -636,10 +697,10 @@ attributes:
     annotations:
       rank:
         tag: rank
-        value: '6'
+        value: 6
     description: Whether the intention of the treatment was curative, palliative,
       ARGO mapping treatment::treatment_intent
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:treatment.treatment_intent
     rank: 1000
@@ -649,15 +710,16 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
   treatmentTarget:
     name: treatmentTarget
     annotations:
       rank:
         tag: rank
-        value: '5'
+        value: 5
     description: The condition or disease that this treatment was intended to address.
       FHIR mapping Procedure::reasonCode
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
     alias: treatmentTarget
     owner: MedicalAction
@@ -665,14 +727,15 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
   treatmentTerminationReason:
     name: treatmentTerminationReason
     annotations:
       rank:
         tag: rank
-        value: '9'
+        value: 9
     description: ARGO mapping treatment::treatment_outcome
-    from_schema: https://w3id.org/linkml/phenopackets/medical_action
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:treatment.treatment_outcome
     rank: 1000
@@ -682,6 +745,7 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
+    inlined_as_list: true
 rules:
 - postconditions:
     exactly_one_of:
@@ -728,6 +792,6 @@ rules:
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

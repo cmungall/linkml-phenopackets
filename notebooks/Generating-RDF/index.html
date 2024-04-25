@@ -1,0 +1,1139 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cmungall.github.io/linkml-phenopackets/notebooks/Generating-RDF/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>RDF - phenopackets in linkml EXPERIMENTAL DEMO</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generating-rdf-from-phenopackets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            phenopackets in linkml EXPERIMENTAL DEMO
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RDF
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    phenopackets in linkml EXPERIMENTAL DEMO
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Notebooks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Notebooks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LinkML-Validate/" class="md-nav__link">
+        Validating
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pydantic/" class="md-nav__link">
+        Pydantic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OAK/" class="md-nav__link">
+        Using OAK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          RDF
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        RDF
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-libraries" class="md-nav__link">
+    Import libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dumping-to-rdf" class="md-nav__link">
+    Dumping to RDF
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-libraries" class="md-nav__link">
+    Import libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dumping-to-rdf" class="md-nav__link">
+    Dumping to RDF
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/cmungall/linkml-phenopackets/edit/master/docs/notebooks/Generating-RDF.ipynb" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var jupyterWidgetsScript = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="generating-rdf-from-phenopackets">Generating RDF from Phenopackets</h1>
+<p>One of the advantages of LinkML is automated conversion between different serialization forms of Phenopackets:</p>
+<ul>
+<li>YAML/JSON</li>
+<li>RDF</li>
+<li>SQL Databases</li>
+</ul>
+<p>In this notebook we'll demonstrate conversion to RDF. We will use LinkML conversion libraries via Python, but all
+this can also be done via the command line.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="import-libraries">Import libraries</h2>
+<p>We will use the (autogenerated) Phenopacket python classes, plus the LinkML loaders and dumpers.</p>
+<p>See <a href="https://linkml.io/linkml/data/conversion.html">Data Conversion</a> in the LinkML docs for more information.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">from phenopackets.datamodel.phenopackets import Phenopacket
+from linkml_runtime.loaders import json_loader
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We'll use the generic LinkML json_loader:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">pkt = json_loader.load(&quot;../../../examples/Phenopacket-retinoblastoma.json&quot;, Phenopacket)
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's print out the features as a basic sanity check</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">for pf in pkt.phenotypicFeatures:
+    print(f&quot; {pf.type.id} {pf.type.label}&quot;)
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code> HP:0030084 Clinodactyly
+ HP:0000555 Leukocoria
+ HP:0000486 Strabismus
+ HP:0000541 Retinal detachment
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="dumping-to-rdf">Dumping to RDF</h2>
+<p>We will first import the RDF dumper. This is a generic dumper from LinkML - there is no phenopackets-specific dumper.</p>
+<p>We will also need to use the SchemaView library to load the Phenopackets schema, as the RDF dumper nees this metadata.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">from phenopackets.datamodel import MAIN_SCHEMA_PATH
+from linkml_runtime import SchemaView
+
+sv = SchemaView(str(MAIN_SCHEMA_PATH))
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will also provide a <em>prefix map</em></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">prefix_map = {
+    &quot;HP&quot;: &quot;http://purl.obolibrary.org/obo/HP_&quot;,
+    &quot;ex&quot;: &quot;https://example.org/&quot;,
+    &quot;MONDO&quot;: &quot;http://purl.obolibrary.org/obo/MONDO_&quot;,
+    &quot;NCBITaxon&quot;: &quot;http://purl.obolibrary.org/obo/NCBITaxon_&quot;,
+    &quot;NCIT&quot;: &quot;http://purl.obolibrary.org/obo/NCIT_&quot;,
+    &quot;EFO&quot;: &quot;http://www.ebi.ac.uk/efo/EFO_&quot;,
+    &quot;PMID&quot;: &quot;https://www.ncbi.nlm.nih.gov/pubmed/&quot;,
+    &quot;OMIM&quot;: &quot;http://omim.org/entry/&quot;,
+    &quot;GENO&quot;: &quot;http://purl.obolibrary.org/obo/GENO_&quot;,
+    &quot;ECO&quot;: &quot;http://purl.obolibrary.org/obo/ECO_&quot;,
+    &quot;DOI&quot;: &quot;https://doi.org/&quot;,
+    &quot;DrugCentral&quot;: &quot;http://identifiers.org/drugcentral/&quot;,
+    &quot;LOINC&quot;: &quot;https://loinc.org/&quot;,
+    &quot;UCUM&quot;: &quot;http://unitsofmeasure.org/&quot;,
+    &quot;PATO&quot;: &quot;http://purl.obolibrary.org/obo/PATO_&quot;,
+    &quot;CHEBI&quot;: &quot;http://purl.obolibrary.org/obo/CHEBI_&quot;,
+    &quot;SCTID&quot;: &quot;http://snomed.info/id/&quot;,
+    &quot;SNOMEDCT&quot;: &quot;http://snomed.info/id/&quot;,
+    &quot;UO&quot;: &quot;http://purl.obolibrary.org/obo/UO_&quot;,
+    &quot;__base&quot;: &quot;https://example.org/base/&quot;,
+}
+
+</code></pre>
+
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">from linkml_runtime.dumpers import rdflib_dumper
+
+print(rdflib_dumper.dumps(pkt, schemaview=sv, prefix_map=prefix_map))
+</code></pre>
+
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>@prefix DrugCentral: &lt;http://identifiers.org/drugcentral/&gt; .
+@prefix GENO: &lt;http://purl.obolibrary.org/obo/GENO_&gt; .
+@prefix HP: &lt;http://purl.obolibrary.org/obo/HP_&gt; .
+@prefix LOINC: &lt;https://loinc.org/&gt; .
+@prefix NCIT: &lt;http://purl.obolibrary.org/obo/NCIT_&gt; .
+@prefix UBERON: &lt;http://purl.obolibrary.org/obo/UBERON_&gt; .
+@prefix UCUM: &lt;http://unitsofmeasure.org/&gt; .
+@prefix ns1: &lt;measurement:&gt; .
+@prefix ns10: &lt;vrs:&gt; .
+@prefix ns11: &lt;individual:&gt; .
+@prefix ns2: &lt;meta_data:&gt; .
+@prefix ns3: &lt;phenotypic_feature:&gt; .
+@prefix ns4: &lt;base:&gt; .
+@prefix ns5: &lt;interpretation:&gt; .
+@prefix ns6: &lt;biosample:&gt; .
+@prefix ns7: &lt;vrsatile:&gt; .
+@prefix ns8: &lt;disease:&gt; .
+@prefix ns9: &lt;medical_action:&gt; .
+@prefix phenopackets: &lt;https://w3id.org/linkml/phenopackets/phenopackets/&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+DrugCentral:1678 a ns4:OntologyClass ;
+    ns4:label "melphalan" .
+
+GENO:0000135 a ns4:OntologyClass ;
+    ns4:label "heterozygous" .
+
+HP:0000486 a ns4:OntologyClass ;
+    ns4:label "Strabismus" .
+
+HP:0000541 a ns4:OntologyClass ;
+    ns4:label "Retinal detachment" .
+
+HP:0000555 a ns4:OntologyClass ;
+    ns4:label "Leukocoria" .
+
+HP:0012834 a ns4:OntologyClass ;
+    ns4:label "Right" .
+
+HP:0025637 a ns4:OntologyClass ;
+    ns4:label "Vasospasm" .
+
+HP:0030084 a ns4:OntologyClass ;
+    ns4:label "Clinodactyly" .
+
+NCIT:C10894 a ns4:OntologyClass ;
+    ns4:label "Carboplatin/Etoposide/Vincristine" .
+
+NCIT:C132485 a ns4:OntologyClass ;
+    ns4:label "Apoptosis and Necrosis" .
+
+NCIT:C140678 a ns4:OntologyClass ;
+    ns4:label "Retinoblastoma cM0 TNM Finding v8" .
+
+NCIT:C140711 a ns4:OntologyClass ;
+    ns4:label "Retinoblastoma pN0 TNM Finding v8" .
+
+NCIT:C140720 a ns4:OntologyClass ;
+    ns4:label "Retinoblastoma pT3 TNM Finding v8" .
+
+NCIT:C35941 a ns4:OntologyClass ;
+    ns4:label "Flexner-Wintersteiner Rosette Formation" .
+
+NCIT:C38222 a ns4:OntologyClass ;
+    ns4:label "Intraarterial Route of Administration" .
+
+NCIT:C41331 a ns4:OntologyClass ;
+    ns4:label "Adverse Event" .
+
+NCIT:C64576 a ns4:OntologyClass ;
+    ns4:label "Once" .
+
+NCIT:C8509 a ns4:OntologyClass ;
+    ns4:label "Primary Neoplasm" .
+
+UBERON:0000970 a ns4:OntologyClass ;
+    ns4:label "eye" .
+
+UCUM:mg.kg-1 a ns4:OntologyClass ;
+    ns4:label "milligram per kilogram" .
+
+UCUM:mm a ns4:OntologyClass ;
+    ns4:label "millimeter" .
+
+LOINC:33728-7 a ns4:OntologyClass ;
+    ns4:label "Size.maximum dimension in Tumor" .
+
+LOINC:79892-6 a ns4:OntologyClass ;
+    ns4:label "Right eye Intraocular pressure" .
+
+LOINC:79893-4 a ns4:OntologyClass ;
+    ns4:label "Left eye Intraocular pressure" .
+
+LOINC:LA24739-7 a ns4:OntologyClass ;
+    ns4:label "Group E" .
+
+NCIT:C48601 a ns4:OntologyClass ;
+    ns4:label "Enucleation" .
+
+&lt;http://unitsofmeasure.org/mm[Hg]&gt; a ns4:OntologyClass ;
+    ns4:label "millimetres of mercury" .
+
+LOINC:56844-4 a ns4:OntologyClass ;
+    ns4:label "Intraocular pressure of Eye" .
+
+HP:0012835 a ns4:OntologyClass ;
+    ns4:label "Left" .
+
+NCIT:C62220 a ns4:OntologyClass ;
+    ns4:label "Cure" .
+
+UBERON:0004548 a ns4:OntologyClass ;
+    ns4:label "left eye" .
+
+NCIT:C7541 a ns4:OntologyClass ;
+    ns4:label "Retinoblastoma" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:biosamples [ a ns6:Biosample ;
+            ns6:files [ a ns4:File ;
+                    ns4:uri "file://data/fileSomaticWgs.vcf.gz" ] ;
+            ns6:id "biosample.1" ;
+            ns6:measurements [ a ns1:Measurement ;
+                    ns1:assay LOINC:33728-7 ;
+                    ns1:timeObserved [ a ns4:TimeElement ;
+                            ns4:age [ a ns4:Age ;
+                                    ns4:iso8601duration "P8M2W" ] ] ;
+                    ns1:value [ a ns1:Value ;
+                            ns1:quantity [ a ns1:Quantity ;
+                                    ns1:unit UCUM:mm ;
+                                    ns1:value 1.5e+01 ] ] ] ;
+            ns6:pathologicalTnmFinding NCIT:C140711,
+                NCIT:C140720 ;
+            ns6:phenotypicFeatures [ a ns3:PhenotypicFeature ;
+                    ns3:excluded false ;
+                    ns3:type NCIT:C132485 ],
+                [ a ns3:PhenotypicFeature ;
+                    ns3:excluded false ;
+                    ns3:type NCIT:C35941 ] ;
+            ns6:procedure [ a ns4:Procedure ;
+                    ns4:bodySite UBERON:0004548 ;
+                    ns4:code NCIT:C48601 ;
+                    ns4:performed [ a ns4:TimeElement ;
+                            ns4:age [ a ns4:Age ;
+                                    ns4:iso8601duration "P8M2W" ] ] ] ;
+            ns6:sampledTissue UBERON:0000970 ;
+            ns6:tumorProgression NCIT:C8509 ] ;
+    phenopackets:diseases [ a ns8:Disease ;
+            ns8:clinicalTnmFinding NCIT:C140678 ;
+            ns8:diseaseStage LOINC:LA24739-7 ;
+            ns8:excluded false ;
+            ns8:onset [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P4M" ] ] ;
+            ns8:primarySite UBERON:0004548 ;
+            ns8:term NCIT:C7541 ] ;
+    phenopackets:files [ a ns4:File ;
+            ns4:uri "file://data/germlineWgs.vcf.gz" ] ;
+    phenopackets:id "arbitrary.id" ;
+    phenopackets:interpretations [ a ns5:Interpretation ;
+            ns5:diagnosis [ a ns5:Diagnosis ;
+                    ns5:disease NCIT:C7541 ;
+                    ns5:genomicInterpretations [ a ns5:GenomicInterpretation ;
+                            ns5:interpretationStatus "CAUSATIVE" ;
+                            ns5:subjectOrBiosampleId "proband A" ;
+                            ns5:variantInterpretation [ a ns5:VariantInterpretation ;
+                                    ns5:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns5:therapeuticActionability "ACTIONABLE" ;
+                                    ns5:variationDescriptor [ a ns7:VariationDescriptor ;
+                                            ns7:extensions [ a ns7:Extension ;
+                                                    ns7:name "mosaicism" ;
+                                                    ns7:value "40.0%" ] ;
+                                            ns7:id "variant-id" ;
+                                            ns7:moleculeContext "unspecified_molecule_context" ;
+                                            ns7:variation [ a ns10:Variation ;
+                                                    ns10:copyNumber [ a ns10:CopyNumber ;
+                                                            ns10:derivedSequenceExpression [ a ns10:DerivedSequenceExpression ;
+                                                                    ns10:location [ a ns10:SequenceLocation ;
+                                                                            ns10:sequenceId "refseq:NC_000013.14" ;
+                                                                            ns10:sequenceInterval [ a ns10:SequenceInterval ;
+                                                                                    ns10:endNumber [ a ns10:Number ;
+                                                                                            ns10:value 61706822 ] ;
+                                                                                    ns10:startNumber [ a ns10:Number ;
+                                                                                            ns10:value 25981249 ] ] ] ;
+                                                                    ns10:reverseComplement false ] ;
+                                                            ns10:number [ a ns10:Number ;
+                                                                    ns10:value 1 ] ] ] ] ] ],
+                        [ a ns5:GenomicInterpretation ;
+                            ns5:interpretationStatus "CAUSATIVE" ;
+                            ns5:subjectOrBiosampleId "biosample.1" ;
+                            ns5:variantInterpretation [ a ns5:VariantInterpretation ;
+                                    ns5:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns5:therapeuticActionability "ACTIONABLE" ;
+                                    ns5:variationDescriptor [ a ns7:VariationDescriptor ;
+                                            ns7:allelicState GENO:0000135 ;
+                                            ns7:expressions [ a ns7:Expression ;
+                                                    ns7:syntax "hgvs.c" ;
+                                                    ns7:value "NM_000321.2:c.958C&gt;T" ],
+                                                [ a ns7:Expression ;
+                                                    ns7:syntax "transcript_reference" ;
+                                                    ns7:value "NM_000321.2" ] ;
+                                            ns7:extensions [ a ns7:Extension ;
+                                                    ns7:name "allele-frequency" ;
+                                                    ns7:value "25.0%" ] ;
+                                            ns7:geneContext [ a ns7:GeneDescriptor ;
+                                                    ns7:symbol "RB1" ;
+                                                    ns7:valueId "HGNC:9884" ] ;
+                                            ns7:id "rs121913300" ;
+                                            ns7:label "RB1 c.958C&gt;T (p.Arg320Ter)" ;
+                                            ns7:moleculeContext "genomic" ;
+                                            ns7:variation [ a ns10:Variation ;
+                                                    ns10:allele [ a ns10:Allele ;
+                                                            ns10:literalSequenceExpression [ a ns10:LiteralSequenceExpression ;
+                                                                    ns10:sequence "T" ] ;
+                                                            ns10:sequenceLocation [ a ns10:SequenceLocation ;
+                                                                    ns10:sequenceId "refseq:NC_000013.11" ;
+                                                                    ns10:sequenceInterval [ a ns10:SequenceInterval ;
+                                                                            ns10:endNumber [ a ns10:Number ;
+                                                                                    ns10:value 48367512 ] ;
+                                                                            ns10:startNumber [ a ns10:Number ;
+                                                                                    ns10:value 48367511 ] ] ] ] ] ;
+                                            ns7:vcfRecord [ a ns7:VcfRecord ;
+                                                    ns7:alt "T" ;
+                                                    ns7:chrom "NC_000013.11" ;
+                                                    ns7:genomeAssembly "GRCh38" ;
+                                                    ns7:pos 48367512 ;
+                                                    ns7:ref "C" ] ] ] ] ] ;
+            ns5:id "interpretation.id" ;
+            ns5:progressStatus "SOLVED" ] ;
+    phenopackets:measurements [ a ns1:Measurement ;
+            ns1:assay LOINC:79892-6 ;
+            ns1:timeObserved [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P6M" ] ] ;
+            ns1:value [ a ns1:Value ;
+                    ns1:quantity [ a ns1:Quantity ;
+                            ns1:referenceRange [ a ns1:ReferenceRange ;
+                                    ns1:high 2.1e+01 ;
+                                    ns1:low 1e+01 ;
+                                    ns1:unit LOINC:56844-4 ] ;
+                            ns1:unit &lt;http://unitsofmeasure.org/mm[Hg]&gt; ;
+                            ns1:value 1.5e+01 ] ] ],
+        [ a ns1:Measurement ;
+            ns1:assay LOINC:79893-4 ;
+            ns1:timeObserved [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P6M" ] ] ;
+            ns1:value [ a ns1:Value ;
+                    ns1:quantity [ a ns1:Quantity ;
+                            ns1:referenceRange [ a ns1:ReferenceRange ;
+                                    ns1:high 2.1e+01 ;
+                                    ns1:low 1e+01 ;
+                                    ns1:unit LOINC:56844-4 ] ;
+                            ns1:unit &lt;http://unitsofmeasure.org/mm[Hg]&gt; ;
+                            ns1:value 2.5e+01 ] ] ] ;
+    phenopackets:medicalActions [ a ns9:MedicalAction ;
+            ns9:adverseEvents HP:0025637 ;
+            ns9:treatment [ a ns9:Treatment ;
+                    ns9:agent DrugCentral:1678 ;
+                    ns9:doseIntervals [ a ns9:DoseInterval ;
+                            ns9:interval [ a ns4:TimeInterval ;
+                                    ns4:end "2020-09-02T00:00:00Z" ;
+                                    ns4:start "2020-09-02T00:00:00Z" ] ;
+                            ns9:quantity [ a ns1:Quantity ;
+                                    ns1:unit UCUM:mg.kg-1 ;
+                                    ns1:value 4e-01 ] ;
+                            ns9:scheduleFrequency NCIT:C64576 ] ;
+                    ns9:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns9:routeOfAdministration NCIT:C38222 ] ;
+            ns9:treatmentIntent NCIT:C62220 ;
+            ns9:treatmentTarget NCIT:C7541 ;
+            ns9:treatmentTerminationReason NCIT:C41331 ],
+        [ a ns9:MedicalAction ;
+            ns9:procedure [ a ns4:Procedure ;
+                    ns4:bodySite UBERON:0004548 ;
+                    ns4:code NCIT:C48601 ;
+                    ns4:performed [ a ns4:TimeElement ;
+                            ns4:age [ a ns4:Age ;
+                                    ns4:iso8601duration "P8M2W" ] ] ] ;
+            ns9:treatmentIntent NCIT:C62220 ;
+            ns9:treatmentTarget NCIT:C7541 ],
+        [ a ns9:MedicalAction ;
+            ns9:therapeuticRegimen [ a ns9:TherapeuticRegimen ;
+                    ns9:endTime [ a ns4:TimeElement ;
+                            ns4:age [ a ns4:Age ;
+                                    ns4:iso8601duration "P8M" ] ] ;
+                    ns9:ontologyClass NCIT:C10894 ;
+                    ns9:regimenStatus "COMPLETED" ;
+                    ns9:startTime [ a ns4:TimeElement ;
+                            ns4:age [ a ns4:Age ;
+                                    ns4:iso8601duration "P7M" ] ] ] ;
+            ns9:treatmentIntent NCIT:C62220 ;
+            ns9:treatmentTarget NCIT:C7541 ] ;
+    phenopackets:metaData [ a ns2:MetaData ;
+            ns2:created "2021-05-14T10:35:00Z" ;
+            ns2:createdBy "anonymous biocurator" ;
+            ns2:phenopacketSchemaVersion "2.0.0" ;
+            ns2:resources [ a ns2:Resource ;
+                    ns2:id "drugcentral" ;
+                    ns2:iriPrefix "https://drugcentral.org/drugcard/" ;
+                    ns2:name "Drug Central" ;
+                    ns2:namespacePrefix "DrugCentral" ;
+                    ns2:url "https://drugcentral.org/" ;
+                    ns2:version "2022-08-22" ],
+                [ a ns2:Resource ;
+                    ns2:id "ncit" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns2:name "NCI Thesaurus" ;
+                    ns2:namespacePrefix "NCIT" ;
+                    ns2:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns2:version "21.05d" ],
+                [ a ns2:Resource ;
+                    ns2:id "loinc" ;
+                    ns2:iriPrefix "https://loinc.org/" ;
+                    ns2:name "Logical Observation Identifiers Names and Codes" ;
+                    ns2:namespacePrefix "LOINC" ;
+                    ns2:url "https://loinc.org" ;
+                    ns2:version "2.73" ],
+                [ a ns2:Resource ;
+                    ns2:id "ucum" ;
+                    ns2:iriPrefix "https://units-of-measurement.org/" ;
+                    ns2:name "Unified Code for Units of Measure" ;
+                    ns2:namespacePrefix "UCUM" ;
+                    ns2:url "https://ucum.org" ;
+                    ns2:version "2.1" ],
+                [ a ns2:Resource ;
+                    ns2:id "geno" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
+                    ns2:name "Genotype Ontology" ;
+                    ns2:namespacePrefix "GENO" ;
+                    ns2:url "http://purl.obolibrary.org/obo/geno.owl" ;
+                    ns2:version "2022-03-05" ],
+                [ a ns2:Resource ;
+                    ns2:id "ncbitaxon" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/NCBITaxon_" ;
+                    ns2:name "NCBI organismal classification" ;
+                    ns2:namespacePrefix "NCBITaxon" ;
+                    ns2:url "http://purl.obolibrary.org/obo/ncbitaxon.owl" ;
+                    ns2:version "2021-06-10" ],
+                [ a ns2:Resource ;
+                    ns2:id "uberon" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
+                    ns2:name "Uber-anatomy ontology" ;
+                    ns2:namespacePrefix "UBERON" ;
+                    ns2:url "http://purl.obolibrary.org/obo/uberon.owl" ;
+                    ns2:version "2021-07-27" ],
+                [ a ns2:Resource ;
+                    ns2:id "efo" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/EFO_" ;
+                    ns2:name "Experimental Factor Ontology" ;
+                    ns2:namespacePrefix "EFO" ;
+                    ns2:url "http://www.ebi.ac.uk/efo/efo.owl" ;
+                    ns2:version "3.34.0" ],
+                [ a ns2:Resource ;
+                    ns2:id "hp" ;
+                    ns2:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns2:name "human phenotype ontology" ;
+                    ns2:namespacePrefix "HP" ;
+                    ns2:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns2:version "2022-06-11" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:modifiers HP:0012835 ;
+            ns3:onset [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P6M" ] ] ;
+            ns3:type HP:0000541 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:modifiers HP:0012834 ;
+            ns3:onset [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P3M" ] ] ;
+            ns3:type HP:0030084 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:modifiers HP:0012835 ;
+            ns3:onset [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P4M" ] ] ;
+            ns3:type HP:0000555 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:modifiers HP:0012835 ;
+            ns3:onset [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P5M15D" ] ] ;
+            ns3:type HP:0000486 ] ;
+    phenopackets:subject [ a ns11:Individual ;
+            ns11:id "proband A" ;
+            ns11:karyotypicSex "XX" ;
+            ns11:sex "FEMALE" ;
+            ns11:timeAtLastEncounter [ a ns4:TimeElement ;
+                    ns4:age [ a ns4:Age ;
+                            ns4:iso8601duration "P6M" ] ] ] .
+
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<pre><code class="language-python">
+</code></pre>
+
+
+</div>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../OAK/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using OAK" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Using OAK
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

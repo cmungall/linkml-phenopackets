@@ -7,13 +7,16 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://cmungall.github.io/linkml-phenopackets/Resource/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Resource - phenopackets in linkml EXPERIMENTAL DEMO</title>
-<link href="../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../css/ansi-colours.css" rel="stylesheet"/>
+<link href="../css/jupyter-cells.css" rel="stylesheet"/>
+<link href="../css/pandas-dataframe.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="amber" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
@@ -95,7 +98,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -120,7 +123,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     GitHub
@@ -137,6 +140,41 @@
 <a class="md-nav__link" href="..">
         Index
       </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Notebooks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../notebooks/LinkML-Validate/">
+        Validating
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../notebooks/Pydantic/">
+        Pydantic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../notebooks/OAK/">
+        Using OAK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../notebooks/Generating-RDF/">
+        RDF
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -212,7 +250,7 @@
 </a>
 <h1 id="class-resource">Class: Resource</h1>
 <p><em>Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)</em></p>
-<p>URI: <a href="meta_data:Resource">meta_data:Resource</a></p>
+<p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/Resource">phenopackets:Resource</a></p>
 <div class="mermaid">erDiagram
 Resource {
     string id  
@@ -240,38 +278,38 @@ Resource {
 <tbody>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>for OBO Ontologies, the value of this string MUST always be the official OBO ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../iriPrefix/">iriPrefix</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>Full IRI prefix which can be used with the namespace_prefix and the OntologyC...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>e</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../namespacePrefix/">namespacePrefix</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The prefix used in the CURIE of an OntologyClass e</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../url/">url</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>For OBO ontologies, this should always be the PURL, e</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../version/">version</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
-<td></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>for OBO ontologies, this should be the versionIRI</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -298,7 +336,7 @@ Resource {
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/linkml/phenopackets/meta_data</li>
+<li>from schema: https://w3id.org/linkml/phenopackets/phenopackets</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -311,11 +349,11 @@ Resource {
 <tbody>
 <tr>
 <td>self</td>
-<td>meta_data:Resource</td>
+<td>phenopackets:Resource</td>
 </tr>
 <tr>
 <td>native</td>
-<td>meta_data:Resource</td>
+<td>phenopackets:Resource</td>
 </tr>
 </tbody>
 </table>
@@ -327,30 +365,47 @@ Resource {
 description: 'Description of an external resource used for referencing an object.
   For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping:
   CodeSystem (http://www.hl7.org/fhir/codesystem.html)'
-from_schema: https://w3id.org/linkml/phenopackets/meta_data
-rank: 1000
+from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
   id:
     name: id
     annotations:
       percent_encoded:
         tag: percent_encoded
-        value: 'True'
+        value: true
       rank:
         tag: rank
-        value: '1'
+        value: 1
     description: 'for OBO Ontologies, the value of this string MUST always be the
       official OBO ID, which is always equivalent to the ID prefix in lower case.
       Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list
       For other ontologies (e.g. SNOMED), use the prefix in identifiers.org'
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
+    domain_of:
+    - Cohort
+    - Family
+    - Phenopacket
+    - ExternalReference
+    - OntologyClass
+    - Biosample
+    - Allele
+    - ChromosomeLocation
+    - CopyNumber
+    - Member
+    - SequenceLocation
+    - Text
+    - VariationDescriptor
+    - VcfRecord
+    - Interpretation
+    - Individual
+    - Resource
     range: string
   iriPrefix:
     name: iriPrefix
     annotations:
       rank:
         tag: rank
-        value: '6'
+        value: 6
     description: 'Full IRI prefix which can be used with the namespace_prefix and
       the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util
       (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable
@@ -358,54 +413,64 @@ attributes:
       OntologyClass: id: ''HP:0012828'' label: ''Severe'' Resource: namespace_prefix:
       ''HP'' iri_prefix: ''http://purl.obolibrary.org/obo/HP_'' the term can be resolved
       to http://purl.obolibrary.org/obo/HP_0012828'
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
+    domain_of:
+    - Resource
     range: string
   name:
     name: name
     annotations:
       rank:
         tag: rank
-        value: '2'
+        value: 2
     description: e.g. The Human Phenotype Ontology for OBO Ontologies, the value of
       this string SHOULD be the same as the title field on http://obofoundry.org however,
       this field is purely for information purposes and software should not encode
       any assumptions
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
-    rank: 1000
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
+    domain_of:
+    - Extension
+    - Resource
     range: string
   namespacePrefix:
     name: namespacePrefix
     annotations:
       rank:
         tag: rank
-        value: '5'
+        value: 5
     description: The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO
       For example an HPO term will have a CURIE like this - HP:0012828 which should
       be used in combination with the iri_prefix to form a fully-resolvable IRI
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
+    domain_of:
+    - Resource
     range: string
   url:
     name: url
     annotations:
       rank:
         tag: rank
-        value: '3'
+        value: 3
     description: For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl,
       http://purl.obolibrary.org/obo/hp.obo
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
+    domain_of:
+    - Resource
     range: string
   version:
     name: version
     annotations:
       rank:
         tag: rank
-        value: '4'
+        value: 4
     description: for OBO ontologies, this should be the versionIRI
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
-    rank: 1000
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
+    domain_of:
+    - Expression
+    - Resource
     range: string
 
 </code></pre>
@@ -416,23 +481,22 @@ attributes:
 description: 'Description of an external resource used for referencing an object.
   For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping:
   CodeSystem (http://www.hl7.org/fhir/codesystem.html)'
-from_schema: https://w3id.org/linkml/phenopackets/meta_data
-rank: 1000
+from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
   id:
     name: id
     annotations:
       percent_encoded:
         tag: percent_encoded
-        value: 'True'
+        value: true
       rank:
         tag: rank
-        value: '1'
+        value: 1
     description: 'for OBO Ontologies, the value of this string MUST always be the
       official OBO ID, which is always equivalent to the ID prefix in lower case.
       Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list
       For other ontologies (e.g. SNOMED), use the prefix in identifiers.org'
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     alias: id
     owner: Resource
     domain_of:
@@ -441,25 +505,25 @@ attributes:
     - Phenopacket
     - ExternalReference
     - OntologyClass
-    - Individual
-    - Resource
-    - Interpretation
-    - VariationDescriptor
-    - VcfRecord
+    - Biosample
     - Allele
     - ChromosomeLocation
     - CopyNumber
     - Member
     - SequenceLocation
     - Text
-    - Biosample
+    - VariationDescriptor
+    - VcfRecord
+    - Interpretation
+    - Individual
+    - Resource
     range: string
   iriPrefix:
     name: iriPrefix
     annotations:
       rank:
         tag: rank
-        value: '6'
+        value: 6
     description: 'Full IRI prefix which can be used with the namespace_prefix and
       the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util
       (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable
@@ -467,7 +531,7 @@ attributes:
       OntologyClass: id: ''HP:0012828'' label: ''Severe'' Resource: namespace_prefix:
       ''HP'' iri_prefix: ''http://purl.obolibrary.org/obo/HP_'' the term can be resolved
       to http://purl.obolibrary.org/obo/HP_0012828'
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
     alias: iriPrefix
     owner: Resource
@@ -479,29 +543,28 @@ attributes:
     annotations:
       rank:
         tag: rank
-        value: '2'
+        value: 2
     description: e.g. The Human Phenotype Ontology for OBO Ontologies, the value of
       this string SHOULD be the same as the title field on http://obofoundry.org however,
       this field is purely for information purposes and software should not encode
       any assumptions
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
-    rank: 1000
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     alias: name
     owner: Resource
     domain_of:
-    - Resource
     - Extension
+    - Resource
     range: string
   namespacePrefix:
     name: namespacePrefix
     annotations:
       rank:
         tag: rank
-        value: '5'
+        value: 5
     description: The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO
       For example an HPO term will have a CURIE like this - HP:0012828 which should
       be used in combination with the iri_prefix to form a fully-resolvable IRI
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
     alias: namespacePrefix
     owner: Resource
@@ -513,10 +576,10 @@ attributes:
     annotations:
       rank:
         tag: rank
-        value: '3'
+        value: 3
     description: For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl,
       http://purl.obolibrary.org/obo/hp.obo
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
     alias: url
     owner: Resource
@@ -528,15 +591,14 @@ attributes:
     annotations:
       rank:
         tag: rank
-        value: '4'
+        value: 4
     description: for OBO ontologies, this should be the versionIRI
-    from_schema: https://w3id.org/linkml/phenopackets/meta_data
-    rank: 1000
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     alias: version
     owner: Resource
     domain_of:
-    - Resource
     - Expression
+    - Resource
     range: string
 
 </code></pre>
@@ -565,6 +627,6 @@ attributes:
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>
