@@ -5,8 +5,21 @@
             "description": "",
             "properties": {
                 "copyNumber": {
-                    "$ref": "#/$defs/CopyNumber"
+                    "$ref": "#/$defs/CopyNumber",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "copyNumber": {}
+                        },
+                        "required": [
+                            "copyNumber"
+                        ]
+                    }
+                ]
             },
             "title": "Abundance",
             "type": "object"
@@ -51,10 +64,12 @@
             "description": "",
             "properties": {
                 "end": {
-                    "$ref": "#/$defs/Age"
+                    "$ref": "#/$defs/Age",
+                    "description": ""
                 },
                 "start": {
-                    "$ref": "#/$defs/Age"
+                    "$ref": "#/$defs/Age",
+                    "description": ""
                 }
             },
             "title": "AgeRange",
@@ -65,26 +80,61 @@
             "description": "",
             "properties": {
                 "chromosomeLocation": {
-                    "$ref": "#/$defs/ChromosomeLocation"
+                    "$ref": "#/$defs/ChromosomeLocation",
+                    "description": ""
                 },
                 "curie": {
+                    "description": "",
                     "type": "string"
                 },
                 "derivedSequenceExpression": {
-                    "$ref": "#/$defs/DerivedSequenceExpression"
+                    "$ref": "#/$defs/DerivedSequenceExpression",
+                    "description": ""
                 },
                 "id": {
+                    "description": "",
                     "type": "string"
                 },
                 "literalSequenceExpression": {
-                    "$ref": "#/$defs/LiteralSequenceExpression"
+                    "$ref": "#/$defs/LiteralSequenceExpression",
+                    "description": ""
                 },
                 "repeatedSequenceExpression": {
-                    "$ref": "#/$defs/RepeatedSequenceExpression"
+                    "$ref": "#/$defs/RepeatedSequenceExpression",
+                    "description": ""
                 },
                 "sequenceLocation": {
-                    "$ref": "#/$defs/SequenceLocation"
+                    "$ref": "#/$defs/SequenceLocation",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "literalSequenceExpression": {}
+                        },
+                        "required": [
+                            "literalSequenceExpression"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "derivedSequenceExpression": {}
+                        },
+                        "required": [
+                            "derivedSequenceExpression"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "repeatedSequenceExpression": {}
+                        },
+                        "required": [
+                            "repeatedSequenceExpression"
+                        ]
+                    }
+                ]
             },
             "title": "Allele",
             "type": "object"
@@ -137,7 +187,18 @@
                 },
                 "diagnosticMarkers": {
                     "additionalProperties": {
-                        "$ref": "#/$defs/OntologyClass__identifier_optional"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/OntologyClass__identifier_optional"
+                            },
+                            {
+                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "description": "Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)",
                     "type": "object"
@@ -166,6 +227,7 @@
                     "description": "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation"
                 },
                 "measurements": {
+                    "description": "",
                     "items": {
                         "$ref": "#/$defs/Measurement"
                     },
@@ -177,7 +239,18 @@
                 },
                 "pathologicalTnmFinding": {
                     "additionalProperties": {
-                        "$ref": "#/$defs/OntologyClass__identifier_optional"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/OntologyClass__identifier_optional"
+                            },
+                            {
+                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "description": "ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category",
                     "type": "object"
@@ -234,15 +307,19 @@
             "description": "",
             "properties": {
                 "chr": {
+                    "description": "",
                     "type": "string"
                 },
                 "id": {
+                    "description": "",
                     "type": "string"
                 },
                 "interval": {
-                    "$ref": "#/$defs/CytobandInterval"
+                    "$ref": "#/$defs/CytobandInterval",
+                    "description": ""
                 },
                 "speciesId": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -254,6 +331,7 @@
             "description": "A group of individuals related in some phenotypic or genotypic aspect.",
             "properties": {
                 "description": {
+                    "description": "",
                     "type": "string"
                 },
                 "files": {
@@ -264,9 +342,11 @@
                     "type": "array"
                 },
                 "id": {
+                    "description": "",
                     "type": "string"
                 },
                 "members": {
+                    "description": "",
                     "items": {
                         "$ref": "#/$defs/Phenopacket"
                     },
@@ -303,38 +383,77 @@
             "description": "",
             "properties": {
                 "allele": {
-                    "$ref": "#/$defs/Allele"
+                    "$ref": "#/$defs/Allele",
+                    "description": ""
                 },
                 "curie": {
+                    "description": "",
                     "type": "string"
                 },
                 "definiteRange": {
-                    "$ref": "#/$defs/DefiniteRange"
+                    "$ref": "#/$defs/DefiniteRange",
+                    "description": ""
                 },
                 "derivedSequenceExpression": {
-                    "$ref": "#/$defs/DerivedSequenceExpression"
+                    "$ref": "#/$defs/DerivedSequenceExpression",
+                    "description": ""
                 },
                 "gene": {
-                    "$ref": "#/$defs/Gene"
+                    "$ref": "#/$defs/Gene",
+                    "description": ""
                 },
                 "haplotype": {
-                    "$ref": "#/$defs/Haplotype"
+                    "$ref": "#/$defs/Haplotype",
+                    "description": ""
                 },
                 "id": {
+                    "description": "",
                     "type": "string"
                 },
                 "indefiniteRange": {
-                    "$ref": "#/$defs/IndefiniteRange"
+                    "$ref": "#/$defs/IndefiniteRange",
+                    "description": ""
                 },
                 "literalSequenceExpression": {
-                    "$ref": "#/$defs/LiteralSequenceExpression"
+                    "$ref": "#/$defs/LiteralSequenceExpression",
+                    "description": ""
                 },
                 "number": {
-                    "$ref": "#/$defs/Number"
+                    "$ref": "#/$defs/Number",
+                    "description": ""
                 },
                 "repeatedSequenceExpression": {
-                    "$ref": "#/$defs/RepeatedSequenceExpression"
+                    "$ref": "#/$defs/RepeatedSequenceExpression",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "number": {}
+                        },
+                        "required": [
+                            "number"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "indefiniteRange": {}
+                        },
+                        "required": [
+                            "indefiniteRange"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "definiteRange": {}
+                        },
+                        "required": [
+                            "definiteRange"
+                        ]
+                    }
+                ]
             },
             "title": "CopyNumber",
             "type": "object"
@@ -344,9 +463,11 @@
             "description": "",
             "properties": {
                 "end": {
+                    "description": "",
                     "type": "string"
                 },
                 "start": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -358,9 +479,11 @@
             "description": "",
             "properties": {
                 "max": {
+                    "description": "",
                     "type": "integer"
                 },
                 "min": {
+                    "description": "",
                     "type": "integer"
                 }
             },
@@ -372,9 +495,11 @@
             "description": "",
             "properties": {
                 "location": {
-                    "$ref": "#/$defs/SequenceLocation"
+                    "$ref": "#/$defs/SequenceLocation",
+                    "description": ""
                 },
                 "reverseComplement": {
+                    "description": "",
                     "type": "boolean"
                 }
             },
@@ -412,14 +537,36 @@
             "properties": {
                 "clinicalTnmFinding": {
                     "additionalProperties": {
-                        "$ref": "#/$defs/OntologyClass__identifier_optional"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/OntologyClass__identifier_optional"
+                            },
+                            {
+                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "description": "Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category",
                     "type": "object"
                 },
                 "diseaseStage": {
                     "additionalProperties": {
-                        "$ref": "#/$defs/OntologyClass__identifier_optional"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/OntologyClass__identifier_optional"
+                            },
+                            {
+                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "description": "Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group",
                     "type": "object"
@@ -441,7 +588,8 @@
                     "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general"
                 },
                 "resolution": {
-                    "$ref": "#/$defs/TimeElement"
+                    "$ref": "#/$defs/TimeElement",
+                    "description": ""
                 },
                 "term": {
                     "$ref": "#/$defs/OntologyClass",
@@ -456,13 +604,16 @@
             "description": "e.g. 50mg/ml 3 times daily for two weeks",
             "properties": {
                 "interval": {
-                    "$ref": "#/$defs/TimeInterval"
+                    "$ref": "#/$defs/TimeInterval",
+                    "description": ""
                 },
                 "quantity": {
-                    "$ref": "#/$defs/Quantity"
+                    "$ref": "#/$defs/Quantity",
+                    "description": ""
                 },
                 "scheduleFrequency": {
-                    "$ref": "#/$defs/OntologyClass"
+                    "$ref": "#/$defs/OntologyClass",
+                    "description": ""
                 }
             },
             "title": "DoseInterval",
@@ -500,12 +651,15 @@
             "description": "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression",
             "properties": {
                 "syntax": {
+                    "description": "",
                     "type": "string"
                 },
                 "value": {
+                    "description": "",
                     "type": "string"
                 },
                 "version": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -517,9 +671,11 @@
             "description": "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension",
             "properties": {
                 "name": {
+                    "description": "",
                     "type": "string"
                 },
                 "value": {
+                    "description": "",
                     "items": {
                         "type": "string"
                     },
@@ -599,8 +755,21 @@
             "description": "",
             "properties": {
                 "gene": {
-                    "$ref": "#/$defs/Gene"
+                    "$ref": "#/$defs/Gene",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "gene": {}
+                        },
+                        "required": [
+                            "gene"
+                        ]
+                    }
+                ]
             },
             "title": "Feature",
             "type": "object"
@@ -627,7 +796,6 @@
         },
         "GENOZygosityTerms": {
             "description": "GENO is an ontology of genotypes their more fundamental sequence components. This enum refers to the zygosity subset of GENO",
-            "enum": [],
             "title": "GENOZygosityTerms",
             "type": "string"
         },
@@ -650,6 +818,7 @@
             "description": "",
             "properties": {
                 "geneId": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -702,18 +871,41 @@
             "description": "A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations.",
             "properties": {
                 "gene": {
-                    "$ref": "#/$defs/GeneDescriptor"
+                    "$ref": "#/$defs/GeneDescriptor",
+                    "description": ""
                 },
                 "interpretationStatus": {
-                    "$ref": "#/$defs/InterpretationStatus"
+                    "$ref": "#/$defs/InterpretationStatus",
+                    "description": ""
                 },
                 "subjectOrBiosampleId": {
                     "description": "identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the enclosing phenopacket.",
                     "type": "string"
                 },
                 "variantInterpretation": {
-                    "$ref": "#/$defs/VariantInterpretation"
+                    "$ref": "#/$defs/VariantInterpretation",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "gene": {}
+                        },
+                        "required": [
+                            "gene"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "variantInterpretation": {}
+                        },
+                        "required": [
+                            "variantInterpretation"
+                        ]
+                    }
+                ]
             },
             "title": "GenomicInterpretation",
             "type": "object"
@@ -723,9 +915,11 @@
             "description": "",
             "properties": {
                 "days": {
+                    "description": "",
                     "type": "integer"
                 },
                 "weeks": {
+                    "description": "",
                     "type": "integer"
                 }
             },
@@ -734,13 +928,11 @@
         },
         "HGNCGeneTerms": {
             "description": "The HUGO Gene Nomenclature Committee (HGNC) provides standard names, symbols, and IDs for human genes.",
-            "enum": [],
             "title": "HGNCGeneTerms",
             "type": "string"
         },
         "HPOAbnormalityTerms": {
             "description": "The Human Phenotype Ontology (HPO) provides a comprehensive logical standard to describe and computationally analyze phenotypic abnormalities found in human disease.",
-            "enum": [],
             "title": "HPOAbnormalityTerms",
             "type": "string"
         },
@@ -755,9 +947,11 @@
             "description": "",
             "properties": {
                 "comparator": {
+                    "description": "",
                     "type": "string"
                 },
                 "value": {
+                    "description": "",
                     "type": "integer"
                 }
             },
@@ -824,9 +1018,11 @@
                     "type": "string"
                 },
                 "progressStatus": {
-                    "$ref": "#/$defs/ProgressStatus"
+                    "$ref": "#/$defs/ProgressStatus",
+                    "description": ""
                 },
                 "summary": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -865,7 +1061,6 @@
         },
         "LOINCMeasurementTerms": {
             "description": "Logical Observation Identifiers Names and Codes (LOINC) is a database and universal standard for identifying medical laboratory observations. It can be used to denote clinical assays in the Measurement element.    examples:",
-            "enum": [],
             "title": "LOINCMeasurementTerms",
             "type": "string"
         },
@@ -885,6 +1080,7 @@
             "description": "",
             "properties": {
                 "sequence": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -896,11 +1092,33 @@
             "description": "",
             "properties": {
                 "chromosomeLocation": {
-                    "$ref": "#/$defs/ChromosomeLocation"
+                    "$ref": "#/$defs/ChromosomeLocation",
+                    "description": ""
                 },
                 "sequenceLocation": {
-                    "$ref": "#/$defs/SequenceLocation"
+                    "$ref": "#/$defs/SequenceLocation",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "chromosomeLocation": {}
+                        },
+                        "required": [
+                            "chromosomeLocation"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "sequenceLocation": {}
+                        },
+                        "required": [
+                            "sequenceLocation"
+                        ]
+                    }
+                ]
             },
             "title": "Location",
             "type": "object"
@@ -914,7 +1132,8 @@
                     "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
                 },
                 "complexValue": {
-                    "$ref": "#/$defs/ComplexValue"
+                    "$ref": "#/$defs/ComplexValue",
+                    "description": ""
                 },
                 "description": {
                     "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose.",
@@ -929,8 +1148,29 @@
                     "description": "The time at which the measurement was made"
                 },
                 "value": {
-                    "$ref": "#/$defs/Value"
+                    "$ref": "#/$defs/Value",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "value": {}
+                        },
+                        "required": [
+                            "value"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "complexValue": {}
+                        },
+                        "required": [
+                            "complexValue"
+                        ]
+                    }
+                ]
             },
             "title": "Measurement",
             "type": "object"
@@ -941,26 +1181,41 @@
             "properties": {
                 "adverseEvents": {
                     "additionalProperties": {
-                        "$ref": "#/$defs/OntologyClass__identifier_optional"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/OntologyClass__identifier_optional"
+                            },
+                            {
+                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "description": "ARGO mapping treatment::adverse_events",
                     "type": "object"
                 },
                 "procedure": {
-                    "$ref": "#/$defs/Procedure"
+                    "$ref": "#/$defs/Procedure",
+                    "description": ""
                 },
                 "radiationTherapy": {
-                    "$ref": "#/$defs/RadiationTherapy"
+                    "$ref": "#/$defs/RadiationTherapy",
+                    "description": ""
                 },
                 "responseToTreatment": {
                     "$ref": "#/$defs/OntologyClass",
                     "description": "ARGO mapping treatment::response_to_treatment"
                 },
                 "therapeuticRegimen": {
-                    "$ref": "#/$defs/TherapeuticRegimen"
+                    "$ref": "#/$defs/TherapeuticRegimen",
+                    "description": ""
                 },
                 "treatment": {
-                    "$ref": "#/$defs/Treatment"
+                    "$ref": "#/$defs/Treatment",
+                    "description": ""
                 },
                 "treatmentIntent": {
                     "$ref": "#/$defs/OntologyClass",
@@ -974,6 +1229,42 @@
                     "$ref": "#/$defs/OntologyClass",
                     "description": "ARGO mapping treatment::treatment_outcome"
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "procedure": {}
+                        },
+                        "required": [
+                            "procedure"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "treatment": {}
+                        },
+                        "required": [
+                            "treatment"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "radiationTherapy": {}
+                        },
+                        "required": [
+                            "radiationTherapy"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "therapeuticRegimen": {}
+                        },
+                        "required": [
+                            "therapeuticRegimen"
+                        ]
+                    }
+                ]
             },
             "title": "MedicalAction",
             "type": "object"
@@ -999,32 +1290,92 @@
             "description": "",
             "properties": {
                 "allele": {
-                    "$ref": "#/$defs/Allele"
+                    "$ref": "#/$defs/Allele",
+                    "description": ""
                 },
                 "copyNumber": {
-                    "$ref": "#/$defs/CopyNumber"
+                    "$ref": "#/$defs/CopyNumber",
+                    "description": ""
                 },
                 "curie": {
+                    "description": "",
                     "type": "string"
                 },
                 "haplotype": {
-                    "$ref": "#/$defs/Haplotype"
+                    "$ref": "#/$defs/Haplotype",
+                    "description": ""
                 },
                 "id": {
+                    "description": "",
                     "type": "string"
                 },
                 "members": {
+                    "description": "",
                     "items": {
                         "$ref": "#/$defs/Member"
                     },
                     "type": "array"
                 },
                 "text": {
-                    "$ref": "#/$defs/Text"
+                    "$ref": "#/$defs/Text",
+                    "description": ""
                 },
                 "variationSet": {
-                    "$ref": "#/$defs/VariationSet"
+                    "$ref": "#/$defs/VariationSet",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "curie": {}
+                        },
+                        "required": [
+                            "curie"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "allele": {}
+                        },
+                        "required": [
+                            "allele"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "haplotype": {}
+                        },
+                        "required": [
+                            "haplotype"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "copyNumber": {}
+                        },
+                        "required": [
+                            "copyNumber"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "text": {}
+                        },
+                        "required": [
+                            "text"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "variationSet": {}
+                        },
+                        "required": [
+                            "variationSet"
+                        ]
+                    }
+                ]
             },
             "title": "Member",
             "type": "object"
@@ -1079,11 +1430,33 @@
             "description": "",
             "properties": {
                 "allele": {
-                    "$ref": "#/$defs/Allele"
+                    "$ref": "#/$defs/Allele",
+                    "description": ""
                 },
                 "haplotype": {
-                    "$ref": "#/$defs/Haplotype"
+                    "$ref": "#/$defs/Haplotype",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "allele": {}
+                        },
+                        "required": [
+                            "allele"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "haplotype": {}
+                        },
+                        "required": [
+                            "haplotype"
+                        ]
+                    }
+                ]
             },
             "title": "MolecularVariation",
             "type": "object"
@@ -1101,19 +1474,16 @@
         },
         "MondoDiseaseTerms": {
             "description": "Mondo Disease Ontology provides a comprehensive logically structured ontology of diseases that integrates multiple other disease ontologies.",
-            "enum": [],
             "title": "MondoDiseaseTerms",
             "type": "string"
         },
         "NCITDiseaseTerms": {
             "description": "All disease terms from the NCI Thesaurus",
-            "enum": [],
             "title": "NCITDiseaseTerms",
             "type": "string"
         },
         "NCITNeoplasmTerms": {
             "description": "All neoplasm terms from the NCI Thesaurus",
-            "enum": [],
             "title": "NCITNeoplasmTerms",
             "type": "string"
         },
@@ -1122,6 +1492,7 @@
             "description": "",
             "properties": {
                 "value": {
+                    "description": "",
                     "type": "integer"
                 }
             },
@@ -1216,6 +1587,7 @@
             "description": "https://software.broadinstitute.org/gatk/documentation/article?id=11016",
             "properties": {
                 "persons": {
+                    "description": "",
                     "items": {
                         "$ref": "#/$defs/Person"
                     },
@@ -1230,22 +1602,28 @@
             "description": "",
             "properties": {
                 "affectedStatus": {
-                    "$ref": "#/$defs/AffectedStatus"
+                    "$ref": "#/$defs/AffectedStatus",
+                    "description": ""
                 },
                 "familyId": {
+                    "description": "",
                     "type": "string"
                 },
                 "individualId": {
+                    "description": "",
                     "type": "string"
                 },
                 "maternalId": {
+                    "description": "",
                     "type": "string"
                 },
                 "paternalId": {
+                    "description": "",
                     "type": "string"
                 },
                 "sex": {
-                    "$ref": "#/$defs/Sex"
+                    "$ref": "#/$defs/Sex",
+                    "description": ""
                 }
             },
             "title": "Person",
@@ -1281,6 +1659,7 @@
                     "type": "string"
                 },
                 "interpretations": {
+                    "description": "",
                     "items": {
                         "$ref": "#/$defs/Interpretation"
                     },
@@ -1294,6 +1673,7 @@
                     "type": "array"
                 },
                 "medicalActions": {
+                    "description": "",
                     "items": {
                         "$ref": "#/$defs/MedicalAction"
                     },
@@ -1342,7 +1722,18 @@
                 },
                 "modifiers": {
                     "additionalProperties": {
-                        "$ref": "#/$defs/OntologyClass__identifier_optional"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/OntologyClass__identifier_optional"
+                            },
+                            {
+                                "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\"",
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
                     "description": "subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity",
                     "type": "object"
@@ -1352,7 +1743,8 @@
                     "description": "the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset"
                 },
                 "resolution": {
-                    "$ref": "#/$defs/TimeElement"
+                    "$ref": "#/$defs/TimeElement",
+                    "description": ""
                 },
                 "severity": {
                     "$ref": "#/$defs/OntologyClass",
@@ -1453,13 +1845,16 @@
             "description": "",
             "properties": {
                 "high": {
+                    "description": "",
                     "type": "number"
                 },
                 "low": {
+                    "description": "",
                     "type": "number"
                 },
                 "unit": {
-                    "$ref": "#/$defs/OntologyClass"
+                    "$ref": "#/$defs/OntologyClass",
+                    "description": ""
                 }
             },
             "title": "ReferenceRange",
@@ -1481,20 +1876,53 @@
             "description": "",
             "properties": {
                 "definiteRange": {
-                    "$ref": "#/$defs/DefiniteRange"
+                    "$ref": "#/$defs/DefiniteRange",
+                    "description": ""
                 },
                 "derivedSequenceExpression": {
-                    "$ref": "#/$defs/DerivedSequenceExpression"
+                    "$ref": "#/$defs/DerivedSequenceExpression",
+                    "description": ""
                 },
                 "indefiniteRange": {
-                    "$ref": "#/$defs/IndefiniteRange"
+                    "$ref": "#/$defs/IndefiniteRange",
+                    "description": ""
                 },
                 "literalSequenceExpression": {
-                    "$ref": "#/$defs/LiteralSequenceExpression"
+                    "$ref": "#/$defs/LiteralSequenceExpression",
+                    "description": ""
                 },
                 "number": {
-                    "$ref": "#/$defs/Number"
+                    "$ref": "#/$defs/Number",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "number": {}
+                        },
+                        "required": [
+                            "number"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "indefiniteRange": {}
+                        },
+                        "required": [
+                            "indefiniteRange"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "definiteRange": {}
+                        },
+                        "required": [
+                            "definiteRange"
+                        ]
+                    }
+                ]
             },
             "title": "RepeatedSequenceExpression",
             "type": "object"
@@ -1545,14 +1973,45 @@
             "description": "",
             "properties": {
                 "derivedSequenceExpression": {
-                    "$ref": "#/$defs/DerivedSequenceExpression"
+                    "$ref": "#/$defs/DerivedSequenceExpression",
+                    "description": ""
                 },
                 "literalSequenceExpression": {
-                    "$ref": "#/$defs/LiteralSequenceExpression"
+                    "$ref": "#/$defs/LiteralSequenceExpression",
+                    "description": ""
                 },
                 "repeatedSequenceExpression": {
-                    "$ref": "#/$defs/RepeatedSequenceExpression"
+                    "$ref": "#/$defs/RepeatedSequenceExpression",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "literalSequenceExpression": {}
+                        },
+                        "required": [
+                            "literalSequenceExpression"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "derivedSequenceExpression": {}
+                        },
+                        "required": [
+                            "derivedSequenceExpression"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "repeatedSequenceExpression": {}
+                        },
+                        "required": [
+                            "repeatedSequenceExpression"
+                        ]
+                    }
+                ]
             },
             "title": "SequenceExpression",
             "type": "object"
@@ -1562,23 +2021,57 @@
             "description": "",
             "properties": {
                 "endDefiniteRange": {
-                    "$ref": "#/$defs/DefiniteRange"
+                    "$ref": "#/$defs/DefiniteRange",
+                    "description": ""
                 },
                 "endIndefiniteRange": {
-                    "$ref": "#/$defs/IndefiniteRange"
+                    "$ref": "#/$defs/IndefiniteRange",
+                    "description": ""
                 },
                 "endNumber": {
-                    "$ref": "#/$defs/Number"
+                    "$ref": "#/$defs/Number",
+                    "description": ""
                 },
                 "startDefiniteRange": {
-                    "$ref": "#/$defs/DefiniteRange"
+                    "$ref": "#/$defs/DefiniteRange",
+                    "description": ""
                 },
                 "startIndefiniteRange": {
-                    "$ref": "#/$defs/IndefiniteRange"
+                    "$ref": "#/$defs/IndefiniteRange",
+                    "description": ""
                 },
                 "startNumber": {
-                    "$ref": "#/$defs/Number"
+                    "$ref": "#/$defs/Number",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "endNumber": {}
+                        },
+                        "required": [
+                            "endNumber"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "endIndefiniteRange": {}
+                        },
+                        "required": [
+                            "endIndefiniteRange"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "endDefiniteRange": {}
+                        },
+                        "required": [
+                            "endDefiniteRange"
+                        ]
+                    }
+                ]
             },
             "title": "SequenceInterval",
             "type": "object"
@@ -1588,14 +2081,29 @@
             "description": "",
             "properties": {
                 "id": {
+                    "description": "",
                     "type": "string"
                 },
                 "sequenceId": {
+                    "description": "",
                     "type": "string"
                 },
                 "sequenceInterval": {
-                    "$ref": "#/$defs/SequenceInterval"
+                    "$ref": "#/$defs/SequenceInterval",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "sequenceInterval": {}
+                        },
+                        "required": [
+                            "sequenceInterval"
+                        ]
+                    }
+                ]
             },
             "title": "SequenceLocation",
             "type": "object"
@@ -1605,6 +2113,7 @@
             "description": "",
             "properties": {
                 "sequence": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -1627,9 +2136,11 @@
             "description": "",
             "properties": {
                 "end": {
+                    "description": "",
                     "type": "integer"
                 },
                 "start": {
+                    "description": "",
                     "type": "integer"
                 }
             },
@@ -1691,8 +2202,21 @@
             "description": "",
             "properties": {
                 "copyNumber": {
-                    "$ref": "#/$defs/CopyNumber"
+                    "$ref": "#/$defs/CopyNumber",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "copyNumber": {}
+                        },
+                        "required": [
+                            "copyNumber"
+                        ]
+                    }
+                ]
             },
             "title": "SystemicVariation",
             "type": "object"
@@ -1702,9 +2226,11 @@
             "description": "",
             "properties": {
                 "definition": {
+                    "description": "",
                     "type": "string"
                 },
                 "id": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -1730,18 +2256,41 @@
                     "description": "end time can be empty which would indicate ongoing"
                 },
                 "externalReference": {
-                    "$ref": "#/$defs/ExternalReference"
+                    "$ref": "#/$defs/ExternalReference",
+                    "description": ""
                 },
                 "ontologyClass": {
-                    "$ref": "#/$defs/OntologyClass"
+                    "$ref": "#/$defs/OntologyClass",
+                    "description": ""
                 },
                 "regimenStatus": {
-                    "$ref": "#/$defs/RegimenStatus"
+                    "$ref": "#/$defs/RegimenStatus",
+                    "description": ""
                 },
                 "startTime": {
                     "$ref": "#/$defs/TimeElement",
                     "description": "possibly undefined;"
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "externalReference": {}
+                        },
+                        "required": [
+                            "externalReference"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "ontologyClass": {}
+                        },
+                        "required": [
+                            "ontologyClass"
+                        ]
+                    }
+                ]
             },
             "title": "TherapeuticRegimen",
             "type": "object"
@@ -1751,23 +2300,81 @@
             "description": "",
             "properties": {
                 "age": {
-                    "$ref": "#/$defs/Age"
+                    "$ref": "#/$defs/Age",
+                    "description": ""
                 },
                 "ageRange": {
-                    "$ref": "#/$defs/AgeRange"
+                    "$ref": "#/$defs/AgeRange",
+                    "description": ""
                 },
                 "gestationalAge": {
-                    "$ref": "#/$defs/GestationalAge"
+                    "$ref": "#/$defs/GestationalAge",
+                    "description": ""
                 },
                 "interval": {
-                    "$ref": "#/$defs/TimeInterval"
+                    "$ref": "#/$defs/TimeInterval",
+                    "description": ""
                 },
                 "ontologyClass": {
-                    "$ref": "#/$defs/OntologyClass"
+                    "$ref": "#/$defs/OntologyClass",
+                    "description": ""
                 },
                 "timestamp": {
+                    "description": "",
                     "type": "string"
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "gestationalAge": {}
+                        },
+                        "required": [
+                            "gestationalAge"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "age": {}
+                        },
+                        "required": [
+                            "age"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "ageRange": {}
+                        },
+                        "required": [
+                            "ageRange"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "ontologyClass": {}
+                        },
+                        "required": [
+                            "ontologyClass"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "timestamp": {}
+                        },
+                        "required": [
+                            "timestamp"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "interval": {}
+                        },
+                        "required": [
+                            "interval"
+                        ]
+                    }
+                ]
             },
             "title": "TimeElement",
             "type": "object"
@@ -1777,9 +2384,11 @@
             "description": "",
             "properties": {
                 "end": {
+                    "description": "",
                     "type": "string"
                 },
                 "start": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -1807,23 +2416,27 @@
             "description": "ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug",
             "properties": {
                 "agent": {
-                    "$ref": "#/$defs/OntologyClass"
+                    "$ref": "#/$defs/OntologyClass",
+                    "description": ""
                 },
                 "cumulativeDose": {
                     "$ref": "#/$defs/Quantity",
                     "description": "ARGO mapping chemotherapy::cumulative_drug_dosage"
                 },
                 "doseIntervals": {
+                    "description": "",
                     "items": {
                         "$ref": "#/$defs/DoseInterval"
                     },
                     "type": "array"
                 },
                 "drugType": {
-                    "$ref": "#/$defs/DrugType"
+                    "$ref": "#/$defs/DrugType",
+                    "description": ""
                 },
                 "routeOfAdministration": {
-                    "$ref": "#/$defs/OntologyClass"
+                    "$ref": "#/$defs/OntologyClass",
+                    "description": ""
                 }
             },
             "title": "Treatment",
@@ -1847,13 +2460,11 @@
         },
         "UOUnitTerms": {
             "description": "The Units of measurement ontology (denoted UO) provides terms for units commonly encountered in medical data. The following table shows some typical examples.",
-            "enum": [],
             "title": "UOUnitTerms",
             "type": "string"
         },
         "UberonAnatomicalEntityTerms": {
             "description": "UBERON is an integrated cross-species ontology with classes representing a variety of anatomical entities.",
-            "enum": [],
             "title": "UberonAnatomicalEntityTerms",
             "type": "string"
         },
@@ -1916,11 +2527,33 @@
             "description": "",
             "properties": {
                 "text": {
-                    "$ref": "#/$defs/Text"
+                    "$ref": "#/$defs/Text",
+                    "description": ""
                 },
                 "variationSet": {
-                    "$ref": "#/$defs/VariationSet"
+                    "$ref": "#/$defs/VariationSet",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "text": {}
+                        },
+                        "required": [
+                            "text"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "variationSet": {}
+                        },
+                        "required": [
+                            "variationSet"
+                        ]
+                    }
+                ]
             },
             "title": "UtilityVariation",
             "type": "object"
@@ -1934,8 +2567,29 @@
                     "description": "for use with things such as categories 'red', 'yellow' or 'absent'/'present'"
                 },
                 "quantity": {
-                    "$ref": "#/$defs/Quantity"
+                    "$ref": "#/$defs/Quantity",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "quantity": {}
+                        },
+                        "required": [
+                            "quantity"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "ontologyClass": {}
+                        },
+                        "required": [
+                            "ontologyClass"
+                        ]
+                    }
+                ]
             },
             "title": "Value",
             "type": "object"
@@ -1945,13 +2599,16 @@
             "description": "",
             "properties": {
                 "acmgPathogenicityClassification": {
-                    "$ref": "#/$defs/AcmgPathogenicityClassification"
+                    "$ref": "#/$defs/AcmgPathogenicityClassification",
+                    "description": ""
                 },
                 "therapeuticActionability": {
-                    "$ref": "#/$defs/TherapeuticActionability"
+                    "$ref": "#/$defs/TherapeuticActionability",
+                    "description": ""
                 },
                 "variationDescriptor": {
-                    "$ref": "#/$defs/VariationDescriptor"
+                    "$ref": "#/$defs/VariationDescriptor",
+                    "description": ""
                 }
             },
             "title": "VariantInterpretation",
@@ -1962,20 +2619,69 @@
             "description": "",
             "properties": {
                 "allele": {
-                    "$ref": "#/$defs/Allele"
+                    "$ref": "#/$defs/Allele",
+                    "description": ""
                 },
                 "copyNumber": {
-                    "$ref": "#/$defs/CopyNumber"
+                    "$ref": "#/$defs/CopyNumber",
+                    "description": ""
                 },
                 "haplotype": {
-                    "$ref": "#/$defs/Haplotype"
+                    "$ref": "#/$defs/Haplotype",
+                    "description": ""
                 },
                 "text": {
-                    "$ref": "#/$defs/Text"
+                    "$ref": "#/$defs/Text",
+                    "description": ""
                 },
                 "variationSet": {
-                    "$ref": "#/$defs/VariationSet"
+                    "$ref": "#/$defs/VariationSet",
+                    "description": ""
                 }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "allele": {}
+                        },
+                        "required": [
+                            "allele"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "haplotype": {}
+                        },
+                        "required": [
+                            "haplotype"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "copyNumber": {}
+                        },
+                        "required": [
+                            "copyNumber"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "text": {}
+                        },
+                        "required": [
+                            "text"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "variationSet": {}
+                        },
+                        "required": [
+                            "variationSet"
+                        ]
+                    }
+                ]
             },
             "title": "Variation",
             "type": "object"
@@ -1996,6 +2702,7 @@
                     "type": "array"
                 },
                 "description": {
+                    "description": "",
                     "type": "string"
                 },
                 "expressions": {
@@ -2006,6 +2713,7 @@
                     "type": "array"
                 },
                 "extensions": {
+                    "description": "",
                     "items": {
                         "$ref": "#/$defs/Extension"
                     },
@@ -2016,9 +2724,11 @@
                     "description": "A specific gene context that applies to this variant."
                 },
                 "id": {
+                    "description": "",
                     "type": "string"
                 },
                 "label": {
+                    "description": "",
                     "type": "string"
                 },
                 "moleculeContext": {
@@ -2030,7 +2740,8 @@
                     "description": "The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537."
                 },
                 "variation": {
-                    "$ref": "#/$defs/Variation"
+                    "$ref": "#/$defs/Variation",
+                    "description": ""
                 },
                 "vcfRecord": {
                     "$ref": "#/$defs/VcfRecord",
@@ -2062,30 +2773,39 @@
             "description": "",
             "properties": {
                 "alt": {
+                    "description": "",
                     "type": "string"
                 },
                 "chrom": {
+                    "description": "",
                     "type": "string"
                 },
                 "filter": {
+                    "description": "",
                     "type": "string"
                 },
                 "genomeAssembly": {
+                    "description": "",
                     "type": "string"
                 },
                 "id": {
+                    "description": "",
                     "type": "string"
                 },
                 "info": {
+                    "description": "",
                     "type": "string"
                 },
                 "pos": {
+                    "description": "",
                     "type": "integer"
                 },
                 "qual": {
+                    "description": "",
                     "type": "string"
                 },
                 "ref": {
+                    "description": "",
                     "type": "string"
                 }
             },
@@ -2101,14 +2821,16 @@
                     "description": "ARGO mapping donor::cause_of_death"
                 },
                 "status": {
-                    "$ref": "#/$defs/Status"
+                    "$ref": "#/$defs/Status",
+                    "description": ""
                 },
                 "survivalTimeInDays": {
                     "description": "ARGO mapping donor::survival_time",
                     "type": "integer"
                 },
                 "timeOfDeath": {
-                    "$ref": "#/$defs/TimeElement"
+                    "$ref": "#/$defs/TimeElement",
+                    "description": ""
                 }
             },
             "title": "VitalStatus",
@@ -2116,8 +2838,9 @@
         }
     },
     "$id": "https://w3id.org/linkml/phenopackets/phenopackets",
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
+    "description": "An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.  This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.",
     "metamodel_version": "1.7.0",
     "properties": {
         "biosamples": {
@@ -2146,6 +2869,7 @@
             "type": "string"
         },
         "interpretations": {
+            "description": "",
             "items": {
                 "$ref": "#/$defs/Interpretation"
             },
@@ -2159,6 +2883,7 @@
             "type": "array"
         },
         "medicalActions": {
+            "description": "",
             "items": {
                 "$ref": "#/$defs/MedicalAction"
             },
@@ -2183,50 +2908,6 @@
     "required": [
         "metaData"
     ],
-    "then": {
-        "oneOf": [
-            {
-                "properties": {
-                    "allele": {}
-                },
-                "required": [
-                    "allele"
-                ]
-            },
-            {
-                "properties": {
-                    "haplotype": {}
-                },
-                "required": [
-                    "haplotype"
-                ]
-            },
-            {
-                "properties": {
-                    "copyNumber": {}
-                },
-                "required": [
-                    "copyNumber"
-                ]
-            },
-            {
-                "properties": {
-                    "text": {}
-                },
-                "required": [
-                    "text"
-                ]
-            },
-            {
-                "properties": {
-                    "variationSet": {}
-                },
-                "required": [
-                    "variationSet"
-                ]
-            }
-        ]
-    },
     "title": "phenopackets",
     "type": "object",
     "version": null

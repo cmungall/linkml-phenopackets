@@ -6,11 +6,11 @@ authors = ["cmungall <cjm@berkeleybop.org>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-linkml-runtime = "^1.4.2"
-oaklib = "^0.1.67"
+linkml-runtime = ">=1.6.0"
+oaklib = "^0.5.20"
 
-[tool.poetry.dev-dependencies]
-linkml = "^1.4.2"
+[tool.poetry.group.dev.dependencies]
+linkml = "^1.7.4"
 mkdocs = "^1.2.3"
 mkdocs-material = "^8.2.4"
 mkdocs-mermaid2-plugin = "^0.6.0"
