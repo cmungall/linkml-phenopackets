@@ -322,7 +322,7 @@ enums:
         meaning: UCUM:degree
       DIOPTER:
         description: diopter
-        meaning: UCUM:%5Bdiop%5D
+        #meaning: UCUM:%5Bdiop%5D
       GRAM:
         description: gram
         meaning: UCUM:g

@@ -5,6 +5,10 @@ from typing import Optional, TextIO, List
 
 import click
 from linkml.validators import JsonSchemaDataValidator
+import linkml.validator as linkml_validator
+from linkml_runtime import SchemaView
+from linkml_runtime.dumpers import yaml_dumper
+from linkml_runtime.linkml_model import SchemaDefinition
 from oaklib import get_implementation_from_shorthand
 from oaklib.datamodels.vocabulary import IS_A
 from oaklib.interfaces.obograph_interface import OboGraphInterface
@@ -161,6 +165,36 @@ def list_terms(
 @output_option
 @ontology_option
 def validate(
+    input_paths: List[TextIO],
+    input_format: Optional[str],
+    output_format: Optional[str],
+    output: Optional[str],
+    ontology: Optional[str],
+):
+    """Validate a collection of phenopackets."""
+    conf = get_configuration(ontology)
+    schema_location = str(MAIN_SCHEMA_PATH)
+    sv = SchemaView(schema_location)
+    schema = sv.schema
+    errs = []
+    for input_path in input_paths:
+        click.echo(f"## Validating {input_path}")
+        pkt = ioutil.load_phenopacket(input_path, input_format)
+        report = linkml_validator.validate(pkt, schema)
+        for result in report.results:
+            click.echo(f"## LinkML Validation Messages:")
+            click.echo(f"[{result.severity.value}] [{result.instance_index}]")
+            errs.append((input_path, result.message))
+        for r in ontutil.validate_ontology_classes(pkt, configuration=conf):
+            click.echo(f"## Ontology Validation Messages: {r}")
+            errs.append((input_path, r))
+    click.echo(f"Errors: {len(errs)}")
+    if errs:
+        sys.exit(1)
+
+
+
+def xxxxvalidate(
     input_paths: List[TextIO],
     input_format: Optional[str],
     output_format: Optional[str],

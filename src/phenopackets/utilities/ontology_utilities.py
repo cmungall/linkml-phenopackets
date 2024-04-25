@@ -126,7 +126,7 @@ def get_handle(
     try:
         return get_implementation_from_shorthand(locator)
     except Exception as e:
-        logger.warning(f"Could not get handle for {oc.id} using {locator}: {e}")
+        logger.info(f"Could not get handle for {oc.id} using {locator}: {e}")
         return None
 
 
@@ -165,7 +165,7 @@ def apply_normalize_curie(
     oc: OntologyClass, configuration: OntologyConfiguration = None
 ) -> Iterable[Tuple[str,str]]:
     if ":" not in oc.id:
-        logger.error(f"OntologyClass.id must be a CURIE: {oc.id}")
+        # logger.error(f"OntologyClass.id must be a CURIE: {oc.id}")
         return None
     normalized_id = normalize_curie(oc.id)
     if normalized_id.lower() != oc.id.lower():
@@ -176,7 +176,7 @@ def apply_normalize_curie(
 
 def apply_validate(
     oc: OntologyClass, configuration: OntologyConfiguration = None
-) -> Iterable[Tuple[str,str]]:
+) -> Iterable[Tuple[str, str]]:
     for r in apply_normalize_curie(oc, configuration):
         yield oc.id, "CURIE"
     normalized_id = normalize_curie(oc.id)

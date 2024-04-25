@@ -15,10 +15,10 @@ docs/_build/
 docs/src/
 docs/datamodels/*/*.md
 
-notebooks/output/*json
-notebooks/output/*tsv
-notebooks/input/*
-notebooks/api-key.txt
+src/docs/notebooks/output/*json
+src/docs/notebooks/output/*tsv
+src/docs/notebooks/input/*
+src/docs/notebooks/api-key.txt
 
 .coverage.*
 .coverage

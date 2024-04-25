@@ -1353,8 +1353,7 @@
         },
         {
           "text": "DIOPTER",
-          "description": "diopter",
-          "meaning": "UCUM:%5Bdiop%5D"
+          "description": "diopter"
         },
         {
           "text": "GRAM",
@@ -13800,7 +13799,7 @@
   "source_file": "phenopackets.yaml",
   "source_file_date": "2023-01-18T17:47:01",
   "source_file_size": 6830,
-  "generation_date": "2024-02-12T14:54:00",
+  "generation_date": "2024-04-24T18:47:13",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/phenopackets.context.jsonld",

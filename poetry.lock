@@ -254,6 +254,36 @@ html5lib = ["html5lib"]
 lxml = ["lxml"]
 
 [[package]]
+name = "bioregistry"
+version = "0.11.1"
+description = "Integrated registry of biological databases and nomenclatures"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "bioregistry-0.11.1-py3-none-any.whl", hash = "sha256:11a1cd66da5755ffb7bcd705666f6446f9dcc14ba03e583d21d6de2cdcb9ca1b"},
+    {file = "bioregistry-0.11.1.tar.gz", hash = "sha256:6f6a6048db0d70d5a7644333040645d4bd5484e97ed0eab9a256e6eec446d39b"},
+]
+
+[package.dependencies]
+click = "*"
+curies = ">=0.7.0"
+more-click = ">=0.1.2"
+pydantic = "*"
+pystow = ">=0.1.13"
+requests = "*"
+tqdm = "*"
+
+[package.extras]
+align = ["beautifulsoup4", "class-resolver", "defusedxml", "fairsharing-client (>=0.1.0)", "pandas", "pyyaml", "tabulate"]
+charts = ["jinja2", "matplotlib", "matplotlib-venn", "pandas", "seaborn"]
+docs = ["autodoc-pydantic", "sphinx (<7.3)", "sphinx-automodapi", "sphinx-click", "sphinx-rtd-theme"]
+export = ["ndex2", "pyyaml", "rdflib", "rdflib-jsonld"]
+gha = ["more-itertools"]
+health = ["click-default-group", "jinja2", "pandas", "pyyaml", "tabulate"]
+tests = ["coverage", "httpx", "more-itertools", "pytest"]
+web = ["bootstrap-flask (<=2.0.0)", "curies[fastapi]", "fastapi", "flask (<2.2.4)", "markdown", "pyyaml", "rdflib", "rdflib-endpoint", "rdflib-jsonld", "uvicorn", "werkzeug (<2.3.0)"]
+
+[[package]]
 name = "bleach"
 version = "6.1.0"
 description = "An easy safelist-based HTML-sanitizing tool."
@@ -853,6 +883,38 @@ python-dateutil = ">=2.8.1"
 
 [package.extras]
 dev = ["flake8", "markdown", "twine", "wheel"]
+
+[[package]]
+name = "gitdb"
+version = "4.0.11"
+description = "Git Object Database"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "gitdb-4.0.11-py3-none-any.whl", hash = "sha256:81a3407ddd2ee8df444cbacea00e2d038e40150acfa3001696fe0dcf1d3adfa4"},
+    {file = "gitdb-4.0.11.tar.gz", hash = "sha256:bf5421126136d6d0af55bc1e7c1af1c397a34f5b7bd79e776cd3e89785c2b04b"},
+]
+
+[package.dependencies]
+smmap = ">=3.0.1,<6"
+
+[[package]]
+name = "gitpython"
+version = "3.1.43"
+description = "GitPython is a Python library used to interact with Git repositories"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "GitPython-3.1.43-py3-none-any.whl", hash = "sha256:eec7ec56b92aad751f9912a73404bc02ba212a23adb2c7098ee668417051a1ff"},
+    {file = "GitPython-3.1.43.tar.gz", hash = "sha256:35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c"},
+]
+
+[package.dependencies]
+gitdb = ">=4.0.1,<5"
+
+[package.extras]
+doc = ["sphinx (==4.3.2)", "sphinx-autodoc-typehints", "sphinx-rtd-theme", "sphinxcontrib-applehelp (>=1.0.2,<=1.0.4)", "sphinxcontrib-devhelp (==1.0.2)", "sphinxcontrib-htmlhelp (>=2.0.0,<=2.0.1)", "sphinxcontrib-qthelp (==1.0.3)", "sphinxcontrib-serializinghtml (==1.1.5)"]
+test = ["coverage[toml]", "ddt (>=1.1.1,!=1.4.3)", "mock", "mypy", "pre-commit", "pytest (>=7.3.1)", "pytest-cov", "pytest-instafail", "pytest-mock", "pytest-sugar", "typing-extensions"]
 
 [[package]]
 name = "graphviz"
@@ -2292,6 +2354,23 @@ requests = "*"
 setuptools = ">=18.5"
 
 [[package]]
+name = "mknotebooks"
+version = "0.8.0"
+description = "Plugin for mkdocs to generate markdown documents from jupyter notebooks."
+optional = false
+python-versions = "*"
+files = [
+    {file = "mknotebooks-0.8.0-py3-none-any.whl", hash = "sha256:4a9b998260c09bcc311455a19a44cc395a30ee82dc1e86e3316dd09f2445ebd3"},
+]
+
+[package.dependencies]
+gitpython = "*"
+jupyter-client = "*"
+markdown = ">=3.3.3"
+mkdocs = ">=1.5.0"
+nbconvert = ">=6.0.0"
+
+[[package]]
 name = "more-click"
 version = "0.1.2"
 description = "More click."
@@ -2526,13 +2605,13 @@ files = [
 
 [[package]]
 name = "oaklib"
-version = "0.5.33"
+version = "0.6.4"
 description = "Ontology Access Kit: Python library for common ontology operations over a variety of backends"
 optional = false
 python-versions = "<4.0.0,>=3.9"
 files = [
-    {file = "oaklib-0.5.33-py3-none-any.whl", hash = "sha256:c24a566277213b69fb8e78c041518e601f1587b0f556d60acdd23100235845f3"},
-    {file = "oaklib-0.5.33.tar.gz", hash = "sha256:f3b4724583f6e4c572480c955f79182bfa30edca96b528b82102443b17c317f8"},
+    {file = "oaklib-0.6.4-py3-none-any.whl", hash = "sha256:63210bef42f29182bf07122adaca99f1b93ca5059f0c297652c2e2b202a0c6d0"},
+    {file = "oaklib-0.6.4.tar.gz", hash = "sha256:eacec3cbeebf13c17fa433c3300dcc232b81da486d038b8d3d2ddaf44fe481e1"},
 ]
 
 [package.dependencies]
@@ -2545,7 +2624,7 @@ eutils = ">=0.6.0"
 funowl = ">=0.2.0"
 jsonlines = ">=4.0.0,<5.0.0"
 kgcl-rdflib = "0.5.0"
-kgcl-schema = ">=0.6.5,<0.7.0"
+kgcl-schema = ">=0.6.8,<0.7.0"
 linkml-renderer = ">=0.3.0"
 linkml-runtime = ">=1.5.3"
 ndex2 = ">=3.5.0,<4.0.0"
@@ -2567,7 +2646,7 @@ tenacity = ">=8.2.3,<9.0.0"
 
 [package.extras]
 gilda = ["gilda (>=1.0.0)", "urllib3 (<2)"]
-llm = ["aiohttp", "llm"]
+llm = ["aiohttp", "html2text", "llm"]
 semsimian = ["semsimian (>=0.2.15)"]
 
 [[package]]
@@ -4048,6 +4127,17 @@ files = [
 ]
 
 [[package]]
+name = "smmap"
+version = "5.0.1"
+description = "A pure Python implementation of a sliding window memory map manager"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "smmap-5.0.1-py3-none-any.whl", hash = "sha256:e6d8668fa5f93e706934a62d7b4db19c8d9eb8cf2adbb75ef1b675aa332b69da"},
+    {file = "smmap-5.0.1.tar.gz", hash = "sha256:dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"},
+]
+
+[[package]]
 name = "sniffio"
 version = "1.3.1"
 description = "Sniff out which async library your code is running under"
@@ -4701,4 +4791,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "b38fee5425f1cff80fb5176f0d087620327029f7f6ece990b149fe5114bdead8"
+content-hash = "dadcef34a451162b284a8321e919bcc78c694063c7e67099e7e7ad868a3b9ead"

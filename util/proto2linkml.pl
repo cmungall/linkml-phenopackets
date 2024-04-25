@@ -213,7 +213,7 @@ while(<>) {
             }
         }
         if ($INLINED_H{$range}) {
-            $c->{attributes}->{$n}->{inlined} = 'true';
+            $c->{attributes}->{$n}->{inlined_as_list} = 'true';
         }
     }
     elsif (m@^\s*\}@) {
