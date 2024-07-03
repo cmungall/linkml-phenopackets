@@ -31,6 +31,7 @@ classes:
         annotations: 
           rank: 5
         description: Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED
+        inlined: true
         range: MetaData
         required: true
     description: A group of individuals related in some phenotypic or genotypic aspect.
@@ -58,6 +59,7 @@ classes:
         annotations: 
           rank: 6
         description: Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED
+        inlined: true
         range: MetaData
         required: true
       pedigree: 
@@ -69,7 +71,7 @@ classes:
         annotations: 
           rank: 2
         description: The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient
-        inlined_as_list: true
+        inlined: true
         range: Phenopacket
       relatives: 
         annotations: 
@@ -92,6 +94,7 @@ classes:
         annotations: 
           rank: 7
         description: Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context.
+        inlined_as_list: true
         multivalued: true
         range: Disease
       files: 
@@ -132,6 +135,7 @@ classes:
         annotations: 
           rank: 11
         description: Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED
+        inlined: true
         range: MetaData
         required: true
       phenotypicFeatures: 
@@ -145,7 +149,7 @@ classes:
         annotations: 
           rank: 2
         description: The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient
-        inlined_as_list: true
+        inlined: true
         range: Individual
     description: An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.  This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.
     tree_root: true

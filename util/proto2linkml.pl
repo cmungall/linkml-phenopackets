@@ -11,6 +11,7 @@ our @INLINED = qw(Abundance
 Cohort
 CytobandInterval
 Dictionary
+Disease
 DoseInterval
 Expression
 Extension
@@ -21,6 +22,7 @@ File
 GeneDescriptor
 GenomicInterpretation
 MedicalAction
+MetaData
 Member
 MolecularVariation
 OntologyClass
@@ -213,7 +215,12 @@ while(<>) {
             }
         }
         if ($INLINED_H{$range}) {
-            $c->{attributes}->{$n}->{inlined_as_list} = 'true';
+            if ($mv) {
+                $c->{attributes}->{$n}->{inlined_as_list} = 'true';
+            }
+            else {
+                $c->{attributes}->{$n}->{inlined} = 'true';
+            }
         }
     }
     elsif (m@^\s*\}@) {

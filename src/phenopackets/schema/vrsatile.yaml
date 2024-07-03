@@ -74,7 +74,7 @@ classes:
         annotations: 
           rank: 14
         description: We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875.
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
       alternateLabels: 
         annotations: 
@@ -105,7 +105,7 @@ classes:
         annotations: 
           rank: 5
         description: A specific gene context that applies to this variant.
-        inlined_as_list: true
+        inlined: true
         range: GeneDescriptor
       id: 
         annotations: 
@@ -127,7 +127,7 @@ classes:
         annotations: 
           rank: 12
         description: The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537.
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
       variation: 
         annotations: 

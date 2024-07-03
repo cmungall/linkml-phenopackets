@@ -11,7 +11,7 @@ oaklib = "^0.6.0"
 bioregistry = "^0.11.1"
 
 [tool.poetry.group.dev.dependencies]
-linkml = "^1.7.4"
+linkml = ">=1.8.0"
 mkdocs = "^1.2.3"
 mkdocs-material = "^8.2.4"
 mkdocs-mermaid2-plugin = "^0.6.0"

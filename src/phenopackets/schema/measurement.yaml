@@ -16,7 +16,7 @@ classes:
         annotations: 
           rank: 2
         description: "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
       complexValue: 
         annotations: 
@@ -37,7 +37,7 @@ classes:
         annotations: 
           rank: 5
         description: The time at which the measurement was made
-        inlined_as_list: true
+        inlined: true
         range: TimeElement
       value: 
         annotations: 
@@ -68,7 +68,7 @@ classes:
         annotations: 
           rank: 1
         description: For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
       value: 
         annotations: 
@@ -92,7 +92,7 @@ classes:
         annotations: 
           rank: 1
         description: ''
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
     description: ''
   TypedQuantity: 
@@ -106,7 +106,7 @@ classes:
         annotations: 
           rank: 1
         description: e.g. diastolic, systolic
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
     description: For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement
   Value: 
@@ -115,7 +115,7 @@ classes:
         annotations: 
           rank: 2
         description: for use with things such as categories 'red', 'yellow' or 'absent'/'present'
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
       quantity: 
         annotations: 

@@ -29,7 +29,7 @@ classes:
         annotations: 
           rank: 8
         description: "The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)"
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
       onset: 
         annotations: 
@@ -37,19 +37,19 @@ classes:
         description: "The onset of the disease. The values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset ARGO mapping primary_diagnosis::age_at_diagnosis"
         exact_mappings: 
           - ARGO:primary_diagnosis.age_at_diagnosis
-        inlined_as_list: true
+        inlined: true
         range: TimeElement
       primarySite: 
         annotations: 
           rank: 7
         description: The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
       resolution: 
         annotations: 
           rank: 4
         description: ''
-        inlined_as_list: true
+        inlined: true
         range: TimeElement
       term: 
         annotations: 
@@ -57,7 +57,7 @@ classes:
         description: The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id
         exact_mappings: 
           - ARGO:primary_diagnosis.submitter_primary_diagnosis_id
-        inlined_as_list: true
+        inlined: true
         range: OntologyClass
     description: Message to indicate a disease (diagnosis) and its recorded onset.
 default_prefix: disease

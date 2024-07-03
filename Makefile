@@ -92,7 +92,7 @@ auto: $(patsubst %, tmp/%.yaml, $(CORE_MODS))
 deploy: auto
 	cp tmp/*yaml src/phenopackets/schema/
 
-tmp/%.proto: $(PXF_CORE)/%.proto
+tmp/%.proto: $(PXF_CORE)/%.proto 
 	cp $< $@
 .PRECIOUS: tmp/%.proto
 
