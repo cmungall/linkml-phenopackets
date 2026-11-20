@@ -17,13 +17,14 @@ type AgeRange
 
 type Allele
   {
+    id: String
     chromosomeLocation: ChromosomeLocation
     curie: String
     derivedSequenceExpression: DerivedSequenceExpression
-    id: String
     literalSequenceExpression: LiteralSequenceExpression
     repeatedSequenceExpression: RepeatedSequenceExpression
     sequenceLocation: SequenceLocation
+    sequenceState: SequenceState
   }
 
 type Any
@@ -59,8 +60,8 @@ type Biosample
 
 type ChromosomeLocation
   {
-    chr: String
     id: String
+    chr: String
     interval: CytobandInterval
     speciesId: String
   }
@@ -81,13 +82,13 @@ type ComplexValue
 
 type CopyNumber
   {
+    id: String
     allele: Allele
     curie: String
     definiteRange: DefiniteRange
     derivedSequenceExpression: DerivedSequenceExpression
     gene: Gene
     haplotype: Haplotype
-    id: String
     indefiniteRange: IndefiniteRange
     literalSequenceExpression: LiteralSequenceExpression
     number: Number
@@ -118,8 +119,10 @@ type Diagnosis
     genomicInterpretations: [GenomicInterpretation]
   }
 
-type Dictionary
+type DictionaryEntry
   {
+    key: String!
+    value: String
   }
 
 type Disease
@@ -185,8 +188,8 @@ type Feature
 
 type File
   {
-    fileAttributes: Dictionary
-    individualToFileIdentifiers: Dictionary
+    fileAttributes: [DictionaryEntry]
+    individualToFileIdentifiers: [DictionaryEntry]
     uri: String
   }
 
@@ -221,6 +224,14 @@ type GestationalAge
 
 type Haplotype
   {
+    id: String
+    members: [HaplotypeMember]
+  }
+
+type HaplotypeMember
+  {
+    allele: Allele
+    curie: String
   }
 
 type IndefiniteRange
@@ -282,18 +293,6 @@ type MedicalAction
     treatmentIntent: OntologyClass
     treatmentTarget: OntologyClass
     treatmentTerminationReason: OntologyClass
-  }
-
-type Member
-  {
-    allele: Allele
-    copyNumber: CopyNumber
-    curie: String
-    haplotype: Haplotype
-    id: String
-    members: [Member]
-    text: Text
-    variationSet: VariationSet
   }
 
 type MetaData
@@ -435,6 +434,7 @@ type SequenceLocation
     id: String
     sequenceId: String
     sequenceInterval: SequenceInterval
+    simpleInterval: SimpleInterval
   }
 
 type SequenceState
@@ -455,8 +455,8 @@ type SystemicVariation
 
 type Text
   {
-    definition: String
     id: String
+    definition: String
   }
 
 type TherapeuticRegimen
@@ -560,6 +560,18 @@ type VariationDescriptor
 
 type VariationSet
   {
+    id: String
+    members: [VariationSetMember]
+  }
+
+type VariationSetMember
+  {
+    allele: Allele
+    copyNumber: CopyNumber
+    curie: String
+    haplotype: Haplotype
+    text: Text
+    variationSet: VariationSet
   }
 
 type VcfRecord

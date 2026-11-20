@@ -1,0 +1,71 @@
+metaData:
+  created: '2022-04-17T10:35:00Z'
+  createdBy: biocurator
+  phenopacketSchemaVersion: 2.0.0
+  resources:
+  - id: hp
+    iriPrefix: http://purl.obolibrary.org/obo/HP_
+    name: human phenotype ontology
+    namespacePrefix: HP
+    url: http://purl.obolibrary.org/obo/hp.owl
+    version: '2022-04-15'
+  - id: mondo
+    iriPrefix: http://purl.obolibrary.org/obo/MONDO_
+    name: Mondo Disease Ontology
+    namespacePrefix: MONDO
+    url: http://purl.obolibrary.org/obo/mondo.obo
+    version: v2022-04-04
+diseases:
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P4D
+  term:
+    id: MONDO:0016649
+    label: Warburg micro syndrome
+id: id.1
+phenotypicFeatures:
+- excluded: false
+  onset:
+    gestationalAge:
+      days: 2
+      weeks: 27
+  type:
+    id: HP:0034248
+    label: Increased fetal lens echogenicity
+- excluded: true
+  onset:
+    gestationalAge:
+      days: 2
+      weeks: 27
+  type:
+    id: HP:0000568
+    label: Microphthalmia
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P4D
+  type:
+    id: HP:0000369
+    label: Low-set ears
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P4D
+  type:
+    id: HP:0008936
+    label: Axial hypotonia
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P4D
+  type:
+    id: HP:0000568
+    label: Microphthalmia
+subject:
+  id: case1
+  karyotypicSex: UNKNOWN_KARYOTYPE
+  sex: MALE
+  timeAtLastEncounter:
+    age:
+      iso8601duration: P4D

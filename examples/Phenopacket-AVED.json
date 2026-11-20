@@ -1,0 +1,491 @@
+{
+  "metaData": {
+    "created": "2022-04-21T10:35:00Z",
+    "createdBy": "anonymous biocurator",
+    "externalReferences": [
+      {
+        "description": "Ataxia due to vitamin E deficiency: A case report and updated review",
+        "id": "doi:10.1002/ccr3.6303"
+      }
+    ],
+    "phenopacketSchemaVersion": "2.0.0",
+    "resources": [
+      {
+        "id": "ncit",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_",
+        "name": "NCI Thesaurus",
+        "namespacePrefix": "NCIT",
+        "url": "http://purl.obolibrary.org/obo/ncit.owl",
+        "version": "21.05d"
+      },
+      {
+        "id": "hp",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_",
+        "name": "human phenotype ontology",
+        "namespacePrefix": "HP",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2022-06-11"
+      },
+      {
+        "id": "mondo",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_",
+        "name": "Mondo Disease Ontology",
+        "namespacePrefix": "MONDO",
+        "url": "http://purl.obolibrary.org/obo/mondo.obo",
+        "version": "2022-04-04"
+      },
+      {
+        "id": "uberon",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UBERON_",
+        "name": "Uber-anatomy ontology",
+        "namespacePrefix": "UBERON",
+        "url": "http://purl.obolibrary.org/obo/uberon.owl",
+        "version": "2021-07-27"
+      },
+      {
+        "id": "loinc",
+        "iriPrefix": "https://loinc.org/",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "namespacePrefix": "LOINC",
+        "url": "https://loinc.org",
+        "version": "2.73"
+      },
+      {
+        "id": "ucum",
+        "iriPrefix": "https://units-of-measurement.org/",
+        "name": "Unified Code for Units of Measure",
+        "namespacePrefix": "UCUM",
+        "url": "https://ucum.org",
+        "version": "2.1"
+      },
+      {
+        "id": "geno",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_",
+        "name": "Genotype Ontology",
+        "namespacePrefix": "GENO",
+        "url": "http://purl.obolibrary.org/obo/geno.owl",
+        "version": "2022-03-05"
+      },
+      {
+        "id": "drugcentral",
+        "iriPrefix": "https://drugcentral.org/drugcard/",
+        "name": "Drug Central",
+        "namespacePrefix": "DrugCentral",
+        "url": "https://drugcentral.org/",
+        "version": "2022-08-22"
+      }
+    ]
+  },
+  "diseases": [
+    {
+      "excluded": false,
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0011463",
+          "label": "Childhood onset"
+        }
+      },
+      "term": {
+        "id": "MONDO:0100308",
+        "label": "atactic disorder"
+      }
+    }
+  ],
+  "id": "arbitrary.id",
+  "interpretations": [
+    {
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0100340",
+          "label": "Friedreich ataxia 1"
+        },
+        "genomicInterpretations": [
+          {
+            "gene": {
+              "symbol": "FXN",
+              "valueId": "HGNC:3951"
+            },
+            "interpretationStatus": "REJECTED",
+            "subjectOrBiosampleId": "16-year-old boy"
+          }
+        ]
+      },
+      "id": "interpretation.1",
+      "progressStatus": "COMPLETED",
+      "summary": "Genetic analysis of the frataxin gene confirmed two alleles in the normal size range and no evidence of an expansion."
+    },
+    {
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0010188",
+          "label": "familial isolated deficiency of vitamin E"
+        },
+        "genomicInterpretations": [
+          {
+            "interpretationStatus": "CAUSATIVE",
+            "subjectOrBiosampleId": "16-year-old boy",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "therapeuticActionability": "ACTIONABLE",
+              "variationDescriptor": {
+                "allelicState": {
+                  "id": "GENO:0000136",
+                  "label": "homozygous"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs.c",
+                    "value": "NM_000370.3(TTPA):c.706del"
+                  },
+                  {
+                    "syntax": "transcript_reference",
+                    "value": "NM_000370.3"
+                  }
+                ],
+                "geneContext": {
+                  "symbol": "TTPA",
+                  "valueId": "HGNC:12404"
+                },
+                "id": "variant.1",
+                "label": "NP_000361.1:p.(His236IlefsTer28)",
+                "moleculeContext": "genomic",
+                "variation": {
+                  "allele": {
+                    "sequenceLocation": {
+                      "sequenceId": "refseq:NC_000008.11",
+                      "sequenceInterval": {
+                        "endNumber": {
+                          "value": 63061383
+                        },
+                        "startNumber": {
+                          "value": 63061382
+                        }
+                      }
+                    }
+                  }
+                },
+                "vcfRecord": {
+                  "alt": "T",
+                  "chrom": "NC_000008.11",
+                  "genomeAssembly": "GRCh38",
+                  "pos": 63061382,
+                  "ref": "TG"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "id": "interpretation.2",
+      "progressStatus": "SOLVED"
+    }
+  ],
+  "measurements": [
+    {
+      "assay": {
+        "id": "LOINC:2923-1",
+        "label": "Retinol [Mass/volume] in Serum or Plasma"
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "value": {
+        "quantity": {
+          "referenceRange": {
+            "high": 60.0,
+            "low": 20.0,
+            "unit": {
+              "id": "UCUM:ug.dL-1",
+              "label": "microgram per deciliter"
+            }
+          },
+          "unit": {
+            "id": "UCUM:ug.dL-1",
+            "label": "microgram per deciliter"
+          },
+          "value": 45.0
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:1823-4",
+        "label": "Alpha tocopherol [Mass/volume] in Serum or Plasma"
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "value": {
+        "quantity": {
+          "referenceRange": {
+            "high": 10.0,
+            "low": 6.0,
+            "unit": {
+              "id": "UCUM:mg.dL-1",
+              "label": "milligram per deciliter"
+            }
+          },
+          "unit": {
+            "id": "UCUM:mg.dL-1",
+            "label": "milligram per deciliter"
+          },
+          "value": 3.9
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:2157-6",
+        "label": "Creatine kinase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "value": {
+        "quantity": {
+          "referenceRange": {
+            "high": 198.0,
+            "low": 22.0,
+            "unit": {
+              "id": "UCUM:U.L-1",
+              "label": "enzyme unit per liter"
+            }
+          },
+          "unit": {
+            "id": "UCUM:U.L-1",
+            "label": "enzyme unit per liter"
+          },
+          "value": 80.0
+        }
+      }
+    },
+    {
+      "assay": {
+        "id": "LOINC:1823-4",
+        "label": "Alpha tocopherol [Mass/volume] in Serum or Plasma"
+      },
+      "timeObserved": {
+        "age": {
+          "iso8601duration": "P16Y6M"
+        }
+      },
+      "value": {
+        "quantity": {
+          "referenceRange": {
+            "high": 10.0,
+            "low": 6.0,
+            "unit": {
+              "id": "UCUM:mg.dL-1",
+              "label": "milligram per deciliter"
+            }
+          },
+          "unit": {
+            "id": "UCUM:mg.dL-1",
+            "label": "milligram per deciliter"
+          },
+          "value": 17.34
+        }
+      }
+    }
+  ],
+  "medicalActions": [
+    {
+      "responseToTreatment": {
+        "id": "NCIT:C123584",
+        "label": "Favorable Response"
+      },
+      "treatment": {
+        "agent": {
+          "id": "DrugCentral:257",
+          "label": "Vitamin E"
+        },
+        "drugType": "UNKNOWN_DRUG_TYPE",
+        "routeOfAdministration": {
+          "id": "NCIT:C38288",
+          "label": "Oral Route of Administration"
+        }
+      }
+    }
+  ],
+  "phenotypicFeatures": [
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P10Y"
+        }
+      },
+      "type": {
+        "id": "HP:0001288",
+        "label": "Gait disturbance"
+      }
+    },
+    {
+      "excluded": false,
+      "modifiers": [
+        {
+          "id": "HP:0012837",
+          "label": "Generalized"
+        }
+      ],
+      "onset": {
+        "age": {
+          "iso8601duration": "P10Y"
+        }
+      },
+      "type": {
+        "id": "HP:0001324",
+        "label": "Muscle weakness"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0002066",
+        "label": "Gait ataxia"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0001308",
+        "label": "Tongue fasciculations"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0002080",
+        "label": "Intention tremor"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0002075",
+        "label": "Dysdiadochokinesis"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0001251",
+        "label": "Ataxia"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0001284",
+        "label": "Areflexia"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0011448",
+        "label": "Ankle clonus"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0003690",
+        "label": "Limb muscle weakness"
+      }
+    },
+    {
+      "excluded": true,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0003474",
+        "label": "Somatic sensory dysfunction"
+      }
+    },
+    {
+      "excluded": true,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0002599",
+        "label": "Head titubation"
+      }
+    },
+    {
+      "excluded": true,
+      "onset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "type": {
+        "id": "HP:0031910",
+        "label": "Abnormal cranial nerve physiology"
+      }
+    }
+  ],
+  "subject": {
+    "id": "16-year-old boy",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE",
+    "sex": "FEMALE",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P10Y"
+      }
+    }
+  },
+  "@type": "Phenopacket"
+}

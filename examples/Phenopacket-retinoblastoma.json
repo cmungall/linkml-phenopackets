@@ -82,6 +82,22 @@
     {
       "files": [
         {
+          "fileAttributes": {
+            "genomeAssembly": {
+              "key": "genomeAssembly",
+              "value": "GRCh38"
+            },
+            "fileFormat": {
+              "key": "fileFormat",
+              "value": "VCF"
+            }
+          },
+          "individualToFileIdentifiers": {
+            "biosample.1": {
+              "key": "biosample.1",
+              "value": "specimen.1"
+            }
+          },
           "uri": "file://data/fileSomaticWgs.vcf.gz"
         }
       ],
@@ -108,16 +124,16 @@
           }
         }
       ],
-      "pathologicalTnmFinding": {
-        "NCIT:C140720": {
+      "pathologicalTnmFinding": [
+        {
           "id": "NCIT:C140720",
           "label": "Retinoblastoma pT3 TNM Finding v8"
         },
-        "NCIT:C140711": {
+        {
           "id": "NCIT:C140711",
           "label": "Retinoblastoma pN0 TNM Finding v8"
         }
-      },
+      ],
       "phenotypicFeatures": [
         {
           "excluded": false,
@@ -161,18 +177,18 @@
   ],
   "diseases": [
     {
-      "clinicalTnmFinding": {
-        "NCIT:C140678": {
+      "clinicalTnmFinding": [
+        {
           "id": "NCIT:C140678",
           "label": "Retinoblastoma cM0 TNM Finding v8"
         }
-      },
-      "diseaseStage": {
-        "LOINC:LA24739-7": {
+      ],
+      "diseaseStage": [
+        {
           "id": "LOINC:LA24739-7",
           "label": "Group E"
         }
-      },
+      ],
       "excluded": false,
       "onset": {
         "age": {
@@ -191,6 +207,22 @@
   ],
   "files": [
     {
+      "fileAttributes": {
+        "genomeAssembly": {
+          "key": "genomeAssembly",
+          "value": "GRCh38"
+        },
+        "fileFormat": {
+          "key": "fileFormat",
+          "value": "VCF"
+        }
+      },
+      "individualToFileIdentifiers": {
+        "proband A": {
+          "key": "proband A",
+          "value": "sample1"
+        }
+      },
       "uri": "file://data/germlineWgs.vcf.gz"
     }
   ],
@@ -374,12 +406,12 @@
   ],
   "medicalActions": [
     {
-      "adverseEvents": {
-        "HP:0025637": {
+      "adverseEvents": [
+        {
           "id": "HP:0025637",
           "label": "Vasospasm"
         }
-      },
+      ],
       "treatment": {
         "agent": {
           "id": "DrugCentral:1678",
@@ -479,12 +511,12 @@
   "phenotypicFeatures": [
     {
       "excluded": false,
-      "modifiers": {
-        "HP:0012834": {
+      "modifiers": [
+        {
           "id": "HP:0012834",
           "label": "Right"
         }
-      },
+      ],
       "onset": {
         "age": {
           "iso8601duration": "P3M"
@@ -497,12 +529,12 @@
     },
     {
       "excluded": false,
-      "modifiers": {
-        "HP:0012835": {
+      "modifiers": [
+        {
           "id": "HP:0012835",
           "label": "Left"
         }
-      },
+      ],
       "onset": {
         "age": {
           "iso8601duration": "P4M"
@@ -515,12 +547,12 @@
     },
     {
       "excluded": false,
-      "modifiers": {
-        "HP:0012835": {
+      "modifiers": [
+        {
           "id": "HP:0012835",
           "label": "Left"
         }
-      },
+      ],
       "onset": {
         "age": {
           "iso8601duration": "P5M15D"
@@ -533,12 +565,12 @@
     },
     {
       "excluded": false,
-      "modifiers": {
-        "HP:0012835": {
+      "modifiers": [
+        {
           "id": "HP:0012835",
           "label": "Left"
         }
-      },
+      ],
       "onset": {
         "age": {
           "iso8601duration": "P6M"

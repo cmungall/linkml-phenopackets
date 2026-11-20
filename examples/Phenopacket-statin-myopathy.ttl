@@ -1,0 +1,299 @@
+@base <https://example.org/base/> .
+@prefix DrugCentral: <http://identifiers.org/drugcentral/> .
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
+@prefix LOINC: <https://loinc.org/> .
+@prefix MONDO: <http://purl.obolibrary.org/obo/MONDO_> .
+@prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix UCUM: <http://unitsofmeasure.org/> .
+@prefix ns1: <meta_data:> .
+@prefix ns2: <medical_action:> .
+@prefix ns3: <base:> .
+@prefix ns4: <measurement:> .
+@prefix ns5: <phenotypic_feature:> .
+@prefix ns6: <disease:> .
+@prefix ns7: <individual:> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+DrugCentral:1725 a ns3:OntologyClass ;
+    ns3:label "metformin" .
+
+DrugCentral:2356 a ns3:OntologyClass ;
+    ns3:label "ramipril" .
+
+DrugCentral:257 a ns3:OntologyClass ;
+    ns3:label "atorvastatin" .
+
+DrugCentral:74 a ns3:OntologyClass ;
+    ns3:label "acetylsalicylic acid" .
+
+HP:0003198 a ns3:OntologyClass ;
+    ns3:label "Myopathy" .
+
+HP:0003391 a ns3:OntologyClass ;
+    ns3:label "Gowers sign" .
+
+HP:0003551 a ns3:OntologyClass ;
+    ns3:label "Difficulty climbing stairs" .
+
+HP:0003808 a ns3:OntologyClass ;
+    ns3:label "Abnormal muscle tone" .
+
+HP:0006886 a ns3:OntologyClass ;
+    ns3:label "Impaired distal vibration sensation" .
+
+HP:0007289 a ns3:OntologyClass ;
+    ns3:label "Limb fasciculations" .
+
+HP:0008956 a ns3:OntologyClass ;
+    ns3:label "Proximal lower limb amyotrophy" .
+
+HP:0008994 a ns3:OntologyClass ;
+    ns3:label "Proximal muscle weakness in lower limbs" .
+
+MONDO:0001134 a ns3:OntologyClass ;
+    ns3:label "essential hypertension" .
+
+MONDO:0005148 a ns3:OntologyClass ;
+    ns3:label "type 2 diabetes mellitus" .
+
+NCIT:C121331 a ns3:OntologyClass ;
+    ns3:label "Intravenous Immunoglobulin Therapy" .
+
+NCIT:C123584 a ns3:OntologyClass ;
+    ns3:label "Favorable Response" .
+
+NCIT:C38276 a ns3:OntologyClass ;
+    ns3:label "Intravenous Route of Administration" .
+
+NCIT:C41331 a ns3:OntologyClass ;
+    ns3:label "Adverse Event" .
+
+NCIT:C64527 a ns3:OntologyClass ;
+    ns3:label "Three Times Daily" .
+
+NCIT:C89788 a ns3:OntologyClass ;
+    ns3:label "Every Six Weeks" .
+
+UCUM:g.kg-1 a ns3:OntologyClass ;
+    ns3:label "gram per kilogram" .
+
+LOINC:1742-6 a ns3:OntologyClass ;
+    ns3:label "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma" .
+
+LOINC:2157-6 a ns3:OntologyClass ;
+    ns3:label "Creatine kinase [Enzymatic activity/volume] in Serum or Plasma" .
+
+NCIT:C125004 a ns3:OntologyClass ;
+    ns3:label "Once Daily" .
+
+NCIT:C38288 a ns3:OntologyClass ;
+    ns3:label "Oral Route of Administration" .
+
+UCUM:U.L-1 a ns3:OntologyClass ;
+    ns3:label "enzyme unit per liter" .
+
+UCUM:mg a ns3:OntologyClass ;
+    ns3:label "milligram" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:diseases [ a ns6:Disease ;
+            ns6:excluded false ;
+            ns6:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P55Y" ] ] ;
+            ns6:term MONDO:0005148 ],
+        [ a ns6:Disease ;
+            ns6:excluded false ;
+            ns6:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P55Y" ] ] ;
+            ns6:term MONDO:0001134 ] ;
+    phenopackets:id "arbitrary.id" ;
+    phenopackets:measurements [ a ns4:Measurement ;
+            ns4:assay LOINC:2157-6 ;
+            ns4:value [ a ns4:Value ;
+                    ns4:quantity [ a ns4:Quantity ;
+                            ns4:referenceRange [ a ns4:ReferenceRange ;
+                                    ns4:high 2e+02 ;
+                                    ns4:low 2e+01 ;
+                                    ns4:unit UCUM:U.L-1 ] ;
+                            ns4:unit UCUM:U.L-1 ;
+                            ns4:value 4.292e+03 ] ] ],
+        [ a ns4:Measurement ;
+            ns4:assay LOINC:1742-6 ;
+            ns4:value [ a ns4:Value ;
+                    ns4:quantity [ a ns4:Quantity ;
+                            ns4:referenceRange [ a ns4:ReferenceRange ;
+                                    ns4:high 3.6e+01 ;
+                                    ns4:low 4e+00 ;
+                                    ns4:unit UCUM:U.L-1 ] ;
+                            ns4:unit UCUM:U.L-1 ;
+                            ns4:value 2.34e+02 ] ] ] ;
+    phenopackets:medicalActions [ a ns2:MedicalAction ;
+            ns2:responseToTreatment NCIT:C123584 ;
+            ns2:treatment [ a ns2:Treatment ;
+                    ns2:agent NCIT:C121331 ;
+                    ns2:doseIntervals [ a ns2:DoseInterval ;
+                            ns2:interval [ a ns3:TimeInterval ;
+                                    ns3:end "2021-03-02T00:00:00Z" ;
+                                    ns3:start "2020-09-02T00:00:00Z" ] ;
+                            ns2:quantity [ a ns4:Quantity ;
+                                    ns4:unit UCUM:g.kg-1 ;
+                                    ns4:value 1.6e+00 ] ;
+                            ns2:scheduleFrequency NCIT:C89788 ] ;
+                    ns2:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns2:routeOfAdministration NCIT:C38276 ] ],
+        [ a ns2:MedicalAction ;
+            ns2:treatment [ a ns2:Treatment ;
+                    ns2:agent DrugCentral:2356 ;
+                    ns2:doseIntervals [ a ns2:DoseInterval ;
+                            ns2:interval [ a ns3:TimeInterval ;
+                                    ns3:end "2020-09-02T00:00:00Z" ;
+                                    ns3:start "2010-09-02T00:00:00Z" ] ;
+                            ns2:quantity [ a ns4:Quantity ;
+                                    ns4:unit UCUM:mg ;
+                                    ns4:value 1e+01 ] ;
+                            ns2:scheduleFrequency NCIT:C125004 ] ;
+                    ns2:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns2:routeOfAdministration NCIT:C38288 ] ],
+        [ a ns2:MedicalAction ;
+            ns2:adverseEvents HP:0003198 ;
+            ns2:treatment [ a ns2:Treatment ;
+                    ns2:agent DrugCentral:257 ;
+                    ns2:doseIntervals [ a ns2:DoseInterval ;
+                            ns2:interval [ a ns3:TimeInterval ;
+                                    ns3:end "2020-09-02T00:00:00Z" ;
+                                    ns3:start "2010-09-02T00:00:00Z" ] ;
+                            ns2:quantity [ a ns4:Quantity ;
+                                    ns4:unit UCUM:mg ;
+                                    ns4:value 1e+01 ] ;
+                            ns2:scheduleFrequency NCIT:C125004 ] ;
+                    ns2:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns2:routeOfAdministration NCIT:C38288 ] ;
+            ns2:treatmentTerminationReason NCIT:C41331 ],
+        [ a ns2:MedicalAction ;
+            ns2:treatment [ a ns2:Treatment ;
+                    ns2:agent DrugCentral:1725 ;
+                    ns2:doseIntervals [ a ns2:DoseInterval ;
+                            ns2:interval [ a ns3:TimeInterval ;
+                                    ns3:end "2020-09-02T00:00:00Z" ;
+                                    ns3:start "2010-09-02T00:00:00Z" ] ;
+                            ns2:quantity [ a ns4:Quantity ;
+                                    ns4:unit UCUM:mg ;
+                                    ns4:value 5e+02 ] ;
+                            ns2:scheduleFrequency NCIT:C64527 ] ;
+                    ns2:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns2:routeOfAdministration NCIT:C38288 ] ],
+        [ a ns2:MedicalAction ;
+            ns2:treatment [ a ns2:Treatment ;
+                    ns2:agent DrugCentral:74 ;
+                    ns2:doseIntervals [ a ns2:DoseInterval ;
+                            ns2:interval [ a ns3:TimeInterval ;
+                                    ns3:end "2020-09-02T00:00:00Z" ;
+                                    ns3:start "2010-09-02T00:00:00Z" ] ;
+                            ns2:quantity [ a ns4:Quantity ;
+                                    ns4:unit UCUM:mg ;
+                                    ns4:value 7.5e+01 ] ;
+                            ns2:scheduleFrequency NCIT:C125004 ] ;
+                    ns2:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns2:routeOfAdministration NCIT:C38288 ] ] ;
+    phenopackets:metaData [ a ns1:MetaData ;
+            ns1:created "2022-04-21T10:35:00Z" ;
+            ns1:createdBy "anonymous biocurator" ;
+            ns1:externalReferences [ a ns3:ExternalReference ;
+                    ns3:description "Severe statin-induced autoimmune myopathy successfully treated with intravenous immunoglobulin" ;
+                    ns3:id "PMID:32444443" ] ;
+            ns1:phenopacketSchemaVersion "2.0.0" ;
+            ns1:resources [ a ns1:Resource ;
+                    ns1:id "hp" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns1:name "human phenotype ontology" ;
+                    ns1:namespacePrefix "HP" ;
+                    ns1:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns1:version "2022-06-11" ],
+                [ a ns1:Resource ;
+                    ns1:id "mondo" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/MONDO_" ;
+                    ns1:name "Mondo Disease Ontology" ;
+                    ns1:namespacePrefix "MONDO" ;
+                    ns1:url "http://purl.obolibrary.org/obo/mondo.obo" ;
+                    ns1:version "2022-04-04" ],
+                [ a ns1:Resource ;
+                    ns1:id "ncit" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns1:name "NCI Thesaurus" ;
+                    ns1:namespacePrefix "NCIT" ;
+                    ns1:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns1:version "21.05d" ],
+                [ a ns1:Resource ;
+                    ns1:id "loinc" ;
+                    ns1:iriPrefix "https://loinc.org/" ;
+                    ns1:name "Logical Observation Identifiers Names and Codes" ;
+                    ns1:namespacePrefix "LOINC" ;
+                    ns1:url "https://loinc.org" ;
+                    ns1:version "2.73" ],
+                [ a ns1:Resource ;
+                    ns1:id "ucum" ;
+                    ns1:iriPrefix "https://units-of-measurement.org/" ;
+                    ns1:name "Unified Code for Units of Measure" ;
+                    ns1:namespacePrefix "UCUM" ;
+                    ns1:url "https://ucum.org" ;
+                    ns1:version "2.1" ],
+                [ a ns1:Resource ;
+                    ns1:id "drugcentral" ;
+                    ns1:iriPrefix "https://drugcentral.org/drugcard/" ;
+                    ns1:name "Drug Central" ;
+                    ns1:namespacePrefix "DrugCentral" ;
+                    ns1:url "https://drugcentral.org/" ;
+                    ns1:version "2022-08-22" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P65Y" ] ] ;
+            ns5:type HP:0007289 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded true ;
+            ns5:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P65Y" ] ] ;
+            ns5:type HP:0003808 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P65Y" ] ] ;
+            ns5:type HP:0008994 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P65Y" ] ] ;
+            ns5:type HP:0006886 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P65Y" ] ] ;
+            ns5:type HP:0003391 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P65Y" ] ] ;
+            ns5:type HP:0003551 ],
+        [ a ns5:PhenotypicFeature ;
+            ns5:excluded false ;
+            ns5:onset [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P65Y" ] ] ;
+            ns5:type HP:0008956 ] ;
+    phenopackets:subject [ a ns7:Individual ;
+            ns7:id "65-year-old man" ;
+            ns7:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns7:sex "MALE" ;
+            ns7:timeAtLastEncounter [ a ns3:TimeElement ;
+                    ns3:age [ a ns3:Age ;
+                            ns3:iso8601duration "P65Y" ] ] ] .
+

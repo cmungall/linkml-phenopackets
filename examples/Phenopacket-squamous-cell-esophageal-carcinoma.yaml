@@ -44,9 +44,8 @@ biosamples:
     id: NCIT:C4813
     label: Recurrent Malignant Neoplasm
 - diagnosticMarkers:
-    NCIT:C131711:
-      id: NCIT:C131711
-      label: Human Papillomavirus-18 Positive
+  - id: NCIT:C131711
+    label: Human Papillomavirus-18 Positive
   histologicalDiagnosis:
     id: NCIT:C4024
     label: Esophageal Squamous Cell Carcinoma
@@ -82,15 +81,12 @@ biosamples:
     label: Metastatic Neoplasm
 diseases:
 - clinicalTnmFinding:
-    NCIT:C48724:
-      id: NCIT:C48724
-      label: T2 Stage Finding
-    NCIT:C48706:
-      id: NCIT:C48706
-      label: N1 Stage Finding
-    NCIT:C48699:
-      id: NCIT:C48699
-      label: M0 Stage Finding
+  - id: NCIT:C48724
+    label: T2 Stage Finding
+  - id: NCIT:C48706
+    label: N1 Stage Finding
+  - id: NCIT:C48699
+    label: M0 Stage Finding
   excluded: false
   term:
     id: NCIT:C4024

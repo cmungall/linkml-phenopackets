@@ -1,0 +1,259 @@
+metaData:
+  created: '2022-04-21T10:35:00Z'
+  createdBy: anonymous biocurator
+  externalReferences:
+  - description: Severe statin-induced autoimmune myopathy successfully treated with
+      intravenous immunoglobulin
+    id: PMID:32444443
+  phenopacketSchemaVersion: 2.0.0
+  resources:
+  - id: ncit
+    iriPrefix: http://purl.obolibrary.org/obo/NCIT_
+    name: NCI Thesaurus
+    namespacePrefix: NCIT
+    url: http://purl.obolibrary.org/obo/ncit.owl
+    version: 21.05d
+  - id: hp
+    iriPrefix: http://purl.obolibrary.org/obo/HP_
+    name: human phenotype ontology
+    namespacePrefix: HP
+    url: http://purl.obolibrary.org/obo/hp.owl
+    version: '2022-06-11'
+  - id: loinc
+    iriPrefix: https://loinc.org/
+    name: Logical Observation Identifiers Names and Codes
+    namespacePrefix: LOINC
+    url: https://loinc.org
+    version: '2.73'
+  - id: ucum
+    iriPrefix: https://units-of-measurement.org/
+    name: Unified Code for Units of Measure
+    namespacePrefix: UCUM
+    url: https://ucum.org
+    version: '2.1'
+  - id: mondo
+    iriPrefix: http://purl.obolibrary.org/obo/MONDO_
+    name: Mondo Disease Ontology
+    namespacePrefix: MONDO
+    url: http://purl.obolibrary.org/obo/mondo.obo
+    version: '2022-04-04'
+  - id: drugcentral
+    iriPrefix: https://drugcentral.org/drugcard/
+    name: Drug Central
+    namespacePrefix: DrugCentral
+    url: https://drugcentral.org/
+    version: '2022-08-22'
+diseases:
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P55Y
+  term:
+    id: MONDO:0005148
+    label: type 2 diabetes mellitus
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P55Y
+  term:
+    id: MONDO:0001134
+    label: essential hypertension
+id: arbitrary.id
+measurements:
+- assay:
+    id: LOINC:2157-6
+    label: Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+  value:
+    quantity:
+      referenceRange:
+        high: 200.0
+        low: 20.0
+        unit:
+          id: UCUM:U.L-1
+          label: enzyme unit per liter
+      unit:
+        id: UCUM:U.L-1
+        label: enzyme unit per liter
+      value: 4292.0
+- assay:
+    id: LOINC:1742-6
+    label: Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+  value:
+    quantity:
+      referenceRange:
+        high: 36.0
+        low: 4.0
+        unit:
+          id: UCUM:U.L-1
+          label: enzyme unit per liter
+      unit:
+        id: UCUM:U.L-1
+        label: enzyme unit per liter
+      value: 234.0
+medicalActions:
+- adverseEvents:
+  - id: HP:0003198
+    label: Myopathy
+  treatment:
+    agent:
+      id: DrugCentral:257
+      label: atorvastatin
+    doseIntervals:
+    - interval:
+        end: '2020-09-02T00:00:00Z'
+        start: '2010-09-02T00:00:00Z'
+      quantity:
+        unit:
+          id: UCUM:mg
+          label: milligram
+        value: 10.0
+      scheduleFrequency:
+        id: NCIT:C125004
+        label: Once Daily
+    drugType: UNKNOWN_DRUG_TYPE
+    routeOfAdministration:
+      id: NCIT:C38288
+      label: Oral Route of Administration
+  treatmentTerminationReason:
+    id: NCIT:C41331
+    label: Adverse Event
+- treatment:
+    agent:
+      id: DrugCentral:74
+      label: acetylsalicylic acid
+    doseIntervals:
+    - interval:
+        end: '2020-09-02T00:00:00Z'
+        start: '2010-09-02T00:00:00Z'
+      quantity:
+        unit:
+          id: UCUM:mg
+          label: milligram
+        value: 75.0
+      scheduleFrequency:
+        id: NCIT:C125004
+        label: Once Daily
+    drugType: UNKNOWN_DRUG_TYPE
+    routeOfAdministration:
+      id: NCIT:C38288
+      label: Oral Route of Administration
+- treatment:
+    agent:
+      id: DrugCentral:2356
+      label: ramipril
+    doseIntervals:
+    - interval:
+        end: '2020-09-02T00:00:00Z'
+        start: '2010-09-02T00:00:00Z'
+      quantity:
+        unit:
+          id: UCUM:mg
+          label: milligram
+        value: 10.0
+      scheduleFrequency:
+        id: NCIT:C125004
+        label: Once Daily
+    drugType: UNKNOWN_DRUG_TYPE
+    routeOfAdministration:
+      id: NCIT:C38288
+      label: Oral Route of Administration
+- treatment:
+    agent:
+      id: DrugCentral:1725
+      label: metformin
+    doseIntervals:
+    - interval:
+        end: '2020-09-02T00:00:00Z'
+        start: '2010-09-02T00:00:00Z'
+      quantity:
+        unit:
+          id: UCUM:mg
+          label: milligram
+        value: 500.0
+      scheduleFrequency:
+        id: NCIT:C64527
+        label: Three Times Daily
+    drugType: UNKNOWN_DRUG_TYPE
+    routeOfAdministration:
+      id: NCIT:C38288
+      label: Oral Route of Administration
+- responseToTreatment:
+    id: NCIT:C123584
+    label: Favorable Response
+  treatment:
+    agent:
+      id: NCIT:C121331
+      label: Intravenous Immunoglobulin Therapy
+    doseIntervals:
+    - interval:
+        end: '2021-03-02T00:00:00Z'
+        start: '2020-09-02T00:00:00Z'
+      quantity:
+        unit:
+          id: UCUM:g.kg-1
+          label: gram per kilogram
+        value: 1.6
+      scheduleFrequency:
+        id: NCIT:C89788
+        label: Every Six Weeks
+    drugType: UNKNOWN_DRUG_TYPE
+    routeOfAdministration:
+      id: NCIT:C38276
+      label: Intravenous Route of Administration
+phenotypicFeatures:
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P65Y
+  type:
+    id: HP:0008994
+    label: Proximal muscle weakness in lower limbs
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P65Y
+  type:
+    id: HP:0007289
+    label: Limb fasciculations
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P65Y
+  type:
+    id: HP:0008956
+    label: Proximal lower limb amyotrophy
+- excluded: true
+  onset:
+    age:
+      iso8601duration: P65Y
+  type:
+    id: HP:0003808
+    label: Abnormal muscle tone
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P65Y
+  type:
+    id: HP:0003391
+    label: Gowers sign
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P65Y
+  type:
+    id: HP:0003551
+    label: Difficulty climbing stairs
+- excluded: false
+  onset:
+    age:
+      iso8601duration: P65Y
+  type:
+    id: HP:0006886
+    label: Impaired distal vibration sensation
+subject:
+  id: 65-year-old man
+  karyotypicSex: UNKNOWN_KARYOTYPE
+  sex: MALE
+  timeAtLastEncounter:
+    age:
+      iso8601duration: P65Y

@@ -59,7 +59,18 @@ metaData:
     version: '2022-08-22'
 biosamples:
 - files:
-  - uri: file://data/fileSomaticWgs.vcf.gz
+  - fileAttributes:
+      genomeAssembly:
+        key: genomeAssembly
+        value: GRCh38
+      fileFormat:
+        key: fileFormat
+        value: VCF
+    individualToFileIdentifiers:
+      biosample.1:
+        key: biosample.1
+        value: specimen.1
+    uri: file://data/fileSomaticWgs.vcf.gz
   id: biosample.1
   measurements:
   - assay:
@@ -75,12 +86,10 @@ biosamples:
           label: millimeter
         value: 15.0
   pathologicalTnmFinding:
-    NCIT:C140720:
-      id: NCIT:C140720
-      label: Retinoblastoma pT3 TNM Finding v8
-    NCIT:C140711:
-      id: NCIT:C140711
-      label: Retinoblastoma pN0 TNM Finding v8
+  - id: NCIT:C140720
+    label: Retinoblastoma pT3 TNM Finding v8
+  - id: NCIT:C140711
+    label: Retinoblastoma pN0 TNM Finding v8
   phenotypicFeatures:
   - excluded: false
     type:
@@ -108,13 +117,11 @@ biosamples:
     label: Primary Neoplasm
 diseases:
 - clinicalTnmFinding:
-    NCIT:C140678:
-      id: NCIT:C140678
-      label: Retinoblastoma cM0 TNM Finding v8
+  - id: NCIT:C140678
+    label: Retinoblastoma cM0 TNM Finding v8
   diseaseStage:
-    LOINC:LA24739-7:
-      id: LOINC:LA24739-7
-      label: Group E
+  - id: LOINC:LA24739-7
+    label: Group E
   excluded: false
   onset:
     age:
@@ -126,7 +133,18 @@ diseases:
     id: NCIT:C7541
     label: Retinoblastoma
 files:
-- uri: file://data/germlineWgs.vcf.gz
+- fileAttributes:
+    genomeAssembly:
+      key: genomeAssembly
+      value: GRCh38
+    fileFormat:
+      key: fileFormat
+      value: VCF
+  individualToFileIdentifiers:
+    proband A:
+      key: proband A
+      value: sample1
+  uri: file://data/germlineWgs.vcf.gz
 id: arbitrary.id
 interpretations:
 - diagnosis:
@@ -241,9 +259,8 @@ measurements:
       value: 15.0
 medicalActions:
 - adverseEvents:
-    HP:0025637:
-      id: HP:0025637
-      label: Vasospasm
+  - id: HP:0025637
+    label: Vasospasm
   treatment:
     agent:
       id: DrugCentral:1678
@@ -309,9 +326,8 @@ medicalActions:
 phenotypicFeatures:
 - excluded: false
   modifiers:
-    HP:0012834:
-      id: HP:0012834
-      label: Right
+  - id: HP:0012834
+    label: Right
   onset:
     age:
       iso8601duration: P3M
@@ -320,9 +336,8 @@ phenotypicFeatures:
     label: Clinodactyly
 - excluded: false
   modifiers:
-    HP:0012835:
-      id: HP:0012835
-      label: Left
+  - id: HP:0012835
+    label: Left
   onset:
     age:
       iso8601duration: P4M
@@ -331,9 +346,8 @@ phenotypicFeatures:
     label: Leukocoria
 - excluded: false
   modifiers:
-    HP:0012835:
-      id: HP:0012835
-      label: Left
+  - id: HP:0012835
+    label: Left
   onset:
     age:
       iso8601duration: P5M15D
@@ -342,9 +356,8 @@ phenotypicFeatures:
     label: Strabismus
 - excluded: false
   modifiers:
-    HP:0012835:
-      id: HP:0012835
-      label: Left
+  - id: HP:0012835
+    label: Left
   onset:
     age:
       iso8601duration: P6M

@@ -1,5 +1,5 @@
 # Auto generated from phenopackets.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-24T18:47:16
+# Generation date: 2026-11-20T14:41:27
 # Schema: phenopackets
 #
 # id: https://w3id.org/linkml/phenopackets/phenopackets
@@ -64,6 +64,10 @@ DEFAULT_ = PHENOPACKETS
 # Types
 
 # Class references
+class DictionaryEntryKey(extended_str):
+    pass
+
+
 class OntologyClassId(extended_str):
     pass
 
@@ -102,7 +106,9 @@ class Cohort(YAMLRoot):
         if self.id is not None and not isinstance(self.id, str):
             self.id = str(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="members", slot_type=Phenopacket, key_name="metaData", keyed=False)
+        if not isinstance(self.members, list):
+            self.members = [self.members] if self.members is not None else []
+        self.members = [v if isinstance(v, Phenopacket) else Phenopacket(**as_dict(v)) for v in self.members]
 
         super().__post_init__(**kwargs)
 
@@ -151,7 +157,9 @@ class Family(YAMLRoot):
         if self.proband is not None and not isinstance(self.proband, Phenopacket):
             self.proband = Phenopacket(**as_dict(self.proband))
 
-        self._normalize_inlined_as_dict(slot_name="relatives", slot_type=Phenopacket, key_name="metaData", keyed=False)
+        if not isinstance(self.relatives, list):
+            self.relatives = [self.relatives] if self.relatives is not None else []
+        self.relatives = [v if isinstance(v, Phenopacket) else Phenopacket(**as_dict(v)) for v in self.relatives]
 
         super().__post_init__(**kwargs)
 
@@ -269,13 +277,32 @@ class AgeRange(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-class Dictionary(YAMLRoot):
+@dataclass
+class DictionaryEntry(YAMLRoot):
+    """
+    An entry of a protobuf map<string, string> field. An attribute that holds a map is multivalued and inlined as a
+    dictionary of its entries, which can be written as {key: value, ...}
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = BASE["Dictionary"]
-    class_class_curie: ClassVar[str] = "base:Dictionary"
-    class_name: ClassVar[str] = "Dictionary"
-    class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Dictionary
+    class_class_uri: ClassVar[URIRef] = BASE["DictionaryEntry"]
+    class_class_curie: ClassVar[str] = "base:DictionaryEntry"
+    class_name: ClassVar[str] = "DictionaryEntry"
+    class_model_uri: ClassVar[URIRef] = PHENOPACKETS.DictionaryEntry
+
+    key: Union[str, DictionaryEntryKey] = None
+    value: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.key):
+            self.MissingRequiredField("key")
+        if not isinstance(self.key, DictionaryEntryKey):
+            self.key = DictionaryEntryKey(self.key)
+
+        if self.value is not None and not isinstance(self.value, str):
+            self.value = str(self.value)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -341,16 +368,14 @@ class File(YAMLRoot):
     class_name: ClassVar[str] = "File"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.File
 
-    fileAttributes: Optional[Union[dict, Dictionary]] = None
-    individualToFileIdentifiers: Optional[Union[dict, Dictionary]] = None
+    fileAttributes: Optional[Union[Dict[Union[str, DictionaryEntryKey], Union[dict, DictionaryEntry]], List[Union[dict, DictionaryEntry]]]] = empty_dict()
+    individualToFileIdentifiers: Optional[Union[Dict[Union[str, DictionaryEntryKey], Union[dict, DictionaryEntry]], List[Union[dict, DictionaryEntry]]]] = empty_dict()
     uri: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.fileAttributes is not None and not isinstance(self.fileAttributes, Dictionary):
-            self.fileAttributes = Dictionary()
+        self._normalize_inlined_as_dict(slot_name="fileAttributes", slot_type=DictionaryEntry, key_name="key", keyed=True)
 
-        if self.individualToFileIdentifiers is not None and not isinstance(self.individualToFileIdentifiers, Dictionary):
-            self.individualToFileIdentifiers = Dictionary()
+        self._normalize_inlined_as_dict(slot_name="individualToFileIdentifiers", slot_type=DictionaryEntry, key_name="key", keyed=True)
 
         if self.uri is not None and not isinstance(self.uri, str):
             self.uri = str(self.uri)
@@ -548,7 +573,7 @@ class Biosample(YAMLRoot):
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
 
-        self._normalize_inlined_as_dict(slot_name="diagnosticMarkers", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="diagnosticMarkers", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if not isinstance(self.files, list):
             self.files = [self.files] if self.files is not None else []
@@ -573,7 +598,7 @@ class Biosample(YAMLRoot):
         if self.pathologicalStage is not None and not isinstance(self.pathologicalStage, OntologyClass):
             self.pathologicalStage = OntologyClass(**as_dict(self.pathologicalStage))
 
-        self._normalize_inlined_as_dict(slot_name="pathologicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="pathologicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if not isinstance(self.phenotypicFeatures, list):
             self.phenotypicFeatures = [self.phenotypicFeatures] if self.phenotypicFeatures is not None else []
@@ -631,9 +656,9 @@ class Disease(YAMLRoot):
     term: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="clinicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="clinicalTnmFinding", slot_type=OntologyClass, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="diseaseStage", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="diseaseStage", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.excluded is not None and not isinstance(self.excluded, Bool):
             self.excluded = Bool(self.excluded)
@@ -1066,7 +1091,7 @@ class MedicalAction(YAMLRoot):
     treatmentTerminationReason: Optional[Union[dict, OntologyClass]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="adverseEvents", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="adverseEvents", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.procedure is not None and not isinstance(self.procedure, Procedure):
             self.procedure = Procedure(**as_dict(self.procedure))
@@ -1138,9 +1163,6 @@ class RadiationTherapy(YAMLRoot):
 
 @dataclass
 class TherapeuticRegimen(YAMLRoot):
-    """
-    ARGO mapping radiation::radiation_therapy_type (missing)
-    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = MEDICAL_ACTION["TherapeuticRegimen"]
@@ -1176,7 +1198,7 @@ class TherapeuticRegimen(YAMLRoot):
 @dataclass
 class Treatment(YAMLRoot):
     """
-    ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug
+    treatment with an agent, such as a drug
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1249,7 +1271,9 @@ class MetaData(YAMLRoot):
         if self.submittedBy is not None and not isinstance(self.submittedBy, str):
             self.submittedBy = str(self.submittedBy)
 
-        self._normalize_inlined_as_dict(slot_name="updates", slot_type=Update, key_name="timestamp", keyed=False)
+        if not isinstance(self.updates, list):
+            self.updates = [self.updates] if self.updates is not None else []
+        self.updates = [v if isinstance(v, Update) else Update(**as_dict(v)) for v in self.updates]
 
         super().__post_init__(**kwargs)
 
@@ -1422,7 +1446,7 @@ class PhenotypicFeature(YAMLRoot):
         if self.excluded is not None and not isinstance(self.excluded, Bool):
             self.excluded = Bool(self.excluded)
 
-        self._normalize_inlined_as_dict(slot_name="modifiers", slot_type=OntologyClass, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="modifiers", slot_type=OntologyClass, key_name="id", keyed=True)
 
         if self.onset is not None and not isinstance(self.onset, TimeElement):
             self.onset = TimeElement(**as_dict(self.onset))
@@ -1788,15 +1812,19 @@ class Allele(YAMLRoot):
     class_name: ClassVar[str] = "Allele"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Allele
 
+    Id: Optional[str] = None
     chromosomeLocation: Optional[Union[dict, "ChromosomeLocation"]] = None
     curie: Optional[str] = None
     derivedSequenceExpression: Optional[Union[dict, "DerivedSequenceExpression"]] = None
-    id: Optional[str] = None
     literalSequenceExpression: Optional[Union[dict, "LiteralSequenceExpression"]] = None
     repeatedSequenceExpression: Optional[Union[dict, "RepeatedSequenceExpression"]] = None
     sequenceLocation: Optional[Union[dict, "SequenceLocation"]] = None
+    sequenceState: Optional[Union[dict, "SequenceState"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.Id is not None and not isinstance(self.Id, str):
+            self.Id = str(self.Id)
+
         if self.chromosomeLocation is not None and not isinstance(self.chromosomeLocation, ChromosomeLocation):
             self.chromosomeLocation = ChromosomeLocation(**as_dict(self.chromosomeLocation))
 
@@ -1806,9 +1834,6 @@ class Allele(YAMLRoot):
         if self.derivedSequenceExpression is not None and not isinstance(self.derivedSequenceExpression, DerivedSequenceExpression):
             self.derivedSequenceExpression = DerivedSequenceExpression(**as_dict(self.derivedSequenceExpression))
 
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
-
         if self.literalSequenceExpression is not None and not isinstance(self.literalSequenceExpression, LiteralSequenceExpression):
             self.literalSequenceExpression = LiteralSequenceExpression(**as_dict(self.literalSequenceExpression))
 
@@ -1817,6 +1842,9 @@ class Allele(YAMLRoot):
 
         if self.sequenceLocation is not None and not isinstance(self.sequenceLocation, SequenceLocation):
             self.sequenceLocation = SequenceLocation(**as_dict(self.sequenceLocation))
+
+        if self.sequenceState is not None and not isinstance(self.sequenceState, SequenceState):
+            self.sequenceState = SequenceState(**as_dict(self.sequenceState))
 
         super().__post_init__(**kwargs)
 
@@ -1830,17 +1858,17 @@ class ChromosomeLocation(YAMLRoot):
     class_name: ClassVar[str] = "ChromosomeLocation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.ChromosomeLocation
 
+    Id: Optional[str] = None
     chr: Optional[str] = None
-    id: Optional[str] = None
     interval: Optional[Union[dict, "CytobandInterval"]] = None
     speciesId: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.Id is not None and not isinstance(self.Id, str):
+            self.Id = str(self.Id)
+
         if self.chr is not None and not isinstance(self.chr, str):
             self.chr = str(self.chr)
-
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
 
         if self.interval is not None and not isinstance(self.interval, CytobandInterval):
             self.interval = CytobandInterval(**as_dict(self.interval))
@@ -1860,19 +1888,22 @@ class CopyNumber(YAMLRoot):
     class_name: ClassVar[str] = "CopyNumber"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.CopyNumber
 
+    Id: Optional[str] = None
     allele: Optional[Union[dict, Allele]] = None
     curie: Optional[str] = None
     definiteRange: Optional[Union[dict, "DefiniteRange"]] = None
     derivedSequenceExpression: Optional[Union[dict, "DerivedSequenceExpression"]] = None
     gene: Optional[Union[dict, "Gene"]] = None
     haplotype: Optional[Union[dict, "Haplotype"]] = None
-    id: Optional[str] = None
     indefiniteRange: Optional[Union[dict, "IndefiniteRange"]] = None
     literalSequenceExpression: Optional[Union[dict, "LiteralSequenceExpression"]] = None
     number: Optional[Union[dict, "Number"]] = None
     repeatedSequenceExpression: Optional[Union[dict, "RepeatedSequenceExpression"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.Id is not None and not isinstance(self.Id, str):
+            self.Id = str(self.Id)
+
         if self.allele is not None and not isinstance(self.allele, Allele):
             self.allele = Allele(**as_dict(self.allele))
 
@@ -1889,10 +1920,7 @@ class CopyNumber(YAMLRoot):
             self.gene = Gene(**as_dict(self.gene))
 
         if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
-            self.haplotype = Haplotype()
-
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
+            self.haplotype = Haplotype(**as_dict(self.haplotype))
 
         if self.indefiniteRange is not None and not isinstance(self.indefiniteRange, IndefiniteRange):
             self.indefiniteRange = IndefiniteRange(**as_dict(self.indefiniteRange))
@@ -2011,6 +2039,7 @@ class Gene(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class Haplotype(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2018,6 +2047,41 @@ class Haplotype(YAMLRoot):
     class_class_curie: ClassVar[str] = "vrs:Haplotype"
     class_name: ClassVar[str] = "Haplotype"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Haplotype
+
+    Id: Optional[str] = None
+    members: Optional[Union[Union[dict, "HaplotypeMember"], List[Union[dict, "HaplotypeMember"]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.Id is not None and not isinstance(self.Id, str):
+            self.Id = str(self.Id)
+
+        if not isinstance(self.members, list):
+            self.members = [self.members] if self.members is not None else []
+        self.members = [v if isinstance(v, HaplotypeMember) else HaplotypeMember(**as_dict(v)) for v in self.members]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class HaplotypeMember(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VRS["HaplotypeMember"]
+    class_class_curie: ClassVar[str] = "vrs:HaplotypeMember"
+    class_name: ClassVar[str] = "HaplotypeMember"
+    class_model_uri: ClassVar[URIRef] = PHENOPACKETS.HaplotypeMember
+
+    allele: Optional[Union[dict, Allele]] = None
+    curie: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.allele is not None and not isinstance(self.allele, Allele):
+            self.allele = Allele(**as_dict(self.allele))
+
+        if self.curie is not None and not isinstance(self.curie, str):
+            self.curie = str(self.curie)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -2083,53 +2147,6 @@ class Location(YAMLRoot):
 
 
 @dataclass
-class Member(YAMLRoot):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = VRS["Member"]
-    class_class_curie: ClassVar[str] = "vrs:Member"
-    class_name: ClassVar[str] = "Member"
-    class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Member
-
-    allele: Optional[Union[dict, Allele]] = None
-    copyNumber: Optional[Union[dict, CopyNumber]] = None
-    curie: Optional[str] = None
-    haplotype: Optional[Union[dict, Haplotype]] = None
-    id: Optional[str] = None
-    members: Optional[Union[Union[dict, "Member"], List[Union[dict, "Member"]]]] = empty_list()
-    text: Optional[Union[dict, "Text"]] = None
-    variationSet: Optional[Union[dict, "VariationSet"]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.allele is not None and not isinstance(self.allele, Allele):
-            self.allele = Allele(**as_dict(self.allele))
-
-        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumber):
-            self.copyNumber = CopyNumber(**as_dict(self.copyNumber))
-
-        if self.curie is not None and not isinstance(self.curie, str):
-            self.curie = str(self.curie)
-
-        if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
-            self.haplotype = Haplotype()
-
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
-
-        if not isinstance(self.members, list):
-            self.members = [self.members] if self.members is not None else []
-        self.members = [v if isinstance(v, Member) else Member(**as_dict(v)) for v in self.members]
-
-        if self.text is not None and not isinstance(self.text, Text):
-            self.text = Text(**as_dict(self.text))
-
-        if self.variationSet is not None and not isinstance(self.variationSet, VariationSet):
-            self.variationSet = VariationSet()
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
 class MolecularVariation(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2146,7 +2163,7 @@ class MolecularVariation(YAMLRoot):
             self.allele = Allele(**as_dict(self.allele))
 
         if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
-            self.haplotype = Haplotype()
+            self.haplotype = Haplotype(**as_dict(self.haplotype))
 
         super().__post_init__(**kwargs)
 
@@ -2276,19 +2293,23 @@ class SequenceLocation(YAMLRoot):
     class_name: ClassVar[str] = "SequenceLocation"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.SequenceLocation
 
-    id: Optional[str] = None
+    Id: Optional[str] = None
     sequenceId: Optional[str] = None
     sequenceInterval: Optional[Union[dict, SequenceInterval]] = None
+    simpleInterval: Optional[Union[dict, "SimpleInterval"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
+        if self.Id is not None and not isinstance(self.Id, str):
+            self.Id = str(self.Id)
 
         if self.sequenceId is not None and not isinstance(self.sequenceId, str):
             self.sequenceId = str(self.sequenceId)
 
         if self.sequenceInterval is not None and not isinstance(self.sequenceInterval, SequenceInterval):
             self.sequenceInterval = SequenceInterval(**as_dict(self.sequenceInterval))
+
+        if self.simpleInterval is not None and not isinstance(self.simpleInterval, SimpleInterval):
+            self.simpleInterval = SimpleInterval(**as_dict(self.simpleInterval))
 
         super().__post_init__(**kwargs)
 
@@ -2360,15 +2381,15 @@ class Text(YAMLRoot):
     class_name: ClassVar[str] = "Text"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.Text
 
+    Id: Optional[str] = None
     definition: Optional[str] = None
-    id: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.Id is not None and not isinstance(self.Id, str):
+            self.Id = str(self.Id)
+
         if self.definition is not None and not isinstance(self.definition, str):
             self.definition = str(self.definition)
-
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -2390,7 +2411,7 @@ class UtilityVariation(YAMLRoot):
             self.text = Text(**as_dict(self.text))
 
         if self.variationSet is not None and not isinstance(self.variationSet, VariationSet):
-            self.variationSet = VariationSet()
+            self.variationSet = VariationSet(**as_dict(self.variationSet))
 
         super().__post_init__(**kwargs)
 
@@ -2418,17 +2439,18 @@ class Variation(YAMLRoot):
             self.copyNumber = CopyNumber(**as_dict(self.copyNumber))
 
         if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
-            self.haplotype = Haplotype()
+            self.haplotype = Haplotype(**as_dict(self.haplotype))
 
         if self.text is not None and not isinstance(self.text, Text):
             self.text = Text(**as_dict(self.text))
 
         if self.variationSet is not None and not isinstance(self.variationSet, VariationSet):
-            self.variationSet = VariationSet()
+            self.variationSet = VariationSet(**as_dict(self.variationSet))
 
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class VariationSet(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2436,6 +2458,57 @@ class VariationSet(YAMLRoot):
     class_class_curie: ClassVar[str] = "vrs:VariationSet"
     class_name: ClassVar[str] = "VariationSet"
     class_model_uri: ClassVar[URIRef] = PHENOPACKETS.VariationSet
+
+    Id: Optional[str] = None
+    members: Optional[Union[Union[dict, "VariationSetMember"], List[Union[dict, "VariationSetMember"]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.Id is not None and not isinstance(self.Id, str):
+            self.Id = str(self.Id)
+
+        if not isinstance(self.members, list):
+            self.members = [self.members] if self.members is not None else []
+        self.members = [v if isinstance(v, VariationSetMember) else VariationSetMember(**as_dict(v)) for v in self.members]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class VariationSetMember(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = VRS["VariationSetMember"]
+    class_class_curie: ClassVar[str] = "vrs:VariationSetMember"
+    class_name: ClassVar[str] = "VariationSetMember"
+    class_model_uri: ClassVar[URIRef] = PHENOPACKETS.VariationSetMember
+
+    allele: Optional[Union[dict, Allele]] = None
+    copyNumber: Optional[Union[dict, CopyNumber]] = None
+    curie: Optional[str] = None
+    haplotype: Optional[Union[dict, Haplotype]] = None
+    text: Optional[Union[dict, Text]] = None
+    variationSet: Optional[Union[dict, VariationSet]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.allele is not None and not isinstance(self.allele, Allele):
+            self.allele = Allele(**as_dict(self.allele))
+
+        if self.copyNumber is not None and not isinstance(self.copyNumber, CopyNumber):
+            self.copyNumber = CopyNumber(**as_dict(self.copyNumber))
+
+        if self.curie is not None and not isinstance(self.curie, str):
+            self.curie = str(self.curie)
+
+        if self.haplotype is not None and not isinstance(self.haplotype, Haplotype):
+            self.haplotype = Haplotype(**as_dict(self.haplotype))
+
+        if self.text is not None and not isinstance(self.text, Text):
+            self.text = Text(**as_dict(self.text))
+
+        if self.variationSet is not None and not isinstance(self.variationSet, VariationSet):
+            self.variationSet = VariationSet(**as_dict(self.variationSet))
+
+        super().__post_init__(**kwargs)
 
 
 # Enumerations
@@ -2527,12 +2600,12 @@ class LOINCMeasurementTerms(EnumDefinitionImpl):
 
 class AcmgPathogenicityClassification(EnumDefinitionImpl):
 
+    NOT_PROVIDED = PermissibleValue(text="NOT_PROVIDED")
     BENIGN = PermissibleValue(text="BENIGN")
     LIKELY_BENIGN = PermissibleValue(text="LIKELY_BENIGN")
-    LIKELY_PATHOGENIC = PermissibleValue(text="LIKELY_PATHOGENIC")
-    NOT_PROVIDED = PermissibleValue(text="NOT_PROVIDED")
-    PATHOGENIC = PermissibleValue(text="PATHOGENIC")
     UNCERTAIN_SIGNIFICANCE = PermissibleValue(text="UNCERTAIN_SIGNIFICANCE")
+    LIKELY_PATHOGENIC = PermissibleValue(text="LIKELY_PATHOGENIC")
+    PATHOGENIC = PermissibleValue(text="PATHOGENIC")
 
     _defn = EnumDefinition(
         name="AcmgPathogenicityClassification",
@@ -2540,11 +2613,11 @@ class AcmgPathogenicityClassification(EnumDefinitionImpl):
 
 class InterpretationStatus(EnumDefinitionImpl):
 
-    CANDIDATE = PermissibleValue(text="CANDIDATE")
-    CAUSATIVE = PermissibleValue(text="CAUSATIVE")
-    CONTRIBUTORY = PermissibleValue(text="CONTRIBUTORY")
-    REJECTED = PermissibleValue(text="REJECTED")
     UNKNOWN_STATUS = PermissibleValue(text="UNKNOWN_STATUS")
+    REJECTED = PermissibleValue(text="REJECTED")
+    CANDIDATE = PermissibleValue(text="CANDIDATE")
+    CONTRIBUTORY = PermissibleValue(text="CONTRIBUTORY")
+    CAUSATIVE = PermissibleValue(text="CAUSATIVE")
 
     _defn = EnumDefinition(
         name="InterpretationStatus",
@@ -2552,10 +2625,10 @@ class InterpretationStatus(EnumDefinitionImpl):
 
 class ProgressStatus(EnumDefinitionImpl):
 
-    COMPLETED = PermissibleValue(text="COMPLETED")
-    IN_PROGRESS = PermissibleValue(text="IN_PROGRESS")
-    SOLVED = PermissibleValue(text="SOLVED")
     UNKNOWN_PROGRESS = PermissibleValue(text="UNKNOWN_PROGRESS")
+    IN_PROGRESS = PermissibleValue(text="IN_PROGRESS")
+    COMPLETED = PermissibleValue(text="COMPLETED")
+    SOLVED = PermissibleValue(text="SOLVED")
     UNSOLVED = PermissibleValue(text="UNSOLVED")
 
     _defn = EnumDefinition(
@@ -2564,9 +2637,9 @@ class ProgressStatus(EnumDefinitionImpl):
 
 class TherapeuticActionability(EnumDefinitionImpl):
 
-    ACTIONABLE = PermissibleValue(text="ACTIONABLE")
-    NOT_ACTIONABLE = PermissibleValue(text="NOT_ACTIONABLE")
     UNKNOWN_ACTIONABILITY = PermissibleValue(text="UNKNOWN_ACTIONABILITY")
+    NOT_ACTIONABLE = PermissibleValue(text="NOT_ACTIONABLE")
+    ACTIONABLE = PermissibleValue(text="ACTIONABLE")
 
     _defn = EnumDefinition(
         name="TherapeuticActionability",
@@ -2576,17 +2649,17 @@ class KaryotypicSex(EnumDefinitionImpl):
     """
     Karyotypic sex of the individual
     """
-    OTHER_KARYOTYPE = PermissibleValue(text="OTHER_KARYOTYPE")
     UNKNOWN_KARYOTYPE = PermissibleValue(text="UNKNOWN_KARYOTYPE")
-    XO = PermissibleValue(text="XO")
     XX = PermissibleValue(text="XX")
-    XXX = PermissibleValue(text="XXX")
-    XXXX = PermissibleValue(text="XXXX")
-    XXXY = PermissibleValue(text="XXXY")
-    XXY = PermissibleValue(text="XXY")
-    XXYY = PermissibleValue(text="XXYY")
     XY = PermissibleValue(text="XY")
+    XO = PermissibleValue(text="XO")
+    XXY = PermissibleValue(text="XXY")
+    XXX = PermissibleValue(text="XXX")
+    XXYY = PermissibleValue(text="XXYY")
+    XXXY = PermissibleValue(text="XXXY")
+    XXXX = PermissibleValue(text="XXXX")
     XYY = PermissibleValue(text="XYY")
+    OTHER_KARYOTYPE = PermissibleValue(text="OTHER_KARYOTYPE")
 
     _defn = EnumDefinition(
         name="KaryotypicSex",
@@ -2598,6 +2671,9 @@ class Sex(EnumDefinitionImpl):
     Sex of an individual FHIR mapping: AdministrativeGender
     (https://www.hl7.org/fhir/codesystem-administrative-gender.html)
     """
+    UNKNOWN_SEX = PermissibleValue(
+        text="UNKNOWN_SEX",
+        description="Not assessed / available.")
     FEMALE = PermissibleValue(
         text="FEMALE",
         description="Female")
@@ -2607,9 +2683,6 @@ class Sex(EnumDefinitionImpl):
     OTHER_SEX = PermissibleValue(
         text="OTHER_SEX",
         description="It is not possible, to accurately assess the applicability of MALE/FEMALE.")
-    UNKNOWN_SEX = PermissibleValue(
-        text="UNKNOWN_SEX",
-        description="Not assessed / available.")
 
     _defn = EnumDefinition(
         name="Sex",
@@ -2620,9 +2693,9 @@ class Status(EnumDefinitionImpl):
     """
     Default = false i.e. the individual is alive. MUST be true if
     """
+    UNKNOWN_STATUS = PermissibleValue(text="UNKNOWN_STATUS")
     ALIVE = PermissibleValue(text="ALIVE")
     DECEASED = PermissibleValue(text="DECEASED")
-    UNKNOWN_STATUS = PermissibleValue(text="UNKNOWN_STATUS")
 
     _defn = EnumDefinition(
         name="Status",
@@ -2633,10 +2706,10 @@ class DrugType(EnumDefinitionImpl):
     """
     A simplified version of ODHSI-DRUG_EXPOSURE
     """
-    ADMINISTRATION_RELATED_TO_PROCEDURE = PermissibleValue(text="ADMINISTRATION_RELATED_TO_PROCEDURE")
-    EHR_MEDICATION_LIST = PermissibleValue(text="EHR_MEDICATION_LIST")
-    PRESCRIPTION = PermissibleValue(text="PRESCRIPTION")
     UNKNOWN_DRUG_TYPE = PermissibleValue(text="UNKNOWN_DRUG_TYPE")
+    PRESCRIPTION = PermissibleValue(text="PRESCRIPTION")
+    EHR_MEDICATION_LIST = PermissibleValue(text="EHR_MEDICATION_LIST")
+    ADMINISTRATION_RELATED_TO_PROCEDURE = PermissibleValue(text="ADMINISTRATION_RELATED_TO_PROCEDURE")
 
     _defn = EnumDefinition(
         name="DrugType",
@@ -2645,10 +2718,10 @@ class DrugType(EnumDefinitionImpl):
 
 class RegimenStatus(EnumDefinitionImpl):
 
+    UNKNOWN_STATUS = PermissibleValue(text="UNKNOWN_STATUS")
+    STARTED = PermissibleValue(text="STARTED")
     COMPLETED = PermissibleValue(text="COMPLETED")
     DISCONTINUED = PermissibleValue(text="DISCONTINUED")
-    STARTED = PermissibleValue(text="STARTED")
-    UNKNOWN_STATUS = PermissibleValue(text="UNKNOWN_STATUS")
 
     _defn = EnumDefinition(
         name="RegimenStatus",
@@ -2656,9 +2729,9 @@ class RegimenStatus(EnumDefinitionImpl):
 
 class AffectedStatus(EnumDefinitionImpl):
 
-    AFFECTED = PermissibleValue(text="AFFECTED")
     MISSING = PermissibleValue(text="MISSING")
     UNAFFECTED = PermissibleValue(text="UNAFFECTED")
+    AFFECTED = PermissibleValue(text="AFFECTED")
 
     _defn = EnumDefinition(
         name="AffectedStatus",
@@ -3199,10 +3272,10 @@ class UnitTerms(EnumDefinitionImpl):
 
 class MoleculeContext(EnumDefinitionImpl):
 
-    genomic = PermissibleValue(text="genomic")
-    protein = PermissibleValue(text="protein")
-    transcript = PermissibleValue(text="transcript")
     unspecified_molecule_context = PermissibleValue(text="unspecified_molecule_context")
+    genomic = PermissibleValue(text="genomic")
+    transcript = PermissibleValue(text="transcript")
+    protein = PermissibleValue(text="protein")
 
     _defn = EnumDefinition(
         name="MoleculeContext",
@@ -3287,6 +3360,12 @@ slots.ageRange__end = Slot(uri=BASE.end, name="ageRange__end", curie=BASE.curie(
 slots.ageRange__start = Slot(uri=BASE.start, name="ageRange__start", curie=BASE.curie('start'),
                    model_uri=PHENOPACKETS.ageRange__start, domain=None, range=Optional[Union[dict, Age]])
 
+slots.dictionaryEntry__key = Slot(uri=BASE.key, name="dictionaryEntry__key", curie=BASE.curie('key'),
+                   model_uri=PHENOPACKETS.dictionaryEntry__key, domain=None, range=URIRef)
+
+slots.dictionaryEntry__value = Slot(uri=BASE.value, name="dictionaryEntry__value", curie=BASE.curie('value'),
+                   model_uri=PHENOPACKETS.dictionaryEntry__value, domain=None, range=Optional[str])
+
 slots.evidence__evidenceCode = Slot(uri=BASE.evidenceCode, name="evidence__evidenceCode", curie=BASE.curie('evidenceCode'),
                    model_uri=PHENOPACKETS.evidence__evidenceCode, domain=None, range=Optional[Union[dict, OntologyClass]])
 
@@ -3303,10 +3382,10 @@ slots.externalReference__reference = Slot(uri=BASE.reference, name="externalRefe
                    model_uri=PHENOPACKETS.externalReference__reference, domain=None, range=Optional[str])
 
 slots.file__fileAttributes = Slot(uri=BASE.fileAttributes, name="file__fileAttributes", curie=BASE.curie('fileAttributes'),
-                   model_uri=PHENOPACKETS.file__fileAttributes, domain=None, range=Optional[Union[dict, Dictionary]])
+                   model_uri=PHENOPACKETS.file__fileAttributes, domain=None, range=Optional[Union[Dict[Union[str, DictionaryEntryKey], Union[dict, DictionaryEntry]], List[Union[dict, DictionaryEntry]]]])
 
 slots.file__individualToFileIdentifiers = Slot(uri=BASE.individualToFileIdentifiers, name="file__individualToFileIdentifiers", curie=BASE.curie('individualToFileIdentifiers'),
-                   model_uri=PHENOPACKETS.file__individualToFileIdentifiers, domain=None, range=Optional[Union[dict, Dictionary]])
+                   model_uri=PHENOPACKETS.file__individualToFileIdentifiers, domain=None, range=Optional[Union[Dict[Union[str, DictionaryEntryKey], Union[dict, DictionaryEntry]], List[Union[dict, DictionaryEntry]]]])
 
 slots.file__uri = Slot(uri=BASE.uri, name="file__uri", curie=BASE.curie('uri'),
                    model_uri=PHENOPACKETS.file__uri, domain=None, range=Optional[str])
@@ -3860,6 +3939,9 @@ slots.any__value = Slot(uri=ANY.value, name="any__value", curie=ANY.curie('value
 slots.abundance__copyNumber = Slot(uri=VRS.copyNumber, name="abundance__copyNumber", curie=VRS.curie('copyNumber'),
                    model_uri=PHENOPACKETS.abundance__copyNumber, domain=None, range=Optional[Union[dict, CopyNumber]])
 
+slots.allele__Id = Slot(uri=VRS.Id, name="allele__Id", curie=VRS.curie('Id'),
+                   model_uri=PHENOPACKETS.allele__Id, domain=None, range=Optional[str])
+
 slots.allele__chromosomeLocation = Slot(uri=VRS.chromosomeLocation, name="allele__chromosomeLocation", curie=VRS.curie('chromosomeLocation'),
                    model_uri=PHENOPACKETS.allele__chromosomeLocation, domain=None, range=Optional[Union[dict, ChromosomeLocation]])
 
@@ -3868,9 +3950,6 @@ slots.allele__curie = Slot(uri=VRS.curie, name="allele__curie", curie=VRS.curie(
 
 slots.allele__derivedSequenceExpression = Slot(uri=VRS.derivedSequenceExpression, name="allele__derivedSequenceExpression", curie=VRS.curie('derivedSequenceExpression'),
                    model_uri=PHENOPACKETS.allele__derivedSequenceExpression, domain=None, range=Optional[Union[dict, DerivedSequenceExpression]])
-
-slots.allele__id = Slot(uri=VRS.id, name="allele__id", curie=VRS.curie('id'),
-                   model_uri=PHENOPACKETS.allele__id, domain=None, range=Optional[str])
 
 slots.allele__literalSequenceExpression = Slot(uri=VRS.literalSequenceExpression, name="allele__literalSequenceExpression", curie=VRS.curie('literalSequenceExpression'),
                    model_uri=PHENOPACKETS.allele__literalSequenceExpression, domain=None, range=Optional[Union[dict, LiteralSequenceExpression]])
@@ -3881,17 +3960,23 @@ slots.allele__repeatedSequenceExpression = Slot(uri=VRS.repeatedSequenceExpressi
 slots.allele__sequenceLocation = Slot(uri=VRS.sequenceLocation, name="allele__sequenceLocation", curie=VRS.curie('sequenceLocation'),
                    model_uri=PHENOPACKETS.allele__sequenceLocation, domain=None, range=Optional[Union[dict, SequenceLocation]])
 
+slots.allele__sequenceState = Slot(uri=VRS.sequenceState, name="allele__sequenceState", curie=VRS.curie('sequenceState'),
+                   model_uri=PHENOPACKETS.allele__sequenceState, domain=None, range=Optional[Union[dict, SequenceState]])
+
+slots.chromosomeLocation__Id = Slot(uri=VRS.Id, name="chromosomeLocation__Id", curie=VRS.curie('Id'),
+                   model_uri=PHENOPACKETS.chromosomeLocation__Id, domain=None, range=Optional[str])
+
 slots.chromosomeLocation__chr = Slot(uri=VRS.chr, name="chromosomeLocation__chr", curie=VRS.curie('chr'),
                    model_uri=PHENOPACKETS.chromosomeLocation__chr, domain=None, range=Optional[str])
-
-slots.chromosomeLocation__id = Slot(uri=VRS.id, name="chromosomeLocation__id", curie=VRS.curie('id'),
-                   model_uri=PHENOPACKETS.chromosomeLocation__id, domain=None, range=Optional[str])
 
 slots.chromosomeLocation__interval = Slot(uri=VRS.interval, name="chromosomeLocation__interval", curie=VRS.curie('interval'),
                    model_uri=PHENOPACKETS.chromosomeLocation__interval, domain=None, range=Optional[Union[dict, CytobandInterval]])
 
 slots.chromosomeLocation__speciesId = Slot(uri=VRS.speciesId, name="chromosomeLocation__speciesId", curie=VRS.curie('speciesId'),
                    model_uri=PHENOPACKETS.chromosomeLocation__speciesId, domain=None, range=Optional[str])
+
+slots.copyNumber__Id = Slot(uri=VRS.Id, name="copyNumber__Id", curie=VRS.curie('Id'),
+                   model_uri=PHENOPACKETS.copyNumber__Id, domain=None, range=Optional[str])
 
 slots.copyNumber__allele = Slot(uri=VRS.allele, name="copyNumber__allele", curie=VRS.curie('allele'),
                    model_uri=PHENOPACKETS.copyNumber__allele, domain=None, range=Optional[Union[dict, Allele]])
@@ -3910,9 +3995,6 @@ slots.copyNumber__gene = Slot(uri=VRS.gene, name="copyNumber__gene", curie=VRS.c
 
 slots.copyNumber__haplotype = Slot(uri=VRS.haplotype, name="copyNumber__haplotype", curie=VRS.curie('haplotype'),
                    model_uri=PHENOPACKETS.copyNumber__haplotype, domain=None, range=Optional[Union[dict, Haplotype]])
-
-slots.copyNumber__id = Slot(uri=VRS.id, name="copyNumber__id", curie=VRS.curie('id'),
-                   model_uri=PHENOPACKETS.copyNumber__id, domain=None, range=Optional[str])
 
 slots.copyNumber__indefiniteRange = Slot(uri=VRS.indefiniteRange, name="copyNumber__indefiniteRange", curie=VRS.curie('indefiniteRange'),
                    model_uri=PHENOPACKETS.copyNumber__indefiniteRange, domain=None, range=Optional[Union[dict, IndefiniteRange]])
@@ -3950,6 +4032,18 @@ slots.feature__gene = Slot(uri=VRS.gene, name="feature__gene", curie=VRS.curie('
 slots.gene__geneId = Slot(uri=VRS.geneId, name="gene__geneId", curie=VRS.curie('geneId'),
                    model_uri=PHENOPACKETS.gene__geneId, domain=None, range=Optional[str])
 
+slots.haplotype__Id = Slot(uri=VRS.Id, name="haplotype__Id", curie=VRS.curie('Id'),
+                   model_uri=PHENOPACKETS.haplotype__Id, domain=None, range=Optional[str])
+
+slots.haplotype__members = Slot(uri=VRS.members, name="haplotype__members", curie=VRS.curie('members'),
+                   model_uri=PHENOPACKETS.haplotype__members, domain=None, range=Optional[Union[Union[dict, HaplotypeMember], List[Union[dict, HaplotypeMember]]]])
+
+slots.haplotypeMember__allele = Slot(uri=VRS.allele, name="haplotypeMember__allele", curie=VRS.curie('allele'),
+                   model_uri=PHENOPACKETS.haplotypeMember__allele, domain=None, range=Optional[Union[dict, Allele]])
+
+slots.haplotypeMember__curie = Slot(uri=VRS.curie, name="haplotypeMember__curie", curie=VRS.curie('curie'),
+                   model_uri=PHENOPACKETS.haplotypeMember__curie, domain=None, range=Optional[str])
+
 slots.indefiniteRange__comparator = Slot(uri=VRS.comparator, name="indefiniteRange__comparator", curie=VRS.curie('comparator'),
                    model_uri=PHENOPACKETS.indefiniteRange__comparator, domain=None, range=Optional[str])
 
@@ -3964,30 +4058,6 @@ slots.location__chromosomeLocation = Slot(uri=VRS.chromosomeLocation, name="loca
 
 slots.location__sequenceLocation = Slot(uri=VRS.sequenceLocation, name="location__sequenceLocation", curie=VRS.curie('sequenceLocation'),
                    model_uri=PHENOPACKETS.location__sequenceLocation, domain=None, range=Optional[Union[dict, SequenceLocation]])
-
-slots.member__allele = Slot(uri=VRS.allele, name="member__allele", curie=VRS.curie('allele'),
-                   model_uri=PHENOPACKETS.member__allele, domain=None, range=Optional[Union[dict, Allele]])
-
-slots.member__copyNumber = Slot(uri=VRS.copyNumber, name="member__copyNumber", curie=VRS.curie('copyNumber'),
-                   model_uri=PHENOPACKETS.member__copyNumber, domain=None, range=Optional[Union[dict, CopyNumber]])
-
-slots.member__curie = Slot(uri=VRS.curie, name="member__curie", curie=VRS.curie('curie'),
-                   model_uri=PHENOPACKETS.member__curie, domain=None, range=Optional[str])
-
-slots.member__haplotype = Slot(uri=VRS.haplotype, name="member__haplotype", curie=VRS.curie('haplotype'),
-                   model_uri=PHENOPACKETS.member__haplotype, domain=None, range=Optional[Union[dict, Haplotype]])
-
-slots.member__id = Slot(uri=VRS.id, name="member__id", curie=VRS.curie('id'),
-                   model_uri=PHENOPACKETS.member__id, domain=None, range=Optional[str])
-
-slots.member__members = Slot(uri=VRS.members, name="member__members", curie=VRS.curie('members'),
-                   model_uri=PHENOPACKETS.member__members, domain=None, range=Optional[Union[Union[dict, Member], List[Union[dict, Member]]]])
-
-slots.member__text = Slot(uri=VRS.text, name="member__text", curie=VRS.curie('text'),
-                   model_uri=PHENOPACKETS.member__text, domain=None, range=Optional[Union[dict, Text]])
-
-slots.member__variationSet = Slot(uri=VRS.variationSet, name="member__variationSet", curie=VRS.curie('variationSet'),
-                   model_uri=PHENOPACKETS.member__variationSet, domain=None, range=Optional[Union[dict, VariationSet]])
 
 slots.molecularVariation__allele = Slot(uri=VRS.allele, name="molecularVariation__allele", curie=VRS.curie('allele'),
                    model_uri=PHENOPACKETS.molecularVariation__allele, domain=None, range=Optional[Union[dict, Allele]])
@@ -4040,14 +4110,17 @@ slots.sequenceInterval__startIndefiniteRange = Slot(uri=VRS.startIndefiniteRange
 slots.sequenceInterval__startNumber = Slot(uri=VRS.startNumber, name="sequenceInterval__startNumber", curie=VRS.curie('startNumber'),
                    model_uri=PHENOPACKETS.sequenceInterval__startNumber, domain=None, range=Optional[Union[dict, Number]])
 
-slots.sequenceLocation__id = Slot(uri=VRS.id, name="sequenceLocation__id", curie=VRS.curie('id'),
-                   model_uri=PHENOPACKETS.sequenceLocation__id, domain=None, range=Optional[str])
+slots.sequenceLocation__Id = Slot(uri=VRS.Id, name="sequenceLocation__Id", curie=VRS.curie('Id'),
+                   model_uri=PHENOPACKETS.sequenceLocation__Id, domain=None, range=Optional[str])
 
 slots.sequenceLocation__sequenceId = Slot(uri=VRS.sequenceId, name="sequenceLocation__sequenceId", curie=VRS.curie('sequenceId'),
                    model_uri=PHENOPACKETS.sequenceLocation__sequenceId, domain=None, range=Optional[str])
 
 slots.sequenceLocation__sequenceInterval = Slot(uri=VRS.sequenceInterval, name="sequenceLocation__sequenceInterval", curie=VRS.curie('sequenceInterval'),
                    model_uri=PHENOPACKETS.sequenceLocation__sequenceInterval, domain=None, range=Optional[Union[dict, SequenceInterval]])
+
+slots.sequenceLocation__simpleInterval = Slot(uri=VRS.simpleInterval, name="sequenceLocation__simpleInterval", curie=VRS.curie('simpleInterval'),
+                   model_uri=PHENOPACKETS.sequenceLocation__simpleInterval, domain=None, range=Optional[Union[dict, SimpleInterval]])
 
 slots.sequenceState__sequence = Slot(uri=VRS.sequence, name="sequenceState__sequence", curie=VRS.curie('sequence'),
                    model_uri=PHENOPACKETS.sequenceState__sequence, domain=None, range=Optional[str])
@@ -4061,11 +4134,11 @@ slots.simpleInterval__start = Slot(uri=VRS.start, name="simpleInterval__start", 
 slots.systemicVariation__copyNumber = Slot(uri=VRS.copyNumber, name="systemicVariation__copyNumber", curie=VRS.curie('copyNumber'),
                    model_uri=PHENOPACKETS.systemicVariation__copyNumber, domain=None, range=Optional[Union[dict, CopyNumber]])
 
+slots.text__Id = Slot(uri=VRS.Id, name="text__Id", curie=VRS.curie('Id'),
+                   model_uri=PHENOPACKETS.text__Id, domain=None, range=Optional[str])
+
 slots.text__definition = Slot(uri=VRS.definition, name="text__definition", curie=VRS.curie('definition'),
                    model_uri=PHENOPACKETS.text__definition, domain=None, range=Optional[str])
-
-slots.text__id = Slot(uri=VRS.id, name="text__id", curie=VRS.curie('id'),
-                   model_uri=PHENOPACKETS.text__id, domain=None, range=Optional[str])
 
 slots.utilityVariation__text = Slot(uri=VRS.text, name="utilityVariation__text", curie=VRS.curie('text'),
                    model_uri=PHENOPACKETS.utilityVariation__text, domain=None, range=Optional[Union[dict, Text]])
@@ -4087,3 +4160,27 @@ slots.variation__text = Slot(uri=VRS.text, name="variation__text", curie=VRS.cur
 
 slots.variation__variationSet = Slot(uri=VRS.variationSet, name="variation__variationSet", curie=VRS.curie('variationSet'),
                    model_uri=PHENOPACKETS.variation__variationSet, domain=None, range=Optional[Union[dict, VariationSet]])
+
+slots.variationSet__Id = Slot(uri=VRS.Id, name="variationSet__Id", curie=VRS.curie('Id'),
+                   model_uri=PHENOPACKETS.variationSet__Id, domain=None, range=Optional[str])
+
+slots.variationSet__members = Slot(uri=VRS.members, name="variationSet__members", curie=VRS.curie('members'),
+                   model_uri=PHENOPACKETS.variationSet__members, domain=None, range=Optional[Union[Union[dict, VariationSetMember], List[Union[dict, VariationSetMember]]]])
+
+slots.variationSetMember__allele = Slot(uri=VRS.allele, name="variationSetMember__allele", curie=VRS.curie('allele'),
+                   model_uri=PHENOPACKETS.variationSetMember__allele, domain=None, range=Optional[Union[dict, Allele]])
+
+slots.variationSetMember__copyNumber = Slot(uri=VRS.copyNumber, name="variationSetMember__copyNumber", curie=VRS.curie('copyNumber'),
+                   model_uri=PHENOPACKETS.variationSetMember__copyNumber, domain=None, range=Optional[Union[dict, CopyNumber]])
+
+slots.variationSetMember__curie = Slot(uri=VRS.curie, name="variationSetMember__curie", curie=VRS.curie('curie'),
+                   model_uri=PHENOPACKETS.variationSetMember__curie, domain=None, range=Optional[str])
+
+slots.variationSetMember__haplotype = Slot(uri=VRS.haplotype, name="variationSetMember__haplotype", curie=VRS.curie('haplotype'),
+                   model_uri=PHENOPACKETS.variationSetMember__haplotype, domain=None, range=Optional[Union[dict, Haplotype]])
+
+slots.variationSetMember__text = Slot(uri=VRS.text, name="variationSetMember__text", curie=VRS.curie('text'),
+                   model_uri=PHENOPACKETS.variationSetMember__text, domain=None, range=Optional[Union[dict, Text]])
+
+slots.variationSetMember__variationSet = Slot(uri=VRS.variationSet, name="variationSetMember__variationSet", curie=VRS.curie('variationSet'),
+                   model_uri=PHENOPACKETS.variationSetMember__variationSet, domain=None, range=Optional[Union[dict, VariationSet]])

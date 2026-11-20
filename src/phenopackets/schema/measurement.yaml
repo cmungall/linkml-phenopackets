@@ -47,6 +47,12 @@ classes:
     description: "FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)"
     rules: 
       - 
+        annotations: 
+          oneof: measurement_value
+        comments: 
+          - "https://github.com/phenopackets/phenopacket-schema/issues/261 e.g. type: Increased circulating antibody level (HP:0010702) quantity: unit: Microgram per Milliliter (NCIT:C64572), value: 23456.0"
+          - "type:  body temperature (CMO:0000015) quantity: unit: Degrees Celsius (UO:0000027), value: 37.5 Degree Celsius (NCIT:C42559), value: 37.5"
+        description: "type:  LOINC: 26515-7 Platelets [#/volume] in Blood value: quantity: unit: NCIT:C173275 (Count per Cubic Millimeter), value: 600,000"
         postconditions: 
           exactly_one_of: 
             - 
@@ -125,6 +131,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: value
         postconditions: 
           exactly_one_of: 
             - 

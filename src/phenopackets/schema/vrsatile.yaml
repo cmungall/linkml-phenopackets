@@ -206,13 +206,21 @@ enums:
   MoleculeContext: 
     description: ''
     permissible_values: 
-      genomic: 
+      unspecified_molecule_context: 
+        annotations: 
+          rank: 0
         description: ''
-      protein: 
+      genomic: 
+        annotations: 
+          rank: 1
         description: ''
       transcript: 
+        annotations: 
+          rank: 2
         description: ''
-      unspecified_molecule_context: 
+      protein: 
+        annotations: 
+          rank: 3
         description: ''
 id: https://w3id.org/linkml/phenopackets/vrsatile
 imports: 

@@ -49,11 +49,17 @@ enums:
   AffectedStatus: 
     description: ''
     permissible_values: 
-      AFFECTED: 
-        description: ''
       MISSING: 
+        annotations: 
+          rank: 0
         description: ''
       UNAFFECTED: 
+        annotations: 
+          rank: 1
+        description: ''
+      AFFECTED: 
+        annotations: 
+          rank: 2
         description: ''
 id: https://w3id.org/linkml/phenopackets/pedigree
 imports: 

@@ -1,0 +1,92 @@
+@base <https://example.org/base/> .
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
+@prefix MONDO: <http://purl.obolibrary.org/obo/MONDO_> .
+@prefix ns1: <meta_data:> .
+@prefix ns2: <base:> .
+@prefix ns3: <phenotypic_feature:> .
+@prefix ns4: <disease:> .
+@prefix ns5: <individual:> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+HP:0000369 a ns2:OntologyClass ;
+    ns2:label "Low-set ears" .
+
+HP:0008936 a ns2:OntologyClass ;
+    ns2:label "Axial hypotonia" .
+
+HP:0034248 a ns2:OntologyClass ;
+    ns2:label "Increased fetal lens echogenicity" .
+
+MONDO:0016649 a ns2:OntologyClass ;
+    ns2:label "Warburg micro syndrome" .
+
+HP:0000568 a ns2:OntologyClass ;
+    ns2:label "Microphthalmia" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:diseases [ a ns4:Disease ;
+            ns4:excluded false ;
+            ns4:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P4D" ] ] ;
+            ns4:term MONDO:0016649 ] ;
+    phenopackets:id "id.1" ;
+    phenopackets:metaData [ a ns1:MetaData ;
+            ns1:created "2022-04-17T10:35:00Z" ;
+            ns1:createdBy "biocurator" ;
+            ns1:phenopacketSchemaVersion "2.0.0" ;
+            ns1:resources [ a ns1:Resource ;
+                    ns1:id "hp" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns1:name "human phenotype ontology" ;
+                    ns1:namespacePrefix "HP" ;
+                    ns1:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns1:version "2022-04-15" ],
+                [ a ns1:Resource ;
+                    ns1:id "mondo" ;
+                    ns1:iriPrefix "http://purl.obolibrary.org/obo/MONDO_" ;
+                    ns1:name "Mondo Disease Ontology" ;
+                    ns1:namespacePrefix "MONDO" ;
+                    ns1:url "http://purl.obolibrary.org/obo/mondo.obo" ;
+                    ns1:version "v2022-04-04" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P4D" ] ] ;
+            ns3:type HP:0000369 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P4D" ] ] ;
+            ns3:type HP:0000568 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded true ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:gestationalAge [ a ns2:GestationalAge ;
+                            ns2:days 2 ;
+                            ns2:weeks 27 ] ] ;
+            ns3:type HP:0000568 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P4D" ] ] ;
+            ns3:type HP:0008936 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:gestationalAge [ a ns2:GestationalAge ;
+                            ns2:days 2 ;
+                            ns2:weeks 27 ] ] ;
+            ns3:type HP:0034248 ] ;
+    phenopackets:subject [ a ns5:Individual ;
+            ns5:id "case1" ;
+            ns5:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns5:sex "MALE" ;
+            ns5:timeAtLastEncounter [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P4D" ] ] ] .
+

@@ -1,6 +1,7 @@
 {
   "name": "phenopackets",
   "description": "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL.",
+  "source": "https://github.com/phenopackets/phenopacket-schema/blob/2.0.0/src/main/proto/phenopackets/schema/v2/phenopackets.proto",
   "id": "https://w3id.org/linkml/phenopackets/phenopackets",
   "imports": [
     "linkml:types",
@@ -553,28 +554,64 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/interpretation",
       "permissible_values": [
         {
+          "text": "NOT_PROVIDED",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
+        },
+        {
           "text": "BENIGN",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
           "text": "LIKELY_BENIGN",
-          "description": ""
-        },
-        {
-          "text": "LIKELY_PATHOGENIC",
-          "description": ""
-        },
-        {
-          "text": "NOT_PROVIDED",
-          "description": ""
-        },
-        {
-          "text": "PATHOGENIC",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
         },
         {
           "text": "UNCERTAIN_SIGNIFICANCE",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "text": "LIKELY_PATHOGENIC",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "text": "PATHOGENIC",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 5
+            }
+          ]
         }
       ]
     },
@@ -585,24 +622,54 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/interpretation",
       "permissible_values": [
         {
-          "text": "CANDIDATE",
-          "description": ""
-        },
-        {
-          "text": "CAUSATIVE",
-          "description": ""
-        },
-        {
-          "text": "CONTRIBUTORY",
-          "description": ""
+          "text": "UNKNOWN_STATUS",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
         },
         {
           "text": "REJECTED",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
-          "text": "UNKNOWN_STATUS",
-          "description": ""
+          "text": "CANDIDATE",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "text": "CONTRIBUTORY",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "text": "CAUSATIVE",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 4
+            }
+          ]
         }
       ]
     },
@@ -613,24 +680,54 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/interpretation",
       "permissible_values": [
         {
-          "text": "COMPLETED",
-          "description": ""
+          "text": "UNKNOWN_PROGRESS",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
         },
         {
           "text": "IN_PROGRESS",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "text": "COMPLETED",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
         },
         {
           "text": "SOLVED",
-          "description": ""
-        },
-        {
-          "text": "UNKNOWN_PROGRESS",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3
+            }
+          ]
         },
         {
           "text": "UNSOLVED",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 4
+            }
+          ]
         }
       ]
     },
@@ -641,16 +738,34 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/interpretation",
       "permissible_values": [
         {
-          "text": "ACTIONABLE",
-          "description": ""
+          "text": "UNKNOWN_ACTIONABILITY",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
         },
         {
           "text": "NOT_ACTIONABLE",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
-          "text": "UNKNOWN_ACTIONABILITY",
-          "description": ""
+          "text": "ACTIONABLE",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
         }
       ]
     },
@@ -661,48 +776,114 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/individual",
       "permissible_values": [
         {
-          "text": "OTHER_KARYOTYPE",
-          "description": ""
-        },
-        {
           "text": "UNKNOWN_KARYOTYPE",
-          "description": ""
-        },
-        {
-          "text": "XO",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
         },
         {
           "text": "XX",
-          "description": ""
-        },
-        {
-          "text": "XXX",
-          "description": ""
-        },
-        {
-          "text": "XXXX",
-          "description": ""
-        },
-        {
-          "text": "XXXY",
-          "description": ""
-        },
-        {
-          "text": "XXY",
-          "description": ""
-        },
-        {
-          "text": "XXYY",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
           "text": "XY",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "text": "XO",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "text": "XXY",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "text": "XXX",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "text": "XXYY",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "text": "XXXY",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 7
+            }
+          ]
+        },
+        {
+          "text": "XXXX",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 8
+            }
+          ]
         },
         {
           "text": "XYY",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 9
+            }
+          ]
+        },
+        {
+          "text": "OTHER_KARYOTYPE",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 10
+            }
+          ]
         }
       ]
     },
@@ -713,20 +894,44 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/individual",
       "permissible_values": [
         {
+          "text": "UNKNOWN_SEX",
+          "description": "Not assessed / available.",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
+        },
+        {
           "text": "FEMALE",
-          "description": "Female"
+          "description": "Female",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
           "text": "MALE",
-          "description": "Male"
+          "description": "Male",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
         },
         {
           "text": "OTHER_SEX",
-          "description": "It is not possible, to accurately assess the applicability of MALE/FEMALE."
-        },
-        {
-          "text": "UNKNOWN_SEX",
-          "description": "Not assessed / available."
+          "description": "It is not possible, to accurately assess the applicability of MALE/FEMALE.",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -737,16 +942,34 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/individual",
       "permissible_values": [
         {
+          "text": "UNKNOWN_STATUS",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
+        },
+        {
           "text": "ALIVE",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
           "text": "DECEASED",
-          "description": ""
-        },
-        {
-          "text": "UNKNOWN_STATUS",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
         }
       ]
     },
@@ -757,20 +980,44 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/medical_action",
       "permissible_values": [
         {
-          "text": "ADMINISTRATION_RELATED_TO_PROCEDURE",
-          "description": ""
-        },
-        {
-          "text": "EHR_MEDICATION_LIST",
-          "description": ""
+          "text": "UNKNOWN_DRUG_TYPE",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
         },
         {
           "text": "PRESCRIPTION",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
-          "text": "UNKNOWN_DRUG_TYPE",
-          "description": ""
+          "text": "EHR_MEDICATION_LIST",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "text": "ADMINISTRATION_RELATED_TO_PROCEDURE",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -781,20 +1028,44 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/medical_action",
       "permissible_values": [
         {
-          "text": "COMPLETED",
-          "description": ""
-        },
-        {
-          "text": "DISCONTINUED",
-          "description": ""
+          "text": "UNKNOWN_STATUS",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
         },
         {
           "text": "STARTED",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
-          "text": "UNKNOWN_STATUS",
-          "description": ""
+          "text": "COMPLETED",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "text": "DISCONTINUED",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -805,16 +1076,34 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/pedigree",
       "permissible_values": [
         {
-          "text": "AFFECTED",
-          "description": ""
-        },
-        {
           "text": "MISSING",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
         },
         {
           "text": "UNAFFECTED",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "text": "AFFECTED",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
         }
       ]
     },
@@ -1474,20 +1763,44 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/vrsatile",
       "permissible_values": [
         {
-          "text": "genomic",
-          "description": ""
+          "text": "unspecified_molecule_context",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 0
+            }
+          ]
         },
         {
-          "text": "protein",
-          "description": ""
+          "text": "genomic",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1
+            }
+          ]
         },
         {
           "text": "transcript",
-          "description": ""
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2
+            }
+          ]
         },
         {
-          "text": "unspecified_molecule_context",
-          "description": ""
+          "text": "protein",
+          "description": "",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3
+            }
+          ]
         }
       ]
     }
@@ -2053,6 +2366,48 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "dictionaryEntry__key",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "The key of the map entry. Keys are unique within a map.",
+      "from_schema": "https://w3id.org/linkml/phenopackets/base",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/base/key",
+      "key": true,
+      "alias": "key",
+      "owner": "DictionaryEntry",
+      "domain_of": [
+        "DictionaryEntry"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dictionaryEntry__value",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 2,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "The value of the map entry.",
+      "from_schema": "https://w3id.org/linkml/phenopackets/base",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/base/value",
+      "alias": "value",
+      "owner": "DictionaryEntry",
+      "domain_of": [
+        "DictionaryEntry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "evidence__evidenceCode",
       "annotations": [
         {
@@ -2176,7 +2531,8 @@
       "domain_of": [
         "File"
       ],
-      "range": "Dictionary",
+      "range": "DictionaryEntry",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -2197,7 +2553,8 @@
       "domain_of": [
         "File"
       ],
-      "range": "Dictionary",
+      "range": "DictionaryEntry",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -2655,7 +3012,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id",
+      "description": "The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id",
       "from_schema": "https://w3id.org/linkml/phenopackets/biosample",
       "exact_mappings": [
         "https://docs.icgc-argo.org/dictionary/specimen.submitter_specimen_id"
@@ -4591,7 +4948,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "",
+      "description": "for instance, DrugCentral, RxNorm Drugbank concept",
       "from_schema": "https://w3id.org/linkml/phenopackets/medical_action",
       "slot_uri": "https://w3id.org/linkml/phenopackets/medical_action/agent",
       "alias": "agent",
@@ -4679,7 +5036,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "",
+      "description": "For instance, NCIT subhierarchy: Route of Administration (Code C38114)",
       "from_schema": "https://w3id.org/linkml/phenopackets/medical_action",
       "slot_uri": "https://w3id.org/linkml/phenopackets/medical_action/routeOfAdministration",
       "alias": "routeOfAdministration",
@@ -6147,6 +6504,26 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "allele__Id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/Id",
+      "alias": "Id",
+      "owner": "Allele",
+      "domain_of": [
+        "Allele"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "allele__chromosomeLocation",
       "annotations": [
         {
@@ -6206,31 +6583,6 @@
       ],
       "range": "DerivedSequenceExpression",
       "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "allele__id",
-      "annotations": [
-        {
-          "tag": "percent_encoded",
-          "value": true,
-          "@type": "Annotation"
-        },
-        {
-          "tag": "rank",
-          "value": 1,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/id",
-      "alias": "id",
-      "owner": "Allele",
-      "domain_of": [
-        "Allele"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -6297,6 +6649,48 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "allele__sequenceState",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 100,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "deprecated": "Marked as deprecated (deprecated=true) in the protobuf definition",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/sequenceState",
+      "alias": "sequenceState",
+      "owner": "Allele",
+      "domain_of": [
+        "Allele"
+      ],
+      "range": "SequenceState",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "chromosomeLocation__Id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/Id",
+      "alias": "Id",
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "chromosomeLocation__chr",
       "annotations": [
         {
@@ -6309,31 +6703,6 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/chr",
       "alias": "chr",
-      "owner": "ChromosomeLocation",
-      "domain_of": [
-        "ChromosomeLocation"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "chromosomeLocation__id",
-      "annotations": [
-        {
-          "tag": "percent_encoded",
-          "value": true,
-          "@type": "Annotation"
-        },
-        {
-          "tag": "rank",
-          "value": 1,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/id",
-      "alias": "id",
       "owner": "ChromosomeLocation",
       "domain_of": [
         "ChromosomeLocation"
@@ -6378,6 +6747,26 @@
       "owner": "ChromosomeLocation",
       "domain_of": [
         "ChromosomeLocation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "copyNumber__Id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/Id",
+      "alias": "Id",
+      "owner": "CopyNumber",
+      "domain_of": [
+        "CopyNumber"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -6505,31 +6894,6 @@
       ],
       "range": "Haplotype",
       "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "copyNumber__id",
-      "annotations": [
-        {
-          "tag": "percent_encoded",
-          "value": true,
-          "@type": "Annotation"
-        },
-        {
-          "tag": "rank",
-          "value": 1,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/id",
-      "alias": "id",
-      "owner": "CopyNumber",
-      "domain_of": [
-        "CopyNumber"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -6779,6 +7143,90 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "haplotype__Id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/Id",
+      "alias": "Id",
+      "owner": "Haplotype",
+      "domain_of": [
+        "Haplotype"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "haplotype__members",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 2,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/members",
+      "alias": "members",
+      "owner": "Haplotype",
+      "domain_of": [
+        "Haplotype"
+      ],
+      "range": "HaplotypeMember",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "haplotypeMember__allele",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/allele",
+      "alias": "allele",
+      "owner": "HaplotypeMember",
+      "domain_of": [
+        "HaplotypeMember"
+      ],
+      "range": "Allele",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "haplotypeMember__curie",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 2,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/curie",
+      "alias": "curie",
+      "owner": "HaplotypeMember",
+      "domain_of": [
+        "HaplotypeMember"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "indefiniteRange__comparator",
       "annotations": [
         {
@@ -6877,179 +7325,6 @@
         "Location"
       ],
       "range": "SequenceLocation",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__allele",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": 2,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/allele",
-      "alias": "allele",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "Allele",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__copyNumber",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": 4,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/copyNumber",
-      "alias": "copyNumber",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "CopyNumber",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__curie",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": 1,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/curie",
-      "alias": "curie",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__haplotype",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": 3,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/haplotype",
-      "alias": "haplotype",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "Haplotype",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__id",
-      "annotations": [
-        {
-          "tag": "percent_encoded",
-          "value": true,
-          "@type": "Annotation"
-        },
-        {
-          "tag": "rank",
-          "value": 1,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/id",
-      "alias": "id",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__members",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": 2,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/members",
-      "alias": "members",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "Member",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__text",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": 5,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/text",
-      "alias": "text",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "Text",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "member__variationSet",
-      "annotations": [
-        {
-          "tag": "rank",
-          "value": 6,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/variationSet",
-      "alias": "variationSet",
-      "owner": "Member",
-      "domain_of": [
-        "Member"
-      ],
-      "range": "VariationSet",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -7410,13 +7685,8 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "sequenceLocation__id",
+      "name": "sequenceLocation__Id",
       "annotations": [
-        {
-          "tag": "percent_encoded",
-          "value": true,
-          "@type": "Annotation"
-        },
         {
           "tag": "rank",
           "value": 1,
@@ -7425,8 +7695,8 @@
       ],
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/id",
-      "alias": "id",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/Id",
+      "alias": "Id",
       "owner": "SequenceLocation",
       "domain_of": [
         "SequenceLocation"
@@ -7472,6 +7742,28 @@
         "SequenceLocation"
       ],
       "range": "SequenceInterval",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequenceLocation__simpleInterval",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 100,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "deprecated": "Marked as deprecated (deprecated=true) in the protobuf definition",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/simpleInterval",
+      "alias": "simpleInterval",
+      "owner": "SequenceLocation",
+      "domain_of": [
+        "SequenceLocation"
+      ],
+      "range": "SimpleInterval",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -7557,6 +7849,26 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "text__Id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/Id",
+      "alias": "Id",
+      "owner": "Text",
+      "domain_of": [
+        "Text"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "text__definition",
       "annotations": [
         {
@@ -7569,31 +7881,6 @@
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/definition",
       "alias": "definition",
-      "owner": "Text",
-      "domain_of": [
-        "Text"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "text__id",
-      "annotations": [
-        {
-          "tag": "percent_encoded",
-          "value": true,
-          "@type": "Annotation"
-        },
-        {
-          "tag": "rank",
-          "value": 1,
-          "@type": "Annotation"
-        }
-      ],
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/id",
-      "alias": "id",
       "owner": "Text",
       "domain_of": [
         "Text"
@@ -7743,6 +8030,174 @@
       "owner": "Variation",
       "domain_of": [
         "Variation"
+      ],
+      "range": "VariationSet",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variationSet__Id",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/Id",
+      "alias": "Id",
+      "owner": "VariationSet",
+      "domain_of": [
+        "VariationSet"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variationSet__members",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 2,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/members",
+      "alias": "members",
+      "owner": "VariationSet",
+      "domain_of": [
+        "VariationSet"
+      ],
+      "range": "VariationSetMember",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variationSetMember__allele",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 2,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/allele",
+      "alias": "allele",
+      "owner": "VariationSetMember",
+      "domain_of": [
+        "VariationSetMember"
+      ],
+      "range": "Allele",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variationSetMember__copyNumber",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 4,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/copyNumber",
+      "alias": "copyNumber",
+      "owner": "VariationSetMember",
+      "domain_of": [
+        "VariationSetMember"
+      ],
+      "range": "CopyNumber",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variationSetMember__curie",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 1,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/curie",
+      "alias": "curie",
+      "owner": "VariationSetMember",
+      "domain_of": [
+        "VariationSetMember"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variationSetMember__haplotype",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 3,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/haplotype",
+      "alias": "haplotype",
+      "owner": "VariationSetMember",
+      "domain_of": [
+        "VariationSetMember"
+      ],
+      "range": "Haplotype",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variationSetMember__text",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 5,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/text",
+      "alias": "text",
+      "owner": "VariationSetMember",
+      "domain_of": [
+        "VariationSetMember"
+      ],
+      "range": "Text",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variationSetMember__variationSet",
+      "annotations": [
+        {
+          "tag": "rank",
+          "value": 6,
+          "@type": "Annotation"
+        }
+      ],
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slot_uri": "https://w3id.org/linkml/phenopackets/vrs/variationSet",
+      "alias": "variationSet",
+      "owner": "VariationSetMember",
+      "domain_of": [
+        "VariationSetMember"
       ],
       "range": "VariationSet",
       "inlined": true,
@@ -8212,14 +8667,45 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "Dictionary",
-      "definition_uri": "https://w3id.org/linkml/phenopackets/base/Dictionary",
-      "comments": [
-        "TODO"
-      ],
+      "name": "DictionaryEntry",
+      "definition_uri": "https://w3id.org/linkml/phenopackets/base/DictionaryEntry",
+      "description": "An entry of a protobuf map<string, string> field. An attribute that holds a map is multivalued and inlined as a dictionary of its entries, which can be written as {key: value, ...}",
       "from_schema": "https://w3id.org/linkml/phenopackets/base",
+      "slots": [
+        "dictionaryEntry__key",
+        "dictionaryEntry__value"
+      ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/linkml/phenopackets/base/Dictionary",
+      "attributes": [
+        {
+          "name": "key",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "The key of the map entry. Keys are unique within a map.",
+          "key": true,
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "value",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "The value of the map entry.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/linkml/phenopackets/base/DictionaryEntry",
       "@type": "ClassDefinition"
     },
     {
@@ -8347,7 +8833,8 @@
             }
           ],
           "description": "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.",
-          "range": "Dictionary",
+          "range": "DictionaryEntry",
+          "multivalued": true,
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -8361,7 +8848,8 @@
             }
           ],
           "description": "A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.",
-          "range": "Dictionary",
+          "range": "DictionaryEntry",
+          "multivalued": true,
           "inlined": true,
           "@type": "SlotDefinition"
         },
@@ -8688,6 +9176,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "element",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -8738,6 +9233,9 @@
       "name": "Biosample",
       "definition_uri": "https://w3id.org/linkml/phenopackets/biosample/Biosample",
       "description": "A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).",
+      "comments": [
+        "biosamples SAMN08666232 Human Cell Atlas"
+      ],
       "from_schema": "https://w3id.org/linkml/phenopackets/biosample",
       "slots": [
         "biosample__derivedFromId",
@@ -8851,7 +9349,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id",
+          "description": "The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id",
           "exact_mappings": [
             "ARGO:specimen.submitter_specimen_id"
           ],
@@ -9385,6 +9883,14 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "call",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "Gene or variant identified in subject or biosample and interpreted in relation to the disease diagnosis. In this context athe 'gene' is a proxy for an unspecified alteration in the indicated gene.",
           "@type": "ClassRule"
         }
       ],
@@ -9906,6 +10412,18 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "measurement_value",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "type:  LOINC: 26515-7 Platelets [#/volume] in Blood value: quantity: unit: NCIT:C173275 (Count per Cubic Millimeter), value: 600,000",
+          "comments": [
+            "https://github.com/phenopackets/phenopacket-schema/issues/261 e.g. type: Increased circulating antibody level (HP:0010702) quantity: unit: Microgram per Milliliter (NCIT:C64572), value: 23456.0",
+            "type:  body temperature (CMO:0000015) quantity: unit: Degrees Celsius (UO:0000027), value: 37.5 Degree Celsius (NCIT:C42559), value: 37.5"
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -10132,6 +10650,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "value",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -10198,6 +10723,9 @@
       "name": "MedicalAction",
       "definition_uri": "https://w3id.org/linkml/phenopackets/medical_action/MedicalAction",
       "description": "medication, procedure, other actions taken for clinical management",
+      "comments": [
+        "ARGO mapping treatment::is_primary_treatment (missing)"
+      ],
       "from_schema": "https://w3id.org/linkml/phenopackets/medical_action",
       "slots": [
         "medicalAction__adverseEvents",
@@ -10396,6 +10924,14 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "action",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "ARGO mapping treatment::treatment_type",
           "@type": "ClassRule"
         }
       ],
@@ -10405,6 +10941,9 @@
       "name": "RadiationTherapy",
       "definition_uri": "https://w3id.org/linkml/phenopackets/medical_action/RadiationTherapy",
       "description": "RadiationTherapy",
+      "comments": [
+        "ARGO mapping radiation::radiation_therapy_type (missing)"
+      ],
       "from_schema": "https://w3id.org/linkml/phenopackets/medical_action",
       "slots": [
         "radiationTherapy__bodySite",
@@ -10491,7 +11030,7 @@
     {
       "name": "TherapeuticRegimen",
       "definition_uri": "https://w3id.org/linkml/phenopackets/medical_action/TherapeuticRegimen",
-      "description": "ARGO mapping radiation::radiation_therapy_type (missing)",
+      "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/medical_action",
       "slots": [
         "therapeuticRegimen__endTime",
@@ -10600,6 +11139,14 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "identifier",
+              "@type": "Annotation"
+            }
+          ],
+          "description": "https://ctep.cancer.gov/protocolDevelopment/policies_nomenclature.htm",
           "@type": "ClassRule"
         }
       ],
@@ -10608,7 +11155,7 @@
     {
       "name": "Treatment",
       "definition_uri": "https://w3id.org/linkml/phenopackets/medical_action/Treatment",
-      "description": "ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug",
+      "description": "treatment with an agent, such as a drug",
       "from_schema": "https://w3id.org/linkml/phenopackets/medical_action",
       "slots": [
         "treatment__agent",
@@ -10628,7 +11175,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "",
+          "description": "for instance, DrugCentral, RxNorm Drugbank concept",
           "range": "OntologyClass",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -10686,7 +11233,7 @@
               "@type": "Annotation"
             }
           ],
-          "description": "",
+          "description": "For instance, NCIT subhierarchy: Route of Administration (Code C38114)",
           "range": "OntologyClass",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -11916,6 +12463,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "abundance",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -11927,16 +12481,30 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
+        "allele__Id",
         "allele__chromosomeLocation",
         "allele__curie",
         "allele__derivedSequenceExpression",
-        "allele__id",
         "allele__literalSequenceExpression",
         "allele__repeatedSequenceExpression",
-        "allele__sequenceLocation"
+        "allele__sequenceLocation",
+        "allele__sequenceState"
       ],
       "slot_usage": {},
       "attributes": [
+        {
+          "name": "Id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
         {
           "name": "chromosomeLocation",
           "annotations": [
@@ -11977,24 +12545,6 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "id",
-          "annotations": [
-            {
-              "tag": "percent_encoded",
-              "value": true,
-              "@type": "Annotation"
-            },
-            {
-              "tag": "rank",
-              "value": 1,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
           "name": "literalSequenceExpression",
           "annotations": [
             {
@@ -12032,6 +12582,21 @@
           "description": "",
           "range": "SequenceLocation",
           "@type": "SlotDefinition"
+        },
+        {
+          "name": "sequenceState",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 100,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "deprecated": "Marked as deprecated (deprecated=true) in the protobuf definition",
+          "range": "SequenceState",
+          "inlined": true,
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://w3id.org/linkml/phenopackets/vrs/Allele",
@@ -12039,6 +12604,61 @@
         {
           "postconditions": {
             "exactly_one_of": [
+              {
+                "slot_conditions": [
+                  {
+                    "name": "curie",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "chromosomeLocation",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "sequenceLocation",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "location",
+              "@type": "Annotation"
+            }
+          ],
+          "@type": "ClassRule"
+        },
+        {
+          "postconditions": {
+            "exactly_one_of": [
+              {
+                "slot_conditions": [
+                  {
+                    "name": "sequenceState",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
               {
                 "slot_conditions": [
                   {
@@ -12072,6 +12692,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "state",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -12083,19 +12710,19 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
+        "chromosomeLocation__Id",
         "chromosomeLocation__chr",
-        "chromosomeLocation__id",
         "chromosomeLocation__interval",
         "chromosomeLocation__speciesId"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "chr",
+          "name": "Id",
           "annotations": [
             {
               "tag": "rank",
-              "value": 3,
+              "value": 1,
               "@type": "Annotation"
             }
           ],
@@ -12104,16 +12731,11 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "id",
+          "name": "chr",
           "annotations": [
             {
-              "tag": "percent_encoded",
-              "value": true,
-              "@type": "Annotation"
-            },
-            {
               "tag": "rank",
-              "value": 1,
+              "value": 3,
               "@type": "Annotation"
             }
           ],
@@ -12158,13 +12780,13 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
+        "copyNumber__Id",
         "copyNumber__allele",
         "copyNumber__curie",
         "copyNumber__definiteRange",
         "copyNumber__derivedSequenceExpression",
         "copyNumber__gene",
         "copyNumber__haplotype",
-        "copyNumber__id",
         "copyNumber__indefiniteRange",
         "copyNumber__literalSequenceExpression",
         "copyNumber__number",
@@ -12172,6 +12794,19 @@
       ],
       "slot_usage": {},
       "attributes": [
+        {
+          "name": "Id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
         {
           "name": "allele",
           "annotations": [
@@ -12251,24 +12886,6 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "id",
-          "annotations": [
-            {
-              "tag": "percent_encoded",
-              "value": true,
-              "@type": "Annotation"
-            },
-            {
-              "tag": "rank",
-              "value": 1,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
           "name": "indefiniteRange",
           "annotations": [
             {
@@ -12329,6 +12946,91 @@
               {
                 "slot_conditions": [
                   {
+                    "name": "allele",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "haplotype",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "gene",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "literalSequenceExpression",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "derivedSequenceExpression",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "repeatedSequenceExpression",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "curie",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "subject",
+              "@type": "Annotation"
+            }
+          ],
+          "@type": "ClassRule"
+        },
+        {
+          "postconditions": {
+            "exactly_one_of": [
+              {
+                "slot_conditions": [
+                  {
                     "name": "number",
                     "required": true,
                     "@type": "SlotDefinition"
@@ -12359,6 +13061,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "copies",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -12529,6 +13238,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "feature",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -12566,8 +13282,120 @@
       "definition_uri": "https://w3id.org/linkml/phenopackets/vrs/Haplotype",
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slots": [
+        "haplotype__Id",
+        "haplotype__members"
+      ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "Id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "members",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "HaplotypeMember",
+          "multivalued": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "https://w3id.org/linkml/phenopackets/vrs/Haplotype",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "HaplotypeMember",
+      "definition_uri": "https://w3id.org/linkml/phenopackets/vrs/HaplotypeMember",
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slots": [
+        "haplotypeMember__allele",
+        "haplotypeMember__curie"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "allele",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "Allele",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "curie",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "string",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/linkml/phenopackets/vrs/HaplotypeMember",
+      "rules": [
+        {
+          "postconditions": {
+            "exactly_one_of": [
+              {
+                "slot_conditions": [
+                  {
+                    "name": "allele",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "curie",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "value",
+              "@type": "Annotation"
+            }
+          ],
+          "@type": "ClassRule"
+        }
+      ],
       "@type": "ClassDefinition"
     },
     {
@@ -12704,208 +13532,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
-          "@type": "ClassRule"
-        }
-      ],
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "Member",
-      "definition_uri": "https://w3id.org/linkml/phenopackets/vrs/Member",
-      "description": "",
-      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
-      "slots": [
-        "member__allele",
-        "member__copyNumber",
-        "member__curie",
-        "member__haplotype",
-        "member__id",
-        "member__members",
-        "member__text",
-        "member__variationSet"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "allele",
           "annotations": [
             {
-              "tag": "rank",
-              "value": 2,
+              "tag": "oneof",
+              "value": "location",
               "@type": "Annotation"
             }
           ],
-          "description": "",
-          "range": "Allele",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "copyNumber",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": 4,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "CopyNumber",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "curie",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": 1,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "haplotype",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": 3,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "Haplotype",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "id",
-          "annotations": [
-            {
-              "tag": "percent_encoded",
-              "value": true,
-              "@type": "Annotation"
-            },
-            {
-              "tag": "rank",
-              "value": 1,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "members",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": 2,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "Member",
-          "multivalued": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "text",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": 5,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "Text",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "variationSet",
-          "annotations": [
-            {
-              "tag": "rank",
-              "value": 6,
-              "@type": "Annotation"
-            }
-          ],
-          "description": "",
-          "range": "VariationSet",
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://w3id.org/linkml/phenopackets/vrs/Member",
-      "rules": [
-        {
-          "postconditions": {
-            "exactly_one_of": [
-              {
-                "slot_conditions": [
-                  {
-                    "name": "curie",
-                    "required": true,
-                    "@type": "SlotDefinition"
-                  }
-                ],
-                "@type": "AnonymousClassExpression"
-              },
-              {
-                "slot_conditions": [
-                  {
-                    "name": "allele",
-                    "required": true,
-                    "@type": "SlotDefinition"
-                  }
-                ],
-                "@type": "AnonymousClassExpression"
-              },
-              {
-                "slot_conditions": [
-                  {
-                    "name": "haplotype",
-                    "required": true,
-                    "@type": "SlotDefinition"
-                  }
-                ],
-                "@type": "AnonymousClassExpression"
-              },
-              {
-                "slot_conditions": [
-                  {
-                    "name": "copyNumber",
-                    "required": true,
-                    "@type": "SlotDefinition"
-                  }
-                ],
-                "@type": "AnonymousClassExpression"
-              },
-              {
-                "slot_conditions": [
-                  {
-                    "name": "text",
-                    "required": true,
-                    "@type": "SlotDefinition"
-                  }
-                ],
-                "@type": "AnonymousClassExpression"
-              },
-              {
-                "slot_conditions": [
-                  {
-                    "name": "variationSet",
-                    "required": true,
-                    "@type": "SlotDefinition"
-                  }
-                ],
-                "@type": "AnonymousClassExpression"
-              }
-            ],
-            "@type": "AnonymousClassExpression"
-          },
           "@type": "ClassRule"
         }
       ],
@@ -12977,6 +13610,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "molecular_variation",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -13097,6 +13737,41 @@
               {
                 "slot_conditions": [
                   {
+                    "name": "literalSequenceExpression",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "derivedSequenceExpression",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "seq_expr",
+              "@type": "Annotation"
+            }
+          ],
+          "@type": "ClassRule"
+        },
+        {
+          "postconditions": {
+            "exactly_one_of": [
+              {
+                "slot_conditions": [
+                  {
                     "name": "number",
                     "required": true,
                     "@type": "SlotDefinition"
@@ -13127,6 +13802,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "count",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -13222,6 +13904,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "sequence_expression",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -13329,6 +14018,51 @@
               {
                 "slot_conditions": [
                   {
+                    "name": "startNumber",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "startIndefiniteRange",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "startDefiniteRange",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "start",
+              "@type": "Annotation"
+            }
+          ],
+          "@type": "ClassRule"
+        },
+        {
+          "postconditions": {
+            "exactly_one_of": [
+              {
+                "slot_conditions": [
+                  {
                     "name": "endNumber",
                     "required": true,
                     "@type": "SlotDefinition"
@@ -13359,6 +14093,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "end",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -13370,20 +14111,16 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
-        "sequenceLocation__id",
+        "sequenceLocation__Id",
         "sequenceLocation__sequenceId",
-        "sequenceLocation__sequenceInterval"
+        "sequenceLocation__sequenceInterval",
+        "sequenceLocation__simpleInterval"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "id",
+          "name": "Id",
           "annotations": [
-            {
-              "tag": "percent_encoded",
-              "value": true,
-              "@type": "Annotation"
-            },
             {
               "tag": "rank",
               "value": 1,
@@ -13419,6 +14156,21 @@
           "description": "",
           "range": "SequenceInterval",
           "@type": "SlotDefinition"
+        },
+        {
+          "name": "simpleInterval",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 100,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "deprecated": "Marked as deprecated (deprecated=true) in the protobuf definition",
+          "range": "SimpleInterval",
+          "inlined": true,
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://w3id.org/linkml/phenopackets/vrs/SequenceLocation",
@@ -13435,10 +14187,27 @@
                   }
                 ],
                 "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "simpleInterval",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
               }
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "interval",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -13554,6 +14323,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "systemic_variation",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -13565,17 +14341,17 @@
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
       "slots": [
-        "text__definition",
-        "text__id"
+        "text__Id",
+        "text__definition"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "definition",
+          "name": "Id",
           "annotations": [
             {
               "tag": "rank",
-              "value": 2,
+              "value": 1,
               "@type": "Annotation"
             }
           ],
@@ -13584,16 +14360,11 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "id",
+          "name": "definition",
           "annotations": [
             {
-              "tag": "percent_encoded",
-              "value": true,
-              "@type": "Annotation"
-            },
-            {
               "tag": "rank",
-              "value": 1,
+              "value": 2,
               "@type": "Annotation"
             }
           ],
@@ -13671,6 +14442,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "utility_variation",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -13814,6 +14592,13 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "variation",
+              "@type": "Annotation"
+            }
+          ],
           "@type": "ClassRule"
         }
       ],
@@ -13824,16 +14609,224 @@
       "definition_uri": "https://w3id.org/linkml/phenopackets/vrs/VariationSet",
       "description": "",
       "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slots": [
+        "variationSet__Id",
+        "variationSet__members"
+      ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "Id",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "members",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "VariationSetMember",
+          "multivalued": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "https://w3id.org/linkml/phenopackets/vrs/VariationSet",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "VariationSetMember",
+      "definition_uri": "https://w3id.org/linkml/phenopackets/vrs/VariationSetMember",
+      "description": "",
+      "from_schema": "https://w3id.org/linkml/phenopackets/vrs",
+      "slots": [
+        "variationSetMember__allele",
+        "variationSetMember__copyNumber",
+        "variationSetMember__curie",
+        "variationSetMember__haplotype",
+        "variationSetMember__text",
+        "variationSetMember__variationSet"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "allele",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 2,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "Allele",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "copyNumber",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 4,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "CopyNumber",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "curie",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 1,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "haplotype",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 3,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "Haplotype",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "text",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 5,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "Text",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "variationSet",
+          "annotations": [
+            {
+              "tag": "rank",
+              "value": 6,
+              "@type": "Annotation"
+            }
+          ],
+          "description": "",
+          "range": "VariationSet",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/linkml/phenopackets/vrs/VariationSetMember",
+      "rules": [
+        {
+          "postconditions": {
+            "exactly_one_of": [
+              {
+                "slot_conditions": [
+                  {
+                    "name": "curie",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "allele",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "haplotype",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "copyNumber",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "text",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "variationSet",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "annotations": [
+            {
+              "tag": "oneof",
+              "value": "value",
+              "@type": "Annotation"
+            }
+          ],
+          "@type": "ClassRule"
+        }
+      ],
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "phenopackets.yaml",
-  "source_file_date": "2024-06-30T17:41:36",
-  "source_file_size": 7006,
-  "generation_date": "2024-07-03T09:18:33",
+  "source_file_date": "2026-11-20T14:41:15",
+  "source_file_size": 7133,
+  "generation_date": "2026-11-20T14:41:26",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/phenopackets.context.jsonld",

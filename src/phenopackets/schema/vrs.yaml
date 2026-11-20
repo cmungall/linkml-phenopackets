@@ -10,6 +10,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: abundance
         postconditions: 
           exactly_one_of: 
             - 
@@ -18,6 +20,11 @@ classes:
                   required: true
   Allele: 
     attributes: 
+      Id: 
+        annotations: 
+          rank: 1
+        description: ''
+        range: string
       chromosomeLocation: 
         annotations: 
           rank: 3
@@ -33,12 +40,6 @@ classes:
           rank: 6
         description: ''
         range: DerivedSequenceExpression
-      id: 
-        annotations: 
-          percent_encoded: true
-          rank: 1
-        description: ''
-        range: string
       literalSequenceExpression: 
         annotations: 
           rank: 5
@@ -54,11 +55,41 @@ classes:
           rank: 4
         description: ''
         range: SequenceLocation
+      sequenceState: 
+        annotations: 
+          rank: 100
+        deprecated: Marked as deprecated (deprecated=true) in the protobuf definition
+        description: ''
+        inlined: true
+        range: SequenceState
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: location
         postconditions: 
           exactly_one_of: 
+            - 
+              slot_conditions: 
+                curie: 
+                  required: true
+            - 
+              slot_conditions: 
+                chromosomeLocation: 
+                  required: true
+            - 
+              slot_conditions: 
+                sequenceLocation: 
+                  required: true
+      - 
+        annotations: 
+          oneof: state
+        postconditions: 
+          exactly_one_of: 
+            - 
+              slot_conditions: 
+                sequenceState: 
+                  required: true
             - 
               slot_conditions: 
                 literalSequenceExpression: 
@@ -73,15 +104,14 @@ classes:
                   required: true
   ChromosomeLocation: 
     attributes: 
+      Id: 
+        annotations: 
+          rank: 1
+        description: ''
+        range: string
       chr: 
         annotations: 
           rank: 3
-        description: ''
-        range: string
-      id: 
-        annotations: 
-          percent_encoded: true
-          rank: 1
         description: ''
         range: string
       interval: 
@@ -98,6 +128,11 @@ classes:
     description: ''
   CopyNumber: 
     attributes: 
+      Id: 
+        annotations: 
+          rank: 1
+        description: ''
+        range: string
       allele: 
         annotations: 
           rank: 2
@@ -128,12 +163,6 @@ classes:
           rank: 3
         description: ''
         range: Haplotype
-      id: 
-        annotations: 
-          percent_encoded: true
-          rank: 1
-        description: ''
-        range: string
       indefiniteRange: 
         annotations: 
           rank: 10
@@ -157,6 +186,41 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: subject
+        postconditions: 
+          exactly_one_of: 
+            - 
+              slot_conditions: 
+                allele: 
+                  required: true
+            - 
+              slot_conditions: 
+                haplotype: 
+                  required: true
+            - 
+              slot_conditions: 
+                gene: 
+                  required: true
+            - 
+              slot_conditions: 
+                literalSequenceExpression: 
+                  required: true
+            - 
+              slot_conditions: 
+                derivedSequenceExpression: 
+                  required: true
+            - 
+              slot_conditions: 
+                repeatedSequenceExpression: 
+                  required: true
+            - 
+              slot_conditions: 
+                curie: 
+                  required: true
+      - 
+        annotations: 
+          oneof: copies
         postconditions: 
           exactly_one_of: 
             - 
@@ -220,6 +284,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: feature
         postconditions: 
           exactly_one_of: 
             - 
@@ -235,9 +301,47 @@ classes:
         range: string
     description: ''
   Haplotype: 
-    attributes: {}
-
+    attributes: 
+      Id: 
+        annotations: 
+          rank: 1
+        description: ''
+        range: string
+      members: 
+        annotations: 
+          rank: 2
+        description: ''
+        inlined_as_list: true
+        multivalued: true
+        range: HaplotypeMember
     description: ''
+  HaplotypeMember: 
+    attributes: 
+      allele: 
+        annotations: 
+          rank: 1
+        description: ''
+        range: Allele
+      curie: 
+        annotations: 
+          rank: 2
+        description: ''
+        range: string
+    description: ''
+    rules: 
+      - 
+        annotations: 
+          oneof: value
+        postconditions: 
+          exactly_one_of: 
+            - 
+              slot_conditions: 
+                allele: 
+                  required: true
+            - 
+              slot_conditions: 
+                curie: 
+                  required: true
   IndefiniteRange: 
     attributes: 
       comparator: 
@@ -274,6 +378,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: location
         postconditions: 
           exactly_one_of: 
             - 
@@ -283,80 +389,6 @@ classes:
             - 
               slot_conditions: 
                 sequenceLocation: 
-                  required: true
-  Member: 
-    attributes: 
-      allele: 
-        annotations: 
-          rank: 2
-        description: ''
-        range: Allele
-      copyNumber: 
-        annotations: 
-          rank: 4
-        description: ''
-        range: CopyNumber
-      curie: 
-        annotations: 
-          rank: 1
-        description: ''
-        range: string
-      haplotype: 
-        annotations: 
-          rank: 3
-        description: ''
-        range: Haplotype
-      id: 
-        annotations: 
-          percent_encoded: true
-          rank: 1
-        description: ''
-        range: string
-      members: 
-        annotations: 
-          rank: 2
-        description: ''
-        inlined_as_list: true
-        multivalued: true
-        range: Member
-      text: 
-        annotations: 
-          rank: 5
-        description: ''
-        range: Text
-      variationSet: 
-        annotations: 
-          rank: 6
-        description: ''
-        range: VariationSet
-    description: ''
-    rules: 
-      - 
-        postconditions: 
-          exactly_one_of: 
-            - 
-              slot_conditions: 
-                curie: 
-                  required: true
-            - 
-              slot_conditions: 
-                allele: 
-                  required: true
-            - 
-              slot_conditions: 
-                haplotype: 
-                  required: true
-            - 
-              slot_conditions: 
-                copyNumber: 
-                  required: true
-            - 
-              slot_conditions: 
-                text: 
-                  required: true
-            - 
-              slot_conditions: 
-                variationSet: 
                   required: true
   MolecularVariation: 
     attributes: 
@@ -373,6 +405,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: molecular_variation
         postconditions: 
           exactly_one_of: 
             - 
@@ -421,6 +455,21 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: seq_expr
+        postconditions: 
+          exactly_one_of: 
+            - 
+              slot_conditions: 
+                literalSequenceExpression: 
+                  required: true
+            - 
+              slot_conditions: 
+                derivedSequenceExpression: 
+                  required: true
+      - 
+        annotations: 
+          oneof: count
         postconditions: 
           exactly_one_of: 
             - 
@@ -455,6 +504,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: sequence_expression
         postconditions: 
           exactly_one_of: 
             - 
@@ -504,6 +555,25 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: start
+        postconditions: 
+          exactly_one_of: 
+            - 
+              slot_conditions: 
+                startNumber: 
+                  required: true
+            - 
+              slot_conditions: 
+                startIndefiniteRange: 
+                  required: true
+            - 
+              slot_conditions: 
+                startDefiniteRange: 
+                  required: true
+      - 
+        annotations: 
+          oneof: end
         postconditions: 
           exactly_one_of: 
             - 
@@ -520,9 +590,8 @@ classes:
                   required: true
   SequenceLocation: 
     attributes: 
-      id: 
+      Id: 
         annotations: 
-          percent_encoded: true
           rank: 1
         description: ''
         range: string
@@ -536,14 +605,27 @@ classes:
           rank: 3
         description: ''
         range: SequenceInterval
+      simpleInterval: 
+        annotations: 
+          rank: 100
+        deprecated: Marked as deprecated (deprecated=true) in the protobuf definition
+        description: ''
+        inlined: true
+        range: SimpleInterval
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: interval
         postconditions: 
           exactly_one_of: 
             - 
               slot_conditions: 
                 sequenceInterval: 
+                  required: true
+            - 
+              slot_conditions: 
+                simpleInterval: 
                   required: true
   SequenceState: 
     attributes: 
@@ -576,6 +658,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: systemic_variation
         postconditions: 
           exactly_one_of: 
             - 
@@ -584,15 +668,14 @@ classes:
                   required: true
   Text: 
     attributes: 
+      Id: 
+        annotations: 
+          rank: 1
+        description: ''
+        range: string
       definition: 
         annotations: 
           rank: 2
-        description: ''
-        range: string
-      id: 
-        annotations: 
-          percent_encoded: true
-          rank: 1
         description: ''
         range: string
     description: ''
@@ -611,6 +694,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: utility_variation
         postconditions: 
           exactly_one_of: 
             - 
@@ -651,6 +736,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: variation
         postconditions: 
           exactly_one_of: 
             - 
@@ -674,9 +761,83 @@ classes:
                 variationSet: 
                   required: true
   VariationSet: 
-    attributes: {}
-
+    attributes: 
+      Id: 
+        annotations: 
+          rank: 1
+        description: ''
+        range: string
+      members: 
+        annotations: 
+          rank: 2
+        description: ''
+        inlined_as_list: true
+        multivalued: true
+        range: VariationSetMember
     description: ''
+  VariationSetMember: 
+    attributes: 
+      allele: 
+        annotations: 
+          rank: 2
+        description: ''
+        range: Allele
+      copyNumber: 
+        annotations: 
+          rank: 4
+        description: ''
+        range: CopyNumber
+      curie: 
+        annotations: 
+          rank: 1
+        description: ''
+        range: string
+      haplotype: 
+        annotations: 
+          rank: 3
+        description: ''
+        range: Haplotype
+      text: 
+        annotations: 
+          rank: 5
+        description: ''
+        range: Text
+      variationSet: 
+        annotations: 
+          rank: 6
+        description: ''
+        range: VariationSet
+    description: ''
+    rules: 
+      - 
+        annotations: 
+          oneof: value
+        postconditions: 
+          exactly_one_of: 
+            - 
+              slot_conditions: 
+                curie: 
+                  required: true
+            - 
+              slot_conditions: 
+                allele: 
+                  required: true
+            - 
+              slot_conditions: 
+                haplotype: 
+                  required: true
+            - 
+              slot_conditions: 
+                copyNumber: 
+                  required: true
+            - 
+              slot_conditions: 
+                text: 
+                  required: true
+            - 
+              slot_conditions: 
+                variationSet: 
+                  required: true
 default_prefix: vrs
 description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
 enums: {}

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 import os
 
 from linkml_runtime import SchemaView
@@ -6,9 +7,14 @@ from linkml_runtime.dumpers import json_dumper, rdflib_dumper
 from rdflib import Graph, Literal, URIRef
 
 from phenopackets.datamodel import MAIN_SCHEMA_PATH
-from phenopackets.datamodel.phenopackets import (Individual, MetaData,
-                                                 OntologyClass, Phenopacket,
+from phenopackets.datamodel.phenopackets import (Allele, Haplotype,
+                                                 HaplotypeMember, Individual,
+                                                 LiteralSequenceExpression,
+                                                 MetaData, OntologyClass,
+                                                 Phenopacket,
                                                  PhenotypicFeature, Resource,
+                                                 VariationSet,
+                                                 VariationSetMember,
                                                  VitalStatus)
 
 """Test the module can be imported."""
@@ -39,6 +45,29 @@ class TestCreate(unittest.TestCase):
         self.assertIn(
             Literal("Fever"),
             list(g.objects(URIRef("http://purl.obolibrary.org/obo/HP_0001945"))),
+        )
+
+    def test_create_variation_set(self):
+        """A VRS Haplotype and a VariationSet have an identifier and members."""
+        allele = Allele(
+            Id="ga4gh:VA.1",
+            curie="refseq:NC_000010.11",
+            literalSequenceExpression=LiteralSequenceExpression(sequence="T"),
+        )
+        haplotype = Haplotype(
+            Id="ga4gh:VH.1",
+            members=[HaplotypeMember(allele=allele), HaplotypeMember(curie="ga4gh:VA.2")],
+        )
+        variation_set = VariationSet(
+            members=[VariationSetMember(haplotype=haplotype), {"curie": "ga4gh:VA.3"}]
+        )
+        self.assertEqual("ga4gh:VA.3", variation_set.members[1].curie)
+        # the attribute names are the names that protobuf uses in JSON
+        dumped = json.loads(json_dumper.dumps(variation_set, inject_type=False))
+        self.assertEqual("ga4gh:VH.1", dumped["members"][0]["haplotype"]["Id"])
+        self.assertEqual(
+            {"allele": {"Id": "ga4gh:VA.1", "curie": "refseq:NC_000010.11", "literalSequenceExpression": {"sequence": "T"}}},
+            dumped["members"][0]["haplotype"]["members"][0],
         )
 
     def test_create(self):
