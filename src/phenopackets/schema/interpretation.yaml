@@ -42,6 +42,9 @@ classes:
     description: A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations.
     rules: 
       - 
+        annotations: 
+          oneof: call
+        description: Gene or variant identified in subject or biosample and interpreted in relation to the disease diagnosis. In this context athe 'gene' is a proxy for an unspecified alteration in the indicated gene.
         postconditions: 
           exactly_one_of: 
             - 
@@ -100,52 +103,90 @@ enums:
   AcmgPathogenicityClassification: 
     description: ''
     permissible_values: 
+      NOT_PROVIDED: 
+        annotations: 
+          rank: 0
+        description: ''
       BENIGN: 
+        annotations: 
+          rank: 1
         description: ''
       LIKELY_BENIGN: 
-        description: ''
-      LIKELY_PATHOGENIC: 
-        description: ''
-      NOT_PROVIDED: 
-        description: ''
-      PATHOGENIC: 
+        annotations: 
+          rank: 2
         description: ''
       UNCERTAIN_SIGNIFICANCE: 
+        annotations: 
+          rank: 3
+        description: ''
+      LIKELY_PATHOGENIC: 
+        annotations: 
+          rank: 4
+        description: ''
+      PATHOGENIC: 
+        annotations: 
+          rank: 5
         description: ''
   InterpretationStatus: 
     description: ''
     permissible_values: 
-      CANDIDATE: 
-        description: ''
-      CAUSATIVE: 
-        description: ''
-      CONTRIBUTORY: 
+      UNKNOWN_STATUS: 
+        annotations: 
+          rank: 0
         description: ''
       REJECTED: 
+        annotations: 
+          rank: 1
         description: ''
-      UNKNOWN_STATUS: 
+      CANDIDATE: 
+        annotations: 
+          rank: 2
+        description: ''
+      CONTRIBUTORY: 
+        annotations: 
+          rank: 3
+        description: ''
+      CAUSATIVE: 
+        annotations: 
+          rank: 4
         description: ''
   ProgressStatus: 
     description: ''
     permissible_values: 
-      COMPLETED: 
+      UNKNOWN_PROGRESS: 
+        annotations: 
+          rank: 0
         description: ''
       IN_PROGRESS: 
+        annotations: 
+          rank: 1
+        description: ''
+      COMPLETED: 
+        annotations: 
+          rank: 2
         description: ''
       SOLVED: 
-        description: ''
-      UNKNOWN_PROGRESS: 
+        annotations: 
+          rank: 3
         description: ''
       UNSOLVED: 
+        annotations: 
+          rank: 4
         description: ''
   TherapeuticActionability: 
     description: ''
     permissible_values: 
-      ACTIONABLE: 
+      UNKNOWN_ACTIONABILITY: 
+        annotations: 
+          rank: 0
         description: ''
       NOT_ACTIONABLE: 
+        annotations: 
+          rank: 1
         description: ''
-      UNKNOWN_ACTIONABILITY: 
+      ACTIONABLE: 
+        annotations: 
+          rank: 2
         description: ''
 id: https://w3id.org/linkml/phenopackets/interpretation
 imports: 

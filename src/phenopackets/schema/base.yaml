@@ -21,9 +21,20 @@ classes:
         description: ''
         range: Age
     description: ''
-  Dictionary: 
-    comments: 
-      - TODO
+  DictionaryEntry: 
+    attributes: 
+      key: 
+        annotations: 
+          rank: 1
+        description: The key of the map entry. Keys are unique within a map.
+        key: true
+        range: string
+      value: 
+        annotations: 
+          rank: 2
+        description: The value of the map entry.
+        range: string
+    description: "An entry of a protobuf map<string, string> field. An attribute that holds a map is multivalued and inlined as a dictionary of its entries, which can be written as {key: value, ...}"
   Evidence: 
     attributes: 
       evidenceCode: 
@@ -65,13 +76,15 @@ classes:
           rank: 3
         description: Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.
         inlined: true
-        range: Dictionary
+        multivalued: true
+        range: DictionaryEntry
       individualToFileIdentifiers: 
         annotations: 
           rank: 2
         description: A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.
         inlined: true
-        range: Dictionary
+        multivalued: true
+        range: DictionaryEntry
       uri: 
         annotations: 
           rank: 1
@@ -164,6 +177,8 @@ classes:
     description: ''
     rules: 
       - 
+        annotations: 
+          oneof: element
         postconditions: 
           exactly_one_of: 
             - 

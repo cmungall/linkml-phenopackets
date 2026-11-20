@@ -186,3 +186,4 @@ prefixes:
   phenopackets: https://w3id.org/linkml/phenopackets/phenopackets/
 slots: {}
 
+source: https://github.com/phenopackets/phenopacket-schema/blob/2.0.0/src/main/proto/phenopackets/schema/v2/phenopackets.proto
