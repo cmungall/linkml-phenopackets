@@ -153,3 +153,14 @@ $(PXF_LINKML)/vrs.yaml: $(VRS) $(HACK)
 $(patsubst %, $(PXF_LINKML)/%.yaml, $(GOOGLE_MODS)): $(PXF_LINKML)/%.yaml: $(PXF_GOOGLE)/%.proto $(HACK)
 	mkdir -p $(@D)
 	$(HACK) $< > $@
+
+# The protobuf descriptors of the release as compiled by protoc. The test suite
+# compares the schema with this file, see tests/test_schema. It only has to be
+# built again when one of the pins changes. This needs grpcio-tools, which is not
+# a dependency of this project.
+PROTOC_PYTHON = uv run --no-project --with grpcio-tools python
+PXF_DESCRIPTORS = tests/input/phenopacket-schema-$(PXF_VERSION)/descriptors.json
+descriptors: $(PXF_DESCRIPTORS)
+$(PXF_DESCRIPTORS): $(PXF_PROTOS) $(GOOGLE_PROTOS) $(VRS) util/proto_inventory.py
+	mkdir -p $(@D)
+	$(PROTOC_PYTHON) util/proto_inventory.py $(PXF) $@ phenopackets/schema/v2/phenopackets.proto phenopackets/schema/v2/core/genome.proto
