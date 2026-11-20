@@ -27,9 +27,55 @@ The LinkML schema is generated using a script [proto2linkml](util/proto2linkml.p
 use of specific *conventions* in the Protobuf source, such as the use of particular controlled
 keywords in `//` comments. As such, this code is *not* generalizable to other protobuf schemas.
 
-Note we intentionally don't use out of band-info. Currently some records in the protobuf are undefined,
-so they will be undefined in the LinkML. We have not done additional curation based on the `.rst` docs,
+Note we intentionally don't use out of band-info. We have not done additional curation based on the `.rst` docs,
 it comes from protobuf.
+
+### Which version of Phenopackets is this?
+
+The schema corresponds to [release 2.0.0](https://github.com/phenopackets/phenopacket-schema/releases/tag/2.0.0)
+of phenopacket-schema. The root module, [phenopackets.yaml](src/phenopackets/schema/phenopackets.yaml), names the
+protobuf file of that release as its `source`.
+
+The release is set in the [Makefile](Makefile), together with the two things that the release itself depends on:
+the commit of [vrs-protobuf](https://github.com/ga4gh/vrs-protobuf) that it includes as a git submodule, and the
+version of Protobuf that its `Timestamp` and `Any` types come from. To generate the schema again, and then
+everything that is derived from it:
+
+```bash
+make auto deploy    # downloads the protobuf files of the release and converts them
+make descriptors    # only needed after changing the release or a pin, see below
+make all py src/phenopackets/pydantic/model.py
+make test sync-examples
+```
+
+`make test` compares the schema with what `protoc` makes of the same protobuf files, which is stored in
+[tests/input](tests/input) by `make descriptors`. Every message, field, oneof and enum of the release has to be
+in the schema, with its documentation, and the generated modules may not define anything else. See
+[tests/test_schema](tests/test_schema/test_protobuf_conformance.py), which also describes how each protobuf
+construct is translated. `make test` also generates the Python classes again, and fails when they differ from
+the ones in the repository.
+
+### Differences from protobuf
+
+The schema describes a phenopacket as it is written in JSON or YAML: attributes are named after the JSON names
+of the fields (`individual_id` is `individualId`, and the VRS `_id` fields are `Id`). A few things are not
+carried over exactly:
+
+- **Requirement levels.** A field is required only if its protobuf comment says `REQUIRED`. The documentation
+  of the release marks many more fields as required or recommended (`Phenopacket.id` for example). These
+  are not in the protobuf files, and so they are not in the schema.
+- **Maps.** `File.fileAttributes` and `File.individualToFileIdentifiers` are `map<string, string>` fields.
+  They are dictionaries of `DictionaryEntry` objects. The `{key: value}` form of protobuf is valid; the Python
+  classes write `{key: {key: ..., value: ...}}`.
+- **64 bit integers.** `VcfRecord.pos` and the positions and counts in VRS are integers. Protobuf writes them as
+  strings in JSON (`"pos": "45989626"`), which the Python classes convert, but which `linkml-validate` reports
+  as errors. Convert such a file with `linkml-convert` before validating it.
+- **Timestamps** are strings, as they are in JSON.
+- **`Extension.value`** is a list of strings. In release 2.0.0 it is a list of `google.protobuf.Any`. Later
+  versions of phenopacket-schema (2.0.1 and up, used by phenopacket-tools) changed it to a single string.
+- **Oneofs.** A `oneof` is a rule that says that exactly one of its fields is required, which is how the
+  documentation describes them. Protobuf also accepts a message with none of them. Neither `linkml-validate`
+  nor the Python classes check these rules.
 
 ## Ontology Enhancements
 
