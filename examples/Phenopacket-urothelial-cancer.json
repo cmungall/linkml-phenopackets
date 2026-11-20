@@ -127,6 +127,26 @@
     {
       "files": [
         {
+          "fileAttributes": {
+            "genomeAssembly": {
+              "key": "genomeAssembly",
+              "value": "GRCh38"
+            },
+            "fileFormat": {
+              "key": "fileFormat",
+              "value": "vcf"
+            },
+            "description": {
+              "key": "description",
+              "value": "Urothelial carcinoma sample"
+            }
+          },
+          "individualToFileIdentifiers": {
+            "sample1": {
+              "key": "sample1",
+              "value": "BS342730"
+            }
+          },
           "uri": "file://data/genomes/urothelial_ca_wgs.vcf.gz"
         }
       ],
@@ -159,6 +179,26 @@
     {
       "files": [
         {
+          "fileAttributes": {
+            "genomeAssembly": {
+              "key": "genomeAssembly",
+              "value": "GRCh38"
+            },
+            "fileFormat": {
+              "key": "fileFormat",
+              "value": "vcf"
+            },
+            "description": {
+              "key": "description",
+              "value": "lymph node metastasis sample"
+            }
+          },
+          "individualToFileIdentifiers": {
+            "sample5": {
+              "key": "sample5",
+              "value": "BS730275"
+            }
+          },
           "uri": "file://data/genomes/metastasis_wgs.vcf.gz"
         }
       ],
@@ -187,26 +227,26 @@
   ],
   "diseases": [
     {
-      "clinicalTnmFinding": {
-        "NCIT:C48766": {
+      "clinicalTnmFinding": [
+        {
           "id": "NCIT:C48766",
           "label": "pT2b Stage Finding"
         },
-        "NCIT:C48750": {
+        {
           "id": "NCIT:C48750",
           "label": "pN2 Stage Finding"
         },
-        "NCIT:C48700": {
+        {
           "id": "NCIT:C48700",
           "label": "M1 Stage Finding"
         }
-      },
-      "diseaseStage": {
-        "NCIT:C27971": {
+      ],
+      "diseaseStage": [
+        {
           "id": "NCIT:C27971",
           "label": "Stage IV"
         }
-      },
+      ],
       "excluded": false,
       "term": {
         "id": "NCIT:C39853",
@@ -216,6 +256,26 @@
   ],
   "files": [
     {
+      "fileAttributes": {
+        "genomeAssembly": {
+          "key": "genomeAssembly",
+          "value": "GRCh38"
+        },
+        "fileFormat": {
+          "key": "fileFormat",
+          "value": "vcf"
+        },
+        "description": {
+          "key": "description",
+          "value": "Matched normal germline sample"
+        }
+      },
+      "individualToFileIdentifiers": {
+        "example case": {
+          "key": "example case",
+          "value": "NA12345"
+        }
+      },
       "uri": "file://data/genomes/germline_wgs.vcf.gz"
     }
   ],

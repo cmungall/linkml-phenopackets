@@ -6,397 +6,410 @@
 @prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
 @prefix UBERON: <http://purl.obolibrary.org/obo/UBERON_> .
 @prefix UCUM: <http://unitsofmeasure.org/> .
-@prefix ns1: <medical_action:> .
-@prefix ns10: <individual:> .
-@prefix ns11: <disease:> .
-@prefix ns2: <interpretation:> .
-@prefix ns3: <measurement:> .
-@prefix ns4: <meta_data:> .
-@prefix ns5: <base:> .
-@prefix ns6: <phenotypic_feature:> .
-@prefix ns7: <biosample:> .
-@prefix ns8: <vrs:> .
-@prefix ns9: <vrsatile:> .
-@prefix p__base: <https://example.org/base/> .
+@prefix ns1: <vrs:> .
+@prefix ns10: <disease:> .
+@prefix ns11: <biosample:> .
+@prefix ns2: <base:> .
+@prefix ns3: <phenotypic_feature:> .
+@prefix ns4: <measurement:> .
+@prefix ns5: <vrsatile:> .
+@prefix ns6: <medical_action:> .
+@prefix ns7: <individual:> .
+@prefix ns8: <interpretation:> .
+@prefix ns9: <meta_data:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-DrugCentral:1678 a ns5:OntologyClass ;
-    ns5:label "melphalan" .
+DrugCentral:1678 a ns2:OntologyClass ;
+    ns2:label "melphalan" .
 
-GENO:0000135 a ns5:OntologyClass ;
-    ns5:label "heterozygous" .
+GENO:0000135 a ns2:OntologyClass ;
+    ns2:label "heterozygous" .
 
-HP:0000486 a ns5:OntologyClass ;
-    ns5:label "Strabismus" .
+HP:0000486 a ns2:OntologyClass ;
+    ns2:label "Strabismus" .
 
-HP:0000541 a ns5:OntologyClass ;
-    ns5:label "Retinal detachment" .
+HP:0000541 a ns2:OntologyClass ;
+    ns2:label "Retinal detachment" .
 
-HP:0000555 a ns5:OntologyClass ;
-    ns5:label "Leukocoria" .
+HP:0000555 a ns2:OntologyClass ;
+    ns2:label "Leukocoria" .
 
-HP:0012834 a ns5:OntologyClass ;
-    ns5:label "Right" .
+HP:0012834 a ns2:OntologyClass ;
+    ns2:label "Right" .
 
-HP:0025637 a ns5:OntologyClass ;
-    ns5:label "Vasospasm" .
+HP:0025637 a ns2:OntologyClass ;
+    ns2:label "Vasospasm" .
 
-HP:0030084 a ns5:OntologyClass ;
-    ns5:label "Clinodactyly" .
+HP:0030084 a ns2:OntologyClass ;
+    ns2:label "Clinodactyly" .
 
-NCIT:C10894 a ns5:OntologyClass ;
-    ns5:label "Carboplatin/Etoposide/Vincristine" .
+NCIT:C10894 a ns2:OntologyClass ;
+    ns2:label "Carboplatin/Etoposide/Vincristine" .
 
-NCIT:C132485 a ns5:OntologyClass ;
-    ns5:label "Apoptosis and Necrosis" .
+NCIT:C132485 a ns2:OntologyClass ;
+    ns2:label "Apoptosis and Necrosis" .
 
-NCIT:C140678 a ns5:OntologyClass ;
-    ns5:label "Retinoblastoma cM0 TNM Finding v8" .
+NCIT:C140678 a ns2:OntologyClass ;
+    ns2:label "Retinoblastoma cM0 TNM Finding v8" .
 
-NCIT:C140711 a ns5:OntologyClass ;
-    ns5:label "Retinoblastoma pN0 TNM Finding v8" .
+NCIT:C140711 a ns2:OntologyClass ;
+    ns2:label "Retinoblastoma pN0 TNM Finding v8" .
 
-NCIT:C140720 a ns5:OntologyClass ;
-    ns5:label "Retinoblastoma pT3 TNM Finding v8" .
+NCIT:C140720 a ns2:OntologyClass ;
+    ns2:label "Retinoblastoma pT3 TNM Finding v8" .
 
-NCIT:C35941 a ns5:OntologyClass ;
-    ns5:label "Flexner-Wintersteiner Rosette Formation" .
+NCIT:C35941 a ns2:OntologyClass ;
+    ns2:label "Flexner-Wintersteiner Rosette Formation" .
 
-NCIT:C38222 a ns5:OntologyClass ;
-    ns5:label "Intraarterial Route of Administration" .
+NCIT:C38222 a ns2:OntologyClass ;
+    ns2:label "Intraarterial Route of Administration" .
 
-NCIT:C41331 a ns5:OntologyClass ;
-    ns5:label "Adverse Event" .
+NCIT:C41331 a ns2:OntologyClass ;
+    ns2:label "Adverse Event" .
 
-NCIT:C64576 a ns5:OntologyClass ;
-    ns5:label "Once" .
+NCIT:C64576 a ns2:OntologyClass ;
+    ns2:label "Once" .
 
-NCIT:C8509 a ns5:OntologyClass ;
-    ns5:label "Primary Neoplasm" .
+NCIT:C8509 a ns2:OntologyClass ;
+    ns2:label "Primary Neoplasm" .
 
-UBERON:0000970 a ns5:OntologyClass ;
-    ns5:label "eye" .
+UBERON:0000970 a ns2:OntologyClass ;
+    ns2:label "eye" .
 
-UCUM:mg.kg-1 a ns5:OntologyClass ;
-    ns5:label "milligram per kilogram" .
+UCUM:mg.kg-1 a ns2:OntologyClass ;
+    ns2:label "milligram per kilogram" .
 
-UCUM:mm a ns5:OntologyClass ;
-    ns5:label "millimeter" .
+UCUM:mm a ns2:OntologyClass ;
+    ns2:label "millimeter" .
 
-LOINC:33728-7 a ns5:OntologyClass ;
-    ns5:label "Size.maximum dimension in Tumor" .
+LOINC:33728-7 a ns2:OntologyClass ;
+    ns2:label "Size.maximum dimension in Tumor" .
 
-LOINC:79892-6 a ns5:OntologyClass ;
-    ns5:label "Right eye Intraocular pressure" .
+LOINC:79892-6 a ns2:OntologyClass ;
+    ns2:label "Right eye Intraocular pressure" .
 
-LOINC:79893-4 a ns5:OntologyClass ;
-    ns5:label "Left eye Intraocular pressure" .
+LOINC:79893-4 a ns2:OntologyClass ;
+    ns2:label "Left eye Intraocular pressure" .
 
-LOINC:LA24739-7 a ns5:OntologyClass ;
-    ns5:label "Group E" .
+LOINC:LA24739-7 a ns2:OntologyClass ;
+    ns2:label "Group E" .
 
-NCIT:C48601 a ns5:OntologyClass ;
-    ns5:label "Enucleation" .
+NCIT:C48601 a ns2:OntologyClass ;
+    ns2:label "Enucleation" .
 
-<http://unitsofmeasure.org/mm[Hg]> a ns5:OntologyClass ;
-    ns5:label "millimetres of mercury" .
+<http://unitsofmeasure.org/mm[Hg]> a ns2:OntologyClass ;
+    ns2:label "millimetres of mercury" .
 
-LOINC:56844-4 a ns5:OntologyClass ;
-    ns5:label "Intraocular pressure of Eye" .
+LOINC:56844-4 a ns2:OntologyClass ;
+    ns2:label "Intraocular pressure of Eye" .
 
-HP:0012835 a ns5:OntologyClass ;
-    ns5:label "Left" .
+HP:0012835 a ns2:OntologyClass ;
+    ns2:label "Left" .
 
-NCIT:C62220 a ns5:OntologyClass ;
-    ns5:label "Cure" .
+NCIT:C62220 a ns2:OntologyClass ;
+    ns2:label "Cure" .
 
-UBERON:0004548 a ns5:OntologyClass ;
-    ns5:label "left eye" .
+UBERON:0004548 a ns2:OntologyClass ;
+    ns2:label "left eye" .
 
-NCIT:C7541 a ns5:OntologyClass ;
-    ns5:label "Retinoblastoma" .
+NCIT:C7541 a ns2:OntologyClass ;
+    ns2:label "Retinoblastoma" .
 
 [] a phenopackets:Phenopacket ;
-    phenopackets:biosamples [ a ns7:Biosample ;
-            ns7:files [ a ns5:File ;
-                    ns5:fileAttributes <Dictionary()> ;
-                    ns5:individualToFileIdentifiers <Dictionary()> ;
-                    ns5:uri "file://data/fileSomaticWgs.vcf.gz" ] ;
-            ns7:id "biosample.1" ;
-            ns7:measurements [ a ns3:Measurement ;
-                    ns3:assay LOINC:33728-7 ;
-                    ns3:timeObserved [ a ns5:TimeElement ;
-                            ns5:age [ a ns5:Age ;
-                                    ns5:iso8601duration "P8M2W" ] ] ;
-                    ns3:value [ a ns3:Value ;
-                            ns3:quantity [ a ns3:Quantity ;
-                                    ns3:unit UCUM:mm ;
-                                    ns3:value 1.5e+01 ] ] ] ;
-            ns7:pathologicalTnmFinding NCIT:C140711,
+    phenopackets:biosamples [ a ns11:Biosample ;
+            ns11:files [ a ns2:File ;
+                    ns2:fileAttributes [ a ns2:DictionaryEntry ;
+                            ns2:key "fileFormat" ;
+                            ns2:value "VCF" ],
+                        [ a ns2:DictionaryEntry ;
+                            ns2:key "genomeAssembly" ;
+                            ns2:value "GRCh38" ] ;
+                    ns2:individualToFileIdentifiers [ a ns2:DictionaryEntry ;
+                            ns2:key "biosample.1" ;
+                            ns2:value "specimen.1" ] ;
+                    ns2:uri "file://data/fileSomaticWgs.vcf.gz" ] ;
+            ns11:id "biosample.1" ;
+            ns11:measurements [ a ns4:Measurement ;
+                    ns4:assay LOINC:33728-7 ;
+                    ns4:timeObserved [ a ns2:TimeElement ;
+                            ns2:age [ a ns2:Age ;
+                                    ns2:iso8601duration "P8M2W" ] ] ;
+                    ns4:value [ a ns4:Value ;
+                            ns4:quantity [ a ns4:Quantity ;
+                                    ns4:unit UCUM:mm ;
+                                    ns4:value 1.5e+01 ] ] ] ;
+            ns11:pathologicalTnmFinding NCIT:C140711,
                 NCIT:C140720 ;
-            ns7:phenotypicFeatures [ a ns6:PhenotypicFeature ;
-                    ns6:excluded false ;
-                    ns6:type NCIT:C132485 ],
-                [ a ns6:PhenotypicFeature ;
-                    ns6:excluded false ;
-                    ns6:type NCIT:C35941 ] ;
-            ns7:procedure [ a ns5:Procedure ;
-                    ns5:bodySite UBERON:0004548 ;
-                    ns5:code NCIT:C48601 ;
-                    ns5:performed [ a ns5:TimeElement ;
-                            ns5:age [ a ns5:Age ;
-                                    ns5:iso8601duration "P8M2W" ] ] ] ;
-            ns7:sampledTissue UBERON:0000970 ;
-            ns7:tumorProgression NCIT:C8509 ] ;
-    phenopackets:diseases [ a ns11:Disease ;
-            ns11:clinicalTnmFinding NCIT:C140678 ;
-            ns11:diseaseStage LOINC:LA24739-7 ;
-            ns11:excluded false ;
-            ns11:onset [ a ns5:TimeElement ;
-                    ns5:age [ a ns5:Age ;
-                            ns5:iso8601duration "P4M" ] ] ;
-            ns11:primarySite UBERON:0004548 ;
-            ns11:term NCIT:C7541 ] ;
-    phenopackets:files [ a ns5:File ;
-            ns5:fileAttributes <Dictionary()> ;
-            ns5:individualToFileIdentifiers <Dictionary()> ;
-            ns5:uri "file://data/germlineWgs.vcf.gz" ] ;
+            ns11:phenotypicFeatures [ a ns3:PhenotypicFeature ;
+                    ns3:excluded false ;
+                    ns3:type NCIT:C35941 ],
+                [ a ns3:PhenotypicFeature ;
+                    ns3:excluded false ;
+                    ns3:type NCIT:C132485 ] ;
+            ns11:procedure [ a ns2:Procedure ;
+                    ns2:bodySite UBERON:0004548 ;
+                    ns2:code NCIT:C48601 ;
+                    ns2:performed [ a ns2:TimeElement ;
+                            ns2:age [ a ns2:Age ;
+                                    ns2:iso8601duration "P8M2W" ] ] ] ;
+            ns11:sampledTissue UBERON:0000970 ;
+            ns11:tumorProgression NCIT:C8509 ] ;
+    phenopackets:diseases [ a ns10:Disease ;
+            ns10:clinicalTnmFinding NCIT:C140678 ;
+            ns10:diseaseStage LOINC:LA24739-7 ;
+            ns10:excluded false ;
+            ns10:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P4M" ] ] ;
+            ns10:primarySite UBERON:0004548 ;
+            ns10:term NCIT:C7541 ] ;
+    phenopackets:files [ a ns2:File ;
+            ns2:fileAttributes [ a ns2:DictionaryEntry ;
+                    ns2:key "fileFormat" ;
+                    ns2:value "VCF" ],
+                [ a ns2:DictionaryEntry ;
+                    ns2:key "genomeAssembly" ;
+                    ns2:value "GRCh38" ] ;
+            ns2:individualToFileIdentifiers [ a ns2:DictionaryEntry ;
+                    ns2:key "proband A" ;
+                    ns2:value "sample1" ] ;
+            ns2:uri "file://data/germlineWgs.vcf.gz" ] ;
     phenopackets:id "arbitrary.id" ;
-    phenopackets:interpretations [ a ns2:Interpretation ;
-            ns2:diagnosis [ a ns2:Diagnosis ;
-                    ns2:disease NCIT:C7541 ;
-                    ns2:genomicInterpretations [ a ns2:GenomicInterpretation ;
-                            ns2:interpretationStatus "CAUSATIVE" ;
-                            ns2:subjectOrBiosampleId "proband A" ;
-                            ns2:variantInterpretation [ a ns2:VariantInterpretation ;
-                                    ns2:acmgPathogenicityClassification "PATHOGENIC" ;
-                                    ns2:therapeuticActionability "ACTIONABLE" ;
-                                    ns2:variationDescriptor [ a ns9:VariationDescriptor ;
-                                            ns9:extensions [ a ns9:Extension ;
-                                                    ns9:name "mosaicism" ;
-                                                    ns9:value "40.0%" ] ;
-                                            ns9:id "variant-id" ;
-                                            ns9:moleculeContext "unspecified_molecule_context" ;
-                                            ns9:variation [ a ns8:Variation ;
-                                                    ns8:copyNumber [ a ns8:CopyNumber ;
-                                                            ns8:derivedSequenceExpression [ a ns8:DerivedSequenceExpression ;
-                                                                    ns8:location [ a ns8:SequenceLocation ;
-                                                                            ns8:sequenceId "refseq:NC_000013.14" ;
-                                                                            ns8:sequenceInterval [ a ns8:SequenceInterval ;
-                                                                                    ns8:endNumber [ a ns8:Number ;
-                                                                                            ns8:value 61706822 ] ;
-                                                                                    ns8:startNumber [ a ns8:Number ;
-                                                                                            ns8:value 25981249 ] ] ] ;
-                                                                    ns8:reverseComplement false ] ;
-                                                            ns8:number [ a ns8:Number ;
-                                                                    ns8:value 1 ] ] ] ] ] ],
-                        [ a ns2:GenomicInterpretation ;
-                            ns2:interpretationStatus "CAUSATIVE" ;
-                            ns2:subjectOrBiosampleId "biosample.1" ;
-                            ns2:variantInterpretation [ a ns2:VariantInterpretation ;
-                                    ns2:acmgPathogenicityClassification "PATHOGENIC" ;
-                                    ns2:therapeuticActionability "ACTIONABLE" ;
-                                    ns2:variationDescriptor [ a ns9:VariationDescriptor ;
-                                            ns9:allelicState GENO:0000135 ;
-                                            ns9:expressions [ a ns9:Expression ;
-                                                    ns9:syntax "transcript_reference" ;
-                                                    ns9:value "NM_000321.2" ],
-                                                [ a ns9:Expression ;
-                                                    ns9:syntax "hgvs.c" ;
-                                                    ns9:value "NM_000321.2:c.958C>T" ] ;
-                                            ns9:extensions [ a ns9:Extension ;
-                                                    ns9:name "allele-frequency" ;
-                                                    ns9:value "25.0%" ] ;
-                                            ns9:geneContext [ a ns9:GeneDescriptor ;
-                                                    ns9:symbol "RB1" ;
-                                                    ns9:valueId "HGNC:9884" ] ;
-                                            ns9:id "rs121913300" ;
-                                            ns9:label "RB1 c.958C>T (p.Arg320Ter)" ;
-                                            ns9:moleculeContext "genomic" ;
-                                            ns9:variation [ a ns8:Variation ;
-                                                    ns8:allele [ a ns8:Allele ;
-                                                            ns8:literalSequenceExpression [ a ns8:LiteralSequenceExpression ;
-                                                                    ns8:sequence "T" ] ;
-                                                            ns8:sequenceLocation [ a ns8:SequenceLocation ;
-                                                                    ns8:sequenceId "refseq:NC_000013.11" ;
-                                                                    ns8:sequenceInterval [ a ns8:SequenceInterval ;
-                                                                            ns8:endNumber [ a ns8:Number ;
-                                                                                    ns8:value 48367512 ] ;
-                                                                            ns8:startNumber [ a ns8:Number ;
-                                                                                    ns8:value 48367511 ] ] ] ] ] ;
-                                            ns9:vcfRecord [ a ns9:VcfRecord ;
-                                                    ns9:alt "T" ;
-                                                    ns9:chrom "NC_000013.11" ;
-                                                    ns9:genomeAssembly "GRCh38" ;
-                                                    ns9:pos 48367512 ;
-                                                    ns9:ref "C" ] ] ] ] ] ;
-            ns2:id "interpretation.id" ;
-            ns2:progressStatus "SOLVED" ] ;
-    phenopackets:measurements [ a ns3:Measurement ;
-            ns3:assay LOINC:79893-4 ;
-            ns3:timeObserved [ a ns5:TimeElement ;
-                    ns5:age [ a ns5:Age ;
-                            ns5:iso8601duration "P6M" ] ] ;
-            ns3:value [ a ns3:Value ;
-                    ns3:quantity [ a ns3:Quantity ;
-                            ns3:referenceRange [ a ns3:ReferenceRange ;
-                                    ns3:high 2.1e+01 ;
-                                    ns3:low 1e+01 ;
-                                    ns3:unit LOINC:56844-4 ] ;
-                            ns3:unit <http://unitsofmeasure.org/mm[Hg]> ;
-                            ns3:value 2.5e+01 ] ] ],
-        [ a ns3:Measurement ;
-            ns3:assay LOINC:79892-6 ;
-            ns3:timeObserved [ a ns5:TimeElement ;
-                    ns5:age [ a ns5:Age ;
-                            ns5:iso8601duration "P6M" ] ] ;
-            ns3:value [ a ns3:Value ;
-                    ns3:quantity [ a ns3:Quantity ;
-                            ns3:referenceRange [ a ns3:ReferenceRange ;
-                                    ns3:high 2.1e+01 ;
-                                    ns3:low 1e+01 ;
-                                    ns3:unit LOINC:56844-4 ] ;
-                            ns3:unit <http://unitsofmeasure.org/mm[Hg]> ;
-                            ns3:value 1.5e+01 ] ] ] ;
-    phenopackets:medicalActions [ a ns1:MedicalAction ;
-            ns1:therapeuticRegimen [ a ns1:TherapeuticRegimen ;
-                    ns1:endTime [ a ns5:TimeElement ;
-                            ns5:age [ a ns5:Age ;
-                                    ns5:iso8601duration "P8M" ] ] ;
-                    ns1:ontologyClass NCIT:C10894 ;
-                    ns1:regimenStatus "COMPLETED" ;
-                    ns1:startTime [ a ns5:TimeElement ;
-                            ns5:age [ a ns5:Age ;
-                                    ns5:iso8601duration "P7M" ] ] ] ;
-            ns1:treatmentIntent NCIT:C62220 ;
-            ns1:treatmentTarget NCIT:C7541 ],
-        [ a ns1:MedicalAction ;
-            ns1:procedure [ a ns5:Procedure ;
-                    ns5:bodySite UBERON:0004548 ;
-                    ns5:code NCIT:C48601 ;
-                    ns5:performed [ a ns5:TimeElement ;
-                            ns5:age [ a ns5:Age ;
-                                    ns5:iso8601duration "P8M2W" ] ] ] ;
-            ns1:treatmentIntent NCIT:C62220 ;
-            ns1:treatmentTarget NCIT:C7541 ],
-        [ a ns1:MedicalAction ;
-            ns1:adverseEvents HP:0025637 ;
-            ns1:treatment [ a ns1:Treatment ;
-                    ns1:agent DrugCentral:1678 ;
-                    ns1:doseIntervals [ a ns1:DoseInterval ;
-                            ns1:interval [ a ns5:TimeInterval ;
-                                    ns5:end "2020-09-02T00:00:00Z" ;
-                                    ns5:start "2020-09-02T00:00:00Z" ] ;
-                            ns1:quantity [ a ns3:Quantity ;
-                                    ns3:unit UCUM:mg.kg-1 ;
-                                    ns3:value 4e-01 ] ;
-                            ns1:scheduleFrequency NCIT:C64576 ] ;
-                    ns1:drugType "UNKNOWN_DRUG_TYPE" ;
-                    ns1:routeOfAdministration NCIT:C38222 ] ;
-            ns1:treatmentIntent NCIT:C62220 ;
-            ns1:treatmentTarget NCIT:C7541 ;
-            ns1:treatmentTerminationReason NCIT:C41331 ] ;
-    phenopackets:metaData [ a ns4:MetaData ;
-            ns4:created "2021-05-14T10:35:00Z" ;
-            ns4:createdBy "anonymous biocurator" ;
-            ns4:phenopacketSchemaVersion "2.0.0" ;
-            ns4:resources [ a ns4:Resource ;
-                    ns4:id "ncit" ;
-                    ns4:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
-                    ns4:name "NCI Thesaurus" ;
-                    ns4:namespacePrefix "NCIT" ;
-                    ns4:url "http://purl.obolibrary.org/obo/ncit.owl" ;
-                    ns4:version "21.05d" ],
-                [ a ns4:Resource ;
-                    ns4:id "geno" ;
-                    ns4:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
-                    ns4:name "Genotype Ontology" ;
-                    ns4:namespacePrefix "GENO" ;
-                    ns4:url "http://purl.obolibrary.org/obo/geno.owl" ;
-                    ns4:version "2022-03-05" ],
-                [ a ns4:Resource ;
-                    ns4:id "loinc" ;
-                    ns4:iriPrefix "https://loinc.org/" ;
-                    ns4:name "Logical Observation Identifiers Names and Codes" ;
-                    ns4:namespacePrefix "LOINC" ;
-                    ns4:url "https://loinc.org" ;
-                    ns4:version "2.73" ],
-                [ a ns4:Resource ;
-                    ns4:id "drugcentral" ;
-                    ns4:iriPrefix "https://drugcentral.org/drugcard/" ;
-                    ns4:name "Drug Central" ;
-                    ns4:namespacePrefix "DrugCentral" ;
-                    ns4:url "https://drugcentral.org/" ;
-                    ns4:version "2022-08-22" ],
-                [ a ns4:Resource ;
-                    ns4:id "ucum" ;
-                    ns4:iriPrefix "https://units-of-measurement.org/" ;
-                    ns4:name "Unified Code for Units of Measure" ;
-                    ns4:namespacePrefix "UCUM" ;
-                    ns4:url "https://ucum.org" ;
-                    ns4:version "2.1" ],
-                [ a ns4:Resource ;
-                    ns4:id "efo" ;
-                    ns4:iriPrefix "http://purl.obolibrary.org/obo/EFO_" ;
-                    ns4:name "Experimental Factor Ontology" ;
-                    ns4:namespacePrefix "EFO" ;
-                    ns4:url "http://www.ebi.ac.uk/efo/efo.owl" ;
-                    ns4:version "3.34.0" ],
-                [ a ns4:Resource ;
-                    ns4:id "uberon" ;
-                    ns4:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
-                    ns4:name "Uber-anatomy ontology" ;
-                    ns4:namespacePrefix "UBERON" ;
-                    ns4:url "http://purl.obolibrary.org/obo/uberon.owl" ;
-                    ns4:version "2021-07-27" ],
-                [ a ns4:Resource ;
-                    ns4:id "hp" ;
-                    ns4:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
-                    ns4:name "human phenotype ontology" ;
-                    ns4:namespacePrefix "HP" ;
-                    ns4:url "http://purl.obolibrary.org/obo/hp.owl" ;
-                    ns4:version "2022-06-11" ],
-                [ a ns4:Resource ;
-                    ns4:id "ncbitaxon" ;
-                    ns4:iriPrefix "http://purl.obolibrary.org/obo/NCBITaxon_" ;
-                    ns4:name "NCBI organismal classification" ;
-                    ns4:namespacePrefix "NCBITaxon" ;
-                    ns4:url "http://purl.obolibrary.org/obo/ncbitaxon.owl" ;
-                    ns4:version "2021-06-10" ] ] ;
-    phenopackets:phenotypicFeatures [ a ns6:PhenotypicFeature ;
-            ns6:excluded false ;
-            ns6:modifiers HP:0012834 ;
-            ns6:onset [ a ns5:TimeElement ;
-                    ns5:age [ a ns5:Age ;
-                            ns5:iso8601duration "P3M" ] ] ;
-            ns6:type HP:0030084 ],
-        [ a ns6:PhenotypicFeature ;
-            ns6:excluded false ;
-            ns6:modifiers HP:0012835 ;
-            ns6:onset [ a ns5:TimeElement ;
-                    ns5:age [ a ns5:Age ;
-                            ns5:iso8601duration "P6M" ] ] ;
-            ns6:type HP:0000541 ],
-        [ a ns6:PhenotypicFeature ;
-            ns6:excluded false ;
-            ns6:modifiers HP:0012835 ;
-            ns6:onset [ a ns5:TimeElement ;
-                    ns5:age [ a ns5:Age ;
-                            ns5:iso8601duration "P5M15D" ] ] ;
-            ns6:type HP:0000486 ],
-        [ a ns6:PhenotypicFeature ;
-            ns6:excluded false ;
-            ns6:modifiers HP:0012835 ;
-            ns6:onset [ a ns5:TimeElement ;
-                    ns5:age [ a ns5:Age ;
-                            ns5:iso8601duration "P4M" ] ] ;
-            ns6:type HP:0000555 ] ;
-    phenopackets:subject [ a ns10:Individual ;
-            ns10:id "proband A" ;
-            ns10:karyotypicSex "XX" ;
-            ns10:sex "FEMALE" ;
-            ns10:timeAtLastEncounter [ a ns5:TimeElement ;
-                    ns5:age [ a ns5:Age ;
-                            ns5:iso8601duration "P6M" ] ] ] .
+    phenopackets:interpretations [ a ns8:Interpretation ;
+            ns8:diagnosis [ a ns8:Diagnosis ;
+                    ns8:disease NCIT:C7541 ;
+                    ns8:genomicInterpretations [ a ns8:GenomicInterpretation ;
+                            ns8:interpretationStatus "CAUSATIVE" ;
+                            ns8:subjectOrBiosampleId "biosample.1" ;
+                            ns8:variantInterpretation [ a ns8:VariantInterpretation ;
+                                    ns8:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns8:therapeuticActionability "ACTIONABLE" ;
+                                    ns8:variationDescriptor [ a ns5:VariationDescriptor ;
+                                            ns5:allelicState GENO:0000135 ;
+                                            ns5:expressions [ a ns5:Expression ;
+                                                    ns5:syntax "transcript_reference" ;
+                                                    ns5:value "NM_000321.2" ],
+                                                [ a ns5:Expression ;
+                                                    ns5:syntax "hgvs.c" ;
+                                                    ns5:value "NM_000321.2:c.958C>T" ] ;
+                                            ns5:extensions [ a ns5:Extension ;
+                                                    ns5:name "allele-frequency" ;
+                                                    ns5:value "25.0%" ] ;
+                                            ns5:geneContext [ a ns5:GeneDescriptor ;
+                                                    ns5:symbol "RB1" ;
+                                                    ns5:valueId "HGNC:9884" ] ;
+                                            ns5:id "rs121913300" ;
+                                            ns5:label "RB1 c.958C>T (p.Arg320Ter)" ;
+                                            ns5:moleculeContext "genomic" ;
+                                            ns5:variation [ a ns1:Variation ;
+                                                    ns1:allele [ a ns1:Allele ;
+                                                            ns1:literalSequenceExpression [ a ns1:LiteralSequenceExpression ;
+                                                                    ns1:sequence "T" ] ;
+                                                            ns1:sequenceLocation [ a ns1:SequenceLocation ;
+                                                                    ns1:sequenceId "refseq:NC_000013.11" ;
+                                                                    ns1:sequenceInterval [ a ns1:SequenceInterval ;
+                                                                            ns1:endNumber [ a ns1:Number ;
+                                                                                    ns1:value 48367512 ] ;
+                                                                            ns1:startNumber [ a ns1:Number ;
+                                                                                    ns1:value 48367511 ] ] ] ] ] ;
+                                            ns5:vcfRecord [ a ns5:VcfRecord ;
+                                                    ns5:alt "T" ;
+                                                    ns5:chrom "NC_000013.11" ;
+                                                    ns5:genomeAssembly "GRCh38" ;
+                                                    ns5:pos 48367512 ;
+                                                    ns5:ref "C" ] ] ] ],
+                        [ a ns8:GenomicInterpretation ;
+                            ns8:interpretationStatus "CAUSATIVE" ;
+                            ns8:subjectOrBiosampleId "proband A" ;
+                            ns8:variantInterpretation [ a ns8:VariantInterpretation ;
+                                    ns8:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns8:therapeuticActionability "ACTIONABLE" ;
+                                    ns8:variationDescriptor [ a ns5:VariationDescriptor ;
+                                            ns5:extensions [ a ns5:Extension ;
+                                                    ns5:name "mosaicism" ;
+                                                    ns5:value "40.0%" ] ;
+                                            ns5:id "variant-id" ;
+                                            ns5:moleculeContext "unspecified_molecule_context" ;
+                                            ns5:variation [ a ns1:Variation ;
+                                                    ns1:copyNumber [ a ns1:CopyNumber ;
+                                                            ns1:derivedSequenceExpression [ a ns1:DerivedSequenceExpression ;
+                                                                    ns1:location [ a ns1:SequenceLocation ;
+                                                                            ns1:sequenceId "refseq:NC_000013.14" ;
+                                                                            ns1:sequenceInterval [ a ns1:SequenceInterval ;
+                                                                                    ns1:endNumber [ a ns1:Number ;
+                                                                                            ns1:value 61706822 ] ;
+                                                                                    ns1:startNumber [ a ns1:Number ;
+                                                                                            ns1:value 25981249 ] ] ] ;
+                                                                    ns1:reverseComplement false ] ;
+                                                            ns1:number [ a ns1:Number ;
+                                                                    ns1:value 1 ] ] ] ] ] ] ] ;
+            ns8:id "interpretation.id" ;
+            ns8:progressStatus "SOLVED" ] ;
+    phenopackets:measurements [ a ns4:Measurement ;
+            ns4:assay LOINC:79892-6 ;
+            ns4:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P6M" ] ] ;
+            ns4:value [ a ns4:Value ;
+                    ns4:quantity [ a ns4:Quantity ;
+                            ns4:referenceRange [ a ns4:ReferenceRange ;
+                                    ns4:high 2.1e+01 ;
+                                    ns4:low 1e+01 ;
+                                    ns4:unit LOINC:56844-4 ] ;
+                            ns4:unit <http://unitsofmeasure.org/mm[Hg]> ;
+                            ns4:value 1.5e+01 ] ] ],
+        [ a ns4:Measurement ;
+            ns4:assay LOINC:79893-4 ;
+            ns4:timeObserved [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P6M" ] ] ;
+            ns4:value [ a ns4:Value ;
+                    ns4:quantity [ a ns4:Quantity ;
+                            ns4:referenceRange [ a ns4:ReferenceRange ;
+                                    ns4:high 2.1e+01 ;
+                                    ns4:low 1e+01 ;
+                                    ns4:unit LOINC:56844-4 ] ;
+                            ns4:unit <http://unitsofmeasure.org/mm[Hg]> ;
+                            ns4:value 2.5e+01 ] ] ] ;
+    phenopackets:medicalActions [ a ns6:MedicalAction ;
+            ns6:adverseEvents HP:0025637 ;
+            ns6:treatment [ a ns6:Treatment ;
+                    ns6:agent DrugCentral:1678 ;
+                    ns6:doseIntervals [ a ns6:DoseInterval ;
+                            ns6:interval [ a ns2:TimeInterval ;
+                                    ns2:end "2020-09-02T00:00:00Z" ;
+                                    ns2:start "2020-09-02T00:00:00Z" ] ;
+                            ns6:quantity [ a ns4:Quantity ;
+                                    ns4:unit UCUM:mg.kg-1 ;
+                                    ns4:value 4e-01 ] ;
+                            ns6:scheduleFrequency NCIT:C64576 ] ;
+                    ns6:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns6:routeOfAdministration NCIT:C38222 ] ;
+            ns6:treatmentIntent NCIT:C62220 ;
+            ns6:treatmentTarget NCIT:C7541 ;
+            ns6:treatmentTerminationReason NCIT:C41331 ],
+        [ a ns6:MedicalAction ;
+            ns6:therapeuticRegimen [ a ns6:TherapeuticRegimen ;
+                    ns6:endTime [ a ns2:TimeElement ;
+                            ns2:age [ a ns2:Age ;
+                                    ns2:iso8601duration "P8M" ] ] ;
+                    ns6:ontologyClass NCIT:C10894 ;
+                    ns6:regimenStatus "COMPLETED" ;
+                    ns6:startTime [ a ns2:TimeElement ;
+                            ns2:age [ a ns2:Age ;
+                                    ns2:iso8601duration "P7M" ] ] ] ;
+            ns6:treatmentIntent NCIT:C62220 ;
+            ns6:treatmentTarget NCIT:C7541 ],
+        [ a ns6:MedicalAction ;
+            ns6:procedure [ a ns2:Procedure ;
+                    ns2:bodySite UBERON:0004548 ;
+                    ns2:code NCIT:C48601 ;
+                    ns2:performed [ a ns2:TimeElement ;
+                            ns2:age [ a ns2:Age ;
+                                    ns2:iso8601duration "P8M2W" ] ] ] ;
+            ns6:treatmentIntent NCIT:C62220 ;
+            ns6:treatmentTarget NCIT:C7541 ] ;
+    phenopackets:metaData [ a ns9:MetaData ;
+            ns9:created "2021-05-14T10:35:00Z" ;
+            ns9:createdBy "anonymous biocurator" ;
+            ns9:phenopacketSchemaVersion "2.0.0" ;
+            ns9:resources [ a ns9:Resource ;
+                    ns9:id "drugcentral" ;
+                    ns9:iriPrefix "https://drugcentral.org/drugcard/" ;
+                    ns9:name "Drug Central" ;
+                    ns9:namespacePrefix "DrugCentral" ;
+                    ns9:url "https://drugcentral.org/" ;
+                    ns9:version "2022-08-22" ],
+                [ a ns9:Resource ;
+                    ns9:id "loinc" ;
+                    ns9:iriPrefix "https://loinc.org/" ;
+                    ns9:name "Logical Observation Identifiers Names and Codes" ;
+                    ns9:namespacePrefix "LOINC" ;
+                    ns9:url "https://loinc.org" ;
+                    ns9:version "2.73" ],
+                [ a ns9:Resource ;
+                    ns9:id "ncbitaxon" ;
+                    ns9:iriPrefix "http://purl.obolibrary.org/obo/NCBITaxon_" ;
+                    ns9:name "NCBI organismal classification" ;
+                    ns9:namespacePrefix "NCBITaxon" ;
+                    ns9:url "http://purl.obolibrary.org/obo/ncbitaxon.owl" ;
+                    ns9:version "2021-06-10" ],
+                [ a ns9:Resource ;
+                    ns9:id "ncit" ;
+                    ns9:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns9:name "NCI Thesaurus" ;
+                    ns9:namespacePrefix "NCIT" ;
+                    ns9:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns9:version "21.05d" ],
+                [ a ns9:Resource ;
+                    ns9:id "hp" ;
+                    ns9:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns9:name "human phenotype ontology" ;
+                    ns9:namespacePrefix "HP" ;
+                    ns9:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns9:version "2022-06-11" ],
+                [ a ns9:Resource ;
+                    ns9:id "geno" ;
+                    ns9:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
+                    ns9:name "Genotype Ontology" ;
+                    ns9:namespacePrefix "GENO" ;
+                    ns9:url "http://purl.obolibrary.org/obo/geno.owl" ;
+                    ns9:version "2022-03-05" ],
+                [ a ns9:Resource ;
+                    ns9:id "ucum" ;
+                    ns9:iriPrefix "https://units-of-measurement.org/" ;
+                    ns9:name "Unified Code for Units of Measure" ;
+                    ns9:namespacePrefix "UCUM" ;
+                    ns9:url "https://ucum.org" ;
+                    ns9:version "2.1" ],
+                [ a ns9:Resource ;
+                    ns9:id "uberon" ;
+                    ns9:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
+                    ns9:name "Uber-anatomy ontology" ;
+                    ns9:namespacePrefix "UBERON" ;
+                    ns9:url "http://purl.obolibrary.org/obo/uberon.owl" ;
+                    ns9:version "2021-07-27" ],
+                [ a ns9:Resource ;
+                    ns9:id "efo" ;
+                    ns9:iriPrefix "http://purl.obolibrary.org/obo/EFO_" ;
+                    ns9:name "Experimental Factor Ontology" ;
+                    ns9:namespacePrefix "EFO" ;
+                    ns9:url "http://www.ebi.ac.uk/efo/efo.owl" ;
+                    ns9:version "3.34.0" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:modifiers HP:0012835 ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P5M15D" ] ] ;
+            ns3:type HP:0000486 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:modifiers HP:0012835 ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P6M" ] ] ;
+            ns3:type HP:0000541 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:modifiers HP:0012835 ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P4M" ] ] ;
+            ns3:type HP:0000555 ],
+        [ a ns3:PhenotypicFeature ;
+            ns3:excluded false ;
+            ns3:modifiers HP:0012834 ;
+            ns3:onset [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P3M" ] ] ;
+            ns3:type HP:0030084 ] ;
+    phenopackets:subject [ a ns7:Individual ;
+            ns7:id "proband A" ;
+            ns7:karyotypicSex "XX" ;
+            ns7:sex "FEMALE" ;
+            ns7:timeAtLastEncounter [ a ns2:TimeElement ;
+                    ns2:age [ a ns2:Age ;
+                            ns2:iso8601duration "P6M" ] ] ] .
 

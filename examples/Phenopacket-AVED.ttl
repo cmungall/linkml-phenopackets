@@ -1,0 +1,372 @@
+@base <https://example.org/base/> .
+@prefix DrugCentral: <http://identifiers.org/drugcentral/> .
+@prefix GENO: <http://purl.obolibrary.org/obo/GENO_> .
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
+@prefix LOINC: <https://loinc.org/> .
+@prefix MONDO: <http://purl.obolibrary.org/obo/MONDO_> .
+@prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix UCUM: <http://unitsofmeasure.org/> .
+@prefix ns1: <base:> .
+@prefix ns10: <disease:> .
+@prefix ns2: <measurement:> .
+@prefix ns3: <meta_data:> .
+@prefix ns4: <interpretation:> .
+@prefix ns5: <medical_action:> .
+@prefix ns6: <phenotypic_feature:> .
+@prefix ns7: <vrs:> .
+@prefix ns8: <vrsatile:> .
+@prefix ns9: <individual:> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+DrugCentral:257 a ns1:OntologyClass ;
+    ns1:label "Vitamin E" .
+
+GENO:0000136 a ns1:OntologyClass ;
+    ns1:label "homozygous" .
+
+HP:0001251 a ns1:OntologyClass ;
+    ns1:label "Ataxia" .
+
+HP:0001284 a ns1:OntologyClass ;
+    ns1:label "Areflexia" .
+
+HP:0001288 a ns1:OntologyClass ;
+    ns1:label "Gait disturbance" .
+
+HP:0001308 a ns1:OntologyClass ;
+    ns1:label "Tongue fasciculations" .
+
+HP:0001324 a ns1:OntologyClass ;
+    ns1:label "Muscle weakness" .
+
+HP:0002066 a ns1:OntologyClass ;
+    ns1:label "Gait ataxia" .
+
+HP:0002075 a ns1:OntologyClass ;
+    ns1:label "Dysdiadochokinesis" .
+
+HP:0002080 a ns1:OntologyClass ;
+    ns1:label "Intention tremor" .
+
+HP:0002599 a ns1:OntologyClass ;
+    ns1:label "Head titubation" .
+
+HP:0003474 a ns1:OntologyClass ;
+    ns1:label "Somatic sensory dysfunction" .
+
+HP:0003690 a ns1:OntologyClass ;
+    ns1:label "Limb muscle weakness" .
+
+HP:0011448 a ns1:OntologyClass ;
+    ns1:label "Ankle clonus" .
+
+HP:0011463 a ns1:OntologyClass ;
+    ns1:label "Childhood onset" .
+
+HP:0012837 a ns1:OntologyClass ;
+    ns1:label "Generalized" .
+
+HP:0031910 a ns1:OntologyClass ;
+    ns1:label "Abnormal cranial nerve physiology" .
+
+MONDO:0010188 a ns1:OntologyClass ;
+    ns1:label "familial isolated deficiency of vitamin E" .
+
+MONDO:0100308 a ns1:OntologyClass ;
+    ns1:label "atactic disorder" .
+
+MONDO:0100340 a ns1:OntologyClass ;
+    ns1:label "Friedreich ataxia 1" .
+
+NCIT:C123584 a ns1:OntologyClass ;
+    ns1:label "Favorable Response" .
+
+NCIT:C38288 a ns1:OntologyClass ;
+    ns1:label "Oral Route of Administration" .
+
+LOINC:2157-6 a ns1:OntologyClass ;
+    ns1:label "Creatine kinase [Enzymatic activity/volume] in Serum or Plasma" .
+
+LOINC:2923-1 a ns1:OntologyClass ;
+    ns1:label "Retinol [Mass/volume] in Serum or Plasma" .
+
+UCUM:U.L-1 a ns1:OntologyClass ;
+    ns1:label "enzyme unit per liter" .
+
+UCUM:ug.dL-1 a ns1:OntologyClass ;
+    ns1:label "microgram per deciliter" .
+
+LOINC:1823-4 a ns1:OntologyClass ;
+    ns1:label "Alpha tocopherol [Mass/volume] in Serum or Plasma" .
+
+UCUM:mg.dL-1 a ns1:OntologyClass ;
+    ns1:label "milligram per deciliter" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:diseases [ a ns10:Disease ;
+            ns10:excluded false ;
+            ns10:onset [ a ns1:TimeElement ;
+                    ns1:ontologyClass HP:0011463 ] ;
+            ns10:term MONDO:0100308 ] ;
+    phenopackets:id "arbitrary.id" ;
+    phenopackets:interpretations [ a ns4:Interpretation ;
+            ns4:diagnosis [ a ns4:Diagnosis ;
+                    ns4:disease MONDO:0010188 ;
+                    ns4:genomicInterpretations [ a ns4:GenomicInterpretation ;
+                            ns4:interpretationStatus "CAUSATIVE" ;
+                            ns4:subjectOrBiosampleId "16-year-old boy" ;
+                            ns4:variantInterpretation [ a ns4:VariantInterpretation ;
+                                    ns4:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns4:therapeuticActionability "ACTIONABLE" ;
+                                    ns4:variationDescriptor [ a ns8:VariationDescriptor ;
+                                            ns8:allelicState GENO:0000136 ;
+                                            ns8:expressions [ a ns8:Expression ;
+                                                    ns8:syntax "hgvs.c" ;
+                                                    ns8:value "NM_000370.3(TTPA):c.706del" ],
+                                                [ a ns8:Expression ;
+                                                    ns8:syntax "transcript_reference" ;
+                                                    ns8:value "NM_000370.3" ] ;
+                                            ns8:geneContext [ a ns8:GeneDescriptor ;
+                                                    ns8:symbol "TTPA" ;
+                                                    ns8:valueId "HGNC:12404" ] ;
+                                            ns8:id "variant.1" ;
+                                            ns8:label "NP_000361.1:p.(His236IlefsTer28)" ;
+                                            ns8:moleculeContext "genomic" ;
+                                            ns8:variation [ a ns7:Variation ;
+                                                    ns7:allele [ a ns7:Allele ;
+                                                            ns7:sequenceLocation [ a ns7:SequenceLocation ;
+                                                                    ns7:sequenceId "refseq:NC_000008.11" ;
+                                                                    ns7:sequenceInterval [ a ns7:SequenceInterval ;
+                                                                            ns7:endNumber [ a ns7:Number ;
+                                                                                    ns7:value 63061383 ] ;
+                                                                            ns7:startNumber [ a ns7:Number ;
+                                                                                    ns7:value 63061382 ] ] ] ] ] ;
+                                            ns8:vcfRecord [ a ns8:VcfRecord ;
+                                                    ns8:alt "T" ;
+                                                    ns8:chrom "NC_000008.11" ;
+                                                    ns8:genomeAssembly "GRCh38" ;
+                                                    ns8:pos 63061382 ;
+                                                    ns8:ref "TG" ] ] ] ] ] ;
+            ns4:id "interpretation.2" ;
+            ns4:progressStatus "SOLVED" ],
+        [ a ns4:Interpretation ;
+            ns4:diagnosis [ a ns4:Diagnosis ;
+                    ns4:disease MONDO:0100340 ;
+                    ns4:genomicInterpretations [ a ns4:GenomicInterpretation ;
+                            ns4:gene [ a ns8:GeneDescriptor ;
+                                    ns8:symbol "FXN" ;
+                                    ns8:valueId "HGNC:3951" ] ;
+                            ns4:interpretationStatus "REJECTED" ;
+                            ns4:subjectOrBiosampleId "16-year-old boy" ] ] ;
+            ns4:id "interpretation.1" ;
+            ns4:progressStatus "COMPLETED" ;
+            ns4:summary "Genetic analysis of the frataxin gene confirmed two alleles in the normal size range and no evidence of an expansion." ] ;
+    phenopackets:measurements [ a ns2:Measurement ;
+            ns2:assay LOINC:1823-4 ;
+            ns2:timeObserved [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns2:value [ a ns2:Value ;
+                    ns2:quantity [ a ns2:Quantity ;
+                            ns2:referenceRange [ a ns2:ReferenceRange ;
+                                    ns2:high 1e+01 ;
+                                    ns2:low 6e+00 ;
+                                    ns2:unit UCUM:mg.dL-1 ] ;
+                            ns2:unit UCUM:mg.dL-1 ;
+                            ns2:value 3.9e+00 ] ] ],
+        [ a ns2:Measurement ;
+            ns2:assay LOINC:2923-1 ;
+            ns2:timeObserved [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns2:value [ a ns2:Value ;
+                    ns2:quantity [ a ns2:Quantity ;
+                            ns2:referenceRange [ a ns2:ReferenceRange ;
+                                    ns2:high 6e+01 ;
+                                    ns2:low 2e+01 ;
+                                    ns2:unit UCUM:ug.dL-1 ] ;
+                            ns2:unit UCUM:ug.dL-1 ;
+                            ns2:value 4.5e+01 ] ] ],
+        [ a ns2:Measurement ;
+            ns2:assay LOINC:1823-4 ;
+            ns2:timeObserved [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y6M" ] ] ;
+            ns2:value [ a ns2:Value ;
+                    ns2:quantity [ a ns2:Quantity ;
+                            ns2:referenceRange [ a ns2:ReferenceRange ;
+                                    ns2:high 1e+01 ;
+                                    ns2:low 6e+00 ;
+                                    ns2:unit UCUM:mg.dL-1 ] ;
+                            ns2:unit UCUM:mg.dL-1 ;
+                            ns2:value 1.734e+01 ] ] ],
+        [ a ns2:Measurement ;
+            ns2:assay LOINC:2157-6 ;
+            ns2:timeObserved [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns2:value [ a ns2:Value ;
+                    ns2:quantity [ a ns2:Quantity ;
+                            ns2:referenceRange [ a ns2:ReferenceRange ;
+                                    ns2:high 1.98e+02 ;
+                                    ns2:low 2.2e+01 ;
+                                    ns2:unit UCUM:U.L-1 ] ;
+                            ns2:unit UCUM:U.L-1 ;
+                            ns2:value 8e+01 ] ] ] ;
+    phenopackets:medicalActions [ a ns5:MedicalAction ;
+            ns5:responseToTreatment NCIT:C123584 ;
+            ns5:treatment [ a ns5:Treatment ;
+                    ns5:agent DrugCentral:257 ;
+                    ns5:drugType "UNKNOWN_DRUG_TYPE" ;
+                    ns5:routeOfAdministration NCIT:C38288 ] ] ;
+    phenopackets:metaData [ a ns3:MetaData ;
+            ns3:created "2022-04-21T10:35:00Z" ;
+            ns3:createdBy "anonymous biocurator" ;
+            ns3:externalReferences [ a ns1:ExternalReference ;
+                    ns1:description "Ataxia due to vitamin E deficiency: A case report and updated review" ;
+                    ns1:id "doi:10.1002/ccr3.6303" ] ;
+            ns3:phenopacketSchemaVersion "2.0.0" ;
+            ns3:resources [ a ns3:Resource ;
+                    ns3:id "mondo" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/MONDO_" ;
+                    ns3:name "Mondo Disease Ontology" ;
+                    ns3:namespacePrefix "MONDO" ;
+                    ns3:url "http://purl.obolibrary.org/obo/mondo.obo" ;
+                    ns3:version "2022-04-04" ],
+                [ a ns3:Resource ;
+                    ns3:id "ncit" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns3:name "NCI Thesaurus" ;
+                    ns3:namespacePrefix "NCIT" ;
+                    ns3:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns3:version "21.05d" ],
+                [ a ns3:Resource ;
+                    ns3:id "hp" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns3:name "human phenotype ontology" ;
+                    ns3:namespacePrefix "HP" ;
+                    ns3:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns3:version "2022-06-11" ],
+                [ a ns3:Resource ;
+                    ns3:id "geno" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
+                    ns3:name "Genotype Ontology" ;
+                    ns3:namespacePrefix "GENO" ;
+                    ns3:url "http://purl.obolibrary.org/obo/geno.owl" ;
+                    ns3:version "2022-03-05" ],
+                [ a ns3:Resource ;
+                    ns3:id "loinc" ;
+                    ns3:iriPrefix "https://loinc.org/" ;
+                    ns3:name "Logical Observation Identifiers Names and Codes" ;
+                    ns3:namespacePrefix "LOINC" ;
+                    ns3:url "https://loinc.org" ;
+                    ns3:version "2.73" ],
+                [ a ns3:Resource ;
+                    ns3:id "drugcentral" ;
+                    ns3:iriPrefix "https://drugcentral.org/drugcard/" ;
+                    ns3:name "Drug Central" ;
+                    ns3:namespacePrefix "DrugCentral" ;
+                    ns3:url "https://drugcentral.org/" ;
+                    ns3:version "2022-08-22" ],
+                [ a ns3:Resource ;
+                    ns3:id "uberon" ;
+                    ns3:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
+                    ns3:name "Uber-anatomy ontology" ;
+                    ns3:namespacePrefix "UBERON" ;
+                    ns3:url "http://purl.obolibrary.org/obo/uberon.owl" ;
+                    ns3:version "2021-07-27" ],
+                [ a ns3:Resource ;
+                    ns3:id "ucum" ;
+                    ns3:iriPrefix "https://units-of-measurement.org/" ;
+                    ns3:name "Unified Code for Units of Measure" ;
+                    ns3:namespacePrefix "UCUM" ;
+                    ns3:url "https://ucum.org" ;
+                    ns3:version "2.1" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns6:PhenotypicFeature ;
+            ns6:excluded true ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0003474 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P10Y" ] ] ;
+            ns6:type HP:0001288 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0002066 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0001284 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0011448 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0002075 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0002080 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0001251 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded true ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0031910 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded true ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0002599 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0001308 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:modifiers HP:0012837 ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P10Y" ] ] ;
+            ns6:type HP:0001324 ],
+        [ a ns6:PhenotypicFeature ;
+            ns6:excluded false ;
+            ns6:onset [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P16Y" ] ] ;
+            ns6:type HP:0003690 ] ;
+    phenopackets:subject [ a ns9:Individual ;
+            ns9:id "16-year-old boy" ;
+            ns9:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns9:sex "FEMALE" ;
+            ns9:timeAtLastEncounter [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P10Y" ] ] ] .
+

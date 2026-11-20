@@ -1,29 +1,50 @@
 @base <https://example.org/base/> .
 @prefix HP: <http://purl.obolibrary.org/obo/HP_> .
 @prefix ns1: <pedigree:> .
-@prefix ns2: <individual:> .
-@prefix ns3: <meta_data:> .
-@prefix ns4: <base:> .
-@prefix ns5: <phenotypic_feature:> .
-@prefix p__base: <https://example.org/base/> .
+@prefix ns2: <meta_data:> .
+@prefix ns3: <base:> .
+@prefix ns4: <phenotypic_feature:> .
+@prefix ns5: <individual:> .
 @prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
 
-HP:0000407 a ns4:OntologyClass ;
-    ns4:label "Sensorineural hearing impairment " .
+HP:0000407 a ns3:OntologyClass ;
+    ns3:label "Sensorineural hearing impairment " .
 
-HP:0003577 a ns4:OntologyClass ;
-    ns4:label "Congenital onset" .
+HP:0003577 a ns3:OntologyClass ;
+    ns3:label "Congenital onset" .
 
 [] a phenopackets:Family ;
-    phenopackets:files [ a ns4:File ;
-            ns4:fileAttributes <Dictionary()> ;
-            ns4:individualToFileIdentifiers <Dictionary()> ;
-            ns4:uri "/data/samples/vcf/example_000001215.vcf.gz" ] ;
+    phenopackets:files [ a ns3:File ;
+            ns3:fileAttributes [ a ns3:DictionaryEntry ;
+                    ns3:key "description" ;
+                    ns3:value "multi-sample VCF file for family.1" ],
+                [ a ns3:DictionaryEntry ;
+                    ns3:key "fileFormat" ;
+                    ns3:value "VCF" ],
+                [ a ns3:DictionaryEntry ;
+                    ns3:key "genomeAssembly" ;
+                    ns3:value "GRCh38" ] ;
+            ns3:individualToFileIdentifiers [ a ns3:DictionaryEntry ;
+                    ns3:key "father.1" ;
+                    ns3:value "sample.1" ],
+                [ a ns3:DictionaryEntry ;
+                    ns3:key "son.1" ;
+                    ns3:value "sample.4" ],
+                [ a ns3:DictionaryEntry ;
+                    ns3:key "daughter.2" ;
+                    ns3:value "sample.5" ],
+                [ a ns3:DictionaryEntry ;
+                    ns3:key "daughter.1" ;
+                    ns3:value "sample.3" ],
+                [ a ns3:DictionaryEntry ;
+                    ns3:key "mother.1" ;
+                    ns3:value "sample.2" ] ;
+            ns3:uri "/data/samples/vcf/example_000001215.vcf.gz" ] ;
     phenopackets:id "family.1" ;
-    phenopackets:metaData [ a ns3:MetaData ;
-            ns3:created "2022-04-17T10:35:00Z" ;
-            ns3:createdBy "biocurator" ;
-            ns3:phenopacketSchemaVersion "2.0.0" ] ;
+    phenopackets:metaData [ a ns2:MetaData ;
+            ns2:created "2022-04-17T10:35:00Z" ;
+            ns2:createdBy "biocurator" ;
+            ns2:phenopacketSchemaVersion "2.0.0" ] ;
     phenopackets:pedigree [ a ns1:Pedigree ;
             ns1:persons [ a ns1:Person ;
                     ns1:affectedStatus "UNAFFECTED" ;
@@ -32,13 +53,6 @@ HP:0003577 a ns4:OntologyClass ;
                     ns1:maternalId "mother.1" ;
                     ns1:paternalId "father.1" ;
                     ns1:sex "FEMALE" ],
-                [ a ns1:Person ;
-                    ns1:affectedStatus "UNAFFECTED" ;
-                    ns1:familyId "family.1" ;
-                    ns1:individualId "father.1" ;
-                    ns1:maternalId "0" ;
-                    ns1:paternalId "0" ;
-                    ns1:sex "MALE" ],
                 [ a ns1:Person ;
                     ns1:affectedStatus "UNAFFECTED" ;
                     ns1:familyId "family.1" ;
@@ -54,6 +68,13 @@ HP:0003577 a ns4:OntologyClass ;
                     ns1:paternalId "father.1" ;
                     ns1:sex "FEMALE" ],
                 [ a ns1:Person ;
+                    ns1:affectedStatus "UNAFFECTED" ;
+                    ns1:familyId "family.1" ;
+                    ns1:individualId "father.1" ;
+                    ns1:maternalId "0" ;
+                    ns1:paternalId "0" ;
+                    ns1:sex "MALE" ],
+                [ a ns1:Person ;
                     ns1:affectedStatus "AFFECTED" ;
                     ns1:familyId "family.1" ;
                     ns1:individualId "son.1" ;
@@ -62,25 +83,25 @@ HP:0003577 a ns4:OntologyClass ;
                     ns1:sex "MALE" ] ] ;
     phenopackets:proband [ a phenopackets:Phenopacket ;
             phenopackets:id "phenopacket.id.1" ;
-            phenopackets:metaData [ a ns3:MetaData ;
-                    ns3:created "2022-04-17T10:35:00Z" ;
-                    ns3:createdBy "biocurator" ;
-                    ns3:phenopacketSchemaVersion "2.0.0" ;
-                    ns3:resources [ a ns3:Resource ;
-                            ns3:id "hp" ;
-                            ns3:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
-                            ns3:name "human phenotype ontology" ;
-                            ns3:namespacePrefix "HP" ;
-                            ns3:url "http://purl.obolibrary.org/obo/hp.owl" ;
-                            ns3:version "2022-04-15" ] ] ;
-            phenopackets:phenotypicFeatures [ a ns5:PhenotypicFeature ;
-                    ns5:onset [ a ns4:TimeElement ;
-                            ns4:ontologyClass HP:0003577 ] ;
-                    ns5:type HP:0000407 ] ;
-            phenopackets:subject [ a ns2:Individual ;
-                    ns2:id "son.1" ;
-                    ns2:sex "MALE" ;
-                    ns2:timeAtLastEncounter [ a ns4:TimeElement ;
-                            ns4:age [ a ns4:Age ;
-                                    ns4:iso8601duration "P10Y2M4D" ] ] ] ] .
+            phenopackets:metaData [ a ns2:MetaData ;
+                    ns2:created "2022-04-17T10:35:00Z" ;
+                    ns2:createdBy "biocurator" ;
+                    ns2:phenopacketSchemaVersion "2.0.0" ;
+                    ns2:resources [ a ns2:Resource ;
+                            ns2:id "hp" ;
+                            ns2:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                            ns2:name "human phenotype ontology" ;
+                            ns2:namespacePrefix "HP" ;
+                            ns2:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                            ns2:version "2022-04-15" ] ] ;
+            phenopackets:phenotypicFeatures [ a ns4:PhenotypicFeature ;
+                    ns4:onset [ a ns3:TimeElement ;
+                            ns3:ontologyClass HP:0003577 ] ;
+                    ns4:type HP:0000407 ] ;
+            phenopackets:subject [ a ns5:Individual ;
+                    ns5:id "son.1" ;
+                    ns5:sex "MALE" ;
+                    ns5:timeAtLastEncounter [ a ns3:TimeElement ;
+                            ns3:age [ a ns3:Age ;
+                                    ns3:iso8601duration "P10Y2M4D" ] ] ] ] .
 

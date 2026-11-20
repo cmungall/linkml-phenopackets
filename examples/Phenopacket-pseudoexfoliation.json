@@ -412,12 +412,12 @@
       }
     },
     {
-      "adverseEvents": {
-        "HP:0025637": {
+      "adverseEvents": [
+        {
           "id": "HP:0025637",
           "label": "Vasospasm"
         }
-      },
+      ],
       "treatment": {
         "agent": {
           "id": "DrugCentral:395",
@@ -486,12 +486,12 @@
   "phenotypicFeatures": [
     {
       "excluded": true,
-      "modifiers": {
-        "HP:0012834": {
+      "modifiers": [
+        {
           "id": "HP:0012834",
           "label": "Right"
         }
-      },
+      ],
       "onset": {
         "age": {
           "iso8601duration": "P70Y"
@@ -504,12 +504,12 @@
     },
     {
       "excluded": false,
-      "modifiers": {
-        "HP:0012834": {
+      "modifiers": [
+        {
           "id": "HP:0012834",
           "label": "Right"
         }
-      },
+      ],
       "onset": {
         "age": {
           "iso8601duration": "P71Y1M"
@@ -522,12 +522,12 @@
     },
     {
       "excluded": false,
-      "modifiers": {
-        "HP:0012834": {
+      "modifiers": [
+        {
           "id": "HP:0012834",
           "label": "Right"
         }
-      },
+      ],
       "onset": {
         "age": {
           "iso8601duration": "P71Y1M"

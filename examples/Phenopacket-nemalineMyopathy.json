@@ -1,0 +1,337 @@
+{
+  "metaData": {
+    "created": "2021-05-14T10:35:00Z",
+    "createdBy": "anonymous biocurator",
+    "phenopacketSchemaVersion": "2.0.0",
+    "resources": [
+      {
+        "id": "ncit",
+        "iriPrefix": "http://purl.obolibrary.org/obo/NCIT_",
+        "name": "NCI Thesaurus",
+        "namespacePrefix": "NCIT",
+        "url": "http://purl.obolibrary.org/obo/ncit.owl",
+        "version": "21.05d"
+      },
+      {
+        "id": "hp",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_",
+        "name": "human phenotype ontology",
+        "namespacePrefix": "HP",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2022-02"
+      },
+      {
+        "id": "mondo",
+        "iriPrefix": "http://purl.obolibrary.org/obo/MONDO_",
+        "name": "Mondo Disease Ontology",
+        "namespacePrefix": "MONDO",
+        "url": "http://purl.obolibrary.org/obo/mondo.obo",
+        "version": "2022-04-04"
+      },
+      {
+        "id": "uberon",
+        "iriPrefix": "http://purl.obolibrary.org/obo/UBERON_",
+        "name": "Uber-anatomy ontology",
+        "namespacePrefix": "UBERON",
+        "url": "http://purl.obolibrary.org/obo/uberon.owl",
+        "version": "2021-07-27"
+      },
+      {
+        "id": "geno",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_",
+        "name": "Genotype Ontology",
+        "namespacePrefix": "GENO",
+        "url": "http://purl.obolibrary.org/obo/geno.owl",
+        "version": "2022-03-05"
+      }
+    ]
+  },
+  "biosamples": [
+    {
+      "id": "biosample.1",
+      "phenotypicFeatures": [
+        {
+          "excluded": false,
+          "type": {
+            "id": "HP:0003798",
+            "label": "Nemaline bodies"
+          }
+        }
+      ],
+      "procedure": {
+        "bodySite": {
+          "id": "UBERON:0002378",
+          "label": "muscle of abdomen"
+        },
+        "code": {
+          "id": "NCIT:C51895",
+          "label": "Muscle Biopsy"
+        },
+        "performed": {
+          "age": {
+            "iso8601duration": "P1D"
+          }
+        }
+      },
+      "sampledTissue": {
+        "id": "UBERON:0002378",
+        "label": "muscle of abdomen"
+      }
+    }
+  ],
+  "id": "arbitrary.id",
+  "interpretations": [
+    {
+      "diagnosis": {
+        "disease": {
+          "id": "MONDO:0014138",
+          "label": "nemaline myopathy 8"
+        },
+        "genomicInterpretations": [
+          {
+            "interpretationStatus": "CAUSATIVE",
+            "subjectOrBiosampleId": "interpretation.1",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "therapeuticActionability": "UNKNOWN_ACTIONABILITY",
+              "variationDescriptor": {
+                "allelicState": {
+                  "id": "GENO:0000135",
+                  "label": "heterozygous"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs.c",
+                    "value": "NM_152393.4(KLHL40):c.602G>A"
+                  },
+                  {
+                    "syntax": "transcript_reference",
+                    "value": "NM_152393.4"
+                  }
+                ],
+                "geneContext": {
+                  "symbol": "KLHL40",
+                  "valueId": "HGNC:30372"
+                },
+                "id": "rs397509420",
+                "label": "NM_152393.4(KLHL40):c.602G>A (p.Trp201Ter)",
+                "moleculeContext": "transcript",
+                "variation": {
+                  "allele": {
+                    "literalSequenceExpression": {
+                      "sequence": "A"
+                    },
+                    "sequenceLocation": {
+                      "sequenceId": "NC_000003.12",
+                      "sequenceInterval": {
+                        "endNumber": {
+                          "value": 42686220
+                        },
+                        "startNumber": {
+                          "value": 42686219
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "interpretationStatus": "CAUSATIVE",
+            "subjectOrBiosampleId": "interpretation.2",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "therapeuticActionability": "UNKNOWN_ACTIONABILITY",
+              "variationDescriptor": {
+                "allelicState": {
+                  "id": "GENO:0000135",
+                  "label": "heterozygous"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs.c",
+                    "value": "NM_152393.4(KLHL40):c.1516A>C"
+                  },
+                  {
+                    "syntax": "transcript_reference",
+                    "value": "NM_152393.4"
+                  }
+                ],
+                "geneContext": {
+                  "symbol": "KLHL40",
+                  "valueId": "HGNC:30372"
+                },
+                "id": "rs778022582",
+                "label": "NM_152393.4(KLHL40):c.1516A>C (p.Thr506Pro)",
+                "moleculeContext": "transcript",
+                "variation": {
+                  "allele": {
+                    "literalSequenceExpression": {
+                      "sequence": "C"
+                    },
+                    "sequenceLocation": {
+                      "sequenceId": "NC_000003.12",
+                      "sequenceInterval": {
+                        "endNumber": {
+                          "value": 42688963
+                        },
+                        "startNumber": {
+                          "value": 42688962
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "id": "interpretation.id",
+      "progressStatus": "SOLVED"
+    }
+  ],
+  "phenotypicFeatures": [
+    {
+      "excluded": false,
+      "onset": {
+        "gestationalAge": {
+          "weeks": 23
+        }
+      },
+      "type": {
+        "id": "HP:0001558",
+        "label": "Decreased fetal movement"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "gestationalAge": {
+          "days": 4,
+          "weeks": 32
+        }
+      },
+      "type": {
+        "id": "HP:0025672",
+        "label": "Fetal skin edema"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "gestationalAge": {
+          "days": 4,
+          "weeks": 32
+        }
+      },
+      "type": {
+        "id": "HP:0010557",
+        "label": "Overlapping fingers"
+      }
+    },
+    {
+      "excluded": false,
+      "modifiers": [
+        {
+          "id": "HP:0012827",
+          "label": "Borderline"
+        }
+      ],
+      "onset": {
+        "gestationalAge": {
+          "days": 4,
+          "weeks": 32
+        }
+      },
+      "type": {
+        "id": "HP:0001561",
+        "label": "Polyhydramnios"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset"
+        }
+      },
+      "type": {
+        "id": "HP:0030931",
+        "label": "1-minute APGAR score of 4"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset"
+        }
+      },
+      "type": {
+        "id": "HP:0030922",
+        "label": "5-minute APGAR score of 2"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset"
+        }
+      },
+      "type": {
+        "id": "HP:0033469",
+        "label": "10-minute APGAR score of 1"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset"
+        }
+      },
+      "type": {
+        "id": "HP:0012027",
+        "label": "Laryngeal edema"
+      }
+    },
+    {
+      "excluded": false,
+      "onset": {
+        "ontologyClass": {
+          "id": "HP:0003577",
+          "label": "Congenital onset"
+        }
+      },
+      "type": {
+        "id": "HP:0001290",
+        "label": "Generalized hypotonia"
+      }
+    }
+  ],
+  "subject": {
+    "id": "proband A",
+    "karyotypicSex": "UNKNOWN_KARYOTYPE",
+    "sex": "MALE",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P1D"
+      }
+    },
+    "vitalStatus": {
+      "causeOfDeath": {
+        "id": "MONDO:0014138",
+        "label": "nemaline myopathy 8"
+      },
+      "status": "DECEASED"
+    }
+  },
+  "@type": "Phenopacket"
+}

@@ -266,9 +266,8 @@ medicalActions:
     id: HP:0000518
     label: cataract
 - adverseEvents:
-    HP:0025637:
-      id: HP:0025637
-      label: Vasospasm
+  - id: HP:0025637
+    label: Vasospasm
   treatment:
     agent:
       id: DrugCentral:395
@@ -314,9 +313,8 @@ medicalActions:
 phenotypicFeatures:
 - excluded: true
   modifiers:
-    HP:0012834:
-      id: HP:0012834
-      label: Right
+  - id: HP:0012834
+    label: Right
   onset:
     age:
       iso8601duration: P70Y
@@ -325,9 +323,8 @@ phenotypicFeatures:
     label: Abnormality of refraction
 - excluded: false
   modifiers:
-    HP:0012834:
-      id: HP:0012834
-      label: Right
+  - id: HP:0012834
+    label: Right
   onset:
     age:
       iso8601duration: P71Y1M
@@ -336,9 +333,8 @@ phenotypicFeatures:
     label: Myopia
 - excluded: false
   modifiers:
-    HP:0012834:
-      id: HP:0012834
-      label: Right
+  - id: HP:0012834
+    label: Right
   onset:
     age:
       iso8601duration: P71Y1M
