@@ -5,7 +5,7 @@ description = ""
 authors = ["cmungall <cjm@berkeleybop.org>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 linkml-runtime = ">=1.7.0"
 oaklib = "^0.6.0"
 bioregistry = "^0.11.1"

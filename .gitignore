@@ -5,6 +5,7 @@ __pycache__/
 tests/output/
 dist/
 db/
+tmp/
 
 .DS_Store
 .template.db

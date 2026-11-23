@@ -94,47 +94,83 @@ enums:
   KaryotypicSex: 
     description: Karyotypic sex of the individual
     permissible_values: 
-      OTHER_KARYOTYPE: 
-        description: ''
       UNKNOWN_KARYOTYPE: 
-        description: ''
-      XO: 
+        annotations: 
+          rank: 0
         description: ''
       XX: 
-        description: ''
-      XXX: 
-        description: ''
-      XXXX: 
-        description: ''
-      XXXY: 
-        description: ''
-      XXY: 
-        description: ''
-      XXYY: 
+        annotations: 
+          rank: 1
         description: ''
       XY: 
+        annotations: 
+          rank: 2
+        description: ''
+      XO: 
+        annotations: 
+          rank: 3
+        description: ''
+      XXY: 
+        annotations: 
+          rank: 4
+        description: ''
+      XXX: 
+        annotations: 
+          rank: 5
+        description: ''
+      XXYY: 
+        annotations: 
+          rank: 6
+        description: ''
+      XXXY: 
+        annotations: 
+          rank: 7
+        description: ''
+      XXXX: 
+        annotations: 
+          rank: 8
         description: ''
       XYY: 
+        annotations: 
+          rank: 9
+        description: ''
+      OTHER_KARYOTYPE: 
+        annotations: 
+          rank: 10
         description: ''
   Sex: 
     description: "Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
     permissible_values: 
+      UNKNOWN_SEX: 
+        annotations: 
+          rank: 0
+        description: Not assessed / available.
       FEMALE: 
+        annotations: 
+          rank: 1
         description: Female
       MALE: 
+        annotations: 
+          rank: 2
         description: Male
       OTHER_SEX: 
+        annotations: 
+          rank: 3
         description: It is not possible, to accurately assess the applicability of MALE/FEMALE.
-      UNKNOWN_SEX: 
-        description: Not assessed / available.
   Status: 
     description: Default = false i.e. the individual is alive. MUST be true if
     permissible_values: 
+      UNKNOWN_STATUS: 
+        annotations: 
+          rank: 0
+        description: ''
       ALIVE: 
+        annotations: 
+          rank: 1
         description: ''
       DECEASED: 
-        description: ''
-      UNKNOWN_STATUS: 
+        annotations: 
+          rank: 2
         description: ''
 id: https://w3id.org/linkml/phenopackets/individual
 imports: 

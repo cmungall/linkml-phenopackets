@@ -1,0 +1,249 @@
+@base <https://example.org/base/> .
+@prefix GENO: <http://purl.obolibrary.org/obo/GENO_> .
+@prefix HP: <http://purl.obolibrary.org/obo/HP_> .
+@prefix MONDO: <http://purl.obolibrary.org/obo/MONDO_> .
+@prefix NCIT: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix UBERON: <http://purl.obolibrary.org/obo/UBERON_> .
+@prefix ns1: <base:> .
+@prefix ns2: <phenotypic_feature:> .
+@prefix ns3: <biosample:> .
+@prefix ns4: <meta_data:> .
+@prefix ns5: <individual:> .
+@prefix ns6: <vrs:> .
+@prefix ns7: <interpretation:> .
+@prefix ns8: <vrsatile:> .
+@prefix phenopackets: <https://w3id.org/linkml/phenopackets/phenopackets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+HP:0001290 a ns1:OntologyClass ;
+    ns1:label "Generalized hypotonia" .
+
+HP:0001558 a ns1:OntologyClass ;
+    ns1:label "Decreased fetal movement" .
+
+HP:0001561 a ns1:OntologyClass ;
+    ns1:label "Polyhydramnios" .
+
+HP:0003798 a ns1:OntologyClass ;
+    ns1:label "Nemaline bodies" .
+
+HP:0010557 a ns1:OntologyClass ;
+    ns1:label "Overlapping fingers" .
+
+HP:0012027 a ns1:OntologyClass ;
+    ns1:label "Laryngeal edema" .
+
+HP:0012827 a ns1:OntologyClass ;
+    ns1:label "Borderline" .
+
+HP:0025672 a ns1:OntologyClass ;
+    ns1:label "Fetal skin edema" .
+
+HP:0030922 a ns1:OntologyClass ;
+    ns1:label "5-minute APGAR score of 2" .
+
+HP:0030931 a ns1:OntologyClass ;
+    ns1:label "1-minute APGAR score of 4" .
+
+HP:0033469 a ns1:OntologyClass ;
+    ns1:label "10-minute APGAR score of 1" .
+
+NCIT:C51895 a ns1:OntologyClass ;
+    ns1:label "Muscle Biopsy" .
+
+GENO:0000135 a ns1:OntologyClass ;
+    ns1:label "heterozygous" .
+
+MONDO:0014138 a ns1:OntologyClass ;
+    ns1:label "nemaline myopathy 8" .
+
+UBERON:0002378 a ns1:OntologyClass ;
+    ns1:label "muscle of abdomen" .
+
+HP:0003577 a ns1:OntologyClass ;
+    ns1:label "Congenital onset" .
+
+[] a phenopackets:Phenopacket ;
+    phenopackets:biosamples [ a ns3:Biosample ;
+            ns3:id "biosample.1" ;
+            ns3:phenotypicFeatures [ a ns2:PhenotypicFeature ;
+                    ns2:excluded false ;
+                    ns2:type HP:0003798 ] ;
+            ns3:procedure [ a ns1:Procedure ;
+                    ns1:bodySite UBERON:0002378 ;
+                    ns1:code NCIT:C51895 ;
+                    ns1:performed [ a ns1:TimeElement ;
+                            ns1:age [ a ns1:Age ;
+                                    ns1:iso8601duration "P1D" ] ] ] ;
+            ns3:sampledTissue UBERON:0002378 ] ;
+    phenopackets:id "arbitrary.id" ;
+    phenopackets:interpretations [ a ns7:Interpretation ;
+            ns7:diagnosis [ a ns7:Diagnosis ;
+                    ns7:disease MONDO:0014138 ;
+                    ns7:genomicInterpretations [ a ns7:GenomicInterpretation ;
+                            ns7:interpretationStatus "CAUSATIVE" ;
+                            ns7:subjectOrBiosampleId "interpretation.1" ;
+                            ns7:variantInterpretation [ a ns7:VariantInterpretation ;
+                                    ns7:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns7:therapeuticActionability "UNKNOWN_ACTIONABILITY" ;
+                                    ns7:variationDescriptor [ a ns8:VariationDescriptor ;
+                                            ns8:allelicState GENO:0000135 ;
+                                            ns8:expressions [ a ns8:Expression ;
+                                                    ns8:syntax "transcript_reference" ;
+                                                    ns8:value "NM_152393.4" ],
+                                                [ a ns8:Expression ;
+                                                    ns8:syntax "hgvs.c" ;
+                                                    ns8:value "NM_152393.4(KLHL40):c.602G>A" ] ;
+                                            ns8:geneContext [ a ns8:GeneDescriptor ;
+                                                    ns8:symbol "KLHL40" ;
+                                                    ns8:valueId "HGNC:30372" ] ;
+                                            ns8:id "rs397509420" ;
+                                            ns8:label "NM_152393.4(KLHL40):c.602G>A (p.Trp201Ter)" ;
+                                            ns8:moleculeContext "transcript" ;
+                                            ns8:variation [ a ns6:Variation ;
+                                                    ns6:allele [ a ns6:Allele ;
+                                                            ns6:literalSequenceExpression [ a ns6:LiteralSequenceExpression ;
+                                                                    ns6:sequence "A" ] ;
+                                                            ns6:sequenceLocation [ a ns6:SequenceLocation ;
+                                                                    ns6:sequenceId "NC_000003.12" ;
+                                                                    ns6:sequenceInterval [ a ns6:SequenceInterval ;
+                                                                            ns6:endNumber [ a ns6:Number ;
+                                                                                    ns6:value 42686220 ] ;
+                                                                            ns6:startNumber [ a ns6:Number ;
+                                                                                    ns6:value 42686219 ] ] ] ] ] ] ] ],
+                        [ a ns7:GenomicInterpretation ;
+                            ns7:interpretationStatus "CAUSATIVE" ;
+                            ns7:subjectOrBiosampleId "interpretation.2" ;
+                            ns7:variantInterpretation [ a ns7:VariantInterpretation ;
+                                    ns7:acmgPathogenicityClassification "PATHOGENIC" ;
+                                    ns7:therapeuticActionability "UNKNOWN_ACTIONABILITY" ;
+                                    ns7:variationDescriptor [ a ns8:VariationDescriptor ;
+                                            ns8:allelicState GENO:0000135 ;
+                                            ns8:expressions [ a ns8:Expression ;
+                                                    ns8:syntax "hgvs.c" ;
+                                                    ns8:value "NM_152393.4(KLHL40):c.1516A>C" ],
+                                                [ a ns8:Expression ;
+                                                    ns8:syntax "transcript_reference" ;
+                                                    ns8:value "NM_152393.4" ] ;
+                                            ns8:geneContext [ a ns8:GeneDescriptor ;
+                                                    ns8:symbol "KLHL40" ;
+                                                    ns8:valueId "HGNC:30372" ] ;
+                                            ns8:id "rs778022582" ;
+                                            ns8:label "NM_152393.4(KLHL40):c.1516A>C (p.Thr506Pro)" ;
+                                            ns8:moleculeContext "transcript" ;
+                                            ns8:variation [ a ns6:Variation ;
+                                                    ns6:allele [ a ns6:Allele ;
+                                                            ns6:literalSequenceExpression [ a ns6:LiteralSequenceExpression ;
+                                                                    ns6:sequence "C" ] ;
+                                                            ns6:sequenceLocation [ a ns6:SequenceLocation ;
+                                                                    ns6:sequenceId "NC_000003.12" ;
+                                                                    ns6:sequenceInterval [ a ns6:SequenceInterval ;
+                                                                            ns6:endNumber [ a ns6:Number ;
+                                                                                    ns6:value 42688963 ] ;
+                                                                            ns6:startNumber [ a ns6:Number ;
+                                                                                    ns6:value 42688962 ] ] ] ] ] ] ] ] ] ;
+            ns7:id "interpretation.id" ;
+            ns7:progressStatus "SOLVED" ] ;
+    phenopackets:metaData [ a ns4:MetaData ;
+            ns4:created "2021-05-14T10:35:00Z" ;
+            ns4:createdBy "anonymous biocurator" ;
+            ns4:phenopacketSchemaVersion "2.0.0" ;
+            ns4:resources [ a ns4:Resource ;
+                    ns4:id "ncit" ;
+                    ns4:iriPrefix "http://purl.obolibrary.org/obo/NCIT_" ;
+                    ns4:name "NCI Thesaurus" ;
+                    ns4:namespacePrefix "NCIT" ;
+                    ns4:url "http://purl.obolibrary.org/obo/ncit.owl" ;
+                    ns4:version "21.05d" ],
+                [ a ns4:Resource ;
+                    ns4:id "geno" ;
+                    ns4:iriPrefix "http://purl.obolibrary.org/obo/GENO_" ;
+                    ns4:name "Genotype Ontology" ;
+                    ns4:namespacePrefix "GENO" ;
+                    ns4:url "http://purl.obolibrary.org/obo/geno.owl" ;
+                    ns4:version "2022-03-05" ],
+                [ a ns4:Resource ;
+                    ns4:id "uberon" ;
+                    ns4:iriPrefix "http://purl.obolibrary.org/obo/UBERON_" ;
+                    ns4:name "Uber-anatomy ontology" ;
+                    ns4:namespacePrefix "UBERON" ;
+                    ns4:url "http://purl.obolibrary.org/obo/uberon.owl" ;
+                    ns4:version "2021-07-27" ],
+                [ a ns4:Resource ;
+                    ns4:id "hp" ;
+                    ns4:iriPrefix "http://purl.obolibrary.org/obo/HP_" ;
+                    ns4:name "human phenotype ontology" ;
+                    ns4:namespacePrefix "HP" ;
+                    ns4:url "http://purl.obolibrary.org/obo/hp.owl" ;
+                    ns4:version "2022-02" ],
+                [ a ns4:Resource ;
+                    ns4:id "mondo" ;
+                    ns4:iriPrefix "http://purl.obolibrary.org/obo/MONDO_" ;
+                    ns4:name "Mondo Disease Ontology" ;
+                    ns4:namespacePrefix "MONDO" ;
+                    ns4:url "http://purl.obolibrary.org/obo/mondo.obo" ;
+                    ns4:version "2022-04-04" ] ] ;
+    phenopackets:phenotypicFeatures [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:modifiers HP:0012827 ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:gestationalAge [ a ns1:GestationalAge ;
+                            ns1:days 4 ;
+                            ns1:weeks 32 ] ] ;
+            ns2:type HP:0001561 ],
+        [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:ontologyClass HP:0003577 ] ;
+            ns2:type HP:0030931 ],
+        [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:gestationalAge [ a ns1:GestationalAge ;
+                            ns1:weeks 23 ] ] ;
+            ns2:type HP:0001558 ],
+        [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:ontologyClass HP:0003577 ] ;
+            ns2:type HP:0033469 ],
+        [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:ontologyClass HP:0003577 ] ;
+            ns2:type HP:0001290 ],
+        [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:ontologyClass HP:0003577 ] ;
+            ns2:type HP:0030922 ],
+        [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:ontologyClass HP:0003577 ] ;
+            ns2:type HP:0012027 ],
+        [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:gestationalAge [ a ns1:GestationalAge ;
+                            ns1:days 4 ;
+                            ns1:weeks 32 ] ] ;
+            ns2:type HP:0025672 ],
+        [ a ns2:PhenotypicFeature ;
+            ns2:excluded false ;
+            ns2:onset [ a ns1:TimeElement ;
+                    ns1:gestationalAge [ a ns1:GestationalAge ;
+                            ns1:days 4 ;
+                            ns1:weeks 32 ] ] ;
+            ns2:type HP:0010557 ] ;
+    phenopackets:subject [ a ns5:Individual ;
+            ns5:id "proband A" ;
+            ns5:karyotypicSex "UNKNOWN_KARYOTYPE" ;
+            ns5:sex "MALE" ;
+            ns5:timeAtLastEncounter [ a ns1:TimeElement ;
+                    ns1:age [ a ns1:Age ;
+                            ns1:iso8601duration "P1D" ] ] ;
+            ns5:vitalStatus [ a ns5:VitalStatus ;
+                    ns5:causeOfDeath MONDO:0014138 ;
+                    ns5:status "DECEASED" ] ] .
+

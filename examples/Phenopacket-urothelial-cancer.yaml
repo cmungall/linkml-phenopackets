@@ -86,7 +86,21 @@ biosamples:
     age:
       iso8601duration: P52Y2M
 - files:
-  - uri: file://data/genomes/urothelial_ca_wgs.vcf.gz
+  - fileAttributes:
+      genomeAssembly:
+        key: genomeAssembly
+        value: GRCh38
+      fileFormat:
+        key: fileFormat
+        value: vcf
+      description:
+        key: description
+        value: Urothelial carcinoma sample
+    individualToFileIdentifiers:
+      sample1:
+        key: sample1
+        value: BS342730
+    uri: file://data/genomes/urothelial_ca_wgs.vcf.gz
   histologicalDiagnosis:
     id: NCIT:C39853
     label: Infiltrating Urothelial Carcinoma
@@ -106,7 +120,21 @@ biosamples:
     id: NCIT:C84509
     label: Primary Malignant Neoplasm
 - files:
-  - uri: file://data/genomes/metastasis_wgs.vcf.gz
+  - fileAttributes:
+      genomeAssembly:
+        key: genomeAssembly
+        value: GRCh38
+      fileFormat:
+        key: fileFormat
+        value: vcf
+      description:
+        key: description
+        value: lymph node metastasis sample
+    individualToFileIdentifiers:
+      sample5:
+        key: sample5
+        value: BS730275
+    uri: file://data/genomes/metastasis_wgs.vcf.gz
   id: pelvic lymph node biosample ID
   individualId: patient1
   procedure:
@@ -124,25 +152,35 @@ biosamples:
     label: Metastatic Neoplasm
 diseases:
 - clinicalTnmFinding:
-    NCIT:C48766:
-      id: NCIT:C48766
-      label: pT2b Stage Finding
-    NCIT:C48750:
-      id: NCIT:C48750
-      label: pN2 Stage Finding
-    NCIT:C48700:
-      id: NCIT:C48700
-      label: M1 Stage Finding
+  - id: NCIT:C48766
+    label: pT2b Stage Finding
+  - id: NCIT:C48750
+    label: pN2 Stage Finding
+  - id: NCIT:C48700
+    label: M1 Stage Finding
   diseaseStage:
-    NCIT:C27971:
-      id: NCIT:C27971
-      label: Stage IV
+  - id: NCIT:C27971
+    label: Stage IV
   excluded: false
   term:
     id: NCIT:C39853
     label: Infiltrating Urothelial Carcinoma
 files:
-- uri: file://data/genomes/germline_wgs.vcf.gz
+- fileAttributes:
+    genomeAssembly:
+      key: genomeAssembly
+      value: GRCh38
+    fileFormat:
+      key: fileFormat
+      value: vcf
+    description:
+      key: description
+      value: Matched normal germline sample
+  individualToFileIdentifiers:
+    example case:
+      key: example case
+      value: NA12345
+  uri: file://data/genomes/germline_wgs.vcf.gz
 id: arbitrary.id
 phenotypicFeatures:
 - excluded: false

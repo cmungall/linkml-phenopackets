@@ -1,0 +1,6560 @@
+{
+ "enums": {
+  "org.ga4gh.vrsatile.v1.MoleculeContext": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "file": "ga4gh/vrsatile/v1/vrsatile.proto",
+   "name": "MoleculeContext",
+   "parent": null,
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "unspecified_molecule_context",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "genomic",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "transcript",
+     "number": 2
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "protein",
+     "number": 3
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.AcmgPathogenicityClassification": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/interpretation.proto",
+   "name": "AcmgPathogenicityClassification",
+   "parent": null,
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "NOT_PROVIDED",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "BENIGN",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "LIKELY_BENIGN",
+     "number": 2
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNCERTAIN_SIGNIFICANCE",
+     "number": 3
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "LIKELY_PATHOGENIC",
+     "number": 4
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "PATHOGENIC",
+     "number": 5
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.DrugType": {
+   "comments": {
+    "detached": [],
+    "leading": " A simplified version of ODHSI-DRUG_EXPOSURE\n",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/medical_action.proto",
+   "name": "DrugType",
+   "parent": null,
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNKNOWN_DRUG_TYPE",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "PRESCRIPTION",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "EHR_MEDICATION_LIST",
+     "number": 2
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "ADMINISTRATION_RELATED_TO_PROCEDURE",
+     "number": 3
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.GenomicInterpretation.InterpretationStatus": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/interpretation.proto",
+   "name": "InterpretationStatus",
+   "parent": "org.phenopackets.schema.v2.core.GenomicInterpretation",
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNKNOWN_STATUS",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "REJECTED",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "CANDIDATE",
+     "number": 2
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "CONTRIBUTORY",
+     "number": 3
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "CAUSATIVE",
+     "number": 4
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.Interpretation.ProgressStatus": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/interpretation.proto",
+   "name": "ProgressStatus",
+   "parent": "org.phenopackets.schema.v2.core.Interpretation",
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNKNOWN_PROGRESS",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "IN_PROGRESS",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "COMPLETED",
+     "number": 2
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "SOLVED",
+     "number": 3
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNSOLVED",
+     "number": 4
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.KaryotypicSex": {
+   "comments": {
+    "detached": [],
+    "leading": " Karyotypic sex of the individual\n",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/individual.proto",
+   "name": "KaryotypicSex",
+   "parent": null,
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNKNOWN_KARYOTYPE",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XX",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XY",
+     "number": 2
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XO",
+     "number": 3
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XXY",
+     "number": 4
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XXX",
+     "number": 5
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XXYY",
+     "number": 6
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XXXY",
+     "number": 7
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XXXX",
+     "number": 8
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "XYY",
+     "number": 9
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "OTHER_KARYOTYPE",
+     "number": 10
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.Pedigree.Person.AffectedStatus": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/pedigree.proto",
+   "name": "AffectedStatus",
+   "parent": "org.phenopackets.schema.v2.core.Pedigree.Person",
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "MISSING",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNAFFECTED",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "AFFECTED",
+     "number": 2
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.Sex": {
+   "comments": {
+    "detached": [],
+    "leading": " Sex of an individual\n FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)\n",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/individual.proto",
+   "name": "Sex",
+   "parent": null,
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Not assessed / available.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNKNOWN_SEX",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Female\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "FEMALE",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Male\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "MALE",
+     "number": 2
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " It is not possible, to accurately assess the applicability of MALE/FEMALE.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "OTHER_SEX",
+     "number": 3
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.TherapeuticActionability": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/interpretation.proto",
+   "name": "TherapeuticActionability",
+   "parent": null,
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNKNOWN_ACTIONABILITY",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "NOT_ACTIONABLE",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "ACTIONABLE",
+     "number": 2
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.TherapeuticRegimen.RegimenStatus": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/medical_action.proto",
+   "name": "RegimenStatus",
+   "parent": "org.phenopackets.schema.v2.core.TherapeuticRegimen",
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNKNOWN_STATUS",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "STARTED",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "COMPLETED",
+     "number": 2
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "DISCONTINUED",
+     "number": 3
+    }
+   ]
+  },
+  "org.phenopackets.schema.v2.core.VitalStatus.Status": {
+   "comments": {
+    "detached": [],
+    "leading": " Default = false i.e. the individual is alive. MUST be true if\n",
+    "trailing": ""
+   },
+   "file": "phenopackets/schema/v2/core/individual.proto",
+   "name": "Status",
+   "parent": "org.phenopackets.schema.v2.core.VitalStatus",
+   "values": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "UNKNOWN_STATUS",
+     "number": 0
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "ALIVE",
+     "number": 1
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "name": "DECEASED",
+     "number": 2
+    }
+   ]
+  }
+ },
+ "files": {
+  "ga4gh/vrs/v1/vrs.proto": {
+   "dependencies": [],
+   "enums": [],
+   "messages": [
+    "org.ga4gh.vrs.v1.Variation",
+    "org.ga4gh.vrs.v1.MolecularVariation",
+    "org.ga4gh.vrs.v1.UtilityVariation",
+    "org.ga4gh.vrs.v1.SystemicVariation",
+    "org.ga4gh.vrs.v1.Allele",
+    "org.ga4gh.vrs.v1.Haplotype",
+    "org.ga4gh.vrs.v1.Haplotype.Member",
+    "org.ga4gh.vrs.v1.Text",
+    "org.ga4gh.vrs.v1.VariationSet",
+    "org.ga4gh.vrs.v1.VariationSet.Member",
+    "org.ga4gh.vrs.v1.Abundance",
+    "org.ga4gh.vrs.v1.CopyNumber",
+    "org.ga4gh.vrs.v1.Location",
+    "org.ga4gh.vrs.v1.ChromosomeLocation",
+    "org.ga4gh.vrs.v1.SequenceLocation",
+    "org.ga4gh.vrs.v1.SequenceInterval",
+    "org.ga4gh.vrs.v1.CytobandInterval",
+    "org.ga4gh.vrs.v1.SequenceExpression",
+    "org.ga4gh.vrs.v1.LiteralSequenceExpression",
+    "org.ga4gh.vrs.v1.DerivedSequenceExpression",
+    "org.ga4gh.vrs.v1.RepeatedSequenceExpression",
+    "org.ga4gh.vrs.v1.Feature",
+    "org.ga4gh.vrs.v1.Gene",
+    "org.ga4gh.vrs.v1.Number",
+    "org.ga4gh.vrs.v1.IndefiniteRange",
+    "org.ga4gh.vrs.v1.DefiniteRange",
+    "org.ga4gh.vrs.v1.SequenceState",
+    "org.ga4gh.vrs.v1.SimpleInterval"
+   ],
+   "package": "org.ga4gh.vrs.v1",
+   "syntax": "proto3"
+  },
+  "ga4gh/vrsatile/v1/vrsatile.proto": {
+   "dependencies": [
+    "google/protobuf/any.proto",
+    "ga4gh/vrs/v1/vrs.proto",
+    "phenopackets/schema/v2/core/base.proto"
+   ],
+   "enums": [
+    "org.ga4gh.vrsatile.v1.MoleculeContext"
+   ],
+   "messages": [
+    "org.ga4gh.vrsatile.v1.Extension",
+    "org.ga4gh.vrsatile.v1.Expression",
+    "org.ga4gh.vrsatile.v1.VcfRecord",
+    "org.ga4gh.vrsatile.v1.VariationDescriptor",
+    "org.ga4gh.vrsatile.v1.GeneDescriptor"
+   ],
+   "package": "org.ga4gh.vrsatile.v1",
+   "syntax": "proto3"
+  },
+  "google/protobuf/any.proto": {
+   "dependencies": [],
+   "enums": [],
+   "messages": [
+    "google.protobuf.Any"
+   ],
+   "package": "google.protobuf",
+   "syntax": "proto3"
+  },
+  "google/protobuf/timestamp.proto": {
+   "dependencies": [],
+   "enums": [],
+   "messages": [
+    "google.protobuf.Timestamp"
+   ],
+   "package": "google.protobuf",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/base.proto": {
+   "dependencies": [
+    "google/protobuf/timestamp.proto"
+   ],
+   "enums": [],
+   "messages": [
+    "org.phenopackets.schema.v2.core.OntologyClass",
+    "org.phenopackets.schema.v2.core.ExternalReference",
+    "org.phenopackets.schema.v2.core.Evidence",
+    "org.phenopackets.schema.v2.core.Procedure",
+    "org.phenopackets.schema.v2.core.GestationalAge",
+    "org.phenopackets.schema.v2.core.Age",
+    "org.phenopackets.schema.v2.core.AgeRange",
+    "org.phenopackets.schema.v2.core.TimeInterval",
+    "org.phenopackets.schema.v2.core.TimeElement",
+    "org.phenopackets.schema.v2.core.File"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/biosample.proto": {
+   "dependencies": [
+    "phenopackets/schema/v2/core/base.proto",
+    "phenopackets/schema/v2/core/measurement.proto",
+    "phenopackets/schema/v2/core/phenotypic_feature.proto"
+   ],
+   "enums": [],
+   "messages": [
+    "org.phenopackets.schema.v2.core.Biosample"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/disease.proto": {
+   "dependencies": [
+    "phenopackets/schema/v2/core/base.proto"
+   ],
+   "enums": [],
+   "messages": [
+    "org.phenopackets.schema.v2.core.Disease"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/genome.proto": {
+   "dependencies": [],
+   "enums": [],
+   "messages": [],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/individual.proto": {
+   "dependencies": [
+    "google/protobuf/timestamp.proto",
+    "phenopackets/schema/v2/core/base.proto"
+   ],
+   "enums": [
+    "org.phenopackets.schema.v2.core.VitalStatus.Status",
+    "org.phenopackets.schema.v2.core.Sex",
+    "org.phenopackets.schema.v2.core.KaryotypicSex"
+   ],
+   "messages": [
+    "org.phenopackets.schema.v2.core.Individual",
+    "org.phenopackets.schema.v2.core.VitalStatus"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/interpretation.proto": {
+   "dependencies": [
+    "phenopackets/schema/v2/core/base.proto",
+    "ga4gh/vrsatile/v1/vrsatile.proto"
+   ],
+   "enums": [
+    "org.phenopackets.schema.v2.core.Interpretation.ProgressStatus",
+    "org.phenopackets.schema.v2.core.GenomicInterpretation.InterpretationStatus",
+    "org.phenopackets.schema.v2.core.AcmgPathogenicityClassification",
+    "org.phenopackets.schema.v2.core.TherapeuticActionability"
+   ],
+   "messages": [
+    "org.phenopackets.schema.v2.core.Interpretation",
+    "org.phenopackets.schema.v2.core.Diagnosis",
+    "org.phenopackets.schema.v2.core.GenomicInterpretation",
+    "org.phenopackets.schema.v2.core.VariantInterpretation"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/measurement.proto": {
+   "dependencies": [
+    "phenopackets/schema/v2/core/base.proto"
+   ],
+   "enums": [],
+   "messages": [
+    "org.phenopackets.schema.v2.core.Measurement",
+    "org.phenopackets.schema.v2.core.Value",
+    "org.phenopackets.schema.v2.core.ComplexValue",
+    "org.phenopackets.schema.v2.core.Quantity",
+    "org.phenopackets.schema.v2.core.TypedQuantity",
+    "org.phenopackets.schema.v2.core.ReferenceRange"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/medical_action.proto": {
+   "dependencies": [
+    "phenopackets/schema/v2/core/base.proto",
+    "phenopackets/schema/v2/core/measurement.proto"
+   ],
+   "enums": [
+    "org.phenopackets.schema.v2.core.TherapeuticRegimen.RegimenStatus",
+    "org.phenopackets.schema.v2.core.DrugType"
+   ],
+   "messages": [
+    "org.phenopackets.schema.v2.core.MedicalAction",
+    "org.phenopackets.schema.v2.core.Treatment",
+    "org.phenopackets.schema.v2.core.DoseInterval",
+    "org.phenopackets.schema.v2.core.RadiationTherapy",
+    "org.phenopackets.schema.v2.core.TherapeuticRegimen"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/meta_data.proto": {
+   "dependencies": [
+    "google/protobuf/timestamp.proto",
+    "phenopackets/schema/v2/core/base.proto"
+   ],
+   "enums": [],
+   "messages": [
+    "org.phenopackets.schema.v2.core.MetaData",
+    "org.phenopackets.schema.v2.core.Resource",
+    "org.phenopackets.schema.v2.core.Update"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/pedigree.proto": {
+   "dependencies": [
+    "phenopackets/schema/v2/core/individual.proto"
+   ],
+   "enums": [
+    "org.phenopackets.schema.v2.core.Pedigree.Person.AffectedStatus"
+   ],
+   "messages": [
+    "org.phenopackets.schema.v2.core.Pedigree",
+    "org.phenopackets.schema.v2.core.Pedigree.Person"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/core/phenotypic_feature.proto": {
+   "dependencies": [
+    "phenopackets/schema/v2/core/base.proto"
+   ],
+   "enums": [],
+   "messages": [
+    "org.phenopackets.schema.v2.core.PhenotypicFeature"
+   ],
+   "package": "org.phenopackets.schema.v2.core",
+   "syntax": "proto3"
+  },
+  "phenopackets/schema/v2/phenopackets.proto": {
+   "dependencies": [
+    "phenopackets/schema/v2/core/base.proto",
+    "phenopackets/schema/v2/core/biosample.proto",
+    "phenopackets/schema/v2/core/disease.proto",
+    "phenopackets/schema/v2/core/interpretation.proto",
+    "phenopackets/schema/v2/core/individual.proto",
+    "phenopackets/schema/v2/core/measurement.proto",
+    "phenopackets/schema/v2/core/medical_action.proto",
+    "phenopackets/schema/v2/core/meta_data.proto",
+    "phenopackets/schema/v2/core/pedigree.proto",
+    "phenopackets/schema/v2/core/phenotypic_feature.proto"
+   ],
+   "enums": [],
+   "messages": [
+    "org.phenopackets.schema.v2.Phenopacket",
+    "org.phenopackets.schema.v2.Family",
+    "org.phenopackets.schema.v2.Cohort"
+   ],
+   "package": "org.phenopackets.schema.v2",
+   "syntax": "proto3"
+  }
+ },
+ "messages": {
+  "google.protobuf.Any": {
+   "comments": {
+    "detached": [],
+    "leading": " `Any` contains an arbitrary serialized protocol buffer message along with a\n URL that describes the type of the serialized message.\n\n Protobuf library provides support to pack/unpack Any values in the form\n of utility functions or additional generated methods of the Any type.\n\n Example 1: Pack and unpack a message in C++.\n\n     Foo foo = ...;\n     Any any;\n     any.PackFrom(foo);\n     ...\n     if (any.UnpackTo(&foo)) {\n       ...\n     }\n\n Example 2: Pack and unpack a message in Java.\n\n     Foo foo = ...;\n     Any any = Any.pack(foo);\n     ...\n     if (any.is(Foo.class)) {\n       foo = any.unpack(Foo.class);\n     }\n\n  Example 3: Pack and unpack a message in Python.\n\n     foo = Foo(...)\n     any = Any()\n     any.Pack(foo)\n     ...\n     if any.Is(Foo.DESCRIPTOR):\n       any.Unpack(foo)\n       ...\n\n  Example 4: Pack and unpack a message in Go\n\n      foo := &pb.Foo{...}\n      any, err := anypb.New(foo)\n      if err != nil {\n        ...\n      }\n      ...\n      foo := &pb.Foo{}\n      if err := any.UnmarshalTo(foo); err != nil {\n        ...\n      }\n\n The pack methods provided by protobuf library will by default use\n 'type.googleapis.com/full.type.name' as the type URL and the unpack\n methods only use the fully qualified type name after the last '/'\n in the type URL, for example \"foo.bar.com/x/y.z\" will yield type\n name \"y.z\".\n\n\n JSON\n ====\n The JSON representation of an `Any` value uses the regular\n representation of the deserialized, embedded message, with an\n additional field `@type` which contains the type URL. Example:\n\n     package google.profile;\n     message Person {\n       string first_name = 1;\n       string last_name = 2;\n     }\n\n     {\n       \"@type\": \"type.googleapis.com/google.profile.Person\",\n       \"firstName\": <string>,\n       \"lastName\": <string>\n     }\n\n If the embedded message type is well-known and has a custom JSON\n representation, that representation will be embedded adding a field\n `value` which holds the custom JSON in addition to the `@type`\n field. Example (for message [google.protobuf.Duration][]):\n\n     {\n       \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n       \"value\": \"1.212s\"\n     }\n\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " A URL/resource name that uniquely identifies the type of the serialized\n protocol buffer message. This string must contain at least\n one \"/\" character. The last segment of the URL's path must represent\n the fully qualified name of the type (as in\n `path/google.protobuf.Duration`). The name should be in a canonical form\n (e.g., leading \".\" is not accepted).\n\n In practice, teams usually precompile into the binary all types that they\n expect it to use in the context of Any. However, for URLs which use the\n scheme `http`, `https`, or no scheme, one can optionally set up a type\n server that maps type URLs to message definitions as follows:\n\n * If no scheme is provided, `https` is assumed.\n * An HTTP GET on the URL must yield a [google.protobuf.Type][]\n   value in binary format, or produce an error.\n * Applications are allowed to cache lookup results based on the\n   URL, or have them precompiled into a binary to avoid any\n   lookup. Therefore, binary compatibility needs to be preserved\n   on changes to types. (Use versioned type names to manage\n   breaking changes.)\n\n Note: this functionality is not currently available in the official\n protobuf release, and it is not used for type URLs beginning with\n type.googleapis.com.\n\n Schemes other than `http`, `https` (or the empty scheme) might be\n used with implementation specific semantics.\n\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "typeUrl",
+     "kind": "scalar",
+     "name": "type_url",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Must be a valid serialized protocol buffer of the above specified type.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "value",
+     "kind": "scalar",
+     "name": "value",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "bytes"
+    }
+   ],
+   "file": "google/protobuf/any.proto",
+   "name": "Any",
+   "oneofs": [],
+   "parent": null
+  },
+  "google.protobuf.Timestamp": {
+   "comments": {
+    "detached": [],
+    "leading": " A Timestamp represents a point in time independent of any time zone or local\n calendar, encoded as a count of seconds and fractions of seconds at\n nanosecond resolution. The count is relative to an epoch at UTC midnight on\n January 1, 1970, in the proleptic Gregorian calendar which extends the\n Gregorian calendar backwards to year one.\n\n All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap\n second table is needed for interpretation, using a [24-hour linear\n smear](https://developers.google.com/time/smear).\n\n The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By\n restricting to that range, we ensure that we can convert to and from [RFC\n 3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.\n\n # Examples\n\n Example 1: Compute Timestamp from POSIX `time()`.\n\n     Timestamp timestamp;\n     timestamp.set_seconds(time(NULL));\n     timestamp.set_nanos(0);\n\n Example 2: Compute Timestamp from POSIX `gettimeofday()`.\n\n     struct timeval tv;\n     gettimeofday(&tv, NULL);\n\n     Timestamp timestamp;\n     timestamp.set_seconds(tv.tv_sec);\n     timestamp.set_nanos(tv.tv_usec * 1000);\n\n Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.\n\n     FILETIME ft;\n     GetSystemTimeAsFileTime(&ft);\n     UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;\n\n     // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z\n     // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.\n     Timestamp timestamp;\n     timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));\n     timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));\n\n Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.\n\n     long millis = System.currentTimeMillis();\n\n     Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)\n         .setNanos((int) ((millis % 1000) * 1000000)).build();\n\n\n Example 5: Compute Timestamp from Java `Instant.now()`.\n\n     Instant now = Instant.now();\n\n     Timestamp timestamp =\n         Timestamp.newBuilder().setSeconds(now.getEpochSecond())\n             .setNanos(now.getNano()).build();\n\n\n Example 6: Compute Timestamp from current time in Python.\n\n     timestamp = Timestamp()\n     timestamp.GetCurrentTime()\n\n # JSON Mapping\n\n In JSON format, the Timestamp type is encoded as a string in the\n [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the\n format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"\n where {year} is always expressed using four digits while {month}, {day},\n {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional\n seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),\n are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone\n is required. A proto3 JSON serializer should always use UTC (as indicated by\n \"Z\") when printing the Timestamp type and a proto3 JSON parser should be\n able to accept both UTC and other timezones (as indicated by an offset).\n\n For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past\n 01:30 UTC on January 15, 2017.\n\n In JavaScript, one can convert a Date object to this format using the\n standard\n [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)\n method. In Python, a standard `datetime.datetime` object can be converted\n to this format using\n [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with\n the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use\n the Joda Time's [`ISODateTimeFormat.dateTime()`](\n http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D\n ) to obtain a formatter capable of generating timestamps in this format.\n\n\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Represents seconds of UTC time since Unix epoch\n 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to\n 9999-12-31T23:59:59Z inclusive.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "seconds",
+     "kind": "scalar",
+     "name": "seconds",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "int64"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Non-negative fractions of a second at nanosecond resolution. Negative\n second values with fractions must still have non-negative nanos values\n that count forward in time. Must be from 0 to 999,999,999\n inclusive.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "nanos",
+     "kind": "scalar",
+     "name": "nanos",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "int32"
+    }
+   ],
+   "file": "google/protobuf/timestamp.proto",
+   "name": "Timestamp",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Abundance": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "copyNumber",
+     "kind": "message",
+     "name": "copy_number",
+     "number": 1,
+     "oneof": "abundance",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.CopyNumber"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Abundance",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "abundance"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Allele": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "Id",
+     "kind": "scalar",
+     "name": "_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "curie",
+     "kind": "scalar",
+     "name": "curie",
+     "number": 2,
+     "oneof": "location",
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "chromosomeLocation",
+     "kind": "message",
+     "name": "chromosome_location",
+     "number": 3,
+     "oneof": "location",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.ChromosomeLocation"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sequenceLocation",
+     "kind": "message",
+     "name": "sequence_location",
+     "number": 4,
+     "oneof": "location",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.SequenceLocation"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": true,
+     "json_name": "sequenceState",
+     "kind": "message",
+     "name": "sequence_state",
+     "number": 100,
+     "oneof": "state",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.SequenceState"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "literalSequenceExpression",
+     "kind": "message",
+     "name": "literal_sequence_expression",
+     "number": 5,
+     "oneof": "state",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.LiteralSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "derivedSequenceExpression",
+     "kind": "message",
+     "name": "derived_sequence_expression",
+     "number": 6,
+     "oneof": "state",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.DerivedSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "repeatedSequenceExpression",
+     "kind": "message",
+     "name": "repeated_sequence_expression",
+     "number": 7,
+     "oneof": "state",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.RepeatedSequenceExpression"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Allele",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "location"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "state"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.ChromosomeLocation": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "Id",
+     "kind": "scalar",
+     "name": "_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "speciesId",
+     "kind": "scalar",
+     "name": "species_id",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "chr",
+     "kind": "scalar",
+     "name": "chr",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "interval",
+     "kind": "message",
+     "name": "interval",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.CytobandInterval"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "ChromosomeLocation",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.CopyNumber": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "Id",
+     "kind": "scalar",
+     "name": "_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "allele",
+     "kind": "message",
+     "name": "allele",
+     "number": 2,
+     "oneof": "subject",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Allele"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "haplotype",
+     "kind": "message",
+     "name": "haplotype",
+     "number": 3,
+     "oneof": "subject",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Haplotype"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "gene",
+     "kind": "message",
+     "name": "gene",
+     "number": 4,
+     "oneof": "subject",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Gene"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "literalSequenceExpression",
+     "kind": "message",
+     "name": "literal_sequence_expression",
+     "number": 5,
+     "oneof": "subject",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.LiteralSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "derivedSequenceExpression",
+     "kind": "message",
+     "name": "derived_sequence_expression",
+     "number": 6,
+     "oneof": "subject",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.DerivedSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "repeatedSequenceExpression",
+     "kind": "message",
+     "name": "repeated_sequence_expression",
+     "number": 7,
+     "oneof": "subject",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.RepeatedSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "curie",
+     "kind": "scalar",
+     "name": "curie",
+     "number": 8,
+     "oneof": "subject",
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "number",
+     "kind": "message",
+     "name": "number",
+     "number": 9,
+     "oneof": "copies",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Number"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "indefiniteRange",
+     "kind": "message",
+     "name": "indefinite_range",
+     "number": 10,
+     "oneof": "copies",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.IndefiniteRange"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "definiteRange",
+     "kind": "message",
+     "name": "definite_range",
+     "number": 11,
+     "oneof": "copies",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.DefiniteRange"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "CopyNumber",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "subject"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "copies"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.CytobandInterval": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "start",
+     "kind": "scalar",
+     "name": "start",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "end",
+     "kind": "scalar",
+     "name": "end",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "CytobandInterval",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.DefiniteRange": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "min",
+     "kind": "scalar",
+     "name": "min",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "uint64"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "max",
+     "kind": "scalar",
+     "name": "max",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "uint64"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "DefiniteRange",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.DerivedSequenceExpression": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "location",
+     "kind": "message",
+     "name": "location",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.SequenceLocation"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "reverseComplement",
+     "kind": "scalar",
+     "name": "reverse_complement",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "bool"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "DerivedSequenceExpression",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Feature": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "gene",
+     "kind": "message",
+     "name": "gene",
+     "number": 1,
+     "oneof": "feature",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Gene"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Feature",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "feature"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Gene": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "geneId",
+     "kind": "scalar",
+     "name": "gene_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Gene",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Haplotype": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "Id",
+     "kind": "scalar",
+     "name": "_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "members",
+     "kind": "message",
+     "name": "members",
+     "number": 2,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.ga4gh.vrs.v1.Haplotype.Member"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Haplotype",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Haplotype.Member": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "allele",
+     "kind": "message",
+     "name": "allele",
+     "number": 1,
+     "oneof": "value",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Allele"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "curie",
+     "kind": "scalar",
+     "name": "curie",
+     "number": 2,
+     "oneof": "value",
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Member",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "value"
+    }
+   ],
+   "parent": "org.ga4gh.vrs.v1.Haplotype"
+  },
+  "org.ga4gh.vrs.v1.IndefiniteRange": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "value",
+     "kind": "scalar",
+     "name": "value",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "uint64"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "comparator",
+     "kind": "scalar",
+     "name": "comparator",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "IndefiniteRange",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.LiteralSequenceExpression": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sequence",
+     "kind": "scalar",
+     "name": "sequence",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "LiteralSequenceExpression",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Location": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "chromosomeLocation",
+     "kind": "message",
+     "name": "chromosome_location",
+     "number": 1,
+     "oneof": "location",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.ChromosomeLocation"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sequenceLocation",
+     "kind": "message",
+     "name": "sequence_location",
+     "number": 2,
+     "oneof": "location",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.SequenceLocation"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Location",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "location"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.MolecularVariation": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "allele",
+     "kind": "message",
+     "name": "allele",
+     "number": 1,
+     "oneof": "molecular_variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Allele"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "haplotype",
+     "kind": "message",
+     "name": "haplotype",
+     "number": 2,
+     "oneof": "molecular_variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Haplotype"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "MolecularVariation",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "molecular_variation"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Number": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "value",
+     "kind": "scalar",
+     "name": "value",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "uint64"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Number",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.RepeatedSequenceExpression": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "literalSequenceExpression",
+     "kind": "message",
+     "name": "literal_sequence_expression",
+     "number": 1,
+     "oneof": "seq_expr",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.LiteralSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "derivedSequenceExpression",
+     "kind": "message",
+     "name": "derived_sequence_expression",
+     "number": 2,
+     "oneof": "seq_expr",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.DerivedSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "number",
+     "kind": "message",
+     "name": "number",
+     "number": 3,
+     "oneof": "count",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Number"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "indefiniteRange",
+     "kind": "message",
+     "name": "indefinite_range",
+     "number": 4,
+     "oneof": "count",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.IndefiniteRange"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "definiteRange",
+     "kind": "message",
+     "name": "definite_range",
+     "number": 5,
+     "oneof": "count",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.DefiniteRange"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "RepeatedSequenceExpression",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "seq_expr"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "count"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.SequenceExpression": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "literalSequenceExpression",
+     "kind": "message",
+     "name": "literal_sequence_expression",
+     "number": 1,
+     "oneof": "sequence_expression",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.LiteralSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "derivedSequenceExpression",
+     "kind": "message",
+     "name": "derived_sequence_expression",
+     "number": 2,
+     "oneof": "sequence_expression",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.DerivedSequenceExpression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "repeatedSequenceExpression",
+     "kind": "message",
+     "name": "repeated_sequence_expression",
+     "number": 3,
+     "oneof": "sequence_expression",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.RepeatedSequenceExpression"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "SequenceExpression",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "sequence_expression"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.SequenceInterval": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "startNumber",
+     "kind": "message",
+     "name": "start_number",
+     "number": 1,
+     "oneof": "start",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Number"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "startIndefiniteRange",
+     "kind": "message",
+     "name": "start_indefinite_range",
+     "number": 2,
+     "oneof": "start",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.IndefiniteRange"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "startDefiniteRange",
+     "kind": "message",
+     "name": "start_definite_range",
+     "number": 3,
+     "oneof": "start",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.DefiniteRange"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "endNumber",
+     "kind": "message",
+     "name": "end_number",
+     "number": 4,
+     "oneof": "end",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Number"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "endIndefiniteRange",
+     "kind": "message",
+     "name": "end_indefinite_range",
+     "number": 5,
+     "oneof": "end",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.IndefiniteRange"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "endDefiniteRange",
+     "kind": "message",
+     "name": "end_definite_range",
+     "number": 6,
+     "oneof": "end",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.DefiniteRange"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "SequenceInterval",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "start"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "end"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.SequenceLocation": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "Id",
+     "kind": "scalar",
+     "name": "_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sequenceId",
+     "kind": "scalar",
+     "name": "sequence_id",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sequenceInterval",
+     "kind": "message",
+     "name": "sequence_interval",
+     "number": 3,
+     "oneof": "interval",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.SequenceInterval"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": true,
+     "json_name": "simpleInterval",
+     "kind": "message",
+     "name": "simple_interval",
+     "number": 100,
+     "oneof": "interval",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.SimpleInterval"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "SequenceLocation",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "interval"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.SequenceState": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sequence",
+     "kind": "scalar",
+     "name": "sequence",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "SequenceState",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.SimpleInterval": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "start",
+     "kind": "scalar",
+     "name": "start",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "uint64"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "end",
+     "kind": "scalar",
+     "name": "end",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "uint64"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "SimpleInterval",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.SystemicVariation": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "copyNumber",
+     "kind": "message",
+     "name": "copy_number",
+     "number": 1,
+     "oneof": "systemic_variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.CopyNumber"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "SystemicVariation",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "systemic_variation"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Text": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "Id",
+     "kind": "scalar",
+     "name": "_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "definition",
+     "kind": "scalar",
+     "name": "definition",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Text",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.UtilityVariation": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "text",
+     "kind": "message",
+     "name": "text",
+     "number": 1,
+     "oneof": "utility_variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Text"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "variationSet",
+     "kind": "message",
+     "name": "variation_set",
+     "number": 2,
+     "oneof": "utility_variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.VariationSet"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "UtilityVariation",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "utility_variation"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.Variation": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "allele",
+     "kind": "message",
+     "name": "allele",
+     "number": 1,
+     "oneof": "variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Allele"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "haplotype",
+     "kind": "message",
+     "name": "haplotype",
+     "number": 2,
+     "oneof": "variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Haplotype"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "copyNumber",
+     "kind": "message",
+     "name": "copy_number",
+     "number": 3,
+     "oneof": "variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.CopyNumber"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "text",
+     "kind": "message",
+     "name": "text",
+     "number": 4,
+     "oneof": "variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Text"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "variationSet",
+     "kind": "message",
+     "name": "variation_set",
+     "number": 5,
+     "oneof": "variation",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.VariationSet"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Variation",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "variation"
+    }
+   ],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.VariationSet": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "Id",
+     "kind": "scalar",
+     "name": "_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "members",
+     "kind": "message",
+     "name": "members",
+     "number": 2,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.ga4gh.vrs.v1.VariationSet.Member"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "VariationSet",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrs.v1.VariationSet.Member": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "curie",
+     "kind": "scalar",
+     "name": "curie",
+     "number": 1,
+     "oneof": "value",
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "allele",
+     "kind": "message",
+     "name": "allele",
+     "number": 2,
+     "oneof": "value",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Allele"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "haplotype",
+     "kind": "message",
+     "name": "haplotype",
+     "number": 3,
+     "oneof": "value",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Haplotype"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "copyNumber",
+     "kind": "message",
+     "name": "copy_number",
+     "number": 4,
+     "oneof": "value",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.CopyNumber"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "text",
+     "kind": "message",
+     "name": "text",
+     "number": 5,
+     "oneof": "value",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Text"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "variationSet",
+     "kind": "message",
+     "name": "variation_set",
+     "number": 6,
+     "oneof": "value",
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.VariationSet"
+    }
+   ],
+   "file": "ga4gh/vrs/v1/vrs.proto",
+   "name": "Member",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "value"
+    }
+   ],
+   "parent": "org.ga4gh.vrs.v1.VariationSet"
+  },
+  "org.ga4gh.vrsatile.v1.Expression": {
+   "comments": {
+    "detached": [],
+    "leading": " https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "syntax",
+     "kind": "scalar",
+     "name": "syntax",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "value",
+     "kind": "scalar",
+     "name": "value",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "version",
+     "kind": "scalar",
+     "name": "version",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrsatile/v1/vrsatile.proto",
+   "name": "Expression",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrsatile.v1.Extension": {
+   "comments": {
+    "detached": [],
+    "leading": " https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "name",
+     "kind": "scalar",
+     "name": "name",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "value",
+     "kind": "message",
+     "name": "value",
+     "number": 2,
+     "oneof": null,
+     "repeated": true,
+     "type": "google.protobuf.Any"
+    }
+   ],
+   "file": "ga4gh/vrsatile/v1/vrsatile.proto",
+   "name": "Extension",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrsatile.v1.GeneDescriptor": {
+   "comments": {
+    "detached": [],
+    "leading": " https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071\n This should be a CURIE linking the reference to a namespace where it can be retrieved.\n Mirrors the value_id field of a generic value object descriptor\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "valueId",
+     "kind": "scalar",
+     "name": "value_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The primary gene symbol. Takes the place of the label field in a generic descriptor\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "symbol",
+     "kind": "scalar",
+     "name": "symbol",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " A free-text description of the value object\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "description",
+     "kind": "scalar",
+     "name": "description",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Alternate IDs (should be CURIE) for the same concept may be placed in alternate_ids\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "alternateIds",
+     "kind": "scalar",
+     "name": "alternate_ids",
+     "number": 4,
+     "oneof": null,
+     "repeated": true,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Takes the place of alternate_labels field in a generic descriptor\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "alternateSymbols",
+     "kind": "scalar",
+     "name": "alternate_symbols",
+     "number": 5,
+     "oneof": null,
+     "repeated": true,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "xrefs",
+     "kind": "scalar",
+     "name": "xrefs",
+     "number": 6,
+     "oneof": null,
+     "repeated": true,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrsatile/v1/vrsatile.proto",
+   "name": "GeneDescriptor",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrsatile.v1.VariationDescriptor": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "variation",
+     "kind": "message",
+     "name": "variation",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.ga4gh.vrs.v1.Variation"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "label",
+     "kind": "scalar",
+     "name": "label",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "description",
+     "kind": "scalar",
+     "name": "description",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " A specific gene context that applies to this variant.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "geneContext",
+     "kind": "message",
+     "name": "gene_context",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.ga4gh.vrsatile.v1.GeneDescriptor"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " HGVS, SPDI, and gnomAD-style strings should be represented as Expressions\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "expressions",
+     "kind": "message",
+     "name": "expressions",
+     "number": 6,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.ga4gh.vrsatile.v1.Expression"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in\n the allelic_state\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "vcfRecord",
+     "kind": "message",
+     "name": "vcf_record",
+     "number": 7,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.ga4gh.vrsatile.v1.VcfRecord"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Allele registry, ClinVar, or other related IDs should be included as xrefs\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "xrefs",
+     "kind": "scalar",
+     "name": "xrefs",
+     "number": 8,
+     "oneof": null,
+     "repeated": true,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Common aliases for a variant, e.g. EGFR vIII, are alternate labels\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "alternateLabels",
+     "kind": "scalar",
+     "name": "alternate_labels",
+     "number": 9,
+     "oneof": null,
+     "repeated": true,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "extensions",
+     "kind": "message",
+     "name": "extensions",
+     "number": 10,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.ga4gh.vrsatile.v1.Extension"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The molecular context of the vrs variation. Must be one of \u201cgenomic\u201d, \u201ctranscript\u201d, or \u201cprotein\u201d.\n Defaults to \"unspecified_molecule_context\"\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "moleculeContext",
+     "kind": "enum",
+     "name": "molecule_context",
+     "number": 11,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.ga4gh.vrsatile.v1.MoleculeContext"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The structural variant type associated with this variant, such as a substitution, deletion, or fusion.\n We RECOMMEND using a descendent term of SO:0001537.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "structuralType",
+     "kind": "message",
+     "name": "structural_type",
+     "number": 12,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " A Sequence corresponding to a \u201cref allele\u201d, describing the sequence expected at a SequenceLocation reference.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "vrsRefAlleleSeq",
+     "kind": "scalar",
+     "name": "vrs_ref_allele_seq",
+     "number": 13,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO).\n These SHOULD descend from concept GENO:0000875.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "allelicState",
+     "kind": "message",
+     "name": "allelic_state",
+     "number": 14,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    }
+   ],
+   "file": "ga4gh/vrsatile/v1/vrsatile.proto",
+   "name": "VariationDescriptor",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.ga4gh.vrsatile.v1.VcfRecord": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "genomeAssembly",
+     "kind": "scalar",
+     "name": "genome_assembly",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "chrom",
+     "kind": "scalar",
+     "name": "chrom",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "pos",
+     "kind": "scalar",
+     "name": "pos",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "uint64"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "ref",
+     "kind": "scalar",
+     "name": "ref",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "alt",
+     "kind": "scalar",
+     "name": "alt",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "qual",
+     "kind": "scalar",
+     "name": "qual",
+     "number": 7,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "filter",
+     "kind": "scalar",
+     "name": "filter",
+     "number": 8,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "info",
+     "kind": "scalar",
+     "name": "info",
+     "number": 9,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "ga4gh/vrsatile/v1/vrsatile.proto",
+   "name": "VcfRecord",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.Cohort": {
+   "comments": {
+    "detached": [],
+    "leading": " A group of individuals related in some phenotypic or genotypic aspect.\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "description",
+     "kind": "scalar",
+     "name": "description",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "members",
+     "kind": "message",
+     "name": "members",
+     "number": 3,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.Phenopacket"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Pointer to relevant file(s) for the cohort. Files relating exclusively to individual phenopackets should be\n contained in the Phenopacket.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "files",
+     "kind": "message",
+     "name": "files",
+     "number": 4,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.File"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "metaData",
+     "kind": "message",
+     "name": "meta_data",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.MetaData"
+    }
+   ],
+   "file": "phenopackets/schema/v2/phenopackets.proto",
+   "name": "Cohort",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.Family": {
+   "comments": {
+    "detached": [],
+    "leading": " Phenotype, sample and pedigree data required for a genomic diagnosis.\n Equivalent to the Genomics England InterpretationRequestRD\n https://github.com/genomicsengland/GelReportModels/blob/master/schemas/IDLs/org.gel.models.report.avro/5.0.0/InterpretationRequestRD.avdl\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " An identifier specific for this family.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "proband",
+     "kind": "message",
+     "name": "proband",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.Phenopacket"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Individuals related in some way to the patient. For instance, the individuals may be genetically related or may\n be members of a cohort. If this field is used, then  it is expected that a pedigree will be included for\n genetically related individuals for use cases such as genomic diagnostics. If a phenopacket is being used to\n describe one member of a cohort, then in general one phenopacket will be created for each of the individuals in\n the cohort.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "relatives",
+     "kind": "message",
+     "name": "relatives",
+     "number": 3,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.Phenopacket"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " flag to indicate that the parents of the proband are consanguinous\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "consanguinousParents",
+     "kind": "scalar",
+     "name": "consanguinous_parents",
+     "number": 7,
+     "oneof": null,
+     "repeated": false,
+     "type": "bool"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The pedigree defining the relations between the proband and their relatives. Pedigree.individual_id should\n map to the PhenoPacket.Individual.id\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "pedigree",
+     "kind": "message",
+     "name": "pedigree",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Pedigree"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Pointer to the relevant file(s) for the family. These should be files relating to one or more of the family\n members e.g a multi-sample VCF. Files relating exclusively to individual phenopackets should be contained in the\n Phenopacket.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "files",
+     "kind": "message",
+     "name": "files",
+     "number": 5,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.File"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "metaData",
+     "kind": "message",
+     "name": "meta_data",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.MetaData"
+    }
+   ],
+   "file": "phenopackets/schema/v2/phenopackets.proto",
+   "name": "Family",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.Phenopacket": {
+   "comments": {
+    "detached": [],
+    "leading": " An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.\n\n This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the\n resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included\n fields.\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " An identifier specific for this phenopacket.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "subject",
+     "kind": "message",
+     "name": "subject",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Individual"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Phenotypic features relating to the subject of the phenopacket\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "phenotypicFeatures",
+     "kind": "message",
+     "name": "phenotypic_features",
+     "number": 3,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.PhenotypicFeature"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Quantifiable measurements related to the individual\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "measurements",
+     "kind": "message",
+     "name": "measurements",
+     "number": 4,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Measurement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Biosample(s) derived from the patient or a collection of biosamples in isolation\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "biosamples",
+     "kind": "message",
+     "name": "biosamples",
+     "number": 5,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Biosample"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "interpretations",
+     "kind": "message",
+     "name": "interpretations",
+     "number": 6,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Interpretation"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The\n resources using these fields should define what this represents in their context.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "diseases",
+     "kind": "message",
+     "name": "diseases",
+     "number": 7,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Disease"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "medicalActions",
+     "kind": "message",
+     "name": "medical_actions",
+     "number": 9,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.MedicalAction"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Pointer to the relevant file(s) for the individual\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "files",
+     "kind": "message",
+     "name": "files",
+     "number": 10,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.File"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "metaData",
+     "kind": "message",
+     "name": "meta_data",
+     "number": 11,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.MetaData"
+    }
+   ],
+   "file": "phenopackets/schema/v2/phenopackets.proto",
+   "name": "Phenopacket",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Age": {
+   "comments": {
+    "detached": [],
+    "leading": " See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_\n In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The :ref:`ISO 8601<metadata_date_time>` age of this object as ISO8601\n duration or time intervals. e.g. P40Y10M05D)\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "iso8601duration",
+     "kind": "scalar",
+     "name": "iso8601duration",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "Age",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.AgeRange": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "start",
+     "kind": "message",
+     "name": "start",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Age"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "end",
+     "kind": "message",
+     "name": "end",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Age"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "AgeRange",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Biosample": {
+   "comments": {
+    "detached": [],
+    "leading": " A Biosample refers to a unit of biological material from which the substrate\n molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g.\n sequencing, array hybridisation, mass-spectrometry) are extracted. Examples\n would be a tissue biopsy, a single cell from a culture for single cell genome\n sequencing or a protein fraction from a gradient centrifugation.\n Several instances (e.g. technical replicates) or types of experiments (e.g.\n genomic array as well as RNA-seq experiments) may refer to the same Biosample.\n FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).\n",
+    "trailing": " biosamples SAMN08666232\n Human Cell Atlas\n"
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The Biosample id This is unique in the\n context of the server instance.\n ARGO mapping specimen::submitter_specimen_id\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The id of the individual this biosample was derived from.\n ARGO mapping specimen::submitter_donor_id\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "individualId",
+     "kind": "scalar",
+     "name": "individual_id",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The id of the parent biosample this biosample was derived from.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "derivedFromId",
+     "kind": "scalar",
+     "name": "derived_from_id",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The biosample's description. This attribute contains human readable text.\n The \"description\" attributes should not contain any structured data.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "description",
+     "kind": "scalar",
+     "name": "description",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " UBERON class describing the tissue from which the specimen was collected.\n PDX-MI mapping: 'Specimen tumor tissue'\n FHIR mapping: Specimen.type\n ARGO mapping sample_registration::specimen_tissue_source\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sampledTissue",
+     "kind": "message",
+     "name": "sampled_tissue",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Recommended use of EFO term to describe the sample.\n e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells...\n ARGO mapping sample_registration::sample_type\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sampleType",
+     "kind": "message",
+     "name": "sample_type",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Phenotypic characteristics of the BioSample, for example histological findings of a biopsy.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "phenotypicFeatures",
+     "kind": "message",
+     "name": "phenotypic_features",
+     "number": 7,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.PhenotypicFeature"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "measurements",
+     "kind": "message",
+     "name": "measurements",
+     "number": 8,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Measurement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "taxonomy",
+     "kind": "message",
+     "name": "taxonomy",
+     "number": 9,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " An TimeElement describing either the age of the individual this biosample was\n derived from at the time of collection, or the time itself.\nSee http://build.fhir.org/datatypes\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "timeOfCollection",
+     "kind": "message",
+     "name": "time_of_collection",
+     "number": 10,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " This is the pathologist\u2019s diagnosis and may often represent a refinement of the clinical diagnosis given in the\n Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist\u2019s findings.\n Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\"\n ARGO mapping specimen::tumour_histological_type\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "histologicalDiagnosis",
+     "kind": "message",
+     "name": "histological_diagnosis",
+     "number": 11,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Is the specimen tissue from the primary tumor, a metastasis or a recurrence?\n Most likely a child term of NCIT:C7062 (Neoplasm by Special Category)\n NCIT:C3677 (Benign Neoplasm)\n NCIT:C84509 (Primary Malignant Neoplasm)\n NCIT:C95606 (Second Primary Malignant Neoplasm)\n NCIT:C3261 (Metastatic Neoplasm)\n NCIT:C4813 (Recurrent Malignant Neoplasm)\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "tumorProgression",
+     "kind": "message",
+     "name": "tumor_progression",
+     "number": 12,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent\n See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "tumorGrade",
+     "kind": "message",
+     "name": "tumor_grade",
+     "number": 13,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping specimen::pathological_tumour_staging_system\n ARGO mapping specimen::pathological_stage_group\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "pathologicalStage",
+     "kind": "message",
+     "name": "pathological_stage",
+     "number": 14,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping specimen::pathological_t_category\n ARGO mapping specimen::pathological_n_category\n ARGO mapping specimen::pathological_m_category\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "pathologicalTnmFinding",
+     "kind": "message",
+     "name": "pathological_tnm_finding",
+     "number": 15,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy\n NCIT:C25294 (Laboratory Procedure).\n e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "diagnosticMarkers",
+     "kind": "message",
+     "name": "diagnostic_markers",
+     "number": 16,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Clinical procedure performed on the subject in order to extract the biosample.\n ARGO mapping specimen::specimen_anatomic_location - Procedure::body_site\n ARGO mapping specimen::specimen_acquisition_interval - Procedure::time_performed\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "procedure",
+     "kind": "message",
+     "name": "procedure",
+     "number": 17,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Procedure"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome\n should be associated with the Phenopacket rather than the Biosample it was derived from.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "files",
+     "kind": "message",
+     "name": "files",
+     "number": 18,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.File"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " This element can be used to specify the status of the sample. For instance, a status may be used as a normal\n control, often in combination with another sample that is thought to contain a pathological finding.\n We recommend use of ontology terms such as:\n EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample)\n ARGO mapping sample_registration::tumour_normal_designation\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "materialSample",
+     "kind": "message",
+     "name": "material_sample",
+     "number": 19,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Field to represent how the sample was processed.\n ARGO mapping specimen::specimen_processing\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sampleProcessing",
+     "kind": "message",
+     "name": "sample_processing",
+     "number": 20,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Field to represent how the sample was stored\n ARGO mapping specimen::specimen_storage\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sampleStorage",
+     "kind": "message",
+     "name": "sample_storage",
+     "number": 21,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/biosample.proto",
+   "name": "Biosample",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.ComplexValue": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure\n quantities\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "typedQuantities",
+     "kind": "message",
+     "name": "typed_quantities",
+     "number": 1,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.TypedQuantity"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/measurement.proto",
+   "name": "ComplexValue",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Diagnosis": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases`\n field in the Phenopacket.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "disease",
+     "kind": "message",
+     "name": "disease",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " genomic features containing the status of their contribution towards the diagnosis\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "genomicInterpretations",
+     "kind": "message",
+     "name": "genomic_interpretations",
+     "number": 2,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.GenomicInterpretation"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/interpretation.proto",
+   "name": "Diagnosis",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Disease": {
+   "comments": {
+    "detached": [],
+    "leading": " Message to indicate a disease (diagnosis) and its recorded onset.\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent)\n ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "term",
+     "kind": "message",
+     "name": "term",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Flag to indicate whether the disease was observed or not. Default is 'false', in other words the disease was\n observed. Therefore it is only required in cases to indicate that the disease was looked for, but found to be\n absent.\n More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field.\n *CAUTION* It is imperative to check this field for correct interpretation of the disease!\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "excluded",
+     "kind": "scalar",
+     "name": "excluded",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "bool"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The onset of the disease. The values of this will come from the HPO onset hierarchy\n i.e. subclasses of HP:0003674\n FHIR mapping: Condition.onset\n ARGO mapping primary_diagnosis::age_at_diagnosis\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "onset",
+     "kind": "message",
+     "name": "onset",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "resolution",
+     "kind": "message",
+     "name": "resolution",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Disease staging, the extent to which a disease has developed.\n For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging\n Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier)\n ARGO mapping primary_diagnosis::clinical_tumour_staging_system\n ARGO mapping primary_diagnosis::clinical_stage_group\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "diseaseStage",
+     "kind": "message",
+     "name": "disease_stage",
+     "number": 5,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Cancer findings in the TNM system that is relevant to the diagnosis of cancer.\n See https://www.cancer.gov/about-cancer/diagnosis-staging/staging\n Valid values include child terms of NCIT:C48232 (Cancer TNM Finding)\n ARGO mapping primary_diagnosis::clinical_t_category\n ARGO mapping primary_diagnosis::clinical_n_category\n ARGO mapping primary_diagnosis::clinical_m_category\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "clinicalTnmFinding",
+     "kind": "message",
+     "name": "clinical_tnm_finding",
+     "number": 6,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The text term used to describe the primary site of disease, as categorized by the World Health Organization's\n (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "primarySite",
+     "kind": "message",
+     "name": "primary_site",
+     "number": 7,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "laterality",
+     "kind": "message",
+     "name": "laterality",
+     "number": 8,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/disease.proto",
+   "name": "Disease",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.DoseInterval": {
+   "comments": {
+    "detached": [],
+    "leading": " e.g. 50mg/ml 3 times daily for two weeks\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "quantity",
+     "kind": "message",
+     "name": "quantity",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Quantity"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "scheduleFrequency",
+     "kind": "message",
+     "name": "schedule_frequency",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "interval",
+     "kind": "message",
+     "name": "interval",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeInterval"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/medical_action.proto",
+   "name": "DoseInterval",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Evidence": {
+   "comments": {
+    "detached": [],
+    "leading": " FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The encoded evidence type using, for example the Evidence & Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl)\n FHIR mapping: Condition.evidence.code\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "evidenceCode",
+     "kind": "message",
+     "name": "evidence_code",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " FHIR mapping: Condition.evidence.detail\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "reference",
+     "kind": "message",
+     "name": "reference",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.ExternalReference"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "Evidence",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.ExternalReference": {
+   "comments": {
+    "detached": [],
+    "leading": " FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " e.g. ISBN, PMID:123456, DOI:...,\n FHIR mapping: Reference.identifier\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the\n `id` field\n FHIR mapping Reference.reference\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "reference",
+     "kind": "scalar",
+     "name": "reference",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Human readable title or display string for the reference\n FHIR mapping: Reference.display\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "description",
+     "kind": "scalar",
+     "name": "description",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "ExternalReference",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.File": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "uri",
+     "kind": "scalar",
+     "name": "uri",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the\n Individual::id for the individuals in the message, the values must map to the samples in the file.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "individualToFileIdentifiers",
+     "kind": "map",
+     "name": "individual_to_file_identifiers",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "map<string, string>"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Map of attributes describing the file. For example the File format or genome assembly would be defied here. For\n genomic data files there MUST be a 'genomeAssembly' key.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "fileAttributes",
+     "kind": "map",
+     "name": "file_attributes",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "map<string, string>"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "File",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.GenomicInterpretation": {
+   "comments": {
+    "detached": [],
+    "leading": " A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend\n to encode any knowledge or results of specific computations.\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the\n enclosing phenopacket.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "subjectOrBiosampleId",
+     "kind": "scalar",
+     "name": "subject_or_biosample_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "interpretationStatus",
+     "kind": "enum",
+     "name": "interpretation_status",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.GenomicInterpretation.InterpretationStatus"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "gene",
+     "kind": "message",
+     "name": "gene",
+     "number": 3,
+     "oneof": "call",
+     "repeated": false,
+     "type": "org.ga4gh.vrsatile.v1.GeneDescriptor"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "variantInterpretation",
+     "kind": "message",
+     "name": "variant_interpretation",
+     "number": 4,
+     "oneof": "call",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.VariantInterpretation"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/interpretation.proto",
+   "name": "GenomicInterpretation",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Gene or variant identified in subject or biosample and interpreted in relation to the disease diagnosis. In this\n context athe 'gene' is a proxy for an unspecified alteration in the indicated gene.\n",
+      "trailing": ""
+     },
+     "name": "call"
+    }
+   ],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.GestationalAge": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "weeks",
+     "kind": "scalar",
+     "name": "weeks",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "int32"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "days",
+     "kind": "scalar",
+     "name": "days",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "int32"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "GestationalAge",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Individual": {
+   "comments": {
+    "detached": [],
+    "leading": " An individual (or subject) typically corresponds to an individual human or another organism.\n FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html).\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " An identifier for the individual. This must be unique within the record.\n ARGO mapping donor::submitter_donor_id\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " An optional list of alternative identifiers for this individual. This field is provided\nfor the convenience of users who may have multiple mappings to an individual which they need to track.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "alternateIds",
+     "kind": "scalar",
+     "name": "alternate_ids",
+     "number": 2,
+     "oneof": null,
+     "repeated": true,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known\n year/month/day/hour/minute\n e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018\n or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018\n or empty if unknown/ not stated.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "dateOfBirth",
+     "kind": "message",
+     "name": "date_of_birth",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "google.protobuf.Timestamp"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding\n of the age either as ISO8601 duration or time interval (preferred), or as ontology term object.\n See http://build.fhir.org/datatypes\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "timeAtLastEncounter",
+     "kind": "message",
+     "name": "time_at_last_encounter",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Vital status of the individual. If not present it is assumed that the individual is alive. If present it will\n default to 'false' i.e. the individual was alive when the data was collected.\n ARGO mapping donor::vital_status\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "vitalStatus",
+     "kind": "message",
+     "name": "vital_status",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.VitalStatus"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The phenotypic sex of the individual\n ARGO mapping sample_registration::gender (this is complicated as ARGO only have male/female/other which maps to the phenopacket Sex field)\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sex",
+     "kind": "enum",
+     "name": "sex",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Sex"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The karyotypic sex of the individual\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "karyotypicSex",
+     "kind": "enum",
+     "name": "karyotypic_sex",
+     "number": 7,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.KaryotypicSex"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Self-identified gender\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "gender",
+     "kind": "message",
+     "name": "gender",
+     "number": 8,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337\n For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic\n identifier of that organism, to its most specific level\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "taxonomy",
+     "kind": "message",
+     "name": "taxonomy",
+     "number": 9,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/individual.proto",
+   "name": "Individual",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Interpretation": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " id of the interpretation\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "progressStatus",
+     "kind": "enum",
+     "name": "progress_status",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Interpretation.ProgressStatus"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The diagnosis made in this interpretation\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "diagnosis",
+     "kind": "message",
+     "name": "diagnosis",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Diagnosis"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "summary",
+     "kind": "scalar",
+     "name": "summary",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/interpretation.proto",
+   "name": "Interpretation",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Measurement": {
+   "comments": {
+    "detached": [],
+    "leading": " FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype -\n the type and onset etc... fields should be used for this purpose.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "description",
+     "kind": "scalar",
+     "name": "description",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " An ontology class which describes the assay used to produce the measurement.\n For example \"body temperature\" (CMO:0000015) or\n \"Platelets [#/volume] in Blood\" (LOINC:26515-7)\n FHIR mapping: Observation.code\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "assay",
+     "kind": "message",
+     "name": "assay",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "value",
+     "kind": "message",
+     "name": "value",
+     "number": 3,
+     "oneof": "measurement_value",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Value"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "complexValue",
+     "kind": "message",
+     "name": "complex_value",
+     "number": 4,
+     "oneof": "measurement_value",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.ComplexValue"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The time at which the measurement was made\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "timeObserved",
+     "kind": "message",
+     "name": "time_observed",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Clinical procedure performed on the subject in order to produce the measurement.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "procedure",
+     "kind": "message",
+     "name": "procedure",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Procedure"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/measurement.proto",
+   "name": "Measurement",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [
+       " https://github.com/phenopackets/phenopacket-schema/issues/261\n e.g. type: Increased circulating antibody level (HP:0010702)\n      quantity: unit: Microgram per Milliliter (NCIT:C64572), value: 23456.0\n",
+       "      type:  body temperature (CMO:0000015)\n      quantity: unit: Degrees Celsius (UO:0000027), value: 37.5\n                      Degree Celsius (NCIT:C42559), value: 37.5\n"
+      ],
+      "leading": "      type:  LOINC: 26515-7 Platelets [#/volume] in Blood\n      value: quantity: unit: NCIT:C173275 (Count per Cubic Millimeter), value: 600,000\n",
+      "trailing": ""
+     },
+     "name": "measurement_value"
+    }
+   ],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.MedicalAction": {
+   "comments": {
+    "detached": [],
+    "leading": " medication, procedure, other actions taken for clinical management\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "procedure",
+     "kind": "message",
+     "name": "procedure",
+     "number": 1,
+     "oneof": "action",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Procedure"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "treatment",
+     "kind": "message",
+     "name": "treatment",
+     "number": 2,
+     "oneof": "action",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Treatment"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "radiationTherapy",
+     "kind": "message",
+     "name": "radiation_therapy",
+     "number": 3,
+     "oneof": "action",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.RadiationTherapy"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "therapeuticRegimen",
+     "kind": "message",
+     "name": "therapeutic_regimen",
+     "number": 4,
+     "oneof": "action",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TherapeuticRegimen"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The condition or disease that this treatment was intended to address.\n FHIR mapping Procedure::reasonCode\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "treatmentTarget",
+     "kind": "message",
+     "name": "treatment_target",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Whether the intention of the treatment was curative, palliative,\n ARGO mapping treatment::treatment_intent\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "treatmentIntent",
+     "kind": "message",
+     "name": "treatment_intent",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping treatment::response_to_treatment\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "responseToTreatment",
+     "kind": "message",
+     "name": "response_to_treatment",
+     "number": 7,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping treatment::adverse_events\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "adverseEvents",
+     "kind": "message",
+     "name": "adverse_events",
+     "number": 8,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping treatment::treatment_outcome\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "treatmentTerminationReason",
+     "kind": "message",
+     "name": "treatment_termination_reason",
+     "number": 9,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/medical_action.proto",
+   "name": "MedicalAction",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping treatment::treatment_type\n",
+      "trailing": ""
+     },
+     "name": "action"
+    }
+   ],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.MetaData": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "created",
+     "kind": "message",
+     "name": "created",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "google.protobuf.Timestamp"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " some kind of identifier for the contributor/ program\n ARGO sample_registration::program_id\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "createdBy",
+     "kind": "scalar",
+     "name": "created_by",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " information about the person/organisation/network that has submitted this phenopacket\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "submittedBy",
+     "kind": "scalar",
+     "name": "submitted_by",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " a listing of the ontologies and resources referenced in the phenopacket\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "resources",
+     "kind": "message",
+     "name": "resources",
+     "number": 4,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Resource"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " An OPTIONAL list of Updates to the phenopacket.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "updates",
+     "kind": "message",
+     "name": "updates",
+     "number": 5,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Update"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " phenopacket-schema-version used to create this phenopacket\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "phenopacketSchemaVersion",
+     "kind": "scalar",
+     "name": "phenopacket_schema_version",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " External identifiers for this message. These are considered different representation of the same record, not\n records which are in some other relation with the record at hand. For example this might be a PubMed reference\n to a study in which the individuals are reported.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "externalReferences",
+     "kind": "message",
+     "name": "external_references",
+     "number": 7,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.ExternalReference"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/meta_data.proto",
+   "name": "MetaData",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.OntologyClass": {
+   "comments": {
+    "detached": [],
+    "leading": " A class (aka term, concept) in an ontology.\n FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept)\n   see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690.\n This is the primary key for the ontology class\n REQUIRED!\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " class label, aka name. E.g. \"Abnormality of cardiovascular system\"\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "label",
+     "kind": "scalar",
+     "name": "label",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "OntologyClass",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Pedigree": {
+   "comments": {
+    "detached": [],
+    "leading": " https://software.broadinstitute.org/gatk/documentation/article?id=11016\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "persons",
+     "kind": "message",
+     "name": "persons",
+     "number": 1,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Pedigree.Person"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/pedigree.proto",
+   "name": "Pedigree",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Pedigree.Person": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "familyId",
+     "kind": "scalar",
+     "name": "family_id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "individualId",
+     "kind": "scalar",
+     "name": "individual_id",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "paternalId",
+     "kind": "scalar",
+     "name": "paternal_id",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "maternalId",
+     "kind": "scalar",
+     "name": "maternal_id",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "sex",
+     "kind": "enum",
+     "name": "sex",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Sex"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "affectedStatus",
+     "kind": "enum",
+     "name": "affected_status",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Pedigree.Person.AffectedStatus"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/pedigree.proto",
+   "name": "Person",
+   "oneofs": [],
+   "parent": "org.phenopackets.schema.v2.core.Pedigree"
+  },
+  "org.phenopackets.schema.v2.core.PhenotypicFeature": {
+   "comments": {
+    "detached": [],
+    "leading": " An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and\n frequency\n FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Free-text description of the phenotype. Note this is not a acceptable place to document/describe the phenotype -\n the type and onset etc... fields should be used for this purpose.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "description",
+     "kind": "scalar",
+     "name": "description",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\"\n FHIR mapping: Condition.identifier\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "type",
+     "kind": "message",
+     "name": "type",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Flag to indicate whether the phenotype was observed or not. Default is 'false', in other words the phenotype was\n observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be\n absent.\n More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field.\n *CAUTION* It is imperative to check this field for correct interpretation of the phenotype!\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "excluded",
+     "kind": "scalar",
+     "name": "excluded",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "bool"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities\n FHIR mapping: Condition.severity\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "severity",
+     "kind": "message",
+     "name": "severity",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "modifiers",
+     "kind": "message",
+     "name": "modifiers",
+     "number": 5,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " the values of this will come from the HPO onset hierarchy\n i.e. subclasses of HP:0003674\n FHIR mapping: Condition.onset\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "onset",
+     "kind": "message",
+     "name": "onset",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "resolution",
+     "kind": "message",
+     "name": "resolution",
+     "number": 7,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Evidences for how the phenotype was determined.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "evidence",
+     "kind": "message",
+     "name": "evidence",
+     "number": 8,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.Evidence"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/phenotypic_feature.proto",
+   "name": "PhenotypicFeature",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Procedure": {
+   "comments": {
+    "detached": [],
+    "leading": " A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the\n body site should be used. In cases where this is not possible, the body site should be indicated using a separate\n ontology class.\n e.g.\n {\"code\":{\"NCIT:C51585\": \"Biopsy of Soft Palate\"}}\n {\"code\":{\"NCIT:C28743\": \"Punch Biopsy\"}, \"body_site\":{\"UBERON:0003403\": \"skin of forearm\"}} - a punch biopsy of the skin from the forearm\n FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " FHIR mapping: Procedure.code\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "code",
+     "kind": "message",
+     "name": "code",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " FHIR mapping: Procedure.bodySite\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "bodySite",
+     "kind": "message",
+     "name": "body_site",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " When the procedure was performed.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "performed",
+     "kind": "message",
+     "name": "performed",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "Procedure",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Quantity": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "unit",
+     "kind": "message",
+     "name": "unit",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " the  value of the quantity in the units  e.g. 2.0 mg\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "value",
+     "kind": "scalar",
+     "name": "value",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "double"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Reference range for the quantity\n e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL.\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "referenceRange",
+     "kind": "message",
+     "name": "reference_range",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.ReferenceRange"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/measurement.proto",
+   "name": "Quantity",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.RadiationTherapy": {
+   "comments": {
+    "detached": [],
+    "leading": " RadiationTherapy\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The modality of radiation therapy (e.g., electron, photon,\u2026). REQUIRED.\n ARGO mapping radiation::radiation_therapy_modality\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "modality",
+     "kind": "message",
+     "name": "modality",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The anatomical site where radiation therapy was administered. REQUIRED.\n ARGO mapping radiation::anatomical_site_irradiated\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "bodySite",
+     "kind": "message",
+     "name": "body_site",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The total dose given in units of Gray (Gy). REQUIRED.\n ARGO mapping radiation::radiation_therapy_dosage\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "dosage",
+     "kind": "scalar",
+     "name": "dosage",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "int32"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The total number of fractions delivered as part of treatment. REQUIRED.\n ARGO mapping radiation::radiation_therapy_fractions\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "fractions",
+     "kind": "scalar",
+     "name": "fractions",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "int32"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/medical_action.proto",
+   "name": "RadiationTherapy",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.ReferenceRange": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "unit",
+     "kind": "message",
+     "name": "unit",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "low",
+     "kind": "scalar",
+     "name": "low",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "double"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "high",
+     "kind": "scalar",
+     "name": "high",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "double"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/measurement.proto",
+   "name": "ReferenceRange",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Resource": {
+   "comments": {
+    "detached": [],
+    "leading": " Description of an external resource used for referencing an object. For example the resource may be an ontology such\n as the HPO or SNOMED.\n FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " for OBO Ontologies, the value of this string MUST always be the official\n OBO ID, which is always equivalent to the ID prefix in lower case.\n Examples: hp, go, mp, mondo\n Consult http://obofoundry.org for a complete list\n For other ontologies (e.g. SNOMED), use the prefix in identifiers.org\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "id",
+     "kind": "scalar",
+     "name": "id",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " e.g. The Human Phenotype Ontology\n for OBO Ontologies, the value of this string SHOULD be the same as the title\n field on http://obofoundry.org\n however, this field is purely for information purposes and software\n should not encode any assumptions\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "name",
+     "kind": "scalar",
+     "name": "name",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " For OBO ontologies, this should always be the PURL, e.g.\n http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "url",
+     "kind": "scalar",
+     "name": "url",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " for OBO ontologies, this should be the versionIRI\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "version",
+     "kind": "scalar",
+     "name": "version",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO\n For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with\n the iri_prefix to form a fully-resolvable IRI\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "namespacePrefix",
+     "kind": "scalar",
+     "name": "namespace_prefix",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a\n term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce\n fully-resolvable IRIs for an OntologyClass.\n e.g. Using the HPO term encoding the concept of 'Severe'\n    OntologyClass:\n        id: 'HP:0012828'\n        label: 'Severe'\n    Resource:\n        namespace_prefix: 'HP'\n        iri_prefix: 'http://purl.obolibrary.org/obo/HP_'\n the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "iriPrefix",
+     "kind": "scalar",
+     "name": "iri_prefix",
+     "number": 6,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/meta_data.proto",
+   "name": "Resource",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.TherapeuticRegimen": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "externalReference",
+     "kind": "message",
+     "name": "external_reference",
+     "number": 1,
+     "oneof": "identifier",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.ExternalReference"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "ontologyClass",
+     "kind": "message",
+     "name": "ontology_class",
+     "number": 2,
+     "oneof": "identifier",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " possibly undefined;\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "startTime",
+     "kind": "message",
+     "name": "start_time",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " end time can be empty which would indicate ongoing\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "endTime",
+     "kind": "message",
+     "name": "end_time",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "regimenStatus",
+     "kind": "enum",
+     "name": "regimen_status",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TherapeuticRegimen.RegimenStatus"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/medical_action.proto",
+   "name": "TherapeuticRegimen",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " https://ctep.cancer.gov/protocolDevelopment/policies_nomenclature.htm\n",
+      "trailing": ""
+     },
+     "name": "identifier"
+    }
+   ],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.TimeElement": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "gestationalAge",
+     "kind": "message",
+     "name": "gestational_age",
+     "number": 6,
+     "oneof": "element",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.GestationalAge"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "age",
+     "kind": "message",
+     "name": "age",
+     "number": 1,
+     "oneof": "element",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Age"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "ageRange",
+     "kind": "message",
+     "name": "age_range",
+     "number": 2,
+     "oneof": "element",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.AgeRange"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "ontologyClass",
+     "kind": "message",
+     "name": "ontology_class",
+     "number": 3,
+     "oneof": "element",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "timestamp",
+     "kind": "message",
+     "name": "timestamp",
+     "number": 4,
+     "oneof": "element",
+     "repeated": false,
+     "type": "google.protobuf.Timestamp"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "interval",
+     "kind": "message",
+     "name": "interval",
+     "number": 5,
+     "oneof": "element",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeInterval"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "TimeElement",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "element"
+    }
+   ],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.TimeInterval": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "start",
+     "kind": "message",
+     "name": "start",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "google.protobuf.Timestamp"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "end",
+     "kind": "message",
+     "name": "end",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "google.protobuf.Timestamp"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/base.proto",
+   "name": "TimeInterval",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Treatment": {
+   "comments": {
+    "detached": [],
+    "leading": " treatment with an agent, such as a drug\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": " for instance, DrugCentral, RxNorm Drugbank concept\n"
+     },
+     "deprecated": false,
+     "json_name": "agent",
+     "kind": "message",
+     "name": "agent",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": " For instance, NCIT subhierarchy: Route of Administration (Code C38114)\n"
+     },
+     "deprecated": false,
+     "json_name": "routeOfAdministration",
+     "kind": "message",
+     "name": "route_of_administration",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "doseIntervals",
+     "kind": "message",
+     "name": "dose_intervals",
+     "number": 3,
+     "oneof": null,
+     "repeated": true,
+     "type": "org.phenopackets.schema.v2.core.DoseInterval"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "drugType",
+     "kind": "enum",
+     "name": "drug_type",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.DrugType"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping chemotherapy::cumulative_drug_dosage\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "cumulativeDose",
+     "kind": "message",
+     "name": "cumulative_dose",
+     "number": 5,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Quantity"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/medical_action.proto",
+   "name": "Treatment",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.TypedQuantity": {
+   "comments": {
+    "detached": [],
+    "leading": " For complex measurements, such as blood pressure where more than one component quantity is required to describe the\n measurement\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " e.g. diastolic, systolic\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "type",
+     "kind": "message",
+     "name": "type",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " e.g. mm Hg\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "quantity",
+     "kind": "message",
+     "name": "quantity",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Quantity"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/measurement.proto",
+   "name": "TypedQuantity",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Update": {
+   "comments": {
+    "detached": [],
+    "leading": " Information about when an update to a record occurred, who or what made the update and any pertinent information\n regarding the content and/or reason for the update\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ISO8601 UTC timestamps at which this record was updated, in\n the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z\n REQUIRED\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "timestamp",
+     "kind": "message",
+     "name": "timestamp",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "google.protobuf.Timestamp"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Information about the person/organisation/network that has updated the phenopacket.\n OPTIONAL\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "updatedBy",
+     "kind": "scalar",
+     "name": "updated_by",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " Textual comment about the changes made to the content and/or reason for the update.\n OPTIONAL\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "comment",
+     "kind": "scalar",
+     "name": "comment",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "string"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/meta_data.proto",
+   "name": "Update",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.Value": {
+   "comments": {
+    "detached": [],
+    "leading": "\n",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "quantity",
+     "kind": "message",
+     "name": "quantity",
+     "number": 1,
+     "oneof": "value",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.Quantity"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " for use with things such as categories 'red', 'yellow' or 'absent'/'present'\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "ontologyClass",
+     "kind": "message",
+     "name": "ontology_class",
+     "number": 2,
+     "oneof": "value",
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/measurement.proto",
+   "name": "Value",
+   "oneofs": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "name": "value"
+    }
+   ],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.VariantInterpretation": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "acmgPathogenicityClassification",
+     "kind": "enum",
+     "name": "acmg_pathogenicity_classification",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.AcmgPathogenicityClassification"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "therapeuticActionability",
+     "kind": "enum",
+     "name": "therapeutic_actionability",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TherapeuticActionability"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "variationDescriptor",
+     "kind": "message",
+     "name": "variation_descriptor",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.ga4gh.vrsatile.v1.VariationDescriptor"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/interpretation.proto",
+   "name": "VariantInterpretation",
+   "oneofs": [],
+   "parent": null
+  },
+  "org.phenopackets.schema.v2.core.VitalStatus": {
+   "comments": {
+    "detached": [],
+    "leading": "",
+    "trailing": ""
+   },
+   "fields": [
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "status",
+     "kind": "enum",
+     "name": "status",
+     "number": 1,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.VitalStatus.Status"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": "",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "timeOfDeath",
+     "kind": "message",
+     "name": "time_of_death",
+     "number": 2,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.TimeElement"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping donor::cause_of_death\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "causeOfDeath",
+     "kind": "message",
+     "name": "cause_of_death",
+     "number": 3,
+     "oneof": null,
+     "repeated": false,
+     "type": "org.phenopackets.schema.v2.core.OntologyClass"
+    },
+    {
+     "comments": {
+      "detached": [],
+      "leading": " ARGO mapping donor::survival_time\n",
+      "trailing": ""
+     },
+     "deprecated": false,
+     "json_name": "survivalTimeInDays",
+     "kind": "scalar",
+     "name": "survival_time_in_days",
+     "number": 4,
+     "oneof": null,
+     "repeated": false,
+     "type": "uint32"
+    }
+   ],
+   "file": "phenopackets/schema/v2/core/individual.proto",
+   "name": "VitalStatus",
+   "oneofs": [],
+   "parent": null
+  }
+ }
+}

@@ -3,7 +3,33 @@ metaData:
   createdBy: biocurator
   phenopacketSchemaVersion: 2.0.0
 files:
-- uri: /data/samples/vcf/example_000001215.vcf.gz
+- fileAttributes:
+    genomeAssembly:
+      key: genomeAssembly
+      value: GRCh38
+    fileFormat:
+      key: fileFormat
+      value: VCF
+    description:
+      key: description
+      value: multi-sample VCF file for family.1
+  individualToFileIdentifiers:
+    father.1:
+      key: father.1
+      value: sample.1
+    mother.1:
+      key: mother.1
+      value: sample.2
+    daughter.1:
+      key: daughter.1
+      value: sample.3
+    son.1:
+      key: son.1
+      value: sample.4
+    daughter.2:
+      key: daughter.2
+      value: sample.5
+  uri: /data/samples/vcf/example_000001215.vcf.gz
 id: family.1
 pedigree:
   persons:

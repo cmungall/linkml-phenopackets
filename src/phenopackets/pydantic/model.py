@@ -396,104 +396,104 @@ class LOINCMeasurementTerms(str):
 
 
 class MoleculeContext(str, Enum):
-    genomic = "genomic"
-    protein = "protein"
-    transcript = "transcript"
     unspecified_molecule_context = "unspecified_molecule_context"
+    genomic = "genomic"
+    transcript = "transcript"
+    protein = "protein"
 
 
 class AcmgPathogenicityClassification(str, Enum):
+    NOT_PROVIDED = "NOT_PROVIDED"
     BENIGN = "BENIGN"
     LIKELY_BENIGN = "LIKELY_BENIGN"
-    LIKELY_PATHOGENIC = "LIKELY_PATHOGENIC"
-    NOT_PROVIDED = "NOT_PROVIDED"
-    PATHOGENIC = "PATHOGENIC"
     UNCERTAIN_SIGNIFICANCE = "UNCERTAIN_SIGNIFICANCE"
+    LIKELY_PATHOGENIC = "LIKELY_PATHOGENIC"
+    PATHOGENIC = "PATHOGENIC"
 
 
 class InterpretationStatus(str, Enum):
-    CANDIDATE = "CANDIDATE"
-    CAUSATIVE = "CAUSATIVE"
-    CONTRIBUTORY = "CONTRIBUTORY"
-    REJECTED = "REJECTED"
     UNKNOWN_STATUS = "UNKNOWN_STATUS"
+    REJECTED = "REJECTED"
+    CANDIDATE = "CANDIDATE"
+    CONTRIBUTORY = "CONTRIBUTORY"
+    CAUSATIVE = "CAUSATIVE"
 
 
 class ProgressStatus(str, Enum):
-    COMPLETED = "COMPLETED"
-    IN_PROGRESS = "IN_PROGRESS"
-    SOLVED = "SOLVED"
     UNKNOWN_PROGRESS = "UNKNOWN_PROGRESS"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    SOLVED = "SOLVED"
     UNSOLVED = "UNSOLVED"
 
 
 class TherapeuticActionability(str, Enum):
-    ACTIONABLE = "ACTIONABLE"
-    NOT_ACTIONABLE = "NOT_ACTIONABLE"
     UNKNOWN_ACTIONABILITY = "UNKNOWN_ACTIONABILITY"
+    NOT_ACTIONABLE = "NOT_ACTIONABLE"
+    ACTIONABLE = "ACTIONABLE"
 
 
 class KaryotypicSex(str, Enum):
     """
     Karyotypic sex of the individual
     """
-    OTHER_KARYOTYPE = "OTHER_KARYOTYPE"
     UNKNOWN_KARYOTYPE = "UNKNOWN_KARYOTYPE"
-    XO = "XO"
     XX = "XX"
-    XXX = "XXX"
-    XXXX = "XXXX"
-    XXXY = "XXXY"
-    XXY = "XXY"
-    XXYY = "XXYY"
     XY = "XY"
+    XO = "XO"
+    XXY = "XXY"
+    XXX = "XXX"
+    XXYY = "XXYY"
+    XXXY = "XXXY"
+    XXXX = "XXXX"
     XYY = "XYY"
+    OTHER_KARYOTYPE = "OTHER_KARYOTYPE"
 
 
 class Sex(str, Enum):
     """
     Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)
     """
+    # Not assessed / available.
+    UNKNOWN_SEX = "UNKNOWN_SEX"
     # Female
     FEMALE = "FEMALE"
     # Male
     MALE = "MALE"
     # It is not possible, to accurately assess the applicability of MALE/FEMALE.
     OTHER_SEX = "OTHER_SEX"
-    # Not assessed / available.
-    UNKNOWN_SEX = "UNKNOWN_SEX"
 
 
 class Status(str, Enum):
     """
     Default = false i.e. the individual is alive. MUST be true if
     """
+    UNKNOWN_STATUS = "UNKNOWN_STATUS"
     ALIVE = "ALIVE"
     DECEASED = "DECEASED"
-    UNKNOWN_STATUS = "UNKNOWN_STATUS"
 
 
 class DrugType(str, Enum):
     """
     A simplified version of ODHSI-DRUG_EXPOSURE
     """
-    ADMINISTRATION_RELATED_TO_PROCEDURE = "ADMINISTRATION_RELATED_TO_PROCEDURE"
-    EHR_MEDICATION_LIST = "EHR_MEDICATION_LIST"
-    PRESCRIPTION = "PRESCRIPTION"
     UNKNOWN_DRUG_TYPE = "UNKNOWN_DRUG_TYPE"
+    PRESCRIPTION = "PRESCRIPTION"
+    EHR_MEDICATION_LIST = "EHR_MEDICATION_LIST"
+    ADMINISTRATION_RELATED_TO_PROCEDURE = "ADMINISTRATION_RELATED_TO_PROCEDURE"
 
 
 class RegimenStatus(str, Enum):
+    UNKNOWN_STATUS = "UNKNOWN_STATUS"
+    STARTED = "STARTED"
     COMPLETED = "COMPLETED"
     DISCONTINUED = "DISCONTINUED"
-    STARTED = "STARTED"
-    UNKNOWN_STATUS = "UNKNOWN_STATUS"
 
 
 class AffectedStatus(str, Enum):
-    AFFECTED = "AFFECTED"
     MISSING = "MISSING"
     UNAFFECTED = "UNAFFECTED"
+    AFFECTED = "AFFECTED"
 
 
 
@@ -521,11 +521,22 @@ class AgeRange(ConfiguredBaseModel):
                        'SimpleInterval']} })
 
 
-class Dictionary(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['TODO'],
-         'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
+class DictionaryEntry(ConfiguredBaseModel):
+    """
+    An entry of a protobuf map<string, string> field. An attribute that holds a map is multivalued and inlined as a dictionary of its entries, which can be written as {key: value, ...}
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    pass
+    key: str = Field(..., description="""The key of the map entry. Keys are unique within a map.""", json_schema_extra = { "linkml_meta": {'alias': 'key', 'domain_of': ['DictionaryEntry']} })
+    value: Optional[str] = Field(None, description="""The value of the map entry.""", json_schema_extra = { "linkml_meta": {'alias': 'value',
+         'domain_of': ['DictionaryEntry',
+                       'Measurement',
+                       'Quantity',
+                       'Any',
+                       'IndefiniteRange',
+                       'Number',
+                       'Expression',
+                       'Extension']} })
 
 
 class Evidence(ConfiguredBaseModel):
@@ -556,12 +567,6 @@ class ExternalReference(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -576,8 +581,8 @@ class ExternalReference(ConfiguredBaseModel):
 class File(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    fileAttributes: Optional[Dictionary] = Field(None, description="""Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.""", json_schema_extra = { "linkml_meta": {'alias': 'fileAttributes', 'domain_of': ['File']} })
-    individualToFileIdentifiers: Optional[Dictionary] = Field(None, description="""A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.""", json_schema_extra = { "linkml_meta": {'alias': 'individualToFileIdentifiers', 'domain_of': ['File']} })
+    fileAttributes: Optional[Dict[str, str]] = Field(default_factory=dict, description="""Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.""", json_schema_extra = { "linkml_meta": {'alias': 'fileAttributes', 'domain_of': ['File']} })
+    individualToFileIdentifiers: Optional[Dict[str, str]] = Field(default_factory=dict, description="""A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.""", json_schema_extra = { "linkml_meta": {'alias': 'individualToFileIdentifiers', 'domain_of': ['File']} })
     uri: Optional[str] = Field(None, description="""URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444""", json_schema_extra = { "linkml_meta": {'alias': 'uri', 'domain_of': ['File']} })
 
 
@@ -598,12 +603,6 @@ class OntologyClass(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -628,7 +627,8 @@ class Procedure(ConfiguredBaseModel):
 
 class TimeElement(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'gestationalAge': {'name': 'gestationalAge',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'element'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'gestationalAge': {'name': 'gestationalAge',
                                                                                                   'required': True}}},
                                                           {'slot_conditions': {'age': {'name': 'age',
                                                                                        'required': True}}},
@@ -677,7 +677,19 @@ class Measurement(ConfiguredBaseModel):
     FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/measurement',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'value': {'name': 'value',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof',
+                                              'value': 'measurement_value'}},
+                    'comments': ['https://github.com/phenopackets/phenopacket-schema/issues/261 '
+                                 'e.g. type: Increased circulating antibody level '
+                                 '(HP:0010702) quantity: unit: Microgram per '
+                                 'Milliliter (NCIT:C64572), value: 23456.0',
+                                 'type:  body temperature (CMO:0000015) quantity: '
+                                 'unit: Degrees Celsius (UO:0000027), value: 37.5 '
+                                 'Degree Celsius (NCIT:C42559), value: 37.5'],
+                    'description': 'type:  LOINC: 26515-7 Platelets [#/volume] in '
+                                   'Blood value: quantity: unit: NCIT:C173275 (Count '
+                                   'per Cubic Millimeter), value: 600,000',
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'value': {'name': 'value',
                                                                                          'required': True}}},
                                                           {'slot_conditions': {'complexValue': {'name': 'complexValue',
                                                                                                 'required': True}}}]}}]})
@@ -696,7 +708,8 @@ class Measurement(ConfiguredBaseModel):
          'domain_of': ['Measurement', 'Biosample', 'MedicalAction']} })
     timeObserved: Optional[TimeElement] = Field(None, description="""The time at which the measurement was made""", json_schema_extra = { "linkml_meta": {'alias': 'timeObserved', 'domain_of': ['Measurement']} })
     value: Optional[Value] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
-         'domain_of': ['Measurement',
+         'domain_of': ['DictionaryEntry',
+                       'Measurement',
                        'Quantity',
                        'Any',
                        'IndefiniteRange',
@@ -711,7 +724,8 @@ class Quantity(ConfiguredBaseModel):
     referenceRange: Optional[ReferenceRange] = Field(None, description="""Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL.""", json_schema_extra = { "linkml_meta": {'alias': 'referenceRange', 'domain_of': ['Quantity']} })
     unit: Optional[OntologyClass] = Field(None, description="""For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo""", json_schema_extra = { "linkml_meta": {'alias': 'unit', 'domain_of': ['Quantity', 'ReferenceRange']} })
     value: Optional[float] = Field(None, description="""the  value of the quantity in the units  e.g. 2.0 mg""", json_schema_extra = { "linkml_meta": {'alias': 'value',
-         'domain_of': ['Measurement',
+         'domain_of': ['DictionaryEntry',
+                       'Measurement',
                        'Quantity',
                        'Any',
                        'IndefiniteRange',
@@ -740,7 +754,8 @@ class TypedQuantity(ConfiguredBaseModel):
 
 class Value(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/measurement',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'quantity': {'name': 'quantity',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'value'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'quantity': {'name': 'quantity',
                                                                                             'required': True}}},
                                                           {'slot_conditions': {'ontologyClass': {'name': 'ontologyClass',
                                                                                                  'required': True}}}]}}]})
@@ -777,7 +792,8 @@ class Biosample(ConfiguredBaseModel):
     """
     A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/biosample'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['biosamples SAMN08666232 Human Cell Atlas'],
+         'from_schema': 'https://w3id.org/linkml/phenopackets/biosample'})
 
     derivedFromId: Optional[str] = Field(None, description="""The id of the parent biosample this biosample was derived from.""", json_schema_extra = { "linkml_meta": {'alias': 'derivedFromId', 'domain_of': ['Biosample']} })
     description: Optional[str] = Field(None, description="""The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data.""", json_schema_extra = { "linkml_meta": {'alias': 'description',
@@ -794,16 +810,10 @@ class Biosample(ConfiguredBaseModel):
     histologicalDiagnosis: Optional[OntologyClass] = Field(None, description="""This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\" ARGO mapping specimen::tumour_histological_type""", json_schema_extra = { "linkml_meta": {'alias': 'histologicalDiagnosis',
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:specimen.tumour_histological_type']} })
-    id: Optional[str] = Field(None, description="""biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    id: Optional[str] = Field(None, description="""The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -880,7 +890,8 @@ class Any(ConfiguredBaseModel):
 
     typeUrl: Optional[str] = Field(None, description="""A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][] value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics. """, json_schema_extra = { "linkml_meta": {'alias': 'typeUrl', 'domain_of': ['Any']} })
     value: Optional[str] = Field(None, description="""Must be a valid serialized protocol buffer of the above specified type.""", json_schema_extra = { "linkml_meta": {'alias': 'value',
-         'domain_of': ['Measurement',
+         'domain_of': ['DictionaryEntry',
+                       'Measurement',
                        'Quantity',
                        'Any',
                        'IndefiniteRange',
@@ -891,47 +902,52 @@ class Any(ConfiguredBaseModel):
 
 class Abundance(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'copyNumber': {'name': 'copyNumber',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'abundance'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'copyNumber': {'name': 'copyNumber',
                                                                                               'required': True}}}]}}]})
 
     copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
-         'domain_of': ['Abundance', 'Member', 'SystemicVariation', 'Variation']} })
+         'domain_of': ['Abundance',
+                       'SystemicVariation',
+                       'Variation',
+                       'VariationSetMember']} })
 
 
 class Allele(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'literalSequenceExpression': {'name': 'literalSequenceExpression',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'location'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'curie': {'name': 'curie',
+                                                                                         'required': True}}},
+                                                          {'slot_conditions': {'chromosomeLocation': {'name': 'chromosomeLocation',
+                                                                                                      'required': True}}},
+                                                          {'slot_conditions': {'sequenceLocation': {'name': 'sequenceLocation',
+                                                                                                    'required': True}}}]}},
+                   {'annotations': {'oneof': {'tag': 'oneof', 'value': 'state'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'sequenceState': {'name': 'sequenceState',
+                                                                                                 'required': True}}},
+                                                          {'slot_conditions': {'literalSequenceExpression': {'name': 'literalSequenceExpression',
                                                                                                              'required': True}}},
                                                           {'slot_conditions': {'derivedSequenceExpression': {'name': 'derivedSequenceExpression',
                                                                                                              'required': True}}},
                                                           {'slot_conditions': {'repeatedSequenceExpression': {'name': 'repeatedSequenceExpression',
                                                                                                               'required': True}}}]}}]})
 
+    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+         'domain_of': ['Allele',
+                       'ChromosomeLocation',
+                       'CopyNumber',
+                       'Haplotype',
+                       'SequenceLocation',
+                       'Text',
+                       'VariationSet']} })
     chromosomeLocation: Optional[ChromosomeLocation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'chromosomeLocation', 'domain_of': ['Allele', 'Location']} })
-    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie', 'domain_of': ['Allele', 'CopyNumber', 'Member']} })
+    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie',
+         'domain_of': ['Allele', 'CopyNumber', 'HaplotypeMember', 'VariationSetMember']} })
     derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'derivedSequenceExpression',
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['ExternalReference',
-                       'OntologyClass',
-                       'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
-                       'VariationDescriptor',
-                       'VcfRecord',
-                       'Interpretation',
-                       'Individual',
-                       'Resource',
-                       'Cohort',
-                       'Family',
-                       'Phenopacket']} })
     literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'literalSequenceExpression',
          'domain_of': ['Allele',
                        'CopyNumber',
@@ -940,30 +956,24 @@ class Allele(ConfiguredBaseModel):
     repeatedSequenceExpression: Optional[RepeatedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'repeatedSequenceExpression',
          'domain_of': ['Allele', 'CopyNumber', 'SequenceExpression']} })
     sequenceLocation: Optional[SequenceLocation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceLocation', 'domain_of': ['Allele', 'Location']} })
+    sequenceState: Optional[SequenceState] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceState',
+         'deprecated': 'Marked as deprecated (deprecated=true) in the protobuf '
+                       'definition',
+         'domain_of': ['Allele']} })
 
 
 class ChromosomeLocation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    chr: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'chr', 'domain_of': ['ChromosomeLocation']} })
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['ExternalReference',
-                       'OntologyClass',
-                       'Biosample',
-                       'Allele',
+    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+         'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
-                       'Member',
+                       'Haplotype',
                        'SequenceLocation',
                        'Text',
-                       'VariationDescriptor',
-                       'VcfRecord',
-                       'Interpretation',
-                       'Individual',
-                       'Resource',
-                       'Cohort',
-                       'Family',
-                       'Phenopacket']} })
+                       'VariationSet']} })
+    chr: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'chr', 'domain_of': ['ChromosomeLocation']} })
     interval: Optional[CytobandInterval] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'interval',
          'domain_of': ['TimeElement', 'ChromosomeLocation', 'DoseInterval']} })
     speciesId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'speciesId', 'domain_of': ['ChromosomeLocation']} })
@@ -971,16 +981,45 @@ class ChromosomeLocation(ConfiguredBaseModel):
 
 class CopyNumber(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'number': {'name': 'number',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'subject'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'allele': {'name': 'allele',
+                                                                                          'required': True}}},
+                                                          {'slot_conditions': {'haplotype': {'name': 'haplotype',
+                                                                                             'required': True}}},
+                                                          {'slot_conditions': {'gene': {'name': 'gene',
+                                                                                        'required': True}}},
+                                                          {'slot_conditions': {'literalSequenceExpression': {'name': 'literalSequenceExpression',
+                                                                                                             'required': True}}},
+                                                          {'slot_conditions': {'derivedSequenceExpression': {'name': 'derivedSequenceExpression',
+                                                                                                             'required': True}}},
+                                                          {'slot_conditions': {'repeatedSequenceExpression': {'name': 'repeatedSequenceExpression',
+                                                                                                              'required': True}}},
+                                                          {'slot_conditions': {'curie': {'name': 'curie',
+                                                                                         'required': True}}}]}},
+                   {'annotations': {'oneof': {'tag': 'oneof', 'value': 'copies'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'number': {'name': 'number',
                                                                                           'required': True}}},
                                                           {'slot_conditions': {'indefiniteRange': {'name': 'indefiniteRange',
                                                                                                    'required': True}}},
                                                           {'slot_conditions': {'definiteRange': {'name': 'definiteRange',
                                                                                                  'required': True}}}]}}]})
 
+    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+         'domain_of': ['Allele',
+                       'ChromosomeLocation',
+                       'CopyNumber',
+                       'Haplotype',
+                       'SequenceLocation',
+                       'Text',
+                       'VariationSet']} })
     allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
-         'domain_of': ['CopyNumber', 'Member', 'MolecularVariation', 'Variation']} })
-    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie', 'domain_of': ['Allele', 'CopyNumber', 'Member']} })
+         'domain_of': ['CopyNumber',
+                       'HaplotypeMember',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
+    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie',
+         'domain_of': ['Allele', 'CopyNumber', 'HaplotypeMember', 'VariationSetMember']} })
     definiteRange: Optional[DefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'definiteRange',
          'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
     derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'derivedSequenceExpression',
@@ -991,25 +1030,10 @@ class CopyNumber(ConfiguredBaseModel):
     gene: Optional[Gene] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'gene',
          'domain_of': ['CopyNumber', 'Feature', 'GenomicInterpretation']} })
     haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
-         'domain_of': ['CopyNumber', 'Member', 'MolecularVariation', 'Variation']} })
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['ExternalReference',
-                       'OntologyClass',
-                       'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
-                       'VariationDescriptor',
-                       'VcfRecord',
-                       'Interpretation',
-                       'Individual',
-                       'Resource',
-                       'Cohort',
-                       'Family',
-                       'Phenopacket']} })
+         'domain_of': ['CopyNumber',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
     indefiniteRange: Optional[IndefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'indefiniteRange',
          'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
     literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'literalSequenceExpression',
@@ -1053,7 +1077,8 @@ class DerivedSequenceExpression(ConfiguredBaseModel):
 
 class Feature(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'gene': {'name': 'gene',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'feature'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'gene': {'name': 'gene',
                                                                                         'required': True}}}]}}]})
 
     gene: Optional[Gene] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'gene',
@@ -1069,7 +1094,33 @@ class Gene(ConfiguredBaseModel):
 class Haplotype(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    pass
+    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+         'domain_of': ['Allele',
+                       'ChromosomeLocation',
+                       'CopyNumber',
+                       'Haplotype',
+                       'SequenceLocation',
+                       'Text',
+                       'VariationSet']} })
+    members: Optional[List[HaplotypeMember]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'members', 'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
+
+
+class HaplotypeMember(ConfiguredBaseModel):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'value'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'allele': {'name': 'allele',
+                                                                                          'required': True}}},
+                                                          {'slot_conditions': {'curie': {'name': 'curie',
+                                                                                         'required': True}}}]}}]})
+
+    allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
+         'domain_of': ['CopyNumber',
+                       'HaplotypeMember',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
+    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie',
+         'domain_of': ['Allele', 'CopyNumber', 'HaplotypeMember', 'VariationSetMember']} })
 
 
 class IndefiniteRange(ConfiguredBaseModel):
@@ -1077,7 +1128,8 @@ class IndefiniteRange(ConfiguredBaseModel):
 
     comparator: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'comparator', 'domain_of': ['IndefiniteRange']} })
     value: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
-         'domain_of': ['Measurement',
+         'domain_of': ['DictionaryEntry',
+                       'Measurement',
                        'Quantity',
                        'Any',
                        'IndefiniteRange',
@@ -1095,7 +1147,8 @@ class LiteralSequenceExpression(ConfiguredBaseModel):
 
 class Location(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'chromosomeLocation': {'name': 'chromosomeLocation',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'location'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'chromosomeLocation': {'name': 'chromosomeLocation',
                                                                                                       'required': True}}},
                                                           {'slot_conditions': {'sequenceLocation': {'name': 'sequenceLocation',
                                                                                                     'required': True}}}]}}]})
@@ -1104,70 +1157,34 @@ class Location(ConfiguredBaseModel):
     sequenceLocation: Optional[SequenceLocation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceLocation', 'domain_of': ['Allele', 'Location']} })
 
 
-class Member(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'curie': {'name': 'curie',
-                                                                                         'required': True}}},
-                                                          {'slot_conditions': {'allele': {'name': 'allele',
-                                                                                          'required': True}}},
-                                                          {'slot_conditions': {'haplotype': {'name': 'haplotype',
-                                                                                             'required': True}}},
-                                                          {'slot_conditions': {'copyNumber': {'name': 'copyNumber',
-                                                                                              'required': True}}},
-                                                          {'slot_conditions': {'text': {'name': 'text',
-                                                                                        'required': True}}},
-                                                          {'slot_conditions': {'variationSet': {'name': 'variationSet',
-                                                                                                'required': True}}}]}}]})
-
-    allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
-         'domain_of': ['CopyNumber', 'Member', 'MolecularVariation', 'Variation']} })
-    copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
-         'domain_of': ['Abundance', 'Member', 'SystemicVariation', 'Variation']} })
-    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie', 'domain_of': ['Allele', 'CopyNumber', 'Member']} })
-    haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
-         'domain_of': ['CopyNumber', 'Member', 'MolecularVariation', 'Variation']} })
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['ExternalReference',
-                       'OntologyClass',
-                       'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
-                       'VariationDescriptor',
-                       'VcfRecord',
-                       'Interpretation',
-                       'Individual',
-                       'Resource',
-                       'Cohort',
-                       'Family',
-                       'Phenopacket']} })
-    members: Optional[List[Member]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'members', 'domain_of': ['Member', 'Cohort']} })
-    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text', 'domain_of': ['Member', 'UtilityVariation', 'Variation']} })
-    variationSet: Optional[VariationSet] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variationSet',
-         'domain_of': ['Member', 'UtilityVariation', 'Variation']} })
-
-
 class MolecularVariation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'allele': {'name': 'allele',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof',
+                                              'value': 'molecular_variation'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'allele': {'name': 'allele',
                                                                                           'required': True}}},
                                                           {'slot_conditions': {'haplotype': {'name': 'haplotype',
                                                                                              'required': True}}}]}}]})
 
     allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
-         'domain_of': ['CopyNumber', 'Member', 'MolecularVariation', 'Variation']} })
+         'domain_of': ['CopyNumber',
+                       'HaplotypeMember',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
     haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
-         'domain_of': ['CopyNumber', 'Member', 'MolecularVariation', 'Variation']} })
+         'domain_of': ['CopyNumber',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
 
 
 class Number(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
     value: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
-         'domain_of': ['Measurement',
+         'domain_of': ['DictionaryEntry',
+                       'Measurement',
                        'Quantity',
                        'Any',
                        'IndefiniteRange',
@@ -1178,7 +1195,13 @@ class Number(ConfiguredBaseModel):
 
 class RepeatedSequenceExpression(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'number': {'name': 'number',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'seq_expr'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'literalSequenceExpression': {'name': 'literalSequenceExpression',
+                                                                                                             'required': True}}},
+                                                          {'slot_conditions': {'derivedSequenceExpression': {'name': 'derivedSequenceExpression',
+                                                                                                             'required': True}}}]}},
+                   {'annotations': {'oneof': {'tag': 'oneof', 'value': 'count'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'number': {'name': 'number',
                                                                                           'required': True}}},
                                                           {'slot_conditions': {'indefiniteRange': {'name': 'indefiniteRange',
                                                                                                    'required': True}}},
@@ -1204,7 +1227,9 @@ class RepeatedSequenceExpression(ConfiguredBaseModel):
 
 class SequenceExpression(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'literalSequenceExpression': {'name': 'literalSequenceExpression',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof',
+                                              'value': 'sequence_expression'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'literalSequenceExpression': {'name': 'literalSequenceExpression',
                                                                                                              'required': True}}},
                                                           {'slot_conditions': {'derivedSequenceExpression': {'name': 'derivedSequenceExpression',
                                                                                                              'required': True}}},
@@ -1227,7 +1252,15 @@ class SequenceExpression(ConfiguredBaseModel):
 
 class SequenceInterval(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'endNumber': {'name': 'endNumber',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'start'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'startNumber': {'name': 'startNumber',
+                                                                                               'required': True}}},
+                                                          {'slot_conditions': {'startIndefiniteRange': {'name': 'startIndefiniteRange',
+                                                                                                        'required': True}}},
+                                                          {'slot_conditions': {'startDefiniteRange': {'name': 'startDefiniteRange',
+                                                                                                      'required': True}}}]}},
+                   {'annotations': {'oneof': {'tag': 'oneof', 'value': 'end'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'endNumber': {'name': 'endNumber',
                                                                                              'required': True}}},
                                                           {'slot_conditions': {'endIndefiniteRange': {'name': 'endIndefiniteRange',
                                                                                                       'required': True}}},
@@ -1244,29 +1277,26 @@ class SequenceInterval(ConfiguredBaseModel):
 
 class SequenceLocation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'sequenceInterval': {'name': 'sequenceInterval',
-                                                                                                    'required': True}}}]}}]})
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'interval'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'sequenceInterval': {'name': 'sequenceInterval',
+                                                                                                    'required': True}}},
+                                                          {'slot_conditions': {'simpleInterval': {'name': 'simpleInterval',
+                                                                                                  'required': True}}}]}}]})
 
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['ExternalReference',
-                       'OntologyClass',
-                       'Biosample',
-                       'Allele',
+    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+         'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
-                       'Member',
+                       'Haplotype',
                        'SequenceLocation',
                        'Text',
-                       'VariationDescriptor',
-                       'VcfRecord',
-                       'Interpretation',
-                       'Individual',
-                       'Resource',
-                       'Cohort',
-                       'Family',
-                       'Phenopacket']} })
+                       'VariationSet']} })
     sequenceId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceId', 'domain_of': ['SequenceLocation']} })
     sequenceInterval: Optional[SequenceInterval] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceInterval', 'domain_of': ['SequenceLocation']} })
+    simpleInterval: Optional[SimpleInterval] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'simpleInterval',
+         'deprecated': 'Marked as deprecated (deprecated=true) in the protobuf '
+                       'definition',
+         'domain_of': ['SequenceLocation']} })
 
 
 class SequenceState(ConfiguredBaseModel):
@@ -1293,52 +1323,51 @@ class SimpleInterval(ConfiguredBaseModel):
 
 class SystemicVariation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'copyNumber': {'name': 'copyNumber',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof',
+                                              'value': 'systemic_variation'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'copyNumber': {'name': 'copyNumber',
                                                                                               'required': True}}}]}}]})
 
     copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
-         'domain_of': ['Abundance', 'Member', 'SystemicVariation', 'Variation']} })
+         'domain_of': ['Abundance',
+                       'SystemicVariation',
+                       'Variation',
+                       'VariationSetMember']} })
 
 
 class Text(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    definition: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'definition', 'domain_of': ['Text']} })
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
-         'domain_of': ['ExternalReference',
-                       'OntologyClass',
-                       'Biosample',
-                       'Allele',
+    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+         'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
-                       'Member',
+                       'Haplotype',
                        'SequenceLocation',
                        'Text',
-                       'VariationDescriptor',
-                       'VcfRecord',
-                       'Interpretation',
-                       'Individual',
-                       'Resource',
-                       'Cohort',
-                       'Family',
-                       'Phenopacket']} })
+                       'VariationSet']} })
+    definition: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'definition', 'domain_of': ['Text']} })
 
 
 class UtilityVariation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'text': {'name': 'text',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof',
+                                              'value': 'utility_variation'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'text': {'name': 'text',
                                                                                         'required': True}}},
                                                           {'slot_conditions': {'variationSet': {'name': 'variationSet',
                                                                                                 'required': True}}}]}}]})
 
-    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text', 'domain_of': ['Member', 'UtilityVariation', 'Variation']} })
+    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text',
+         'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
     variationSet: Optional[VariationSet] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variationSet',
-         'domain_of': ['Member', 'UtilityVariation', 'Variation']} })
+         'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
 
 
 class Variation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'allele': {'name': 'allele',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'variation'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'allele': {'name': 'allele',
                                                                                           'required': True}}},
                                                           {'slot_conditions': {'haplotype': {'name': 'haplotype',
                                                                                              'required': True}}},
@@ -1350,20 +1379,79 @@ class Variation(ConfiguredBaseModel):
                                                                                                 'required': True}}}]}}]})
 
     allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
-         'domain_of': ['CopyNumber', 'Member', 'MolecularVariation', 'Variation']} })
+         'domain_of': ['CopyNumber',
+                       'HaplotypeMember',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
     copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
-         'domain_of': ['Abundance', 'Member', 'SystemicVariation', 'Variation']} })
+         'domain_of': ['Abundance',
+                       'SystemicVariation',
+                       'Variation',
+                       'VariationSetMember']} })
     haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
-         'domain_of': ['CopyNumber', 'Member', 'MolecularVariation', 'Variation']} })
-    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text', 'domain_of': ['Member', 'UtilityVariation', 'Variation']} })
+         'domain_of': ['CopyNumber',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
+    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text',
+         'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
     variationSet: Optional[VariationSet] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variationSet',
-         'domain_of': ['Member', 'UtilityVariation', 'Variation']} })
+         'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
 
 
 class VariationSet(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    pass
+    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+         'domain_of': ['Allele',
+                       'ChromosomeLocation',
+                       'CopyNumber',
+                       'Haplotype',
+                       'SequenceLocation',
+                       'Text',
+                       'VariationSet']} })
+    members: Optional[List[VariationSetMember]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'members', 'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
+
+
+class VariationSetMember(ConfiguredBaseModel):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'value'}},
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'curie': {'name': 'curie',
+                                                                                         'required': True}}},
+                                                          {'slot_conditions': {'allele': {'name': 'allele',
+                                                                                          'required': True}}},
+                                                          {'slot_conditions': {'haplotype': {'name': 'haplotype',
+                                                                                             'required': True}}},
+                                                          {'slot_conditions': {'copyNumber': {'name': 'copyNumber',
+                                                                                              'required': True}}},
+                                                          {'slot_conditions': {'text': {'name': 'text',
+                                                                                        'required': True}}},
+                                                          {'slot_conditions': {'variationSet': {'name': 'variationSet',
+                                                                                                'required': True}}}]}}]})
+
+    allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
+         'domain_of': ['CopyNumber',
+                       'HaplotypeMember',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
+    copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
+         'domain_of': ['Abundance',
+                       'SystemicVariation',
+                       'Variation',
+                       'VariationSetMember']} })
+    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie',
+         'domain_of': ['Allele', 'CopyNumber', 'HaplotypeMember', 'VariationSetMember']} })
+    haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
+         'domain_of': ['CopyNumber',
+                       'MolecularVariation',
+                       'Variation',
+                       'VariationSetMember']} })
+    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text',
+         'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
+    variationSet: Optional[VariationSet] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variationSet',
+         'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
 
 
 class Expression(ConfiguredBaseModel):
@@ -1374,7 +1462,8 @@ class Expression(ConfiguredBaseModel):
 
     syntax: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'syntax', 'domain_of': ['Expression']} })
     value: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
-         'domain_of': ['Measurement',
+         'domain_of': ['DictionaryEntry',
+                       'Measurement',
                        'Quantity',
                        'Any',
                        'IndefiniteRange',
@@ -1392,7 +1481,8 @@ class Extension(ConfiguredBaseModel):
 
     name: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Extension', 'Resource']} })
     value: Optional[List[str]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'value',
-         'domain_of': ['Measurement',
+         'domain_of': ['DictionaryEntry',
+                       'Measurement',
                        'Quantity',
                        'Any',
                        'IndefiniteRange',
@@ -1442,12 +1532,6 @@ class VariationDescriptor(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -1476,12 +1560,6 @@ class VcfRecord(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -1508,7 +1586,13 @@ class GenomicInterpretation(ConfiguredBaseModel):
     A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/interpretation',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'gene': {'name': 'gene',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'call'}},
+                    'description': 'Gene or variant identified in subject or biosample '
+                                   'and interpreted in relation to the disease '
+                                   "diagnosis. In this context athe 'gene' is a proxy "
+                                   'for an unspecified alteration in the indicated '
+                                   'gene.',
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'gene': {'name': 'gene',
                                                                                         'required': True}}},
                                                           {'slot_conditions': {'variantInterpretation': {'name': 'variantInterpretation',
                                                                                                          'required': True}}}]}}]})
@@ -1528,12 +1612,6 @@ class Interpretation(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -1568,12 +1646,6 @@ class Individual(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -1623,8 +1695,11 @@ class MedicalAction(ConfiguredBaseModel):
     """
     medication, procedure, other actions taken for clinical management
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'procedure': {'name': 'procedure',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['ARGO mapping treatment::is_primary_treatment (missing)'],
+         'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'action'}},
+                    'description': 'ARGO mapping treatment::treatment_type',
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'procedure': {'name': 'procedure',
                                                                                              'required': True}}},
                                                           {'slot_conditions': {'treatment': {'name': 'treatment',
                                                                                              'required': True}}},
@@ -1657,7 +1732,8 @@ class RadiationTherapy(ConfiguredBaseModel):
     """
     RadiationTherapy
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['ARGO mapping radiation::radiation_therapy_type (missing)'],
+         'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action'})
 
     bodySite: OntologyClass = Field(..., description="""The anatomical site where radiation therapy was administered. REQUIRED. ARGO mapping radiation::anatomical_site_irradiated""", json_schema_extra = { "linkml_meta": {'alias': 'bodySite',
          'domain_of': ['Procedure', 'RadiationTherapy'],
@@ -1674,11 +1750,10 @@ class RadiationTherapy(ConfiguredBaseModel):
 
 
 class TherapeuticRegimen(ConfiguredBaseModel):
-    """
-    ARGO mapping radiation::radiation_therapy_type (missing)
-    """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action',
-         'rules': [{'postconditions': {'exactly_one_of': [{'slot_conditions': {'externalReference': {'name': 'externalReference',
+         'rules': [{'annotations': {'oneof': {'tag': 'oneof', 'value': 'identifier'}},
+                    'description': 'https://ctep.cancer.gov/protocolDevelopment/policies_nomenclature.htm',
+                    'postconditions': {'exactly_one_of': [{'slot_conditions': {'externalReference': {'name': 'externalReference',
                                                                                                      'required': True}}},
                                                           {'slot_conditions': {'ontologyClass': {'name': 'ontologyClass',
                                                                                                  'required': True}}}]}}]})
@@ -1693,17 +1768,17 @@ class TherapeuticRegimen(ConfiguredBaseModel):
 
 class Treatment(ConfiguredBaseModel):
     """
-    ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug
+    treatment with an agent, such as a drug
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action'})
 
-    agent: Optional[OntologyClass] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'agent', 'domain_of': ['Treatment']} })
+    agent: Optional[OntologyClass] = Field(None, description="""for instance, DrugCentral, RxNorm Drugbank concept""", json_schema_extra = { "linkml_meta": {'alias': 'agent', 'domain_of': ['Treatment']} })
     cumulativeDose: Optional[Quantity] = Field(None, description="""ARGO mapping chemotherapy::cumulative_drug_dosage""", json_schema_extra = { "linkml_meta": {'alias': 'cumulativeDose',
          'domain_of': ['Treatment'],
          'exact_mappings': ['ARGO:chemotherapy.cumulative_drug_dosage']} })
     doseIntervals: Optional[List[DoseInterval]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'doseIntervals', 'domain_of': ['Treatment']} })
     drugType: Optional[DrugType] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'drugType', 'domain_of': ['Treatment']} })
-    routeOfAdministration: Optional[OntologyClass] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'routeOfAdministration', 'domain_of': ['Treatment']} })
+    routeOfAdministration: Optional[OntologyClass] = Field(None, description="""For instance, NCIT subhierarchy: Route of Administration (Code C38114)""", json_schema_extra = { "linkml_meta": {'alias': 'routeOfAdministration', 'domain_of': ['Treatment']} })
 
 
 class Timestamp(ConfiguredBaseModel):
@@ -1738,12 +1813,6 @@ class Resource(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -1810,12 +1879,6 @@ class Cohort(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -1824,7 +1887,7 @@ class Cohort(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    members: Optional[List[Phenopacket]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'members', 'domain_of': ['Member', 'Cohort']} })
+    members: Optional[List[Phenopacket]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'members', 'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
     metaData: MetaData = Field(..., description="""Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED""", json_schema_extra = { "linkml_meta": {'alias': 'metaData', 'domain_of': ['Cohort', 'Family', 'Phenopacket']} })
 
 
@@ -1841,12 +1904,6 @@ class Family(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -1876,12 +1933,6 @@ class Phenopacket(ConfiguredBaseModel):
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
-                       'Allele',
-                       'ChromosomeLocation',
-                       'CopyNumber',
-                       'Member',
-                       'SequenceLocation',
-                       'Text',
                        'VariationDescriptor',
                        'VcfRecord',
                        'Interpretation',
@@ -1902,7 +1953,7 @@ class Phenopacket(ConfiguredBaseModel):
 # see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
 Age.model_rebuild()
 AgeRange.model_rebuild()
-Dictionary.model_rebuild()
+DictionaryEntry.model_rebuild()
 Evidence.model_rebuild()
 ExternalReference.model_rebuild()
 File.model_rebuild()
@@ -1931,10 +1982,10 @@ DerivedSequenceExpression.model_rebuild()
 Feature.model_rebuild()
 Gene.model_rebuild()
 Haplotype.model_rebuild()
+HaplotypeMember.model_rebuild()
 IndefiniteRange.model_rebuild()
 LiteralSequenceExpression.model_rebuild()
 Location.model_rebuild()
-Member.model_rebuild()
 MolecularVariation.model_rebuild()
 Number.model_rebuild()
 RepeatedSequenceExpression.model_rebuild()
@@ -1948,6 +1999,7 @@ Text.model_rebuild()
 UtilityVariation.model_rebuild()
 Variation.model_rebuild()
 VariationSet.model_rebuild()
+VariationSetMember.model_rebuild()
 Expression.model_rebuild()
 Extension.model_rebuild()
 GeneDescriptor.model_rebuild()

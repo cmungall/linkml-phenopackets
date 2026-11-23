@@ -27,12 +27,12 @@
         "AcmgPathogenicityClassification": {
             "description": "",
             "enum": [
+                "NOT_PROVIDED",
                 "BENIGN",
                 "LIKELY_BENIGN",
+                "UNCERTAIN_SIGNIFICANCE",
                 "LIKELY_PATHOGENIC",
-                "NOT_PROVIDED",
-                "PATHOGENIC",
-                "UNCERTAIN_SIGNIFICANCE"
+                "PATHOGENIC"
             ],
             "title": "AcmgPathogenicityClassification",
             "type": "string"
@@ -40,9 +40,9 @@
         "AffectedStatus": {
             "description": "",
             "enum": [
-                "AFFECTED",
                 "MISSING",
-                "UNAFFECTED"
+                "UNAFFECTED",
+                "AFFECTED"
             ],
             "title": "AffectedStatus",
             "type": "string"
@@ -77,8 +77,82 @@
         },
         "Allele": {
             "additionalProperties": false,
+            "allOf": [
+                {
+                    "then": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "curie": {}
+                                },
+                                "required": [
+                                    "curie"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "chromosomeLocation": {}
+                                },
+                                "required": [
+                                    "chromosomeLocation"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "sequenceLocation": {}
+                                },
+                                "required": [
+                                    "sequenceLocation"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "then": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "sequenceState": {}
+                                },
+                                "required": [
+                                    "sequenceState"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "literalSequenceExpression": {}
+                                },
+                                "required": [
+                                    "literalSequenceExpression"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "derivedSequenceExpression": {}
+                                },
+                                "required": [
+                                    "derivedSequenceExpression"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "repeatedSequenceExpression": {}
+                                },
+                                "required": [
+                                    "repeatedSequenceExpression"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
             "description": "",
             "properties": {
+                "Id": {
+                    "description": "",
+                    "type": "string"
+                },
                 "chromosomeLocation": {
                     "$ref": "#/$defs/ChromosomeLocation",
                     "description": ""
@@ -91,10 +165,6 @@
                     "$ref": "#/$defs/DerivedSequenceExpression",
                     "description": ""
                 },
-                "id": {
-                    "description": "",
-                    "type": "string"
-                },
                 "literalSequenceExpression": {
                     "$ref": "#/$defs/LiteralSequenceExpression",
                     "description": ""
@@ -106,35 +176,11 @@
                 "sequenceLocation": {
                     "$ref": "#/$defs/SequenceLocation",
                     "description": ""
+                },
+                "sequenceState": {
+                    "$ref": "#/$defs/SequenceState",
+                    "description": ""
                 }
-            },
-            "then": {
-                "oneOf": [
-                    {
-                        "properties": {
-                            "literalSequenceExpression": {}
-                        },
-                        "required": [
-                            "literalSequenceExpression"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "derivedSequenceExpression": {}
-                        },
-                        "required": [
-                            "derivedSequenceExpression"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "repeatedSequenceExpression": {}
-                        },
-                        "required": [
-                            "repeatedSequenceExpression"
-                        ]
-                    }
-                ]
             },
             "title": "Allele",
             "type": "object"
@@ -204,7 +250,7 @@
                     "description": "This is the pathologist\u2019s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist\u2019s findings. Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\" ARGO mapping specimen::tumour_histological_type"
                 },
                 "id": {
-                    "description": "biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id",
+                    "description": "The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id",
                     "type": "string"
                 },
                 "individualId": {
@@ -284,11 +330,11 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "chr": {
+                "Id": {
                     "description": "",
                     "type": "string"
                 },
-                "id": {
+                "chr": {
                     "description": "",
                     "type": "string"
                 },
@@ -358,8 +404,106 @@
         },
         "CopyNumber": {
             "additionalProperties": false,
+            "allOf": [
+                {
+                    "then": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "allele": {}
+                                },
+                                "required": [
+                                    "allele"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "haplotype": {}
+                                },
+                                "required": [
+                                    "haplotype"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "gene": {}
+                                },
+                                "required": [
+                                    "gene"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "literalSequenceExpression": {}
+                                },
+                                "required": [
+                                    "literalSequenceExpression"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "derivedSequenceExpression": {}
+                                },
+                                "required": [
+                                    "derivedSequenceExpression"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "repeatedSequenceExpression": {}
+                                },
+                                "required": [
+                                    "repeatedSequenceExpression"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "curie": {}
+                                },
+                                "required": [
+                                    "curie"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "then": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "number": {}
+                                },
+                                "required": [
+                                    "number"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "indefiniteRange": {}
+                                },
+                                "required": [
+                                    "indefiniteRange"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "definiteRange": {}
+                                },
+                                "required": [
+                                    "definiteRange"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
             "description": "",
             "properties": {
+                "Id": {
+                    "description": "",
+                    "type": "string"
+                },
                 "allele": {
                     "$ref": "#/$defs/Allele",
                     "description": ""
@@ -384,10 +528,6 @@
                     "$ref": "#/$defs/Haplotype",
                     "description": ""
                 },
-                "id": {
-                    "description": "",
-                    "type": "string"
-                },
                 "indefiniteRange": {
                     "$ref": "#/$defs/IndefiniteRange",
                     "description": ""
@@ -404,34 +544,6 @@
                     "$ref": "#/$defs/RepeatedSequenceExpression",
                     "description": ""
                 }
-            },
-            "then": {
-                "oneOf": [
-                    {
-                        "properties": {
-                            "number": {}
-                        },
-                        "required": [
-                            "number"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "indefiniteRange": {}
-                        },
-                        "required": [
-                            "indefiniteRange"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "definiteRange": {}
-                        },
-                        "required": [
-                            "definiteRange"
-                        ]
-                    }
-                ]
             },
             "title": "CopyNumber",
             "type": "object"
@@ -503,10 +615,40 @@
             "title": "Diagnosis",
             "type": "object"
         },
-        "Dictionary": {
+        "DictionaryEntry": {
             "additionalProperties": false,
-            "description": "",
-            "title": "Dictionary",
+            "description": "An entry of a protobuf map<string, string> field. An attribute that holds a map is multivalued and inlined as a dictionary of its entries, which can be written as {key: value, ...}",
+            "properties": {
+                "key": {
+                    "description": "The key of the map entry. Keys are unique within a map.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The value of the map entry.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "key"
+            ],
+            "title": "DictionaryEntry",
+            "type": "object"
+        },
+        "DictionaryEntry__identifier_optional": {
+            "additionalProperties": false,
+            "description": "An entry of a protobuf map<string, string> field. An attribute that holds a map is multivalued and inlined as a dictionary of its entries, which can be written as {key: value, ...}",
+            "properties": {
+                "key": {
+                    "description": "The key of the map entry. Keys are unique within a map.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The value of the map entry.",
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "DictionaryEntry",
             "type": "object"
         },
         "Disease": {
@@ -578,10 +720,10 @@
         "DrugType": {
             "description": "A simplified version of ODHSI-DRUG_EXPOSURE",
             "enum": [
-                "ADMINISTRATION_RELATED_TO_PROCEDURE",
-                "EHR_MEDICATION_LIST",
+                "UNKNOWN_DRUG_TYPE",
                 "PRESCRIPTION",
-                "UNKNOWN_DRUG_TYPE"
+                "EHR_MEDICATION_LIST",
+                "ADMINISTRATION_RELATED_TO_PROCEDURE"
             ],
             "title": "DrugType",
             "type": "string"
@@ -735,12 +877,40 @@
             "description": "",
             "properties": {
                 "fileAttributes": {
-                    "$ref": "#/$defs/Dictionary",
-                    "description": "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key."
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/DictionaryEntry__identifier_optional"
+                            },
+                            {
+                                "description": "The value of the map entry.",
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.",
+                    "type": "object"
                 },
                 "individualToFileIdentifiers": {
-                    "$ref": "#/$defs/Dictionary",
-                    "description": "A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file."
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/DictionaryEntry__identifier_optional"
+                            },
+                            {
+                                "description": "The value of the map entry.",
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.",
+                    "type": "object"
                 },
                 "uri": {
                     "description": "URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444",
@@ -895,7 +1065,56 @@
         "Haplotype": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "Id": {
+                    "description": "",
+                    "type": "string"
+                },
+                "members": {
+                    "description": "",
+                    "items": {
+                        "$ref": "#/$defs/HaplotypeMember"
+                    },
+                    "type": "array"
+                }
+            },
             "title": "Haplotype",
+            "type": "object"
+        },
+        "HaplotypeMember": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "allele": {
+                    "$ref": "#/$defs/Allele",
+                    "description": ""
+                },
+                "curie": {
+                    "description": "",
+                    "type": "string"
+                }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "allele": {}
+                        },
+                        "required": [
+                            "allele"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "curie": {}
+                        },
+                        "required": [
+                            "curie"
+                        ]
+                    }
+                ]
+            },
+            "title": "HaplotypeMember",
             "type": "object"
         },
         "IndefiniteRange": {
@@ -988,11 +1207,11 @@
         "InterpretationStatus": {
             "description": "",
             "enum": [
-                "CANDIDATE",
-                "CAUSATIVE",
-                "CONTRIBUTORY",
+                "UNKNOWN_STATUS",
                 "REJECTED",
-                "UNKNOWN_STATUS"
+                "CANDIDATE",
+                "CONTRIBUTORY",
+                "CAUSATIVE"
             ],
             "title": "InterpretationStatus",
             "type": "string"
@@ -1000,17 +1219,17 @@
         "KaryotypicSex": {
             "description": "Karyotypic sex of the individual",
             "enum": [
-                "OTHER_KARYOTYPE",
                 "UNKNOWN_KARYOTYPE",
-                "XO",
                 "XX",
-                "XXX",
-                "XXXX",
-                "XXXY",
-                "XXY",
-                "XXYY",
                 "XY",
-                "XYY"
+                "XO",
+                "XXY",
+                "XXX",
+                "XXYY",
+                "XXXY",
+                "XXXX",
+                "XYY",
+                "OTHER_KARYOTYPE"
             ],
             "title": "KaryotypicSex",
             "type": "string"
@@ -1230,101 +1449,6 @@
             "title": "MedicalActionsTerms",
             "type": "string"
         },
-        "Member": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "allele": {
-                    "$ref": "#/$defs/Allele",
-                    "description": ""
-                },
-                "copyNumber": {
-                    "$ref": "#/$defs/CopyNumber",
-                    "description": ""
-                },
-                "curie": {
-                    "description": "",
-                    "type": "string"
-                },
-                "haplotype": {
-                    "$ref": "#/$defs/Haplotype",
-                    "description": ""
-                },
-                "id": {
-                    "description": "",
-                    "type": "string"
-                },
-                "members": {
-                    "description": "",
-                    "items": {
-                        "$ref": "#/$defs/Member"
-                    },
-                    "type": "array"
-                },
-                "text": {
-                    "$ref": "#/$defs/Text",
-                    "description": ""
-                },
-                "variationSet": {
-                    "$ref": "#/$defs/VariationSet",
-                    "description": ""
-                }
-            },
-            "then": {
-                "oneOf": [
-                    {
-                        "properties": {
-                            "curie": {}
-                        },
-                        "required": [
-                            "curie"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "allele": {}
-                        },
-                        "required": [
-                            "allele"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "haplotype": {}
-                        },
-                        "required": [
-                            "haplotype"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "copyNumber": {}
-                        },
-                        "required": [
-                            "copyNumber"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "text": {}
-                        },
-                        "required": [
-                            "text"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "variationSet": {}
-                        },
-                        "required": [
-                            "variationSet"
-                        ]
-                    }
-                ]
-            },
-            "title": "Member",
-            "type": "object"
-        },
         "MetaData": {
             "additionalProperties": false,
             "description": "",
@@ -1409,10 +1533,10 @@
         "MoleculeContext": {
             "description": "",
             "enum": [
+                "unspecified_molecule_context",
                 "genomic",
-                "protein",
                 "transcript",
-                "unspecified_molecule_context"
+                "protein"
             ],
             "title": "MoleculeContext",
             "type": "string"
@@ -1698,10 +1822,10 @@
         "ProgressStatus": {
             "description": "",
             "enum": [
-                "COMPLETED",
-                "IN_PROGRESS",
-                "SOLVED",
                 "UNKNOWN_PROGRESS",
+                "IN_PROGRESS",
+                "COMPLETED",
+                "SOLVED",
                 "UNSOLVED"
             ],
             "title": "ProgressStatus",
@@ -1780,16 +1904,70 @@
         "RegimenStatus": {
             "description": "",
             "enum": [
-                "COMPLETED",
-                "DISCONTINUED",
+                "UNKNOWN_STATUS",
                 "STARTED",
-                "UNKNOWN_STATUS"
+                "COMPLETED",
+                "DISCONTINUED"
             ],
             "title": "RegimenStatus",
             "type": "string"
         },
         "RepeatedSequenceExpression": {
             "additionalProperties": false,
+            "allOf": [
+                {
+                    "then": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "literalSequenceExpression": {}
+                                },
+                                "required": [
+                                    "literalSequenceExpression"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "derivedSequenceExpression": {}
+                                },
+                                "required": [
+                                    "derivedSequenceExpression"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "then": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "number": {}
+                                },
+                                "required": [
+                                    "number"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "indefiniteRange": {}
+                                },
+                                "required": [
+                                    "indefiniteRange"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "definiteRange": {}
+                                },
+                                "required": [
+                                    "definiteRange"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
             "description": "",
             "properties": {
                 "definiteRange": {
@@ -1812,34 +1990,6 @@
                     "$ref": "#/$defs/Number",
                     "description": ""
                 }
-            },
-            "then": {
-                "oneOf": [
-                    {
-                        "properties": {
-                            "number": {}
-                        },
-                        "required": [
-                            "number"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "indefiniteRange": {}
-                        },
-                        "required": [
-                            "indefiniteRange"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "definiteRange": {}
-                        },
-                        "required": [
-                            "definiteRange"
-                        ]
-                    }
-                ]
             },
             "title": "RepeatedSequenceExpression",
             "type": "object"
@@ -1935,6 +2085,68 @@
         },
         "SequenceInterval": {
             "additionalProperties": false,
+            "allOf": [
+                {
+                    "then": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "startNumber": {}
+                                },
+                                "required": [
+                                    "startNumber"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "startIndefiniteRange": {}
+                                },
+                                "required": [
+                                    "startIndefiniteRange"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "startDefiniteRange": {}
+                                },
+                                "required": [
+                                    "startDefiniteRange"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "then": {
+                        "oneOf": [
+                            {
+                                "properties": {
+                                    "endNumber": {}
+                                },
+                                "required": [
+                                    "endNumber"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "endIndefiniteRange": {}
+                                },
+                                "required": [
+                                    "endIndefiniteRange"
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "endDefiniteRange": {}
+                                },
+                                "required": [
+                                    "endDefiniteRange"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
             "description": "",
             "properties": {
                 "endDefiniteRange": {
@@ -1962,34 +2174,6 @@
                     "description": ""
                 }
             },
-            "then": {
-                "oneOf": [
-                    {
-                        "properties": {
-                            "endNumber": {}
-                        },
-                        "required": [
-                            "endNumber"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "endIndefiniteRange": {}
-                        },
-                        "required": [
-                            "endIndefiniteRange"
-                        ]
-                    },
-                    {
-                        "properties": {
-                            "endDefiniteRange": {}
-                        },
-                        "required": [
-                            "endDefiniteRange"
-                        ]
-                    }
-                ]
-            },
             "title": "SequenceInterval",
             "type": "object"
         },
@@ -1997,7 +2181,7 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "id": {
+                "Id": {
                     "description": "",
                     "type": "string"
                 },
@@ -2007,6 +2191,10 @@
                 },
                 "sequenceInterval": {
                     "$ref": "#/$defs/SequenceInterval",
+                    "description": ""
+                },
+                "simpleInterval": {
+                    "$ref": "#/$defs/SimpleInterval",
                     "description": ""
                 }
             },
@@ -2018,6 +2206,14 @@
                         },
                         "required": [
                             "sequenceInterval"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "simpleInterval": {}
+                        },
+                        "required": [
+                            "simpleInterval"
                         ]
                     }
                 ]
@@ -2040,10 +2236,10 @@
         "Sex": {
             "description": "Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)",
             "enum": [
+                "UNKNOWN_SEX",
                 "FEMALE",
                 "MALE",
-                "OTHER_SEX",
-                "UNKNOWN_SEX"
+                "OTHER_SEX"
             ],
             "title": "Sex",
             "type": "string"
@@ -2107,9 +2303,9 @@
         "Status": {
             "description": "Default = false i.e. the individual is alive. MUST be true if",
             "enum": [
+                "UNKNOWN_STATUS",
                 "ALIVE",
-                "DECEASED",
-                "UNKNOWN_STATUS"
+                "DECEASED"
             ],
             "title": "Status",
             "type": "string"
@@ -2142,11 +2338,11 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "definition": {
+                "Id": {
                     "description": "",
                     "type": "string"
                 },
-                "id": {
+                "definition": {
                     "description": "",
                     "type": "string"
                 }
@@ -2157,16 +2353,16 @@
         "TherapeuticActionability": {
             "description": "",
             "enum": [
-                "ACTIONABLE",
+                "UNKNOWN_ACTIONABILITY",
                 "NOT_ACTIONABLE",
-                "UNKNOWN_ACTIONABILITY"
+                "ACTIONABLE"
             ],
             "title": "TherapeuticActionability",
             "type": "string"
         },
         "TherapeuticRegimen": {
             "additionalProperties": false,
-            "description": "ARGO mapping radiation::radiation_therapy_type (missing)",
+            "description": "",
             "properties": {
                 "endTime": {
                     "$ref": "#/$defs/TimeElement",
@@ -2330,11 +2526,11 @@
         },
         "Treatment": {
             "additionalProperties": false,
-            "description": "ARGO mapping treatment::is_primary_treatment (missing) treatment with an agent, such as a drug",
+            "description": "treatment with an agent, such as a drug",
             "properties": {
                 "agent": {
                     "$ref": "#/$defs/OntologyClass",
-                    "description": ""
+                    "description": "for instance, DrugCentral, RxNorm Drugbank concept"
                 },
                 "cumulativeDose": {
                     "$ref": "#/$defs/Quantity",
@@ -2353,7 +2549,7 @@
                 },
                 "routeOfAdministration": {
                     "$ref": "#/$defs/OntologyClass",
-                    "description": ""
+                    "description": "For instance, NCIT subhierarchy: Route of Administration (Code C38114)"
                 }
             },
             "title": "Treatment",
@@ -2682,7 +2878,104 @@
         "VariationSet": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "Id": {
+                    "description": "",
+                    "type": "string"
+                },
+                "members": {
+                    "description": "",
+                    "items": {
+                        "$ref": "#/$defs/VariationSetMember"
+                    },
+                    "type": "array"
+                }
+            },
             "title": "VariationSet",
+            "type": "object"
+        },
+        "VariationSetMember": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "allele": {
+                    "$ref": "#/$defs/Allele",
+                    "description": ""
+                },
+                "copyNumber": {
+                    "$ref": "#/$defs/CopyNumber",
+                    "description": ""
+                },
+                "curie": {
+                    "description": "",
+                    "type": "string"
+                },
+                "haplotype": {
+                    "$ref": "#/$defs/Haplotype",
+                    "description": ""
+                },
+                "text": {
+                    "$ref": "#/$defs/Text",
+                    "description": ""
+                },
+                "variationSet": {
+                    "$ref": "#/$defs/VariationSet",
+                    "description": ""
+                }
+            },
+            "then": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "curie": {}
+                        },
+                        "required": [
+                            "curie"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "allele": {}
+                        },
+                        "required": [
+                            "allele"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "haplotype": {}
+                        },
+                        "required": [
+                            "haplotype"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "copyNumber": {}
+                        },
+                        "required": [
+                            "copyNumber"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "text": {}
+                        },
+                        "required": [
+                            "text"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "variationSet": {}
+                        },
+                        "required": [
+                            "variationSet"
+                        ]
+                    }
+                ]
+            },
+            "title": "VariationSetMember",
             "type": "object"
         },
         "VcfRecord": {
