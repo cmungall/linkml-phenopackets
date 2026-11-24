@@ -11,9 +11,13 @@ from phenopackets.datamodel import MAIN_SCHEMA_PATH
 
 
 def code(text: str):
-    """The lines of generated code, without the line that states when it was generated."""
+    """The lines of generated code, without the lines that state when it was generated,
+    and under which path the schema was read."""
     lines = text.strip().splitlines()
-    return [line for line in lines if not line.startswith("# Generation date:")]
+    return [
+        line for line in lines
+        if not line.startswith("# Generation date:") and "'source_file':" not in line
+    ]
 
 
 class TestGenerated(unittest.TestCase):
