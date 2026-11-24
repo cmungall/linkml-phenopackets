@@ -1,43 +1,42 @@
-from __future__ import annotations 
-from datetime import (
-    datetime,
-    date
-)
-from decimal import Decimal 
-from enum import Enum 
+from __future__ import annotations
+
 import re
 import sys
+from datetime import (
+    date,
+    datetime,
+    time
+)
+from decimal import Decimal
+from enum import Enum
 from typing import (
     Any,
     ClassVar,
-    List,
     Literal,
-    Dict,
     Optional,
     Union
 )
-from pydantic.version import VERSION  as PYDANTIC_VERSION 
-if int(PYDANTIC_VERSION[0])>=2:
-    from pydantic import (
-        BaseModel,
-        ConfigDict,
-        Field,
-        RootModel,
-        field_validator
-    )
-else:
-    from pydantic import (
-        BaseModel,
-        Field,
-        validator
-    )
 
-metamodel_version = "None"
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    RootModel,
+    SerializationInfo,
+    SerializerFunctionWrapHandler,
+    field_validator,
+    model_serializer
+)
+
+
+metamodel_version = "1.12.0"
 version = "None"
 
 
 class ConfiguredBaseModel(BaseModel):
     model_config = ConfigDict(
+        serialize_by_alias = True,
+        validate_by_name = True,
         validate_assignment = True,
         validate_default = True,
         extra = "forbid",
@@ -45,13 +44,13 @@ class ConfiguredBaseModel(BaseModel):
         use_enum_values = True,
         strict = False,
     )
-    pass
+
 
 
 
 
 class LinkMLMeta(RootModel):
-    root: Dict[str, Any] = {}
+    root: dict[str, Any] = {}
     model_config = ConfigDict(frozen=True)
 
     def __getattr__(self, key:str):
@@ -63,273 +62,543 @@ class LinkMLMeta(RootModel):
     def __setitem__(self, key:str, value):
         self.root[key] = value
 
+    def __contains__(self, key:str) -> bool:
+        return key in self.root
 
-linkml_meta = LinkMLMeta({'default_prefix': 'https://w3id.org/linkml/phenopackets/phenopackets/',
-     'description': 'Automatic translation of phenopackets protobuf to LinkML. '
-                    'Status: EXPERIMENTAL.',
+
+linkml_meta = LinkMLMeta({'default_prefix': 'phenopackets',
+     'description': 'Automatic translation of phenopackets protobuf to LinkML.',
      'id': 'https://w3id.org/linkml/phenopackets/phenopackets',
-     'name': 'phenopackets'} )
+     'imports': ['linkml:types',
+                 'cv_terms',
+                 'base',
+                 'biosample',
+                 'disease',
+                 'interpretation',
+                 'individual',
+                 'measurement',
+                 'medical_action',
+                 'meta_data',
+                 'pedigree',
+                 'phenotypic_feature'],
+     'name': 'phenopackets',
+     'prefixes': {'GENO': {'prefix_prefix': 'GENO',
+                           'prefix_reference': 'http://purl.obolibrary.org/obo/GENO_'},
+                  'HP': {'prefix_prefix': 'HP',
+                         'prefix_reference': 'http://purl.obolibrary.org/obo/HP_'},
+                  'LOINC': {'prefix_prefix': 'LOINC',
+                            'prefix_reference': 'https://loinc.org/'},
+                  'MONDO': {'prefix_prefix': 'MONDO',
+                            'prefix_reference': 'http://purl.obolibrary.org/obo/MONDO_'},
+                  'NCIT': {'prefix_prefix': 'NCIT',
+                           'prefix_reference': 'http://purl.obolibrary.org/obo/NCIT_'},
+                  'UBERON': {'prefix_prefix': 'UBERON',
+                             'prefix_reference': 'http://purl.obolibrary.org/obo/UBERON_'},
+                  'UCUM': {'prefix_prefix': 'UCUM',
+                           'prefix_reference': 'http://unitsofmeasure.org/'},
+                  'UO': {'prefix_prefix': 'UO',
+                         'prefix_reference': 'http://purl.obolibrary.org/obo/UO_'},
+                  'argo': {'prefix_prefix': 'argo',
+                           'prefix_reference': 'https://docs.icgc-argo.org/dictionary/'},
+                  'linkml': {'prefix_prefix': 'linkml',
+                             'prefix_reference': 'https://w3id.org/linkml/'},
+                  'phenopackets': {'prefix_prefix': 'phenopackets',
+                                   'prefix_reference': 'https://w3id.org/linkml/phenopackets/phenopackets/'}},
+     'source': 'https://github.com/phenopackets/phenopacket-schema/blob/2.0.0/src/main/proto/phenopackets/schema/v2/phenopackets.proto',
+     'source_file': 'src/phenopackets/schema/phenopackets.yaml'} )
 
 class AllelicStateTerms(str, Enum):
-    # heterozygous
     HETEROZYGOUS = "HETEROZYGOUS"
-    # homozygous
+    """
+    heterozygous
+    """
     HOMOZYGOUS = "HOMOZYGOUS"
-    # hemizygous
+    """
+    homozygous
+    """
     HEMIZYGOUS = "HEMIZYGOUS"
+    """
+    hemizygous
+    """
 
 
 class AssaysTerms(str, Enum):
-    # Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
     CREATINE_KINASE = "CREATINE_KINASE"
+    """
+    Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+    """
 
 
 class GenderTerms(str, Enum):
-    # Identifies as male
     IDENTIFIES_AS_MALE = "IDENTIFIES_AS_MALE"
-    # Identifies as female
+    """
+    Identifies as male
+    """
     IDENTIFIES_AS_FEMALE = "IDENTIFIES_AS_FEMALE"
-    # Female-to-male transsexual
+    """
+    Identifies as female
+    """
     FEMALE_TO_MALE_TRANSSEXUAL = "FEMALE_TO_MALE_TRANSSEXUAL"
-    # Male-to-female transsexual
+    """
+    Female-to-male transsexual
+    """
     MALE_TO_FEMALE_TRANSSEXUAL = "MALE_TO_FEMALE_TRANSSEXUAL"
-    # Identifies as non-conforming
+    """
+    Male-to-female transsexual
+    """
     IDENTIFIES_AS_NON_CONFORMING = "IDENTIFIES_AS_NON_CONFORMING"
-    # other
+    """
+    Identifies as non-conforming
+    """
     OTHER_GENDER = "OTHER_GENDER"
-    # Asked but unknown
+    """
+    other
+    """
     ASKED_BUT_UNKNOWN = "ASKED_BUT_UNKNOWN"
+    """
+    Asked but unknown
+    """
 
 
 class LateralityTerms(str, Enum):
-    # Right
     RIGHT = "RIGHT"
-    # Left
+    """
+    Right
+    """
     LEFT = "LEFT"
-    # Unilateral
+    """
+    Left
+    """
     UNILATERAL = "UNILATERAL"
-    # Bilateral
+    """
+    Unilateral
+    """
     BILATERAL = "BILATERAL"
+    """
+    Bilateral
+    """
 
 
 class MedicalActionsTerms(str, Enum):
-    # Adverse Event
     ADVERSE_EVENT = "ADVERSE_EVENT"
-    # Four Times Daily
+    """
+    Adverse Event
+    """
     FOUR_TIMES_DAILY = "FOUR_TIMES_DAILY"
-    # Intraarterial Route of Administration
+    """
+    Four Times Daily
+    """
     INTRA_ARTERIAL = "INTRA_ARTERIAL"
-    # Intravenous Route of Administration
+    """
+    Intraarterial Route of Administration
+    """
     IV_ADMINISTRATION = "IV_ADMINISTRATION"
-    # Oral Route of Administration
+    """
+    Intravenous Route of Administration
+    """
     ORAL_ADMINISTRATION = "ORAL_ADMINISTRATION"
-    # Once
+    """
+    Oral Route of Administration
+    """
     ONCE = "ONCE"
-    # Once Daily
+    """
+    Once
+    """
     ONCE_DAILY = "ONCE_DAILY"
-    # Three Times Daily
+    """
+    Once Daily
+    """
     THREE_TIMES_DAILY = "THREE_TIMES_DAILY"
-    # Twice Daily
+    """
+    Three Times Daily
+    """
     TWICE_DAILY = "TWICE_DAILY"
+    """
+    Twice Daily
+    """
 
 
 class OnsetTerms(str, Enum):
-    # Antenatal onset
     ANTENATAL_ONSET = "ANTENATAL_ONSET"
-    # Embryonal onset
+    """
+    Antenatal onset
+    """
     EMBRYONAL_ONSET = "EMBRYONAL_ONSET"
-    # Fetal onset
+    """
+    Embryonal onset
+    """
     FETAL_ONSET = "FETAL_ONSET"
-    # Late first trimester onset
+    """
+    Fetal onset
+    """
     LATE_FIRST_TRIMESTER_ONSET = "LATE_FIRST_TRIMESTER_ONSET"
-    # Second trimester onset
+    """
+    Late first trimester onset
+    """
     SECOND_TRIMESTER_ONSET = "SECOND_TRIMESTER_ONSET"
-    # Third trimester onset
+    """
+    Second trimester onset
+    """
     THIRD_TRIMESTER_ONSET = "THIRD_TRIMESTER_ONSET"
-    # Congenital onset
+    """
+    Third trimester onset
+    """
     CONGENITAL_ONSET = "CONGENITAL_ONSET"
-    # Neonatal onset
+    """
+    Congenital onset
+    """
     NEONATAL_ONSET = "NEONATAL_ONSET"
-    # Infantile onset
+    """
+    Neonatal onset
+    """
     INFANTILE_ONSET = "INFANTILE_ONSET"
-    # Childhood onset
+    """
+    Infantile onset
+    """
     CHILDHOOD_ONSET = "CHILDHOOD_ONSET"
-    # Juvenile onset
+    """
+    Childhood onset
+    """
     JUVENILE_ONSET = "JUVENILE_ONSET"
-    # Adult onset
+    """
+    Juvenile onset
+    """
     ADULT_ONSET = "ADULT_ONSET"
-    # Young adult onset
+    """
+    Adult onset
+    """
     YOUNG_ADULT_ONSET = "YOUNG_ADULT_ONSET"
-    # Early young adult onset
+    """
+    Young adult onset
+    """
     EARLY_YOUNG_ADULT_ONSET = "EARLY_YOUNG_ADULT_ONSET"
-    # Intermediate young adult onset
+    """
+    Early young adult onset
+    """
     INTERMEDIATE_YOUNG_ADULT_ONSET = "INTERMEDIATE_YOUNG_ADULT_ONSET"
-    # Late young adult onset
+    """
+    Intermediate young adult onset
+    """
     LATE_YOUNG_ADULT_ONSET = "LATE_YOUNG_ADULT_ONSET"
-    # Middle age onset
+    """
+    Late young adult onset
+    """
     MIDDLE_AGE_ONSET = "MIDDLE_AGE_ONSET"
-    # Late onset
+    """
+    Middle age onset
+    """
     LATE_ONSET = "LATE_ONSET"
+    """
+    Late onset
+    """
 
 
 class OrganTerms(str, Enum):
-    # brain
     BRAIN = "BRAIN"
-    # cerebellum
+    """
+    brain
+    """
     CEREBELLUM = "CEREBELLUM"
-    # ear
+    """
+    cerebellum
+    """
     EAR = "EAR"
-    # eye
+    """
+    ear
+    """
     EYE = "EYE"
-    # heart
+    """
+    eye
+    """
     HEART = "HEART"
-    # kidney
+    """
+    heart
+    """
     KIDNEY = "KIDNEY"
-    # large intestine
+    """
+    kidney
+    """
     LARGE_INTESTINE = "LARGE_INTESTINE"
-    # liver
+    """
+    large intestine
+    """
     LIVER = "LIVER"
-    # lung
+    """
+    liver
+    """
     LUNG = "LUNG"
-    # nose
+    """
+    lung
+    """
     NOSE = "NOSE"
-    # small intestine
+    """
+    nose
+    """
     SMALL_INTESTINE = "SMALL_INTESTINE"
-    # spinal cord
+    """
+    small intestine
+    """
     SPINAL_CORD = "SPINAL_CORD"
-    # spleen
+    """
+    spinal cord
+    """
     SPLEEN = "SPLEEN"
-    # tongue
+    """
+    spleen
+    """
     TONGUE = "TONGUE"
-    # thymus
+    """
+    tongue
+    """
     THYMUS = "THYMUS"
+    """
+    thymus
+    """
 
 
 class ResponseTerms(str, Enum):
-    # Favorable
     FAVORABLE = "FAVORABLE"
-    # Unfavorable
+    """
+    Favorable
+    """
     UNFAVORABLE = "UNFAVORABLE"
+    """
+    Unfavorable
+    """
 
 
 class SpatialPatternTerms(str, Enum):
-    # Predominant small joint localization
     PREDOMINANT_SMALL_JOINT_LOCALIZATION = "PREDOMINANT_SMALL_JOINT_LOCALIZATION"
-    # Polycyclic
+    """
+    Predominant small joint localization
+    """
     POLYCYCLIC = "POLYCYCLIC"
-    # Axial
+    """
+    Polycyclic
+    """
     AXIAL = "AXIAL"
-    # Perilobular
+    """
+    Axial
+    """
     PERILOBULAR = "PERILOBULAR"
-    # Paraseptal
+    """
+    Perilobular
+    """
     PARASEPTAL = "PARASEPTAL"
-    # Bronchocentric
+    """
+    Paraseptal
+    """
     BRONCHOCENTRIC = "BRONCHOCENTRIC"
-    # Centrilobular
+    """
+    Bronchocentric
+    """
     CENTRILOBULAR = "CENTRILOBULAR"
-    # Miliary
+    """
+    Centrilobular
+    """
     MILIARY = "MILIARY"
-    # Generalized
+    """
+    Miliary
+    """
     GENERALIZED = "GENERALIZED"
-    # Perilymphatic
+    """
+    Generalized
+    """
     PERILYMPHATIC = "PERILYMPHATIC"
-    # Localized
+    """
+    Perilymphatic
+    """
     LOCALIZED = "LOCALIZED"
-    # Reticular
+    """
+    Localized
+    """
     RETICULAR = "RETICULAR"
-    # Distal
+    """
+    Reticular
+    """
     DISTAL = "DISTAL"
-    # Central
+    """
+    Distal
+    """
     CENTRAL = "CENTRAL"
-    # Upper-body predominance
+    """
+    Central
+    """
     UPPER_BODY_PREDOMINANCE = "UPPER_BODY_PREDOMINANCE"
-    # Joint extensor surface localization
+    """
+    Upper-body predominance
+    """
     JOINT_EXTENSOR_SURFACE_LOCALIZATION = "JOINT_EXTENSOR_SURFACE_LOCALIZATION"
-    # Herpetiform
+    """
+    Joint extensor surface localization
+    """
     HERPETIFORM = "HERPETIFORM"
-    # Morbilliform
+    """
+    Herpetiform
+    """
     MORBILLIFORM = "MORBILLIFORM"
-    # Pericentral
+    """
+    Morbilliform
+    """
     PERICENTRAL = "PERICENTRAL"
-    # Dermatomal
+    """
+    Pericentral
+    """
     DERMATOMAL = "DERMATOMAL"
-    # Midperipheral
+    """
+    Dermatomal
+    """
     MIDPERIPHERAL = "MIDPERIPHERAL"
-    # Distributed along Blaschko lines
+    """
+    Midperipheral
+    """
     DISTRIBUTED_ALONG_BLASCHKO_LINES = "DISTRIBUTED_ALONG_BLASCHKO_LINES"
-    # Acral
+    """
+    Distributed along Blaschko lines
+    """
     ACRAL = "ACRAL"
-    # Paracentral
+    """
+    Acral
+    """
     PARACENTRAL = "PARACENTRAL"
-    # Lateral
+    """
+    Paracentral
+    """
     LATERAL = "LATERAL"
-    # Peripheral
+    """
+    Lateral
+    """
     PERIPHERAL = "PERIPHERAL"
-    # Lower-body predominance
+    """
+    Peripheral
+    """
     LOWER_BODY_PREDOMINANCE = "LOWER_BODY_PREDOMINANCE"
-    # Diffuse
+    """
+    Lower-body predominance
+    """
     DIFFUSE = "DIFFUSE"
-    # Proximal
+    """
+    Diffuse
+    """
     PROXIMAL = "PROXIMAL"
-    # Apical
+    """
+    Proximal
+    """
     APICAL = "APICAL"
-    # Focal
+    """
+    Apical
+    """
     FOCAL = "FOCAL"
-    # Multifocal
+    """
+    Focal
+    """
     MULTIFOCAL = "MULTIFOCAL"
-    # Jointflexorsurfacelocalization
+    """
+    Multifocal
+    """
     JOINT_FLEXOR_SURFACE_LOCALIZATION = "JOINT_FLEXOR_SURFACE_LOCALIZATION"
+    """
+    Jointflexorsurfacelocalization
+    """
 
 
 class UnitTerms(str, Enum):
-    # degree (plane angle)
     DEGREE = "DEGREE"
-    # diopter
+    """
+    degree (plane angle)
+    """
     DIOPTER = "DIOPTER"
-    # gram
+    """
+    diopter
+    """
     GRAM = "GRAM"
-    # gram per kilogram
+    """
+    gram
+    """
     GRAM_PER_KG = "GRAM_PER_KG"
-    # kiligram
+    """
+    gram per kilogram
+    """
     KILIGRAM = "KILIGRAM"
-    # liter
+    """
+    kiligram
+    """
     LITER = "LITER"
-    # meter
+    """
+    liter
+    """
     METER = "METER"
-    # microgram
+    """
+    meter
+    """
     MICROGRAM = "MICROGRAM"
-    # microgram per deciliter
+    """
+    microgram
+    """
     MICROGRAM_PER_DECILITER = "MICROGRAM_PER_DECILITER"
-    # microgram per liter
+    """
+    microgram per deciliter
+    """
     MICROGRAM_PER_LITER = "MICROGRAM_PER_LITER"
-    # microliter
+    """
+    microgram per liter
+    """
     MICROLITER = "MICROLITER"
-    # micrometer
+    """
+    microliter
+    """
     MICROMETER = "MICROMETER"
-    # milligram
+    """
+    micrometer
+    """
     MILLIGRAM = "MILLIGRAM"
-    # milligram per day
+    """
+    milligram
+    """
     MILLIGRAM_PER_DAY = "MILLIGRAM_PER_DAY"
-    # milligram per deciliter
+    """
+    milligram per day
+    """
     MILLIGRAM_PER_DL = "MILLIGRAM_PER_DL"
-    # milligram per kilogram
+    """
+    milligram per deciliter
+    """
     MILLIGRAM_PER_KG = "MILLIGRAM_PER_KG"
-    # milliliter
+    """
+    milligram per kilogram
+    """
     MILLILITER = "MILLILITER"
-    # millimeter
+    """
+    milliliter
+    """
     MILLIMETER = "MILLIMETER"
-    # millimetres of mercury
+    """
+    millimeter
+    """
     MILLIMETRES_OF_MERCURY = "MILLIMETRES_OF_MERCURY"
-    # millimole
+    """
+    millimetres of mercury
+    """
     MILLIMOLE = "MILLIMOLE"
-    # mole
+    """
+    millimole
+    """
     MOLE = "MOLE"
-    # mole per liter
+    """
+    mole
+    """
     MOLE_PER_LITER = "MOLE_PER_LITER"
-    # mole per milliliter
+    """
+    mole per liter
+    """
     MOLE_PER_MILLILITER = "MOLE_PER_MILLILITER"
-    # enzyme unit per liter
+    """
+    mole per milliliter
+    """
     ENZYME_UNIT_PER_LITER = "ENZYME_UNIT_PER_LITER"
+    """
+    enzyme unit per liter
+    """
 
 
 class MondoDiseaseTerms(str):
@@ -454,14 +723,22 @@ class Sex(str, Enum):
     """
     Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)
     """
-    # Not assessed / available.
     UNKNOWN_SEX = "UNKNOWN_SEX"
-    # Female
+    """
+    Not assessed / available.
+    """
     FEMALE = "FEMALE"
-    # Male
+    """
+    Female
+    """
     MALE = "MALE"
-    # It is not possible, to accurately assess the applicability of MALE/FEMALE.
+    """
+    Male
+    """
     OTHER_SEX = "OTHER_SEX"
+    """
+    It is not possible, to accurately assess the applicability of MALE/FEMALE.
+    """
 
 
 class Status(str, Enum):
@@ -503,18 +780,18 @@ class Age(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    iso8601duration: Optional[str] = Field(None, description="""The :ref:`ISO 8601<metadata_date_time>` age of this object as ISO8601 duration or time intervals. e.g. P40Y10M05D)""", json_schema_extra = { "linkml_meta": {'alias': 'iso8601duration', 'domain_of': ['Age']} })
+    iso8601duration: Optional[str] = Field(default=None, description="""The :ref:`ISO 8601<metadata_date_time>` age of this object as ISO8601 duration or time intervals. e.g. P40Y10M05D)""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}}, 'domain_of': ['Age']} })
 
 
 class AgeRange(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    end: Optional[Age] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'end',
+    end: Optional[Age] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['AgeRange',
                        'TimeInterval',
                        'CytobandInterval',
                        'SimpleInterval']} })
-    start: Optional[Age] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'start',
+    start: Optional[Age] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['AgeRange',
                        'TimeInterval',
                        'CytobandInterval',
@@ -527,8 +804,9 @@ class DictionaryEntry(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    key: str = Field(..., description="""The key of the map entry. Keys are unique within a map.""", json_schema_extra = { "linkml_meta": {'alias': 'key', 'domain_of': ['DictionaryEntry']} })
-    value: Optional[str] = Field(None, description="""The value of the map entry.""", json_schema_extra = { "linkml_meta": {'alias': 'value',
+    key: str = Field(default=..., description="""The key of the map entry. Keys are unique within a map.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['DictionaryEntry']} })
+    value: Optional[str] = Field(default=None, description="""The value of the map entry.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['DictionaryEntry',
                        'Measurement',
                        'Quantity',
@@ -545,8 +823,10 @@ class Evidence(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    evidenceCode: Optional[OntologyClass] = Field(None, description="""The encoded evidence type using, for example the Evidence & Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl) FHIR mapping: Condition.evidence.code""", json_schema_extra = { "linkml_meta": {'alias': 'evidenceCode', 'domain_of': ['Evidence']} })
-    reference: Optional[ExternalReference] = Field(None, description="""FHIR mapping: Condition.evidence.detail""", json_schema_extra = { "linkml_meta": {'alias': 'reference', 'domain_of': ['Evidence', 'ExternalReference']} })
+    evidenceCode: Optional[OntologyClass] = Field(default=None, description="""The encoded evidence type using, for example the Evidence & Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl) FHIR mapping: Condition.evidence.code""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Evidence']} })
+    reference: Optional[ExternalReference] = Field(default=None, description="""FHIR mapping: Condition.evidence.detail""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Evidence', 'ExternalReference']} })
 
 
 class ExternalReference(ConfiguredBaseModel):
@@ -555,7 +835,7 @@ class ExternalReference(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    description: Optional[str] = Field(None, description="""Human readable title or display string for the reference FHIR mapping: Reference.display""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+    description: Optional[str] = Field(default=None, description="""Human readable title or display string for the reference FHIR mapping: Reference.display""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['ExternalReference',
                        'Measurement',
                        'PhenotypicFeature',
@@ -563,7 +843,8 @@ class ExternalReference(ConfiguredBaseModel):
                        'GeneDescriptor',
                        'VariationDescriptor',
                        'Cohort']} })
-    id: Optional[str] = Field(None, description="""e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    id: Optional[str] = Field(default=None, description="""e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier""", json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -575,22 +856,25 @@ class ExternalReference(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    reference: Optional[str] = Field(None, description="""A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the `id` field FHIR mapping Reference.reference""", json_schema_extra = { "linkml_meta": {'alias': 'reference', 'domain_of': ['Evidence', 'ExternalReference']} })
+    reference: Optional[str] = Field(default=None, description="""A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the `id` field FHIR mapping Reference.reference""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Evidence', 'ExternalReference']} })
 
 
 class File(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    fileAttributes: Optional[Dict[str, str]] = Field(default_factory=dict, description="""Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.""", json_schema_extra = { "linkml_meta": {'alias': 'fileAttributes', 'domain_of': ['File']} })
-    individualToFileIdentifiers: Optional[Dict[str, str]] = Field(default_factory=dict, description="""A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.""", json_schema_extra = { "linkml_meta": {'alias': 'individualToFileIdentifiers', 'domain_of': ['File']} })
-    uri: Optional[str] = Field(None, description="""URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444""", json_schema_extra = { "linkml_meta": {'alias': 'uri', 'domain_of': ['File']} })
+    fileAttributes: Optional[dict[str, Union[str, DictionaryEntry]]] = Field(default=None, description="""Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}}, 'domain_of': ['File']} })
+    individualToFileIdentifiers: Optional[dict[str, Union[str, DictionaryEntry]]] = Field(default=None, description="""A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}}, 'domain_of': ['File']} })
+    uri: Optional[str] = Field(default=None, description="""URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}}, 'domain_of': ['File']} })
 
 
 class GestationalAge(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    days: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'days', 'domain_of': ['GestationalAge']} })
-    weeks: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'weeks', 'domain_of': ['GestationalAge']} })
+    days: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['GestationalAge']} })
+    weeks: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['GestationalAge']} })
 
 
 class OntologyClass(ConfiguredBaseModel):
@@ -599,7 +883,7 @@ class OntologyClass(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    id: str = Field(..., description="""a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    id: str = Field(default=..., description="""a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -611,7 +895,8 @@ class OntologyClass(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    label: Optional[str] = Field(None, description="""class label, aka name. E.g. \"Abnormality of cardiovascular system\"""", json_schema_extra = { "linkml_meta": {'alias': 'label', 'domain_of': ['OntologyClass', 'VariationDescriptor']} })
+    label: Optional[str] = Field(default=None, description="""class label, aka name. E.g. \"Abnormality of cardiovascular system\"""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['OntologyClass', 'VariationDescriptor']} })
 
 
 class Procedure(ConfiguredBaseModel):
@@ -620,9 +905,12 @@ class Procedure(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    bodySite: Optional[OntologyClass] = Field(None, description="""FHIR mapping: Procedure.bodySite""", json_schema_extra = { "linkml_meta": {'alias': 'bodySite', 'domain_of': ['Procedure', 'RadiationTherapy']} })
-    code: Optional[OntologyClass] = Field(None, description="""FHIR mapping: Procedure.code""", json_schema_extra = { "linkml_meta": {'alias': 'code', 'domain_of': ['Procedure']} })
-    performed: Optional[TimeElement] = Field(None, description="""When the procedure was performed.""", json_schema_extra = { "linkml_meta": {'alias': 'performed', 'domain_of': ['Procedure']} })
+    bodySite: Optional[OntologyClass] = Field(default=None, description="""FHIR mapping: Procedure.bodySite""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Procedure', 'RadiationTherapy']} })
+    code: Optional[OntologyClass] = Field(default=None, description="""FHIR mapping: Procedure.code""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Procedure']} })
+    performed: Optional[TimeElement] = Field(default=None, description="""When the procedure was performed.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Procedure']} })
 
 
 class TimeElement(ConfiguredBaseModel):
@@ -641,25 +929,29 @@ class TimeElement(ConfiguredBaseModel):
                                                           {'slot_conditions': {'interval': {'name': 'interval',
                                                                                             'required': True}}}]}}]})
 
-    age: Optional[Age] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'age', 'domain_of': ['TimeElement']} })
-    ageRange: Optional[AgeRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'ageRange', 'domain_of': ['TimeElement']} })
-    gestationalAge: Optional[GestationalAge] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'gestationalAge', 'domain_of': ['TimeElement']} })
-    interval: Optional[TimeInterval] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'interval',
+    age: Optional[Age] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['TimeElement']} })
+    ageRange: Optional[AgeRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['TimeElement']} })
+    gestationalAge: Optional[GestationalAge] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['TimeElement']} })
+    interval: Optional[TimeInterval] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['TimeElement', 'ChromosomeLocation', 'DoseInterval']} })
-    ontologyClass: Optional[OntologyClass] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'ontologyClass',
+    ontologyClass: Optional[OntologyClass] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['TimeElement', 'Value', 'TherapeuticRegimen']} })
-    timestamp: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'timestamp', 'domain_of': ['TimeElement', 'Update']} })
+    timestamp: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['TimeElement', 'Update']} })
 
 
 class TimeInterval(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/base'})
 
-    end: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'end',
+    end: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['AgeRange',
                        'TimeInterval',
                        'CytobandInterval',
                        'SimpleInterval']} })
-    start: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'start',
+    start: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['AgeRange',
                        'TimeInterval',
                        'CytobandInterval',
@@ -669,7 +961,8 @@ class TimeInterval(ConfiguredBaseModel):
 class ComplexValue(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/measurement'})
 
-    typedQuantities: Optional[List[TypedQuantity]] = Field(default_factory=list, description="""The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities""", json_schema_extra = { "linkml_meta": {'alias': 'typedQuantities', 'domain_of': ['ComplexValue']} })
+    typedQuantities: Optional[list[TypedQuantity]] = Field(default=None, description="""The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['ComplexValue']} })
 
 
 class Measurement(ConfiguredBaseModel):
@@ -694,9 +987,11 @@ class Measurement(ConfiguredBaseModel):
                                                           {'slot_conditions': {'complexValue': {'name': 'complexValue',
                                                                                                 'required': True}}}]}}]})
 
-    assay: Optional[OntologyClass] = Field(None, description="""An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code""", json_schema_extra = { "linkml_meta": {'alias': 'assay', 'domain_of': ['Measurement']} })
-    complexValue: Optional[ComplexValue] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'complexValue', 'domain_of': ['Measurement']} })
-    description: Optional[str] = Field(None, description="""Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose.""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+    assay: Optional[OntologyClass] = Field(default=None, description="""An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Measurement']} })
+    complexValue: Optional[ComplexValue] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['Measurement']} })
+    description: Optional[str] = Field(default=None, description="""Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'Measurement',
                        'PhenotypicFeature',
@@ -704,10 +999,11 @@ class Measurement(ConfiguredBaseModel):
                        'GeneDescriptor',
                        'VariationDescriptor',
                        'Cohort']} })
-    procedure: Optional[Procedure] = Field(None, description="""Clinical procedure performed on the subject in order to produce the measurement.""", json_schema_extra = { "linkml_meta": {'alias': 'procedure',
+    procedure: Optional[Procedure] = Field(default=None, description="""Clinical procedure performed on the subject in order to produce the measurement.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
          'domain_of': ['Measurement', 'Biosample', 'MedicalAction']} })
-    timeObserved: Optional[TimeElement] = Field(None, description="""The time at which the measurement was made""", json_schema_extra = { "linkml_meta": {'alias': 'timeObserved', 'domain_of': ['Measurement']} })
-    value: Optional[Value] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
+    timeObserved: Optional[TimeElement] = Field(default=None, description="""The time at which the measurement was made""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['Measurement']} })
+    value: Optional[Value] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['DictionaryEntry',
                        'Measurement',
                        'Quantity',
@@ -721,9 +1017,11 @@ class Measurement(ConfiguredBaseModel):
 class Quantity(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/measurement'})
 
-    referenceRange: Optional[ReferenceRange] = Field(None, description="""Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL.""", json_schema_extra = { "linkml_meta": {'alias': 'referenceRange', 'domain_of': ['Quantity']} })
-    unit: Optional[OntologyClass] = Field(None, description="""For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo""", json_schema_extra = { "linkml_meta": {'alias': 'unit', 'domain_of': ['Quantity', 'ReferenceRange']} })
-    value: Optional[float] = Field(None, description="""the  value of the quantity in the units  e.g. 2.0 mg""", json_schema_extra = { "linkml_meta": {'alias': 'value',
+    referenceRange: Optional[ReferenceRange] = Field(default=None, description="""Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Quantity']} })
+    unit: Optional[OntologyClass] = Field(default=None, description="""For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Quantity', 'ReferenceRange']} })
+    value: Optional[float] = Field(default=None, description="""the  value of the quantity in the units  e.g. 2.0 mg""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['DictionaryEntry',
                        'Measurement',
                        'Quantity',
@@ -737,9 +1035,12 @@ class Quantity(ConfiguredBaseModel):
 class ReferenceRange(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/measurement'})
 
-    high: Optional[float] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'high', 'domain_of': ['ReferenceRange']} })
-    low: Optional[float] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'low', 'domain_of': ['ReferenceRange']} })
-    unit: Optional[OntologyClass] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'unit', 'domain_of': ['Quantity', 'ReferenceRange']} })
+    high: Optional[float] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['ReferenceRange']} })
+    low: Optional[float] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['ReferenceRange']} })
+    unit: Optional[OntologyClass] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Quantity', 'ReferenceRange']} })
 
 
 class TypedQuantity(ConfiguredBaseModel):
@@ -748,8 +1049,10 @@ class TypedQuantity(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/measurement'})
 
-    quantity: Optional[Quantity] = Field(None, description="""e.g. mm Hg""", json_schema_extra = { "linkml_meta": {'alias': 'quantity', 'domain_of': ['TypedQuantity', 'Value', 'DoseInterval']} })
-    type: Optional[OntologyClass] = Field(None, description="""e.g. diastolic, systolic""", json_schema_extra = { "linkml_meta": {'alias': 'type', 'domain_of': ['TypedQuantity', 'PhenotypicFeature']} })
+    quantity: Optional[Quantity] = Field(default=None, description="""e.g. mm Hg""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['TypedQuantity', 'Value', 'DoseInterval']} })
+    type: Optional[OntologyClass] = Field(default=None, description="""e.g. diastolic, systolic""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['TypedQuantity', 'PhenotypicFeature']} })
 
 
 class Value(ConfiguredBaseModel):
@@ -760,9 +1063,10 @@ class Value(ConfiguredBaseModel):
                                                           {'slot_conditions': {'ontologyClass': {'name': 'ontologyClass',
                                                                                                  'required': True}}}]}}]})
 
-    ontologyClass: Optional[OntologyClass] = Field(None, description="""for use with things such as categories 'red', 'yellow' or 'absent'/'present'""", json_schema_extra = { "linkml_meta": {'alias': 'ontologyClass',
+    ontologyClass: Optional[OntologyClass] = Field(default=None, description="""for use with things such as categories 'red', 'yellow' or 'absent'/'present'""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['TimeElement', 'Value', 'TherapeuticRegimen']} })
-    quantity: Optional[Quantity] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'quantity', 'domain_of': ['TypedQuantity', 'Value', 'DoseInterval']} })
+    quantity: Optional[Quantity] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['TypedQuantity', 'Value', 'DoseInterval']} })
 
 
 class PhenotypicFeature(ConfiguredBaseModel):
@@ -771,7 +1075,7 @@ class PhenotypicFeature(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/phenotypic_feature'})
 
-    description: Optional[str] = Field(None, description="""Free-text description of the phenotype. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose.""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+    description: Optional[str] = Field(default=None, description="""Free-text description of the phenotype. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'Measurement',
                        'PhenotypicFeature',
@@ -779,13 +1083,20 @@ class PhenotypicFeature(ConfiguredBaseModel):
                        'GeneDescriptor',
                        'VariationDescriptor',
                        'Cohort']} })
-    evidence: Optional[List[Evidence]] = Field(default_factory=list, description="""Evidences for how the phenotype was determined.""", json_schema_extra = { "linkml_meta": {'alias': 'evidence', 'domain_of': ['PhenotypicFeature']} })
-    excluded: Optional[bool] = Field(None, description="""Flag to indicate whether the phenotype was observed or not. Default is 'false', in other words the phenotype was observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field. *CAUTION* It is imperative to check this field for correct interpretation of the phenotype!""", json_schema_extra = { "linkml_meta": {'alias': 'excluded', 'domain_of': ['PhenotypicFeature', 'Disease']} })
-    modifiers: Optional[List[OntologyClass]] = Field(default_factory=list, description="""subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity""", json_schema_extra = { "linkml_meta": {'alias': 'modifiers', 'domain_of': ['PhenotypicFeature']} })
-    onset: Optional[TimeElement] = Field(None, description="""the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset""", json_schema_extra = { "linkml_meta": {'alias': 'onset', 'domain_of': ['PhenotypicFeature', 'Disease']} })
-    resolution: Optional[TimeElement] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'resolution', 'domain_of': ['PhenotypicFeature', 'Disease']} })
-    severity: Optional[OntologyClass] = Field(None, description="""Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity""", json_schema_extra = { "linkml_meta": {'alias': 'severity', 'domain_of': ['PhenotypicFeature']} })
-    type: Optional[OntologyClass] = Field(None, description="""The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier""", json_schema_extra = { "linkml_meta": {'alias': 'type', 'domain_of': ['TypedQuantity', 'PhenotypicFeature']} })
+    evidence: Optional[list[Evidence]] = Field(default=None, description="""Evidences for how the phenotype was determined.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 8}},
+         'domain_of': ['PhenotypicFeature']} })
+    excluded: Optional[bool] = Field(default=None, description="""Flag to indicate whether the phenotype was observed or not. Default is 'false', in other words the phenotype was observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field. *CAUTION* It is imperative to check this field for correct interpretation of the phenotype!""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['PhenotypicFeature', 'Disease']} })
+    modifiers: Optional[list[OntologyClass]] = Field(default=None, description="""subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['PhenotypicFeature']} })
+    onset: Optional[TimeElement] = Field(default=None, description="""the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['PhenotypicFeature', 'Disease']} })
+    resolution: Optional[TimeElement] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
+         'domain_of': ['PhenotypicFeature', 'Disease']} })
+    severity: Optional[OntologyClass] = Field(default=None, description="""Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['PhenotypicFeature']} })
+    type: Optional[OntologyClass] = Field(default=None, description="""The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['TypedQuantity', 'PhenotypicFeature']} })
 
 
 class Biosample(ConfiguredBaseModel):
@@ -795,8 +1106,9 @@ class Biosample(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['biosamples SAMN08666232 Human Cell Atlas'],
          'from_schema': 'https://w3id.org/linkml/phenopackets/biosample'})
 
-    derivedFromId: Optional[str] = Field(None, description="""The id of the parent biosample this biosample was derived from.""", json_schema_extra = { "linkml_meta": {'alias': 'derivedFromId', 'domain_of': ['Biosample']} })
-    description: Optional[str] = Field(None, description="""The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data.""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+    derivedFromId: Optional[str] = Field(default=None, description="""The id of the parent biosample this biosample was derived from.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Biosample']} })
+    description: Optional[str] = Field(default=None, description="""The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['ExternalReference',
                        'Measurement',
                        'PhenotypicFeature',
@@ -804,13 +1116,15 @@ class Biosample(ConfiguredBaseModel):
                        'GeneDescriptor',
                        'VariationDescriptor',
                        'Cohort']} })
-    diagnosticMarkers: Optional[List[OntologyClass]] = Field(default_factory=list, description="""Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)""", json_schema_extra = { "linkml_meta": {'alias': 'diagnosticMarkers', 'domain_of': ['Biosample']} })
-    files: Optional[List[File]] = Field(default_factory=list, description="""Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from.""", json_schema_extra = { "linkml_meta": {'alias': 'files',
+    diagnosticMarkers: Optional[list[OntologyClass]] = Field(default=None, description="""Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 16}},
+         'domain_of': ['Biosample']} })
+    files: Optional[list[File]] = Field(default=None, description="""Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 18}},
          'domain_of': ['Biosample', 'Cohort', 'Family', 'Phenopacket']} })
-    histologicalDiagnosis: Optional[OntologyClass] = Field(None, description="""This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\" ARGO mapping specimen::tumour_histological_type""", json_schema_extra = { "linkml_meta": {'alias': 'histologicalDiagnosis',
+    histologicalDiagnosis: Optional[OntologyClass] = Field(default=None, description="""This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\" ARGO mapping specimen::tumour_histological_type""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 11}},
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:specimen.tumour_histological_type']} })
-    id: Optional[str] = Field(None, description="""The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    id: Optional[str] = Field(default=None, description="""The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id""", json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -823,39 +1137,45 @@ class Biosample(ConfiguredBaseModel):
                        'Family',
                        'Phenopacket'],
          'exact_mappings': ['ARGO:specimen.submitter_specimen_id']} })
-    individualId: Optional[str] = Field(None, description="""The id of the individual this biosample was derived from. ARGO mapping specimen::submitter_donor_id""", json_schema_extra = { "linkml_meta": {'alias': 'individualId',
+    individualId: Optional[str] = Field(default=None, description="""The id of the individual this biosample was derived from. ARGO mapping specimen::submitter_donor_id""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['Biosample', 'Person'],
          'exact_mappings': ['ARGO:specimen.submitter_donor_id']} })
-    materialSample: Optional[OntologyClass] = Field(None, description="""This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation""", json_schema_extra = { "linkml_meta": {'alias': 'materialSample',
+    materialSample: Optional[OntologyClass] = Field(default=None, description="""This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 19}},
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:sample_registration.tumour_normal_designation']} })
-    measurements: Optional[List[Measurement]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'measurements', 'domain_of': ['Biosample', 'Phenopacket']} })
-    pathologicalStage: Optional[OntologyClass] = Field(None, description="""ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group""", json_schema_extra = { "linkml_meta": {'alias': 'pathologicalStage',
+    measurements: Optional[list[Measurement]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 8}},
+         'domain_of': ['Biosample', 'Phenopacket']} })
+    pathologicalStage: Optional[OntologyClass] = Field(default=None, description="""ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 14}},
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:specimen.pathological_tumour_staging_system']} })
-    pathologicalTnmFinding: Optional[List[OntologyClass]] = Field(default_factory=list, description="""ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category""", json_schema_extra = { "linkml_meta": {'alias': 'pathologicalTnmFinding',
+    pathologicalTnmFinding: Optional[list[OntologyClass]] = Field(default=None, description="""ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 15}},
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:specimen.pathological_t_category']} })
-    phenotypicFeatures: Optional[List[PhenotypicFeature]] = Field(default_factory=list, description="""Phenotypic characteristics of the BioSample, for example histological findings of a biopsy.""", json_schema_extra = { "linkml_meta": {'alias': 'phenotypicFeatures', 'domain_of': ['Biosample', 'Phenopacket']} })
-    procedure: Optional[Procedure] = Field(None, description="""Clinical procedure performed on the subject in order to extract the biosample. ARGO mapping specimen::specimen_anatomic_location - Procedure::body_site ARGO mapping specimen::specimen_acquisition_interval - Procedure::time_performed""", json_schema_extra = { "linkml_meta": {'alias': 'procedure',
+    phenotypicFeatures: Optional[list[PhenotypicFeature]] = Field(default=None, description="""Phenotypic characteristics of the BioSample, for example histological findings of a biopsy.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
+         'domain_of': ['Biosample', 'Phenopacket']} })
+    procedure: Optional[Procedure] = Field(default=None, description="""Clinical procedure performed on the subject in order to extract the biosample. ARGO mapping specimen::specimen_anatomic_location - Procedure::body_site ARGO mapping specimen::specimen_acquisition_interval - Procedure::time_performed""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 17}},
          'domain_of': ['Measurement', 'Biosample', 'MedicalAction'],
          'exact_mappings': ['ARGO:specimen.specimen_anatomic_location']} })
-    sampleProcessing: Optional[OntologyClass] = Field(None, description="""Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing""", json_schema_extra = { "linkml_meta": {'alias': 'sampleProcessing',
+    sampleProcessing: Optional[OntologyClass] = Field(default=None, description="""Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 20}},
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:specimen.specimen_processing']} })
-    sampleStorage: Optional[OntologyClass] = Field(None, description="""Field to represent how the sample was stored ARGO mapping specimen::specimen_storage""", json_schema_extra = { "linkml_meta": {'alias': 'sampleStorage',
+    sampleStorage: Optional[OntologyClass] = Field(default=None, description="""Field to represent how the sample was stored ARGO mapping specimen::specimen_storage""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 21}},
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:specimen.specimen_storage']} })
-    sampleType: Optional[OntologyClass] = Field(None, description="""Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type""", json_schema_extra = { "linkml_meta": {'alias': 'sampleType',
+    sampleType: Optional[OntologyClass] = Field(default=None, description="""Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:sample_registration.sample_type']} })
-    sampledTissue: Optional[OntologyClass] = Field(None, description="""UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source""", json_schema_extra = { "linkml_meta": {'alias': 'sampledTissue',
+    sampledTissue: Optional[OntologyClass] = Field(default=None, description="""UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['Biosample'],
          'exact_mappings': ['ARGO:sample_registration.specimen_tissue_source']} })
-    taxonomy: Optional[OntologyClass] = Field(None, description="""NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606""", json_schema_extra = { "linkml_meta": {'alias': 'taxonomy', 'domain_of': ['Biosample', 'Individual']} })
-    timeOfCollection: Optional[TimeElement] = Field(None, description="""An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes""", json_schema_extra = { "linkml_meta": {'alias': 'timeOfCollection', 'domain_of': ['Biosample']} })
-    tumorGrade: Optional[OntologyClass] = Field(None, description="""Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet""", json_schema_extra = { "linkml_meta": {'alias': 'tumorGrade', 'domain_of': ['Biosample']} })
-    tumorProgression: Optional[OntologyClass] = Field(None, description="""Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)""", json_schema_extra = { "linkml_meta": {'alias': 'tumorProgression', 'domain_of': ['Biosample']} })
+    taxonomy: Optional[OntologyClass] = Field(default=None, description="""NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 9}},
+         'domain_of': ['Biosample', 'Individual']} })
+    timeOfCollection: Optional[TimeElement] = Field(default=None, description="""An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 10}},
+         'domain_of': ['Biosample']} })
+    tumorGrade: Optional[OntologyClass] = Field(default=None, description="""Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 13}},
+         'domain_of': ['Biosample']} })
+    tumorProgression: Optional[OntologyClass] = Field(default=None, description="""Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 12}},
+         'domain_of': ['Biosample']} })
 
 
 class Disease(ConfiguredBaseModel):
@@ -864,20 +1184,22 @@ class Disease(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/disease'})
 
-    clinicalTnmFinding: Optional[List[OntologyClass]] = Field(default_factory=list, description="""Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category""", json_schema_extra = { "linkml_meta": {'alias': 'clinicalTnmFinding',
+    clinicalTnmFinding: Optional[list[OntologyClass]] = Field(default=None, description="""Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
          'domain_of': ['Disease'],
          'exact_mappings': ['ARGO:primary_diagnosis.clinical_t_category']} })
-    diseaseStage: Optional[List[OntologyClass]] = Field(default_factory=list, description="""Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group""", json_schema_extra = { "linkml_meta": {'alias': 'diseaseStage',
+    diseaseStage: Optional[list[OntologyClass]] = Field(default=None, description="""Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['Disease'],
          'exact_mappings': ['ARGO:primary_diagnosis.clinical_tumour_staging_system']} })
-    excluded: Optional[bool] = Field(None, description="""Flag to indicate whether the disease was observed or not. Default is 'false', in other words the disease was observed. Therefore it is only required in cases to indicate that the disease was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field. *CAUTION* It is imperative to check this field for correct interpretation of the disease!""", json_schema_extra = { "linkml_meta": {'alias': 'excluded', 'domain_of': ['PhenotypicFeature', 'Disease']} })
-    laterality: Optional[OntologyClass] = Field(None, description="""The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)""", json_schema_extra = { "linkml_meta": {'alias': 'laterality', 'domain_of': ['Disease']} })
-    onset: Optional[TimeElement] = Field(None, description="""The onset of the disease. The values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset ARGO mapping primary_diagnosis::age_at_diagnosis""", json_schema_extra = { "linkml_meta": {'alias': 'onset',
+    excluded: Optional[bool] = Field(default=None, description="""Flag to indicate whether the disease was observed or not. Default is 'false', in other words the disease was observed. Therefore it is only required in cases to indicate that the disease was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field. *CAUTION* It is imperative to check this field for correct interpretation of the disease!""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['PhenotypicFeature', 'Disease']} })
+    laterality: Optional[OntologyClass] = Field(default=None, description="""The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 8}}, 'domain_of': ['Disease']} })
+    onset: Optional[TimeElement] = Field(default=None, description="""The onset of the disease. The values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset ARGO mapping primary_diagnosis::age_at_diagnosis""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['PhenotypicFeature', 'Disease'],
          'exact_mappings': ['ARGO:primary_diagnosis.age_at_diagnosis']} })
-    primarySite: Optional[OntologyClass] = Field(None, description="""The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general""", json_schema_extra = { "linkml_meta": {'alias': 'primarySite', 'domain_of': ['Disease']} })
-    resolution: Optional[TimeElement] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'resolution', 'domain_of': ['PhenotypicFeature', 'Disease']} })
-    term: Optional[OntologyClass] = Field(None, description="""The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id""", json_schema_extra = { "linkml_meta": {'alias': 'term',
+    primarySite: Optional[OntologyClass] = Field(default=None, description="""The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}}, 'domain_of': ['Disease']} })
+    resolution: Optional[TimeElement] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['PhenotypicFeature', 'Disease']} })
+    term: Optional[OntologyClass] = Field(default=None, description="""The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Disease'],
          'exact_mappings': ['ARGO:primary_diagnosis.submitter_primary_diagnosis_id']} })
 
@@ -888,8 +1210,8 @@ class Any(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/any'})
 
-    typeUrl: Optional[str] = Field(None, description="""A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][] value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics. """, json_schema_extra = { "linkml_meta": {'alias': 'typeUrl', 'domain_of': ['Any']} })
-    value: Optional[str] = Field(None, description="""Must be a valid serialized protocol buffer of the above specified type.""", json_schema_extra = { "linkml_meta": {'alias': 'value',
+    typeUrl: Optional[str] = Field(default=None, description="""A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one \"/\" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading \".\" is not accepted).  In practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to message definitions as follows:  * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a [google.protobuf.Type][] value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.)  Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com.  Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics. """, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}}, 'domain_of': ['Any']} })
+    value: Optional[str] = Field(default=None, description="""Must be a valid serialized protocol buffer of the above specified type.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['DictionaryEntry',
                        'Measurement',
                        'Quantity',
@@ -906,7 +1228,7 @@ class Abundance(ConfiguredBaseModel):
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'copyNumber': {'name': 'copyNumber',
                                                                                               'required': True}}}]}}]})
 
-    copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
+    copyNumber: Optional[CopyNumber] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Abundance',
                        'SystemicVariation',
                        'Variation',
@@ -932,7 +1254,7 @@ class Allele(ConfiguredBaseModel):
                                                           {'slot_conditions': {'repeatedSequenceExpression': {'name': 'repeatedSequenceExpression',
                                                                                                               'required': True}}}]}}]})
 
-    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+    Id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
@@ -940,23 +1262,25 @@ class Allele(ConfiguredBaseModel):
                        'SequenceLocation',
                        'Text',
                        'VariationSet']} })
-    chromosomeLocation: Optional[ChromosomeLocation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'chromosomeLocation', 'domain_of': ['Allele', 'Location']} })
-    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie',
+    chromosomeLocation: Optional[ChromosomeLocation] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Allele', 'Location']} })
+    curie: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['Allele', 'CopyNumber', 'HaplotypeMember', 'VariationSetMember']} })
-    derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'derivedSequenceExpression',
+    derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'literalSequenceExpression',
+    literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    repeatedSequenceExpression: Optional[RepeatedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'repeatedSequenceExpression',
+    repeatedSequenceExpression: Optional[RepeatedSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
          'domain_of': ['Allele', 'CopyNumber', 'SequenceExpression']} })
-    sequenceLocation: Optional[SequenceLocation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceLocation', 'domain_of': ['Allele', 'Location']} })
-    sequenceState: Optional[SequenceState] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceState',
+    sequenceLocation: Optional[SequenceLocation] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['Allele', 'Location']} })
+    sequenceState: Optional[SequenceState] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 100}},
          'deprecated': 'Marked as deprecated (deprecated=true) in the protobuf '
                        'definition',
          'domain_of': ['Allele']} })
@@ -965,7 +1289,7 @@ class Allele(ConfiguredBaseModel):
 class ChromosomeLocation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+    Id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
@@ -973,10 +1297,12 @@ class ChromosomeLocation(ConfiguredBaseModel):
                        'SequenceLocation',
                        'Text',
                        'VariationSet']} })
-    chr: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'chr', 'domain_of': ['ChromosomeLocation']} })
-    interval: Optional[CytobandInterval] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'interval',
+    chr: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['ChromosomeLocation']} })
+    interval: Optional[CytobandInterval] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['TimeElement', 'ChromosomeLocation', 'DoseInterval']} })
-    speciesId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'speciesId', 'domain_of': ['ChromosomeLocation']} })
+    speciesId: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['ChromosomeLocation']} })
 
 
 class CopyNumber(ConfiguredBaseModel):
@@ -1004,7 +1330,7 @@ class CopyNumber(ConfiguredBaseModel):
                                                           {'slot_conditions': {'definiteRange': {'name': 'definiteRange',
                                                                                                  'required': True}}}]}}]})
 
-    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+    Id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
@@ -1012,49 +1338,50 @@ class CopyNumber(ConfiguredBaseModel):
                        'SequenceLocation',
                        'Text',
                        'VariationSet']} })
-    allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
+    allele: Optional[Allele] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['CopyNumber',
                        'HaplotypeMember',
                        'MolecularVariation',
                        'Variation',
                        'VariationSetMember']} })
-    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie',
+    curie: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 8}},
          'domain_of': ['Allele', 'CopyNumber', 'HaplotypeMember', 'VariationSetMember']} })
-    definiteRange: Optional[DefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'definiteRange',
+    definiteRange: Optional[DefiniteRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 11}},
          'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
-    derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'derivedSequenceExpression',
+    derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    gene: Optional[Gene] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'gene',
+    gene: Optional[Gene] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['CopyNumber', 'Feature', 'GenomicInterpretation']} })
-    haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
+    haplotype: Optional[Haplotype] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['CopyNumber',
                        'MolecularVariation',
                        'Variation',
                        'VariationSetMember']} })
-    indefiniteRange: Optional[IndefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'indefiniteRange',
+    indefiniteRange: Optional[IndefiniteRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 10}},
          'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
-    literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'literalSequenceExpression',
+    literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    number: Optional[Number] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'number', 'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
-    repeatedSequenceExpression: Optional[RepeatedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'repeatedSequenceExpression',
+    number: Optional[Number] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 9}},
+         'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
+    repeatedSequenceExpression: Optional[RepeatedSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
          'domain_of': ['Allele', 'CopyNumber', 'SequenceExpression']} })
 
 
 class CytobandInterval(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    end: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'end',
+    end: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['AgeRange',
                        'TimeInterval',
                        'CytobandInterval',
                        'SimpleInterval']} })
-    start: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'start',
+    start: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['AgeRange',
                        'TimeInterval',
                        'CytobandInterval',
@@ -1064,15 +1391,19 @@ class CytobandInterval(ConfiguredBaseModel):
 class DefiniteRange(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    max: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'max', 'domain_of': ['DefiniteRange']} })
-    min: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'min', 'domain_of': ['DefiniteRange']} })
+    max: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['DefiniteRange']} })
+    min: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['DefiniteRange']} })
 
 
 class DerivedSequenceExpression(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    location: Optional[SequenceLocation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'location', 'domain_of': ['DerivedSequenceExpression']} })
-    reverseComplement: Optional[bool] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'reverseComplement', 'domain_of': ['DerivedSequenceExpression']} })
+    location: Optional[SequenceLocation] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['DerivedSequenceExpression']} })
+    reverseComplement: Optional[bool] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['DerivedSequenceExpression']} })
 
 
 class Feature(ConfiguredBaseModel):
@@ -1081,20 +1412,20 @@ class Feature(ConfiguredBaseModel):
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'gene': {'name': 'gene',
                                                                                         'required': True}}}]}}]})
 
-    gene: Optional[Gene] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'gene',
+    gene: Optional[Gene] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['CopyNumber', 'Feature', 'GenomicInterpretation']} })
 
 
 class Gene(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    geneId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'geneId', 'domain_of': ['Gene']} })
+    geneId: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}}, 'domain_of': ['Gene']} })
 
 
 class Haplotype(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+    Id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
@@ -1102,7 +1433,8 @@ class Haplotype(ConfiguredBaseModel):
                        'SequenceLocation',
                        'Text',
                        'VariationSet']} })
-    members: Optional[List[HaplotypeMember]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'members', 'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
+    members: Optional[list[HaplotypeMember]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
 
 
 class HaplotypeMember(ConfiguredBaseModel):
@@ -1113,21 +1445,22 @@ class HaplotypeMember(ConfiguredBaseModel):
                                                           {'slot_conditions': {'curie': {'name': 'curie',
                                                                                          'required': True}}}]}}]})
 
-    allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
+    allele: Optional[Allele] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['CopyNumber',
                        'HaplotypeMember',
                        'MolecularVariation',
                        'Variation',
                        'VariationSetMember']} })
-    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie',
+    curie: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['Allele', 'CopyNumber', 'HaplotypeMember', 'VariationSetMember']} })
 
 
 class IndefiniteRange(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    comparator: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'comparator', 'domain_of': ['IndefiniteRange']} })
-    value: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
+    comparator: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['IndefiniteRange']} })
+    value: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['DictionaryEntry',
                        'Measurement',
                        'Quantity',
@@ -1141,7 +1474,7 @@ class IndefiniteRange(ConfiguredBaseModel):
 class LiteralSequenceExpression(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    sequence: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequence',
+    sequence: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['LiteralSequenceExpression', 'SequenceState']} })
 
 
@@ -1153,8 +1486,10 @@ class Location(ConfiguredBaseModel):
                                                           {'slot_conditions': {'sequenceLocation': {'name': 'sequenceLocation',
                                                                                                     'required': True}}}]}}]})
 
-    chromosomeLocation: Optional[ChromosomeLocation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'chromosomeLocation', 'domain_of': ['Allele', 'Location']} })
-    sequenceLocation: Optional[SequenceLocation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceLocation', 'domain_of': ['Allele', 'Location']} })
+    chromosomeLocation: Optional[ChromosomeLocation] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Allele', 'Location']} })
+    sequenceLocation: Optional[SequenceLocation] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Allele', 'Location']} })
 
 
 class MolecularVariation(ConfiguredBaseModel):
@@ -1166,13 +1501,13 @@ class MolecularVariation(ConfiguredBaseModel):
                                                           {'slot_conditions': {'haplotype': {'name': 'haplotype',
                                                                                              'required': True}}}]}}]})
 
-    allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
+    allele: Optional[Allele] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['CopyNumber',
                        'HaplotypeMember',
                        'MolecularVariation',
                        'Variation',
                        'VariationSetMember']} })
-    haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
+    haplotype: Optional[Haplotype] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['CopyNumber',
                        'MolecularVariation',
                        'Variation',
@@ -1182,7 +1517,7 @@ class MolecularVariation(ConfiguredBaseModel):
 class Number(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    value: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
+    value: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['DictionaryEntry',
                        'Measurement',
                        'Quantity',
@@ -1208,21 +1543,22 @@ class RepeatedSequenceExpression(ConfiguredBaseModel):
                                                           {'slot_conditions': {'definiteRange': {'name': 'definiteRange',
                                                                                                  'required': True}}}]}}]})
 
-    definiteRange: Optional[DefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'definiteRange',
+    definiteRange: Optional[DefiniteRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
-    derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'derivedSequenceExpression',
+    derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    indefiniteRange: Optional[IndefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'indefiniteRange',
+    indefiniteRange: Optional[IndefiniteRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
-    literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'literalSequenceExpression',
+    literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    number: Optional[Number] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'number', 'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
+    number: Optional[Number] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['CopyNumber', 'RepeatedSequenceExpression']} })
 
 
 class SequenceExpression(ConfiguredBaseModel):
@@ -1236,17 +1572,17 @@ class SequenceExpression(ConfiguredBaseModel):
                                                           {'slot_conditions': {'repeatedSequenceExpression': {'name': 'repeatedSequenceExpression',
                                                                                                               'required': True}}}]}}]})
 
-    derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'derivedSequenceExpression',
+    derivedSequenceExpression: Optional[DerivedSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'literalSequenceExpression',
+    literalSequenceExpression: Optional[LiteralSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'CopyNumber',
                        'RepeatedSequenceExpression',
                        'SequenceExpression']} })
-    repeatedSequenceExpression: Optional[RepeatedSequenceExpression] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'repeatedSequenceExpression',
+    repeatedSequenceExpression: Optional[RepeatedSequenceExpression] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['Allele', 'CopyNumber', 'SequenceExpression']} })
 
 
@@ -1267,12 +1603,18 @@ class SequenceInterval(ConfiguredBaseModel):
                                                           {'slot_conditions': {'endDefiniteRange': {'name': 'endDefiniteRange',
                                                                                                     'required': True}}}]}}]})
 
-    endDefiniteRange: Optional[DefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'endDefiniteRange', 'domain_of': ['SequenceInterval']} })
-    endIndefiniteRange: Optional[IndefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'endIndefiniteRange', 'domain_of': ['SequenceInterval']} })
-    endNumber: Optional[Number] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'endNumber', 'domain_of': ['SequenceInterval']} })
-    startDefiniteRange: Optional[DefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'startDefiniteRange', 'domain_of': ['SequenceInterval']} })
-    startIndefiniteRange: Optional[IndefiniteRange] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'startIndefiniteRange', 'domain_of': ['SequenceInterval']} })
-    startNumber: Optional[Number] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'startNumber', 'domain_of': ['SequenceInterval']} })
+    endDefiniteRange: Optional[DefiniteRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['SequenceInterval']} })
+    endIndefiniteRange: Optional[IndefiniteRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['SequenceInterval']} })
+    endNumber: Optional[Number] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['SequenceInterval']} })
+    startDefiniteRange: Optional[DefiniteRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['SequenceInterval']} })
+    startIndefiniteRange: Optional[IndefiniteRange] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['SequenceInterval']} })
+    startNumber: Optional[Number] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['SequenceInterval']} })
 
 
 class SequenceLocation(ConfiguredBaseModel):
@@ -1283,7 +1625,7 @@ class SequenceLocation(ConfiguredBaseModel):
                                                           {'slot_conditions': {'simpleInterval': {'name': 'simpleInterval',
                                                                                                   'required': True}}}]}}]})
 
-    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+    Id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
@@ -1291,9 +1633,11 @@ class SequenceLocation(ConfiguredBaseModel):
                        'SequenceLocation',
                        'Text',
                        'VariationSet']} })
-    sequenceId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceId', 'domain_of': ['SequenceLocation']} })
-    sequenceInterval: Optional[SequenceInterval] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequenceInterval', 'domain_of': ['SequenceLocation']} })
-    simpleInterval: Optional[SimpleInterval] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'simpleInterval',
+    sequenceId: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['SequenceLocation']} })
+    sequenceInterval: Optional[SequenceInterval] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['SequenceLocation']} })
+    simpleInterval: Optional[SimpleInterval] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 100}},
          'deprecated': 'Marked as deprecated (deprecated=true) in the protobuf '
                        'definition',
          'domain_of': ['SequenceLocation']} })
@@ -1302,19 +1646,19 @@ class SequenceLocation(ConfiguredBaseModel):
 class SequenceState(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    sequence: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sequence',
+    sequence: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['LiteralSequenceExpression', 'SequenceState']} })
 
 
 class SimpleInterval(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    end: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'end',
+    end: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['AgeRange',
                        'TimeInterval',
                        'CytobandInterval',
                        'SimpleInterval']} })
-    start: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'start',
+    start: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['AgeRange',
                        'TimeInterval',
                        'CytobandInterval',
@@ -1328,7 +1672,7 @@ class SystemicVariation(ConfiguredBaseModel):
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'copyNumber': {'name': 'copyNumber',
                                                                                               'required': True}}}]}}]})
 
-    copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
+    copyNumber: Optional[CopyNumber] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Abundance',
                        'SystemicVariation',
                        'Variation',
@@ -1338,7 +1682,7 @@ class SystemicVariation(ConfiguredBaseModel):
 class Text(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+    Id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
@@ -1346,7 +1690,7 @@ class Text(ConfiguredBaseModel):
                        'SequenceLocation',
                        'Text',
                        'VariationSet']} })
-    definition: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'definition', 'domain_of': ['Text']} })
+    definition: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}}, 'domain_of': ['Text']} })
 
 
 class UtilityVariation(ConfiguredBaseModel):
@@ -1358,9 +1702,9 @@ class UtilityVariation(ConfiguredBaseModel):
                                                           {'slot_conditions': {'variationSet': {'name': 'variationSet',
                                                                                                 'required': True}}}]}}]})
 
-    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text',
+    text: Optional[Text] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
-    variationSet: Optional[VariationSet] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variationSet',
+    variationSet: Optional[VariationSet] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
 
 
@@ -1378,32 +1722,32 @@ class Variation(ConfiguredBaseModel):
                                                           {'slot_conditions': {'variationSet': {'name': 'variationSet',
                                                                                                 'required': True}}}]}}]})
 
-    allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
+    allele: Optional[Allele] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['CopyNumber',
                        'HaplotypeMember',
                        'MolecularVariation',
                        'Variation',
                        'VariationSetMember']} })
-    copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
+    copyNumber: Optional[CopyNumber] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['Abundance',
                        'SystemicVariation',
                        'Variation',
                        'VariationSetMember']} })
-    haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
+    haplotype: Optional[Haplotype] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['CopyNumber',
                        'MolecularVariation',
                        'Variation',
                        'VariationSetMember']} })
-    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text',
+    text: Optional[Text] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
-    variationSet: Optional[VariationSet] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variationSet',
+    variationSet: Optional[VariationSet] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
 
 
 class VariationSet(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrs'})
 
-    Id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'Id',
+    Id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele',
                        'ChromosomeLocation',
                        'CopyNumber',
@@ -1411,7 +1755,8 @@ class VariationSet(ConfiguredBaseModel):
                        'SequenceLocation',
                        'Text',
                        'VariationSet']} })
-    members: Optional[List[VariationSetMember]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'members', 'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
+    members: Optional[list[VariationSetMember]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
 
 
 class VariationSetMember(ConfiguredBaseModel):
@@ -1430,27 +1775,27 @@ class VariationSetMember(ConfiguredBaseModel):
                                                           {'slot_conditions': {'variationSet': {'name': 'variationSet',
                                                                                                 'required': True}}}]}}]})
 
-    allele: Optional[Allele] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'allele',
+    allele: Optional[Allele] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['CopyNumber',
                        'HaplotypeMember',
                        'MolecularVariation',
                        'Variation',
                        'VariationSetMember']} })
-    copyNumber: Optional[CopyNumber] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'copyNumber',
+    copyNumber: Optional[CopyNumber] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['Abundance',
                        'SystemicVariation',
                        'Variation',
                        'VariationSetMember']} })
-    curie: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'curie',
+    curie: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Allele', 'CopyNumber', 'HaplotypeMember', 'VariationSetMember']} })
-    haplotype: Optional[Haplotype] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'haplotype',
+    haplotype: Optional[Haplotype] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['CopyNumber',
                        'MolecularVariation',
                        'Variation',
                        'VariationSetMember']} })
-    text: Optional[Text] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'text',
+    text: Optional[Text] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
-    variationSet: Optional[VariationSet] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variationSet',
+    variationSet: Optional[VariationSet] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
          'domain_of': ['UtilityVariation', 'Variation', 'VariationSetMember']} })
 
 
@@ -1460,8 +1805,9 @@ class Expression(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrsatile'})
 
-    syntax: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'syntax', 'domain_of': ['Expression']} })
-    value: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
+    syntax: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Expression']} })
+    value: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['DictionaryEntry',
                        'Measurement',
                        'Quantity',
@@ -1470,7 +1816,8 @@ class Expression(ConfiguredBaseModel):
                        'Number',
                        'Expression',
                        'Extension']} })
-    version: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['Expression', 'Resource']} })
+    version: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Expression', 'Resource']} })
 
 
 class Extension(ConfiguredBaseModel):
@@ -1479,8 +1826,9 @@ class Extension(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrsatile'})
 
-    name: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Extension', 'Resource']} })
-    value: Optional[List[str]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'value',
+    name: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Extension', 'Resource']} })
+    value: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['DictionaryEntry',
                        'Measurement',
                        'Quantity',
@@ -1497,9 +1845,11 @@ class GeneDescriptor(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrsatile'})
 
-    alternateIds: Optional[List[str]] = Field(default_factory=list, description="""Alternate IDs (should be CURIE) for the same concept may be placed in alternate_ids""", json_schema_extra = { "linkml_meta": {'alias': 'alternateIds', 'domain_of': ['GeneDescriptor', 'Individual']} })
-    alternateSymbols: Optional[List[str]] = Field(default_factory=list, description="""Takes the place of alternate_labels field in a generic descriptor""", json_schema_extra = { "linkml_meta": {'alias': 'alternateSymbols', 'domain_of': ['GeneDescriptor']} })
-    description: Optional[str] = Field(None, description="""A free-text description of the value object""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+    alternateIds: Optional[list[str]] = Field(default=None, description="""Alternate IDs (should be CURIE) for the same concept may be placed in alternate_ids""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['GeneDescriptor', 'Individual']} })
+    alternateSymbols: Optional[list[str]] = Field(default=None, description="""Takes the place of alternate_labels field in a generic descriptor""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['GeneDescriptor']} })
+    description: Optional[str] = Field(default=None, description="""A free-text description of the value object""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['ExternalReference',
                        'Measurement',
                        'PhenotypicFeature',
@@ -1507,17 +1857,22 @@ class GeneDescriptor(ConfiguredBaseModel):
                        'GeneDescriptor',
                        'VariationDescriptor',
                        'Cohort']} })
-    symbol: Optional[str] = Field(None, description="""The primary gene symbol. Takes the place of the label field in a generic descriptor""", json_schema_extra = { "linkml_meta": {'alias': 'symbol', 'domain_of': ['GeneDescriptor']} })
-    valueId: Optional[str] = Field(None, description="""The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071 This should be a CURIE linking the reference to a namespace where it can be retrieved. Mirrors the value_id field of a generic value object descriptor""", json_schema_extra = { "linkml_meta": {'alias': 'valueId', 'domain_of': ['GeneDescriptor']} })
-    xrefs: Optional[List[str]] = Field(default_factory=list, description="""Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs""", json_schema_extra = { "linkml_meta": {'alias': 'xrefs', 'domain_of': ['GeneDescriptor', 'VariationDescriptor']} })
+    symbol: Optional[str] = Field(default=None, description="""The primary gene symbol. Takes the place of the label field in a generic descriptor""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['GeneDescriptor']} })
+    valueId: Optional[str] = Field(default=None, description="""The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071 This should be a CURIE linking the reference to a namespace where it can be retrieved. Mirrors the value_id field of a generic value object descriptor""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['GeneDescriptor']} })
+    xrefs: Optional[list[str]] = Field(default=None, description="""Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['GeneDescriptor', 'VariationDescriptor']} })
 
 
 class VariationDescriptor(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrsatile'})
 
-    allelicState: Optional[OntologyClass] = Field(None, description="""We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875.""", json_schema_extra = { "linkml_meta": {'alias': 'allelicState', 'domain_of': ['VariationDescriptor']} })
-    alternateLabels: Optional[List[str]] = Field(default_factory=list, description="""Common aliases for a variant, e.g. EGFR vIII, are alternate labels""", json_schema_extra = { "linkml_meta": {'alias': 'alternateLabels', 'domain_of': ['VariationDescriptor']} })
-    description: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'description',
+    allelicState: Optional[OntologyClass] = Field(default=None, description="""We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 14}},
+         'domain_of': ['VariationDescriptor']} })
+    alternateLabels: Optional[list[str]] = Field(default=None, description="""Common aliases for a variant, e.g. EGFR vIII, are alternate labels""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 9}},
+         'domain_of': ['VariationDescriptor']} })
+    description: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['ExternalReference',
                        'Measurement',
                        'PhenotypicFeature',
@@ -1525,10 +1880,14 @@ class VariationDescriptor(ConfiguredBaseModel):
                        'GeneDescriptor',
                        'VariationDescriptor',
                        'Cohort']} })
-    expressions: Optional[List[Expression]] = Field(default_factory=list, description="""HGVS, SPDI, and gnomAD-style strings should be represented as Expressions""", json_schema_extra = { "linkml_meta": {'alias': 'expressions', 'domain_of': ['VariationDescriptor']} })
-    extensions: Optional[List[Extension]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'extensions', 'domain_of': ['VariationDescriptor']} })
-    geneContext: Optional[GeneDescriptor] = Field(None, description="""A specific gene context that applies to this variant.""", json_schema_extra = { "linkml_meta": {'alias': 'geneContext', 'domain_of': ['VariationDescriptor']} })
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
+    expressions: Optional[list[Expression]] = Field(default=None, description="""HGVS, SPDI, and gnomAD-style strings should be represented as Expressions""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['VariationDescriptor']} })
+    extensions: Optional[list[Extension]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 10}},
+         'domain_of': ['VariationDescriptor']} })
+    geneContext: Optional[GeneDescriptor] = Field(default=None, description="""A specific gene context that applies to this variant.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['VariationDescriptor']} })
+    id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -1540,23 +1899,35 @@ class VariationDescriptor(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    label: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'label', 'domain_of': ['OntologyClass', 'VariationDescriptor']} })
-    moleculeContext: Optional[MoleculeContext] = Field(None, description="""The molecular context of the vrs variation. Must be one of “genomic”, “transcript”, or “protein”. Defaults to \"unspecified_molecule_context\"""", json_schema_extra = { "linkml_meta": {'alias': 'moleculeContext', 'domain_of': ['VariationDescriptor']} })
-    structuralType: Optional[OntologyClass] = Field(None, description="""The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537.""", json_schema_extra = { "linkml_meta": {'alias': 'structuralType', 'domain_of': ['VariationDescriptor']} })
-    variation: Optional[Variation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variation', 'domain_of': ['VariationDescriptor']} })
-    vcfRecord: Optional[VcfRecord] = Field(None, description="""A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the allelic_state""", json_schema_extra = { "linkml_meta": {'alias': 'vcfRecord', 'domain_of': ['VariationDescriptor']} })
-    vrsRefAlleleSeq: Optional[str] = Field(None, description="""A Sequence corresponding to a “ref allele”, describing the sequence expected at a SequenceLocation reference.""", json_schema_extra = { "linkml_meta": {'alias': 'vrsRefAlleleSeq', 'domain_of': ['VariationDescriptor']} })
-    xrefs: Optional[List[str]] = Field(default_factory=list, description="""Allele registry, ClinVar, or other related IDs should be included as xrefs""", json_schema_extra = { "linkml_meta": {'alias': 'xrefs', 'domain_of': ['GeneDescriptor', 'VariationDescriptor']} })
+    label: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['OntologyClass', 'VariationDescriptor']} })
+    moleculeContext: Optional[MoleculeContext] = Field(default=None, description="""The molecular context of the vrs variation. Must be one of “genomic”, “transcript”, or “protein”. Defaults to \"unspecified_molecule_context\"""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 11}},
+         'domain_of': ['VariationDescriptor']} })
+    structuralType: Optional[OntologyClass] = Field(default=None, description="""The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 12}},
+         'domain_of': ['VariationDescriptor']} })
+    variation: Optional[Variation] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['VariationDescriptor']} })
+    vcfRecord: Optional[VcfRecord] = Field(default=None, description="""A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the allelic_state""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
+         'domain_of': ['VariationDescriptor']} })
+    vrsRefAlleleSeq: Optional[str] = Field(default=None, description="""A Sequence corresponding to a “ref allele”, describing the sequence expected at a SequenceLocation reference.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 13}},
+         'domain_of': ['VariationDescriptor']} })
+    xrefs: Optional[list[str]] = Field(default=None, description="""Allele registry, ClinVar, or other related IDs should be included as xrefs""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 8}},
+         'domain_of': ['GeneDescriptor', 'VariationDescriptor']} })
 
 
 class VcfRecord(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/vrsatile'})
 
-    alt: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'alt', 'domain_of': ['VcfRecord']} })
-    chrom: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'chrom', 'domain_of': ['VcfRecord']} })
-    filter: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'filter', 'domain_of': ['VcfRecord']} })
-    genomeAssembly: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'genomeAssembly', 'domain_of': ['VcfRecord']} })
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
+    alt: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['VcfRecord']} })
+    chrom: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['VcfRecord']} })
+    filter: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 8}},
+         'domain_of': ['VcfRecord']} })
+    genomeAssembly: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['VcfRecord']} })
+    id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -1568,17 +1939,23 @@ class VcfRecord(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    info: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'info', 'domain_of': ['VcfRecord']} })
-    pos: Optional[int] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'pos', 'domain_of': ['VcfRecord']} })
-    qual: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'qual', 'domain_of': ['VcfRecord']} })
-    ref: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'ref', 'domain_of': ['VcfRecord']} })
+    info: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 9}},
+         'domain_of': ['VcfRecord']} })
+    pos: Optional[int] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['VcfRecord']} })
+    qual: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
+         'domain_of': ['VcfRecord']} })
+    ref: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['VcfRecord']} })
 
 
 class Diagnosis(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/interpretation'})
 
-    disease: Optional[OntologyClass] = Field(None, description="""The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases` field in the Phenopacket.""", json_schema_extra = { "linkml_meta": {'alias': 'disease', 'domain_of': ['Diagnosis']} })
-    genomicInterpretations: Optional[List[GenomicInterpretation]] = Field(default_factory=list, description="""genomic features containing the status of their contribution towards the diagnosis""", json_schema_extra = { "linkml_meta": {'alias': 'genomicInterpretations', 'domain_of': ['Diagnosis']} })
+    disease: Optional[OntologyClass] = Field(default=None, description="""The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases` field in the Phenopacket.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Diagnosis']} })
+    genomicInterpretations: Optional[list[GenomicInterpretation]] = Field(default=None, description="""genomic features containing the status of their contribution towards the diagnosis""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Diagnosis']} })
 
 
 class GenomicInterpretation(ConfiguredBaseModel):
@@ -1597,18 +1974,23 @@ class GenomicInterpretation(ConfiguredBaseModel):
                                                           {'slot_conditions': {'variantInterpretation': {'name': 'variantInterpretation',
                                                                                                          'required': True}}}]}}]})
 
-    gene: Optional[GeneDescriptor] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'gene',
+    gene: Optional[GeneDescriptor] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['CopyNumber', 'Feature', 'GenomicInterpretation']} })
-    interpretationStatus: Optional[InterpretationStatus] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'interpretationStatus', 'domain_of': ['GenomicInterpretation']} })
-    subjectOrBiosampleId: Optional[str] = Field(None, description="""identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the enclosing phenopacket.""", json_schema_extra = { "linkml_meta": {'alias': 'subjectOrBiosampleId', 'domain_of': ['GenomicInterpretation']} })
-    variantInterpretation: Optional[VariantInterpretation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variantInterpretation', 'domain_of': ['GenomicInterpretation']} })
+    interpretationStatus: Optional[InterpretationStatus] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['GenomicInterpretation']} })
+    subjectOrBiosampleId: Optional[str] = Field(default=None, description="""identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the enclosing phenopacket.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['GenomicInterpretation']} })
+    variantInterpretation: Optional[VariantInterpretation] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['GenomicInterpretation']} })
 
 
 class Interpretation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/interpretation'})
 
-    diagnosis: Optional[Diagnosis] = Field(None, description="""The diagnosis made in this interpretation""", json_schema_extra = { "linkml_meta": {'alias': 'diagnosis', 'domain_of': ['Interpretation']} })
-    id: Optional[str] = Field(None, description="""id of the interpretation""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    diagnosis: Optional[Diagnosis] = Field(default=None, description="""The diagnosis made in this interpretation""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Interpretation']} })
+    id: Optional[str] = Field(default=None, description="""id of the interpretation""", json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -1620,17 +2002,21 @@ class Interpretation(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    progressStatus: Optional[ProgressStatus] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'progressStatus', 'domain_of': ['Interpretation']} })
-    summary: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'summary', 'domain_of': ['Interpretation']} })
+    progressStatus: Optional[ProgressStatus] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Interpretation']} })
+    summary: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['Interpretation']} })
 
 
 class VariantInterpretation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/interpretation'})
 
-    acmgPathogenicityClassification: Optional[AcmgPathogenicityClassification] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'acmgPathogenicityClassification',
+    acmgPathogenicityClassification: Optional[AcmgPathogenicityClassification] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['VariantInterpretation']} })
-    therapeuticActionability: Optional[TherapeuticActionability] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'therapeuticActionability', 'domain_of': ['VariantInterpretation']} })
-    variationDescriptor: Optional[VariationDescriptor] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'variationDescriptor', 'domain_of': ['VariantInterpretation']} })
+    therapeuticActionability: Optional[TherapeuticActionability] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['VariantInterpretation']} })
+    variationDescriptor: Optional[VariationDescriptor] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['VariantInterpretation']} })
 
 
 class Individual(ConfiguredBaseModel):
@@ -1639,10 +2025,14 @@ class Individual(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/individual'})
 
-    alternateIds: Optional[List[str]] = Field(default_factory=list, description="""An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track.""", json_schema_extra = { "linkml_meta": {'alias': 'alternateIds', 'domain_of': ['GeneDescriptor', 'Individual']} })
-    dateOfBirth: Optional[str] = Field(None, description="""The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated.""", json_schema_extra = { "linkml_meta": {'alias': 'dateOfBirth', 'domain_of': ['Individual']} })
-    gender: Optional[OntologyClass] = Field(None, description="""Self-identified gender""", json_schema_extra = { "linkml_meta": {'alias': 'gender', 'domain_of': ['Individual']} })
-    id: Optional[str] = Field(None, description="""An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    alternateIds: Optional[list[str]] = Field(default=None, description="""An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['GeneDescriptor', 'Individual']} })
+    dateOfBirth: Optional[str] = Field(default=None, description="""The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Individual']} })
+    gender: Optional[OntologyClass] = Field(default=None, description="""Self-identified gender""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 8}},
+         'domain_of': ['Individual']} })
+    id: Optional[str] = Field(default=None, description="""An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id""", json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -1655,13 +2045,16 @@ class Individual(ConfiguredBaseModel):
                        'Family',
                        'Phenopacket'],
          'exact_mappings': ['ARGO:donor.submitter_donor_id']} })
-    karyotypicSex: Optional[KaryotypicSex] = Field(None, description="""The karyotypic sex of the individual""", json_schema_extra = { "linkml_meta": {'alias': 'karyotypicSex', 'domain_of': ['Individual']} })
-    sex: Optional[Sex] = Field(None, description="""The phenotypic sex of the individual ARGO mapping sample_registration::gender (this is complicated as ARGO only have male/female/other which maps to the phenopacket Sex field)""", json_schema_extra = { "linkml_meta": {'alias': 'sex',
+    karyotypicSex: Optional[KaryotypicSex] = Field(default=None, description="""The karyotypic sex of the individual""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
+         'domain_of': ['Individual']} })
+    sex: Optional[Sex] = Field(default=None, description="""The phenotypic sex of the individual ARGO mapping sample_registration::gender (this is complicated as ARGO only have male/female/other which maps to the phenopacket Sex field)""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
          'domain_of': ['Individual', 'Person'],
          'exact_mappings': ['ARGO:sample_registration.gender']} })
-    taxonomy: Optional[OntologyClass] = Field(None, description="""NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level""", json_schema_extra = { "linkml_meta": {'alias': 'taxonomy', 'domain_of': ['Biosample', 'Individual']} })
-    timeAtLastEncounter: Optional[TimeElement] = Field(None, description="""An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes""", json_schema_extra = { "linkml_meta": {'alias': 'timeAtLastEncounter', 'domain_of': ['Individual']} })
-    vitalStatus: Optional[VitalStatus] = Field(None, description="""Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status""", json_schema_extra = { "linkml_meta": {'alias': 'vitalStatus',
+    taxonomy: Optional[OntologyClass] = Field(default=None, description="""NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 9}},
+         'domain_of': ['Biosample', 'Individual']} })
+    timeAtLastEncounter: Optional[TimeElement] = Field(default=None, description="""An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['Individual']} })
+    vitalStatus: Optional[VitalStatus] = Field(default=None, description="""Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['Individual'],
          'exact_mappings': ['ARGO:donor.vital_status']} })
 
@@ -1669,14 +2062,16 @@ class Individual(ConfiguredBaseModel):
 class VitalStatus(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/individual'})
 
-    causeOfDeath: Optional[OntologyClass] = Field(None, description="""ARGO mapping donor::cause_of_death""", json_schema_extra = { "linkml_meta": {'alias': 'causeOfDeath',
+    causeOfDeath: Optional[OntologyClass] = Field(default=None, description="""ARGO mapping donor::cause_of_death""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['VitalStatus'],
          'exact_mappings': ['ARGO:donor.cause_of_death']} })
-    status: Optional[Status] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'status', 'domain_of': ['VitalStatus']} })
-    survivalTimeInDays: Optional[int] = Field(None, description="""ARGO mapping donor::survival_time""", json_schema_extra = { "linkml_meta": {'alias': 'survivalTimeInDays',
+    status: Optional[Status] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['VitalStatus']} })
+    survivalTimeInDays: Optional[int] = Field(default=None, description="""ARGO mapping donor::survival_time""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['VitalStatus'],
          'exact_mappings': ['ARGO:donor.survival_time']} })
-    timeOfDeath: Optional[TimeElement] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'timeOfDeath', 'domain_of': ['VitalStatus']} })
+    timeOfDeath: Optional[TimeElement] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['VitalStatus']} })
 
 
 class DoseInterval(ConfiguredBaseModel):
@@ -1685,10 +2080,12 @@ class DoseInterval(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action'})
 
-    interval: Optional[TimeInterval] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'interval',
+    interval: Optional[TimeInterval] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['TimeElement', 'ChromosomeLocation', 'DoseInterval']} })
-    quantity: Optional[Quantity] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'quantity', 'domain_of': ['TypedQuantity', 'Value', 'DoseInterval']} })
-    scheduleFrequency: Optional[OntologyClass] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'scheduleFrequency', 'domain_of': ['DoseInterval']} })
+    quantity: Optional[Quantity] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['TypedQuantity', 'Value', 'DoseInterval']} })
+    scheduleFrequency: Optional[OntologyClass] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['DoseInterval']} })
 
 
 class MedicalAction(ConfiguredBaseModel):
@@ -1708,22 +2105,26 @@ class MedicalAction(ConfiguredBaseModel):
                                                           {'slot_conditions': {'therapeuticRegimen': {'name': 'therapeuticRegimen',
                                                                                                       'required': True}}}]}}]})
 
-    adverseEvents: Optional[List[OntologyClass]] = Field(default_factory=list, description="""ARGO mapping treatment::adverse_events""", json_schema_extra = { "linkml_meta": {'alias': 'adverseEvents',
+    adverseEvents: Optional[list[OntologyClass]] = Field(default=None, description="""ARGO mapping treatment::adverse_events""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 8}},
          'domain_of': ['MedicalAction'],
          'exact_mappings': ['ARGO:treatment.adverse_events']} })
-    procedure: Optional[Procedure] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'procedure',
+    procedure: Optional[Procedure] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['Measurement', 'Biosample', 'MedicalAction']} })
-    radiationTherapy: Optional[RadiationTherapy] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'radiationTherapy', 'domain_of': ['MedicalAction']} })
-    responseToTreatment: Optional[OntologyClass] = Field(None, description="""ARGO mapping treatment::response_to_treatment""", json_schema_extra = { "linkml_meta": {'alias': 'responseToTreatment',
+    radiationTherapy: Optional[RadiationTherapy] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['MedicalAction']} })
+    responseToTreatment: Optional[OntologyClass] = Field(default=None, description="""ARGO mapping treatment::response_to_treatment""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
          'domain_of': ['MedicalAction'],
          'exact_mappings': ['ARGO:treatment.response_to_treatment']} })
-    therapeuticRegimen: Optional[TherapeuticRegimen] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'therapeuticRegimen', 'domain_of': ['MedicalAction']} })
-    treatment: Optional[Treatment] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'treatment', 'domain_of': ['MedicalAction']} })
-    treatmentIntent: Optional[OntologyClass] = Field(None, description="""Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent""", json_schema_extra = { "linkml_meta": {'alias': 'treatmentIntent',
+    therapeuticRegimen: Optional[TherapeuticRegimen] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['MedicalAction']} })
+    treatment: Optional[Treatment] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['MedicalAction']} })
+    treatmentIntent: Optional[OntologyClass] = Field(default=None, description="""Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
          'domain_of': ['MedicalAction'],
          'exact_mappings': ['ARGO:treatment.treatment_intent']} })
-    treatmentTarget: Optional[OntologyClass] = Field(None, description="""The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode""", json_schema_extra = { "linkml_meta": {'alias': 'treatmentTarget', 'domain_of': ['MedicalAction']} })
-    treatmentTerminationReason: Optional[OntologyClass] = Field(None, description="""ARGO mapping treatment::treatment_outcome""", json_schema_extra = { "linkml_meta": {'alias': 'treatmentTerminationReason',
+    treatmentTarget: Optional[OntologyClass] = Field(default=None, description="""The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['MedicalAction']} })
+    treatmentTerminationReason: Optional[OntologyClass] = Field(default=None, description="""ARGO mapping treatment::treatment_outcome""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 9}},
          'domain_of': ['MedicalAction'],
          'exact_mappings': ['ARGO:treatment.treatment_outcome']} })
 
@@ -1735,16 +2136,16 @@ class RadiationTherapy(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['ARGO mapping radiation::radiation_therapy_type (missing)'],
          'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action'})
 
-    bodySite: OntologyClass = Field(..., description="""The anatomical site where radiation therapy was administered. REQUIRED. ARGO mapping radiation::anatomical_site_irradiated""", json_schema_extra = { "linkml_meta": {'alias': 'bodySite',
+    bodySite: OntologyClass = Field(default=..., description="""The anatomical site where radiation therapy was administered. REQUIRED. ARGO mapping radiation::anatomical_site_irradiated""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['Procedure', 'RadiationTherapy'],
          'exact_mappings': ['ARGO:radiation.anatomical_site_irradiated']} })
-    dosage: int = Field(..., description="""The total dose given in units of Gray (Gy). REQUIRED. ARGO mapping radiation::radiation_therapy_dosage""", json_schema_extra = { "linkml_meta": {'alias': 'dosage',
+    dosage: int = Field(default=..., description="""The total dose given in units of Gray (Gy). REQUIRED. ARGO mapping radiation::radiation_therapy_dosage""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
          'domain_of': ['RadiationTherapy'],
          'exact_mappings': ['ARGO:radiation.radiation_therapy_dosage']} })
-    fractions: int = Field(..., description="""The total number of fractions delivered as part of treatment. REQUIRED. ARGO mapping radiation::radiation_therapy_fractions""", json_schema_extra = { "linkml_meta": {'alias': 'fractions',
+    fractions: int = Field(default=..., description="""The total number of fractions delivered as part of treatment. REQUIRED. ARGO mapping radiation::radiation_therapy_fractions""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['RadiationTherapy'],
          'exact_mappings': ['ARGO:radiation.radiation_therapy_fractions']} })
-    modality: OntologyClass = Field(..., description="""The modality of radiation therapy (e.g., electron, photon,…). REQUIRED. ARGO mapping radiation::radiation_therapy_modality""", json_schema_extra = { "linkml_meta": {'alias': 'modality',
+    modality: OntologyClass = Field(default=..., description="""The modality of radiation therapy (e.g., electron, photon,…). REQUIRED. ARGO mapping radiation::radiation_therapy_modality""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['RadiationTherapy'],
          'exact_mappings': ['ARGO:radiation.radiation_therapy_modality']} })
 
@@ -1758,12 +2159,16 @@ class TherapeuticRegimen(ConfiguredBaseModel):
                                                           {'slot_conditions': {'ontologyClass': {'name': 'ontologyClass',
                                                                                                  'required': True}}}]}}]})
 
-    endTime: Optional[TimeElement] = Field(None, description="""end time can be empty which would indicate ongoing""", json_schema_extra = { "linkml_meta": {'alias': 'endTime', 'domain_of': ['TherapeuticRegimen']} })
-    externalReference: Optional[ExternalReference] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'externalReference', 'domain_of': ['TherapeuticRegimen']} })
-    ontologyClass: Optional[OntologyClass] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'ontologyClass',
+    endTime: Optional[TimeElement] = Field(default=None, description="""end time can be empty which would indicate ongoing""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['TherapeuticRegimen']} })
+    externalReference: Optional[ExternalReference] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['TherapeuticRegimen']} })
+    ontologyClass: Optional[OntologyClass] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['TimeElement', 'Value', 'TherapeuticRegimen']} })
-    regimenStatus: Optional[RegimenStatus] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'regimenStatus', 'domain_of': ['TherapeuticRegimen']} })
-    startTime: Optional[TimeElement] = Field(None, description="""possibly undefined;""", json_schema_extra = { "linkml_meta": {'alias': 'startTime', 'domain_of': ['TherapeuticRegimen']} })
+    regimenStatus: Optional[RegimenStatus] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['TherapeuticRegimen']} })
+    startTime: Optional[TimeElement] = Field(default=None, description="""possibly undefined;""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['TherapeuticRegimen']} })
 
 
 class Treatment(ConfiguredBaseModel):
@@ -1772,13 +2177,17 @@ class Treatment(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/medical_action'})
 
-    agent: Optional[OntologyClass] = Field(None, description="""for instance, DrugCentral, RxNorm Drugbank concept""", json_schema_extra = { "linkml_meta": {'alias': 'agent', 'domain_of': ['Treatment']} })
-    cumulativeDose: Optional[Quantity] = Field(None, description="""ARGO mapping chemotherapy::cumulative_drug_dosage""", json_schema_extra = { "linkml_meta": {'alias': 'cumulativeDose',
+    agent: Optional[OntologyClass] = Field(default=None, description="""for instance, DrugCentral, RxNorm Drugbank concept""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Treatment']} })
+    cumulativeDose: Optional[Quantity] = Field(default=None, description="""ARGO mapping chemotherapy::cumulative_drug_dosage""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['Treatment'],
          'exact_mappings': ['ARGO:chemotherapy.cumulative_drug_dosage']} })
-    doseIntervals: Optional[List[DoseInterval]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'doseIntervals', 'domain_of': ['Treatment']} })
-    drugType: Optional[DrugType] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'drugType', 'domain_of': ['Treatment']} })
-    routeOfAdministration: Optional[OntologyClass] = Field(None, description="""For instance, NCIT subhierarchy: Route of Administration (Code C38114)""", json_schema_extra = { "linkml_meta": {'alias': 'routeOfAdministration', 'domain_of': ['Treatment']} })
+    doseIntervals: Optional[list[DoseInterval]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Treatment']} })
+    drugType: Optional[DrugType] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['Treatment']} })
+    routeOfAdministration: Optional[OntologyClass] = Field(default=None, description="""For instance, NCIT subhierarchy: Route of Administration (Code C38114)""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Treatment']} })
 
 
 class Timestamp(ConfiguredBaseModel):
@@ -1787,20 +2196,29 @@ class Timestamp(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/timestamp'})
 
-    nanos: Optional[int] = Field(None, description="""Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive.""", json_schema_extra = { "linkml_meta": {'alias': 'nanos', 'domain_of': ['Timestamp']} })
-    seconds: Optional[int] = Field(None, description="""Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive.""", json_schema_extra = { "linkml_meta": {'alias': 'seconds', 'domain_of': ['Timestamp']} })
+    nanos: Optional[int] = Field(default=None, description="""Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from 0 to 999,999,999 inclusive.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Timestamp']} })
+    seconds: Optional[int] = Field(default=None, description="""Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Timestamp']} })
 
 
 class MetaData(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/meta_data'})
 
-    created: Optional[str] = Field(None, description="""ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"""", json_schema_extra = { "linkml_meta": {'alias': 'created', 'domain_of': ['MetaData']} })
-    createdBy: Optional[str] = Field(None, description="""some kind of identifier for the contributor/ program ARGO sample_registration::program_id""", json_schema_extra = { "linkml_meta": {'alias': 'createdBy', 'domain_of': ['MetaData']} })
-    externalReferences: Optional[List[ExternalReference]] = Field(default_factory=list, description="""External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported.""", json_schema_extra = { "linkml_meta": {'alias': 'externalReferences', 'domain_of': ['MetaData']} })
-    phenopacketSchemaVersion: Optional[str] = Field(None, description="""phenopacket-schema-version used to create this phenopacket""", json_schema_extra = { "linkml_meta": {'alias': 'phenopacketSchemaVersion', 'domain_of': ['MetaData']} })
-    resources: Optional[List[Resource]] = Field(default_factory=list, description="""a listing of the ontologies and resources referenced in the phenopacket""", json_schema_extra = { "linkml_meta": {'alias': 'resources', 'domain_of': ['MetaData']} })
-    submittedBy: Optional[str] = Field(None, description="""information about the person/organisation/network that has submitted this phenopacket""", json_schema_extra = { "linkml_meta": {'alias': 'submittedBy', 'domain_of': ['MetaData']} })
-    updates: Optional[List[Update]] = Field(default_factory=list, description="""An OPTIONAL list of Updates to the phenopacket.""", json_schema_extra = { "linkml_meta": {'alias': 'updates', 'domain_of': ['MetaData']} })
+    created: Optional[str] = Field(default=None, description="""ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['MetaData']} })
+    createdBy: Optional[str] = Field(default=None, description="""some kind of identifier for the contributor/ program ARGO sample_registration::program_id""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['MetaData']} })
+    externalReferences: Optional[list[ExternalReference]] = Field(default=None, description="""External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
+         'domain_of': ['MetaData']} })
+    phenopacketSchemaVersion: Optional[str] = Field(default=None, description="""phenopacket-schema-version used to create this phenopacket""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['MetaData']} })
+    resources: Optional[list[Resource]] = Field(default=None, description="""a listing of the ontologies and resources referenced in the phenopacket""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['MetaData']} })
+    submittedBy: Optional[str] = Field(default=None, description="""information about the person/organisation/network that has submitted this phenopacket""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['MetaData']} })
+    updates: Optional[list[Update]] = Field(default=None, description="""An OPTIONAL list of Updates to the phenopacket.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['MetaData']} })
 
 
 class Resource(ConfiguredBaseModel):
@@ -1809,7 +2227,8 @@ class Resource(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/meta_data'})
 
-    id: Optional[str] = Field(None, description="""for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    id: Optional[str] = Field(default=None, description="""for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org""", json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -1821,11 +2240,16 @@ class Resource(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    iriPrefix: Optional[str] = Field(None, description="""Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe' OntologyClass: id: 'HP:0012828' label: 'Severe' Resource: namespace_prefix: 'HP' iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828""", json_schema_extra = { "linkml_meta": {'alias': 'iriPrefix', 'domain_of': ['Resource']} })
-    name: Optional[str] = Field(None, description="""e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['Extension', 'Resource']} })
-    namespacePrefix: Optional[str] = Field(None, description="""The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI""", json_schema_extra = { "linkml_meta": {'alias': 'namespacePrefix', 'domain_of': ['Resource']} })
-    url: Optional[str] = Field(None, description="""For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo""", json_schema_extra = { "linkml_meta": {'alias': 'url', 'domain_of': ['Resource']} })
-    version: Optional[str] = Field(None, description="""for OBO ontologies, this should be the versionIRI""", json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['Expression', 'Resource']} })
+    iriPrefix: Optional[str] = Field(default=None, description="""Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe' OntologyClass: id: 'HP:0012828' label: 'Severe' Resource: namespace_prefix: 'HP' iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['Resource']} })
+    name: Optional[str] = Field(default=None, description="""e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Extension', 'Resource']} })
+    namespacePrefix: Optional[str] = Field(default=None, description="""The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['Resource']} })
+    url: Optional[str] = Field(default=None, description="""For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Resource']} })
+    version: Optional[str] = Field(default=None, description="""for OBO ontologies, this should be the versionIRI""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['Expression', 'Resource']} })
 
 
 class Update(ConfiguredBaseModel):
@@ -1834,9 +2258,10 @@ class Update(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/meta_data'})
 
-    comment: Optional[str] = Field(None, description="""Textual comment about the changes made to the content and/or reason for the update. OPTIONAL""", json_schema_extra = { "linkml_meta": {'alias': 'comment', 'domain_of': ['Update']} })
-    timestamp: str = Field(..., description="""ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z REQUIRED""", json_schema_extra = { "linkml_meta": {'alias': 'timestamp', 'domain_of': ['TimeElement', 'Update']} })
-    updatedBy: Optional[str] = Field(None, description="""Information about the person/organisation/network that has updated the phenopacket. OPTIONAL""", json_schema_extra = { "linkml_meta": {'alias': 'updatedBy', 'domain_of': ['Update']} })
+    comment: Optional[str] = Field(default=None, description="""Textual comment about the changes made to the content and/or reason for the update. OPTIONAL""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}}, 'domain_of': ['Update']} })
+    timestamp: str = Field(default=..., description="""ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z REQUIRED""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['TimeElement', 'Update']} })
+    updatedBy: Optional[str] = Field(default=None, description="""Information about the person/organisation/network that has updated the phenopacket. OPTIONAL""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}}, 'domain_of': ['Update']} })
 
 
 class Pedigree(ConfiguredBaseModel):
@@ -1845,18 +2270,21 @@ class Pedigree(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/pedigree'})
 
-    persons: Optional[List[Person]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'persons', 'domain_of': ['Pedigree']} })
+    persons: Optional[list[Person]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}},
+         'domain_of': ['Pedigree']} })
 
 
 class Person(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/pedigree'})
 
-    affectedStatus: Optional[AffectedStatus] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'affectedStatus', 'domain_of': ['Person']} })
-    familyId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'familyId', 'domain_of': ['Person']} })
-    individualId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'individualId', 'domain_of': ['Biosample', 'Person']} })
-    maternalId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'maternalId', 'domain_of': ['Person']} })
-    paternalId: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'paternalId', 'domain_of': ['Person']} })
-    sex: Optional[Sex] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'sex', 'domain_of': ['Individual', 'Person']} })
+    affectedStatus: Optional[AffectedStatus] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}}, 'domain_of': ['Person']} })
+    familyId: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 1}}, 'domain_of': ['Person']} })
+    individualId: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Biosample', 'Person']} })
+    maternalId: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}}, 'domain_of': ['Person']} })
+    paternalId: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}}, 'domain_of': ['Person']} })
+    sex: Optional[Sex] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['Individual', 'Person']} })
 
 
 class Cohort(ConfiguredBaseModel):
@@ -1865,7 +2293,7 @@ class Cohort(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/phenopackets'})
 
-    description: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'description',
+    description: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
          'domain_of': ['ExternalReference',
                        'Measurement',
                        'PhenotypicFeature',
@@ -1873,9 +2301,10 @@ class Cohort(ConfiguredBaseModel):
                        'GeneDescriptor',
                        'VariationDescriptor',
                        'Cohort']} })
-    files: Optional[List[File]] = Field(default_factory=list, description="""Pointer to relevant file(s) for the cohort. Files relating exclusively to individual phenopackets should be contained in the Phenopacket.""", json_schema_extra = { "linkml_meta": {'alias': 'files',
+    files: Optional[list[File]] = Field(default=None, description="""Pointer to relevant file(s) for the cohort. Files relating exclusively to individual phenopackets should be contained in the Phenopacket.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
          'domain_of': ['Biosample', 'Cohort', 'Family', 'Phenopacket']} })
-    id: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'id',
+    id: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -1887,8 +2316,10 @@ class Cohort(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    members: Optional[List[Phenopacket]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'members', 'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
-    metaData: MetaData = Field(..., description="""Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED""", json_schema_extra = { "linkml_meta": {'alias': 'metaData', 'domain_of': ['Cohort', 'Family', 'Phenopacket']} })
+    members: Optional[list[Phenopacket]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Haplotype', 'VariationSet', 'Cohort']} })
+    metaData: MetaData = Field(default=..., description="""Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['Cohort', 'Family', 'Phenopacket']} })
 
 
 class Family(ConfiguredBaseModel):
@@ -1897,10 +2328,11 @@ class Family(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/phenopackets'})
 
-    consanguinousParents: Optional[bool] = Field(None, description="""flag to indicate that the parents of the proband are consanguinous""", json_schema_extra = { "linkml_meta": {'alias': 'consanguinousParents', 'domain_of': ['Family']} })
-    files: Optional[List[File]] = Field(default_factory=list, description="""Pointer to the relevant file(s) for the family. These should be files relating to one or more of the family members e.g a multi-sample VCF. Files relating exclusively to individual phenopackets should be contained in the Phenopacket.""", json_schema_extra = { "linkml_meta": {'alias': 'files',
+    consanguinousParents: Optional[bool] = Field(default=None, description="""flag to indicate that the parents of the proband are consanguinous""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}}, 'domain_of': ['Family']} })
+    files: Optional[list[File]] = Field(default=None, description="""Pointer to the relevant file(s) for the family. These should be files relating to one or more of the family members e.g a multi-sample VCF. Files relating exclusively to individual phenopackets should be contained in the Phenopacket.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
          'domain_of': ['Biosample', 'Cohort', 'Family', 'Phenopacket']} })
-    id: Optional[str] = Field(None, description="""An identifier specific for this family.""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    id: Optional[str] = Field(default=None, description="""An identifier specific for this family.""", json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -1912,10 +2344,11 @@ class Family(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    metaData: MetaData = Field(..., description="""Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED""", json_schema_extra = { "linkml_meta": {'alias': 'metaData', 'domain_of': ['Cohort', 'Family', 'Phenopacket']} })
-    pedigree: Optional[Pedigree] = Field(None, description="""The pedigree defining the relations between the proband and their relatives. Pedigree.individual_id should map to the PhenoPacket.Individual.id""", json_schema_extra = { "linkml_meta": {'alias': 'pedigree', 'domain_of': ['Family']} })
-    proband: Optional[Phenopacket] = Field(None, description="""The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient""", json_schema_extra = { "linkml_meta": {'alias': 'proband', 'domain_of': ['Family']} })
-    relatives: Optional[List[Phenopacket]] = Field(default_factory=list, description="""Individuals related in some way to the patient. For instance, the individuals may be genetically related or may be members of a cohort. If this field is used, then  it is expected that a pedigree will be included for genetically related individuals for use cases such as genomic diagnostics. If a phenopacket is being used to describe one member of a cohort, then in general one phenopacket will be created for each of the individuals in the cohort.""", json_schema_extra = { "linkml_meta": {'alias': 'relatives', 'domain_of': ['Family']} })
+    metaData: MetaData = Field(default=..., description="""Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['Cohort', 'Family', 'Phenopacket']} })
+    pedigree: Optional[Pedigree] = Field(default=None, description="""The pedigree defining the relations between the proband and their relatives. Pedigree.individual_id should map to the PhenoPacket.Individual.id""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}}, 'domain_of': ['Family']} })
+    proband: Optional[Phenopacket] = Field(default=None, description="""The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}}, 'domain_of': ['Family']} })
+    relatives: Optional[list[Phenopacket]] = Field(default=None, description="""Individuals related in some way to the patient. For instance, the individuals may be genetically related or may be members of a cohort. If this field is used, then  it is expected that a pedigree will be included for genetically related individuals for use cases such as genomic diagnostics. If a phenopacket is being used to describe one member of a cohort, then in general one phenopacket will be created for each of the individuals in the cohort.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}}, 'domain_of': ['Family']} })
 
 
 class Phenopacket(ConfiguredBaseModel):
@@ -1925,11 +2358,14 @@ class Phenopacket(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/linkml/phenopackets/phenopackets',
          'tree_root': True})
 
-    biosamples: Optional[List[Biosample]] = Field(default_factory=list, description="""Biosample(s) derived from the patient or a collection of biosamples in isolation""", json_schema_extra = { "linkml_meta": {'alias': 'biosamples', 'domain_of': ['Phenopacket']} })
-    diseases: Optional[List[Disease]] = Field(default_factory=list, description="""Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context.""", json_schema_extra = { "linkml_meta": {'alias': 'diseases', 'domain_of': ['Phenopacket']} })
-    files: Optional[List[File]] = Field(default_factory=list, description="""Pointer to the relevant file(s) for the individual""", json_schema_extra = { "linkml_meta": {'alias': 'files',
+    biosamples: Optional[list[Biosample]] = Field(default=None, description="""Biosample(s) derived from the patient or a collection of biosamples in isolation""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 5}},
+         'domain_of': ['Phenopacket']} })
+    diseases: Optional[list[Disease]] = Field(default=None, description="""Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context.""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 7}},
+         'domain_of': ['Phenopacket']} })
+    files: Optional[list[File]] = Field(default=None, description="""Pointer to the relevant file(s) for the individual""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 10}},
          'domain_of': ['Biosample', 'Cohort', 'Family', 'Phenopacket']} })
-    id: Optional[str] = Field(None, description="""An identifier specific for this phenopacket.""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+    id: Optional[str] = Field(default=None, description="""An identifier specific for this phenopacket.""", json_schema_extra = { "linkml_meta": {'annotations': {'percent_encoded': {'tag': 'percent_encoded', 'value': True},
+                         'rank': {'tag': 'rank', 'value': 1}},
          'domain_of': ['ExternalReference',
                        'OntologyClass',
                        'Biosample',
@@ -1941,12 +2377,18 @@ class Phenopacket(ConfiguredBaseModel):
                        'Cohort',
                        'Family',
                        'Phenopacket']} })
-    interpretations: Optional[List[Interpretation]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'interpretations', 'domain_of': ['Phenopacket']} })
-    measurements: Optional[List[Measurement]] = Field(default_factory=list, description="""Quantifiable measurements related to the individual""", json_schema_extra = { "linkml_meta": {'alias': 'measurements', 'domain_of': ['Biosample', 'Phenopacket']} })
-    medicalActions: Optional[List[MedicalAction]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'medicalActions', 'domain_of': ['Phenopacket']} })
-    metaData: MetaData = Field(..., description="""Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED""", json_schema_extra = { "linkml_meta": {'alias': 'metaData', 'domain_of': ['Cohort', 'Family', 'Phenopacket']} })
-    phenotypicFeatures: Optional[List[PhenotypicFeature]] = Field(default_factory=list, description="""Phenotypic features relating to the subject of the phenopacket""", json_schema_extra = { "linkml_meta": {'alias': 'phenotypicFeatures', 'domain_of': ['Biosample', 'Phenopacket']} })
-    subject: Optional[Individual] = Field(None, description="""The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient""", json_schema_extra = { "linkml_meta": {'alias': 'subject', 'domain_of': ['Phenopacket']} })
+    interpretations: Optional[list[Interpretation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 6}},
+         'domain_of': ['Phenopacket']} })
+    measurements: Optional[list[Measurement]] = Field(default=None, description="""Quantifiable measurements related to the individual""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 4}},
+         'domain_of': ['Biosample', 'Phenopacket']} })
+    medicalActions: Optional[list[MedicalAction]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 9}},
+         'domain_of': ['Phenopacket']} })
+    metaData: MetaData = Field(default=..., description="""Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 11}},
+         'domain_of': ['Cohort', 'Family', 'Phenopacket']} })
+    phenotypicFeatures: Optional[list[PhenotypicFeature]] = Field(default=None, description="""Phenotypic features relating to the subject of the phenopacket""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 3}},
+         'domain_of': ['Biosample', 'Phenopacket']} })
+    subject: Optional[Individual] = Field(default=None, description="""The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient""", json_schema_extra = { "linkml_meta": {'annotations': {'rank': {'tag': 'rank', 'value': 2}},
+         'domain_of': ['Phenopacket']} })
 
 
 # Model rebuild
@@ -2025,4 +2467,3 @@ Person.model_rebuild()
 Cohort.model_rebuild()
 Family.model_rebuild()
 Phenopacket.model_rebuild()
-

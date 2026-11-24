@@ -1,4 +1,256 @@
-# metamodel_version: 1.7.0
+# metamodel_version: 1.12.0
+enum AcmgPathogenicityClassification
+  {
+    NOT_PROVIDED
+    BENIGN
+    LIKELY_BENIGN
+    UNCERTAIN_SIGNIFICANCE
+    LIKELY_PATHOGENIC
+    PATHOGENIC
+  }
+
+enum AffectedStatus
+  {
+    MISSING
+    UNAFFECTED
+    AFFECTED
+  }
+
+enum AllelicStateTerms
+  {
+    HETEROZYGOUS
+    HOMOZYGOUS
+    HEMIZYGOUS
+  }
+
+enum AssaysTerms
+  {
+    CREATINE_KINASE
+  }
+
+enum DrugType
+  {
+    UNKNOWN_DRUG_TYPE
+    PRESCRIPTION
+    EHR_MEDICATION_LIST
+    ADMINISTRATION_RELATED_TO_PROCEDURE
+  }
+
+enum GenderTerms
+  {
+    IDENTIFIES_AS_MALE
+    IDENTIFIES_AS_FEMALE
+    FEMALE_TO_MALE_TRANSSEXUAL
+    MALE_TO_FEMALE_TRANSSEXUAL
+    IDENTIFIES_AS_NON_CONFORMING
+    OTHER_GENDER
+    ASKED_BUT_UNKNOWN
+  }
+
+enum InterpretationStatus
+  {
+    UNKNOWN_STATUS
+    REJECTED
+    CANDIDATE
+    CONTRIBUTORY
+    CAUSATIVE
+  }
+
+enum KaryotypicSex
+  {
+    UNKNOWN_KARYOTYPE
+    XX
+    XY
+    XO
+    XXY
+    XXX
+    XXYY
+    XXXY
+    XXXX
+    XYY
+    OTHER_KARYOTYPE
+  }
+
+enum LateralityTerms
+  {
+    RIGHT
+    LEFT
+    UNILATERAL
+    BILATERAL
+  }
+
+enum MedicalActionsTerms
+  {
+    ADVERSE_EVENT
+    FOUR_TIMES_DAILY
+    INTRA_ARTERIAL
+    IV_ADMINISTRATION
+    ORAL_ADMINISTRATION
+    ONCE
+    ONCE_DAILY
+    THREE_TIMES_DAILY
+    TWICE_DAILY
+  }
+
+enum MoleculeContext
+  {
+    unspecified_molecule_context
+    genomic
+    transcript
+    protein
+  }
+
+enum OnsetTerms
+  {
+    ANTENATAL_ONSET
+    EMBRYONAL_ONSET
+    FETAL_ONSET
+    LATE_FIRST_TRIMESTER_ONSET
+    SECOND_TRIMESTER_ONSET
+    THIRD_TRIMESTER_ONSET
+    CONGENITAL_ONSET
+    NEONATAL_ONSET
+    INFANTILE_ONSET
+    CHILDHOOD_ONSET
+    JUVENILE_ONSET
+    ADULT_ONSET
+    YOUNG_ADULT_ONSET
+    EARLY_YOUNG_ADULT_ONSET
+    INTERMEDIATE_YOUNG_ADULT_ONSET
+    LATE_YOUNG_ADULT_ONSET
+    MIDDLE_AGE_ONSET
+    LATE_ONSET
+  }
+
+enum OrganTerms
+  {
+    BRAIN
+    CEREBELLUM
+    EAR
+    EYE
+    HEART
+    KIDNEY
+    LARGE_INTESTINE
+    LIVER
+    LUNG
+    NOSE
+    SMALL_INTESTINE
+    SPINAL_CORD
+    SPLEEN
+    TONGUE
+    THYMUS
+  }
+
+enum ProgressStatus
+  {
+    UNKNOWN_PROGRESS
+    IN_PROGRESS
+    COMPLETED
+    SOLVED
+    UNSOLVED
+  }
+
+enum RegimenStatus
+  {
+    UNKNOWN_STATUS
+    STARTED
+    COMPLETED
+    DISCONTINUED
+  }
+
+enum ResponseTerms
+  {
+    FAVORABLE
+    UNFAVORABLE
+  }
+
+enum Sex
+  {
+    UNKNOWN_SEX
+    FEMALE
+    MALE
+    OTHER_SEX
+  }
+
+enum SpatialPatternTerms
+  {
+    PREDOMINANT_SMALL_JOINT_LOCALIZATION
+    POLYCYCLIC
+    AXIAL
+    PERILOBULAR
+    PARASEPTAL
+    BRONCHOCENTRIC
+    CENTRILOBULAR
+    MILIARY
+    GENERALIZED
+    PERILYMPHATIC
+    LOCALIZED
+    RETICULAR
+    DISTAL
+    CENTRAL
+    UPPER_BODY_PREDOMINANCE
+    JOINT_EXTENSOR_SURFACE_LOCALIZATION
+    HERPETIFORM
+    MORBILLIFORM
+    PERICENTRAL
+    DERMATOMAL
+    MIDPERIPHERAL
+    DISTRIBUTED_ALONG_BLASCHKO_LINES
+    ACRAL
+    PARACENTRAL
+    LATERAL
+    PERIPHERAL
+    LOWER_BODY_PREDOMINANCE
+    DIFFUSE
+    PROXIMAL
+    APICAL
+    FOCAL
+    MULTIFOCAL
+    JOINT_FLEXOR_SURFACE_LOCALIZATION
+  }
+
+enum Status
+  {
+    UNKNOWN_STATUS
+    ALIVE
+    DECEASED
+  }
+
+enum TherapeuticActionability
+  {
+    UNKNOWN_ACTIONABILITY
+    NOT_ACTIONABLE
+    ACTIONABLE
+  }
+
+enum UnitTerms
+  {
+    DEGREE
+    DIOPTER
+    GRAM
+    GRAM_PER_KG
+    KILIGRAM
+    LITER
+    METER
+    MICROGRAM
+    MICROGRAM_PER_DECILITER
+    MICROGRAM_PER_LITER
+    MICROLITER
+    MICROMETER
+    MILLIGRAM
+    MILLIGRAM_PER_DAY
+    MILLIGRAM_PER_DL
+    MILLIGRAM_PER_KG
+    MILLILITER
+    MILLIMETER
+    MILLIMETRES_OF_MERCURY
+    MILLIMOLE
+    MOLE
+    MOLE_PER_LITER
+    MOLE_PER_MILLILITER
+    ENZYME_UNIT_PER_LITER
+  }
+
 type Abundance
   {
     copyNumber: CopyNumber
@@ -103,8 +355,8 @@ type CytobandInterval
 
 type DefiniteRange
   {
-    max: Integer
-    min: Integer
+    max: Int
+    min: Int
   }
 
 type DerivedSequenceExpression
@@ -218,8 +470,8 @@ type GenomicInterpretation
 
 type GestationalAge
   {
-    days: Integer
-    weeks: Integer
+    days: Int
+    weeks: Int
   }
 
 type Haplotype
@@ -237,7 +489,7 @@ type HaplotypeMember
 type IndefiniteRange
   {
     comparator: String
-    value: Integer
+    value: Int
   }
 
 type Individual
@@ -314,7 +566,7 @@ type MolecularVariation
 
 type Number
   {
-    value: Integer
+    value: Int
   }
 
 type OntologyClass
@@ -375,21 +627,21 @@ type Quantity
   {
     referenceRange: ReferenceRange
     unit: OntologyClass
-    value: Double
+    value: Float
   }
 
 type RadiationTherapy
   {
     bodySite: OntologyClass!
-    dosage: Integer!
-    fractions: Integer!
+    dosage: Int!
+    fractions: Int!
     modality: OntologyClass!
   }
 
 type ReferenceRange
   {
-    high: Double
-    low: Double
+    high: Float
+    low: Float
     unit: OntologyClass
   }
 
@@ -444,8 +696,8 @@ type SequenceState
 
 type SimpleInterval
   {
-    end: Integer
-    start: Integer
+    end: Int
+    start: Int
   }
 
 type SystemicVariation
@@ -486,8 +738,8 @@ type TimeInterval
 
 type Timestamp
   {
-    nanos: Integer
-    seconds: Integer
+    nanos: Int
+    seconds: Int
   }
 
 type Treatment
@@ -582,7 +834,7 @@ type VcfRecord
     genomeAssembly: String
     id: String
     info: String
-    pos: Integer
+    pos: Int
     qual: String
     ref: String
   }
@@ -591,7 +843,6 @@ type VitalStatus
   {
     causeOfDeath: OntologyClass
     status: Status
-    survivalTimeInDays: Integer
+    survivalTimeInDays: Int
     timeOfDeath: TimeElement
   }
-
