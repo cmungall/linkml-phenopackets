@@ -1,4 +1,4 @@
-site_name: "phenopackets in linkml EXPERIMENTAL DEMO"
+site_name: "phenopackets in linkml"
 theme:
   name: material
   analytics:
@@ -26,13 +26,26 @@ plugins:
       version: 9.3.0
   - mknotebooks:
       execute: false
+markdown_extensions:
+  # the pages that gen-doc generates have markdown inside <div markdown="1">
+  - md_in_html
+  # schema-diagram.md includes the diagram that `make gendocs` generates
+  - pymdownx.snippets:
+      base_path: docs
+      check_paths: true
+extra_css:
+  - stylesheets/schema-diagram.css
+extra_javascript:
+  - https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js
+  - javascripts/schema-diagram.js
 nav:
   - Home: home.md
   - Index: index.md
+  - Schema diagram: schema-diagram.md
   - Notebooks:
-      Validating: notebooks/LinkML-Validate.ipynb
-      Pydantic: notebooks/Pydantic.ipynb
-      Using OAK: notebooks/OAK.ipynb
-      RDF: notebooks/Generating-RDF.ipynb
+      - Validating: notebooks/LinkML-Validate.ipynb
+      - Pydantic: notebooks/Pydantic.ipynb
+      - Using OAK: notebooks/OAK.ipynb
+      - RDF: notebooks/Generating-RDF.ipynb
 site_url: https://cmungall.github.io/linkml-phenopackets/
 repo_url: https://github.com/cmungall/linkml-phenopackets/
