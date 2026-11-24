@@ -68,7 +68,7 @@ my $schema = {
     id => "$url",
     name => $id,
     default_prefix => $id,
-    description => "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL.",
+    description => "Automatic translation of phenopackets protobuf to LinkML.",
     prefixes =>
     {
         'linkml' => 'https://w3id.org/linkml/',
