@@ -1,0 +1,23 @@
+/* The "Schema diagram" page: the diagram gets the whole width of the window,
+   and the height that is left under the header and the heading of the page. */
+body:has(.schema-diagram) .md-grid {
+  max-width: none;
+}
+
+.schema-diagram {
+  height: calc(100vh - 12rem);
+  min-height: 20rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  overflow: hidden;
+  cursor: grab;
+}
+
+.schema-diagram .mermaid {
+  height: 100%;
+  margin: 0;
+}
+
+/* the theme gives every svg the height that follows from its width */
+.schema-diagram .mermaid svg {
+  height: 100%;
+}

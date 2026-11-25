@@ -839,7 +839,7 @@ classes:
                 variationSet: 
                   required: true
 default_prefix: vrs
-description: "Automatic translation of phenopackets protobuf to LinkML. Status: EXPERIMENTAL."
+description: Automatic translation of phenopackets protobuf to LinkML.
 enums: {}
 
 id: https://w3id.org/linkml/phenopackets/vrs

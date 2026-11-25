@@ -18,7 +18,7 @@ class TestCreate(unittest.TestCase):
     """A test case for create tests."""
 
     def setUp(self) -> None:
-        self.runner = CliRunner(mix_stderr=False)
+        self.runner = CliRunner()
 
     def test_main_help(self):
         result = self.runner.invoke(main, ["--help"])

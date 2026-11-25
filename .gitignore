@@ -12,9 +12,9 @@ tmp/
 .vscode
 .venv
 
-docs/_build/
-docs/src/
-docs/datamodels/*/*.md
+# the documentation is built in docs/ and site/, see `make gendocs`
+/docs/
+/site/
 
 src/docs/notebooks/output/*json
 src/docs/notebooks/output/*tsv

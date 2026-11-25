@@ -5,18 +5,26 @@ CORE_MODS = timestamp any base measurement medical_action genome phenotypic_feat
 all:
 	$(RUN) gen-project -d project $(SRC)
 
-# https://github.com/linkml/linkml/issues/907
+# The site is built from docs/, which is not in the repository: it holds a copy
+# of src/docs and what is generated from the schema. gen-doc makes the pages of
+# the classes, slots, enums and types. It takes a template from $(TEMPLATEDIR)
+# when there is one for the kind of page, and from linkml itself otherwise.
+# gen-erdiagram makes the diagram that src/docs/schema-diagram.md shows.
+DOCS = docs
+TEMPLATEDIR = src/doc-templates
+
 gendocs:
-#	$(RUN) gen-doc -d docs/  $(SRC)
-#	$(RUN) gen-doc -d docs/ --include-top-level-diagram --diagram-type er_diagram --template-directory docgen-templates $(SRC)
-	$(RUN) gen-doc -d docs/ --include-top-level-diagram --diagram-type er_diagram $(SRC)
+	mkdir -p $(DOCS)
+	cp -r src/docs/* $(DOCS)/
+	$(RUN) gen-doc -d $(DOCS)/ --template-directory $(TEMPLATEDIR) --diagram-type er_diagram --truncate-descriptions false $(SRC)
+	$(RUN) gen-erdiagram --format mermaid $(SRC) > $(DOCS)/schema-diagram.mmd
 
 py:
 	cp project/phenopackets.py src/phenopackets/datamodel/
 
 
 src/phenopackets/pydantic/model.py: $(SRC)
-	$(RUN) gen-pydantic --pydantic-version 2 $< > $@
+	$(RUN) gen-pydantic $< > $@
 
 #src/phenopackets/datamodel/%.py: src/phenopackets/schema/%.yaml
 #	$(RUN) gen-python $< > $@.tmp && mv $@.tmp $@
@@ -27,7 +35,8 @@ test:
 sync-examples:
 	cp tests/output/examples/* examples/
 
-serve:
+# Show the site on http://127.0.0.1:8000/linkml-phenopackets/
+serve: gendocs
 	$(RUN) mkdocs serve
 
 gh-deploy:

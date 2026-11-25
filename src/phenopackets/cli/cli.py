@@ -4,7 +4,6 @@ import sys
 from typing import Optional, TextIO, List
 
 import click
-from linkml.validators import JsonSchemaDataValidator
 import linkml.validator as linkml_validator
 from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import yaml_dumper
@@ -192,34 +191,6 @@ def validate(
     if errs:
         sys.exit(1)
 
-
-
-def xxxxvalidate(
-    input_paths: List[TextIO],
-    input_format: Optional[str],
-    output_format: Optional[str],
-    output: Optional[str],
-    ontology: Optional[str],
-):
-    """Validate a collection of phenopackets."""
-    conf = get_configuration(ontology)
-    schema_location = str(MAIN_SCHEMA_PATH)
-    validator = JsonSchemaDataValidator(schema_location)
-    errs = []
-    for input_path in input_paths:
-        print(f"## Validating {input_path}")
-        pkt = ioutil.load_phenopacket(input_path, input_format)
-        try:
-            validator.validate_object(pkt)
-        except Exception as e:
-            logger.error(f"## ERROR: {e}")
-            errs.append((input_path, e))
-        for r in ontutil.validate_ontology_classes(pkt, configuration=conf):
-            print(f"## ERROR: {r}")
-            errs.append((input_path, r))
-    print(f"Errors: {len(errs)}")
-    if errs:
-        raise ValueError(f"Validation failed: {errs}")
 
 
 @main.command()
