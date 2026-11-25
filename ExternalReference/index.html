@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/ExternalReference/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: ExternalReference - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: ExternalReference - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -250,11 +256,12 @@
 </a>
 <h1 id="class-externalreference">Class: ExternalReference</h1>
 <p><em>FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)</em></p>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/ExternalReference">phenopackets:ExternalReference</a></p>
 <div class="mermaid">erDiagram
 ExternalReference {
-    string description  
     string id  
+    string description  
     string reference  
 }
 
@@ -276,19 +283,19 @@ ExternalReference {
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>Human readable title or display string for the reference FHIR mapping: Refere...</td>
+<td>Human readable title or display string for the reference FHIR mapping: Reference.display</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>e</td>
+<td>e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../reference/">reference</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A full or partial URL pointing to the external reference if no commonly resol...</td>
+<td>A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the <code>id</code> field FHIR mapping Reference.reference</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -392,12 +399,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -435,7 +436,6 @@ attributes:
     description: 'Human readable title or display string for the reference FHIR mapping:
       Reference.display'
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: description
     owner: ExternalReference
     domain_of:
     - Cohort
@@ -457,7 +457,6 @@ attributes:
         value: 1
     description: 'e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier'
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: id
     owner: ExternalReference
     domain_of:
     - Cohort
@@ -466,12 +465,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -487,7 +480,6 @@ attributes:
     description: A full or partial URL pointing to the external reference if no commonly
       resolvable identifier can be used in the `id` field FHIR mapping Reference.reference
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: reference
     owner: ExternalReference
     domain_of:
     - Evidence
@@ -496,6 +488,7 @@ attributes:
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -521,5 +514,7 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

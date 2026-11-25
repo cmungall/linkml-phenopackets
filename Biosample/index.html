@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/Biosample/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: Biosample - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: Biosample - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -201,6 +207,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#comments">
+    Comments
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -250,17 +261,51 @@
 </a>
 <h1 id="class-biosample">Class: Biosample</h1>
 <p><em>A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).</em></p>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/Biosample">phenopackets:Biosample</a></p>
 <div class="mermaid">erDiagram
+Age {
+    string iso8601duration  
+}
+AgeRange {
+
+}
 Biosample {
-    string derivedFromId  
-    string description  
     string id  
+    string description  
+    string derivedFromId  
     string individualId  
+}
+ComplexValue {
+
+}
+DictionaryEntry {
+    string key  
+    string value  
+}
+Evidence {
+
+}
+File {
+    string uri  
+}
+GestationalAge {
+    integer days  
+    integer weeks  
+}
+Measurement {
+    string description  
 }
 OntologyClass {
     string id  
     string label  
+}
+PhenotypicFeature {
+    string description  
+    boolean excluded  
+}
+Procedure {
+
 }
 TimeElement {
     string timestamp  
@@ -269,87 +314,40 @@ TimeInterval {
     string end  
     string start  
 }
-GestationalAge {
-    integer days  
-    integer weeks  
-}
-AgeRange {
-
-}
-Age {
-    string iso8601duration  
-}
-Procedure {
-
-}
-PhenotypicFeature {
-    string description  
-    boolean excluded  
-}
-Evidence {
-
-}
-Measurement {
-    string description  
-}
 Value {
 
 }
-ComplexValue {
 
-}
-File {
-    string uri  
-}
-Dictionary {
-
-}
-
-Biosample ||--}o OntologyClass : "diagnosticMarkers"
-Biosample ||--}o File : "files"
-Biosample ||--|o OntologyClass : "histologicalDiagnosis"
-Biosample ||--|o OntologyClass : "materialSample"
-Biosample ||--}o Measurement : "measurements"
-Biosample ||--|o OntologyClass : "pathologicalStage"
-Biosample ||--}o OntologyClass : "pathologicalTnmFinding"
-Biosample ||--}o PhenotypicFeature : "phenotypicFeatures"
+AgeRange ||--|o Age : "end, start"
+Biosample ||--|o OntologyClass : "histologicalDiagnosis, materialSample, pathologicalStage, sampleProcessing, sampleStorage, sampleType, sampledTissue, taxonomy, tumorGrade, tumorProgression"
 Biosample ||--|o Procedure : "procedure"
-Biosample ||--|o OntologyClass : "sampleProcessing"
-Biosample ||--|o OntologyClass : "sampleStorage"
-Biosample ||--|o OntologyClass : "sampleType"
-Biosample ||--|o OntologyClass : "sampledTissue"
-Biosample ||--|o OntologyClass : "taxonomy"
 Biosample ||--|o TimeElement : "timeOfCollection"
-Biosample ||--|o OntologyClass : "tumorGrade"
-Biosample ||--|o OntologyClass : "tumorProgression"
-TimeElement ||--|o Age : "age"
-TimeElement ||--|o AgeRange : "ageRange"
-TimeElement ||--|o GestationalAge : "gestationalAge"
-TimeElement ||--|o TimeInterval : "interval"
-TimeElement ||--|o OntologyClass : "ontologyClass"
-AgeRange ||--|o Age : "end"
-AgeRange ||--|o Age : "start"
-Procedure ||--|o OntologyClass : "bodySite"
-Procedure ||--|o OntologyClass : "code"
-Procedure ||--|o TimeElement : "performed"
-PhenotypicFeature ||--}o Evidence : "evidence"
-PhenotypicFeature ||--}o OntologyClass : "modifiers"
-PhenotypicFeature ||--|o TimeElement : "onset"
-PhenotypicFeature ||--|o TimeElement : "resolution"
-PhenotypicFeature ||--|o OntologyClass : "severity"
-PhenotypicFeature ||--|o OntologyClass : "type"
-Evidence ||--|o OntologyClass : "evidenceCode"
+Biosample ||--}o File : "files"
+Biosample ||--}o Measurement : "measurements"
+Biosample ||--}o OntologyClass : "diagnosticMarkers, pathologicalTnmFinding"
+Biosample ||--}o PhenotypicFeature : "phenotypicFeatures"
+ComplexValue ||--}o TypedQuantity : "typedQuantities"
 Evidence ||--|o ExternalReference : "reference"
-Measurement ||--|o OntologyClass : "assay"
+Evidence ||--|o OntologyClass : "evidenceCode"
+File ||--}o DictionaryEntry : "fileAttributes, individualToFileIdentifiers"
 Measurement ||--|o ComplexValue : "complexValue"
+Measurement ||--|o OntologyClass : "assay"
 Measurement ||--|o Procedure : "procedure"
 Measurement ||--|o TimeElement : "timeObserved"
 Measurement ||--|o Value : "value"
+PhenotypicFeature ||--|o OntologyClass : "severity, type"
+PhenotypicFeature ||--|o TimeElement : "onset, resolution"
+PhenotypicFeature ||--}o Evidence : "evidence"
+PhenotypicFeature ||--}o OntologyClass : "modifiers"
+Procedure ||--|o OntologyClass : "bodySite, code"
+Procedure ||--|o TimeElement : "performed"
+TimeElement ||--|o Age : "age"
+TimeElement ||--|o AgeRange : "ageRange"
+TimeElement ||--|o GestationalAge : "gestationalAge"
+TimeElement ||--|o OntologyClass : "ontologyClass"
+TimeElement ||--|o TimeInterval : "interval"
 Value ||--|o OntologyClass : "ontologyClass"
 Value ||--|o Quantity : "quantity"
-ComplexValue ||--}o TypedQuantity : "typedQuantities"
-File ||--|o Dictionary : "fileAttributes"
-File ||--|o Dictionary : "individualToFileIdentifiers"
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -367,127 +365,127 @@ File ||--|o Dictionary : "individualToFileIdentifiers"
 <tr>
 <td><a href="../derivedFromId/">derivedFromId</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The id of the parent biosample this biosample was derived from</td>
+<td>The id of the parent biosample this biosample was derived from.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The biosample's description</td>
+<td>The biosample's description. This attribute contains human readable text. The "description" attributes should not contain any structured data.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../diagnosticMarkers/">diagnosticMarkers</a></td>
-<td>0..* <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>Clinically relevant bio markers</td>
+<td>* <br/> <a href="../OntologyClass/">OntologyClass</a></td>
+<td>Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../files/">files</a></td>
-<td>0..* <br/> <a href="../File/">File</a></td>
-<td>Pointer to the relevant file(s) for the biosample</td>
+<td>* <br/> <a href="../File/">File</a></td>
+<td>Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../histologicalDiagnosis/">histologicalDiagnosis</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>This is the pathologist’s diagnosis and may often represent a refinement of t...</td>
+<td>This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term "NCIT:C38757", "Negative Finding" ARGO mapping specimen::tumour_histological_type</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>biosamples SAMN08666232 Human Cell Atlas The Biosample id This is unique in t...</td>
+<td>The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../individualId/">individualId</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The id of the individual this biosample was derived from</td>
+<td>The id of the individual this biosample was derived from. ARGO mapping specimen::submitter_donor_id</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../materialSample/">materialSample</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>This element can be used to specify the status of the sample</td>
+<td>This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../measurements/">measurements</a></td>
-<td>0..* <br/> <a href="../Measurement/">Measurement</a></td>
+<td>* <br/> <a href="../Measurement/">Measurement</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../pathologicalStage/">pathologicalStage</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specim...</td>
+<td>ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../pathologicalTnmFinding/">pathologicalTnmFinding</a></td>
-<td>0..* <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>ARGO mapping specimen::pathological_t_category ARGO mapping specimen::patholo...</td>
+<td>* <br/> <a href="../OntologyClass/">OntologyClass</a></td>
+<td>ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../phenotypicFeatures/">phenotypicFeatures</a></td>
-<td>0..* <br/> <a href="../PhenotypicFeature/">PhenotypicFeature</a></td>
-<td>Phenotypic characteristics of the BioSample, for example histological finding...</td>
+<td>* <br/> <a href="../PhenotypicFeature/">PhenotypicFeature</a></td>
+<td>Phenotypic characteristics of the BioSample, for example histological findings of a biopsy.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../procedure/">procedure</a></td>
 <td>0..1 <br/> <a href="../Procedure/">Procedure</a></td>
-<td>Clinical procedure performed on the subject in order to extract the biosample</td>
+<td>Clinical procedure performed on the subject in order to extract the biosample. ARGO mapping specimen::specimen_anatomic_location - Procedure::body_site ARGO mapping specimen::specimen_acquisition_interval - Procedure::time_performed</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sampleProcessing/">sampleProcessing</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>Field to represent how the sample was processed</td>
+<td>Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sampleStorage/">sampleStorage</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>Field to represent how the sample was stored ARGO mapping specimen::specimen_...</td>
+<td>Field to represent how the sample was stored ARGO mapping specimen::specimen_storage</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sampleType/">sampleType</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>Recommended use of EFO term to describe the sample</td>
+<td>Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sampledTissue/">sampledTissue</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>UBERON class describing the tissue from which the specimen was collected</td>
+<td>UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../taxonomy/">taxonomy</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>NCBI taxonomic identifier (NCBITaxon) of the sample e</td>
+<td>NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../timeOfCollection/">timeOfCollection</a></td>
 <td>0..1 <br/> <a href="../TimeElement/">TimeElement</a></td>
-<td>An TimeElement describing either the age of the individual this biosample was...</td>
+<td>An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../tumorGrade/">tumorGrade</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivale...</td>
+<td>Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../tumorProgression/">tumorProgression</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>Is the specimen tissue from the primary tumor, a metastasis or a recurrence? ...</td>
+<td>Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -511,6 +509,10 @@ File ||--|o Dictionary : "individualToFileIdentifiers"
 </tr>
 </tbody>
 </table>
+<h2 id="comments">Comments</h2>
+<ul>
+<li>biosamples SAMN08666232 Human Cell Atlas</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -547,6 +549,8 @@ description: 'A Biosample refers to a unit of biological material from which the
   fraction from a gradient centrifugation. Several instances (e.g. technical replicates)
   or types of experiments (e.g. genomic array as well as RNA-seq experiments) may
   refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).'
+comments:
+- biosamples SAMN08666232 Human Cell Atlas
 from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
   derivedFromId:
@@ -591,11 +595,10 @@ attributes:
       Positive)
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Biosample
     range: OntologyClass
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   files:
     name: files
@@ -607,14 +610,13 @@ attributes:
       to the entire individual e.g. a germline exome/genome should be associated with
       the Phenopacket rather than the Biosample it was derived from.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
     domain_of:
     - Cohort
     - Family
     - Phenopacket
     - Biosample
     range: File
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   histologicalDiagnosis:
     name: histologicalDiagnosis
@@ -635,7 +637,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   id:
     name: id
     annotations:
@@ -645,8 +646,8 @@ attributes:
       rank:
         tag: rank
         value: 1
-    description: biosamples SAMN08666232 Human Cell Atlas The Biosample id This is
-      unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id
+    description: The Biosample id This is unique in the context of the server instance.
+      ARGO mapping specimen::submitter_specimen_id
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:specimen.submitter_specimen_id
@@ -657,12 +658,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -704,7 +699,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   measurements:
     name: measurements
     annotations:
@@ -713,12 +707,11 @@ attributes:
         value: 8
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
     domain_of:
     - Phenopacket
     - Biosample
     range: Measurement
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   pathologicalStage:
     name: pathologicalStage
@@ -736,7 +729,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   pathologicalTnmFinding:
     name: pathologicalTnmFinding
     annotations:
@@ -749,11 +741,10 @@ attributes:
     exact_mappings:
     - ARGO:specimen.pathological_t_category
     rank: 1000
-    multivalued: true
     domain_of:
     - Biosample
     range: OntologyClass
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   phenotypicFeatures:
     name: phenotypicFeatures
@@ -764,12 +755,11 @@ attributes:
     description: Phenotypic characteristics of the BioSample, for example histological
       findings of a biopsy.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
     domain_of:
     - Phenopacket
     - Biosample
     range: PhenotypicFeature
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   procedure:
     name: procedure
@@ -803,7 +793,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   sampleStorage:
     name: sampleStorage
     annotations:
@@ -819,7 +808,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   sampleType:
     name: sampleType
     annotations:
@@ -836,7 +824,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   sampledTissue:
     name: sampledTissue
     annotations:
@@ -854,7 +841,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   taxonomy:
     name: taxonomy
     annotations:
@@ -869,7 +855,6 @@ attributes:
     - Individual
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   timeOfCollection:
     name: timeOfCollection
     annotations:
@@ -884,7 +869,6 @@ attributes:
     - Biosample
     range: TimeElement
     inlined: true
-    inlined_as_list: true
   tumorGrade:
     name: tumorGrade
     annotations:
@@ -899,7 +883,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   tumorProgression:
     name: tumorProgression
     annotations:
@@ -917,7 +900,6 @@ attributes:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
 
 </code></pre>
 </details>
@@ -931,6 +913,8 @@ description: 'A Biosample refers to a unit of biological material from which the
   fraction from a gradient centrifugation. Several instances (e.g. technical replicates)
   or types of experiments (e.g. genomic array as well as RNA-seq experiments) may
   refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).'
+comments:
+- biosamples SAMN08666232 Human Cell Atlas
 from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
   derivedFromId:
@@ -942,7 +926,6 @@ attributes:
     description: The id of the parent biosample this biosample was derived from.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: derivedFromId
     owner: Biosample
     domain_of:
     - Biosample
@@ -956,7 +939,6 @@ attributes:
     description: The biosample's description. This attribute contains human readable
       text. The "description" attributes should not contain any structured data.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: description
     owner: Biosample
     domain_of:
     - Cohort
@@ -979,12 +961,11 @@ attributes:
       Positive)
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: diagnosticMarkers
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
+    multivalued: true
     inlined: true
     inlined_as_list: true
   files:
@@ -997,8 +978,6 @@ attributes:
       to the entire individual e.g. a germline exome/genome should be associated with
       the Phenopacket rather than the Biosample it was derived from.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
-    alias: files
     owner: Biosample
     domain_of:
     - Cohort
@@ -1006,6 +985,7 @@ attributes:
     - Phenopacket
     - Biosample
     range: File
+    multivalued: true
     inlined: true
     inlined_as_list: true
   histologicalDiagnosis:
@@ -1023,13 +1003,11 @@ attributes:
     exact_mappings:
     - ARGO:specimen.tumour_histological_type
     rank: 1000
-    alias: histologicalDiagnosis
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   id:
     name: id
     annotations:
@@ -1039,12 +1017,11 @@ attributes:
       rank:
         tag: rank
         value: 1
-    description: biosamples SAMN08666232 Human Cell Atlas The Biosample id This is
-      unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id
+    description: The Biosample id This is unique in the context of the server instance.
+      ARGO mapping specimen::submitter_specimen_id
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:specimen.submitter_specimen_id
-    alias: id
     owner: Biosample
     domain_of:
     - Cohort
@@ -1053,12 +1030,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -1077,7 +1048,6 @@ attributes:
     exact_mappings:
     - ARGO:specimen.submitter_donor_id
     rank: 1000
-    alias: individualId
     owner: Biosample
     domain_of:
     - Biosample
@@ -1098,13 +1068,11 @@ attributes:
     exact_mappings:
     - ARGO:sample_registration.tumour_normal_designation
     rank: 1000
-    alias: materialSample
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   measurements:
     name: measurements
     annotations:
@@ -1113,13 +1081,12 @@ attributes:
         value: 8
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
-    alias: measurements
     owner: Biosample
     domain_of:
     - Phenopacket
     - Biosample
     range: Measurement
+    multivalued: true
     inlined: true
     inlined_as_list: true
   pathologicalStage:
@@ -1134,13 +1101,11 @@ attributes:
     exact_mappings:
     - ARGO:specimen.pathological_tumour_staging_system
     rank: 1000
-    alias: pathologicalStage
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   pathologicalTnmFinding:
     name: pathologicalTnmFinding
     annotations:
@@ -1153,12 +1118,11 @@ attributes:
     exact_mappings:
     - ARGO:specimen.pathological_t_category
     rank: 1000
-    multivalued: true
-    alias: pathologicalTnmFinding
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
+    multivalued: true
     inlined: true
     inlined_as_list: true
   phenotypicFeatures:
@@ -1170,13 +1134,12 @@ attributes:
     description: Phenotypic characteristics of the BioSample, for example histological
       findings of a biopsy.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
-    alias: phenotypicFeatures
     owner: Biosample
     domain_of:
     - Phenopacket
     - Biosample
     range: PhenotypicFeature
+    multivalued: true
     inlined: true
     inlined_as_list: true
   procedure:
@@ -1191,7 +1154,6 @@ attributes:
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     exact_mappings:
     - ARGO:specimen.specimen_anatomic_location
-    alias: procedure
     owner: Biosample
     domain_of:
     - Measurement
@@ -1209,13 +1171,11 @@ attributes:
     exact_mappings:
     - ARGO:specimen.specimen_processing
     rank: 1000
-    alias: sampleProcessing
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   sampleStorage:
     name: sampleStorage
     annotations:
@@ -1227,13 +1187,11 @@ attributes:
     exact_mappings:
     - ARGO:specimen.specimen_storage
     rank: 1000
-    alias: sampleStorage
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   sampleType:
     name: sampleType
     annotations:
@@ -1246,13 +1204,11 @@ attributes:
     exact_mappings:
     - ARGO:sample_registration.sample_type
     rank: 1000
-    alias: sampleType
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   sampledTissue:
     name: sampledTissue
     annotations:
@@ -1266,13 +1222,11 @@ attributes:
     exact_mappings:
     - ARGO:sample_registration.specimen_tissue_source
     rank: 1000
-    alias: sampledTissue
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   taxonomy:
     name: taxonomy
     annotations:
@@ -1282,14 +1236,12 @@ attributes:
     description: NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: taxonomy
     owner: Biosample
     domain_of:
     - Biosample
     - Individual
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   timeOfCollection:
     name: timeOfCollection
     annotations:
@@ -1300,13 +1252,11 @@ attributes:
       was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: timeOfCollection
     owner: Biosample
     domain_of:
     - Biosample
     range: TimeElement
     inlined: true
-    inlined_as_list: true
   tumorGrade:
     name: tumorGrade
     annotations:
@@ -1317,13 +1267,11 @@ attributes:
       or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: tumorGrade
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   tumorProgression:
     name: tumorProgression
     annotations:
@@ -1337,16 +1285,15 @@ attributes:
       (Recurrent Malignant Neoplasm)
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: tumorProgression
     owner: Biosample
     domain_of:
     - Biosample
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -1372,5 +1319,7 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

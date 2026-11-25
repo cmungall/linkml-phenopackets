@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/Resource/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: Resource - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: Resource - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -250,12 +256,13 @@
 </a>
 <h1 id="class-resource">Class: Resource</h1>
 <p><em>Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)</em></p>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/Resource">phenopackets:Resource</a></p>
 <div class="mermaid">erDiagram
 Resource {
     string id  
-    string iriPrefix  
     string name  
+    string iriPrefix  
     string namespacePrefix  
     string url  
     string version  
@@ -279,31 +286,31 @@ Resource {
 <tr>
 <td><a href="../id/">id</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>for OBO Ontologies, the value of this string MUST always be the official OBO ...</td>
+<td>for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../iriPrefix/">iriPrefix</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>Full IRI prefix which can be used with the namespace_prefix and the OntologyC...</td>
+<td>Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe' OntologyClass: id: 'HP:0012828' label: 'Severe' Resource: namespace_prefix: 'HP' iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>e</td>
+<td>e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../namespacePrefix/">namespacePrefix</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The prefix used in the CURIE of an OntologyClass e</td>
+<td>The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../url/">url</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>For OBO ontologies, this should always be the PURL, e</td>
+<td>For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -388,12 +395,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -497,7 +498,6 @@ attributes:
       Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list
       For other ontologies (e.g. SNOMED), use the prefix in identifiers.org'
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: id
     owner: Resource
     domain_of:
     - Cohort
@@ -506,12 +506,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -533,7 +527,6 @@ attributes:
       to http://purl.obolibrary.org/obo/HP_0012828'
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: iriPrefix
     owner: Resource
     domain_of:
     - Resource
@@ -549,7 +542,6 @@ attributes:
       this field is purely for information purposes and software should not encode
       any assumptions
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: name
     owner: Resource
     domain_of:
     - Extension
@@ -566,7 +558,6 @@ attributes:
       be used in combination with the iri_prefix to form a fully-resolvable IRI
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: namespacePrefix
     owner: Resource
     domain_of:
     - Resource
@@ -581,7 +572,6 @@ attributes:
       http://purl.obolibrary.org/obo/hp.obo
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: url
     owner: Resource
     domain_of:
     - Resource
@@ -594,7 +584,6 @@ attributes:
         value: 4
     description: for OBO ontologies, this should be the versionIRI
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: version
     owner: Resource
     domain_of:
     - Expression
@@ -603,6 +592,7 @@ attributes:
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -628,5 +618,7 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

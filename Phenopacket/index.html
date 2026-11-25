@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/Phenopacket/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: Phenopacket - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: Phenopacket - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -190,6 +196,11 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#class-properties">
+    Class Properties
+  </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#slots">
     Slots
@@ -250,34 +261,55 @@
 </a>
 <h1 id="class-phenopacket">Class: Phenopacket</h1>
 <p><em>An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses.  This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.</em></p>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/Phenopacket">phenopackets:Phenopacket</a></p>
 <div class="mermaid">erDiagram
-Phenopacket {
+Biosample {
     string id  
-}
-Individual {
-    stringList alternateIds  
-    string dateOfBirth  
-    string id  
-    KaryotypicSex karyotypicSex  
-    Sex sex  
-}
-VitalStatus {
-    Status status  
-    integer survivalTimeInDays  
-}
-TimeElement {
-    string timestamp  
-}
-OntologyClass {
-    string id  
-    string label  
-}
-PhenotypicFeature {
     string description  
+    string derivedFromId  
+    string individualId  
+}
+ComplexValue {
+
+}
+Diagnosis {
+
+}
+DictionaryEntry {
+    string key  
+    string value  
+}
+Disease {
     boolean excluded  
 }
 Evidence {
+
+}
+ExternalReference {
+    string id  
+    string description  
+    string reference  
+}
+File {
+    string uri  
+}
+Individual {
+    string id  
+    string dateOfBirth  
+    KaryotypicSex karyotypicSex  
+    Sex sex  
+    stringList alternateIds  
+}
+Interpretation {
+    string id  
+    ProgressStatus progressStatus  
+    string summary  
+}
+Measurement {
+    string description  
+}
+MedicalAction {
 
 }
 MetaData {
@@ -286,166 +318,137 @@ MetaData {
     string phenopacketSchemaVersion  
     string submittedBy  
 }
-Update {
-    string comment  
-    string timestamp  
-    string updatedBy  
-}
-Resource {
+OntologyClass {
     string id  
-    string iriPrefix  
-    string name  
-    string namespacePrefix  
-    string url  
-    string version  
+    string label  
 }
-ExternalReference {
+Phenopacket {
+    string id  
+}
+PhenotypicFeature {
     string description  
-    string id  
-    string reference  
+    boolean excluded  
 }
-MedicalAction {
+Procedure {
 
-}
-Treatment {
-    DrugType drugType  
-}
-TherapeuticRegimen {
-    RegimenStatus regimenStatus  
 }
 RadiationTherapy {
     integer dosage  
     integer fractions  
 }
-Procedure {
-
+Resource {
+    string id  
+    string name  
+    string iriPrefix  
+    string namespacePrefix  
+    string url  
+    string version  
 }
-Measurement {
-    string description  
+TherapeuticRegimen {
+    RegimenStatus regimenStatus  
+}
+TimeElement {
+    string timestamp  
+}
+Treatment {
+    DrugType drugType  
+}
+Update {
+    string comment  
+    string updatedBy  
+    string timestamp  
 }
 Value {
 
 }
-ComplexValue {
-
-}
-Interpretation {
-    string id  
-    ProgressStatus progressStatus  
-    string summary  
-}
-Diagnosis {
-
-}
-File {
-    string uri  
-}
-Dictionary {
-
-}
-Disease {
-    boolean excluded  
-}
-Biosample {
-    string derivedFromId  
-    string description  
-    string id  
-    string individualId  
+VitalStatus {
+    Status status  
+    integer survivalTimeInDays  
 }
 
+Biosample ||--|o OntologyClass : "histologicalDiagnosis, materialSample, pathologicalStage, sampleProcessing, sampleStorage, sampleType, sampledTissue, taxonomy, tumorGrade, tumorProgression"
+Biosample ||--|o Procedure : "procedure"
+Biosample ||--|o TimeElement : "timeOfCollection"
+Biosample ||--}o File : "files"
+Biosample ||--}o Measurement : "measurements"
+Biosample ||--}o OntologyClass : "diagnosticMarkers, pathologicalTnmFinding"
+Biosample ||--}o PhenotypicFeature : "phenotypicFeatures"
+ComplexValue ||--}o TypedQuantity : "typedQuantities"
+Diagnosis ||--|o OntologyClass : "disease"
+Diagnosis ||--}o GenomicInterpretation : "genomicInterpretations"
+Disease ||--|o OntologyClass : "laterality, primarySite, term"
+Disease ||--|o TimeElement : "onset, resolution"
+Disease ||--}o OntologyClass : "clinicalTnmFinding, diseaseStage"
+Evidence ||--|o ExternalReference : "reference"
+Evidence ||--|o OntologyClass : "evidenceCode"
+File ||--}o DictionaryEntry : "fileAttributes, individualToFileIdentifiers"
+Individual ||--|o OntologyClass : "gender, taxonomy"
+Individual ||--|o TimeElement : "timeAtLastEncounter"
+Individual ||--|o VitalStatus : "vitalStatus"
+Interpretation ||--|o Diagnosis : "diagnosis"
+Measurement ||--|o ComplexValue : "complexValue"
+Measurement ||--|o OntologyClass : "assay"
+Measurement ||--|o Procedure : "procedure"
+Measurement ||--|o TimeElement : "timeObserved"
+Measurement ||--|o Value : "value"
+MedicalAction ||--|o OntologyClass : "responseToTreatment, treatmentIntent, treatmentTarget, treatmentTerminationReason"
+MedicalAction ||--|o Procedure : "procedure"
+MedicalAction ||--|o RadiationTherapy : "radiationTherapy"
+MedicalAction ||--|o TherapeuticRegimen : "therapeuticRegimen"
+MedicalAction ||--|o Treatment : "treatment"
+MedicalAction ||--}o OntologyClass : "adverseEvents"
+MetaData ||--}o ExternalReference : "externalReferences"
+MetaData ||--}o Resource : "resources"
+MetaData ||--}o Update : "updates"
+Phenopacket ||--|o Individual : "subject"
+Phenopacket ||--|| MetaData : "metaData"
 Phenopacket ||--}o Biosample : "biosamples"
 Phenopacket ||--}o Disease : "diseases"
 Phenopacket ||--}o File : "files"
 Phenopacket ||--}o Interpretation : "interpretations"
 Phenopacket ||--}o Measurement : "measurements"
 Phenopacket ||--}o MedicalAction : "medicalActions"
-Phenopacket ||--|| MetaData : "metaData"
 Phenopacket ||--}o PhenotypicFeature : "phenotypicFeatures"
-Phenopacket ||--|o Individual : "subject"
-Individual ||--|o OntologyClass : "gender"
-Individual ||--|o OntologyClass : "taxonomy"
-Individual ||--|o TimeElement : "timeAtLastEncounter"
-Individual ||--|o VitalStatus : "vitalStatus"
-VitalStatus ||--|o OntologyClass : "causeOfDeath"
-VitalStatus ||--|o TimeElement : "timeOfDeath"
+PhenotypicFeature ||--|o OntologyClass : "severity, type"
+PhenotypicFeature ||--|o TimeElement : "onset, resolution"
+PhenotypicFeature ||--}o Evidence : "evidence"
+PhenotypicFeature ||--}o OntologyClass : "modifiers"
+Procedure ||--|o OntologyClass : "bodySite, code"
+Procedure ||--|o TimeElement : "performed"
+RadiationTherapy ||--|| OntologyClass : "bodySite, modality"
+TherapeuticRegimen ||--|o ExternalReference : "externalReference"
+TherapeuticRegimen ||--|o OntologyClass : "ontologyClass"
+TherapeuticRegimen ||--|o TimeElement : "endTime, startTime"
 TimeElement ||--|o Age : "age"
 TimeElement ||--|o AgeRange : "ageRange"
 TimeElement ||--|o GestationalAge : "gestationalAge"
-TimeElement ||--|o TimeInterval : "interval"
 TimeElement ||--|o OntologyClass : "ontologyClass"
-PhenotypicFeature ||--}o Evidence : "evidence"
-PhenotypicFeature ||--}o OntologyClass : "modifiers"
-PhenotypicFeature ||--|o TimeElement : "onset"
-PhenotypicFeature ||--|o TimeElement : "resolution"
-PhenotypicFeature ||--|o OntologyClass : "severity"
-PhenotypicFeature ||--|o OntologyClass : "type"
-Evidence ||--|o OntologyClass : "evidenceCode"
-Evidence ||--|o ExternalReference : "reference"
-MetaData ||--}o ExternalReference : "externalReferences"
-MetaData ||--}o Resource : "resources"
-MetaData ||--}o Update : "updates"
-MedicalAction ||--}o OntologyClass : "adverseEvents"
-MedicalAction ||--|o Procedure : "procedure"
-MedicalAction ||--|o RadiationTherapy : "radiationTherapy"
-MedicalAction ||--|o OntologyClass : "responseToTreatment"
-MedicalAction ||--|o TherapeuticRegimen : "therapeuticRegimen"
-MedicalAction ||--|o Treatment : "treatment"
-MedicalAction ||--|o OntologyClass : "treatmentIntent"
-MedicalAction ||--|o OntologyClass : "treatmentTarget"
-MedicalAction ||--|o OntologyClass : "treatmentTerminationReason"
-Treatment ||--|o OntologyClass : "agent"
+TimeElement ||--|o TimeInterval : "interval"
+Treatment ||--|o OntologyClass : "agent, routeOfAdministration"
 Treatment ||--|o Quantity : "cumulativeDose"
 Treatment ||--}o DoseInterval : "doseIntervals"
-Treatment ||--|o OntologyClass : "routeOfAdministration"
-TherapeuticRegimen ||--|o TimeElement : "endTime"
-TherapeuticRegimen ||--|o ExternalReference : "externalReference"
-TherapeuticRegimen ||--|o OntologyClass : "ontologyClass"
-TherapeuticRegimen ||--|o TimeElement : "startTime"
-RadiationTherapy ||--|| OntologyClass : "bodySite"
-RadiationTherapy ||--|| OntologyClass : "modality"
-Procedure ||--|o OntologyClass : "bodySite"
-Procedure ||--|o OntologyClass : "code"
-Procedure ||--|o TimeElement : "performed"
-Measurement ||--|o OntologyClass : "assay"
-Measurement ||--|o ComplexValue : "complexValue"
-Measurement ||--|o Procedure : "procedure"
-Measurement ||--|o TimeElement : "timeObserved"
-Measurement ||--|o Value : "value"
 Value ||--|o OntologyClass : "ontologyClass"
 Value ||--|o Quantity : "quantity"
-ComplexValue ||--}o TypedQuantity : "typedQuantities"
-Interpretation ||--|o Diagnosis : "diagnosis"
-Diagnosis ||--|o OntologyClass : "disease"
-Diagnosis ||--}o GenomicInterpretation : "genomicInterpretations"
-File ||--|o Dictionary : "fileAttributes"
-File ||--|o Dictionary : "individualToFileIdentifiers"
-Disease ||--}o OntologyClass : "clinicalTnmFinding"
-Disease ||--}o OntologyClass : "diseaseStage"
-Disease ||--|o OntologyClass : "laterality"
-Disease ||--|o TimeElement : "onset"
-Disease ||--|o OntologyClass : "primarySite"
-Disease ||--|o TimeElement : "resolution"
-Disease ||--|o OntologyClass : "term"
-Biosample ||--}o OntologyClass : "diagnosticMarkers"
-Biosample ||--}o File : "files"
-Biosample ||--|o OntologyClass : "histologicalDiagnosis"
-Biosample ||--|o OntologyClass : "materialSample"
-Biosample ||--}o Measurement : "measurements"
-Biosample ||--|o OntologyClass : "pathologicalStage"
-Biosample ||--}o OntologyClass : "pathologicalTnmFinding"
-Biosample ||--}o PhenotypicFeature : "phenotypicFeatures"
-Biosample ||--|o Procedure : "procedure"
-Biosample ||--|o OntologyClass : "sampleProcessing"
-Biosample ||--|o OntologyClass : "sampleStorage"
-Biosample ||--|o OntologyClass : "sampleType"
-Biosample ||--|o OntologyClass : "sampledTissue"
-Biosample ||--|o OntologyClass : "taxonomy"
-Biosample ||--|o TimeElement : "timeOfCollection"
-Biosample ||--|o OntologyClass : "tumorGrade"
-Biosample ||--|o OntologyClass : "tumorProgression"
+VitalStatus ||--|o OntologyClass : "causeOfDeath"
+VitalStatus ||--|o TimeElement : "timeOfDeath"
 
 </div>
 <!-- no inheritance hierarchy -->
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tree Root</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
@@ -459,62 +462,62 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 <tbody>
 <tr>
 <td><a href="../biosamples/">biosamples</a></td>
-<td>0..* <br/> <a href="../Biosample/">Biosample</a></td>
-<td>Biosample(s) derived from the patient or a collection of biosamples in isolat...</td>
+<td>* <br/> <a href="../Biosample/">Biosample</a></td>
+<td>Biosample(s) derived from the patient or a collection of biosamples in isolation</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../diseases/">diseases</a></td>
-<td>0..* <br/> <a href="../Disease/">Disease</a></td>
-<td>Field for disease identifiers - could be used for listing either diagnosed or...</td>
+<td>* <br/> <a href="../Disease/">Disease</a></td>
+<td>Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../files/">files</a></td>
-<td>0..* <br/> <a href="../File/">File</a></td>
+<td>* <br/> <a href="../File/">File</a></td>
 <td>Pointer to the relevant file(s) for the individual</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>An identifier specific for this phenopacket</td>
+<td>An identifier specific for this phenopacket.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../interpretations/">interpretations</a></td>
-<td>0..* <br/> <a href="../Interpretation/">Interpretation</a></td>
+<td>* <br/> <a href="../Interpretation/">Interpretation</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../measurements/">measurements</a></td>
-<td>0..* <br/> <a href="../Measurement/">Measurement</a></td>
+<td>* <br/> <a href="../Measurement/">Measurement</a></td>
 <td>Quantifiable measurements related to the individual</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../medicalActions/">medicalActions</a></td>
-<td>0..* <br/> <a href="../MedicalAction/">MedicalAction</a></td>
+<td>* <br/> <a href="../MedicalAction/">MedicalAction</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../metaData/">metaData</a></td>
-<td>1..1 <br/> <a href="../MetaData/">MetaData</a></td>
-<td>Structured definitions of the resources and ontologies used within the phenop...</td>
+<td>1 <br/> <a href="../MetaData/">MetaData</a></td>
+<td>Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../phenotypicFeatures/">phenotypicFeatures</a></td>
-<td>0..* <br/> <a href="../PhenotypicFeature/">PhenotypicFeature</a></td>
+<td>* <br/> <a href="../PhenotypicFeature/">PhenotypicFeature</a></td>
 <td>Phenotypic features relating to the subject of the phenopacket</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../subject/">subject</a></td>
 <td>0..1 <br/> <a href="../Individual/">Individual</a></td>
-<td>The individual representing the focus of this packet - e</td>
+<td>The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -596,11 +599,10 @@ attributes:
       in isolation
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Phenopacket
     range: Biosample
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   diseases:
     name: diseases
@@ -613,10 +615,11 @@ attributes:
       what this represents in their context.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Phenopacket
     range: Disease
+    multivalued: true
+    inlined_as_list: true
   files:
     name: files
     annotations:
@@ -625,14 +628,13 @@ attributes:
         value: 10
     description: Pointer to the relevant file(s) for the individual
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
     domain_of:
     - Cohort
     - Family
     - Phenopacket
     - Biosample
     range: File
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   id:
     name: id
@@ -652,12 +654,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -673,11 +669,10 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Phenopacket
     range: Interpretation
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   measurements:
     name: measurements
@@ -688,12 +683,11 @@ attributes:
     description: Quantifiable measurements related to the individual
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Phenopacket
     - Biosample
     range: Measurement
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   medicalActions:
     name: medicalActions
@@ -704,11 +698,10 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Phenopacket
     range: MedicalAction
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   metaData:
     name: metaData
@@ -725,6 +718,7 @@ attributes:
     - Phenopacket
     range: MetaData
     required: true
+    inlined: true
   phenotypicFeatures:
     name: phenotypicFeatures
     annotations:
@@ -734,12 +728,11 @@ attributes:
     description: Phenotypic features relating to the subject of the phenopacket
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Phenopacket
     - Biosample
     range: PhenotypicFeature
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   subject:
     name: subject
@@ -755,7 +748,6 @@ attributes:
     - Phenopacket
     range: Individual
     inlined: true
-    inlined_as_list: true
 tree_root: true
 
 </code></pre>
@@ -780,12 +772,11 @@ attributes:
       in isolation
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: biosamples
     owner: Phenopacket
     domain_of:
     - Phenopacket
     range: Biosample
+    multivalued: true
     inlined: true
     inlined_as_list: true
   diseases:
@@ -799,12 +790,13 @@ attributes:
       what this represents in their context.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: diseases
     owner: Phenopacket
     domain_of:
     - Phenopacket
     range: Disease
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   files:
     name: files
     annotations:
@@ -813,8 +805,6 @@ attributes:
         value: 10
     description: Pointer to the relevant file(s) for the individual
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
-    alias: files
     owner: Phenopacket
     domain_of:
     - Cohort
@@ -822,6 +812,7 @@ attributes:
     - Phenopacket
     - Biosample
     range: File
+    multivalued: true
     inlined: true
     inlined_as_list: true
   id:
@@ -835,7 +826,6 @@ attributes:
         value: 1
     description: An identifier specific for this phenopacket.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: id
     owner: Phenopacket
     domain_of:
     - Cohort
@@ -844,12 +834,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -865,12 +849,11 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: interpretations
     owner: Phenopacket
     domain_of:
     - Phenopacket
     range: Interpretation
+    multivalued: true
     inlined: true
     inlined_as_list: true
   measurements:
@@ -882,13 +865,12 @@ attributes:
     description: Quantifiable measurements related to the individual
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: measurements
     owner: Phenopacket
     domain_of:
     - Phenopacket
     - Biosample
     range: Measurement
+    multivalued: true
     inlined: true
     inlined_as_list: true
   medicalActions:
@@ -900,12 +882,11 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: medicalActions
     owner: Phenopacket
     domain_of:
     - Phenopacket
     range: MedicalAction
+    multivalued: true
     inlined: true
     inlined_as_list: true
   metaData:
@@ -917,7 +898,6 @@ attributes:
     description: Structured definitions of the resources and ontologies used within
       the phenopacket. REQUIRED
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: metaData
     owner: Phenopacket
     domain_of:
     - Cohort
@@ -925,6 +905,7 @@ attributes:
     - Phenopacket
     range: MetaData
     required: true
+    inlined: true
   phenotypicFeatures:
     name: phenotypicFeatures
     annotations:
@@ -934,13 +915,12 @@ attributes:
     description: Phenotypic features relating to the subject of the phenopacket
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: phenotypicFeatures
     owner: Phenopacket
     domain_of:
     - Phenopacket
     - Biosample
     range: PhenotypicFeature
+    multivalued: true
     inlined: true
     inlined_as_list: true
   subject:
@@ -953,17 +933,16 @@ attributes:
       in rare disease cases or cancer patient
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: subject
     owner: Phenopacket
     domain_of:
     - Phenopacket
     range: Individual
     inlined: true
-    inlined_as_list: true
 tree_root: true
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -989,5 +968,7 @@ tree_root: true
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

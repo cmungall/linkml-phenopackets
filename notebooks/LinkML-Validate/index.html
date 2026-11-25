@@ -15,7 +15,7 @@
     
     
       
-        <title>Validating - phenopackets in linkml EXPERIMENTAL DEMO</title>
+        <title>Validating - phenopackets in linkml</title>
       
     
     
@@ -38,6 +38,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/schema-diagram.css">
     
       <link rel="stylesheet" href="../../css/ansi-colours.css">
     
@@ -88,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+    <a href="../.." title="phenopackets in linkml" class="md-header__button md-logo" aria-label="phenopackets in linkml" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -101,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -210,13 +212,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+    <a href="../.." title="phenopackets in linkml" class="md-nav__button md-logo" aria-label="phenopackets in linkml" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
   
     <div class="md-nav__source">
@@ -269,6 +271,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../schema-diagram/" class="md-nav__link">
+        Schema diagram
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -276,18 +293,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Notebooks" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -563,12 +580,7 @@ linkml-validate -s ../../../src/phenopackets/schema/phenopackets.yaml  ../../../
 <div class="output_area">
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-<code>[ERROR] [../../../examples/retinoblastoma.json/0] '62280955' is not of type 'integer' in /interpretations/0/diagnosis/genomicInterpretations/0/variantInterpretation/variationDescriptor/variation/copyNumber/allele/sequenceLocation/sequenceInterval/endNumber/value
-[ERROR] [../../../examples/retinoblastoma.json/0] '26555377' is not of type 'integer' in /interpretations/0/diagnosis/genomicInterpretations/0/variantInterpretation/variationDescriptor/variation/copyNumber/allele/sequenceLocation/sequenceInterval/startNumber/value
-[ERROR] [../../../examples/retinoblastoma.json/0] '1' is not of type 'integer' in /interpretations/0/diagnosis/genomicInterpretations/0/variantInterpretation/variationDescriptor/variation/copyNumber/number/value
-[ERROR] [../../../examples/retinoblastoma.json/0] '48941648' is not of type 'integer' in /interpretations/0/diagnosis/genomicInterpretations/1/variantInterpretation/variationDescriptor/variation/allele/sequenceLocation/sequenceInterval/endNumber/value
-[ERROR] [../../../examples/retinoblastoma.json/0] '48941647' is not of type 'integer' in /interpretations/0/diagnosis/genomicInterpretations/1/variantInterpretation/variationDescriptor/variation/allele/sequenceLocation/sequenceInterval/startNumber/value
-[ERROR] [../../../examples/retinoblastoma.json/0] '48367512' is not of type 'integer' in /interpretations/0/diagnosis/genomicInterpretations/1/variantInterpretation/variationDescriptor/vcfRecord/pos
+<code>[ERROR] [../../../examples/retinoblastoma.json/0] '62280955' is not of type 'integer', 'null' in /interpretations/0/diagnosis/genomicInterpretations/0/variantInterpretation/variationDescriptor/variation/copyNumber/allele/sequenceLocation/sequenceInterval/endNumber/value
 </code>
 </pre>
 </div>
@@ -578,10 +590,10 @@ linkml-validate -s ../../../src/phenopackets/schema/phenopackets.yaml  ../../../
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">CalledProcessError</span>                        Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[4], line 1</span>
+Cell <span class="ansi-green-fg">In[2], line 1</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">get_ipython</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">run_cell_magic</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">bash</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">linkml-validate -s ../../../src/phenopackets/schema/phenopackets.yaml  ../../../examples/retinoblastoma.json</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(175,95,0)">\n</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopackets-JmUWBwH2-py3.9/lib/python3.9/site-packages/IPython/core/interactiveshell.py:2517</span>, in <span class="ansi-cyan-fg">InteractiveShell.run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
+File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopackets-2csp0FG_-py3.12/lib/python3.12/site-packages/IPython/core/interactiveshell.py:2517</span>, in <span class="ansi-cyan-fg">InteractiveShell.run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2515</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>builtin_trap:
 <span class="ansi-green-intense-fg ansi-bold">   2516</span>     args <span style="color: rgb(98,98,98)">=</span> (magic_arg_s, cell)
 <span class="ansi-green-fg">-&gt; 2517</span>     result <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">fn</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
@@ -590,12 +602,12 @@ File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopack
 <span class="ansi-green-intense-fg ansi-bold">   2521</span> <span style="color: rgb(95,135,135)"># when the last Python token in the expression is a ';'.</span>
 <span class="ansi-green-intense-fg ansi-bold">   2522</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">getattr</span>(fn, magic<span style="color: rgb(98,98,98)">.</span>MAGIC_OUTPUT_CAN_BE_SILENCED, <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>):
 
-File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopackets-JmUWBwH2-py3.9/lib/python3.9/site-packages/IPython/core/magics/script.py:154</span>, in <span class="ansi-cyan-fg">ScriptMagics._make_script_magic.&lt;locals&gt;.named_script_magic</span><span class="ansi-blue-fg">(line, cell)</span>
+File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopackets-2csp0FG_-py3.12/lib/python3.12/site-packages/IPython/core/magics/script.py:154</span>, in <span class="ansi-cyan-fg">ScriptMagics._make_script_magic.&lt;locals&gt;.named_script_magic</span><span class="ansi-blue-fg">(line, cell)</span>
 <span class="ansi-green-intense-fg ansi-bold">    152</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
 <span class="ansi-green-intense-fg ansi-bold">    153</span>     line <span style="color: rgb(98,98,98)">=</span> script
 <span class="ansi-green-fg">--&gt; 154</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">shebang</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">line</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">cell</span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopackets-JmUWBwH2-py3.9/lib/python3.9/site-packages/IPython/core/magics/script.py:314</span>, in <span class="ansi-cyan-fg">ScriptMagics.shebang</span><span class="ansi-blue-fg">(self, line, cell)</span>
+File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopackets-2csp0FG_-py3.12/lib/python3.12/site-packages/IPython/core/magics/script.py:314</span>, in <span class="ansi-cyan-fg">ScriptMagics.shebang</span><span class="ansi-blue-fg">(self, line, cell)</span>
 <span class="ansi-green-intense-fg ansi-bold">    309</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> args<span style="color: rgb(98,98,98)">.</span>raise_error <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> p<span style="color: rgb(98,98,98)">.</span>returncode <span style="color: rgb(98,98,98)">!=</span> <span style="color: rgb(98,98,98)">0</span>:
 <span class="ansi-green-intense-fg ansi-bold">    310</span>     <span style="color: rgb(95,135,135)"># If we get here and p.returncode is still None, we must have</span>
 <span class="ansi-green-intense-fg ansi-bold">    311</span>     <span style="color: rgb(95,135,135)"># killed it but not yet seen its return code. We don't wait for it,</span>
@@ -639,7 +651,7 @@ File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopack
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Index" rel="prev">
+        <a href="../../schema-diagram/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Schema diagram" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -648,7 +660,7 @@ File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopack
               <span class="md-footer__direction">
                 Previous
               </span>
-              Index
+              Schema diagram
             </div>
           </div>
         </a>
@@ -696,6 +708,10 @@ File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopack
     
     
       <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+      
+        <script src="../../javascripts/schema-diagram.js"></script>
       
     
     

@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/SequenceLocation/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: SequenceLocation - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: SequenceLocation - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -201,6 +207,19 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#rules">
+    Rules
+  </a>
+<nav aria-label="Rules" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -249,34 +268,37 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-sequencelocation">Class: SequenceLocation</h1>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/SequenceLocation">phenopackets:SequenceLocation</a></p>
 <div class="mermaid">erDiagram
-SequenceLocation {
-    string id  
-    string sequenceId  
-}
-SequenceInterval {
-
-}
-Number {
-    integer value  
+DefiniteRange {
+    integer max  
+    integer min  
 }
 IndefiniteRange {
     string comparator  
     integer value  
 }
-DefiniteRange {
-    integer max  
-    integer min  
+Number {
+    integer value  
+}
+SequenceInterval {
+
+}
+SequenceLocation {
+    string sequenceId  
+    string Id  
+}
+SimpleInterval {
+    integer end  
+    integer start  
 }
 
+SequenceInterval ||--|o DefiniteRange : "endDefiniteRange, startDefiniteRange"
+SequenceInterval ||--|o IndefiniteRange : "endIndefiniteRange, startIndefiniteRange"
+SequenceInterval ||--|o Number : "endNumber, startNumber"
 SequenceLocation ||--|o SequenceInterval : "sequenceInterval"
-SequenceInterval ||--|o DefiniteRange : "endDefiniteRange"
-SequenceInterval ||--|o IndefiniteRange : "endIndefiniteRange"
-SequenceInterval ||--|o Number : "endNumber"
-SequenceInterval ||--|o DefiniteRange : "startDefiniteRange"
-SequenceInterval ||--|o IndefiniteRange : "startIndefiniteRange"
-SequenceInterval ||--|o Number : "startNumber"
+SequenceLocation ||--|o SimpleInterval : "simpleInterval"
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -292,7 +314,7 @@ SequenceInterval ||--|o Number : "startNumber"
 </thead>
 <tbody>
 <tr>
-<td><a href="../id/">id</a></td>
+<td><a href="../Id/">Id</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td></td>
 <td>direct</td>
@@ -306,6 +328,12 @@ SequenceInterval ||--|o Number : "startNumber"
 <tr>
 <td><a href="../sequenceInterval/">sequenceInterval</a></td>
 <td>0..1 <br/> <a href="../SequenceInterval/">SequenceInterval</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../simpleInterval/">simpleInterval</a></td>
+<td>0..1 <br/> <a href="../SimpleInterval/">SimpleInterval</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -342,6 +370,26 @@ SequenceInterval ||--|o Number : "startNumber"
 </tr>
 </tbody>
 </table>
+<h2 id="rules">Rules</h2>
+<h3 id="_1"></h3>
+<table>
+<thead>
+<tr>
+<th>Rule Applied</th>
+<th>Preconditions</th>
+<th>Postconditions</th>
+<th>Elseconditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exactly_one_of</td>
+<td></td>
+<td><code>[{'slot_conditions': {'sequenceInterval': {'required': True}}}, {'slot_conditions': {'simpleInterval': {'required': True}}}]</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -374,35 +422,22 @@ SequenceInterval ||--|o Number : "startNumber"
 description: ''
 from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
-  id:
-    name: id
+  Id:
+    name: Id
     annotations:
-      percent_encoded:
-        tag: percent_encoded
-        value: true
       rank:
         tag: rank
         value: 1
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     domain_of:
-    - Cohort
-    - Family
-    - Phenopacket
-    - ExternalReference
-    - OntologyClass
-    - Biosample
     - Allele
     - ChromosomeLocation
     - CopyNumber
-    - Member
+    - Haplotype
     - SequenceLocation
     - Text
-    - VariationDescriptor
-    - VcfRecord
-    - Interpretation
-    - Individual
-    - Resource
+    - VariationSet
     range: string
   sequenceId:
     name: sequenceId
@@ -428,6 +463,20 @@ attributes:
     domain_of:
     - SequenceLocation
     range: SequenceInterval
+  simpleInterval:
+    name: simpleInterval
+    annotations:
+      rank:
+        tag: rank
+        value: 100
+    description: ''
+    deprecated: Marked as deprecated (deprecated=true) in the protobuf definition
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
+    rank: 1000
+    domain_of:
+    - SequenceLocation
+    range: SimpleInterval
+    inlined: true
 rules:
 - postconditions:
     exactly_one_of:
@@ -435,6 +484,14 @@ rules:
         sequenceInterval:
           name: sequenceInterval
           required: true
+    - slot_conditions:
+        simpleInterval:
+          name: simpleInterval
+          required: true
+  annotations:
+    oneof:
+      tag: oneof
+      value: interval
 
 </code></pre>
 </details>
@@ -444,37 +501,23 @@ rules:
 description: ''
 from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
-  id:
-    name: id
+  Id:
+    name: Id
     annotations:
-      percent_encoded:
-        tag: percent_encoded
-        value: true
       rank:
         tag: rank
         value: 1
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: id
     owner: SequenceLocation
     domain_of:
-    - Cohort
-    - Family
-    - Phenopacket
-    - ExternalReference
-    - OntologyClass
-    - Biosample
     - Allele
     - ChromosomeLocation
     - CopyNumber
-    - Member
+    - Haplotype
     - SequenceLocation
     - Text
-    - VariationDescriptor
-    - VcfRecord
-    - Interpretation
-    - Individual
-    - Resource
+    - VariationSet
     range: string
   sequenceId:
     name: sequenceId
@@ -485,7 +528,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: sequenceId
     owner: SequenceLocation
     domain_of:
     - SequenceLocation
@@ -499,11 +541,25 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: sequenceInterval
     owner: SequenceLocation
     domain_of:
     - SequenceLocation
     range: SequenceInterval
+  simpleInterval:
+    name: simpleInterval
+    annotations:
+      rank:
+        tag: rank
+        value: 100
+    description: ''
+    deprecated: Marked as deprecated (deprecated=true) in the protobuf definition
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
+    rank: 1000
+    owner: SequenceLocation
+    domain_of:
+    - SequenceLocation
+    range: SimpleInterval
+    inlined: true
 rules:
 - postconditions:
     exactly_one_of:
@@ -511,9 +567,18 @@ rules:
         sequenceInterval:
           name: sequenceInterval
           required: true
+    - slot_conditions:
+        simpleInterval:
+          name: simpleInterval
+          required: true
+  annotations:
+    oneof:
+      tag: oneof
+      value: interval
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -539,5 +604,7 @@ rules:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

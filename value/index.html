@@ -15,7 +15,7 @@
     
     
       
-        <title>Slot: value - phenopackets in linkml EXPERIMENTAL DEMO</title>
+        <title>Slot: value - phenopackets in linkml</title>
       
     
     
@@ -38,6 +38,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/schema-diagram.css">
     
       <link rel="stylesheet" href="../css/ansi-colours.css">
     
@@ -88,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+    <a href=".." title="phenopackets in linkml" class="md-header__button md-logo" aria-label="phenopackets in linkml" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -101,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -210,13 +212,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+    <a href=".." title="phenopackets in linkml" class="md-nav__button md-logo" aria-label="phenopackets in linkml" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
   
     <div class="md-nav__source">
@@ -270,22 +272,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../schema-diagram/" class="md-nav__link">
+        Schema diagram
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Notebooks" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -391,11 +408,31 @@
     Properties
   </a>
   
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-and-range" class="md-nav__link">
+    Type and Range
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    Mappings
   </a>
   
 </li>
@@ -428,9 +465,9 @@
 
 
 <h1 id="slot-value">Slot: value</h1>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/value">phenopackets:value</a></p>
 <!-- no inheritance hierarchy -->
-
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
@@ -442,8 +479,28 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../DictionaryEntry/">DictionaryEntry</a></td>
+<td>An entry of a protobuf map<string, string> field. An attribute that holds a map is multivalued and inlined as a dictionary of its entries, which can be written as {key: value, ...}</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../Measurement/">Measurement</a></td>
-<td>FHIR mapping: Observation (https://www</td>
+<td>FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Quantity/">Quantity</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Any/">Any</a></td>
+<td><code>Any</code> contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.  Foo foo = ...; Any any; any.PackFrom(foo); ... if (any.UnpackTo(&amp;foo)) { ... }  Example 2: Pack and unpack a message in Java.  Foo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo = any.unpack(Foo.class); }  Example 3: Pack and unpack a message in Python.  foo = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR): any.Unpack(foo) ...  Example 4: Pack and unpack a message in Go  foo := &amp;pb.Foo{...} any, err := anypb.New(foo) if err != nil { ... } ... foo := &amp;pb.Foo{} if err := any.UnmarshalTo(foo); err != nil { ... }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example "foo.bar.com/x/y.z" will yield type name "y.z".   JSON ==== The JSON representation of an <code>Any</code> value uses the regular representation of the deserialized, embedded message, with an additional field <code>@type</code> which contains the type URL. Example:  package google.profile; message Person { string first_name = 1; string last_name = 2; }  { "@type": "type.googleapis.com/google.profile.Person", "firstName": <string>, "lastName": <string> }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field <code>value</code> which holds the custom JSON in addition to the <code>@type</code> field. Example (for message [google.protobuf.Duration][]):  { "@type": "type.googleapis.com/google.protobuf.Duration", "value": "1.212s" }</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../IndefiniteRange/">IndefiniteRange</a></td>
+<td></td>
 <td>no</td>
 </tr>
 <tr>
@@ -453,42 +510,62 @@
 </tr>
 <tr>
 <td><a href="../Expression/">Expression</a></td>
-<td>https://vrsatile</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Quantity/">Quantity</a></td>
-<td></td>
+<td>https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression</td>
 <td>no</td>
 </tr>
 <tr>
 <td><a href="../Extension/">Extension</a></td>
-<td>https://vrsatile</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Any/">Any</a></td>
-<td><code>Any</code> contains an arbitrary serialized protocol buffer message along with a U...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../IndefiniteRange/">IndefiniteRange</a></td>
-<td></td>
+<td>https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
-<ul>
-<li>Range: NONE</li>
-</ul>
+<h3 id="type-and-range">Type and Range</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Range</td>
+<td>NONE</td>
+</tr>
+<tr>
+<td>Domain Of</td>
+<td><a href="../DictionaryEntry/">DictionaryEntry</a>, <a href="../Measurement/">Measurement</a>, <a href="../Quantity/">Quantity</a>, <a href="../Any/">Any</a>, <a href="../IndefiniteRange/">IndefiniteRange</a>, <a href="../Number/">Number</a>, <a href="../Expression/">Expression</a>, <a href="../Extension/">Extension</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>phenopackets:value</td>
+</tr>
+<tr>
+<td>native</td>
+<td>phenopackets:value</td>
+</tr>
+</tbody>
+</table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: value
-alias: value
 domain_of:
+- DictionaryEntry
 - Measurement
 - Quantity
 - Any
@@ -500,6 +577,7 @@ domain_of:
 </code></pre>
 
 </details>
+</div>
 
 
 
@@ -543,6 +621,10 @@ domain_of:
     
     
       <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+      
+        <script src="../javascripts/schema-diagram.js"></script>
       
     
     

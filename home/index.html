@@ -15,7 +15,7 @@
     
     
       
-        <title>Home - phenopackets in linkml EXPERIMENTAL DEMO</title>
+        <title>Home - phenopackets in linkml</title>
       
     
     
@@ -38,6 +38,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/schema-diagram.css">
     
       <link rel="stylesheet" href="../css/ansi-colours.css">
     
@@ -88,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+    <a href=".." title="phenopackets in linkml" class="md-header__button md-logo" aria-label="phenopackets in linkml" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -101,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -210,13 +212,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+    <a href=".." title="phenopackets in linkml" class="md-nav__button md-logo" aria-label="phenopackets in linkml" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
   
     <div class="md-nav__source">
@@ -282,8 +284,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-datamodel" class="md-nav__link">
-    Python Datamodel
+  <a href="#on-this-site" class="md-nav__link">
+    On this site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generated-artefacts" class="md-nav__link">
+    Generated artefacts
   </a>
   
 </li>
@@ -318,22 +327,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../schema-diagram/" class="md-nav__link">
+        Schema diagram
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Notebooks" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -435,8 +459,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-datamodel" class="md-nav__link">
-    Python Datamodel
+  <a href="#on-this-site" class="md-nav__link">
+    On this site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generated-artefacts" class="md-nav__link">
+    Generated artefacts
   </a>
   
 </li>
@@ -462,27 +493,36 @@
 
 
 <h1 id="introduction">Introduction</h1>
-<p>THIS IS AN EXPERIMENT!</p>
-<p>For the true phenopackets see http://phenopackets.org/</p>
+<p>This is NOT the official GA4GH Phenopackets schema. For the true phenopackets see <a href="http://phenopackets.org/">http://phenopackets.org/</a></p>
 <h2 id="about">About</h2>
-<p>This is a draft for demo purposes.</p>
-<p>It is a LinkML rendering of the Phenopackets schema. The only thing that is edited is the phenopackets.yaml file in the src/schema folder.</p>
-<p>Various artefacts are generated:</p>
+<p>This is a <a href="https://linkml.io/">LinkML</a> rendering of the Phenopackets schema. It demonstrates what the LinkML
+tooling adds to the Protobuf source: additional validation, Python classes, and conversion to and from RDF.</p>
+<p>The schema corresponds to <a href="https://github.com/phenopackets/phenopacket-schema/releases/tag/2.0.0">release 2.0.0</a>
+of phenopacket-schema. It is not edited by hand: a script converts the protobuf files of that release. The
+<a href="https://github.com/cmungall/linkml-phenopackets#readme">README</a> of the repository describes how to generate it
+again, and lists the
+<a href="https://github.com/cmungall/linkml-phenopackets#differences-from-protobuf">differences from protobuf</a>.</p>
+<p>Only the enumerations of ontology terms, such as <a href="../HPOAbnormalityTerms/">HPOAbnormalityTerms</a>, are curated by hand,
+in <a href="https://github.com/cmungall/linkml-phenopackets/blob/main/src/phenopackets/schema/cv_terms.yaml">cv_terms.yaml</a>.</p>
+<h2 id="on-this-site">On this site</h2>
 <ul>
-<li>Python dataclasses</li>
+<li>The <a href="../">index</a> lists the classes, slots, enumerations and types of the schema. These pages are
+   generated from the schema.</li>
+<li>The <a href="../schema-diagram/">schema diagram</a> shows all classes and the relationships between them.</li>
+<li>The notebooks show how to <a href="../notebooks/LinkML-Validate/">validate</a> a phenopacket, how to use the
+   <a href="../notebooks/Pydantic/">Pydantic classes</a>, how to check and repair ontology terms
+   <a href="../notebooks/OAK/">using OAK</a>, and how to <a href="../notebooks/Generating-RDF/">generate RDF</a>.</li>
+</ul>
+<h2 id="generated-artefacts">Generated artefacts</h2>
+<p>The following are generated from the schema, and are kept in the
+<a href="https://github.com/cmungall/linkml-phenopackets">repository</a>:</p>
+<ul>
+<li>Python dataclasses and Pydantic classes</li>
 <li>JSON-Schema</li>
 <li>GraphQL</li>
-<li>ShEx</li>
 <li>JSON-LD context</li>
-<li>SQL DDL</li>
+<li>a spreadsheet of the classes and their attributes</li>
 </ul>
-<p>Coming soon:</p>
-<ul>
-<li>Java classes</li>
-<li>...</li>
-</ul>
-<h2 id="python-datamodel">Python Datamodel</h2>
-<p>TODO</p>
 
 
 
@@ -547,6 +587,10 @@
     
     
       <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+      
+        <script src="../javascripts/schema-diagram.js"></script>
       
     
     

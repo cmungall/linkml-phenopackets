@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/Cohort/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: Cohort - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: Cohort - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -245,11 +251,47 @@
 </a>
 <h1 id="class-cohort">Class: Cohort</h1>
 <p><em>A group of individuals related in some phenotypic or genotypic aspect.</em></p>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/Cohort">phenopackets:Cohort</a></p>
 <div class="mermaid">erDiagram
-Cohort {
-    string description  
+Biosample {
     string id  
+    string description  
+    string derivedFromId  
+    string individualId  
+}
+Cohort {
+    string id  
+    string description  
+}
+Disease {
+    boolean excluded  
+}
+ExternalReference {
+    string id  
+    string description  
+    string reference  
+}
+File {
+    string uri  
+}
+Individual {
+    string id  
+    string dateOfBirth  
+    KaryotypicSex karyotypicSex  
+    Sex sex  
+    stringList alternateIds  
+}
+Interpretation {
+    string id  
+    ProgressStatus progressStatus  
+    string summary  
+}
+Measurement {
+    string description  
+}
+MedicalAction {
+
 }
 MetaData {
     string created  
@@ -257,128 +299,72 @@ MetaData {
     string phenopacketSchemaVersion  
     string submittedBy  
 }
-Update {
-    string comment  
-    string timestamp  
-    string updatedBy  
-}
-Resource {
-    string id  
-    string iriPrefix  
-    string name  
-    string namespacePrefix  
-    string url  
-    string version  
-}
-ExternalReference {
-    string description  
-    string id  
-    string reference  
-}
 Phenopacket {
     string id  
-}
-Individual {
-    stringList alternateIds  
-    string dateOfBirth  
-    string id  
-    KaryotypicSex karyotypicSex  
-    Sex sex  
 }
 PhenotypicFeature {
     string description  
     boolean excluded  
 }
-MedicalAction {
-
-}
-Measurement {
-    string description  
-}
-Interpretation {
+Resource {
     string id  
-    ProgressStatus progressStatus  
-    string summary  
+    string name  
+    string iriPrefix  
+    string namespacePrefix  
+    string url  
+    string version  
 }
-File {
-    string uri  
-}
-Disease {
-    boolean excluded  
-}
-Biosample {
-    string derivedFromId  
-    string description  
-    string id  
-    string individualId  
+Update {
+    string comment  
+    string updatedBy  
+    string timestamp  
 }
 
+Biosample ||--|o OntologyClass : "histologicalDiagnosis, materialSample, pathologicalStage, sampleProcessing, sampleStorage, sampleType, sampledTissue, taxonomy, tumorGrade, tumorProgression"
+Biosample ||--|o Procedure : "procedure"
+Biosample ||--|o TimeElement : "timeOfCollection"
+Biosample ||--}o File : "files"
+Biosample ||--}o Measurement : "measurements"
+Biosample ||--}o OntologyClass : "diagnosticMarkers, pathologicalTnmFinding"
+Biosample ||--}o PhenotypicFeature : "phenotypicFeatures"
+Cohort ||--|| MetaData : "metaData"
 Cohort ||--}o File : "files"
 Cohort ||--}o Phenopacket : "members"
-Cohort ||--|| MetaData : "metaData"
+Disease ||--|o OntologyClass : "laterality, primarySite, term"
+Disease ||--|o TimeElement : "onset, resolution"
+Disease ||--}o OntologyClass : "clinicalTnmFinding, diseaseStage"
+File ||--}o DictionaryEntry : "fileAttributes, individualToFileIdentifiers"
+Individual ||--|o OntologyClass : "gender, taxonomy"
+Individual ||--|o TimeElement : "timeAtLastEncounter"
+Individual ||--|o VitalStatus : "vitalStatus"
+Interpretation ||--|o Diagnosis : "diagnosis"
+Measurement ||--|o ComplexValue : "complexValue"
+Measurement ||--|o OntologyClass : "assay"
+Measurement ||--|o Procedure : "procedure"
+Measurement ||--|o TimeElement : "timeObserved"
+Measurement ||--|o Value : "value"
+MedicalAction ||--|o OntologyClass : "responseToTreatment, treatmentIntent, treatmentTarget, treatmentTerminationReason"
+MedicalAction ||--|o Procedure : "procedure"
+MedicalAction ||--|o RadiationTherapy : "radiationTherapy"
+MedicalAction ||--|o TherapeuticRegimen : "therapeuticRegimen"
+MedicalAction ||--|o Treatment : "treatment"
+MedicalAction ||--}o OntologyClass : "adverseEvents"
 MetaData ||--}o ExternalReference : "externalReferences"
 MetaData ||--}o Resource : "resources"
 MetaData ||--}o Update : "updates"
+Phenopacket ||--|o Individual : "subject"
+Phenopacket ||--|| MetaData : "metaData"
 Phenopacket ||--}o Biosample : "biosamples"
 Phenopacket ||--}o Disease : "diseases"
 Phenopacket ||--}o File : "files"
 Phenopacket ||--}o Interpretation : "interpretations"
 Phenopacket ||--}o Measurement : "measurements"
 Phenopacket ||--}o MedicalAction : "medicalActions"
-Phenopacket ||--|| MetaData : "metaData"
 Phenopacket ||--}o PhenotypicFeature : "phenotypicFeatures"
-Phenopacket ||--|o Individual : "subject"
-Individual ||--|o OntologyClass : "gender"
-Individual ||--|o OntologyClass : "taxonomy"
-Individual ||--|o TimeElement : "timeAtLastEncounter"
-Individual ||--|o VitalStatus : "vitalStatus"
+PhenotypicFeature ||--|o OntologyClass : "severity, type"
+PhenotypicFeature ||--|o TimeElement : "onset, resolution"
 PhenotypicFeature ||--}o Evidence : "evidence"
 PhenotypicFeature ||--}o OntologyClass : "modifiers"
-PhenotypicFeature ||--|o TimeElement : "onset"
-PhenotypicFeature ||--|o TimeElement : "resolution"
-PhenotypicFeature ||--|o OntologyClass : "severity"
-PhenotypicFeature ||--|o OntologyClass : "type"
-MedicalAction ||--}o OntologyClass : "adverseEvents"
-MedicalAction ||--|o Procedure : "procedure"
-MedicalAction ||--|o RadiationTherapy : "radiationTherapy"
-MedicalAction ||--|o OntologyClass : "responseToTreatment"
-MedicalAction ||--|o TherapeuticRegimen : "therapeuticRegimen"
-MedicalAction ||--|o Treatment : "treatment"
-MedicalAction ||--|o OntologyClass : "treatmentIntent"
-MedicalAction ||--|o OntologyClass : "treatmentTarget"
-MedicalAction ||--|o OntologyClass : "treatmentTerminationReason"
-Measurement ||--|o OntologyClass : "assay"
-Measurement ||--|o ComplexValue : "complexValue"
-Measurement ||--|o Procedure : "procedure"
-Measurement ||--|o TimeElement : "timeObserved"
-Measurement ||--|o Value : "value"
-Interpretation ||--|o Diagnosis : "diagnosis"
-File ||--|o Dictionary : "fileAttributes"
-File ||--|o Dictionary : "individualToFileIdentifiers"
-Disease ||--}o OntologyClass : "clinicalTnmFinding"
-Disease ||--}o OntologyClass : "diseaseStage"
-Disease ||--|o OntologyClass : "laterality"
-Disease ||--|o TimeElement : "onset"
-Disease ||--|o OntologyClass : "primarySite"
-Disease ||--|o TimeElement : "resolution"
-Disease ||--|o OntologyClass : "term"
-Biosample ||--}o OntologyClass : "diagnosticMarkers"
-Biosample ||--}o File : "files"
-Biosample ||--|o OntologyClass : "histologicalDiagnosis"
-Biosample ||--|o OntologyClass : "materialSample"
-Biosample ||--}o Measurement : "measurements"
-Biosample ||--|o OntologyClass : "pathologicalStage"
-Biosample ||--}o OntologyClass : "pathologicalTnmFinding"
-Biosample ||--}o PhenotypicFeature : "phenotypicFeatures"
-Biosample ||--|o Procedure : "procedure"
-Biosample ||--|o OntologyClass : "sampleProcessing"
-Biosample ||--|o OntologyClass : "sampleStorage"
-Biosample ||--|o OntologyClass : "sampleType"
-Biosample ||--|o OntologyClass : "sampledTissue"
-Biosample ||--|o OntologyClass : "taxonomy"
-Biosample ||--|o TimeElement : "timeOfCollection"
-Biosample ||--|o OntologyClass : "tumorGrade"
-Biosample ||--|o OntologyClass : "tumorProgression"
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -401,8 +387,8 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="../files/">files</a></td>
-<td>0..* <br/> <a href="../File/">File</a></td>
-<td>Pointer to relevant file(s) for the cohort</td>
+<td>* <br/> <a href="../File/">File</a></td>
+<td>Pointer to relevant file(s) for the cohort. Files relating exclusively to individual phenopackets should be contained in the Phenopacket.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -413,14 +399,14 @@ Biosample ||--|o OntologyClass : "tumorProgression"
 </tr>
 <tr>
 <td><a href="../members/">members</a></td>
-<td>0..* <br/> <a href="../Phenopacket/">Phenopacket</a></td>
+<td>* <br/> <a href="../Phenopacket/">Phenopacket</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../metaData/">metaData</a></td>
-<td>1..1 <br/> <a href="../MetaData/">MetaData</a></td>
-<td>Structured definitions of the resources and ontologies used within the phenop...</td>
+<td>1 <br/> <a href="../MetaData/">MetaData</a></td>
+<td>Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -485,14 +471,13 @@ attributes:
       to individual phenopackets should be contained in the Phenopacket.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Cohort
     - Family
     - Phenopacket
     - Biosample
     range: File
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   id:
     name: id
@@ -513,12 +498,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -534,12 +513,12 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - Cohort
-    - Member
+    - Haplotype
+    - VariationSet
     range: Phenopacket
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   metaData:
     name: metaData
@@ -557,6 +536,7 @@ attributes:
     - Phenopacket
     range: MetaData
     required: true
+    inlined: true
 
 </code></pre>
 </details>
@@ -575,7 +555,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: description
     owner: Cohort
     domain_of:
     - Cohort
@@ -596,8 +575,6 @@ attributes:
       to individual phenopackets should be contained in the Phenopacket.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: files
     owner: Cohort
     domain_of:
     - Cohort
@@ -605,6 +582,7 @@ attributes:
     - Phenopacket
     - Biosample
     range: File
+    multivalued: true
     inlined: true
     inlined_as_list: true
   id:
@@ -619,7 +597,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: id
     owner: Cohort
     domain_of:
     - Cohort
@@ -628,12 +605,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -649,13 +620,13 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: members
     owner: Cohort
     domain_of:
     - Cohort
-    - Member
+    - Haplotype
+    - VariationSet
     range: Phenopacket
+    multivalued: true
     inlined: true
     inlined_as_list: true
   metaData:
@@ -668,7 +639,6 @@ attributes:
       the phenopacket. REQUIRED
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: metaData
     owner: Cohort
     domain_of:
     - Cohort
@@ -676,9 +646,11 @@ attributes:
     - Phenopacket
     range: MetaData
     required: true
+    inlined: true
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -704,5 +676,7 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

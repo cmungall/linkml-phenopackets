@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/VariationDescriptor/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: VariationDescriptor - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: VariationDescriptor - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -249,83 +255,78 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-variationdescriptor">Class: VariationDescriptor</h1>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/VariationDescriptor">phenopackets:VariationDescriptor</a></p>
 <div class="mermaid">erDiagram
-VariationDescriptor {
-    stringList alternateLabels  
-    string description  
-    string id  
-    string label  
-    MoleculeContext moleculeContext  
-    string vrsRefAlleleSeq  
-    stringList xrefs  
-}
-VcfRecord {
-    string alt  
-    string chrom  
-    string filter  
-    string genomeAssembly  
-    string id  
-    string info  
-    integer pos  
-    string qual  
-    string ref  
-}
-Variation {
-
-}
-VariationSet {
-
-}
-Text {
-    string definition  
-    string id  
-}
-Haplotype {
-
+Allele {
+    string Id  
+    string curie  
 }
 CopyNumber {
+    string Id  
     string curie  
-    string id  
 }
-Allele {
-    string curie  
-    string id  
-}
-OntologyClass {
-    string id  
-    string label  
-}
-GeneDescriptor {
-    stringList alternateIds  
-    stringList alternateSymbols  
-    string description  
-    string symbol  
-    string valueId  
-    stringList xrefs  
+Expression {
+    string syntax  
+    string version  
+    string value  
 }
 Extension {
     string name  
     stringList value  
 }
-Expression {
-    string syntax  
-    string value  
-    string version  
+GeneDescriptor {
+    string description  
+    stringList alternateIds  
+    stringList alternateSymbols  
+    string symbol  
+    string valueId  
+    stringList xrefs  
+}
+Haplotype {
+    string Id  
+}
+OntologyClass {
+    string id  
+    string label  
+}
+Text {
+    string definition  
+    string Id  
+}
+Variation {
+
+}
+VariationDescriptor {
+    string id  
+    string description  
+    stringList alternateLabels  
+    MoleculeContext moleculeContext  
+    string vrsRefAlleleSeq  
+    string label  
+    stringList xrefs  
+}
+VariationSet {
+    string Id  
+}
+VcfRecord {
+    string id  
+    string alt  
+    string chrom  
+    string filter  
+    string genomeAssembly  
+    string info  
+    integer pos  
+    string qual  
+    string ref  
 }
 
-VariationDescriptor ||--|o OntologyClass : "allelicState"
-VariationDescriptor ||--}o Expression : "expressions"
-VariationDescriptor ||--}o Extension : "extensions"
-VariationDescriptor ||--|o GeneDescriptor : "geneContext"
-VariationDescriptor ||--|o OntologyClass : "structuralType"
-VariationDescriptor ||--|o Variation : "variation"
-VariationDescriptor ||--|o VcfRecord : "vcfRecord"
-Variation ||--|o Allele : "allele"
-Variation ||--|o CopyNumber : "copyNumber"
-Variation ||--|o Haplotype : "haplotype"
-Variation ||--|o Text : "text"
-Variation ||--|o VariationSet : "variationSet"
+Allele ||--|o ChromosomeLocation : "chromosomeLocation"
+Allele ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
+Allele ||--|o LiteralSequenceExpression : "literalSequenceExpression"
+Allele ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
+Allele ||--|o SequenceLocation : "sequenceLocation"
+Allele ||--|o SequenceState : "sequenceState"
 CopyNumber ||--|o Allele : "allele"
 CopyNumber ||--|o DefiniteRange : "definiteRange"
 CopyNumber ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
@@ -335,11 +336,19 @@ CopyNumber ||--|o IndefiniteRange : "indefiniteRange"
 CopyNumber ||--|o LiteralSequenceExpression : "literalSequenceExpression"
 CopyNumber ||--|o Number : "number"
 CopyNumber ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
-Allele ||--|o ChromosomeLocation : "chromosomeLocation"
-Allele ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
-Allele ||--|o LiteralSequenceExpression : "literalSequenceExpression"
-Allele ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
-Allele ||--|o SequenceLocation : "sequenceLocation"
+Haplotype ||--}o HaplotypeMember : "members"
+Variation ||--|o Allele : "allele"
+Variation ||--|o CopyNumber : "copyNumber"
+Variation ||--|o Haplotype : "haplotype"
+Variation ||--|o Text : "text"
+Variation ||--|o VariationSet : "variationSet"
+VariationDescriptor ||--|o GeneDescriptor : "geneContext"
+VariationDescriptor ||--|o OntologyClass : "allelicState, structuralType"
+VariationDescriptor ||--|o Variation : "variation"
+VariationDescriptor ||--|o VcfRecord : "vcfRecord"
+VariationDescriptor ||--}o Expression : "expressions"
+VariationDescriptor ||--}o Extension : "extensions"
+VariationSet ||--}o VariationSetMember : "members"
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -357,13 +366,13 @@ Allele ||--|o SequenceLocation : "sequenceLocation"
 <tr>
 <td><a href="../allelicState/">allelicState</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>We RECOMMEND that the allelic_state of variant be described by terms from the...</td>
+<td>We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../alternateLabels/">alternateLabels</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
-<td>Common aliases for a variant, e</td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Common aliases for a variant, e.g. EGFR vIII, are alternate labels</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -374,20 +383,20 @@ Allele ||--|o SequenceLocation : "sequenceLocation"
 </tr>
 <tr>
 <td><a href="../expressions/">expressions</a></td>
-<td>0..* <br/> <a href="../Expression/">Expression</a></td>
+<td>* <br/> <a href="../Expression/">Expression</a></td>
 <td>HGVS, SPDI, and gnomAD-style strings should be represented as Expressions</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../extensions/">extensions</a></td>
-<td>0..* <br/> <a href="../Extension/">Extension</a></td>
+<td>* <br/> <a href="../Extension/">Extension</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../geneContext/">geneContext</a></td>
 <td>0..1 <br/> <a href="../GeneDescriptor/">GeneDescriptor</a></td>
-<td>A specific gene context that applies to this variant</td>
+<td>A specific gene context that applies to this variant.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -405,13 +414,13 @@ Allele ||--|o SequenceLocation : "sequenceLocation"
 <tr>
 <td><a href="../moleculeContext/">moleculeContext</a></td>
 <td>0..1 <br/> <a href="../MoleculeContext/">MoleculeContext</a></td>
-<td>The molecular context of the vrs variation</td>
+<td>The molecular context of the vrs variation. Must be one of “genomic”, “transcript”, or “protein”. Defaults to "unspecified_molecule_context"</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../structuralType/">structuralType</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>The structural variant type associated with this variant, such as a substitut...</td>
+<td>The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -423,18 +432,18 @@ Allele ||--|o SequenceLocation : "sequenceLocation"
 <tr>
 <td><a href="../vcfRecord/">vcfRecord</a></td>
 <td>0..1 <br/> <a href="../VcfRecord/">VcfRecord</a></td>
-<td>A VCF Record of the variant</td>
+<td>A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the allelic_state</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../vrsRefAlleleSeq/">vrsRefAlleleSeq</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A Sequence corresponding to a “ref allele”, describing the sequence expected ...</td>
+<td>A Sequence corresponding to a “ref allele”, describing the sequence expected at a SequenceLocation reference.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../xrefs/">xrefs</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>Allele registry, ClinVar, or other related IDs should be included as xrefs</td>
 <td>direct</td>
 </tr>
@@ -505,7 +514,6 @@ attributes:
     - VariationDescriptor
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   alternateLabels:
     name: alternateLabels
     annotations:
@@ -515,10 +523,10 @@ attributes:
     description: Common aliases for a variant, e.g. EGFR vIII, are alternate labels
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - VariationDescriptor
     range: string
+    multivalued: true
   description:
     name: description
     annotations:
@@ -545,11 +553,10 @@ attributes:
     description: HGVS, SPDI, and gnomAD-style strings should be represented as Expressions
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - VariationDescriptor
     range: Expression
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   extensions:
     name: extensions
@@ -560,11 +567,10 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
     domain_of:
     - VariationDescriptor
     range: Extension
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   geneContext:
     name: geneContext
@@ -579,7 +585,6 @@ attributes:
     - VariationDescriptor
     range: GeneDescriptor
     inlined: true
-    inlined_as_list: true
   id:
     name: id
     annotations:
@@ -598,12 +603,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -650,7 +649,6 @@ attributes:
     - VariationDescriptor
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   variation:
     name: variation
     annotations:
@@ -698,11 +696,11 @@ attributes:
     description: Allele registry, ClinVar, or other related IDs should be included
       as xrefs
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
     domain_of:
     - GeneDescriptor
     - VariationDescriptor
     range: string
+    multivalued: true
 
 </code></pre>
 </details>
@@ -722,13 +720,11 @@ attributes:
       from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: allelicState
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   alternateLabels:
     name: alternateLabels
     annotations:
@@ -738,12 +734,11 @@ attributes:
     description: Common aliases for a variant, e.g. EGFR vIII, are alternate labels
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: alternateLabels
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
     range: string
+    multivalued: true
   description:
     name: description
     annotations:
@@ -752,7 +747,6 @@ attributes:
         value: 4
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: description
     owner: VariationDescriptor
     domain_of:
     - Cohort
@@ -772,12 +766,11 @@ attributes:
     description: HGVS, SPDI, and gnomAD-style strings should be represented as Expressions
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: expressions
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
     range: Expression
+    multivalued: true
     inlined: true
     inlined_as_list: true
   extensions:
@@ -789,12 +782,11 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    multivalued: true
-    alias: extensions
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
     range: Extension
+    multivalued: true
     inlined: true
     inlined_as_list: true
   geneContext:
@@ -806,13 +798,11 @@ attributes:
     description: A specific gene context that applies to this variant.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: geneContext
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
     range: GeneDescriptor
     inlined: true
-    inlined_as_list: true
   id:
     name: id
     annotations:
@@ -824,7 +814,6 @@ attributes:
         value: 1
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: id
     owner: VariationDescriptor
     domain_of:
     - Cohort
@@ -833,12 +822,6 @@ attributes:
     - ExternalReference
     - OntologyClass
     - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
     - VariationDescriptor
     - VcfRecord
     - Interpretation
@@ -853,7 +836,6 @@ attributes:
         value: 3
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: label
     owner: VariationDescriptor
     domain_of:
     - OntologyClass
@@ -869,7 +851,6 @@ attributes:
       “transcript”, or “protein”. Defaults to "unspecified_molecule_context"
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: moleculeContext
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
@@ -885,13 +866,11 @@ attributes:
       SO:0001537.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: structuralType
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   variation:
     name: variation
     annotations:
@@ -901,7 +880,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: variation
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
@@ -916,7 +894,6 @@ attributes:
       VCF genotype (GT) field should be represented in the allelic_state
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: vcfRecord
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
@@ -931,7 +908,6 @@ attributes:
       expected at a SequenceLocation reference.
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: vrsRefAlleleSeq
     owner: VariationDescriptor
     domain_of:
     - VariationDescriptor
@@ -945,16 +921,16 @@ attributes:
     description: Allele registry, ClinVar, or other related IDs should be included
       as xrefs
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    multivalued: true
-    alias: xrefs
     owner: VariationDescriptor
     domain_of:
     - GeneDescriptor
     - VariationDescriptor
     range: string
+    multivalued: true
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -980,5 +956,7 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

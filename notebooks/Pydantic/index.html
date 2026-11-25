@@ -15,7 +15,7 @@
     
     
       
-        <title>Pydantic - phenopackets in linkml EXPERIMENTAL DEMO</title>
+        <title>Pydantic - phenopackets in linkml</title>
       
     
     
@@ -38,6 +38,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/schema-diagram.css">
     
       <link rel="stylesheet" href="../../css/ansi-colours.css">
     
@@ -88,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+    <a href="../.." title="phenopackets in linkml" class="md-header__button md-logo" aria-label="phenopackets in linkml" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -101,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -210,13 +212,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" aria-label="phenopackets in linkml EXPERIMENTAL DEMO" data-md-component="logo">
+    <a href="../.." title="phenopackets in linkml" class="md-nav__button md-logo" aria-label="phenopackets in linkml" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
   
     <div class="md-nav__source">
@@ -269,6 +271,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../schema-diagram/" class="md-nav__link">
+        Schema diagram
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -276,18 +293,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Notebooks" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -612,28 +629,28 @@ from phenopackets.pydantic.model import *
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 <code>{
-  "biosamples": [],
-  "diseases": [],
-  "files": [],
+  "biosamples": null,
+  "diseases": null,
+  "files": null,
   "id": "PP1",
-  "interpretations": [],
-  "measurements": [],
-  "medicalActions": [],
+  "interpretations": null,
+  "measurements": null,
+  "medicalActions": null,
   "metaData": {
     "created": "2021-01-01",
     "createdBy": null,
-    "externalReferences": [],
+    "externalReferences": null,
     "phenopacketSchemaVersion": null,
-    "resources": [],
+    "resources": null,
     "submittedBy": null,
-    "updates": []
+    "updates": null
   },
   "phenotypicFeatures": [
     {
       "description": null,
-      "evidence": [],
+      "evidence": null,
       "excluded": null,
-      "modifiers": [],
+      "modifiers": null,
       "onset": {
         "age": {
           "iso8601duration": "P5Y"
@@ -725,21 +742,28 @@ print(pkt2.phenotypicFeatures[0].type.label)
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValidationError</span>                           Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[25], line 2</span>
+Cell <span class="ansi-green-fg">In[6], line 2</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> pf1 <span style="color: rgb(98,98,98)">=</span> PhenotypicFeature(
 <span class="ansi-green-fg">----&gt; 2</span>     <span style="color: rgb(0,135,0)">type</span><span style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">OntologyClass</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">label</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">"</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">Clinodactyly</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">"</span><span class="ansi-yellow-bg">)</span>,
 <span class="ansi-green-intense-fg ansi-bold">      3</span>     onset<span style="color: rgb(98,98,98)">=</span>TimeElement(age<span style="color: rgb(98,98,98)">=</span>Age(iso8601duration<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">P5Y</span><span style="color: rgb(175,0,0)">"</span>)
 <span class="ansi-green-intense-fg ansi-bold">      4</span>                       ))
 
-File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopackets-JmUWBwH2-py3.9/lib/python3.9/site-packages/pydantic/main.py:176</span>, in <span class="ansi-cyan-fg">BaseModel.__init__</span><span class="ansi-blue-fg">(self, **data)</span>
-<span class="ansi-green-intense-fg ansi-bold">    174</span> <span style="color: rgb(95,135,135)"># `__tracebackhide__` tells pytest and some other tools to omit this function from tracebacks</span>
-<span class="ansi-green-intense-fg ansi-bold">    175</span> __tracebackhide__ <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
-<span class="ansi-green-fg">--&gt; 176</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">__pydantic_validator__</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">validate_python</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">self_instance</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">)</span>
+File <span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/phenopackets-2csp0FG_-py3.12/lib/python3.12/site-packages/pydantic/main.py:280</span>, in <span class="ansi-cyan-fg">BaseModel.__init__</span><span class="ansi-blue-fg">(self, **data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    278</span> <span style="color: rgb(95,135,135)"># `__tracebackhide__` tells pytest and some other tools to omit this function from tracebacks</span>
+<span class="ansi-green-intense-fg ansi-bold">    279</span> __tracebackhide__ <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
+<span class="ansi-green-fg">--&gt; 280</span> validated_self <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">__pydantic_validator__</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">validate_python</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">self_instance</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    281</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span> <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> validated_self:
+<span class="ansi-green-intense-fg ansi-bold">    282</span>     warnings<span style="color: rgb(98,98,98)">.</span>warn(
+<span class="ansi-green-intense-fg ansi-bold">    283</span>         <span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">A custom validator is returning a value other than `self`.</span><span class="ansi-bold" style="color: rgb(175,95,0)">\n</span><span style="color: rgb(175,0,0)">'</span>
+<span class="ansi-green-intense-fg ansi-bold">    284</span>         <span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">Returning anything other than `self` from a top level model validator isn</span><span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">t supported when validating via `__init__`.</span><span class="ansi-bold" style="color: rgb(175,95,0)">\n</span><span style="color: rgb(175,0,0)">"</span>
+<span class="ansi-green-intense-fg ansi-bold">    285</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">See the `model_validator` docs (https://pydantic.dev/docs/validation/</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>version_short()<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">/concepts/validators/#model-validators) for more details.</span><span style="color: rgb(175,0,0)">'</span>,
+<span class="ansi-green-intense-fg ansi-bold">    286</span>         stacklevel<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">2</span>,
+<span class="ansi-green-intense-fg ansi-bold">    287</span>     )
 
 <span class="ansi-red-fg">ValidationError</span>: 1 validation error for OntologyClass
 id
   Field required [type=missing, input_value={'label': 'Clinodactyly'}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.7/v/missing</pre>
+    For further information visit https://errors.pydantic.dev/2.14/v/missing</pre>
 </div>
 </div>
 </div>
@@ -841,6 +865,10 @@ id
     
     
       <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+      
+        <script src="../../javascripts/schema-diagram.js"></script>
       
     
     

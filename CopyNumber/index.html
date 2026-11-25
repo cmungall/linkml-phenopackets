@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/CopyNumber/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: CopyNumber - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: CopyNumber - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -201,6 +207,23 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#rules">
+    Rules
+  </a>
+<nav aria-label="Rules" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -249,52 +272,66 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-copynumber">Class: CopyNumber</h1>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/CopyNumber">phenopackets:CopyNumber</a></p>
 <div class="mermaid">erDiagram
-CopyNumber {
+Allele {
+    string Id  
     string curie  
-    string id  
 }
-RepeatedSequenceExpression {
-
+ChromosomeLocation {
+    string chr  
+    string speciesId  
+    string Id  
 }
-Number {
-    integer value  
-}
-LiteralSequenceExpression {
-    string sequence  
-}
-IndefiniteRange {
-    string comparator  
-    integer value  
-}
-DerivedSequenceExpression {
-    boolean reverseComplement  
+CopyNumber {
+    string Id  
+    string curie  
 }
 DefiniteRange {
     integer max  
     integer min  
 }
-Haplotype {
-
+DerivedSequenceExpression {
+    boolean reverseComplement  
 }
 Gene {
     string geneId  
 }
-Allele {
+Haplotype {
+    string Id  
+}
+HaplotypeMember {
     string curie  
-    string id  
+}
+IndefiniteRange {
+    string comparator  
+    integer value  
+}
+LiteralSequenceExpression {
+    string sequence  
+}
+Number {
+    integer value  
+}
+RepeatedSequenceExpression {
+
 }
 SequenceLocation {
-    string id  
     string sequenceId  
+    string Id  
 }
-ChromosomeLocation {
-    string chr  
-    string id  
-    string speciesId  
+SequenceState {
+    string sequence  
 }
 
+Allele ||--|o ChromosomeLocation : "chromosomeLocation"
+Allele ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
+Allele ||--|o LiteralSequenceExpression : "literalSequenceExpression"
+Allele ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
+Allele ||--|o SequenceLocation : "sequenceLocation"
+Allele ||--|o SequenceState : "sequenceState"
+ChromosomeLocation ||--|o CytobandInterval : "interval"
 CopyNumber ||--|o Allele : "allele"
 CopyNumber ||--|o DefiniteRange : "definiteRange"
 CopyNumber ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
@@ -304,19 +341,16 @@ CopyNumber ||--|o IndefiniteRange : "indefiniteRange"
 CopyNumber ||--|o LiteralSequenceExpression : "literalSequenceExpression"
 CopyNumber ||--|o Number : "number"
 CopyNumber ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
+DerivedSequenceExpression ||--|o SequenceLocation : "location"
+Haplotype ||--}o HaplotypeMember : "members"
+HaplotypeMember ||--|o Allele : "allele"
 RepeatedSequenceExpression ||--|o DefiniteRange : "definiteRange"
 RepeatedSequenceExpression ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
 RepeatedSequenceExpression ||--|o IndefiniteRange : "indefiniteRange"
 RepeatedSequenceExpression ||--|o LiteralSequenceExpression : "literalSequenceExpression"
 RepeatedSequenceExpression ||--|o Number : "number"
-DerivedSequenceExpression ||--|o SequenceLocation : "location"
-Allele ||--|o ChromosomeLocation : "chromosomeLocation"
-Allele ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
-Allele ||--|o LiteralSequenceExpression : "literalSequenceExpression"
-Allele ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
-Allele ||--|o SequenceLocation : "sequenceLocation"
 SequenceLocation ||--|o SequenceInterval : "sequenceInterval"
-ChromosomeLocation ||--|o CytobandInterval : "interval"
+SequenceLocation ||--|o SimpleInterval : "simpleInterval"
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -331,6 +365,12 @@ ChromosomeLocation ||--|o CytobandInterval : "interval"
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../Id/">Id</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../allele/">allele</a></td>
 <td>0..1 <br/> <a href="../Allele/">Allele</a></td>
@@ -364,12 +404,6 @@ ChromosomeLocation ||--|o CytobandInterval : "interval"
 <tr>
 <td><a href="../haplotype/">haplotype</a></td>
 <td>0..1 <br/> <a href="../Haplotype/">Haplotype</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../id/">id</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -417,12 +451,6 @@ ChromosomeLocation ||--|o CytobandInterval : "interval"
 <td><a href="./">CopyNumber</a></td>
 </tr>
 <tr>
-<td><a href="../Member/">Member</a></td>
-<td><a href="../copyNumber/">copyNumber</a></td>
-<td>range</td>
-<td><a href="./">CopyNumber</a></td>
-</tr>
-<tr>
 <td><a href="../SystemicVariation/">SystemicVariation</a></td>
 <td><a href="../copyNumber/">copyNumber</a></td>
 <td>range</td>
@@ -433,6 +461,51 @@ ChromosomeLocation ||--|o CytobandInterval : "interval"
 <td><a href="../copyNumber/">copyNumber</a></td>
 <td>range</td>
 <td><a href="./">CopyNumber</a></td>
+</tr>
+<tr>
+<td><a href="../VariationSetMember/">VariationSetMember</a></td>
+<td><a href="../copyNumber/">copyNumber</a></td>
+<td>range</td>
+<td><a href="./">CopyNumber</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="rules">Rules</h2>
+<h3 id="_1"></h3>
+<table>
+<thead>
+<tr>
+<th>Rule Applied</th>
+<th>Preconditions</th>
+<th>Postconditions</th>
+<th>Elseconditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exactly_one_of</td>
+<td></td>
+<td><code>[{'slot_conditions': {'allele': {'required': True}}}, {'slot_conditions': {'haplotype': {'required': True}}}, {'slot_conditions': {'gene': {'required': True}}}, {'slot_conditions': {'literalSequenceExpression': {'required': True}}}, {'slot_conditions': {'derivedSequenceExpression': {'required': True}}}, {'slot_conditions': {'repeatedSequenceExpression': {'required': True}}}, {'slot_conditions': {'curie': {'required': True}}}]</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2"></h3>
+<table>
+<thead>
+<tr>
+<th>Rule Applied</th>
+<th>Preconditions</th>
+<th>Postconditions</th>
+<th>Elseconditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exactly_one_of</td>
+<td></td>
+<td><code>[{'slot_conditions': {'number': {'required': True}}}, {'slot_conditions': {'indefiniteRange': {'required': True}}}, {'slot_conditions': {'definiteRange': {'required': True}}}]</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -468,6 +541,23 @@ ChromosomeLocation ||--|o CytobandInterval : "interval"
 description: ''
 from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
+  Id:
+    name: Id
+    annotations:
+      rank:
+        tag: rank
+        value: 1
+    description: ''
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
+    domain_of:
+    - Allele
+    - ChromosomeLocation
+    - CopyNumber
+    - Haplotype
+    - SequenceLocation
+    - Text
+    - VariationSet
+    range: string
   allele:
     name: allele
     annotations:
@@ -479,9 +569,10 @@ attributes:
     rank: 1000
     domain_of:
     - CopyNumber
-    - Member
+    - HaplotypeMember
     - MolecularVariation
     - Variation
+    - VariationSetMember
     range: Allele
   curie:
     name: curie
@@ -494,7 +585,8 @@ attributes:
     domain_of:
     - Allele
     - CopyNumber
-    - Member
+    - HaplotypeMember
+    - VariationSetMember
     range: string
   definiteRange:
     name: definiteRange
@@ -548,40 +640,10 @@ attributes:
     rank: 1000
     domain_of:
     - CopyNumber
-    - Member
     - MolecularVariation
     - Variation
+    - VariationSetMember
     range: Haplotype
-  id:
-    name: id
-    annotations:
-      percent_encoded:
-        tag: percent_encoded
-        value: true
-      rank:
-        tag: rank
-        value: 1
-    description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    domain_of:
-    - Cohort
-    - Family
-    - Phenopacket
-    - ExternalReference
-    - OntologyClass
-    - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
-    - VariationDescriptor
-    - VcfRecord
-    - Interpretation
-    - Individual
-    - Resource
-    range: string
   indefiniteRange:
     name: indefiniteRange
     annotations:
@@ -639,6 +701,40 @@ rules:
 - postconditions:
     exactly_one_of:
     - slot_conditions:
+        allele:
+          name: allele
+          required: true
+    - slot_conditions:
+        haplotype:
+          name: haplotype
+          required: true
+    - slot_conditions:
+        gene:
+          name: gene
+          required: true
+    - slot_conditions:
+        literalSequenceExpression:
+          name: literalSequenceExpression
+          required: true
+    - slot_conditions:
+        derivedSequenceExpression:
+          name: derivedSequenceExpression
+          required: true
+    - slot_conditions:
+        repeatedSequenceExpression:
+          name: repeatedSequenceExpression
+          required: true
+    - slot_conditions:
+        curie:
+          name: curie
+          required: true
+  annotations:
+    oneof:
+      tag: oneof
+      value: subject
+- postconditions:
+    exactly_one_of:
+    - slot_conditions:
         number:
           name: number
           required: true
@@ -650,6 +746,10 @@ rules:
         definiteRange:
           name: definiteRange
           required: true
+  annotations:
+    oneof:
+      tag: oneof
+      value: copies
 
 </code></pre>
 </details>
@@ -659,6 +759,24 @@ rules:
 description: ''
 from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
+  Id:
+    name: Id
+    annotations:
+      rank:
+        tag: rank
+        value: 1
+    description: ''
+    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
+    owner: CopyNumber
+    domain_of:
+    - Allele
+    - ChromosomeLocation
+    - CopyNumber
+    - Haplotype
+    - SequenceLocation
+    - Text
+    - VariationSet
+    range: string
   allele:
     name: allele
     annotations:
@@ -668,13 +786,13 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: allele
     owner: CopyNumber
     domain_of:
     - CopyNumber
-    - Member
+    - HaplotypeMember
     - MolecularVariation
     - Variation
+    - VariationSetMember
     range: Allele
   curie:
     name: curie
@@ -684,12 +802,12 @@ attributes:
         value: 8
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: curie
     owner: CopyNumber
     domain_of:
     - Allele
     - CopyNumber
-    - Member
+    - HaplotypeMember
+    - VariationSetMember
     range: string
   definiteRange:
     name: definiteRange
@@ -700,7 +818,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: definiteRange
     owner: CopyNumber
     domain_of:
     - CopyNumber
@@ -714,7 +831,6 @@ attributes:
         value: 6
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: derivedSequenceExpression
     owner: CopyNumber
     domain_of:
     - Allele
@@ -731,7 +847,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: gene
     owner: CopyNumber
     domain_of:
     - CopyNumber
@@ -747,46 +862,13 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: haplotype
     owner: CopyNumber
     domain_of:
     - CopyNumber
-    - Member
     - MolecularVariation
     - Variation
+    - VariationSetMember
     range: Haplotype
-  id:
-    name: id
-    annotations:
-      percent_encoded:
-        tag: percent_encoded
-        value: true
-      rank:
-        tag: rank
-        value: 1
-    description: ''
-    from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: id
-    owner: CopyNumber
-    domain_of:
-    - Cohort
-    - Family
-    - Phenopacket
-    - ExternalReference
-    - OntologyClass
-    - Biosample
-    - Allele
-    - ChromosomeLocation
-    - CopyNumber
-    - Member
-    - SequenceLocation
-    - Text
-    - VariationDescriptor
-    - VcfRecord
-    - Interpretation
-    - Individual
-    - Resource
-    range: string
   indefiniteRange:
     name: indefiniteRange
     annotations:
@@ -796,7 +878,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: indefiniteRange
     owner: CopyNumber
     domain_of:
     - CopyNumber
@@ -810,7 +891,6 @@ attributes:
         value: 5
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: literalSequenceExpression
     owner: CopyNumber
     domain_of:
     - Allele
@@ -827,7 +907,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: number
     owner: CopyNumber
     domain_of:
     - CopyNumber
@@ -841,7 +920,6 @@ attributes:
         value: 7
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: repeatedSequenceExpression
     owner: CopyNumber
     domain_of:
     - Allele
@@ -849,6 +927,40 @@ attributes:
     - SequenceExpression
     range: RepeatedSequenceExpression
 rules:
+- postconditions:
+    exactly_one_of:
+    - slot_conditions:
+        allele:
+          name: allele
+          required: true
+    - slot_conditions:
+        haplotype:
+          name: haplotype
+          required: true
+    - slot_conditions:
+        gene:
+          name: gene
+          required: true
+    - slot_conditions:
+        literalSequenceExpression:
+          name: literalSequenceExpression
+          required: true
+    - slot_conditions:
+        derivedSequenceExpression:
+          name: derivedSequenceExpression
+          required: true
+    - slot_conditions:
+        repeatedSequenceExpression:
+          name: repeatedSequenceExpression
+          required: true
+    - slot_conditions:
+        curie:
+          name: curie
+          required: true
+  annotations:
+    oneof:
+      tag: oneof
+      value: subject
 - postconditions:
     exactly_one_of:
     - slot_conditions:
@@ -863,9 +975,14 @@ rules:
         definiteRange:
           name: definiteRange
           required: true
+  annotations:
+    oneof:
+      tag: oneof
+      value: copies
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -891,5 +1008,7 @@ rules:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

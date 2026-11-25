@@ -8,12 +8,13 @@
 <link href="https://cmungall.github.io/linkml-phenopackets/MedicalAction/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: MedicalAction - phenopackets in linkml EXPERIMENTAL DEMO</title>
+<title>Class: MedicalAction - phenopackets in linkml</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/schema-diagram.css" rel="stylesheet"/>
 <link href="../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-header__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +44,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            phenopackets in linkml EXPERIMENTAL DEMO
+            phenopackets in linkml
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -115,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="phenopackets in linkml EXPERIMENTAL DEMO" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml EXPERIMENTAL DEMO">
+<a aria-label="phenopackets in linkml" class="md-nav__button md-logo" data-md-component="logo" href=".." title="phenopackets in linkml">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
-    phenopackets in linkml EXPERIMENTAL DEMO
+    phenopackets in linkml
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/cmungall/linkml-phenopackets/" title="Go to repository">
@@ -141,14 +142,19 @@
         Index
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema-diagram/">
+        Schema diagram
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
           Notebooks
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Notebooks" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
+<label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Notebooks
         </label>
@@ -201,6 +207,24 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#rules">
+    Rules
+  </a>
+<nav aria-label="Rules" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comments">
+    Comments
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -250,8 +274,17 @@
 </a>
 <h1 id="class-medicalaction">Class: MedicalAction</h1>
 <p><em>medication, procedure, other actions taken for clinical management</em></p>
+<div data-search-exclude="data-search-exclude">
 <p>URI: <a href="https://w3id.org/linkml/phenopackets/phenopackets/MedicalAction">phenopackets:MedicalAction</a></p>
 <div class="mermaid">erDiagram
+DoseInterval {
+
+}
+ExternalReference {
+    string id  
+    string description  
+    string reference  
+}
 MedicalAction {
 
 }
@@ -259,14 +292,15 @@ OntologyClass {
     string id  
     string label  
 }
-Treatment {
-    DrugType drugType  
-}
-DoseInterval {
+Procedure {
 
 }
 Quantity {
     double value  
+}
+RadiationTherapy {
+    integer dosage  
+    integer fractions  
 }
 TherapeuticRegimen {
     RegimenStatus regimenStatus  
@@ -274,51 +308,35 @@ TherapeuticRegimen {
 TimeElement {
     string timestamp  
 }
-ExternalReference {
-    string description  
-    string id  
-    string reference  
-}
-RadiationTherapy {
-    integer dosage  
-    integer fractions  
-}
-Procedure {
-
+Treatment {
+    DrugType drugType  
 }
 
-MedicalAction ||--}o OntologyClass : "adverseEvents"
+DoseInterval ||--|o OntologyClass : "scheduleFrequency"
+DoseInterval ||--|o Quantity : "quantity"
+DoseInterval ||--|o TimeInterval : "interval"
+MedicalAction ||--|o OntologyClass : "responseToTreatment, treatmentIntent, treatmentTarget, treatmentTerminationReason"
 MedicalAction ||--|o Procedure : "procedure"
 MedicalAction ||--|o RadiationTherapy : "radiationTherapy"
-MedicalAction ||--|o OntologyClass : "responseToTreatment"
 MedicalAction ||--|o TherapeuticRegimen : "therapeuticRegimen"
 MedicalAction ||--|o Treatment : "treatment"
-MedicalAction ||--|o OntologyClass : "treatmentIntent"
-MedicalAction ||--|o OntologyClass : "treatmentTarget"
-MedicalAction ||--|o OntologyClass : "treatmentTerminationReason"
-Treatment ||--|o OntologyClass : "agent"
-Treatment ||--|o Quantity : "cumulativeDose"
-Treatment ||--}o DoseInterval : "doseIntervals"
-Treatment ||--|o OntologyClass : "routeOfAdministration"
-DoseInterval ||--|o TimeInterval : "interval"
-DoseInterval ||--|o Quantity : "quantity"
-DoseInterval ||--|o OntologyClass : "scheduleFrequency"
-Quantity ||--|o ReferenceRange : "referenceRange"
+MedicalAction ||--}o OntologyClass : "adverseEvents"
+Procedure ||--|o OntologyClass : "bodySite, code"
+Procedure ||--|o TimeElement : "performed"
 Quantity ||--|o OntologyClass : "unit"
-TherapeuticRegimen ||--|o TimeElement : "endTime"
+Quantity ||--|o ReferenceRange : "referenceRange"
+RadiationTherapy ||--|| OntologyClass : "bodySite, modality"
 TherapeuticRegimen ||--|o ExternalReference : "externalReference"
 TherapeuticRegimen ||--|o OntologyClass : "ontologyClass"
-TherapeuticRegimen ||--|o TimeElement : "startTime"
+TherapeuticRegimen ||--|o TimeElement : "endTime, startTime"
 TimeElement ||--|o Age : "age"
 TimeElement ||--|o AgeRange : "ageRange"
 TimeElement ||--|o GestationalAge : "gestationalAge"
-TimeElement ||--|o TimeInterval : "interval"
 TimeElement ||--|o OntologyClass : "ontologyClass"
-RadiationTherapy ||--|| OntologyClass : "bodySite"
-RadiationTherapy ||--|| OntologyClass : "modality"
-Procedure ||--|o OntologyClass : "bodySite"
-Procedure ||--|o OntologyClass : "code"
-Procedure ||--|o TimeElement : "performed"
+TimeElement ||--|o TimeInterval : "interval"
+Treatment ||--|o OntologyClass : "agent, routeOfAdministration"
+Treatment ||--|o Quantity : "cumulativeDose"
+Treatment ||--}o DoseInterval : "doseIntervals"
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -335,7 +353,7 @@ Procedure ||--|o TimeElement : "performed"
 <tbody>
 <tr>
 <td><a href="../adverseEvents/">adverseEvents</a></td>
-<td>0..* <br/> <a href="../OntologyClass/">OntologyClass</a></td>
+<td>* <br/> <a href="../OntologyClass/">OntologyClass</a></td>
 <td>ARGO mapping treatment::adverse_events</td>
 <td>direct</td>
 </tr>
@@ -372,13 +390,13 @@ Procedure ||--|o TimeElement : "performed"
 <tr>
 <td><a href="../treatmentIntent/">treatmentIntent</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>Whether the intention of the treatment was curative, palliative, ARGO mapping...</td>
+<td>Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../treatmentTarget/">treatmentTarget</a></td>
 <td>0..1 <br/> <a href="../OntologyClass/">OntologyClass</a></td>
-<td>The condition or disease that this treatment was intended to address</td>
+<td>The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -408,6 +426,30 @@ Procedure ||--|o TimeElement : "performed"
 </tr>
 </tbody>
 </table>
+<h2 id="rules">Rules</h2>
+<h3 id="_1"></h3>
+<table>
+<thead>
+<tr>
+<th>Rule Applied</th>
+<th>Preconditions</th>
+<th>Postconditions</th>
+<th>Elseconditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exactly_one_of</td>
+<td></td>
+<td><code>[{'slot_conditions': {'procedure': {'required': True}}}, {'slot_conditions': {'treatment': {'required': True}}}, {'slot_conditions': {'radiationTherapy': {'required': True}}}, {'slot_conditions': {'therapeuticRegimen': {'required': True}}}]</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="comments">Comments</h2>
+<ul>
+<li>ARGO mapping treatment::is_primary_treatment (missing)</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -438,6 +480,8 @@ Procedure ||--|o TimeElement : "performed"
 <details>
 <pre><code class="language-yaml">name: MedicalAction
 description: medication, procedure, other actions taken for clinical management
+comments:
+- ARGO mapping treatment::is_primary_treatment (missing)
 from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
   adverseEvents:
@@ -451,11 +495,10 @@ attributes:
     exact_mappings:
     - ARGO:treatment.adverse_events
     rank: 1000
-    multivalued: true
     domain_of:
     - MedicalAction
     range: OntologyClass
-    inlined: true
+    multivalued: true
     inlined_as_list: true
   procedure:
     name: procedure
@@ -497,7 +540,6 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   therapeuticRegimen:
     name: therapeuticRegimen
     annotations:
@@ -538,7 +580,6 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   treatmentTarget:
     name: treatmentTarget
     annotations:
@@ -553,7 +594,6 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   treatmentTerminationReason:
     name: treatmentTerminationReason
     annotations:
@@ -569,7 +609,6 @@ attributes:
     - MedicalAction
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
 rules:
 - postconditions:
     exactly_one_of:
@@ -589,6 +628,11 @@ rules:
         therapeuticRegimen:
           name: therapeuticRegimen
           required: true
+  annotations:
+    oneof:
+      tag: oneof
+      value: action
+  description: ARGO mapping treatment::treatment_type
 
 </code></pre>
 </details>
@@ -596,6 +640,8 @@ rules:
 <details>
 <pre><code class="language-yaml">name: MedicalAction
 description: medication, procedure, other actions taken for clinical management
+comments:
+- ARGO mapping treatment::is_primary_treatment (missing)
 from_schema: https://w3id.org/linkml/phenopackets/phenopackets
 attributes:
   adverseEvents:
@@ -609,12 +655,11 @@ attributes:
     exact_mappings:
     - ARGO:treatment.adverse_events
     rank: 1000
-    multivalued: true
-    alias: adverseEvents
     owner: MedicalAction
     domain_of:
     - MedicalAction
     range: OntologyClass
+    multivalued: true
     inlined: true
     inlined_as_list: true
   procedure:
@@ -625,7 +670,6 @@ attributes:
         value: 1
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
-    alias: procedure
     owner: MedicalAction
     domain_of:
     - Measurement
@@ -641,7 +685,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: radiationTherapy
     owner: MedicalAction
     domain_of:
     - MedicalAction
@@ -657,13 +700,11 @@ attributes:
     exact_mappings:
     - ARGO:treatment.response_to_treatment
     rank: 1000
-    alias: responseToTreatment
     owner: MedicalAction
     domain_of:
     - MedicalAction
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   therapeuticRegimen:
     name: therapeuticRegimen
     annotations:
@@ -673,7 +714,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: therapeuticRegimen
     owner: MedicalAction
     domain_of:
     - MedicalAction
@@ -687,7 +727,6 @@ attributes:
     description: ''
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: treatment
     owner: MedicalAction
     domain_of:
     - MedicalAction
@@ -704,13 +743,11 @@ attributes:
     exact_mappings:
     - ARGO:treatment.treatment_intent
     rank: 1000
-    alias: treatmentIntent
     owner: MedicalAction
     domain_of:
     - MedicalAction
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   treatmentTarget:
     name: treatmentTarget
     annotations:
@@ -721,13 +758,11 @@ attributes:
       FHIR mapping Procedure::reasonCode
     from_schema: https://w3id.org/linkml/phenopackets/phenopackets
     rank: 1000
-    alias: treatmentTarget
     owner: MedicalAction
     domain_of:
     - MedicalAction
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
   treatmentTerminationReason:
     name: treatmentTerminationReason
     annotations:
@@ -739,13 +774,11 @@ attributes:
     exact_mappings:
     - ARGO:treatment.treatment_outcome
     rank: 1000
-    alias: treatmentTerminationReason
     owner: MedicalAction
     domain_of:
     - MedicalAction
     range: OntologyClass
     inlined: true
-    inlined_as_list: true
 rules:
 - postconditions:
     exactly_one_of:
@@ -765,9 +798,15 @@ rules:
         therapeuticRegimen:
           name: therapeuticRegimen
           required: true
+  annotations:
+    oneof:
+      tag: oneof
+      value: action
+  description: ARGO mapping treatment::treatment_type
 
 </code></pre>
 </details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -793,5 +832,7 @@ rules:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="https://unpkg.com/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script src="../javascripts/schema-diagram.js"></script>
 <script src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
 </html>

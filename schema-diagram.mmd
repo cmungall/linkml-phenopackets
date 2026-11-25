@@ -1,0 +1,372 @@
+erDiagram
+Age {
+    string iso8601duration  
+}
+AgeRange {
+
+}
+Allele {
+    string Id  
+    string curie  
+}
+Biosample {
+    string id  
+    string description  
+    string derivedFromId  
+    string individualId  
+}
+ChromosomeLocation {
+    string Id  
+    string chr  
+    string speciesId  
+}
+ComplexValue {
+
+}
+CopyNumber {
+    string Id  
+    string curie  
+}
+CytobandInterval {
+    string end  
+    string start  
+}
+DefiniteRange {
+    integer max  
+    integer min  
+}
+DerivedSequenceExpression {
+    boolean reverseComplement  
+}
+Diagnosis {
+
+}
+DictionaryEntry {
+    string key  
+    string value  
+}
+Disease {
+    boolean excluded  
+}
+DoseInterval {
+
+}
+Evidence {
+
+}
+Expression {
+    string syntax  
+    string value  
+    string version  
+}
+Extension {
+    string name  
+    stringList value  
+}
+ExternalReference {
+    string id  
+    string description  
+    string reference  
+}
+File {
+    string uri  
+}
+Gene {
+    string geneId  
+}
+GeneDescriptor {
+    string description  
+    stringList alternateIds  
+    stringList alternateSymbols  
+    string symbol  
+    string valueId  
+    stringList xrefs  
+}
+GenomicInterpretation {
+    InterpretationStatus interpretationStatus  
+    string subjectOrBiosampleId  
+}
+GestationalAge {
+    integer days  
+    integer weeks  
+}
+Haplotype {
+    string Id  
+}
+HaplotypeMember {
+    string curie  
+}
+IndefiniteRange {
+    string comparator  
+    integer value  
+}
+Individual {
+    string id  
+    stringList alternateIds  
+    string dateOfBirth  
+    KaryotypicSex karyotypicSex  
+    Sex sex  
+}
+Interpretation {
+    string id  
+    ProgressStatus progressStatus  
+    string summary  
+}
+LiteralSequenceExpression {
+    string sequence  
+}
+Measurement {
+    string description  
+}
+MedicalAction {
+
+}
+MetaData {
+    string created  
+    string createdBy  
+    string phenopacketSchemaVersion  
+    string submittedBy  
+}
+Number {
+    integer value  
+}
+OntologyClass {
+    string id  
+    string label  
+}
+Phenopacket {
+    string id  
+}
+PhenotypicFeature {
+    string description  
+    boolean excluded  
+}
+Procedure {
+
+}
+Quantity {
+    double value  
+}
+RadiationTherapy {
+    integer dosage  
+    integer fractions  
+}
+ReferenceRange {
+    double high  
+    double low  
+}
+RepeatedSequenceExpression {
+
+}
+Resource {
+    string id  
+    string name  
+    string iriPrefix  
+    string namespacePrefix  
+    string url  
+    string version  
+}
+SequenceInterval {
+
+}
+SequenceLocation {
+    string Id  
+    string sequenceId  
+}
+SequenceState {
+    string sequence  
+}
+SimpleInterval {
+    integer end  
+    integer start  
+}
+Text {
+    string Id  
+    string definition  
+}
+TherapeuticRegimen {
+    RegimenStatus regimenStatus  
+}
+TimeElement {
+    string timestamp  
+}
+TimeInterval {
+    string end  
+    string start  
+}
+Treatment {
+    DrugType drugType  
+}
+TypedQuantity {
+
+}
+Update {
+    string comment  
+    string timestamp  
+    string updatedBy  
+}
+Value {
+
+}
+VariantInterpretation {
+    AcmgPathogenicityClassification acmgPathogenicityClassification  
+    TherapeuticActionability therapeuticActionability  
+}
+Variation {
+
+}
+VariationDescriptor {
+    string id  
+    string description  
+    stringList alternateLabels  
+    string label  
+    MoleculeContext moleculeContext  
+    string vrsRefAlleleSeq  
+    stringList xrefs  
+}
+VariationSet {
+    string Id  
+}
+VariationSetMember {
+    string curie  
+}
+VcfRecord {
+    string id  
+    string alt  
+    string chrom  
+    string filter  
+    string genomeAssembly  
+    string info  
+    integer pos  
+    string qual  
+    string ref  
+}
+VitalStatus {
+    Status status  
+    integer survivalTimeInDays  
+}
+
+AgeRange ||--|o Age : "end, start"
+Allele ||--|o ChromosomeLocation : "chromosomeLocation"
+Allele ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
+Allele ||--|o LiteralSequenceExpression : "literalSequenceExpression"
+Allele ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
+Allele ||--|o SequenceLocation : "sequenceLocation"
+Allele ||--|o SequenceState : "sequenceState"
+Biosample ||--|o OntologyClass : "histologicalDiagnosis, materialSample, pathologicalStage, sampleProcessing, sampleStorage, sampleType, sampledTissue, taxonomy, tumorGrade, tumorProgression"
+Biosample ||--|o Procedure : "procedure"
+Biosample ||--|o TimeElement : "timeOfCollection"
+Biosample ||--}o File : "files"
+Biosample ||--}o Measurement : "measurements"
+Biosample ||--}o OntologyClass : "diagnosticMarkers, pathologicalTnmFinding"
+Biosample ||--}o PhenotypicFeature : "phenotypicFeatures"
+ChromosomeLocation ||--|o CytobandInterval : "interval"
+ComplexValue ||--}o TypedQuantity : "typedQuantities"
+CopyNumber ||--|o Allele : "allele"
+CopyNumber ||--|o DefiniteRange : "definiteRange"
+CopyNumber ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
+CopyNumber ||--|o Gene : "gene"
+CopyNumber ||--|o Haplotype : "haplotype"
+CopyNumber ||--|o IndefiniteRange : "indefiniteRange"
+CopyNumber ||--|o LiteralSequenceExpression : "literalSequenceExpression"
+CopyNumber ||--|o Number : "number"
+CopyNumber ||--|o RepeatedSequenceExpression : "repeatedSequenceExpression"
+DerivedSequenceExpression ||--|o SequenceLocation : "location"
+Diagnosis ||--|o OntologyClass : "disease"
+Diagnosis ||--}o GenomicInterpretation : "genomicInterpretations"
+Disease ||--|o OntologyClass : "laterality, primarySite, term"
+Disease ||--|o TimeElement : "onset, resolution"
+Disease ||--}o OntologyClass : "clinicalTnmFinding, diseaseStage"
+DoseInterval ||--|o OntologyClass : "scheduleFrequency"
+DoseInterval ||--|o Quantity : "quantity"
+DoseInterval ||--|o TimeInterval : "interval"
+Evidence ||--|o ExternalReference : "reference"
+Evidence ||--|o OntologyClass : "evidenceCode"
+File ||--}o DictionaryEntry : "fileAttributes, individualToFileIdentifiers"
+GenomicInterpretation ||--|o GeneDescriptor : "gene"
+GenomicInterpretation ||--|o VariantInterpretation : "variantInterpretation"
+Haplotype ||--}o HaplotypeMember : "members"
+HaplotypeMember ||--|o Allele : "allele"
+Individual ||--|o OntologyClass : "gender, taxonomy"
+Individual ||--|o TimeElement : "timeAtLastEncounter"
+Individual ||--|o VitalStatus : "vitalStatus"
+Interpretation ||--|o Diagnosis : "diagnosis"
+Measurement ||--|o ComplexValue : "complexValue"
+Measurement ||--|o OntologyClass : "assay"
+Measurement ||--|o Procedure : "procedure"
+Measurement ||--|o TimeElement : "timeObserved"
+Measurement ||--|o Value : "value"
+MedicalAction ||--|o OntologyClass : "responseToTreatment, treatmentIntent, treatmentTarget, treatmentTerminationReason"
+MedicalAction ||--|o Procedure : "procedure"
+MedicalAction ||--|o RadiationTherapy : "radiationTherapy"
+MedicalAction ||--|o TherapeuticRegimen : "therapeuticRegimen"
+MedicalAction ||--|o Treatment : "treatment"
+MedicalAction ||--}o OntologyClass : "adverseEvents"
+MetaData ||--}o ExternalReference : "externalReferences"
+MetaData ||--}o Resource : "resources"
+MetaData ||--}o Update : "updates"
+Phenopacket ||--|o Individual : "subject"
+Phenopacket ||--|| MetaData : "metaData"
+Phenopacket ||--}o Biosample : "biosamples"
+Phenopacket ||--}o Disease : "diseases"
+Phenopacket ||--}o File : "files"
+Phenopacket ||--}o Interpretation : "interpretations"
+Phenopacket ||--}o Measurement : "measurements"
+Phenopacket ||--}o MedicalAction : "medicalActions"
+Phenopacket ||--}o PhenotypicFeature : "phenotypicFeatures"
+PhenotypicFeature ||--|o OntologyClass : "severity, type"
+PhenotypicFeature ||--|o TimeElement : "onset, resolution"
+PhenotypicFeature ||--}o Evidence : "evidence"
+PhenotypicFeature ||--}o OntologyClass : "modifiers"
+Procedure ||--|o OntologyClass : "bodySite, code"
+Procedure ||--|o TimeElement : "performed"
+Quantity ||--|o OntologyClass : "unit"
+Quantity ||--|o ReferenceRange : "referenceRange"
+RadiationTherapy ||--|| OntologyClass : "bodySite, modality"
+ReferenceRange ||--|o OntologyClass : "unit"
+RepeatedSequenceExpression ||--|o DefiniteRange : "definiteRange"
+RepeatedSequenceExpression ||--|o DerivedSequenceExpression : "derivedSequenceExpression"
+RepeatedSequenceExpression ||--|o IndefiniteRange : "indefiniteRange"
+RepeatedSequenceExpression ||--|o LiteralSequenceExpression : "literalSequenceExpression"
+RepeatedSequenceExpression ||--|o Number : "number"
+SequenceInterval ||--|o DefiniteRange : "endDefiniteRange, startDefiniteRange"
+SequenceInterval ||--|o IndefiniteRange : "endIndefiniteRange, startIndefiniteRange"
+SequenceInterval ||--|o Number : "endNumber, startNumber"
+SequenceLocation ||--|o SequenceInterval : "sequenceInterval"
+SequenceLocation ||--|o SimpleInterval : "simpleInterval"
+TherapeuticRegimen ||--|o ExternalReference : "externalReference"
+TherapeuticRegimen ||--|o OntologyClass : "ontologyClass"
+TherapeuticRegimen ||--|o TimeElement : "endTime, startTime"
+TimeElement ||--|o Age : "age"
+TimeElement ||--|o AgeRange : "ageRange"
+TimeElement ||--|o GestationalAge : "gestationalAge"
+TimeElement ||--|o OntologyClass : "ontologyClass"
+TimeElement ||--|o TimeInterval : "interval"
+Treatment ||--|o OntologyClass : "agent, routeOfAdministration"
+Treatment ||--|o Quantity : "cumulativeDose"
+Treatment ||--}o DoseInterval : "doseIntervals"
+TypedQuantity ||--|o OntologyClass : "type"
+TypedQuantity ||--|o Quantity : "quantity"
+Value ||--|o OntologyClass : "ontologyClass"
+Value ||--|o Quantity : "quantity"
+VariantInterpretation ||--|o VariationDescriptor : "variationDescriptor"
+Variation ||--|o Allele : "allele"
+Variation ||--|o CopyNumber : "copyNumber"
+Variation ||--|o Haplotype : "haplotype"
+Variation ||--|o Text : "text"
+Variation ||--|o VariationSet : "variationSet"
+VariationDescriptor ||--|o GeneDescriptor : "geneContext"
+VariationDescriptor ||--|o OntologyClass : "allelicState, structuralType"
+VariationDescriptor ||--|o Variation : "variation"
+VariationDescriptor ||--|o VcfRecord : "vcfRecord"
+VariationDescriptor ||--}o Expression : "expressions"
+VariationDescriptor ||--}o Extension : "extensions"
+VariationSet ||--}o VariationSetMember : "members"
+VariationSetMember ||--|o Allele : "allele"
+VariationSetMember ||--|o CopyNumber : "copyNumber"
+VariationSetMember ||--|o Haplotype : "haplotype"
+VariationSetMember ||--|o Text : "text"
+VariationSetMember ||--|o VariationSet : "variationSet"
+VitalStatus ||--|o OntologyClass : "causeOfDeath"
+VitalStatus ||--|o TimeElement : "timeOfDeath"
+
